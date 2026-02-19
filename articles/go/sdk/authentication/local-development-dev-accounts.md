@@ -43,51 +43,15 @@ Next, sign in to Azure by using one of several developer tools that you can use 
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
-Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps that use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureCLICredential) can then use this account to authenticate app requests.
-
-To authenticate with the Azure CLI, run the `az login` command. On a system with a default web browser, the Azure CLI launches the browser to authenticate the user.
-
-```azurecli
-az login
-```
-
-For systems without a default web browser, the `az login` command uses the device code authentication flow. You can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
-
-```azurecli
-az login --use-device-code
-```
+[!INCLUDE [sign-in-azure-cli](../../../includes/authentication/sign-in-azure-cli.md)]
 
 ### [Azure Developer CLI](#tab/sign-in-azure-developer-cli)
 
-Developers can use [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to authenticate. Apps that use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureDeveloperCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureDeveloperCLICredential) can then use this account to authenticate app requests.
-
-To authenticate with the Azure Developer CLI, run the `azd auth login` command. On a system with a default web browser, the Azure Developer CLI launches the browser to authenticate the user.
-
-```azdeveloper
-azd auth login
-```
-
-For systems without a default web browser, the `azd auth login --use-device-code` command uses the device code authentication flow. You can also force the Azure Developer CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
-
-```azdeveloper
-azd auth login --use-device-code
-```
+[!INCLUDE [sign-in-azure-developer-cli](../../../includes/authentication/sign-in-azure-developer-cli.md)]
 
 ### [Azure PowerShell](#tab/sign-in-azure-powershell)
 
-Developers can use [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to authenticate. Apps that use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzurePowerShellCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzurePowerShellCredential) can use this account to authenticate app requests.
-
-To authenticate with Azure PowerShell, run the command `Connect-AzAccount`. On a system with a default web browser and version 5.0.0 or later of Azure PowerShell, the command launches the browser to authenticate the user.
-
-```azurepowershell
-Connect-AzAccount
-```
-
-For systems without a default web browser, the `Connect-AzAccount` command uses the device code authentication flow. You can also force Azure PowerShell to use the device code flow rather than launching a browser by specifying the `UseDeviceAuthentication` argument.
-
-```azurepowershell
-Connect-AzAccount -UseDeviceAuthentication
-```
+[!INCLUDE [sign-in-azure-powershell](../../../includes/authentication/sign-in-azure-powershell.md)]
 
 ---
 

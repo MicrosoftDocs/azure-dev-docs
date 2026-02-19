@@ -39,7 +39,7 @@ conceptualContent:
 
     - title: Azure AI for Java
       links:
-        - text: Develop using Azure AI services
+        - text: Develop using Foundry Tools
           itemType: overview
           url: ai/azure-ai-for-java-developers.md
         - text: Enterprise chat using RAG

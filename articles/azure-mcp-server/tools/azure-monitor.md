@@ -4,18 +4,23 @@ description: "Use the Azure MCP Server with Azure Monitor to query Log Analytics
 keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 02/17/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
 ms.custom: build-2025
+tool_count for monitor: 11
+tool_count for workbooks: 5
+ms.reviewer: jong
 --- 
 # Azure Monitor tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure Monitor resources using natural language prompts. You can query Log Analytics workspaces, analyze operational data, monitor resource health, retrieve performance metrics, and manage Azure Monitor workbooks without needing to know complex KQL syntax.
 
-[Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It provides a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+[Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It provides a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. 
+
+Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure and combine them into unified interactive experiences. Workbooks let you combine multiple kinds of visualizations and analyses, making them great for freeform exploration. For more information, see [Azure Monitor workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -27,14 +32,14 @@ List activity logs for the specified Azure resource over the given prior number 
 
 Example prompts include:
 
-- **Recent critical events**: "Show activity logs for my 'web-app-prod' resource for the last 4 hours with Critical and Error events only"
-- **Storage account activity**: "Get activity logs for 'mystorageaccount' resource of type 'Microsoft.Storage/storageAccounts' from the last 24 hours, limit to top 50 entries"
-- **VM monitoring**: "List all activity logs for my 'production-vm01' virtual machine from the past 12 hours"
+- **Recent critical events**: "Show activity logs for resource 'web-app-prod' for the last 4 hours with Critical and Error events only"
+- **Storage account activity**: "Get activity logs for resource 'mystorageaccount' of type 'Microsoft.Storage/storageAccounts' from the last 24 hours, limit to top 50 entries"
+- **VM monitoring**: "List all activity logs for resource 'production-vm01' from the past 12 hours"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Required | The name of the Azure resource to retrieve activity logs for. |
-| **Resource type** |  Optional | The type of the Azure resource (for example, 'Microsoft.Storage/storageAccounts'). Only provide this if needed to disambiguate between multiple resources with the same name. |
+| **Resource type** |  Optional | The type of the Azure resource (for example, `Microsoft.Storage/storageAccounts`). Only provide this if needed to disambiguate between multiple resources with the same name. |
 | **Hours** |  Optional | The number of hours prior to now to retrieve activity logs for. |
 | **Event level** |  Optional | The level of activity logs to retrieve. Valid levels are: Critical, Error, Informational, Verbose, Warning. If not provided, returns all levels. |
 | **Top** |  Optional | The maximum number of activity logs to retrieve. |
@@ -43,124 +48,68 @@ Example prompts include:
 
 [!INCLUDE [monitor activitylog list](../includes/tools/annotations/azure-monitor-activity-log-list-annotations.md)]
 
-## Web Tests: Create web tests
+## Web Tests: Create or update web tests
 
-<!-- monitor webtests create -->
+<!-- monitor webtests createorupdate 2.0.0-beta.19 -->
 
-Create a new standard web test in Azure Monitor. Ping/Multistep web tests are deprecated and aren't supported.
+Create or update a standard web test in Azure Monitor to monitor endpoint availability. Use this command to set up new web tests or modify existing ones with configurations such as URL, frequency, locations, and expected responses. This command automatically creates a new test if it doesn't exist or updates an existing test with new settings.
 
 Example prompts include:
+- "Create or update web test resource 'mywebtest' in resource group 'rg-prod' to monitor `https://example.com` every 300 seconds."
+- "Update the web test 'status-check' in resource group 'rg-dev' with expected status code `200` and enable SSL check."
+- "What web tests are configured in resource group 'rg-test'?"
+- "List all web test resources in 'rg-production'."
+- "I need to create or update the web test 'api-monitor' in resource group 'rg-app' with a frequency of 600 seconds."
 
-- **Basic web test**: "Create web test 'api-health-check' in resource group 'my-resource-group' for Application Insights '/subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/components/myapp-insights' in East US location, testing URL 'https://api.mycompany.com/health' from locations 'us-east-2-azr,us-west-2-azr'"
-- **Custom frequency test**: "Create web test 'homepage-monitor' in resource group 'my-resource-group' for Application Insights '/subscriptions/xyz789/resourceGroups/prod/providers/Microsoft.Insights/components/web-insights' in West Europe, testing 'https://www.mysite.com' from 'eu-west-1-azr,eu-north-1-azr' locations with frequency 300 seconds and timeout 60 seconds"
-- **POST request test**: "Create web test 'login-endpoint' in resource group 'my-resource-group' for Application Insights '/subscriptions/def456/resourceGroups/test/providers/Microsoft.Insights/components/test-insights' in Central US, testing 'https://api.myapp.com/login' from 'us-central-azr,us-south-central-azr' with HTTP verb 'post', request body '{\"username\":\"test\"}', and headers 'Content-Type=application/json'"
-- **SSL monitoring test**: "Create web test 'secure-api-check' in resource group 'my-resource-group' for Application Insights '/subscriptions/ghi789/resourceGroups/security/providers/Microsoft.Insights/components/security-insights' in Australia East, testing 'https://secure.myservice.com/api' from 'au-east-azr,au-southeast-azr' with SSL check enabled, SSL lifetime check 30 days, and expected status code 200"
-- **Comprehensive test**: "Create web test 'ecommerce-checkout' in resource group 'my-resource-group' for Application Insights '/subscriptions/jkl012/resourceGroups/ecommerce/providers/Microsoft.Insights/components/shop-insights' in North Europe, testing 'https://shop.mystore.com/checkout' from 'eu-north-1-azr,eu-west-1-azr,eu-central-1-azr' with description 'Monitor checkout process', frequency 900 seconds, follow redirects enabled, parse requests enabled, retry enabled, and timeout 120 seconds"
-
-| Parameter |  Required or optional | Description |
+| Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
-| **Appinsights component** |  Required | The resource ID of the Application Insights component to associate with the web test. |
-| **Location** |  Required | The location where the web test resource is created. This should be the same as the AppInsights component location. |
-| **Webtest locations** |  Required | List of locations to run the test from (comma-separated values). Location refers to the geo-location population tag specific to Availability Tests. |
-| **Request URL** |  Required | The absolute URL to test. |
-| **Webtest** |  Optional | The name of the test in web test resource. |
-| **Description** |  Optional | The description of the web test. |
-| **Enabled** |  Optional | Whether the web test is enabled. |
-| **Expected status code** |  Optional | Expected HTTP status code. |
-| **Follow redirects** |  Optional | Whether to follow redirects. |
-| **Frequency** |  Optional | Test frequency in seconds. Supported values `300`, `600`, `900` seconds. |
-| **Headers** |  Optional | HTTP headers to include in the request. Comma-separated KEY=VALUE. |
-| **HTTP verb** |  Optional | HTTP method (examples are: `get`, `post`). |
-| **Ignore status code** |  Optional | Whether to ignore the status code validation. |
-| **Parse requests** |  Optional | Whether to parse dependent requests. |
-| **Request body** |  Optional | The body of the request. |
-| **Retry enabled** |  Optional | Whether retries are enabled. |
-| **SSL check** |  Optional | Whether to check SSL certificates. |
-| **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
-| **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: `30`, `60`, `90`, `120` seconds. |
+| **Resource group** | Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Webtest resource** | Required | The name of the Web Test resource to operate on. |
+| **App Insights component** | Optional | The resource ID of the Application Insights component to associate with the web test. |
+| **Description** | Optional | The description of the web test. |
+| **Enabled** | Optional | Whether the web test is enabled. |
+| **Expected status code** | Optional | Expected HTTP status code. |
+| **Follow redirects** | Optional | Whether to follow redirects. |
+| **Frequency** | Optional | Test frequency in seconds. Supported values: 300, 600, 900 seconds. |
+| **Headers** | Optional | HTTP headers to include in the request. Comma-separated `KEY=VALUE`. |
+| **HTTP verb** | Optional | HTTP method (`get`, `post`, etc.). |
+| **Ignore status code** | Optional | Whether to ignore the status code validation. |
+| **Location** | Optional | The location where the web test resource is created. This should match the App Insights component location. |
+| **Parse requests** | Optional | Whether to parse dependent requests. |
+| **Request body** | Optional | The body of the request. |
+| **Request URL** | Optional | The absolute URL to test. |
+| **Retry enabled** | Optional | Whether retries are enabled. |
+| **SSL check** | Optional | Whether to check SSL certificates. |
+| **SSL lifetime check** | Optional | Number of days to check SSL certificate lifetime. |
+| **Timeout** | Optional | Request timeout in seconds (max 2 minutes). Supported values: 30, 60, 90, 120 seconds. |
+| **Webtest** | Optional | The name of the test in web test resource. |
+| **Webtest locations** | Optional | List of locations to run the test from (comma-separated values). Location refers to the geo-location population tag specific to Availability Tests. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [monitor webtests create](../includes/tools/annotations/azure-monitor-web-tests-create-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Web Tests: Get web tests
+## Web Tests: Get or list web tests
 
-<!-- monitor webtests get -->
+<!-- monitor webtests get 2.0.0-beta.19 -->
 
-Get details for a specific web test in the provided resource group based on webtest resource name.
+Retrieve details for a specific web test or list all web tests. When the webtest resource is provided, you get detailed information about a single web test. If the webtest resource is omitted, you receive a list of all web tests in your subscription, optionally filtered by resource group.
 
 Example prompts include:
 
-- **Get test details**: "Get details for web test 'api-health-check' in resource group 'my-resource-group'"
-- **View test configuration**: "Show me the configuration of web test 'homepage-monitor' in resource group 'my-resource-group'"
-- **Check test status**: "Get information about web test 'login-endpoint' in resource group 'my-resource-group'"
+- "List all web tests in my subscription"
+- "What web tests are available in my subscription?"
+- "Get details for web test `homepage-load-test`"
+- "Show me the specifics of the web test `api-response-check`"
+- "Can you provide information on web test `checkout-validation` in my subscription?"
 
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [monitor webtests get](../includes/tools/annotations/azure-monitor-web-tests-get-annotations.md)]
-
-## Web Tests: List web tests
-
-<!-- monitor webtests list -->
-
-List all web tests in a specified subscription and optionally, a resource group.
-
-Example prompts include:
-
-- **List all tests**: "List all web tests in my subscription"
-- **View tests by resource group**: "Show web tests in the 'monitoring' resource group"
-- **Get test inventory**: "What web tests do I have configured?"
+| Parameter            | Required or optional | Description                                               |
+|----------------------|----------------------|-----------------------------------------------------------|
+| **Webtest resource**  | Optional             | The name of the Web Test resource to operate on.         |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-[!INCLUDE [monitor webtests list](../includes/tools/annotations/azure-monitor-web-tests-list-annotations.md)]
-
-## Web Tests: Update web tests
-
-<!-- monitor webtests update -->
-
-Update an existing standard web test in Azure Monitor. Ping/Multistep web tests are deprecated and aren't supported.
-
-Example prompts include:
-
-- **Update test frequency**: "Update web test 'api-health-check' in resource group 'my-resource-group' to run every 300 seconds"
-- **Change test URL**: "Update web test 'homepage-monitor' in resource group 'my-resource-group' to test URL 'https://www.newsite.com' with timeout 90 seconds"
-- **Modify test configuration**: "Update web test 'login-endpoint' in resource group 'my-resource-group' with new headers 'Authorization=Bearer token123' and expected status code 201"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
-| **Appinsights component** |  Optional | The resource ID of the Application Insights component to associate with the web test. |
-| **Location** |  Optional | The location where the web test resource is created. This should be the same as the AppInsights component location. |
-| **Webtest locations** |  Optional | List of locations to run the test from (comma-separated values). Location refers to the geo-location population tag specific to Availability Tests. |
-| **Request URL** |  Optional | The absolute URL to test. |
-| **Webtest** |  Optional | The name of the test in web test resource. |
-| **Description** |  Optional | The description of the web test. |
-| **Enabled** |  Optional | Whether the web test is enabled. |
-| **Expected status code** |  Optional | Expected HTTP status code. |
-| **Follow redirects** |  Optional | Whether to follow redirects. |
-| **Frequency** |  Optional | Test frequency in seconds. Supported values 300, 600, 900 seconds. |
-| **Headers** |  Optional | HTTP headers to include in the request. Comma-separated KEY=VALUE. |
-| **HTTP verb** |  Optional | HTTP method (get, post, etc.). |
-| **Ignore status code** |  Optional | Whether to ignore the status code validation. |
-| **Parse requests** |  Optional | Whether to parse dependent requests. |
-| **Request body** |  Optional | The body of the request. |
-| **Retry enabled** |  Optional | Whether retries are enabled. |
-| **SSL check** |  Optional | Whether to check SSL certificates. |
-| **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
-| **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: 30, 60, 90, 120 seconds. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [monitor webtests update](../includes/tools/annotations/azure-monitor-web-tests-update-annotations.md)]
 
 ## Log Analytics: List workspaces
 
@@ -228,9 +177,9 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 
 Example prompts include:
 
-- **Simple query**: "Query errors from last hour in workspace 'my-workspace' in resource group 'my-resource-group'"
-- **Filter query**: "Find failed login attempts in SecurityEvent table in workspace 'security-workspace' in resource group 'my-resource-group'"
-- **Complex query**: "Show CPU usage trend for web servers last 24 hours in workspace 'monitoring-workspace' in resource group 'my-resource-group'"
+- **Simple query**: "Query table 'AzureDiagnostics' with query 'AzureDiagnostics | where Level == "Error" | take 100' in workspace 'app-monitoring' in resource group 'monitoring-rg' for last 1 hour"
+- **Filter query**: "Query table 'SecurityEvent' with query 'SecurityEvent | where EventID == 4625 | project TimeGenerated, Account, Computer' in workspace 'security-workspace' in resource group 'security-rg'"
+- **Complex query**: "Query table 'Perf' with query 'Perf | where CounterName == "% Processor Time" and Computer contains "web" | summarize avg(CounterValue) by bin(TimeGenerated, 1h)' in workspace 'monitoring-workspace' in resource group 'prod-rg' for last 24 hours"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -253,9 +202,9 @@ Queries diagnostic and activity logs for a specific Azure resource in a Log Anal
 
 Example prompts include:
 
-- **Query recent logs**: "Show recent logs for resource /subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Web/sites/myapp."
-- **Find errors**: "Query errors for my web app resource in the last 4 hours."
-- **Resource diagnostics**: "Show diagnostic logs for storage account resource with limit 100."
+- **Query recent logs**: "Query table 'AppServiceConsoleLogs' with query 'recent' for resource '/subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Web/sites/myapp'"
+- **Find errors**: "Query table 'AppServiceHTTPLogs' with query 'errors' for resource '/subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Web/sites/mywebapp' in the last 4 hours"
+- **Resource diagnostics**: "Query table 'StorageBlobLogs' with query 'StorageBlobLogs | take 100' for resource '/subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Storage/storageAccounts/mystorage' with limit 100"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -277,9 +226,9 @@ The Azure MCP Server gets the health status of an entity using Azure Monitor hea
 
 Example prompts include:
 
-- **Check entity health**: "Get health for app-prod-001 with webapp-health model in resource group 'my-resource-group'"
-- **Monitor resource health**: "What's the health of web-app-prod using application-model in resource group 'my-resource-group'?"
-- **Check system status**: "Get health info for sql-prod database entity in resource group 'my-resource-group'"
+- **Check entity health**: "Get health for entity 'app-prod-001' with model 'webapp-health' in resource group 'prod-rg'"
+- **Monitor resource health**: "What's the health of entity 'web-app-prod' using model 'application-health' in resource group 'monitoring-rg'?"
+- **Check system status**: "Get health info for entity 'sql-prod-db' with model 'database-health' in resource group 'data-rg'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -299,9 +248,9 @@ The Azure MCP Server queries Azure Monitor metrics for resources. This allows yo
 
 Example prompts include:
 
-- **Query VM metrics**: "Get CPU and memory for prod-vm01 from January 1 to January 2."
-- **Query storage metrics**: "Show transaction metrics for mystorageaccount in storage group."
-- **Query app metrics**: "Get response time for mywebapp last 24 hours."
+- **Query VM metrics**: "Get metrics 'Percentage CPU,Available Memory Bytes' with namespace 'Microsoft.Compute/virtualMachines' for resource 'prod-vm01' from January 1 to January 2"
+- **Query storage metrics**: "Show metrics 'Transactions,Availability' with namespace 'Microsoft.Storage/storageAccounts' for resource 'mystorageaccount'"
+- **Query app metrics**: "Get metrics 'ResponseTime,Requests' with namespace 'Microsoft.Web/sites' for resource 'mywebapp' last 24 hours"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -375,9 +324,9 @@ The Azure MCP Server shows details of a specific Azure Monitor workbook by its r
 
 Example prompts include:
 
-- **Show workbook**: "Show workbook details for /subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/workbook-guid."
-- **Get workbook info**: "Get info about workbook /subscriptions/xyz/resourceGroups/rg/providers/Microsoft.Insights/workbooks/my-workbook."
-- **View workbook**: "Display workbook details for my performance workbook."
+- **Show workbook**: "Show workbook details for '/subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'"
+- **Get workbook info**: "Get info about workbook '/subscriptions/xyz789/resourceGroups/prod-rg/providers/Microsoft.Insights/workbooks/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2'"
+- **View workbook**: "Display workbook details for '/subscriptions/def456/resourceGroups/analytics-rg/providers/Microsoft.Insights/workbooks/c2c2c2c2-dddd-eeee-ffff-a3a3a3a3a3a3'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -395,9 +344,9 @@ The Azure MCP Server can create a new Azure Monitor workbook. This allows you to
 
 Example prompts include:
 
-- **Create workbook**: "Create workbook Performance Dashboard in monitoring group."
-- **Create with source**: "Create workbook App Insights Analysis linked to my Application Insights."
-- **Create monitoring workbook**: "Create new workbook Infrastructure Overview."
+- **Create workbook**: "Create workbook with display name 'Performance Dashboard' and serialized content '{\"version\":\"Notebook/1.0\",\"items\":[]}' in resource group 'monitoring-rg'"
+- **Create with source**: "Create workbook with display name 'App Insights Analysis' and serialized content '{\"version\":\"Notebook/1.0\",\"items\":[]}' linked to source '/subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Insights/components/myappinsights'"
+- **Create monitoring workbook**: "Create new workbook with display name 'Infrastructure Overview' and serialized content '{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"## Infrastructure Metrics\"}}]}'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -418,9 +367,9 @@ The Azure MCP Server updates an existing Azure Monitor workbook. This allows you
 
 Example prompts include:
 
-- **Update name**: "Update workbook /subscriptions/abc/resourceGroups/rg/providers/Microsoft.Insights/workbooks/wb1 name to Updated Dashboard."
-- **Update content**: "Update workbook content for /subscriptions/xyz/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/dashboard."
-- **Modify workbook**: "Change name and content for workbook /subscriptions/123/resourceGroups/prod/providers/Microsoft.Insights/workbooks/analytics."
+- **Update name**: "Update workbook '/subscriptions/abc123/resourceGroups/monitoring-rg/providers/Microsoft.Insights/workbooks/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1' with display name 'Updated Dashboard'"
+- **Update content**: "Update workbook '/subscriptions/xyz789/resourceGroups/prod-rg/providers/Microsoft.Insights/workbooks/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2' with serialized content '{\"version\":\"Notebook/1.0\",\"items\":[]}'"
+- **Modify workbook**: "Change display name to 'Analytics Dashboard' and serialized content '{\"version\":\"Notebook/1.0\",\"items\":[]}' for workbook '/subscriptions/def456/resourceGroups/analytics-rg/providers/Microsoft.Insights/workbooks/c2c2c2c2-dddd-eeee-ffff-a3a3a3a3a3a3'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -440,9 +389,9 @@ The Azure MCP Server deletes an Azure Monitor workbook. This permanently removes
 
 Example prompts include:
 
-- **Delete workbook**: "Delete workbook /subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/old-dashboard."
-- **Remove workbook**: "Remove workbook /subscriptions/xyz/resourceGroups/rg/providers/Microsoft.Insights/workbooks/unused-workbook."
-- **Clean up**: "Remove workbook at /subscriptions/123/resourceGroups/prod/providers/Microsoft.Insights/workbooks/deprecated."
+- **Delete workbook**: "Delete workbook '/subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'"
+- **Remove workbook**: "Remove workbook '/subscriptions/xyz789/resourceGroups/prod-rg/providers/Microsoft.Insights/workbooks/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2'"
+- **Clean up**: "Remove workbook '/subscriptions/def456/resourceGroups/analytics-rg/providers/Microsoft.Insights/workbooks/c2c2c2c2-dddd-eeee-ffff-a3a3a3a3a3a3'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|

@@ -5,7 +5,7 @@
     href: what-is-azure-for-javascript-development.md
   - name: Azure AI apps 
     items: 
-    - name: Develop with Azure AI Services
+    - name: Develop with Foundry Tools
       href: ai/azure-ai-for-javascript-developers.md
     - name: Generative AI for JavaScript developers
       href: ai/generative-ai-for-javascript-developers.md
@@ -138,8 +138,8 @@
     href: learn-azure-javascript.md  
   - name: Samples
     items: 
-    - name: Azure Samples browser
-      href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Azure JavaScript samples 
+      href: samples.md
   - name: JavaScript at Microsoft
     href: https://developer.microsoft.com/javascript/
   - name: npm Packages

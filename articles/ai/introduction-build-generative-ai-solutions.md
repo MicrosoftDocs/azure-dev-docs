@@ -1,7 +1,7 @@
 ---
 title: Generative AI Applications for Developers
 description: Get a conceptual overview about integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).
-ms.date: 07/31/2025
+ms.date: 01/30/2026
 ms.topic: concept-article
 ms.custom: build-2024-intelligent-apps, ai-learning-hub
 ms.subservice: intelligent-apps
@@ -124,7 +124,7 @@ You need a service to run your business logic, presentation logic, or APIs for g
 
 |Product|Description|
 |---|---|
-|**Azure App Service (or other container-based cloud services)**|Host web interfaces or APIs for users to interact with your RAG chat system. Quickly develop, deploy, and scale web apps. Easily manage the front end of your system.|
+|**Azure App Service (or other container-based cloud services)**|Host web interfaces or APIs for users to interact with your RAG chat system. Quickly develop, deploy, and scale agentic web apps. Host MCP servers or OpenAPI servers on App Service. Easily manage the front end of your system. See [Integrate AI into your Azure App Service applications](/azure/app-service/overview-ai-integration).|
 |**Azure Functions**|Use serverless compute for event-driven tasks in your RAG chat system. Trigger data retrieval, process user queries, or handle background tasks like syncing and cleanup. Build a modular, scalable back end.|
 
 ### Low-code and no-code solutions
@@ -133,9 +133,7 @@ Some of the logic that you need to implement your generative AI vision can be bu
 
 |Product|Description|
 |---|---|
-|**Azure AI Foundry**| You can use [Azure AI Foundry](https://ai.azure.com?cid=learnDocs) to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
-
-For guidance on building low-code solutions, see [Low-code application development on Azure](https://azure.microsoft.com/solutions/low-code-application-development/).
+|**Microsoft Foundry**| You can use [Microsoft Foundry](https://ai.azure.com?cid=learnDocs) to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Microsoft Foundry to customize response generation or to improve the relevance of retrieved information.|
 
 ### Vector database
 

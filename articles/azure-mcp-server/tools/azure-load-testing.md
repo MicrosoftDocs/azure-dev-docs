@@ -8,8 +8,9 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
+ms.reviewer: nishtha
+ms.date: 02/18/2026
 ms.topic: concept-article
-ms.date: 11/17/2025
 ---
 
 # Azure Load Testing tools for the Azure MCP Server overview
@@ -28,11 +29,11 @@ Creates a new load test in Azure Load Testing. Use this command to define and co
 
 Example prompts include:
 
-- **Create load test**: "Create a new load test named 'api-stress-test' in resource group 'performance-rg'"
-- **Set up test**: "Configure a new load test using my JMeter file for the shopping cart API"
-- **New performance test**: "Create a load test called 'peak-traffic-simulation' in my test subscription"
-- **Initialize test**: "Set up a new Azure Load Testing test for my e-commerce site"
-- **Test definition**: "Create a test that simulates 1000 concurrent users for my web app"
+- **Create load test**: "Create a new load test with test resource 'loadtest-resource' test ID 'api-stress-001' display name 'API Stress Test' description 'Stress testing API endpoints' endpoint 'https://api.example.com' with 100 virtual users for 300 seconds duration and 60 seconds ramp-up time"
+- **Set up test**: "Configure load test using test resource 'perf-test' test ID 'cart-load-001' display 'Shopping Cart Load Test' description 'Load test for cart API' endpoint 'https://cart.example.com/api' with 500 virtual users duration 600 seconds ramp-up 120 seconds"
+- **New performance test**: "Create load test with test resource 'test-res' test ID 'peak-sim-001' display 'Peak Traffic Simulation' description 'Simulate peak traffic' endpoint 'https://app.example.com' 1000 virtual users 900 seconds duration 180 seconds ramp-up"
+- **Initialize test**: "Set up load test with test resource 'ecommerce-test' test ID 'ecom-load-001' display 'E-commerce Load Test' description 'Load test for e-commerce site' endpoint 'https://shop.example.com' 200 virtual users 300 seconds duration 60 seconds ramp-up"
+- **Test definition**: "Create test with test resource 'webapp-test' test ID 'web-load-001' display 'Web App Load Test' description 'Concurrent user simulation' endpoint 'https://webapp.example.com' 1000 virtual users 600 seconds duration 120 seconds ramp-up"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -58,11 +59,11 @@ Gets details about a specific load test in Azure Load Testing. Use this command 
 
 Example prompts include:
 
-- **View test details**: "Show me the configuration of the 'api-stress-test' load test"
-- **Check test setup**: "Get the details of my 'peak-load' test in resource group 'perf-testing'"
-- **Test configuration**: "What are the settings for my load test named 'prod-readiness'?"
-- **Examine test**: "Let me see the configuration of the load test I created yesterday"
-- **Test parameters**: "Show the parameters for my 'database-benchmark' load test"
+- **View test details**: "Show me the configuration of load test with test resource 'loadtest-resource' and test ID 'api-stress-001'"
+- **Check test setup**: "Get the details of test resource 'perf-test' with test ID 'peak-load-001' in resource group 'perf-testing'"
+- **Test configuration**: "What are the settings for test resource 'prod-test' with test ID 'prod-readiness-001'?"
+- **Examine test**: "Let me see the configuration of test resource 'test-res' with test ID 'recent-test-001'"
+- **Test parameters**: "Show the parameters for test resource 'db-test' with test ID 'database-benchmark-001'"
 
 
 | Parameter | Required or optional | Description |
@@ -82,11 +83,11 @@ Lists all test resources in the specified Azure subscription. Use this command t
     
 Example prompts include:
 
-- **List test resources**: "Show me all the load testing resources in my subscription"
-- **View available resources**: "What Azure Load Testing resources do I have in my dev subscription?"
-- **Resource inventory**: "List all test resources in resource group 'performance-testing'"
-- **Check environment**: "Show me the testing resources we provisioned in our subscription"
-- **Find resources**: "Where are all my load testing resources deployed?"
+- **List test resources**: "Show me test resource 'loadtest-resource' in my subscription"
+- **View available resources**: "What is test resource 'dev-loadtest' in my dev subscription?"
+- **Resource inventory**: "List test resource 'perf-test-resource' in resource group 'performance-testing'"
+- **Check environment**: "Show me test resource 'prod-test-resource' we provisioned in our subscription"
+- **Find resources**: "Where is test resource 'webapp-test-resource' deployed?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -104,9 +105,9 @@ Creates a test resource in Azure Load Testing. Use this command to set up resour
 
 Example prompts include:
 
-- **Create test resource**: "Create a new test resource for my load testing in resource group 'load-test-rg'"
-- **Provision resources**: "Set up a test resource for my performance testing in subscription 'test-sub'"
-- **Initialize resource**: "Create a test resource for my 'api-load-test' in resource group 'perf-resources'"
+- **Create test resource**: "Create a new test resource 'loadtest-resource' for my load testing in resource group 'load-test-rg'"
+- **Provision resources**: "Set up test resource 'perf-test-resource' for my performance testing in subscription 'test-sub'"
+- **Initialize resource**: "Create test resource 'api-test-resource' for my 'api-load-test' in resource group 'perf-resources'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -116,101 +117,57 @@ Example prompts include:
 
 [!INCLUDE [loadtesting testresource create](../includes/tools/annotations/azure-load-testing-test-resource-create-annotations.md)]
 
-## Test runs: Create a test run
+## Test runs: Create or update test run
 
-<!--  loadtesting testrun create -->
+<!-- @mcpcli loadtesting testrun createorupdate -->
 
-Creates a new test run for an existing load test in Azure Load Testing. Use this command to run the defined load test and generate performance metrics.
+Create or update a load test run execution. This command creates a new test run for a specified test in the load testing resource or updates metadata and display properties of an existing test run. This command doesn't modify the test plan configuration or create a new test/resource; it solely manages test run executions.
 
-Example prompts include:
+When creating, it triggers a new test run execution based on the existing test configuration. Use the `testrun ID` to specify the new run identifier. The create operations are NOT idempotent—each call starts a new test run with unique timestamps and execution states. 
 
-- **Run load test**: "Start a new test run for my 'api-stress-test' in resource group 'performance-rg'"
-- **Execute test**: "Run the load test named 'peak-traffic-simulation'"
-- **Initiate test run**: "Create a test run for my 'web-app-load-test' in subscription 'prod-sub'"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Test resource** | Required | The name of the test resource to use. |
-| **Test ID** | Required | The ID of the test to run. |
-| **Testrun ID** | Required | A custom ID to assign to this test run. |
-| **Display** | Required | A user-friendly name for the test run. |
-| **Description** | Required | A description of the test run and its purpose. |
-| **Old testrun ID** | Required | The ID of a previous test run to compare results with. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [loadtesting testrun create](../includes/tools/annotations/azure-load-testing-test-run-create-annotations.md)]
-
-## Test runs: Get test run details
-
-<!-- loadtesting testrun get -->
-
-Gets details about a specific test run in Azure Load Testing. Use this command to view the results and metrics of a completed or running test.
+When updating, this command modifies descriptive information (like display name and description) of a completed or in-progress test run for better organization and documentation. Update operations are idempotent, meaning repeated calls with the same values produce the same result. 
 
 Example prompts include:
+- "Create a new test run for the load test with ID 'test-id-123'"
+- "Update the display name of test run ID 'testrun-456' to 'Updated Test Run'"
+- "I need to create a new load test run for the test ID 'test-id-789'"
+- "How can I update the description for test run ID 'testrun-101' to 'New test execution with changes'?"
+- "Show me how to create a test run for load test 'test-id-112' with a better display name"
 
-- **View test run details**: "Show me the results of the last test run for 'api-performance' load test"
-- **Check test run status**: "Get the status of the most recent test run for my 'web-app-load-test'"
-- **Test run metrics**: "What were the results of the last load test run for 'checkout-service'?"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Test resource** | Required | The name of the test resource used for the test run. |
-| **Testrun ID** | Required | The ID of the test run. |
+| Parameter          | Required or optional | Description                                                                 |
+|--------------------|----------------------|-----------------------------------------------------------------------------|
+| **Test ID**        | Required             | The ID of the load test for which you want to fetch the details.           |
+| **Description**    | Optional             | The description for the load test run, providing more context.       |
+| **Display name**   | Optional             | A user-friendly display name to identify the load test run.               |
+| **Old testrun ID** | Optional             | The ID of an existing test run to update. If provided, it triggers a rerun of the specified test run ID. |
+| **Test resource name** | Optional         | The name of the load test resource for which you want to fetch the details. |
+| **Testrun ID**     | Optional             | The ID of the load test run for which you want to fetch the details.       |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-[!INCLUDE [loadtesting testrun get](../includes/tools/annotations/azure-load-testing-test-run-get-annotations.md)]
 
-## Test runs: List test runs
+## Test runs: Get or list test runs
 
-<!-- loadtesting testrun list -->
+<!-- @mcpcli loadtesting testrun get -->
 
-Lists all test runs for a specific load test in Azure Load Testing. Use this command to track the history and performance of your load tests.
-
+Retrieve load test run details by `testrun` ID or list all test runs by `test` ID. This command returns execution details, including status, start and end times, progress, metrics, and artifacts. It doesn't return test configuration or resource details.
 
 Example prompts include:
-
-- **View test history**: "Show me all test runs for my 'api-performance' load test"
-- **Check recent tests**: "List the last 10 test runs for my load test in resource group 'perf-testing'"
-- **View test results**: "What load tests have been run on my 'web-app-load-test'?"
-- **Test execution history**: "Show me all load test executions from this month"
-- **Monitor test runs**: "List all load test runs for my subscription"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Test resource** | Required | The name of the test resource used for the test runs. |
-| **Test ID** | Required | The ID of a specific test to filter test runs by. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [loadtesting testrun list](../includes/tools/annotations/azure-load-testing-test-run-list-annotations.md)]
-
-## Test runs: Update test run
-
-<!-- loadtesting testrun update -->
-
-Updates an existing test run in Azure Load Testing. Use this command to modify a running or scheduled test run, such as stopping or adjusting test parameters.
-
-Example prompts include:
-
-- **Stop a test run**: "Stop the current load test run for my 'production-api-test'"
-- **Cancel testing**: "Cancel the load test execution with ID 'run-123456'"
-- **Abort test**: "Stop the running performance test in my 'test-environment' resource group"
-- **Update test parameters**: "Modify the current test run to reduce virtual user count to 100"
-- **Terminate run**: "Cancel the load test that's causing high CPU in production"
+- "Show me all load test runs for test ID `test123`"
+- "List all the test runs associated with load test ID `loadtest456`"
+- "Get details for load test run ID `testrun789`"
+- "What are the results for test run `testrun101` under load test ID `loadtest202`?"
+- "Can you fetch the details for test run `testrun303`?"
 
 | Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Test resource** | Required | The name of the test resource associated with the test run. |
-| **Test ID** | Required | The ID of the test associated with the test run. |
-| **Testrun ID** | Required | The ID of the test run to update. |
-| **Display** | Required | A new display name for the test run. |
-| **Description** | Required | A new description for the test run. |
+|-----------------------|----------------------|-------------|
+| **Test ID** | Optional | The ID of the load test for which you want to fetch the details. |
+| **Test resource name** | Optional | The name of the load test resource for which you want to fetch the details. |
+| **Testrun ID** | Optional | The ID of the load test run for which you want to fetch the details. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [loadtesting testrun update](../includes/tools/annotations/azure-load-testing-test-run-update-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 

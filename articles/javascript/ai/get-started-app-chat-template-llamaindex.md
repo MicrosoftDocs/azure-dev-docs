@@ -2,7 +2,7 @@
 title: "Get started with Serverless AI Chat using LlamaIndex"
 description: "Use LlamaIndex to build intelligent apps. It aids in data ingestion, transformation, vectorization, and creating a searchable index for your data."
 ms.topic: get-started 
-ms.date: 06/26/2025
+ms.date: 01/30/2026
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
@@ -55,7 +55,6 @@ To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, the
 | Perform Retrieval | Process queries and rerank documents. | RetrieverQueryEngine, CohereRerank |
 
 ## Prerequisites
-
 
 A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 

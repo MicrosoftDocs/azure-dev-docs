@@ -33,6 +33,8 @@ items:
             href: get-started/languages/python.md
           - name: .NET
             href: get-started/languages/dotnet.md
+    - name: Concepts
+      href: concepts.md
     - name: How to
       expanded: true
       items:
@@ -51,6 +53,8 @@ items:
       items:
         - name: Azure Functions
           href: services/azure-mcp-server-for-functions.md
+        - name: Azure Key Vault
+          href: services/azure-mcp-server-for-key-vault.md
         - name: Azure Redis
           href: services/azure-mcp-server-for-redis.md
     - name: Tools
@@ -108,6 +112,8 @@ items:
           href: tools/azure-event-grid.md
         - name: Azure Event Hubs
           href: tools/azure-event-hubs.md
+        - name: Azure Files
+          href: tools/azure-file-shares.md
         - name: Azure File Sync
           href: tools/azure-file-sync.md
         - name: Azure Functions
@@ -152,6 +158,8 @@ items:
           href: tools/azure-storage.md
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
+        - name: Azure Virtual Machines
+          href: tools/azure-virtual-machines.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription

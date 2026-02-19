@@ -1,11 +1,11 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 06/26/2025
+ms.date: 01/30/2026
 ms.service: azure
 ---
 
-Learn how to add enterprise-grade load balancing to your application to extend the chat app beyond the Azure OpenAI Service token and model quota limits. This approach uses Azure API Management to intelligently direct traffic between three Azure OpenAI resources.
+Learn how to add enterprise-grade load balancing to your application to extend the chat app beyond the Azure OpenAI Models in Microsoft Foundry token and model quota limits. This approach uses Azure API Management to intelligently direct traffic between three Azure OpenAI resources.
 
 This article requires you to deploy two separate samples:
 
@@ -19,7 +19,7 @@ This article requires you to deploy two separate samples:
 
 ## Architecture for load balancing Azure OpenAI with Azure API Management
 
-Because the Azure OpenAI resource has specific token and model quota limits, a chat app that uses a single Azure OpenAI resource is prone to have conversation failures because of those limits.
+Because the Azure OpenAI Models in Microsoft Foundry have specific token and model quota limits, a chat app that uses a single Azure OpenAI resource is prone to have conversation failures because of those limits.
 
 :::image type="content" source="../media/get-started-scaling-load-balancer-azure-api-management/chat-app-original-architecuture.png" alt-text="Diagram that shows chat app architecture with an Azure OpenAI resource highlighted.":::
 

@@ -45,7 +45,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Develop using Azure AI services
+          - text: Develop using Foundry Tools
             url: ./azure-ai-for-python-developers.md
           - text: Python enterprise RAG chat sample
             url: ./get-started-app-chat-template.md
@@ -81,7 +81,7 @@ landingContent:
             url: /azure/machine-learning/tutorial-azure-ml-in-a-day
           - text: Create ML pipelines
             url: /azure/machine-learning/tutorial-pipeline-python-sdk
-          - text: Use ready-made AI services (face, speech, text, image, etc.)
+          - text: Use ready-made Foundry Tools (face, speech, text, image, etc.)
             url: quickstarts-cognitive-services.md
           - text: Serverless, Cloud ETL
             url: ./tutorial-deploy-azure-cloud-python-etl-01-overview.md

@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 06/26/2025
+ms.date: 01/30/2026
 ms.service: azure
 ---
 
@@ -27,7 +27,7 @@ azd down --purge --force
 
 The switches provide:
 
-* `purge`: Deleted resources are immediately purged so that you can reuse the Azure OpenAI Service tokens per minute.
+* `purge`: Deleted resources are immediately purged so that you can reuse the Azure OpenAI Models in Microsoft Foundry tokens per minute.
 * `force`: The deletion happens silently, without requiring user consent.
 
 ### Clean up GitHub Codespaces and Visual Studio Code
