@@ -21,10 +21,10 @@ Explore and contribute to the [Azure MCP Server on GitHub](https://github.com/mi
 
 ## Install Azure MCP Server using a package manager
 
-You can optionally install Azure MCP Server directly using one of the supported package managers. Package manager installation offers several advantages, including centralized dependency management, CI/CD integration, support for headless/server environments, version control, and project portability.
+You can optionally install Azure MCP Server directly using one of the supported package managers. Package manager installation offers several advantages, including centralized dependency management, CI/CD integration, support for headless environments, version control, and project portability.
 
 > [!NOTE]
-> You don't need to install the Azure MCP Server to use it. The other approaches explained in the following sections either include Azure MCP Server as part of their installation, or are able to run Azure MCP Server directly via package manager commands.
+> You don't need to install the Azure MCP Server to use it. The approaches explained in the [Connect to Azure MCP Server](#connect-to-azure-mcp-server) section either include Azure MCP Server as part of their installation, or run Azure MCP Server directly via package manager commands.
 
 For more information, see [Install with a package manager](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager).
 
