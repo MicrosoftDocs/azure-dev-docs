@@ -44,7 +44,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli compute vm get -->
 
-List or get Azure Virtual Machines (VMs) in a subscription or resource group. The command shows VM details including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state. If resource group name and VM name are not provided, it lists all VMs in the subscription.
+List or get Azure Virtual Machines (VMs) in a subscription or resource group. The command shows VM details including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state. If resource group name and VM name aren't provided, it lists all VMs in the subscription.
 
 Example prompts include:
 
@@ -68,7 +68,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli compute vmss get -->
 
-List or get [Azure Virtual Machine Scale Sets (VMSS)](/azure/virtual-machine-scale-sets) and their instances in a subscription or resource group. This command shows scale set details, including name, location, SKU, capacity, upgrade policy, and information about individual VM instances.  If parameters are not provided, it lists all VM scale sets in the subscription.
+List or get [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets) and their instances in a subscription or resource group. This command shows scale set details, including name, location, SKU, capacity, upgrade policy, and information about individual VM instances.  If parameters aren't provided, it lists all virtual machine scale sets in the subscription.
 
 Example prompts include:
 
@@ -80,7 +80,7 @@ Example prompts include:
 
 | Parameter       | Required or Optional | Description                                                    |
 |------------------|----------------------|----------------------------------------------------------------|
-| **Resource group**      | Optional* | The name of the Azure resource group. Returns all VM scale sets in the resource group if specified without VM scale set name. *Required if **VM scale set name** is provided.* |
+| **Resource group**      | Optional* | The name of the Azure resource group. Returns all virtual machine scale sets in the resource group if specified without VM scale set name. *Required if **VM scale set name** is provided.* |
 | **VM scale set name**   | Optional* | The name of the virtual machine scale set. *Required if **Resource group** is provided.* |
 | **Instance ID**         | Optional | The instance ID of the VM in the scale set. Requires **VM scale set name** and **Resource group**. |
 
