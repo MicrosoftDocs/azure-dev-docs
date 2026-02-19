@@ -3,7 +3,7 @@ title: Get started with the Azure MCP Server
 description: Overview of the options for using the Azure MCP Server with tools and languages
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/27/2025
+ms.date: 02/19/2026
 ms.topic: get-started
 content_well_notification: 
   - AI-contribution
@@ -19,15 +19,17 @@ Connect to Azure MCP Server using various tools, languages, and frameworks. Use 
 
 Explore and contribute to the [Azure MCP Server on GitHub](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server).
 
-## Install with a package manager
+## Install using a package manager
 
-If you prefer to install Azure MCP Server directly using a package manager instead of through an IDE, you can install it using npm, pip, or other package managers. For detailed installation instructions, see [Install with a package manager](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager).
+You can install Azure MCP Server directly using one of the supported package managers. Package manager installation offers several advantages, including centralized dependency management, CI/CD integration, support for headless/server environments, version control, and project portability. For more information, see [Install with a package manager](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager).
 
-## Connect using code editors and tools
+- **NuGet**: [Azure.Mcp](https://www.nuget.org/packages/Azure.Mcp/2.0.0-beta.20)
+- **NPM**: [@azure/mcp](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.20)
+- **PyPI**: [msmcp-azure](https://pypi.org/project/msmcp-azure/)
+
+## Connect using code editors
 
 Azure MCP Server works with AI-powered code editors and tools that support the Model Context Protocol. Learn how to get started:
-
-### Code editors
 
 - [**Cline**](get-started/tools/cline.md)
 - [**Cursor**](get-started/tools/cursor.md)
@@ -36,9 +38,12 @@ Azure MCP Server works with AI-powered code editors and tools that support the M
 - [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
 - [**Windsurf**](get-started/tools/windsurf.md)
 
-### Other tools and services
+## Other tools and services
 
-- [GitHub Copilot coding agent](/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent)
+Connect to Azure MCP Server using other tools and services, such as GitHub Copilot coding agent and Docker. Learn how to get started:
+
+- [**GitHub Copilot coding agent**](/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent)
+- [**Docker**](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#docker)
 
 ## Connect using languages & frameworks
 
