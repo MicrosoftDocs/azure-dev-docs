@@ -46,9 +46,9 @@ Connect to Azure MCP Server using other tools and services, such as GitHub Copil
 - [**GitHub Copilot SDK**](how-to/github-copilot-sdk.md)
 - [**GitHub Copilot coding agent**](/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent)
 
-## Docker
+## Use a Docker container
 
-[Run the Azure MCP server as a Docker container](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#docker) for easy deployment and isolation. The container image is available at [mcr.microsoft.com/azure-sdk/azure-mcp](mcr.microsoft.com/azure-sdk/azure-mcp).
+For easy deployment and isolation, you can [run the Azure MCP server as a Docker container](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#docker). The container image is available at [mcr.microsoft.com/azure-sdk/azure-mcp](mcr.microsoft.com/azure-sdk/azure-mcp).
 
 ## Connect using languages & frameworks
 
