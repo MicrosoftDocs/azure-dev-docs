@@ -66,6 +66,8 @@ items:
             href: tools/azure-ai-best-practices.md
           - name: Terraform best practices for Azure
             href: tools/azure-terraform-best-practices.md
+        - name: Azure Advisor
+          href: tools/azure-advisor.md
         - name: Application Insights
           href: tools/application-insights.md
         - name: Azure AI Foundry
@@ -134,6 +136,8 @@ items:
           href: tools/azure-native-isv.md
         - name: Azure Policy
           href: tools/azure-policy.md
+        - name: Azure Pricing
+          href: tools/azure-pricing.md
         - name: Azure Quick Review CLI
           href: tools/azure-compliance-quick-review.md
         - name: Azure Quotas
