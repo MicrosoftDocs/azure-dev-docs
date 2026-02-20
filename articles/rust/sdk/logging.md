@@ -1,7 +1,7 @@
 ---
 title: OpenTelemetry in Azure SDK for Rust crates
 description: Learn how to implement OpenTelemetry in Rust applications using Azure SDK crates for comprehensive observability and monitoring. Configure telemetry, export to Azure Monitor, and troubleshoot Azure services effectively.
-ms.date: 10/16/2025
+ms.date: 04/06/2026
 ms.topic: how-to
 ms.custom: devx-track-rust
 ai-usage: ai-generated

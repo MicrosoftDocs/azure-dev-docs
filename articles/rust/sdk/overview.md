@@ -1,7 +1,7 @@
 ---
 title: Access Azure services using Azure SDK for Rust crates
 description: Learn how to access Azure services using Azure SDK for Rust crates. Build secure, scalable Rust apps with Azure—get started today.
-ms.date: 10/20/2025
+ms.date: 04/06/2026
 ms.topic: overview
 ms.service: azure-rust
 ms.custom: devx-track-rust
@@ -43,7 +43,7 @@ Use the following information to understand when to use each type of access.
 
 ## Rust version
 
-The Azure SDK crates are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on [community feedback][AZURE SDK FOR RUST issues] and demand.
+The Azure SDK crates support the most commonly used Azure services, and we regularly add more based on [community feedback][AZURE SDK FOR RUST issues] and demand.
 
 ## Azure SDK for Rust crates
 
