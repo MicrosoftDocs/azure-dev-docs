@@ -136,6 +136,8 @@ items:
           href: tools/azure-native-isv.md
         - name: Azure Policy
           href: tools/azure-policy.md
+        - name: Azure Pricing
+          href: tools/azure-pricing.md
         - name: Azure Quick Review CLI
           href: tools/azure-compliance-quick-review.md
         - name: Azure Quotas
