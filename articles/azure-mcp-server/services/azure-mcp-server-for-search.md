@@ -36,7 +36,7 @@ Before using Azure MCP Server with Azure AI Search, ensure you have:
 
 - **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 - **Azure AI Search service** - You need to have at least one Azure AI Search service provisioned to utilize its features.
-- **Azure permissions**: Appropriate roles like Search Service Contributor or Search Index Data Reader to perform the operations you want. See [Azure AI Search security documentation](/azure/search/security-best-practices).
+- **Azure permissions**: Appropriate roles like Search Service Contributor or Search Index Data Reader to perform the operations you want. See [Connect to Azure AI Search using roles](/azure/search/search-security-rbac?tabs=roles-portal-admin).
 
 [!INCLUDE [mcp-prerequisites](../includes/mcp-prerequisites.md)]
 
@@ -53,7 +53,7 @@ Azure MCP Server provides the following tools for Azure AI Search:
 - Execute a retrieval operation with a knowledge base
 - Query a search index for products
 
-For detailed parameter information and usage examples, see the [Azure AI Search MCP tools reference](../tools/search.md).
+For detailed parameter information and usage examples, see the [Azure AI Search MCP tools reference](../tools/azure-ai-search.md).
 
 ## Get started
 
@@ -91,10 +91,7 @@ Ensure that you have the necessary access rights for the Azure AI Search service
 
 ## Related content
 
-- [Azure MCP Server documentation](https://github.com/microsoft/azure-mcp-server)
+- [Azure MCP Server documentation](/azure/developer/azure-mcp-server)
 - [Azure AI Search MCP tools reference](../tools/azure-ai-search.md)
-- [Azure AI Search documentation](/azure/search/overview)
-- [Get started with Azure AI Search](/azure/search/quickstart)
-- [Azure AI Search security best practices](/azure/search/security-best-practices)
-- [Pricing for Azure AI Search](/azure/search/pricing)
-
+- [Azure AI Search documentation](/azure/search/)
+- [Get started with Azure AI Search](/azure/search/search-get-started-rbac)
