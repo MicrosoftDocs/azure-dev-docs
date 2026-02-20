@@ -54,7 +54,7 @@ items:
         - name: Azure Redis
           href: services/azure-mcp-server-for-redis.md
         - name: Azure Speech
-          href: services/azure-speech-foundry-tools.md
+          href: services/azure-mcp-speech-foundry-tools.md
     - name: Tools
       expanded: true
       items:
