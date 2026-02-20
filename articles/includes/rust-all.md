@@ -1,20 +1,20 @@
 | Name | Package | Docs | Source |
 | ---- | ------- | ---- | ------ |
-| Core | crate [0.31.0](https://crates.io/crates/azure_core/0.31.0) |  | GitHub [0.31.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.31.0/sdk/core/azure_core) |
-| Core - AMQP | crate [0.10.0](https://crates.io/crates/azure_core_amqp/0.10.0) |  | GitHub [0.10.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.10.0/sdk/core/azure_core_amqp) |
-| Core - Macros | crate [0.5.0](https://crates.io/crates/azure_core_macros/0.5.0) |  | GitHub [0.5.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@0.5.0/sdk/core/azure_core_macros) |
-| Core - OpenTelemetry | crate [0.5.0](https://crates.io/crates/azure_core_opentelemetry/0.5.0) |  | GitHub [0.5.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.5.0/sdk/core/azure_core_opentelemetry) |
+| Core | crate [0.32.0](https://crates.io/crates/azure_core/0.32.0) |  | GitHub [0.32.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.32.0/sdk/core/azure_core) |
+| Core - AMQP | crate [0.11.0](https://crates.io/crates/azure_core_amqp/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.11.0/sdk/core/azure_core_amqp) |
+| Core - Macros | crate [0.6.0](https://crates.io/crates/azure_core_macros/0.6.0) |  | GitHub [0.6.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@0.6.0/sdk/core/azure_core_macros) |
+| Core - OpenTelemetry | crate [0.6.0](https://crates.io/crates/azure_core_opentelemetry/0.6.0) |  | GitHub [0.6.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.6.0/sdk/core/azure_core_opentelemetry) |
 | Cosmos DB | crate [0.30.0](https://crates.io/crates/azure_data_cosmos/0.30.0) |  | GitHub [0.30.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.30.0/sdk/cosmos/azure_data_cosmos) |
-| Event Hubs | crate [0.10.0](https://crates.io/crates/azure_messaging_eventhubs/0.10.0) |  | GitHub [0.10.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.10.0/sdk/eventhubs/azure_messaging_eventhubs) |
-| EventHubs Checkpoint Store for Azure Blob Storage | crate [0.4.0](https://crates.io/crates/azure_messaging_eventhubs_checkpointstore_blob/0.4.0) |  | GitHub [0.4.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs_checkpointstore_blob@0.4.0/sdk/eventhubs/azure_messaging_eventhubs_checkpointstore_blob) |
-| Identity | crate [0.31.0](https://crates.io/crates/azure_identity/0.31.0) |  | GitHub [0.31.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.31.0/sdk/identity/azure_identity) |
-| Key Vault - Certificates | crate [0.9.0](https://crates.io/crates/azure_security_keyvault_certificates/0.9.0) |  | GitHub [0.9.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.9.0/sdk/keyvault/azure_security_keyvault_certificates) |
-| Key Vault - Keys | crate [0.10.0](https://crates.io/crates/azure_security_keyvault_keys/0.10.0) |  | GitHub [0.10.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.10.0/sdk/keyvault/azure_security_keyvault_keys) |
-| Key Vault - Secrets | crate [0.10.0](https://crates.io/crates/azure_security_keyvault_secrets/0.10.0) |  | GitHub [0.10.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.10.0/sdk/keyvault/azure_security_keyvault_secrets) |
-| Storage - Blobs | crate [0.8.0](https://crates.io/crates/azure_storage_blob/0.8.0) |  | GitHub [0.8.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@0.8.0/sdk/storage/azure_storage_blob) |
-| TypeSpec Client Core | crate [0.10.0](https://crates.io/crates/typespec_client_core/0.10.0) |  | GitHub [0.10.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.10.0/sdk/core/typespec_client_core) |
-| TypeSpec Core | crate [0.11.0](https://crates.io/crates/typespec/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.11.0/sdk/core/typespec) |
-| TypeSpec Core Macros | crate [0.10.0](https://crates.io/crates/typespec_macros/0.10.0) |  | GitHub [0.10.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.10.0/sdk/core/typespec_macros) |
+| Event Hubs | crate [0.11.0](https://crates.io/crates/azure_messaging_eventhubs/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.11.0/sdk/eventhubs/azure_messaging_eventhubs) |
+| EventHubs Checkpoint Store for Azure Blob Storage | crate [0.5.0](https://crates.io/crates/azure_messaging_eventhubs_checkpointstore_blob/0.5.0) |  | GitHub [0.5.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs_checkpointstore_blob@0.5.0/sdk/eventhubs/azure_messaging_eventhubs_checkpointstore_blob) |
+| Identity | crate [0.32.0](https://crates.io/crates/azure_identity/0.32.0) |  | GitHub [0.32.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@0.32.0/sdk/identity/azure_identity) |
+| Key Vault - Certificates | crate [0.10.0](https://crates.io/crates/azure_security_keyvault_certificates/0.10.0) |  | GitHub [0.10.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_certificates@0.10.0/sdk/keyvault/azure_security_keyvault_certificates) |
+| Key Vault - Keys | crate [0.11.0](https://crates.io/crates/azure_security_keyvault_keys/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.11.0/sdk/keyvault/azure_security_keyvault_keys) |
+| Key Vault - Secrets | crate [0.11.0](https://crates.io/crates/azure_security_keyvault_secrets/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.11.0/sdk/keyvault/azure_security_keyvault_secrets) |
+| Storage - Blobs | crate [0.9.0](https://crates.io/crates/azure_storage_blob/0.9.0) |  | GitHub [0.9.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@0.9.0/sdk/storage/azure_storage_blob) |
+| TypeSpec Client Core | crate [0.11.0](https://crates.io/crates/typespec_client_core/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.11.0/sdk/core/typespec_client_core) |
+| TypeSpec Core | crate [0.12.0](https://crates.io/crates/typespec/0.12.0) |  | GitHub [0.12.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.12.0/sdk/core/typespec) |
+| TypeSpec Core Macros | crate [0.11.0](https://crates.io/crates/typespec_macros/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.11.0/sdk/core/typespec_macros) |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_ai_anomalydetector/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_ai_contentsafety/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_ai_documentintelligence/0.0.1) |  |  |
@@ -91,9 +91,6 @@
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_messaging_eventhubs_processor/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_messaging_webpubsub/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_messaging_webpubsub_client/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_mixedreality_authentication/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_mixedreality_objectanchors_conversion/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_mixedreality_remoterendering/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_monitor_ingestion/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_monitor_opentelemetry_exporter/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_monitor_opentelemetry_livemetrics/0.0.1) |  |  |
@@ -217,7 +214,6 @@
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_marketplaceordering/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_media/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_migrationdiscoverysap/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mixedreality/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mongocluster/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_monitor/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mysql/0.0.1) |  |  |
@@ -303,4 +299,4 @@
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_storage_datamovement_files_shares/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_storage_files_datalake/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_storage_files_shares/0.0.1) |  |  |
-| Unknown Display Name | crate [0.2.0](https://crates.io/crates/azure_storage_queue/0.2.0) |  |  |
+| Unknown Display Name | crate [0.3.0](https://crates.io/crates/azure_storage_queue/0.3.0) |  |  |

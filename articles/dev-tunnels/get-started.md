@@ -2,8 +2,8 @@
 title: Create and host a tunnel
 titleSuffix: Microsoft dev tunnels
 description: In this quickstart, you learn how to get started with creating publicly accessible ports for local services with dev tunnels. After you complete these steps, you have a dev tunnel that you can use to connect to remote compute.
-author: derekbekoe
-ms.author: debekoe
+author: plequere-ms
+ms.author: plequere
 ms.topic: quickstart
 ms.service: azure-dev-tunnels
 ms.date: 03/27/2025

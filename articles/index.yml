@@ -22,7 +22,7 @@ highlightedContent:
     - title: Introduction to Azure for developers
       itemType: get-started # controls the icon image and super-title text
       url: intro/azure-developer-overview.md
-    - title: Develop apps that use Azure AI services
+    - title: Develop apps that use Foundry Tools
       itemType: overview
       url: ./ai/azure-ai-for-developers.md
     - title: Passwordless authentication for Azure services

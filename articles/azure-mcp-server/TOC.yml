@@ -66,6 +66,8 @@ items:
             href: tools/azure-ai-best-practices.md
           - name: Terraform best practices for Azure
             href: tools/azure-terraform-best-practices.md
+        - name: Azure Advisor
+          href: tools/azure-advisor.md
         - name: Application Insights
           href: tools/application-insights.md
         - name: Azure AI Foundry
@@ -108,7 +110,7 @@ items:
           href: tools/azure-event-grid.md
         - name: Azure Event Hubs
           href: tools/azure-event-hubs.md
-        - name: Azure File Shares
+        - name: Azure Files
           href: tools/azure-file-shares.md
         - name: Azure File Sync
           href: tools/azure-file-sync.md
@@ -156,6 +158,8 @@ items:
           href: tools/azure-storage.md
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
+        - name: Azure Virtual Machines
+          href: tools/azure-virtual-machines.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription

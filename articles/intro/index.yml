@@ -41,7 +41,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Develop apps that use Azure AI services
+          - text: Develop apps that use Foundry Tools
             url: /azure/developer/ai/azure-ai-for-developers
           - text: Passwordless connections for Azure Services
             url: ./passwordless-overview.md

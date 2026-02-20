@@ -176,6 +176,8 @@ Consider the following three examples, which showcase how Azure caters to differ
 
 These scenarios highlight Azure's dedication to offering a flexible, secure, and efficient deployment environment for Java applications, catering to various frameworks and architectures. Azure also provides specialized services for other Java applications, such as those running on Tomcat or WebSphere, ensuring that there's an Azure service suited for every type of Java application.
 
+Java applications running on Azure Virtual Machines can use the Azure Command Launcher for Java to get battle-tested defaults without manual JVM tuning. This launcher applies to typical JAR, WAR, and EAR deployments on VMs and complements existing guidance for application servers, helping you achieve optimal performance and resource utilization without complex configuration.
+
 Developers and operators get smooth and productive cloud deployment experience by using these tailored Azure services, automating and securing their Java applications with ease. However, choosing alternative deployment options might require you to handle the building and maintenance of these essential developer and operator experiences yourself.
 
 The following diagram shows recommended Azure services for every Java application type deployed as source or binaries:
@@ -212,6 +214,9 @@ Consider the following two examples, which showcase how Azure caters to containe
 
 These examples underscore Azure's commitment to providing versatile, efficient, and developer-friendly environments for deploying Java applications, whether through traditional methods or modern containerization.
 
+> [!NOTE]
+> When running Java workloads in Azure-managed container services (for example, Azure Kubernetes Service, Azure Container Apps, and Azure Container Instances), you can use the Azure Command Launcher for Java to automatically apply Azure-optimized JVM parameters. This launcher helps reduce wasted memory and CPU, improves first-deploy performance, and enhances cost efficiency. For more information, see [Public Preview: Azure Command Launcher for Java](https://azure.microsoft.com/updates?id=543994).
+
 The following diagram shows the recommended Azure services for every Java application type deployed as containers:
 
 :::image type="complex" source="media/find-match-containers.png" alt-text="Diagram that shows recommended Azure services for every Java application type deployed as containers." lightbox="media/find-match-containers.png":::
@@ -235,7 +240,11 @@ To learn more about the services referenced in this diagram, use the links in th
 
 ## Summary
 
-In navigating the deployment of Java applications, Azure champions a nuanced A+B approach, offering a spectrum of services tailored to meet every application's needs. Microsoft's collaboration with the Java ecosystem leaders resulted in a suite of Azure services, each recommended for specific Java application types - deployed as source, binaries, or containers - streamlining the deployment process and ensuring optimal performance. This focus on matching deployment strategies with the most appropriate Azure services underscores Microsoft's commitment to providing you with the flexibility to choose the right tools for the job. The inherent portability of Java applications is a key advantage, enabling a seamless transition across on-premises systems and different cloud providers to enhance operational efficiency and agility. By advocating for this broader, more inclusive selection process, Microsoft not only simplifies the cloud journey for Java applications, but also maximizes scalability, security, observability, and cost-effectiveness. Ultimately, Microsoft's guidance empowers developers and enterprises to use Azure's ecosystem, ensuring that each Java application thrives in the cloud environment best suited to its needs.
+In navigating the deployment of Java applications, Azure champions a nuanced A+B approach, offering a spectrum of services tailored to meet every application's needs. Microsoft's collaboration with the Java ecosystem leaders resulted in a suite of Azure services, each recommended for specific Java application types - deployed as source, binaries, or containers - streamlining the deployment process and ensuring optimal performance. This focus on matching deployment strategies with the most appropriate Azure services underscores Microsoft's commitment to providing you with the flexibility to choose the right tools for the job.
+
+The inherent portability of Java applications is a key advantage, enabling a seamless transition across on-premises systems and different cloud providers to enhance operational efficiency and agility. Azure provides tooling such as the Azure Command Launcher for Java to optimize JVM defaults for cloud-native and container workloads, helping achieve efficiency and agility without additional platform complexity.
+
+By advocating for this broader, more inclusive selection process, Microsoft not only simplifies the cloud journey for Java applications, but also maximizes scalability, security, observability, and cost-effectiveness. Ultimately, Microsoft's guidance empowers developers and enterprises to use Azure's ecosystem, ensuring that each Java application thrives in the cloud environment best suited to its needs.
 
 ## Next step
 
