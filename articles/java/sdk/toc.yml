@@ -27,12 +27,16 @@ items:
           href: authentication/local-development-dev-accounts.md
         - name: Use a service principal
           href: authentication/local-development-service-principal.md
+        - name: Use a broker
+          href: authentication/local-development-broker.md
       - name: Auth from Azure-hosted apps
         items: 
         - name: Use a system-assigned managed identity
           href: authentication/system-assigned-managed-identity.md
         - name: Use a user-assigned managed identity
           href: authentication/user-assigned-managed-identity.md
+      - name: Auth from on-premises apps
+        href: authentication/on-premises-apps.md
       - name: Credential chains
         href: authentication/credential-chains.md
       expanded: false

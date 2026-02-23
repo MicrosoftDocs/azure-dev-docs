@@ -49,20 +49,11 @@ Next, sign in to Azure by using one of the developer tools that you can use to p
 
 ### [Visual Studio Code](#tab/sign-in-vscode)
 
-Authenticate by using the Azure Resources extension. Use the following steps to sign in to Azure through the Azure Resources extension:
-
-1. Open Visual Studio Code and install the [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) if you haven't already.
-
-    :::image type="content" source="../../../includes/authentication/media/azure-resources-extension.png" alt-text="Screenshot that shows the Azure Resources extension." lightbox="../../../includes/authentication/media/azure-resources-extension.png":::
-
-1. Select the Azure icon in the Activity Bar to open the Azure Resources view.
-1. In the Azure Resources view, select **Sign in to Azure...** and follow the prompts.
-
-    :::image type="content" source="../../../includes/authentication/media/visual-studio-code-sign-in.png" alt-text="Screenshot that shows how to sign in to Azure in Visual Studio Code." lightbox="../../../includes/authentication/media/visual-studio-code-sign-in.png":::
+[!INCLUDE [sign-in-visual-studio-code](../../../includes/authentication/sign-in-visual-studio-code.md)]
 
 ### [IntelliJ IDEA](#tab/sign-in-intellij)
 
-Authenticate by using the Azure Toolkit for IntelliJ plugin. Use the following steps to sign in:
+Developer using IntelliJ can authenticate by using the Azure Toolkit for IntelliJ plugin. Use the following steps to sign in:
 
 1. In your IntelliJ window, open **File > Settings > Plugins**.
 1. Search for "Azure Toolkit for IntelliJ" in the marketplace. Install and restart the IDE.

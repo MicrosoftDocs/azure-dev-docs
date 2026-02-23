@@ -32,7 +32,7 @@ The specific type of token-based authentication an app should use to authenticat
 When an app is:
 
 - **Hosted on Azure**: The app should authenticate to Azure resources by using a managed identity. For more information, see the [Authentication for Azure-hosted apps](#authentication-for-azure-hosted-apps) section.
-- **Running locally during development**: The app can authenticate to Azure by using a developer account or a service principal. For more information, see the [Authentication during local development](#authentication-during-local-development) section.
+- **Running locally during development**: The app can authenticate to Azure by using a [developer account](local-development-dev-accounts.md), a [broker](local-development-broker.md), or a [service principal](local-development-service-principal.md). For more information, see the [Authentication during local development](#authentication-during-local-development) section.
 - **Hosted on-premises**: The app should authenticate to Azure resources by using an application service principal.
 
 ## Authentication for Azure-hosted apps
@@ -55,7 +55,7 @@ You can enable a system-assigned managed identity directly on an Azure resource.
 
 ## Authentication during local development
 
-During local development, you can authenticate to Azure resources by using your developer credentials or a service principal. By using one of these methods, you can test your app's authentication logic without deploying it to Azure.
+During local development, you can authenticate to Azure resources by using your developer credentials, a broker, or a service principal. By using one of these methods, you can test your app's authentication logic without deploying it to Azure.
 
 ### Use developer credentials
 
@@ -64,6 +64,13 @@ You can use your own Azure credentials to authenticate to Azure resources during
 > [!div class="nextstepaction"]
 > [Authenticate locally by using developer accounts](local-development-dev-accounts.md).
 
+### Use a broker
+
+Brokered authentication collects user credentials using the system authentication broker to authenticate an app. A system authentication broker runs on a user's machine and manages the authentication handshakes and token maintenance for all connected accounts.
+
+> [!div class="nextstepaction"]
+> [Authenticate locally by using a broker](local-development-broker.md).
+
 ### Use a service principal
 
 You can create a service principal in a Microsoft Entra tenant to represent an app and authenticate to Azure resources. You can configure your app to use service principal credentials during local development. This method is more secure than using developer credentials and is closer to how your app authenticates in production. However, it's still less ideal than using a managed identity due to the need for secrets.
@@ -71,88 +78,9 @@ You can create a service principal in a Microsoft Entra tenant to represent an a
 > [!div class="nextstepaction"]
 > [Authenticate locally by using service principals](local-development-service-principal.md).
 
-## Add the Maven dependencies
+## Authentication for apps hosted on-premises
 
-To use the Azure Identity library in your project, include the `azure-sdk-bom` to take a dependency on the stable version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. To learn more about the BOM and find available version numbers, see the [Add Azure SDK for Java to an existing project](../get-started-maven.md#add-azure-sdk-for-java-to-an-existing-project) section of [Get started with Azure SDK and Apache Maven](../get-started-maven.md).
+For apps hosted on-premises, you can use a service principal to authenticate to Azure resources. This involves creating a service principal in Microsoft Entra ID, assigning it the necessary permissions, and configuring your app to use its credentials. This method allows your on-premises app to securely access Azure services.
 
-```xml
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>com.azure</groupId>
-            <artifactId>azure-sdk-bom</artifactId>
-            <version>{bom_version_to_target}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-```
-
-Then include the direct dependency in the `dependencies` section without the version tag:
-
-```xml
-<dependencies>
-  <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-  </dependency>
-</dependencies>
-```
-
-## Key concepts
-
-Two key concepts help you understand the Azure Identity library: the concept of a credential, and the most common implementation of that credential, `DefaultAzureCredential`.
-
-A credential is a class that contains or can obtain the data needed for a service client to authenticate requests. Service clients across the Azure SDK accept credentials when they're constructed, and service clients use those credentials to authenticate requests to the service.
-
-The Azure Identity library focuses on OAuth authentication with Microsoft Entra ID, and it offers various credential classes that can acquire a Microsoft Entra token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core). You can use any of these credential classes to construct service clients that authenticate with a `TokenCredential`.
-
-`DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see [Credential chains in the Azure Identity library for Java](credential-chains.md).
-
-## Authenticate Azure client libraries
-
-The following example shows you how to authenticate `SecretClient` from the [azure-security-keyvault-secrets](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets) client library by using `DefaultAzureCredential`.
-
-```java
-// Azure SDK client builders accept the credential as a parameter.
-SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://<your-Key-Vault-name>.vault.azure.net")
-    .credential(new DefaultAzureCredentialBuilder().build())
-    .buildClient();
-```
-
-## Authenticate Azure management libraries
-
-The Azure management libraries use the same credential APIs as the Azure client libraries, but they also require an [Azure subscription ID](/training/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
-
-You can find the subscription IDs on the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Alternatively, use the following [Azure CLI](/cli/azure) command to get subscription IDs:
-
-```azurecli
-az account list --output table
-```
-
-Set the subscription ID in the `AZURE_SUBSCRIPTION_ID` environment variable. `AzureProfile` picks up this ID as the default subscription ID during the creation of a `Manager` instance in the following example:
-
-```java
-AzureResourceManager azureResourceManager = AzureResourceManager.authenticate(
-        new DefaultAzureCredentialBuilder().build(),
-        new AzureProfile(AzureEnvironment.AZURE))
-    .withDefaultSubscription();
-```
-
-`DefaultAzureCredential` used in this example authenticates an `AzureResourceManager` instance by using `DefaultAzureCredential`. You can also use other Token Credential implementations offered in the Azure Identity library in place of `DefaultAzureCredential`.
-
-## Troubleshooting
-
-For guidance, see [Troubleshoot Azure Identity authentication issues](../troubleshooting-authentication-overview.md).
-
-## Next steps
-
-This article introduced the Azure Identity functionality available in the Azure SDK for Java. It described `DefaultAzureCredential` as common and appropriate in many cases. The following articles describe other ways to authenticate by using the Azure Identity library, and provide more information about `DefaultAzureCredential`:
-
-- [Authenticate Java apps to Azure services during local development by using developer accounts](local-development-dev-accounts.md)
-- [Authenticate Java apps to Azure services during local development by using service principals](local-development-service-principal.md)
-- [Authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity](system-assigned-managed-identity.md)
-- [Authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity](user-assigned-managed-identity.md)
-- [Credential chains in the Azure Identity library for Java](credential-chains.md)
+> [!div class="nextstepaction"]
+> [Authenticate your on-prem app using a service principal](on-premises-apps.md)
