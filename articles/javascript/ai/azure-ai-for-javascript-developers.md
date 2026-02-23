@@ -1,5 +1,5 @@
 ---
-title: Develop JavaScript apps that use Azure AI services
+title: Develop JavaScript apps that use Foundry Tools
 description: This article provides an organized list of resources about Azure AI scenarios for JavaScript developers, including documentation and code samples.
 keywords: ai, azure openai service
 ms.subservice: intelligent-apps

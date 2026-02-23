@@ -2,7 +2,7 @@
 title: Authenticate Node.js Apps to Azure Using Developer Accounts
 description: Learn how to authenticate your application to Azure services when using the Azure SDK for Node.js during local development using developer accounts.
 ms.topic: how-to
-ms.date: 01/21/2026
+ms.date: 02/18/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell
@@ -35,6 +35,6 @@ This approach takes advantage of the developer's existing Azure accounts to stre
 
 [!INCLUDE [assign-group-roles](../../../includes/authentication/assign-group-roles.md)]
 
-[!INCLUDE [sign-in-dev-tooling](../../../includes/authentication/developer-tooling-javascript.md)]
+[!INCLUDE [sign-in-dev-tooling](./includes/developer-tooling-javascript.md)]
 
 [!INCLUDE [Implement credential based on use case](./includes/implement-local-development-credential.md)]

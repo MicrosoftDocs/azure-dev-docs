@@ -24,7 +24,7 @@ This article is part of a series that provides a detailed walkthrough of how to 
 
 ## Part 1: Background
 
-While many Azure services rely exclusively on role-based access control (RBAC), while others require access via secrets or keys. Such services include Azure Storage, databases, Azure AI services, Key Vault, and Event Hubs
+While many Azure services rely exclusively on role-based access control (RBAC), while others require access via secrets or keys. Such services include Azure Storage, databases, Foundry Tools, Key Vault, and Event Hubs
 
 When building cloud applications that interact with these services, developers can use the Azure portal, CLI, or PowerShell to generate and configure service-specific access keys. These keys are tied to particular access policies to prevent unauthorized access. However, this model requires your application to manage keys explicitly and authenticate separately with each service, a process that's both tedious and error-prone.
 

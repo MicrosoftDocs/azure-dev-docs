@@ -2,8 +2,8 @@
 title: What are dev tunnels?
 titleSuffix: Microsoft dev tunnels
 description: Learn about using dev tunnels
-author: derekbekoe
-ms.author: debekoe
+author: plequere-ms
+ms.author: plequere
 ms.topic: overview
 ms.service: azure-dev-tunnels
 ms.date: 03/27/2025

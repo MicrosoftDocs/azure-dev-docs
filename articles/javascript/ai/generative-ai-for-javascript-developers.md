@@ -82,11 +82,11 @@ Learn more in the [Phi-3 session of the course](https://github.com/microsoft/gen
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/06-playground/readme.md)
 * [Video](https://www.youtube.com/watch?v=Ds32MS9SHzU&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=7)
 
-## Introduction to Azure AI Foundry
+## Introduction to Microsoft Foundry
 
-Use Azure AI Foundry to start building generative AI apps with JavaScript. Organize resources with hubs and projects, browse thousands of models, and deploy a model to test in a playground. Whether you pick managed compute or serverless APIs, follow the same steps to select, deploy, and use your model in your workflow.
+Use Foundry to start building generative AI apps with JavaScript. Organize resources with hubs and projects, browse thousands of models, and deploy a model to test in a playground. Whether you pick managed compute or serverless APIs, follow the same steps to select, deploy, and use your model in your workflow.
 
-Learn more in the [Azure AI Foundry session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/07-ai-foundry.md):
+Learn more in the [Foundry session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/07-ai-foundry.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/07-ai-foundry/readme.md)
 * [Video](https://www.youtube.com/watch?v=9Mo-VOGk8ng&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=8)
 

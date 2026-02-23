@@ -2,8 +2,8 @@
 title: Configure and deploy group policies
 titleSuffix: Microsoft dev tunnels
 description: Learn how to configure and deploy group policies settings across your organization. 
-author: derekbekoe
-ms.author: debekoe
+author: plequere-ms
+ms.author: plequere
 ms.topic: quickstart
 ms.service: azure-dev-tunnels
 ms.date: 03/27/2025
@@ -48,14 +48,3 @@ In this quickstart, you'll learn how to configure and deploy Dev Tunnels group p
 1. Navigate to Computer Configuration > Administrative Templates > Dev Tunnels.
 1. Apply the desired policy changes.
 
-## Contact us
-
-If you have any feedback, feature requests, questions, or you encounter an unexpected issue while working with the `devtunnel` CLI, reach out to us. We want to hear from you!
-
-GitHub [issues](https://aka.ms/devtunnels/issues) is a great way to connect with us. You can open a new issue or up-vote any existing issues using a 👍 reaction to:
-
-- Request a feature
-- Submit a bug
-- Provide feedback
-
-If you're an enterprise looking to adopt dev tunnels in your organization with specific questions on security, enterprise management or support, email us at tunnelsfeedback@microsoft.com.
