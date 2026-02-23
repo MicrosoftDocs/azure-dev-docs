@@ -416,7 +416,7 @@
 | @azure-tools/typespec-azure-rulesets | npm [0.65.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.65.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.31.0) |  |  |
 | @azure-tools/typespec-go | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.10.0) |  |  |
-| @azure-tools/typespec-liftr-base | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.11.0) |  |  |
+| @azure-tools/typespec-liftr-base | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.12.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
 | @azure/arm-template | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-template/v/1.0.0-beta.2) |  |  |
@@ -453,7 +453,7 @@
 | TypeSpec Streams | npm [0.79.0](https://www.npmjs.com/package/@typespec/streams/v/0.79.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.11.0) |  |  |
-| Unknown Display Name | npm [1.10.0](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/1.10.0) |  |  |
+| Unknown Display Name | npm [1.11.0](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/1.11.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-metadata/v/0.1.0) |  |  |
@@ -461,11 +461,11 @@
 | Unknown Display Name | npm [0.0.3-dev](https://www.npmjs.com/package/@azure/bicep-deploy-common/v/0.0.3-dev) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/functions-extensions-base/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure/functions-extensions-servicebus/v/0.4.0) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.19) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.19) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.19) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.19) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.19) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.21](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.21) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.21](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.21) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.21](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.21) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.21](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.21) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.21](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.21) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -473,15 +473,15 @@
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-linux-x64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.13) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5891147) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5891147) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5891147) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5891147) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5891147) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5891147) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5891147) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.19) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.19) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5905147](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5905147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5905147](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5905147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5905147](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5905147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5905147](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5905147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5905147](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5905147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5905147](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5905147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5905147](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5905147) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.21](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.21) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.21](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.21) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-canonicalization/v/0.16.0) |  |  |
 | Unknown Display Name | npm [0.16.0](https://www.npmjs.com/package/@typespec/mutator-framework/v/0.16.0) |  |  |
