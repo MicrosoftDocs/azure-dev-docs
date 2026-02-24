@@ -41,11 +41,11 @@ items:
         - name: Connect
           expanded: true
           items:
-          - name: GitHub Copilot coding agent to Azure MCP Server
+          - name: GitHub Copilot coding agent
             href: how-to/github-copilot-coding-agent.md
-          - name: GitHub Copilot CLI to Azure MCP Server
+          - name: GitHub Copilot CLI
             href: how-to/github-copilot-cli.md
-          - name: GitHub Copilot SDK to Azure MCP Server
+          - name: GitHub Copilot SDK
             href: how-to/github-copilot-sdk.md
         - name: Deploy
           expanded: true
