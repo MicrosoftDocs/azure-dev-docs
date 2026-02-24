@@ -6,11 +6,12 @@ ms.author: diberry
 ms.reviewer: mbaldwin
 ms.service: azure-mcp-server
 ms.topic: how-to
-ms.date: 01/20/2026
+ms.date: 02/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-generated
 ms.custom: build-2025
+mcp-cli.version: 2.0.0-beta.19+526b8facdd707f352913f84af0195268a22dea6f
 
 #customer intent: As an Azure Key Vault administrator, I want to manage secrets, keys, and vault configurations using natural language conversations so that I can quickly verify access and troubleshoot issues without navigating portals.
 
@@ -28,8 +29,7 @@ Manage keys, secrets, and certificates using natural language conversations with
 
 For Azure Key Vault administrators and developers, this means you can:
 
-- Create and retrieve keys, secrets, and certificates without navigating the portal
-- List your key, secret, and certificate inventory conversationally
+- Create, retrieve, and list keys, secrets, and certificates without navigating the portal
 - Review cryptographic key properties and certificate expiration dates
 - Import certificates into your vaults
 - Query Managed HSM settings for high-security deployments

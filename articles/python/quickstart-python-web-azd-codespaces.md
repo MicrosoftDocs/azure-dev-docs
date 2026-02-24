@@ -144,7 +144,7 @@ Now that you have a GitHub Codespace containing the newly generated code, you us
    - Endpoint: https://xxxxx-xxxxxxxxxxxxx-ca.example-xxxxxxxx.westus.azurecontainerapps.io/
 
    SUCCESS: Your application was provisioned and deployed to Azure in 11 minutes 44 seconds.
-   You can view the resources created under the resource group xxxxx-rg in Azure Portal:
+   You can view the resources created under the resource group xxxxx-rg in Azure portal:
    https://portal.azure.com/#@/resource/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/xxxxx-rg/overview
    ```
 

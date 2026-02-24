@@ -20,7 +20,7 @@ items:
         href: azure-developer-key-concepts.md
       - name: Overview of Azure billing
         href: azure-developer-billing.md
-  - name: Develop apps that use Azure AI services
+  - name: Develop apps that use Foundry Tools
     href: ../ai/index.yml
   - name: Azure developer centers
     expanded: true

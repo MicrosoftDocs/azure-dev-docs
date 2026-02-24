@@ -5,12 +5,13 @@ keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
 ms.reviewer: mbaldwin
-ms.date: 01/16/2026
+ms.date: 02/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
 ms.custom: build-2025
+mcp-cli.version: 2.0.0-beta.19+526b8facdd707f352913f84af0195268a22dea6f
 --- 
 # Azure Key Vault tools for the Azure MCP Server overview
 
@@ -58,7 +59,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Key** | Required | The name of the key to create. |
+| **Key name** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create. Supported types: `RSA`, `RSA-HSM`, `EC`, `EC-HSM`, `oct`, `oct-HSM`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -82,7 +83,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Key** | Optional | The name of the key to retrieve. Omit to list all keys. |
+| **Key name** | Optional | The name of the key to retrieve. Omit to list all keys. |
 | **Include managed** | Optional | Whether or not to include managed keys when listing. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -105,7 +106,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Secret** | Required | The name of the secret to create. |
+| **Secret name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -129,7 +130,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Name** | Optional | The name of the secret to retrieve. Omit to list all secrets. |
+| **Secret name** | Optional | The name of the secret to retrieve. Omit to list all secrets. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

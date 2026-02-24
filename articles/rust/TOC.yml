@@ -29,5 +29,5 @@
       href: https://github.com/Azure/azure-sdk-for-rust
     - name: Azure SDK Guidelines
       href: https://azure.github.io/azure-sdk/rust_introduction.html
-- name: Crates
-  href: azure-sdk-library-package-index.md
+  - name: Crates
+    href: azure-sdk-library-package-index.md
