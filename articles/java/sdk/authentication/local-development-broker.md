@@ -9,6 +9,8 @@ author: bmitchell287
 ms.author: brendm
 ms.reviewer: vigera
 ai-usage: ai-generated
+appliesto:
+- Windows
 ---
 
 # Authenticate Java apps to Azure services during local development by using brokered authentication
@@ -17,7 +19,31 @@ ai-usage: ai-generated
 
 [!INCLUDE [broker-windows](../../../includes/authentication/broker-windows.md)]
 
-[!INCLUDE [broker-configure-application](../../../includes/authentication/broker-configure-application.md)]
+## Configure the app for brokered authentication
+
+To enable brokered authentication in your application, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to **Microsoft Entra ID** and select **App registrations** on the left-hand menu.
+1. Select the registration for your app, then select **Authentication**.
+1. Add the appropriate redirect URI to your app registration via a platform configuration:
+    1. Under **Platform configurations**, select **+ Add a platform**.
+    1. Under **Configure platforms**, select the tile for your application type (platform) to configure its settings, such as **mobile and desktop applications**.
+    1. In **Custom redirect URIs**, enter the following redirect URI:
+
+        `ms-appx-web://Microsoft.AAD.BrokerPlugin/{your_client_id}`
+
+        Replace `{your_client_id}` with the **Application (client) ID** from the app registration's **Overview** pane.
+
+    1. Select **Configure**.
+
+    To learn more, see [Add a redirect URI to an app registration](/entra/identity-platform/quickstart-register-app#add-a-redirect-uri).
+
+1. Back on the **Authentication** pane, under **Advanced settings**, select **Yes** for **Allow public client flows**.
+1. Select **Save** to apply the changes.
+1. To authorize the application for specific resources, navigate to the resource in question, select **API Permissions**, and enable **Microsoft Graph** and other resources you want to access.
+
+    > [!IMPORTANT]
+    > You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
 
 [!INCLUDE [broker-assign-roles](../../../includes/authentication/broker-assign-roles.md)]
 
@@ -34,7 +60,7 @@ The Azure Identity library supports brokered authentication by using [Interactiv
     </dependency>
     ```
 
-1. Get a reference to the parent window on top of which the account picker dialog should appear. For platform-specific examples, see [Get a window handle](#get-a-window-handle).
+1. Get a reference to the parent window on top of which the account picker dialog should appear. For examples, see [Get a window handle](#get-a-window-handle).
 
 1. Create an instance of `InteractiveBrowserCredential` using `InteractiveBrowserBrokerCredentialBuilder`:
 
