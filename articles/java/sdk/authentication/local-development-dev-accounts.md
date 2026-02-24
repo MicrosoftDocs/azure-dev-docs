@@ -2,7 +2,7 @@
 title: Authenticate Java apps during local development by using developer accounts
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Java apps to Azure services during local development by using developer accounts and tools like Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, and IntelliJ IDEA.
-ms.date: 02/05/2026
+ms.date: 02/24/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
 author: bmitchell287

@@ -2,11 +2,9 @@
 title: Authenticate Java Apps to Azure Using Brokered Auth
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Java apps to Azure services during local development by using brokered authentication with the Azure Identity library.
-ms.date: 02/23/2026
+ms.date: 02/24/2026
 ms.topic: how-to
 ms.custom: devx-track-java
-zone_pivot_group_filename: developer/pivots.yml
-zone_pivot_groups: pivot-os-windows-linux
 author: bmitchell287
 ms.author: brendm
 ms.reviewer: vigera
@@ -17,17 +15,7 @@ ai-usage: ai-generated
 
 [!INCLUDE [broker-introduction](../../../includes/authentication/broker-introduction.md)]
 
-:::zone target="docs" pivot="os-windows"
-
 [!INCLUDE [broker-windows](../../../includes/authentication/broker-windows.md)]
-
-:::zone-end
-
-:::zone target="docs" pivot="os-linux"
-
-[!INCLUDE [broker-linux](../../../includes/authentication/broker-linux.md)]
-
-:::zone-end
 
 [!INCLUDE [broker-configure-application](../../../includes/authentication/broker-configure-application.md)]
 
@@ -75,21 +63,9 @@ System.out.println("Retrieved secret: " + secret.getName());
 
 In the preceding example, `useDefaultBrokerAccount` opts into a silent, brokered authentication flow with the default system account. In this way, the user doesn't have to repeatedly select the same account. If silent, brokered authentication fails, `InteractiveBrowserCredential` falls back to interactive, brokered authentication.
 
-:::zone target="docs" pivot="os-windows"
-
 The following screenshot shows the alternative interactive, brokered authentication experience:
 
 :::image type="content" source="../../../includes/authentication/media/broker-web-account-manager-account-picker.png" alt-text="Screenshot of the Windows sign-in experience when using a broker-enabled InteractiveBrowserCredential instance to authenticate a user." lightbox="../../../includes/authentication/media/broker-web-account-manager-account-picker.png":::
-
-:::zone-end
-
-:::zone target="docs" pivot="os-linux"
-
-The following video shows the alternative interactive, brokered authentication experience:
-
-:::image type="content" source="../../../includes/authentication/media/broker-linux-login.gif" alt-text="Screenshot of the Linux sign-in experience when using a broker-enabled InteractiveBrowserCredential instance to authenticate a user." lightbox="../../../includes/authentication/media/broker-linux-login.gif":::
-
-:::zone-end
 
 ### Get a window handle
 

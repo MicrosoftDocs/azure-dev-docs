@@ -2,7 +2,7 @@
 title: Authenticate Azure-hosted Java apps by using a system-assigned managed identity
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity.
-ms.date: 02/05/2026
+ms.date: 02/24/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
 author: bmitchell287

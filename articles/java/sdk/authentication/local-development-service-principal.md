@@ -2,7 +2,7 @@
 title: Authenticate Java apps during local development by using service principals
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Java apps to Azure services during local development by using application service principals.
-ms.date: 02/05/2026
+ms.date: 02/24/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
 author: bmitchell287

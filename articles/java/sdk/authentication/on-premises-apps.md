@@ -2,7 +2,7 @@
 title: Authenticate to Azure Resources From On-Premises Java Apps
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate on-premises Java apps to Azure services using the Azure SDK for Java. Set up service principals, assign roles, and configure credentials.
-ms.date: 02/23/2026
+ms.date: 02/24/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
 author: bmitchell287

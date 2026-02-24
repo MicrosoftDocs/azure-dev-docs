@@ -1,7 +1,7 @@
 ---
 title: 'Credential chains in the Azure Identity library for Java'
 description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.'
-ms.date: 10/02/2025
+ms.date: 02/24/2026
 ms.topic: concept-article
 author: bmitchell287
 ms.author: brendm

@@ -2,7 +2,7 @@
 title: Authenticate Java apps to Azure services
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Java apps to Azure services using the Azure Identity library, including managed identities and developer accounts.
-ms.date: 02/05/2026
+ms.date: 02/24/2026
 ms.topic: overview
 ms.custom: devx-track-java
 author: bmitchell287
