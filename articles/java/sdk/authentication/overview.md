@@ -33,7 +33,7 @@ When an app is:
 
 - **Hosted on Azure**: The app should authenticate to Azure resources by using a managed identity. For more information, see the [Authentication for Azure-hosted apps](#authentication-for-azure-hosted-apps) section.
 - **Running locally during development**: The app can authenticate to Azure by using a [developer account](local-development-dev-accounts.md), a [broker](local-development-broker.md), or a [service principal](local-development-service-principal.md). For more information, see the [Authentication during local development](#authentication-during-local-development) section.
-- **Hosted on-premises**: The app should authenticate to Azure resources by using an application service principal.
+- **Hosted on-premises**: The app should authenticate to Azure resources using an application service principal, or a managed identity in the case of Azure Arc. On-premises workflows are discussed in more detail at [Authentication for apps hosted on-premises](#authentication-for-apps-hosted-on-premises).
 
 ## Authentication for Azure-hosted apps
 
@@ -62,21 +62,21 @@ During local development, you can authenticate to Azure resources by using your 
 You can use your own Azure credentials to authenticate to Azure resources during local development. Typically, you use a development tool such as Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, or IntelliJ IDEA. These tools can provide your app with the necessary tokens to access Azure services. This method is convenient but you should use it only for development purposes.
 
 > [!div class="nextstepaction"]
-> [Authenticate locally by using developer accounts](local-development-dev-accounts.md).
+> [Authenticate locally by using developer accounts](local-development-dev-accounts.md)
 
 ### Use a broker
 
 Brokered authentication collects user credentials using the system authentication broker to authenticate an app. A system authentication broker runs on a user's machine and manages the authentication handshakes and token maintenance for all connected accounts.
 
 > [!div class="nextstepaction"]
-> [Authenticate locally by using a broker](local-development-broker.md).
+> [Authenticate locally by using a broker](local-development-broker.md)
 
 ### Use a service principal
 
 You can create a service principal in a Microsoft Entra tenant to represent an app and authenticate to Azure resources. You can configure your app to use service principal credentials during local development. This method is more secure than using developer credentials and is closer to how your app authenticates in production. However, it's still less ideal than using a managed identity due to the need for secrets.
 
 > [!div class="nextstepaction"]
-> [Authenticate locally by using service principals](local-development-service-principal.md).
+> [Authenticate locally by using service principals](local-development-service-principal.md)
 
 ## Authentication for apps hosted on-premises
 

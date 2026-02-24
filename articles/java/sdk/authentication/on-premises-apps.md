@@ -186,18 +186,3 @@ BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
     .buildClient();
 ```
 
-An alternative approach is to use `DefaultAzureCredential`, which automatically discovers credentials from the environment variables when configured for a service principal:
-
-```java
-import com.azure.identity.DefaultAzureCredential;
-import com.azure.identity.DefaultAzureCredentialBuilder;
-import com.azure.storage.blob.BlobServiceClient;
-import com.azure.storage.blob.BlobServiceClientBuilder;
-
-DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
-
-BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
-    .endpoint("https://<account-name>.blob.core.windows.net")
-    .credential(credential)
-    .buildClient();
-```
