@@ -47,12 +47,12 @@ items:
             href: how-to/github-copilot-cli.md
           - name: GitHub Copilot SDK
             href: how-to/github-copilot-sdk.md
-        - name: Deploy
+        - name: Self-host
           expanded: true
           items:
-          - name: Self-host Azure MCP Server (Microsoft Foundry)
+          - name: Azure Container Apps with Microsoft Foundry
             href: how-to/deploy-remote-mcp-server-microsoft-foundry.md
-          - name: Self-host Azure MCP Server (Copilot Studio)
+          - name: Azure Container Apps with Copilot Studio
             href: how-to/deploy-remote-mcp-server-copilot-studio.md
     - name: Use with Azure services
       expanded: true
