@@ -66,14 +66,14 @@ The Azure Identity library supports brokered authentication by using [Interactiv
 
     ```java
     import com.azure.identity.InteractiveBrowserCredential;
-    import com.azure.identity.broker.    InteractiveBrowserBrokerCredentialBuilder;
+    import com.azure.identity.broker.InteractiveBrowserBrokerCredentialBuilder;
     import com.azure.security.keyvault.secrets.SecretClient;
     import com.azure.security.keyvault.secrets.SecretClientBuilder;
     import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
     
     long windowHandle = getWindowHandle(); // See examples below
     
-    InteractiveBrowserCredential credential = new     InteractiveBrowserBrokerCredentialBuilder()
+    InteractiveBrowserCredential credential = new InteractiveBrowserBrokerCredentialBuilder()
         .setWindowHandle(windowHandle)
         .useDefaultBrokerAccount()
         .build();
