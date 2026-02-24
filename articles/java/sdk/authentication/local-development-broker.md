@@ -38,28 +38,28 @@ The Azure Identity library supports brokered authentication by using [Interactiv
 
 1. Create an instance of `InteractiveBrowserCredential` using `InteractiveBrowserBrokerCredentialBuilder`:
 
-```java
-import com.azure.identity.InteractiveBrowserCredential;
-import com.azure.identity.broker.InteractiveBrowserBrokerCredentialBuilder;
-import com.azure.security.keyvault.secrets.SecretClient;
-import com.azure.security.keyvault.secrets.SecretClientBuilder;
-import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
-
-long windowHandle = getWindowHandle(); // See examples below
-
-InteractiveBrowserCredential credential = new InteractiveBrowserBrokerCredentialBuilder()
-    .setWindowHandle(windowHandle)
-    .useDefaultBrokerAccount()
-    .build();
-
-SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://<your-key-vault-name>.vault.azure.net")
-    .credential(credential)
-    .buildClient();
-
-KeyVaultSecret secret = client.getSecret("MySecret");
-System.out.println("Retrieved secret: " + secret.getName());
-```
+    ```java
+    import com.azure.identity.InteractiveBrowserCredential;
+    import com.azure.identity.broker.    InteractiveBrowserBrokerCredentialBuilder;
+    import com.azure.security.keyvault.secrets.SecretClient;
+    import com.azure.security.keyvault.secrets.SecretClientBuilder;
+    import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
+    
+    long windowHandle = getWindowHandle(); // See examples below
+    
+    InteractiveBrowserCredential credential = new     InteractiveBrowserBrokerCredentialBuilder()
+        .setWindowHandle(windowHandle)
+        .useDefaultBrokerAccount()
+        .build();
+    
+    SecretClient client = new SecretClientBuilder()
+        .vaultUrl("https://<your-key-vault-name>.vault.azure.net")
+        .credential(credential)
+        .buildClient();
+    
+    KeyVaultSecret secret = client.getSecret("MySecret");
+    System.out.println("Retrieved secret: " + secret.getName());
+    ```
 
 In the preceding example, `useDefaultBrokerAccount` opts into a silent, brokered authentication flow with the default system account. In this way, the user doesn't have to repeatedly select the same account. If silent, brokered authentication fails, `InteractiveBrowserCredential` falls back to interactive, brokered authentication.
 

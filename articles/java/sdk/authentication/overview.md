@@ -44,14 +44,14 @@ When you host your app on Azure, it can use managed identities to authenticate t
 You can create a user-assigned managed identity as a standalone Azure resource. You can then assign it to one or more Azure resources so those resources can share the same identity and permissions. To authenticate by using a user-assigned managed identity, create the identity, assign it to your Azure resource, and then configure your app to use this identity for authentication by specifying its client ID, resource ID, or object ID.
 
 > [!div class="nextstepaction"]
-> [Authenticate by using a user-assigned managed identity](user-assigned-managed-identity.md).
+> [Authenticate by using a user-assigned managed identity](user-assigned-managed-identity.md)
 
 ### Use a system-assigned managed identity
 
 You can enable a system-assigned managed identity directly on an Azure resource. The identity is tied to the lifecycle of that resource and is automatically deleted when the resource is deleted. To authenticate by using a system-assigned managed identity, enable the identity on your Azure resource and then configure your app to use this identity for authentication.
 
 > [!div class="nextstepaction"]
-> [Authenticate by using a system-assigned managed identity](system-assigned-managed-identity.md).
+> [Authenticate by using a system-assigned managed identity](system-assigned-managed-identity.md)
 
 ## Authentication during local development
 
