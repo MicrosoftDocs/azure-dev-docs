@@ -22,7 +22,7 @@ landingContent:
           - text: Install in an IDE
             url: get-started.md#use-a-code-editor
           - text: Install with a package manager
-            url: get-started.md#use-a-package-manager
+            url: get-started.md#install-azure-mcp-server-using-a-package-manager
           - text: Connect GitHub Copilot coding agent to the Azure MCP Server
             url: how-to/github-copilot-coding-agent.md
       - linkListType: quickstart
