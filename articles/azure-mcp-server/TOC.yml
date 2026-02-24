@@ -53,7 +53,7 @@ items:
           href: services/azure-mcp-server-for-key-vault.md
         - name: Azure Redis
           href: services/azure-mcp-server-for-redis.md
-        - name: Azure Search
+        - name: Azure AI Search
           href: services/azure-mcp-server-for-search.md
     - name: Tools
       expanded: true
