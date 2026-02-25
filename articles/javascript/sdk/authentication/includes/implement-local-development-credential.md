@@ -22,14 +22,12 @@ The [Azure Identity library](/javascript/api/overview/azure/identity-readme) pro
     ```
 
     > [!NOTE]
-    > If you want to use `VisualStudioCodeCredential`, you must also install the [@azure/identity-vscode](https://www.npmjs.com/package/@azure/identity-vscode) plugin package. Then explicitly load the credential. For an example, see the [@azure/identity-vscode README](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity-vscode/README.md#examples). 
-
+    > If you want to use `VisualStudioCodeCredential`, you must also install the [@azure/identity-vscode](https://www.npmjs.com/package/@azure/identity-vscode) plugin package. Then explicitly load the credential. For an example, see the [@azure/identity-vscode README](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity-vscode/README.md#examples).
 
 1. Choose _one_ of the credential implementations based on your scenario.
 
-  - [Use a credential specific to your development tool](#use-a-credential-specific-to-your-development-tool): this option is best for single person or single tool scenarios. 
-  - [Use a credential available for use in any development tool](#use-a-credential-available-for-use-in-any-development-tool): this option is best for open source projects and diverse tool teams.
-
+    - [Use a credential specific to your development tool](#use-a-credential-specific-to-your-development-tool): this option is best for single person or single tool scenarios.
+    - [Use a credential available for use in any development tool](#use-a-credential-available-for-use-in-any-development-tool): this option is best for open source projects and diverse tool teams.
 
 #### Use a credential specific to your development tool
 
