@@ -162,6 +162,8 @@ items:
           href: tools/azure-health-resource.md
         - name: Azure Service Bus
           href: tools/azure-service-bus.md
+        - name: Azure Service Fabric
+          href: tools/azure-service-fabric.md
         - name: Azure SignalR
           href: tools/azure-signalr.md
         - name: Azure SQL
