@@ -1,12 +1,13 @@
 ---
 title: Azure Migrate tools for the Azure MCP Server overview
 description: Learn about the tools available in Azure Migrate for managing migration planning and request handling as part of the Azure MCP Server.
-ms.date: 02/08/2026
+ms.date: 02/25/2026
 ms.reviewer: akrohill
 keywords: Azure, MCP Server, Azure Migrate, migration, planning, tools
 ms.service: azure-mcp-server
 ms.topic: concept-article
 tool_count: 2
+mcp-cli.version: 2.0.0-beta.22+b6fc38c7fd6e025a7fd1dff42e49516225cae21b
 ---
 
 # Azure Migrate tools for the Azure MCP Server overview
@@ -46,7 +47,7 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ✅ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli azuremigrate platformlandingzone request -->
 
-Generate and download platform landing zone configurations for Azure Migrate projects. This tool updates parameters, checks existing landing zones, and views parameter statuses.
+Generate and download platform landing zone configurations for Azure Migrate projects, update parameters, check existing landing zones, review parameter statuses and create a new Azure Migrate project if one doesn't exist.
 
 Example prompts include:
 
@@ -60,7 +61,7 @@ Example prompts include:
 |-------------------------------|----------------------|---------------------------------------------------------------------------------------------------------|
 | **Resource group**            | Required             | The name of the Azure resource group. This is a logical container for Azure resources.                  |
 | **Migrate project name**      | Required             | The Azure Migrate project name for Platform Landing Zone generation context.                                           |
-| **Action**                    | Required             | The action to perform: `update` (set parameters), `check` (check existing platform landing zone), `generate` (generate platform landing zone), `download` (get download instructions), `status` (view parameter status). |
+| **Action**                    | Required             | The action to perform: `update` (set parameters), `check` (check existing platform landing zone), `generate` (generate platform landing zone), `download` (get download instructions), `status` (view parameter status), `createmigrateproject` (create a new Azure Migrate project if one doesn't exist, requires location parameter). |
 | **Region type**               | Optional             | The region type for the Platform Landing Zone. Allowed values: `single`, `multi`. |
 | **Firewall type**             | Optional             | The firewall type for the Platform Landing Zone. Allowed values: `azurefirewall`, `nva`. |
 | **Network architecture**      | Optional             | The network architecture for the Platform Landing Zone. Allowed values: `hubspoke`, `vwan`. |
