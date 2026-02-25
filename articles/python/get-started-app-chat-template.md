@@ -72,7 +72,7 @@ To use this article, you need the following prerequisites:
 
 * Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 
-* Access granted to Azure OpenAI in your Azure subscription. In most cases, you can create custom content filters and manage severity levels with general access to Azure OpenAI models. Registration for approval-based access isn't required for general access. For more information, see [Limited Access features for Azure AI services](/azure/ai-services/cognitive-services-limited-access).
+* Access granted to Azure OpenAI in your Azure subscription. In most cases, you can create custom content filters and manage severity levels with general access to Azure OpenAI models. Registration for approval-based access isn't required for general access. For more information, see [Limited Access features for Foundry Tools](/azure/ai-services/cognitive-services-limited-access).
 
 * Content filter or abuse modifications (optional). To create custom content filters, change severity levels, or support abuse monitoring, you need formal access approval. You can apply for access by completing the necessary registration forms. For more information, see [Registration for modified content filters and/or abuse monitoring](https://aka.ms/oai/access).
 
@@ -86,7 +86,7 @@ To use this article, you need the following prerequisites:
 
 * Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 
-* Access granted to Azure OpenAI in your Azure subscription. In most cases, you can create custom content filters and manage severity levels with general access to Azure OpenAI models. Registration for approval-based access isn't required for general access. For more information, see [Limited Access features for Azure AI services](/azure/ai-services/cognitive-services-limited-access).
+* Access granted to Azure OpenAI in your Azure subscription. In most cases, you can create custom content filters and manage severity levels with general access to Azure OpenAI models. Registration for approval-based access isn't required for general access. For more information, see [Limited Access features for Foundry Tools](/azure/ai-services/cognitive-services-limited-access).
 
 * Content filter or abuse modifications (optional). To create custom content filters, change severity levels, or support abuse monitoring, you need formal access approval. You can apply for access by completing the necessary registration forms. For more information, see [Registration for modified content filters and/or abuse monitoring](https://aka.ms/oai/access).
 

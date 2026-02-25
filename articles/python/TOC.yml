@@ -5,7 +5,7 @@
   href: get-started.md
 - name: Azure AI apps 
   items: 
-  - name: Develop with Azure AI services
+  - name: Develop with Foundry Tools
     href: azure-ai-for-python-developers.md
   - name: Get started with the Python enterprise chat sample
     href: get-started-app-chat-template.md
@@ -237,7 +237,7 @@
     href: quickstarts-identity-security.md
   - name: Machine learning
     href: quickstarts-machine-learning.md
-  - name: Azure AI services
+  - name: Foundry Tools
     href: quickstarts-ai-services.md
   - name: Messaging, Events & IoT
     href: quickstarts-messaging-iot.md
@@ -268,7 +268,7 @@
         href: /samples/browse/?languages=python&products=azure-databricks
       - name: HDInsight
         href: /samples/browse/?languages=python&products=azure-hdinsight
-  - name: Azure AI services
+  - name: Foundry Tools
     href: /samples/browse/?languages=python&filter-products=AI&products=ai-services
   - name: Search
     href: /samples/browse/?languages=python&products=azure-search

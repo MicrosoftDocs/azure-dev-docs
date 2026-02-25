@@ -337,9 +337,9 @@ For more information, see the following resources:
 [10]: https://code.visualstudio.com/docs/azure/extensions
 [11]: /azure/container-registry/
 [12]: https://www.docker.com/
-[13]: https://docs.gunicorn.org/en/stable/index.html
-[14]: https://docs.gunicorn.org/en/stable/settings.html#config-file
-[15]: https://docs.gunicorn.org/en/stable/configure.html#configuration-file
+[13]: https://gunicorn.org/
+[14]: https://betterstack.com/community/guides/scaling-python/gunicorn-explained/#config-file
+[15]: https://betterstack.com/community/guides/scaling-python/gunicorn-explained/#configuration-file
 [16]: https://www.uvicorn.org/#running-with-gunicorn
 [17]: https://docs.docker.com/engine/reference/run/
 [18]: /cli/azure/group#az-group-create

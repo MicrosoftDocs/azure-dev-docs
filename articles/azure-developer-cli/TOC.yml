@@ -85,6 +85,8 @@
           href: monitor-your-app.md
       - name: Deployment configuration
         items:
+        - name: Layered provisioning
+          href: layered-provisioning.md
         - name: Remote build support
           href: remote-builds.md
         - name: Publishing workflows

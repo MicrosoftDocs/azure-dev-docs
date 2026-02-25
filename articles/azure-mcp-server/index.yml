@@ -7,7 +7,7 @@ metadata:
   title: Azure MCP Server documentation
   description: Learn how to use the Azure MCP Server to interact with Azure resources through natural language commands from AI agents and other types of clients.
   ms.topic: landing-page
-  ms.date: 11/17/2025
+  ms.date: 02/09/2026
 
 landingContent:
   # Card
@@ -20,9 +20,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Install in an IDE
-            url: get-started.md#connect-using-code-editors-and-tools
+            url: get-started.md#use-a-code-editor
           - text: Install with a package manager
-            url: get-started.md#install-with-a-package-manager
+            url: get-started.md#install-azure-mcp-server-using-a-package-manager
           - text: Connect GitHub Copilot coding agent to the Azure MCP Server
             url: how-to/github-copilot-coding-agent.md
       - linkListType: quickstart
@@ -31,6 +31,8 @@ landingContent:
             url: get-started/tools/cline.md
           - text: Connect from Cursor
             url: get-started/tools/cursor.md
+          - text: Connect from Eclipse
+            url: get-started/tools/eclipse.md
           - text: Connect from IntelliJ
             url: get-started/tools/jet-brains.md
           - text: Connect from Visual Studio
@@ -39,6 +41,18 @@ landingContent:
             url: get-started/tools/visual-studio-code.md
           - text: Connect from Windsurf
             url: get-started/tools/windsurf.md
+
+
+  - title: How-to
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Connect GitHub Copilot coding agent to the Azure MCP Server
+            url: how-to/github-copilot-coding-agent.md
+          - text: Deploy remote MCP Server with Copilot Studio
+            url: how-to/deploy-remote-mcp-server-copilot-studio.md
+          - text: Deploy remote MCP Server with Microsoft Foundry
+            url: how-to/deploy-remote-mcp-server-microsoft-foundry.md
 
   - title: Languages and frameworks
     linkLists:
@@ -54,7 +68,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Model Context Protocol overview
-            url: overview.md#introduction-to-the-model-context-protocol-mcp
+            url: overview.md#key-features
           - text: Scenarios for using Azure MCP Server
             url: overview.md#scenarios-for-using-the-azure-mcp-server
           - text: Authentication and permissions

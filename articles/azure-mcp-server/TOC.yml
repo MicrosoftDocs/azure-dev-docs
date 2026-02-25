@@ -38,12 +38,22 @@ items:
     - name: How to
       expanded: true
       items:
-        - name: Connect GitHub Copilot coding agent to Azure MCP Server
-          href: how-to/github-copilot-coding-agent.md
-        - name: Deploy a self-hosted Azure MCP Server (Microsoft Foundry)
-          href: how-to/deploy-remote-mcp-server-microsoft-foundry.md
-        - name: Deploy a self-hosted Azure MCP Server (Copilot Studio)
-          href: how-to/deploy-remote-mcp-server-copilot-studio.md
+        - name: Connect
+          expanded: true
+          items:
+          - name: GitHub Copilot coding agent
+            href: how-to/github-copilot-coding-agent.md
+          - name: GitHub Copilot CLI
+            href: how-to/github-copilot-cli.md
+          - name: GitHub Copilot SDK
+            href: how-to/github-copilot-sdk.md
+        - name: Self-host
+          expanded: true
+          items:
+          - name: Azure Container Apps with Microsoft Foundry
+            href: how-to/deploy-remote-mcp-server-microsoft-foundry.md
+          - name: Azure Container Apps with Copilot Studio
+            href: how-to/deploy-remote-mcp-server-copilot-studio.md
     - name: Use with Azure services
       expanded: true
       items:
@@ -66,6 +76,8 @@ items:
             href: tools/azure-ai-best-practices.md
           - name: Terraform best practices for Azure
             href: tools/azure-terraform-best-practices.md
+        - name: Azure Advisor
+          href: tools/azure-advisor.md
         - name: Application Insights
           href: tools/application-insights.md
         - name: Azure AI Foundry
@@ -108,7 +120,7 @@ items:
           href: tools/azure-event-grid.md
         - name: Azure Event Hubs
           href: tools/azure-event-hubs.md
-        - name: Azure File Shares
+        - name: Azure Files
           href: tools/azure-file-shares.md
         - name: Azure File Sync
           href: tools/azure-file-sync.md
@@ -136,6 +148,8 @@ items:
           href: tools/azure-native-isv.md
         - name: Azure Policy
           href: tools/azure-policy.md
+        - name: Azure Pricing
+          href: tools/azure-pricing.md
         - name: Azure Quick Review CLI
           href: tools/azure-compliance-quick-review.md
         - name: Azure Quotas
@@ -156,6 +170,8 @@ items:
           href: tools/azure-storage.md
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
+        - name: Azure Virtual Machines
+          href: tools/azure-virtual-machines.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription

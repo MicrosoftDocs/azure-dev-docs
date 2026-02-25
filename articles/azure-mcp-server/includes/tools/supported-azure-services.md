@@ -42,6 +42,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure App Service](../../tools/azure-app-service.md) | `appservice` | Manage database connections for Azure App Service instances. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
+| [Azure Virtual Machines](../../tools/azure-virtual-machines.md) | `compute` | Get details for Azure virtual machines, virtual machine scale sets, and managed disks. |
 
 ### Containers
 
@@ -65,8 +66,8 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure Application Insights](../../tools/application-insights.md) | `applicationinsights` | List Application Insights resources. |
 | [Azure App Configuration](../../tools/app-configuration.md) | `appconfig` | Manage centralized application settings and feature flags. |
+| [Azure Application Insights](../../tools/application-insights.md) | `applicationinsights` | List Application Insights resources. |
 | [Azure CLI](../../tools/azure-cli.md) | `extension` | Find Azure CLI commands and get installation instructions for CLI tools. |
 | [Azure Developer CLI](../../tools/azure-cli.md) | `extension` | Get installation instructions for Azure Developer CLI (azd), learn usage for deployment scenarios, and access azd MCP tools when azd is installed locally |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | `loadtesting` | Create, run, and see load testing. |
@@ -76,8 +77,8 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | `bicepschema` | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
-| [Azure Developer CLI](../../tools/azure-cli.md) | `extension` | Get installation instructions for Azure Developer CLI (azd), learn usage for deployment scenarios, and access azd MCP tools when azd is installed locally |
 | [Azure Deploy](../../tools/azure-deploy.md) | `deploy` | Deploy and manage Azure resources using templates and scripts. |
+| [Azure Developer CLI](../../tools/azure-cli.md) | `extension` | Get installation instructions for Azure Developer CLI (azd), learn usage for deployment scenarios, and access azd MCP tools when azd is installed locally |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | `grafana` | List Azure Managed Grafana workspaces. |
 | [Azure Monitor](../../tools/azure-monitor.md) | `monitor` | Query Azure Monitor logs and metrics. |
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
@@ -116,11 +117,13 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure Migrate](../../tools/azure-migrate.md) | `azuremigrate` | Get step-by-step guidance for changing a Platform Landing Zone and make or download platform landing zone setups for Azure Migrate projects. |
+| [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | Get recommendations to optimize Azure resources and improve performance. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | `cloudarchitect` | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | `grafana` | List Azure Managed Grafana workspaces. |
+| [Azure Migrate](../../tools/azure-migrate.md) | `azuremigrate` | Get step-by-step guidance for changing a Platform Landing Zone and make or download platform landing zone setups for Azure Migrate projects. |
 | [Azure Monitor](../../tools/azure-monitor.md) | `monitor` | Query Azure Monitor logs and metrics. |
 | [Azure Policy](../../tools/azure-policy.md) | `policy` | Manage Azure Policy assignments, definitions, and initiatives. |
+| [Azure Pricing](../../tools/azure-pricing.md) | `pricing` | Get Azure retail pricing, cost estimates, and billing details for services, SKUs, and regions. |
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | `extension` | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | `quota` | Manage Azure resource quotas and limits. |
 | [Azure Resource Health](../../tools/azure-health-resource.md) | `resourcehealth` | Check the health status of Azure resources. |
@@ -140,9 +143,9 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure App Configuration](../../tools/app-configuration.md) | `appconfig` | Manage centralized application settings and feature flags. |
 | [Azure AI Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
+| [Azure App Configuration](../../tools/app-configuration.md) | `appconfig` | Manage centralized application settings and feature flags. |
 | [Azure Communication Services](../../tools/azure-communication.md) | `communication` | Send SMS and email messages using Azure Communication Services. |
 
 ### Security
@@ -156,12 +159,12 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 ### Storage
 
 | Product, tool, or service | Namespace | Description |
-|------|------|--------------|
-| [Azure Storage](../../tools/storage.md) | `storage` | List Azure Storage accounts, containers, blobs, and tables. |
+|------|------|------------|
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
-| [Azure File Shares](../../tools/azure-file-shares.md) | `fileshares` | Manage Azure file shares, including creating, updating, deleting, and snapshotting file shares. |
 | [Azure File Sync](../../tools/azure-storage-sync.md) | `storagesync` | Manage Azure file sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints for Azure File Sync. |
+| [Azure Files](../../tools/azure-file-shares.md) | `fileshares` | Manage Azure file shares, including creating, updating, deleting, and snapshotting file shares. |
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | `managedlustre` | Manage Azure Managed Lustre file systems, including auto-import and auto-export jobs. |
+| [Azure Storage](../../tools/azure-storage.md) | `storage` | Manage Azure Storage accounts, containers, blobs, and tables. |
 | [Azure Storage](../../tools/storage.md) | `storage` | List Azure Storage accounts, containers, blobs, and tables. |
 
 
@@ -175,9 +178,9 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
+| [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure App Configuration](../../tools/app-configuration.md) | `appconfig` | Manage centralized application settings and feature flags. |
 | [Azure App Service](../../tools/azure-app-service.md) | `appservice` | Manage database connections for Azure App Service instances. |
-| [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure Communication Services](../../tools/azure-communication.md) | `communication` | Send SMS and email messages using Azure Communication Services. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure SignalR](../../tools/azure-signalr.md) | `signalr` | Manage Azure SignalR resources and runtimes. |
