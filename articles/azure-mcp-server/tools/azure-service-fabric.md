@@ -52,11 +52,11 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 Restart nodes of a specific node type in a Service Fabric managed cluster. 
 
 Example prompts include:
-- "Restart nodes `node1` and `node2` of node type `frontend` in managed cluster `myservicefabric` within resource group `rg-prod`"
-- "I need to restart the nodes `node3` and `node4` of the `backend` node type in the `mycluster` managed cluster located in resource group `rg-dev`"
+- "Restart nodes `node1` and `node2` of node type `frontend` in managed cluster `myservicefabric` within resource group `rg-prod`."
+- "I need to restart the nodes `node3` and `node4` of the `backend` node type in the `mycluster` managed cluster located in resource group `rg-dev`."
 - "Can you restart all nodes of type `worker` in managed cluster `mycluster` that are located in resource group `rg-staging`?"
 - "Restart nodes `node5` and `node6` of node type `database` in managed cluster `clustername` under resource group `rg-production`?"
-- "Restart the nodes `node7` and `node8` of `app` node type in managed cluster `servicefabriccluster` under resource group `rg-test` and use update type `ByUpgradeDomain`"
+- "Restart the nodes `node7` and `node8` of `app` node type in managed cluster `servicefabriccluster` under resource group `rg-test` and use update type `ByUpgradeDomain`."
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
