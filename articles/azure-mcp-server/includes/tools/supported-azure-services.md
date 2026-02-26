@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 01/22/2025
+ ms.date: 02/18/2025
 ---
 
 ## Available tools
@@ -42,6 +42,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure App Service](../../tools/azure-app-service.md) | `appservice` | Manage database connections for Azure App Service instances. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
+| [Azure Service Fabric](../../tools/azure-service-fabric.md) | `servicefabric` | Manage Service Fabric managed clusters, including node details and restarts. |
 | [Azure Virtual Machines](../../tools/azure-virtual-machines.md) | `compute` | Get details for Azure virtual machines, virtual machine scale sets, and managed disks. |
 
 ### Containers
@@ -51,6 +52,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Container Registry](../../tools/azure-container-registry.md) | `acr` | List Azure Container Registry instances. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
+| [Azure Service Fabric](../../tools/azure-service-fabric.md) | `servicefabric` | Manage Service Fabric managed clusters, including node details and restarts. |
 
 ### Databases
 
@@ -120,6 +122,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | Get recommendations to optimize Azure resources and improve performance. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | `cloudarchitect` | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | `grafana` | List Azure Managed Grafana workspaces. |
+| [Azure Migrate](../../tools/azure-migrate.md) | `azuremigrate` | Get step-by-step guidance for changing a Platform Landing Zone and make or download platform landing zone setups for Azure Migrate projects. |
 | [Azure Monitor](../../tools/azure-monitor.md) | `monitor` | Query Azure Monitor logs and metrics. |
 | [Azure Policy](../../tools/azure-policy.md) | `policy` | Manage Azure Policy assignments, definitions, and initiatives. |
 | [Azure Pricing](../../tools/azure-pricing.md) | `pricing` | Get Azure retail pricing, cost estimates, and billing details for services, SKUs, and regions. |

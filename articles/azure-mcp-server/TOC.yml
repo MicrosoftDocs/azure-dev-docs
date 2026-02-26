@@ -140,6 +140,8 @@ items:
           href: tools/azure-marketplace.md
         - name: Azure MCP tool
           href: tools/azure-mcp-tool.md
+        - name: Azure Migrate
+          href: tools/azure-migrate.md
         - name: Azure Monitor
           href: tools/azure-monitor.md
         - name: Azure Native ISV
@@ -160,6 +162,8 @@ items:
           href: tools/azure-health-resource.md
         - name: Azure Service Bus
           href: tools/azure-service-bus.md
+        - name: Azure Service Fabric
+          href: tools/azure-service-fabric.md
         - name: Azure SignalR
           href: tools/azure-signalr.md
         - name: Azure SQL
