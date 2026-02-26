@@ -111,4 +111,4 @@ azd extension uninstall <extension-name>
 ## Next steps
 
 - [Quickstart - use the AI extension](quickstart-ai-extension.md)
-- [Extension framework readme](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extension-framework.md)
+- [Extension framework readme](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extensions/extension-framework.md)

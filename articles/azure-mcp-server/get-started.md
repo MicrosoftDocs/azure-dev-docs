@@ -3,7 +3,7 @@ title: Get started with the Azure MCP Server
 description: Overview of the options for using the Azure MCP Server with tools and languages
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/27/2025
+ms.date: 02/19/2026
 ms.topic: get-started
 content_well_notification: 
   - AI-contribution
@@ -19,15 +19,26 @@ Connect to Azure MCP Server using various tools, languages, and frameworks. Use 
 
 Explore and contribute to the [Azure MCP Server on GitHub](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server).
 
-## Install with a package manager
+## Install Azure MCP Server using a package manager
 
-If you prefer to install Azure MCP Server directly using a package manager instead of through an IDE, you can install it using npm, pip, or other package managers. For detailed installation instructions, see [Install with a package manager](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager).
+You can optionally install Azure MCP Server directly using one of the supported package managers. Package manager installation offers several advantages, including centralized dependency management, CI/CD integration, support for headless environments, version control, and project portability.
 
-## Connect using code editors and tools
+> [!NOTE]
+> You don't need to install the Azure MCP Server to use it. The approaches explained in the [Connect to Azure MCP Server](#connect-to-azure-mcp-server) section either include Azure MCP Server as part of their installation, or run Azure MCP Server directly via package manager commands.
+
+For more information, see [Install with a package manager](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager).
+
+- **NuGet**: [Azure.Mcp](https://www.nuget.org/packages/Azure.Mcp/2.0.0-beta.20)
+- **NPM**: [@azure/mcp](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.20)
+- **PyPI**: [msmcp-azure](https://pypi.org/project/msmcp-azure/)
+
+## Connect to Azure MCP Server
+
+You can connect to Azure MCP Server using the following tools and programming frameworks.
+
+### Use a code editor
 
 Azure MCP Server works with AI-powered code editors and tools that support the Model Context Protocol. Learn how to get started:
-
-### Code editors
 
 - [**Cline**](get-started/tools/cline.md)
 - [**Cursor**](get-started/tools/cursor.md)
@@ -36,15 +47,23 @@ Azure MCP Server works with AI-powered code editors and tools that support the M
 - [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
 - [**Windsurf**](get-started/tools/windsurf.md)
 
-### Other tools and services
+### Use GitHub Copilot tools
 
-- [GitHub Copilot coding agent](/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent)
+Connect to Azure MCP Server using other tools and services, such as GitHub Copilot coding agent and Docker. Learn how to get started:
 
-## Connect using languages & frameworks
+- [**GitHub Copilot CLI**](how-to/github-copilot-cli.md)
+- [**GitHub Copilot SDK**](how-to/github-copilot-sdk.md)
+- [**GitHub Copilot coding agent**](/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent)
+
+### Use a Docker container
+
+For easy deployment and isolation, you can [run the Azure MCP server as a Docker container](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#docker).
+
+### Use programming languages & frameworks
 
 Connect to Azure MCP Server using programming languages and frameworks. This documentation currently provides guidance and examples for Python and .NET.
 
-### Python
+#### Python
 
 [Get started with Azure MCP Server and Python](get-started/languages/python.md) to enhance your apps and workflows.
 
@@ -53,7 +72,7 @@ Connect to Azure MCP Server using programming languages and frameworks. This doc
 - Integrate into web frameworks like Django, Flask, or FastAPI.
 - Incorporate Azure operations into data science workflows with Jupyter notebooks.
 
-### .NET
+#### .NET
 
 [Get started with Azure MCP Server and .NET](get-started/languages/dotnet.md) to enhance your apps and workflows.
 
