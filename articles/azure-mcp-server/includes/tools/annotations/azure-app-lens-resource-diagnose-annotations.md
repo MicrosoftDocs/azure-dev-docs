@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [applens resource diagnose](../includes/tools/annotations/azure-applens-resource-diagnose-annotations.md)]
 # azmcp applens resource diagnose
 ---
