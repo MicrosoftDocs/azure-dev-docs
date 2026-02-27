@@ -57,14 +57,14 @@ To learn more or contribute to the Awesome AZD gallery, visit the [Awesome AZD G
 
 ### The AI App Templates gallery
 
-The [**AI App Templates**](https://azure.github.io/ai-app-templates/) gallery is a specialized collection of Azure Developer CLI templates focused on AI-powered applications. These templates help developers quickly build intelligent solutions by integrating with Foundry Tools such as Azure OpenAI and Microsoft Foundry.
+The [**AI App Templates**](https://azure.github.io/ai-app-templates/) gallery is a specialized collection of Azure Developer CLI templates focused on AI-powered applications. These templates help developers quickly build intelligent solutions by integrating with AI services in Azure such as Azure OpenAI and Microsoft Foundry.
 
 :::image type="content" source="media/get-started/ai-template-gallery.png" alt-text="A screenshot showing the home page of the AI App Template gallery.":::
 
 Key highlights of the AI Template Gallery:
 
 - Templates for chatbots, recommendation systems, and other AI use cases.
-- Preconfigured infrastructure for integrating Foundry Tools.
+- Preconfigured infrastructure for integrating AI services in Azure.
 - Examples of how to use AI capabilities in cloud-native applications.
 
 The AI Template Gallery simplifies the process of building and deploying AI-driven applications by providing ready-to-use templates and best practices.
