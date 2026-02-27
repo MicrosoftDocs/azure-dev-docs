@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 02/18/2025
+ ms.date: 02/27/2026
 ---
 
 ## Available tools
@@ -14,6 +14,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
+| [Azure AI best practices](../../tools/azure-ai-best-practices.md) | `azureaibestpractices` | Get recommendations for building AI applications with Azure using natural language prompts. |
 | [Azure best practices](../../tools/azure-best-practices.md) | `get_bestpractices` | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Terraform best practices for Azure](../../tools/azure-terraform-best-practices.md) | `azureterraformbestpractices` | Get guidance on implementing Terraform for Azure resources. |
 
@@ -105,7 +106,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | `datadog` | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
-| [Azure Service Bus](../../tools/service-bus.md) | `servicebus` | Work with Azure Service Bus messaging services. |
+| [Azure Service Bus](../../tools/azure-service-bus.md) | `servicebus` | Manage Azure Service Bus resources, including queues, topics, and peek at messages. |
 
 ### Internet of Things (IoT)
 
@@ -139,7 +140,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Event Hubs](../../tools/azure-event-hubs.md) | `eventhubs` | Manage Azure Event Hubs namespaces and event hubs. |
-| [Azure Service Bus](../../tools/service-bus.md) | `servicebus` | Work with Azure Service Bus messaging services. |
+| [Azure Service Bus](../../tools/azure-service-bus.md) | `servicebus` | Manage Azure Service Bus resources, including queues, topics, and peek at messages. |
 
 ### Mobile
 
@@ -163,7 +164,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Product, tool, or service | Namespace | Description |
 |------|------|------------|
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
-| [Azure File Sync](../../tools/azure-storage-sync.md) | `storagesync` | Manage Azure file sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints for Azure File Sync. |
+| [Azure File Sync](../../tools/azure-file-sync.md) | `storagesync` | Manage Azure file sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints for Azure File Sync. |
 | [Azure Files](../../tools/azure-file-shares.md) | `fileshares` | Manage Azure file shares, including creating, updating, deleting, and snapshotting file shares. |
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | `managedlustre` | Manage Azure Managed Lustre file systems, including auto-import and auto-export jobs. |
 | [Azure Storage](../../tools/azure-storage.md) | `storage` | Manage Azure Storage accounts, containers, blobs, and tables. |
