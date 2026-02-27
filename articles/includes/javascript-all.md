@@ -406,7 +406,7 @@
 | Resource Management - Workspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resourcesdeployments/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-resourcesdeployments-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcesdeployments_1.0.0-beta.1/sdk/resources/arm-resourcesdeployments/) |
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
-| @autorest/openapi-to-typespec | npm [0.11.12](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.11.12) |  |  |
+| @autorest/openapi-to-typespec | npm [0.11.13](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.11.13) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/rest-api-diff | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.2.2) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
@@ -496,7 +496,7 @@
 | @azure/video-analyzer-widgets | npm [2.0.6](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.6) |  |  |
 | @azure/video-indexer-widgets | npm [1.0.5](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.5) |  |  |
 | Auto Suggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  |  |
-| AutoRest | npm [3.7.2](https://www.npmjs.com/package/autorest/v/3.7.2) |  |  |
+| AutoRest | npm [3.8.0](https://www.npmjs.com/package/autorest/v/3.8.0) |  |  |
 | Azure Functions | npm [4.11.2](https://www.npmjs.com/package/@azure/functions/v/4.11.2) |  | GitHub [4.11.2](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
@@ -639,7 +639,7 @@
 | AutoRest - Azure Resource Schema | npm [3.0.109](https://www.npmjs.com/package/@autorest/azureresourceschema/v/3.0.109) |  | GitHub [3.0.109](https://github.com/Azure/autorest.azureresourceschema) |
 | AutoRest - CLI | npm [0.1.889](https://www.npmjs.com/package/@autorest/cli/v/0.1.889) |  | GitHub [0.1.889](https://github.com/Azure/autorest.cli) |
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
-| AutoRest - Compare | npm [0.5.2](https://www.npmjs.com/package/@autorest/compare/v/0.5.2) |  | GitHub [0.5.2](https://github.com/Azure/autorest.compare) |
+| AutoRest - Compare | npm [0.5.3](https://www.npmjs.com/package/@autorest/compare/v/0.5.3) |  | GitHub [0.5.3](https://github.com/Azure/autorest.compare) |
 | AutoRest - Core | npm [3.10.8](https://www.npmjs.com/package/@autorest/core/v/3.10.8) |  | GitHub [3.10.8](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
