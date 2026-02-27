@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [eventhubs namespace delete](../includes/tools/annotations/azure-event-hubs-namespace-delete-annotations.md)]
 # azmcp eventhubs namespace delete
 ---
