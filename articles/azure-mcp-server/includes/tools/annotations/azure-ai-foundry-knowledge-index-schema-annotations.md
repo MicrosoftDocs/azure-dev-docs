@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [foundry knowledge index schema](../includes/tools/annotations/azure-ai-foundry-knowledge-index-schema-annotations.md)]
 # azmcp foundry knowledge index schema
 ---
