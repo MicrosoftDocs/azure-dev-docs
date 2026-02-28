@@ -1,5 +1,5 @@
 ---
-title: "Configure your local environment for developing and deploying Python web apps to Azure using popular frameworks like Django, Flask, and FastAPI."
+title: "Configure your local environment for developing and deploying Python web apps to Azure using popular frameworks like Django, Flask, and FastAPI"
 description: Configure your local Python environment for working with Python web apps and deploying them to Azure using popular framework like Django, Flask, and FastAPI.
 ms.topic: how-to
 ms.date: 02/28/2026
@@ -9,13 +9,13 @@ adobe-target: true
 
 # Configure your local environment for deploying Python web apps on Azure
 
-This article walks you through setting up your local environment to develop Python *web apps* and deploy them to Azure. Your web app can be pure Python or use one of the common Python-based web frameworks like [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/2.1.x/), or [FastAPI](https://fastapi.tiangolo.com/).
+This article shows you how to set up your local environment to develop Python *web apps* and deploy them to Azure. Your web app can be pure Python or use one of the common Python-based web frameworks like [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/2.1.x/), or [FastAPI](https://fastapi.tiangolo.com/).
 
-Python web apps developed locally can be deployed to services such as [Azure App Service](/azure/app-service/), [Azure Container Apps](/azure/container-apps/), or [Azure Static Web Apps](/azure/static-web-apps/). There are many options for deployment. For example, for App Service deployment, you can choose to deploy from code, a Docker container, or a Static Web App. If you deploy from code, you can deploy with Visual Studio Code, with the Azure CLI, from a local Git repository, or with GitHub actions. If you deploy in a Docker Container, you can do so from Azure Container Registry, Docker Hub, or any private registry.
+You can deploy Python web apps developed locally to services such as [Azure App Service](/azure/app-service/), [Azure Container Apps](/azure/container-apps/), or [Azure Static Web Apps](/azure/static-web-apps/). There are many options for deployment. For example, for App Service deployment, you can choose to deploy from code, a Docker container, or a Static Web App. If you deploy from code, you can deploy by using Visual Studio Code, the Azure CLI, a local Git repository, or GitHub actions. If you deploy in a Docker Container, you can do so from Azure Container Registry, Docker Hub, or any private registry.
 
-Before continuing with this article, we suggest you review the [Set up your dev environment](configure-local-development-environment.md) for guidance on setting up your dev environment for Python and Azure. Below, we'll discuss setup and configuration specific to Python web app development.
+Before continuing with this article, review the [Set up your dev environment](configure-local-development-environment.md) for guidance on setting up your dev environment for Python and Azure. The following sections discuss setup and configuration specific to Python web app development.
 
-After you get your local environment setup for Python web app development, you'll be ready to tackle these articles:
+After you set up your local environment for Python web app development, you're ready to tackle these articles:
 
 * [Quickstart: Create a Python (Django or Flask) web app in Azure App Service](/azure/app-service/quickstart-python).
 * [Tutorial: Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](/azure/app-service/tutorial-python-postgresql-app)
@@ -26,23 +26,23 @@ After you get your local environment setup for Python web app development, you'l
 The [Visual Studio Code](https://code.visualstudio.com/) integrated development environment (IDE) is an easy way to develop Python web apps and work with Azure resources that web apps use.
 
 > [!TIP]
-> Make sure you have the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension installed. For an overview of working with Python in VS Code, see [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
+> Make sure you install the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension. For an overview of working with Python in VS Code, see [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
 
-In VS Code, you work with Azure resources through [VS Code extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). You can install extensions from the **Extensions** View or the key combination Ctrl+Shift+X. For Python web apps, you'll likely be working with one or more of the following extensions:
+In VS Code, you work with Azure resources through [VS Code extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). You can install extensions from the **Extensions** view or by using the key combination Ctrl+Shift+X. For Python web apps, you're likely to work with one or more of the following extensions:
  
 * The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension enables you to interact with Azure App Service from within Visual Studio Code. App Service provides fully managed hosting for web applications including websites and web APIs.
 
 * The [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension enables you to create Azure Static Web Apps directly from VS Code. Static Web Apps is serverless and a good choice for static content hosting.
 
-* If you plan on working with containers, then install:
+* If you plan on working with containers, install:
 
-  * The [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build and work with containers locally. For example, you can run a containerized Python web app on Azure App Service using [Web Apps for Containers](https://azure.microsoft.com/services/app-service/containers/).
+  * The [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build and work with containers locally. For example, you can run a containerized Python web app on Azure App Service by using [Web Apps for Containers](https://azure.microsoft.com/services/app-service/containers/).
   
   * The [Azure Container Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps) extension to create and deploy containerized apps directly from Visual Studio Code.
 
-* There are other extensions such as the [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage), [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb), and [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extensions. You can always add these and other extensions as needed.
+* Other extensions include the [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage), [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb), and [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extensions. You can always add these and other extensions as needed.
 
-Extensions in Visual Studio Code are accessible as you would expect in a typical IDE interface and with rich keyword support using the [VS Code command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette). To access the command palette, use the key combination Ctrl+Shift+P. The command palette is a good way to see all the possible actions you can take on an Azure resource. The screenshot below shows some of the actions for App Service.
+Extensions in Visual Studio Code are accessible as you expect in a typical IDE interface. You can use rich keyword support by using the [VS Code command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette). To access the command palette, use the key combination Ctrl+Shift+P. The command palette is a good way to see all the possible actions you can take on an Azure resource. The following screenshot shows some of the actions for App Service.
 
 :::image type="content" source="./media/configure-local-development-environment/visual-studio-command-palette-small.png" alt-text="A screenshot of the Visual Studio Code command palette for App Service." lightbox="./media/configure-local-development-environment/visual-studio-command-palette.png":::
 
@@ -62,7 +62,7 @@ See [Developing inside a Container](https://code.visualstudio.com/docs/devcontai
 
 [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) is a full-featured integrated development environment (IDE) with support for Python application development and many built-in tools and extensions to access and deploy to Azure resources. While most documentation for building Python web apps on Azure focuses
 on using Visual Studio Code, Visual Studio 2022 is a great option if you already
-have it installed, you're comfortable with using it, and are using it for .NET or 
+have it installed, you're comfortable with using it, and you're using it for .NET or 
 C++ projects.
 
 * In general, see [Visual Studio | Python documentation](/visualstudio/python/) for all documentation related to using Python on Visual Studio 2022.
@@ -70,7 +70,7 @@ C++ projects.
 * For setup steps, see [Install Python support in Visual Studio](/visualstudio/python/installing-python-support-in-visual-studio) which walks you through the steps of installing the Python workload into Visual Studio 2022.
 
 * For general workflow of using Python for web development, see [Quickstart: Create your first Python web app using Visual Studio](/visualstudio/ide/quickstart-python). This article is useful for understanding how to build a Python web application
-from scratch (but does not include deployment to Azure).
+from scratch (but doesn't include deployment to Azure).
 
 * For using Visual Studio 2022 to manage Azure resources and deploy to Azure, 
 see [Azure Development with Visual Studio](/visualstudio/azure/). While much of the documentation here specifically mentions 
@@ -82,24 +82,24 @@ Azure management or deployment task, you can always use [Azure CLI commands](#az
 
 ## Working with other IDEs
 
-If you're working in another IDE that doesn't have explicit support for Azure, then you can use the Azure CLI to manage Azure resources. In the screenshot below, a simple Flask web app is open in the [PyCharm](https://www.jetbrains.com/pycharm/) IDE. The web app can be deployed to an Azure App Service using the `az webapp up` command. In the screenshot, the CLI command runs within the PyCharm embedded terminal emulator. If your IDE doesn't have an embedded emulator, your can use any terminal and the same command. The Azure CLI must be installed on your computer and be accessible in either case.
+If you're working in another IDE that doesn't have explicit support for Azure, use the Azure CLI to manage Azure resources. In the following screenshot, a simple Flask web app is open in the [PyCharm](https://www.jetbrains.com/pycharm/) IDE. You can deploy the web app to an Azure App Service by using the `az webapp up` command. In the screenshot, the CLI command runs within the PyCharm embedded terminal emulator. If your IDE doesn't have an embedded emulator, you can use any terminal and the same command. The Azure CLI must be installed on your computer and be accessible in either case.
 
 :::image type="content" source="./media/configure-local-development-environment/pycharm-ide-create-web-app-example-small.png" alt-text="A screenshot of the PyCharm IDE with an Azure CLI command deploying a web app." lightbox="./media/configure-local-development-environment/pycharm-ide-create-web-app-example.png":::
 
 ## Azure CLI commands
 
-When working locally with web apps using the [Azure CLI](/cli/azure/) commands, you'll typically work with the following commands:  
+When you work locally with web apps by using the [Azure CLI](/cli/azure/) commands, you typically use the following commands:  
 
 |Command   |Description|
 |----------|-----------|
 |[az webapp](/cli/azure/webapp) | Manages web apps. Includes the subcommands [create](/cli/azure/webapp#az-webapp-create) and [up](/cli/azure/webapp#az-webapp-up) to create a web app or to create and deploy from a local workspace, respectively. |
-|[az&nbsp;container&nbsp;app](/cli/azure/containerapp) | Manages Azure Container Apps. |
-|[az&nbsp;staticwebapp](/cli/azure/staticwebapp) | Manages Azure Static Web Apps. |
+|[az container app](/cli/azure/containerapp) | Manages Azure Container Apps. |
+|[az staticwebapp](/cli/azure/staticwebapp) | Manages Azure Static Web Apps. |
 |[az group](/cli/azure/group)  | Manages resource groups and template deployments. Use the subcommand [create](/cli/azure/group#az-group-create) to make a resource group to put your Azure resources in.|
 |[az appservice](/cli/azure/appservice) | Manages App Service plans.  |
 |[az config](/cli/azure/reference-index#az-config) | Manages Azure CLI configuration. To save keystrokes, you can define a default location or resource group that other commands use automatically.|
 
-Here's an example Azure CLI command to create a web app and associated resources, and deploy it to Azure in one command using [az webapp up](/cli/azure/webapp#az-webapp-up). Run the command in the root directory of your web app.
+Here's an example Azure CLI command to create a web app and associated resources, and deploy it to Azure in one command by using [az webapp up](/cli/azure/webapp#az-webapp-up). Run the command in the root directory of your web app.
 
 #### [bash](#tab/terminal-bash)
 
@@ -121,15 +121,15 @@ az webapp up `
 
 ---
 
-For more about this example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?tabs=azure-cli).
+For more information about this example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?tabs=azure-cli).
 
-Keep in mind that for some of your Azure workflow you can also use the Azure CLI from an [Azure Cloud Shell](/azure/cloud-shell/overview). Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. 
+Keep in mind that for some of your Azure workflow, you can also use the Azure CLI from an [Azure Cloud Shell](/azure/cloud-shell/overview). Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. 
 
 ## Azure SDK key packages
 
-In your Python web apps, you can refer programmatically to Azure services using the [Azure SDK for Python](/python/api/overview/azure/). This SDK is discussed extensively in the section [Use the Azure libraries (SDK) for Python](https://azure.github.io/azure-sdk-for-python/). In this section, we'll briefly mention some key packages of the SDK that you'll use in web development. And, we'll show an example around the best practices for authenticating your code with Azure resources.
+In your Python web apps, you can refer programmatically to Azure services by using the [Azure SDK for Python](/python/api/overview/azure/). The section [Use the Azure libraries (SDK) for Python](https://azure.github.io/azure-sdk-for-python/) discusses this SDK extensively. In this section, you learn about some key packages of the SDK that you use in web development. You also see an example that follows best practices for authenticating your code with Azure resources.
 
-Below are some of the packages commonly used in web app development. You can install packages in your virtual environment directly with `pip`. Or put the Python package index (Pypi) name in your *requirements.txt* file.
+The following table lists some of the packages commonly used in web app development. You can install packages in your virtual environment directly by using `pip`. Or, put the Python package index (PyPI) name in your *requirements.txt* file.
 
 |SDK docs   |Install | Python package index |
 |---------------------|--------|----------------------|
@@ -138,7 +138,7 @@ Below are some of the packages commonly used in web app development. You can ins
 |[Azure Cosmos DB](/python/api/overview/azure/cosmos-readme) | `pip install azure-cosmos`| [azure-cosmos](https://pypi.org/project/azure-cosmos/) |
 |[Azure Key Vault Secrets](/python/api/overview/azure/keyvault-secrets-readme) | `pip install azure-keyvault-secrets`| [azure-keyvault-secrets](https://pypi.org/project/azure-keyvault-secrets/) |
 
-The [azure-identity](https://pypi.org/project/azure-identity/) package allows your web app to authenticate with Microsoft Entra ID. For authentication in your web app code, it's recommended that you use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) in the `azure-identity` package. Here's an example of how to access Azure Storage. The pattern is similar for other Azure resources.
+The [azure-identity](https://pypi.org/project/azure-identity/) package allows your web app to authenticate with Microsoft Entra ID. For authentication in your web app code, use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) in the `azure-identity` package. The following example shows how to access Azure Storage. The pattern is similar for other Azure resources.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -150,17 +150,17 @@ blob_service_client = BlobServiceClient(
     credential=azure_credential)
 ```
 
-The `DefaultAzureCredential` will look in predefined locations for account information, for example, in environment variables or from the Azure CLI sign-in. For in-depth information on the `DefaultAzureCredential` logic, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](sdk/authentication-overview.md).
+The `DefaultAzureCredential` looks in predefined locations for account information, such as environment variables or the Azure CLI sign-in. For in-depth information on the `DefaultAzureCredential` logic, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](sdk/authentication-overview.md).
 
 ## Python-based web frameworks
 
-In Python web app development, you often work with Python-based web frameworks. These frameworks provide functionality, such as page templates, session management, database access, and easy access to HTTP request and response objects. Frameworks enable you to avoid the need for you to have to reinvent the wheel for common functionality.
+In Python web app development, you often work with Python-based web frameworks. These frameworks provide functionality, such as page templates, session management, database access, and easy access to HTTP request and response objects. Frameworks enable you to avoid reinventing the wheel for common functionality.
 
-Three common Python web frameworks are [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/2.1.x/), or [FastAPI](https://fastapi.tiangolo.com/). These and other web frameworks can be used with Azure.
+Three common Python web frameworks are [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/2.1.x/), and [FastAPI](https://fastapi.tiangolo.com/). You can use these and other web frameworks with Azure.
 
-Below is an example of how you might get started quickly with these frameworks locally. Running these commands, you'll end up with an application, albeit a simple one that could be deployed to Azure. Run these commands inside a [virtual environment](./configure-local-development-environment.md#configure-python-virtual-environment).
+The following example shows how you might get started quickly with these frameworks locally. When you run these commands, you end up with an application, albeit a simple one that you could deploy to Azure. Run these commands inside a [virtual environment](./configure-local-development-environment.md#configure-python-virtual-environment).
 
-**Step 1:**  Download the frameworks with [pip](https://pip.pypa.io/en/stable/cli/pip_install/).
+**Step 1:**  Download the frameworks by using [pip](https://pip.pypa.io/en/stable/cli/pip_install/).
 ### [Django](#tab/django)
 
 ```
@@ -186,7 +186,7 @@ pip install "uvicorn[standard]"
 
 ### [Django](#tab/django)
 
-Create a sample project using the [django-admin startproject](https://docs.djangoproject.com/en/4.0/ref/django-admin/#startapp) command. The project includes a *manage.py* file that is the entry point for running the app.
+Create a sample project by using the [django-admin startproject](https://docs.djangoproject.com/en/4.0/ref/django-admin/#startapp) command. The project includes a *manage.py* file that serves as the entry point for running the app.
 
 ```
 django-admin startproject hello_world
@@ -248,7 +248,7 @@ flask run
 
 ### [FastAPI](#tab/fastapi)
 
-Use the ASGI server installed.
+Use the installed ASGI server.
 
 ```
 uvicorn main:app --reload
@@ -280,7 +280,7 @@ http://127.0.0.1:8000/
 ---
 
 
-At this point, add a *requirements.txt* file and then you can deploy the web app to Azure or containerize it with Docker and then deploy it. 
+At this point, add a *requirements.txt* file. Then, deploy the web app to Azure or containerize it by using Docker and deploy it. 
 
 ## Next steps
 
