@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a Python web app from GitHub Codespaces to Azure using an azd template
 description: Quickstart article featuring the use of GitHub Codespaces to create and publish an azd template.
-ms.date: 12/16/2024
+ms.date: 2/28/2026
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-extended-azdevcli
 ---
