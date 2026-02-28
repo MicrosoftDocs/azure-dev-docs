@@ -10,23 +10,21 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 During local development, applications need to authenticate to Azure to access various Azure services. This article explains how to use an application service principal as one of two common approaches for local authentication.
 
-:::image type="content" source="../../../includes/authentication/media/mermaidjs/local-service-principal-authentication.svg" alt-text="A diagram showing how an app running in local developer obtains the application service principal from an .env file and then uses that identity to connect to Azure resources.":::
-
-### Key learning objectives
-
 - How to register an application with Microsoft Entra to create a service principal
 - How to use Microsoft Entra groups to efficiently manage permissions
 - How to assign roles to scope permissions
 - How to authenticate using a service principal from your app code
 
-### Benefits of service principals
+Using dedicated application service principals allows you to adhere to the principle of least privilege when accessing Azure resources. Permissions are limited to the specific requirements of the app during development, preventing accidental access to Azure resources intended for other apps or services. This approach also helps avoid issues when the app is moved to production by ensuring it isn't over-privileged in the development environment.
 
-Using dedicated application service principals allows you to adhere to the principle of least privilege when accessing Azure resources. Permissions are limited to the specific requirements of the app during development, preventing accidental access to Azure resources intended for other apps or services.
+:::image type="content" source="../../../includes/authentication/media/mermaidjs/local-service-principal-authentication.svg" alt-text="A diagram showing how an app running in local developer obtains the application service principal from an .env file and then uses that identity to connect to Azure resources.":::
 
-### Best practices
+When the app is registered in Azure, an application service principal is created. For local development:
 
-- Create a separate app registration for each developer working on the app to ensure each developer has their own application service principal
-- Create a separate app registration for each app to limit the app's permissions to only what is necessary
+- Create a separate app registration for each developer working on the app to ensure each developer has their own application service principal, avoiding the need to share credentials.
+- Create a separate app registration for each app to limit the app's permissions to only what is necessary.
+
+During local development, environment variables are set with the application service principal's identity. The Azure Identity library reads these environment variables to authenticate the app to the required Azure resources.
 
 [!INCLUDE [Register the app in Azure](<../../../includes/authentication/create-app-registration.md>)]
 
@@ -38,7 +36,9 @@ Using dedicated application service principals allows you to adhere to the princ
 
 ## Set the app environment variables
 
-The Azure Identity library reads environment variables to authenticate the service principal to Azure at runtime. Configure the following environment variables:
+At runtime, certain credentials from the [Azure Identity library for Python](/python/api/overview/azure/identity-readme), such as `DefaultAzureCredential`, `EnvironmentCredential`, and `ClientSecretCredential`, search for service principal information by convention in the environment variables. There are multiple ways to configure environment variables when working with Python, depending on your tooling and environment.
+
+Regardless of the approach you choose, configure the following environment variables for a service principal:
 
 - `AZURE_CLIENT_ID`: The application ID of the registered app in Azure.
 - `AZURE_TENANT_ID`: The ID of the Microsoft Entra tenant.
@@ -74,7 +74,7 @@ load_dotenv()
 
 ### [Visual Studio Code](#tab/vscode)
 
-Set variables in `.vscode/launch.json` in your project:
+In Visual Studio Code, environment variables can be set in the `launch.json` file of your project. These values are pulled in automatically when the app starts. However, these configurations don't travel with your app during deployment, so you need to set up environment variables on your target hosting environment.
 
 ```json
 {
@@ -96,7 +96,9 @@ Set variables in `.vscode/launch.json` in your project:
 }
 ```
 
-### [Windows Command Line](#tab/windows-cmd)
+### [Windows](#tab/windows)
+
+You can set environment variables for Windows from the command line. However, the values are accessible to all apps running on that operating system and could cause conflicts, so use caution with this approach. Environment variables can be set at the user or system level.
 
 ```bash
 setx AZURE_CLIENT_ID "<your-client-id>"
@@ -104,9 +106,7 @@ setx AZURE_TENANT_ID "<your-tenant-id>"
 setx AZURE_CLIENT_SECRET "<your-client-secret>"
 ```
 
-After running these commands, restart any open terminals or applications to pick up the new environment variables.
-
-### [PowerShell](#tab/powershell)
+PowerShell can also be used to set environment variables at the user or system level:
 
 ```powershell
 [Environment]::SetEnvironmentVariable("AZURE_CLIENT_ID", "<your-client-id>", "User")
