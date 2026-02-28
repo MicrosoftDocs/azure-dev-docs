@@ -10,13 +10,13 @@ ms.custom: devx-track-python
 
 This tutorial shows you how to containerize a Python [Flask][9] or [FastAPI][10] web app and deploy it to [Azure Container Apps][1]. Azure Container Apps uses [Docker][4] container technology to host both built-in images and custom images. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
-In this tutorial, you use the [Docker CLI][7] and the [Azure CLI][17] to create a Docker image and deploy it to Azure Container Apps. You can also deploy with [Visual Studio Code][3] and the [Azure Tools Extension][5].
+In this tutorial, you use the [Docker CLI][7] and the [Azure CLI][17] to create a Docker image and deploy it to Azure Container Apps. You can also deploy by using [Visual Studio Code][3] and the [Azure Tools Extension][5].
 
 ## Prerequisites
 
 To complete this tutorial, you need:
 
-* An Azure account where you can deploy a web app to [Azure Container Apps][1]. (An [Azure Container Registry][11] and [Log Analytics workspace][12] are created for you in the process.)
+* An Azure account where you can deploy a web app to [Azure Container Apps][1]. (The process creates an [Azure Container Registry][11] and [Log Analytics workspace][12] for you.)
 
 * [Azure CLI][17], [Docker][4], and the [Docker CLI][7] installed in your local environment.
 
@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quicksta
 
 ## Add Dockerfile and \.dockerignore files
 
-Add a *Dockerfile* to instruct Docker how to build the image. The *Dockerfile* specifies the use of [Gunicorn][24], a production-level web server that forwards web requests to the Flask and FastAPI frameworks. The ENTRYPOINT and CMD commands instruct Gunicorn to handle requests for the app object.
+Add a *Dockerfile* to instruct Docker how to build the image. The *Dockerfile* specifies the use of [Gunicorn][24], a production-level web server that forwards web requests to the Flask and FastAPI frameworks. The ENTRYPOINT and CMD commands instructs Gunicorn to handle requests for the app object.
 
 ### [Flask](#tab/web-app-flask)
 
@@ -62,7 +62,7 @@ EXPOSE 50505
 ENTRYPOINT ["gunicorn", "--config", "gunicorn.conf.py", "app:app"]
 ```
 
-`50505` is used for the container port (internal) in this example, but you can use any free port.
+This example uses `50505` for the container port (internal), but you can use any free port.
 
 Check the *requirements.txt* file to make sure it contains `gunicorn`.
 
@@ -70,9 +70,9 @@ Check the *requirements.txt* file to make sure it contains `gunicorn`.
 
 ## Configure gunicorn
 
-Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where `gunicorn` is run, you don't need to specify its location in the `ENTRYPOINT` or `CMD` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22].
+You can configure Gunicorn by using a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is in the same directory where you run `gunicorn`, you don't need to specify its location in the `ENTRYPOINT` or `CMD` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22].
 
-In this tutorial, the suggested configuration file configures GUnicorn to increase its number of workers based on the number of CPU cores available. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
+In this tutorial, the suggested configuration file configures Gunicorn to increase its number of workers based on the number of CPU cores available. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
 
 ```text
 # Gunicorn configuration file
@@ -116,7 +116,7 @@ EXPOSE 3100
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "3100", "--workers", "4"]
 ```
 
-`3100` is used for the container port (internal) in this example, but you can use any free port.
+This example uses `3100` for the container port (internal), but you can use any free port.
 
 Check the *requirements.txt* file to make sure it contains `uvicorn`.
 
@@ -159,7 +159,7 @@ Run the image locally in a Docker container.
 docker run --detach --publish 5000:50505 flask-demo
 ```
 
-Open the ```http://localhost:5000``` URL in your browser to see the web app running locally.
+Open `http://localhost:5000` in your browser to see the web app running locally.
 
 ### [FastAPI](#tab/web-app-fastapi)
 
@@ -167,7 +167,7 @@ Open the ```http://localhost:5000``` URL in your browser to see the web app runn
 docker run --detach --publish 3100:3100 fastapi-demo
 ```
 
-Open the ```http://localhost:3100``` URL in your browser to see the web app running locally.
+Open `http://localhost:3100` in your browser to see the web app running locally.
 
 ---
 
@@ -195,24 +195,24 @@ az containerapp up \
 
 ---
 
-When deployment completes, you have a resource group with the following resources inside of it:
+When the deployment finishes, you have a resource group with the following resources inside it:
 
 * An Azure Container Registry
 * A Container Apps Environment
 * A Container App running the web app image
 * A Log Analytics workspace
 
-The URL for the deployed app is in the output of the `az containerapp up` command. Open the URL in your browser to see the web app running in Azure. The form of the URL will look like the following `https://web-aca-app.<generated-text>.<location-info>.azurecontainerapps.io`, where the `<generated-text>` and `<location-info>` are unique to your deployment.
+The output of the `az containerapp up` command includes the URL for the deployed app. Open the URL in your browser to see the web app running in Azure. The URL looks like the following `https://web-aca-app.<generated-text>.<location-info>.azurecontainerapps.io`, where the `<generated-text>` and `<location-info>` are unique to your deployment.
 
 ## Make updates and redeploy
 
-After you make code updates, you can run the previous `az containerapp up` command again, which rebuilds the image and redeploys it to Azure Container Apps. Running the command again takes in account that the resource group and app already exist, and updates just the container app.
+After you make code updates, run the previous `az containerapp up` command again. The command rebuilds the image and redeploys it to Azure Container Apps. When you run the command again, it detects that the resource group and app already exist, and updates just the container app.
 
-In more complex update scenarios, you can redeploy with the [az acr build][18] and [az containerapp update][19] commands together to update the container app.
+In more complex update scenarios, you can redeploy by using the [az acr build][18] and [az containerapp update][19] commands together to update the container app.
 
 ## Clean up
 
-All the Azure resources created in this tutorial are in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
+All the Azure resources you created in this tutorial are in the same resource group. Removing the resource group removes all resources in the resource group. It's the fastest way to remove all Azure resources used for your app.
 
 To remove resources, use the [az group delete][20] command.
 
@@ -230,7 +230,7 @@ az group delete --name web-fastapi-aca-rg
 
 ---
 
-You can also remove the group in the [Azure portal][2] or in [Visual Studio Code][3] and the [Azure Tools Extension][5].
+You can also remove the group in the [Azure portal][2] or in [Visual Studio Code][3] by using the [Azure Tools Extension][5].
 
 ## Next steps
 
