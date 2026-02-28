@@ -8,9 +8,15 @@ ms.custom: devx-track-python
 
 # Authenticate to Azure resources from Python apps hosted on-premises
 
-Apps hosted outside of Azure (for example, on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. When an application service principal is created, a client ID and client secret will be generated for your app. You then store the client ID, client secret, and your tenant ID in environment variables so the Azure SDK for Python can use them to authenticate your app to Azure at runtime.
+Apps hosted outside of Azure, such as on-premises or in a third-party data center, should use an application service principal through [Microsoft Entra ID](/entra/fundamentals/whatis) to authenticate to Azure services. In the sections ahead, you learn:
 
-A different app registration should be created for each environment the app is hosted in. This allows environment-specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
+- How to register an application with Microsoft Entra to create a service principal
+- How to assign roles to scope permissions
+- How to authenticate using a service principal from your app code
+
+Using dedicated application service principals allows you to adhere to the principle of least privilege when accessing Azure resources. Permissions are limited to the specific requirements of the app during development, preventing accidental access to Azure resources intended for other apps or services. This approach also helps avoid issues when the app is moved to production by ensuring it isn't over-privileged in the development environment.
+
+A different app registration should be created for each environment the app is hosted in. This allows environment specific resource permissions to be configured for each service principal and make sure an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
 
 [!INCLUDE [Register the app in Azure](<../../../includes/authentication/create-app-registration.md>)]
 
@@ -28,9 +34,9 @@ Regardless of the approach you choose, configure the following environment varia
 - `AZURE_TENANT_ID`: The ID of the Microsoft Entra tenant.
 - `AZURE_CLIENT_SECRET`: The secret credential that was generated for the app.
 
-### [VS Code](#tab/vscode)
+### [Visual Studio Code](#tab/vscode)
 
-When running locally in Visual Studio Code, environment variables can be set in the `launch.json` file located in the `.vscode` folder of your project:
+In Visual Studio Code, environment variables can be set in the `launch.json` file located in the `.vscode` folder of your project. These values are pulled in automatically when the app starts. However, these configurations don't travel with your app during deployment, so you need to set up environment variables on your target hosting environment.
 
 ```json
 {
@@ -64,7 +70,7 @@ setx AZURE_TENANT_ID "<your-tenant-id>" /m
 setx AZURE_CLIENT_SECRET "<your-client-secret>" /m
 ```
 
-### [PowerShell](#tab/powershell)
+PowerShell can also be used to set environment variables at the user or system level:
 
 Use the following commands to set the environment variables at the user level using PowerShell:
 
@@ -114,9 +120,9 @@ AZURE_CLIENT_SECRET=<your-client-secret>
 
 ## Authenticate to Azure services from your app
 
-To authenticate Azure SDK client objects to Azure, your application should use the `ClientSecretCredential` class from the `azure-identity` package.
+The [azure-identity](https://pypi.org/project/azure-identity/) library provides various credentials—implementations of `TokenCredential` adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use `ClientSecretCredential` when working with service principals locally and in production.
 
-Start by adding the [azure-identity](https://pypi.org/project/azure-identity/) package to your application.
+Start by adding the  package to your application.
 
 ```terminal
 pip install azure-identity
