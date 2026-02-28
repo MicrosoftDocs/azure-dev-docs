@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [servicebus queue details](../includes/tools/annotations/azure-service-bus-queue-details-annotations.md)]
 # azmcp servicebus queue details
 ---

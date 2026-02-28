@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [azureterraformbestpractices get](../includes/tools/annotations/azure-terraform-best-practices-get-annotations.md)]
 # azmcp azureterraformbestpractices get
 ---

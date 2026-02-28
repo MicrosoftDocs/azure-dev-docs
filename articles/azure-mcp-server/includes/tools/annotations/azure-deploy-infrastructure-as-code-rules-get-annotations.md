@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [deploy iac rules get](../includes/tools/annotations/azure-deploy-iac-rules-get-annotations.md)]
 # azmcp deploy iac rules get
 ---

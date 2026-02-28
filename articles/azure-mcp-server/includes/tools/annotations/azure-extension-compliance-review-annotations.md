@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [extension azqr](../includes/tools/annotations/azure-extension-compliance-review-annotations.md)]
 # azmcp extension azqr
 ---

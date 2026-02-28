@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [applicationinsights recommendation list](../includes/tools/annotations/azure-application-insights-recommendation-list-annotations.md)]
 # azmcp applicationinsights recommendation list
 ---
