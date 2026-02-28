@@ -76,9 +76,7 @@ Choose an `azd` template based on the Python web framework, Azure web hosting pl
    |azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca)|
    |azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice)|
 
-   ---
-
-         The "GitHub repo" column is only for reference. Clone the repository directly only if you want to contribute changes to the template. Otherwise, follow the instructions in this quickstart to use the `azd` CLI to interact with the template in a normal workflow.
+   The "GitHub repo" column is only for reference. Clone the repository directly only if you want to contribute changes to the template. Otherwise, follow the instructions in this quickstart to use the `azd` CLI to interact with the template in a normal workflow.
 
 ## Run the template
 
