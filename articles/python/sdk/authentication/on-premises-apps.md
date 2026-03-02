@@ -120,9 +120,11 @@ AZURE_CLIENT_SECRET=<your-client-secret>
 
 ## Authenticate to Azure services from your app
 
-The [azure-identity](https://pypi.org/project/azure-identity/) library provides various credentials—implementations of `TokenCredential` adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use `ClientSecretCredential` when working with service principals locally and in production.
+The [azure-identity](https://pypi.org/project/azure-identity/) library provides various *credentials*—implementations of `TokenCredential` adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [ClientSecretCredential](/python/api/azure-identity/azure.identity.clientsecretcredential) when working with service principals locally and in production.
 
-Start by adding the  package to your application.
+### Implement the code
+
+Start by adding the package to your application.
 
 ```terminal
 pip install azure-identity
