@@ -36,7 +36,7 @@ During local development, environment variables are set with the application ser
 
 ## Set the app environment variables
 
-At runtime, certain credentials from the [Azure Identity library for Python](/python/api/overview/azure/identity-readme), such as `DefaultAzureCredential`, `EnvironmentCredential`, and `ClientSecretCredential`, search for service principal information by convention in the environment variables. There are multiple ways to configure environment variables when working with Python, depending on your tooling and environment.
+At runtime, certain credentials from the [Azure Identity library](/python/api/overview/azure/identity-readme), such as `DefaultAzureCredential`, `EnvironmentCredential`, and `ClientSecretCredential`, search for service principal information by convention in the environment variables. There are multiple ways to configure environment variables when working with Python, depending on your tooling and environment.
 
 Regardless of the approach you choose, configure the following environment variables for a service principal:
 
@@ -50,7 +50,7 @@ Since most developers work on multiple applications, using a package like [pytho
 
 The `.env` file is never checked into source control since it contains the application secret key for Azure. The standard [.gitignore](https://github.com/github/gitignore/blob/main/Python.gitignore#L115) file for Python automatically excludes the `.env` file from check-in.
 
-To use the python-dotenv package, first install the package in your application.
+To use the `python-dotenv` package, first install the package in your application:
 
 ```terminal
 pip install python-dotenv
@@ -64,7 +64,7 @@ AZURE_TENANT_ID=<your-tenant-id>
 AZURE_CLIENT_SECRET=<your-client-secret>
 ```
 
-Finally, in the startup code for your application, use the `python-dotenv` library to read the environment variables from the `.env` file on startup.
+Finally, in the startup code for your application, use the `python-dotenv` library to read the environment variables from the `.env` file on startup:
 
 ```python
 from dotenv import load_dotenv
