@@ -167,17 +167,3 @@ blob_service_client = BlobServiceClient(
     credential=credential
 )
 ```
-
-An alternative to `ClientSecretCredential` is to use `DefaultAzureCredential`, which automatically detects the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables and uses them to authenticate:
-
-```python
-from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobServiceClient
-
-credential = DefaultAzureCredential()
-
-blob_service_client = BlobServiceClient(
-    account_url="https://<my_account_name>.blob.core.windows.net",
-    credential=credential
-)
-```
