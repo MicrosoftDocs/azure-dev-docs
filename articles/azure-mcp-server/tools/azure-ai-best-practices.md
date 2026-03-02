@@ -4,7 +4,7 @@ description: "Use Azure MCP Server with Azure AI best practices tools to get AI 
 keywords: azure mcp server, azmcp, ai
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

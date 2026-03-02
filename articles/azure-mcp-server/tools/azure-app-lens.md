@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 ---
 
 # Azure App Lens tools for the Azure MCP Server overview
