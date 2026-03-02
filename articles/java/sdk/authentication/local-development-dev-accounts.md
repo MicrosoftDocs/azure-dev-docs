@@ -80,40 +80,23 @@ The [Azure Identity library](/java/api/com.azure.identity) provides implementati
 
 ### Implement the code
 
-Add the `azure-identity` dependency to your `pom.xml` file:
+1. Add the `azure-identity` dependency to your `pom.xml` file:
 
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+    </dependency>
+    ```
 
-You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code examples show you how to configure credentials for local development authentication.
+1. Choose one of the credential implementations based on your scenario.
 
-#### Use DefaultAzureCredential
+    - [Use a credential specific to your development tool](#use-a-credential-specific-to-your-development-tool): this option is best for single person or single tool scenarios.
+    - [Use a credential available for use in any development tool](#use-a-credential-available-for-use-in-any-development-tool): this option is best for open-source projects and diverse tool teams.
 
-Use `DefaultAzureCredential` for local development and Azure-hosted apps because it automatically switches between environments. In development, it discovers credentials from Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, IntelliJ IDEA, or environment variables. In Azure, it automatically discovers managed identity credentials.
+#### Use a credential specific to your development tool
 
-```java
-import com.azure.identity.DefaultAzureCredential;
-import com.azure.identity.DefaultAzureCredentialBuilder;
-import com.azure.security.keyvault.secrets.SecretClient;
-import com.azure.security.keyvault.secrets.SecretClientBuilder;
-
-// DefaultAzureCredential automatically discovers and uses the appropriate credential
-DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
-
-// Azure SDK client builders accept the credential as a parameter
-SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://<your-key-vault-name>.vault.azure.net")
-    .credential(credential)
-    .buildClient();
-```
-
-#### Use a specific tool credential
-
-When your team uses multiple development tools to authenticate with Azure, prefer a local development-optimized instance of `DefaultAzureCredential` over tool-specific credentials. However, if you need to use a specific tool credential, pass a `TokenCredential` instance corresponding to the development tool to the Azure SDK client builder. The following example shows how to authenticate by using `AzureCliCredential`:
+Pass a `TokenCredential` instance corresponding to a specific development tool to the Azure service client constructor, such as `AzureCliCredential`.
 
 ```java
 import com.azure.identity.AzureCliCredential;
@@ -136,6 +119,26 @@ Each tool credential follows the same pattern. Replace the credential type and i
 - `AzurePowerShellCredential` / `AzurePowerShellCredentialBuilder`
 - `IntelliJCredential` / `IntelliJCredentialBuilder`
 - `VisualStudioCodeCredential` / `VisualStudioCodeCredentialBuilder`
+
+#### Use a credential available for use in any development tool
+
+Use a `DefaultAzureCredential` instance optimized for all local development tools. This example requires the environment variable `AZURE_TOKEN_CREDENTIALS` set to `dev`. For more information, see [Exclude a credential type category](credential-chains.md#exclude-a-credential-type-category).
+
+```java
+import com.azure.identity.DefaultAzureCredential;
+import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.security.keyvault.secrets.SecretClient;
+import com.azure.security.keyvault.secrets.SecretClientBuilder;
+
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+    .requireEnvVars(AzureIdentityEnvVars.AZURE_TOKEN_CREDENTIALS)
+    .build();
+
+SecretClient client = new SecretClientBuilder()
+    .vaultUrl("https://<your-key-vault-name>.vault.azure.net")
+    .credential(credential)
+    .buildClient();
+```
 
 ## Next steps
 
