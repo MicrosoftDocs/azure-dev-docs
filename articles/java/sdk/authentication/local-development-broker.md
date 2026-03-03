@@ -47,7 +47,7 @@ To enable brokered authentication in your application, follow these steps:
 
 [!INCLUDE [broker-assign-roles](../../../includes/authentication/broker-assign-roles.md)]
 
-## Implement brokered authentication code
+## Implement the code
 
 The Azure Identity library supports brokered authentication by using [InteractiveBrowserCredential](/java/api/com.azure.identity.interactivebrowsercredential). The [azure-identity-broker](https://central.sonatype.com/artifact/com.azure/azure-identity-broker) library provides `InteractiveBrowserBrokerCredentialBuilder`, which creates an `InteractiveBrowserCredential` capable of using the system authentication broker. For example, to use brokered authentication in a Java console app to authenticate to Azure Key Vault with the [SecretClient](/java/api/com.azure.security.keyvault.secrets.secretclient), follow these steps:
 

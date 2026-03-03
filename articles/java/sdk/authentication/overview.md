@@ -15,11 +15,11 @@ ai-usage: ai-assisted
 
 Apps can use the Azure Identity library to authenticate to Microsoft Entra ID, which allows the apps to access Azure services and resources. This authentication requirement applies whether the app is deployed to Azure, hosted on-premises, or running locally on a developer workstation. This article describes the recommended approaches to authenticate an app to Microsoft Entra ID across different environments when using the Azure SDK client libraries.
 
-## Recommended approach for Java app authentication
+## Recommended approach for app authentication
 
 Token-based authentication through Microsoft Entra ID is the recommended approach for authenticating apps to Azure, instead of using connection strings or key-based options. The [Azure Identity library](/java/api/com.azure.identity) provides classes that support token-based authentication and enable apps to authenticate to Azure resources whether the app runs locally, on Azure, or on an on-premises server.
 
-### Advantages of token-based authentication for Java apps
+### Advantages of token-based authentication
 
 [!INCLUDE [advantages-token-based-authentication](../../../includes/authentication/advantages-token-based-authentication.md)]
 
