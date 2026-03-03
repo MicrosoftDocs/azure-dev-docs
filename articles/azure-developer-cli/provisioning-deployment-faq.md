@@ -19,10 +19,10 @@ This article provides solutions for common errors you might encounter when using
 `The template deployment failed with error: 'Authorization failed for template resource '<guid>' of type 'Microsoft.Authorization/roleAssignments'. The client '##Email##' with object id '<guid>' does not have permission to perform action 'Microsoft.Authorization/roleAssignments/write' at scope '<resourceId>'.'`
 
 **Cause:**
-You do not have sufficient permissions to assign roles in the target Azure subscription or resource group. This is common when your user account has `Contributor` access but not `Owner` or `User Access Administrator` access. `Contributor` allows you to create resources but not to grant permissions (assign roles) to those resources.
+You don't have sufficient permissions to assign roles in the target Azure subscription or resource group. This is common when your user account has `Contributor` access but not `Owner` or `User Access Administrator` access. `Contributor` allows you to create resources but not to grant permissions (assign roles) to those resources.
 
 **Resolution:**
-Ensure your account has the **Owner** or **User Access Administrator** role on the subscription or resource group you are deploying to. If you cannot be granted these roles, ask an administrator to perform the initial deployment or role assignments for you.
+Ensure your account has the **Owner** or **User Access Administrator** role on the subscription or resource group you're deploying to. If you can't be granted these roles, ask an administrator to perform the initial deployment or role assignments for you.
 For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ### Role assignment already exists
@@ -31,7 +31,7 @@ For more information, see [Azure built-in roles](/azure/role-based-access-contro
 `The role assignment already exists.`
 
 **Cause:**
-This error occurs when the deployment attempts to create a role assignment that already exists on the resource. While Azure Resource Manager (ARM) deployments are generally idempotent, certain configurations or race conditions in templates can trigger this error when redeploying.
+This error occurs when the deployment attempts to create a role assignment that already exists on the resource. While Azure Resource Manager (ARM) deployments are idempotent, certain configurations or race conditions in templates can trigger this error when redeploying.
 
 **Resolution:**
 This error is often intermittent or benign.
@@ -45,11 +45,11 @@ This error is often intermittent or benign.
 `Tenant ID, application ID, principal ID, and scope are not allowed to be updated.`
 
 **Cause:**
-You are attempting to redeploy a role assignment with properties that differ from the existing assignment. Role assignments are immutable; you cannot change the principal ID (the user/app receiving the role) or the scope of an existing assignment ID.
+You're attempting to redeploy a role assignment with properties that differ from the existing assignment. Role assignments are immutable; you can't change the principal ID (the user/app receiving the role) or the scope of an existing assignment ID.
 
 **Resolution:**
-1. **Verify parameters:** Ensure you aren't accidentally passing a different principal ID (e.g., switching between a user and a service principal) for the same role assignment resource.
-2. **Clean up:** If you need to change the assignment, manually delete the conflicting role assignment in the [Azure Portal](https://portal.azure.com) or via CLI using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete), then redeploy.
+1. **Verify parameters:** Ensure you aren't accidentally passing a different principal ID (for example, switching between a user and a service principal) for the same role assignment resource.
+2. **Clean up:** If you need to change the assignment, manually delete the conflicting role assignment in the [Azure portal](https://portal.azure.com) or via CLI using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete), then redeploy.
 
 ### Region capacity or SKU unavailable
 
@@ -60,7 +60,7 @@ You are attempting to redeploy a role assignment with properties that differ fro
 The selected Azure region is temporarily out of capacity for the requested service SKU. This is currently common with AI services (like Azure OpenAI) in popular regions like `eastus2`.
 
 **Resolution:**
-1. **Change location:** Run `azd env set AZURE_LOCATION <new-region>` to switch to a region with better availability (e.g., `swedencentral`, `westus3`, `francecentral`).
+1. **Change location:** Run `azd env set AZURE_LOCATION <new-region>` to switch to a region with better availability (for example, `swedencentral`, `westus3`, `francecentral`).
 2. **Check availability:** Use the [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) page or run `az account list-locations` to check for regions where the service and SKU are available.
 
 ### TPM quota exceeded for AI models
@@ -72,7 +72,7 @@ The selected Azure region is temporarily out of capacity for the requested servi
 Your subscription has reached its quota limit for Tokens Per Minute (TPM) for the specified Azure OpenAI model in the target region.
 
 **Resolution:**
-1. **Request Quota:** Request a quota increase via the [Azure AI Studio](https://ai.azure.com/) or Azure Portal. For more information, see [Manage Azure OpenAI Service quota](/azure/ai-services/openai/how-to/quota).
+1. **Request Quota:** Request a quota increase via the [Azure AI Studio](https://ai.azure.com/) or Azure portal. For more information, see [Manage Azure OpenAI Service quota](/azure/ai-services/openai/how-to/quota).
 2. **Change Models/Region:** Switch to a region where you have unused quota or use a different model version that fits within your limits.
 
 ### If-Match precondition failed
@@ -81,7 +81,7 @@ Your subscription has reached its quota limit for Tokens Per Minute (TPM) for th
 `The specified precondition 'If-Match = ""&lt;guid&gt;""' failed.`
 
 **Cause:**
-This typically indicates a concurrency conflict. Two processes might be trying to update the same resource simultaneously, or your local state is out of sync with the cloud resource (stale ETag).
+This issue typically indicates a concurrency conflict. Two processes might be trying to update the same resource simultaneously, or your local state is out of sync with the cloud resource (stale ETag).
 
 **Resolution:**
 Retry the operation. If the error persists:
@@ -94,8 +94,8 @@ Retry the operation. If the error persists:
 `Call to Microsoft.CognitiveServices/accounts failed. Error message: Account <resourceId> in state Accepted.`
 
 **Cause:**
-This is a timing issue where a dependent resource tries to interact with the Cognitive Services (Azure AI) account before it is fully provisioned and active.
- You can also add a [command hook](/azure/developer/azure-developer-cli/azd-extensibility) (e.g., `postprovision`) in your `azure.yaml` to pause or check for resource readiness before proceeding.
+This error is a timing issue where a dependent resource tries to interact with the Cognitive Services (Azure AI) account before it's fully provisioned and active.
+ You can also add a [command hook](/azure/developer/azure-developer-cli/azd-extensibility) (for example, `postprovision`) in your `azure.yaml` to pause or check for resource readiness before proceeding.
 
 ### Container app revision provision expired
 
@@ -109,8 +109,8 @@ The Azure Container App failed to start within the default timeout period. Commo
 *   The application takes too long to listen on the configured port.
 
 **Resolution:**
-1. **Check Logs:** View the container logs in the Azure Portal (Log Stream) or using `azd monitor` to see if the app is crashing.
-2. **Review Configuration:** Ensure the `targetPort` in your configuration matches the port your app listens on. For more troubleshooting steps, see [Troubleshooting Azure Container Apps](/azure/container-apps/troubleshooting)
-1. **Check Logs:** View the container logs in the Azure Portal (Log Stream) or using `azd monitor` to see if the app is crashing.
-2. **Review Configuration:** Ensure the `targetPort` in your configuration matches the port your app listens on.
+1. **Check Logs:** View the container logs in the Azure portal (Log Stream) or using `azd monitor` to see if the app is crashing.
+1. **Review Configuration:** Ensure the `targetPort` in your configuration matches the port your app listens on. For more troubleshooting steps, see [Troubleshooting Azure Container Apps](/azure/container-apps/troubleshooting)
+1. **Check Logs:** View the container logs in the Azure portal (Log Stream) or using `azd monitor` to see if the app is crashing.
+1. **Review Configuration:** Ensure the `targetPort` in your configuration matches the port your app listens on.
 3. **Optimize Image:** Reduce the size of your container image to speed up pulling.
