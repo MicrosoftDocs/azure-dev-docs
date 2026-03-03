@@ -1832,6 +1832,10 @@
       "redirect_url": "/azure/developer/azure-developer-cli/get-started"
     },
     {
+      "source_path": "articles/azure-developer-cli/faq.yml",
+      "redirect_url": "/azure/developer/azure-developer-cli/provisioning-deployment-faq"
+    },
+    {
       "source_path": "articles/ansible/aks-configure-kubenet-networking.md",
       "redirect_url": "/azure/developer/ansible/aks-configure-cni-networking"
     },
