@@ -13,7 +13,9 @@ ms.custom: devx-track-azdevcli
 
 This article provides answers to frequently asked questions about the Azure Developer CLI (`azd`) tooling, commands, and environments.
 
-## General
+## General questions
+
+The following section focuses on general `azd` tooling and environment questions.
 
 ### How do I uninstall Azure Developer CLI?
 
@@ -27,12 +29,14 @@ There are different options for uninstalling `azd` depending on how you original
 
 Azure CLI is a control plane tool for creating and administering Azure infrastructure such as virtual machines, virtual networks, and storage. The Azure CLI is designed around granular commands for specific administrative tasks.
 
+Visit [Azure Developer CLI vs Azure CLI](azure-developer-cli-vs-azure-cli.md) for more information.
+
 ### What is an environment name?
 
 Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. `AZURE_ENV_NAME` is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment directories.
 
 ```txt
-├── .Azure                          [This directory displays after you run add init or azd up]
+├── .Azure                          [This directory displays after you run `azd init` or `azd up`]
 │   ├── <your environment1>         [A directory to store all environment-related configurations]
 │   │   ├── .env                    [Contains environment variables]
 │   │   └── main.parameters.json    [A parameter file]
@@ -42,21 +46,24 @@ Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environ
 │   └──config.json
 ```
 
+For more information on workflows, see [azd init](azd-init-workflow.md) and [azd up](azd-up-workflow.md).
+
 ### Can I set up more than one environment?
 
-Yes. You can set up a various environments (for example, dev, test, production). You can use `azd env` to manage these environments.
+Yes. You can set up a various environments (for example, dev, test, production). You can use [azd env](work-with-environments.md) to manage these environments.
 
 ### Where is the environment configuration (.env) file stored?
 
-The .env file path is `<your-project-directory-name>\.azure\<your-environment-name>\.env`.
+The .env file path is `<your-project-directory-name>\.azure\<your-environment-name>\.env`. For more information, see [Manage environment variables](manage-environment-variables.md).
 
 ### How is the .env file used?
 
-In Azure Developer CLI, the `azd` commands refer to the .env file for environment configuration. Commands such as `azd deploy` also update the .env file with, for example, the db connection string and the Azure Key Vault endpoint.
+In Azure Developer CLI, the `azd` commands refer to the .env file for environment configuration. Commands such as [azd deploy](reference.md#azd-deploy) also update the .env file with, for example, the db connection string and the Azure Key Vault endpoint.
 
 ### I have run `azd up` in Codespaces. Can I continue my work in a local development environment?
 
 Yes. You can continue development work locally.
+
 1. Run `azd init -t <template repo>` to clone the template project to your local machine.
 2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and location as before.
 
@@ -67,12 +74,12 @@ If you experience issues with device code authentication in Codespaces (for exam
 1. Open your Codespace in VS Code Desktop using one of these methods:
     - Use the command palette (Ctrl+Shift+P on Windows or Cmd+Shift+P on MacOs) and select **Codespaces: Open in VS Code Desktop**.
     - Click the bottom left corner of the Codespace in the browser and select **Open in VS Code Desktop**).
-2. In the VS Code Desktop terminal, run `azd auth login` and complete the browser-based authentication.
+2. In the VS Code Desktop terminal, run [azd auth login](reference.md#azd-auth-login) and complete the browser-based authentication.
 3. Once authenticated, close VS Code Desktop and return to your Codespace in the browser. The authentication state should persist.
 
 ### How is the azure.yaml file used?
 
-The azure.yaml file describes the apps and types of Azure resources that are included in the template.
+The [azure.yaml](azd-schema.md) file describes the apps and types of Azure resources that are included in the template.
 
 ### What is the behavior of the `secretOrRandomPassword` function?
 
@@ -157,11 +164,21 @@ Alternatively, if you want `azd` to have access to all your tenants, you can han
 2. Switch to each of your tenants one by one. This action triggers any necessary MFA challenges and refreshes your tokens.
 3. Run `azd auth login` in your terminal. `azd` will use the browser's existing session and access tokens, which are now valid for all the tenants you visited.
 
-## Command: azd provision
+### Can I run `azd up` multiple times?
 
-### How does the command know what resources to provision?
+Yes. We use the [incremental deployment mode](/azure/azure-resource-manager/templates/deployment-modes). For more information, see [azd up](azd-up-workflow.md).
 
-The command uses Bicep templates, which are found under `<your-project-directory-name>/infra` to provision Azure resources.
+## Provisioning
+
+The following section focuses on the `azd` provisioning process.
+
+### Can I run `azd provision` multiple times?
+
+Yes. We use the [incremental deployment mode](/azure/azure-resource-manager/templates/deployment-modes). For more information, see [azd provision](reference.md#azd-provision).
+
+### How does the `azd provision` command know what resources to provision?
+
+The command uses [Bicep templates](/azure/azure-resource-manager/bicep/overview), which are found under `<your-project-directory-name>/infra` to provision Azure resources.
 
 ### Where can I find what resources are provisioned in Azure?
 
@@ -179,17 +196,19 @@ For other resources, see [Troubleshoot common Azure deployment errors - Azure Re
 
 Coming soon. This feature is planned for a future release.
 
-## Command: azd deploy
+## Deployment
 
-### Can I rerun this command?
+The following section focuses on the `azd` deployment process.
 
-Yes.
+### Can I run `azd deploy` multiple times?
+
+Yes. See [azd deploy](reference.md#azd-deploy) for more information.
 
 ### How does azd find the Azure resource to deploy my code to?
 
 During deploy, `azd` first discovers all the resource groups that make up your application by looking for groups tagged with `azd-env-name` and with a value that matches the name of your environment. Then, it enumerates all the resources in each of these resource groups, looking for a resource tagged with `azd-service-name` with a value that matches the name of your service from `azure.yaml`.
 
-While we recommend using tags on resources, you can also use the `resourceName` property in `azure.yaml` to provide an explicit resource name. In that case, the above logic isn't run.
+While we recommend using tags on resources, you can also use the `resourceName` property in [azure.yaml](azd-schema.md) to provide an explicit resource name. In that case, the above logic isn't run.
 
 ### How do I deploy specific services in my project while skipping others?
 
@@ -197,17 +216,9 @@ When deploying your project, you can choose to deploy specific services either b
 
 If you don't want to skip any services, be sure to either run your command from the root folder or add the `--all` flag to your command.
 
-## Command: azd up
+## Pipeline configuration
 
-### Can I rerun `azd up`?
-
-Yes. We use the [incremental deployment mode](/azure/azure-resource-manager/templates/deployment-modes).
-
-### How do I find the log file for `azd up`?
-
-Coming soon. This feature is planned for a future release.
-
-## Command: azd pipeline
+The following section focuses CI/CD pipeline configuration.
 
 ### What is an Azure service principal?
 
@@ -215,11 +226,11 @@ An Azure service principal is an identity that's created for use with apps, host
 
 ### Do I need to create an Azure service principal before I run `azd pipeline config`?
 
-No. The `azd pipeline config` command takes care of creating the Azure service principal and performing the necessary steps to store the secrets in your GitHub repo.
+No. The [azd pipeline config](configure-devops-pipeline.md) command takes care of creating the Azure service principal and performing the necessary steps to store the secrets in your GitHub repo.
 
 ### What are all the secrets stored in GitHub?
 
-The command stores four secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION, and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-github-account>/<your-repo>/secrets/actions`.
+The command stores four secrets in GitHub: `AZURE_CREDENTIALS`, `AZURE_ENV_NAME`, `AZURE_LOCATION`, and `AZURE_SUBSCRIPTION_ID`. You can override the value of each secret by going to `https://github.com/<your-github-account>/<your-repo>/secrets/actions`.
 
 ### What is OpenID Connect (OIDC), and is it supported?
 
@@ -248,7 +259,7 @@ Go to `https://github.com/<your-github-account>/<your-repo>settings/secrets/acti
 
 ### Where is the GitHub Actions file stored?
 
-The GitHub Actions file path is `<your-project-directory-name>\.github\workflows\azure-dev.yml`.
+The GitHub Actions file path is `<your-project-directory-name>\.github\workflows\azure-dev.yml`. For more information, see [Quickstart: Create a service principal and run a GitHub Action](pipeline-github-actions.md).
 
 ### In the azure-dev.yml file, can I deploy just the code in the build step?
 
