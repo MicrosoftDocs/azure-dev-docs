@@ -151,11 +151,13 @@
       href: sovereign-clouds.md
     - name: Configure a proxy
       href: configure-proxy.md
-  - name: Troubleshoot
+  - name: Errors and troubleshooting
     items:
-    - name: Troubleshoot
+    - name: Provisioning and deployment errors
+      href: errors-faq.md
+    - name: Tooling and environment troubleshooting
       href: troubleshoot.md
-    - name: Troubleshoot PowerShell errors
+    - name: PowerShell guidance
       href: powershell-guidance.md
   - name: Reference and resources
     items:
