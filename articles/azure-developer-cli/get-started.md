@@ -122,7 +122,7 @@ A local development environment is a great choice for traditional development wo
   
     ::: zone-end
   
-    Enter an environment name when prompted, such as `azdquickstart`, which sets a naming prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
+    Enter an environment name when prompted, such as `azdquickstart`, which sets a naming prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./tooling-environment-faq.md#what-is-an-environment-name)
   
     After you specify the environment, `azd` clones the template project to your machine and initializes the project.
 
@@ -280,7 +280,7 @@ Codespaces are a great option for developers who prefer to work in containerized
 
     | Parameter | Description |
     | --------- | ----------- |
-    | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
+    | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./tooling-environment-faq.md#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
     | `Azure Location`   | The Azure location where your resources will be deployed. |
     | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
@@ -389,7 +389,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
     | Parameter | Description |
     | --------- | ----------- |
-    | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
+    | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./tooling-environment-faq.md#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
 
 ### Open the DevContainer
 
@@ -446,4 +446,4 @@ If you want to redeploy to a different region, delete the `.azure` directory bef
 
 - [Learn how to run and debug apps with `azd`.](debug.md)
 - [Troubleshoot common problems when using Azure Developer CLI (azd).](troubleshoot.md)
-- [Read the Azure Developer CLI frequently asked questions (FAQ).](faq.yml)
+- [Read the Azure Developer CLI frequently asked questions (FAQ).](tooling-environment-faq.md)

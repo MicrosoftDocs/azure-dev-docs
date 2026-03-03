@@ -313,4 +313,4 @@ When working with an out of date version of `azd`, you'll see a warning to upgra
 > [!div class="nextstepaction"]
 > [What are Azure Developer CLI templates?](./azd-templates.md)
 > [!div class="nextstepaction"]
-> [Azure Developer CLI FAQ](./faq.yml)
+> [Azure Developer CLI FAQ](./tooling-environment-faq.md)

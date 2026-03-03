@@ -162,7 +162,7 @@
   - name: Reference and resources
     items:
     - name: Frequently asked questions (FAQ)
-      href: faq.yml
+      href: tooling-environment-faq.md
     - name: azure.yaml schema
       href: azd-schema.md
     - name: Commands reference

@@ -84,4 +84,4 @@ Visit the [Start with an existing template](start-with-existing-template.md) tut
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Developer CLI FAQ](./faq.yml)
+> [Azure Developer CLI FAQ](./tooling-environment-faq.md)
