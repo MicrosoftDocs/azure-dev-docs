@@ -88,7 +88,7 @@ The following example demonstrates a common use case of the `secretOrRandomPassw
 
 The output of `secretOrRandomPassword` should also be saved to Key Vault using Bicep for future runs. Retrieving and reusing the same secrets across deploys can prevent errors or unintended behaviors that can surface when repeatedly generating new values. To create a Key Vault and store the generated secret in it, use the Bicep code below. You can view the full sample code for these modules in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev/tree/main).
 
-```json
+```bicep
 module keyVault './core/security/keyvault.bicep' = {
 name: 'keyvault'
 scope: resourceGroup
@@ -121,7 +121,7 @@ This Bicep setup enables the following workflow for managing your secrets:
 
 Yes, but each Azure location can only have one deployment. If you've already used the selected Azure location, you'll see the deployment error:
 
-```
+```text
 InvalidTemplateDeployment: The template deployment '<env_name>' isn't valid according to the validation procedure. The tracking ID is '<tracking_id>'. See inner errors for details.
 ```
 
@@ -227,10 +227,10 @@ With [OpenID Connect](https://docs.github.com/actions/deployment/security-harden
 
 While OIDC is supported as the default for GitHub Actions and Azure Pipeline (set as **federated**), it isn't supported for Azure DevOps or Terraform.
 
-* For Azure DevOps, explicitly calling out `--auth-type` as `federated` will result in an error.
-* For Terraform:
-    * If `--auth-type` isn't defined, it will fall back to `clientcredentials` and will result in a warning.
-    * If `--auth-type` is explicitly set to `federated`, it will result in an error.
+- For Azure DevOps, explicitly calling out `--auth-type` as `federated` will result in an error.
+- For Terraform:
+  - If `--auth-type` isn't defined, it will fall back to `clientcredentials` and will result in a warning.
+  - If `--auth-type` is explicitly set to `federated`, it will result in an error.
 
 ### How do I reset the Azure service principal that's stored in GitHub Actions?
 
