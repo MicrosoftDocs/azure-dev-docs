@@ -23,6 +23,7 @@ You do not have sufficient permissions to assign roles in the target Azure subsc
 
 **Resolution:**
 Ensure your account has the **Owner** or **User Access Administrator** role on the subscription or resource group you are deploying to. If you cannot be granted these roles, ask an administrator to perform the initial deployment or role assignments for you.
+For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ### Role assignment already exists
 
@@ -36,7 +37,7 @@ This error occurs when the deployment attempts to create a role assignment that 
 This error is often intermittent or benign.
 
 1. **Retry the deployment:** Run `azd up` or `azd deploy` again.
-2. **Check Bicep templates:** If you maintain the template, ensure role assignments use valid `name` properties (often strictly deterministic GUIDs) to ensure idempotency.
+2. **Check Bicep templates:** If you maintain the template, ensure role assignments use valid `name` properties (often strictly deterministic GUIDs) to ensure idempotency. Use the [guid()](/azure/azure-resource-manager/bicep/bicep-functions-string#guid) Bicep function to generate deterministic names.
 
 ### Tenant ID, principal ID, or scope not allowed to be updated
 
@@ -48,7 +49,7 @@ You are attempting to redeploy a role assignment with properties that differ fro
 
 **Resolution:**
 1. **Verify parameters:** Ensure you aren't accidentally passing a different principal ID (e.g., switching between a user and a service principal) for the same role assignment resource.
-2. **Clean up:** If you need to change the assignment, manually delete the conflicting role assignment in the Azure Portal or via CLI, then redeploy.
+2. **Clean up:** If you need to change the assignment, manually delete the conflicting role assignment in the [Azure Portal](https://portal.azure.com) or via CLI using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete), then redeploy.
 
 ### Region capacity or SKU unavailable
 
@@ -60,7 +61,7 @@ The selected Azure region is temporarily out of capacity for the requested servi
 
 **Resolution:**
 1. **Change location:** Run `azd env set AZURE_LOCATION <new-region>` to switch to a region with better availability (e.g., `swedencentral`, `westus3`, `francecentral`).
-2. **Check availability:** Use the [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) page to find regions where the service and SKU are available.
+2. **Check availability:** Use the [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) page or run `az account list-locations` to check for regions where the service and SKU are available.
 
 ### TPM quota exceeded for AI models
 
@@ -71,7 +72,7 @@ The selected Azure region is temporarily out of capacity for the requested servi
 Your subscription has reached its quota limit for Tokens Per Minute (TPM) for the specified Azure OpenAI model in the target region.
 
 **Resolution:**
-1. **Request Quota:** Request a quota increase via the [Azure AI Studio](https://ai.azure.com/) or Azure Portal.
+1. **Request Quota:** Request a quota increase via the [Azure AI Studio](https://ai.azure.com/) or Azure Portal. For more information, see [Manage Azure OpenAI Service quota](/azure/ai-services/openai/how-to/quota).
 2. **Change Models/Region:** Switch to a region where you have unused quota or use a different model version that fits within your limits.
 
 ### If-Match precondition failed
@@ -83,7 +84,9 @@ Your subscription has reached its quota limit for Tokens Per Minute (TPM) for th
 This typically indicates a concurrency conflict. Two processes might be trying to update the same resource simultaneously, or your local state is out of sync with the cloud resource (stale ETag).
 
 **Resolution:**
-Retry the operation. If the error persists, ensure no other deployments (CI/CD pipelines, other colleagues) are targeting the same environment simultaneously.
+Retry the operation. If the error persists:
+1. Ensure no other deployments (CI/CD pipelines, other colleagues) are targeting the same environment simultaneously.
+2. If using Bicep, verify that your template correctly defines dependencies (`dependsOn`) to prevent parallel modifications to the same resource.
 
 ### Cognitive Services account in state Accepted
 
@@ -92,9 +95,7 @@ Retry the operation. If the error persists, ensure no other deployments (CI/CD p
 
 **Cause:**
 This is a timing issue where a dependent resource tries to interact with the Cognitive Services (Azure AI) account before it is fully provisioned and active.
-
-**Resolution:**
-Wait a few minutes and retry the deployment (`azd deploy` or `azd provision`). The resource will likely transition to "Succeeded" shortly.
+ You can also add a [command hook](/azure/developer/azure-developer-cli/azd-extensibility) (e.g., `postprovision`) in your `azure.yaml` to pause or check for resource readiness before proceeding.
 
 ### Container app revision provision expired
 
@@ -108,6 +109,8 @@ The Azure Container App failed to start within the default timeout period. Commo
 *   The application takes too long to listen on the configured port.
 
 **Resolution:**
+1. **Check Logs:** View the container logs in the Azure Portal (Log Stream) or using `azd monitor` to see if the app is crashing.
+2. **Review Configuration:** Ensure the `targetPort` in your configuration matches the port your app listens on. For more troubleshooting steps, see [Troubleshooting Azure Container Apps](/azure/container-apps/troubleshooting)
 1. **Check Logs:** View the container logs in the Azure Portal (Log Stream) or using `azd monitor` to see if the app is crashing.
 2. **Review Configuration:** Ensure the `targetPort` in your configuration matches the port your app listens on.
 3. **Optimize Image:** Reduce the size of your container image to speed up pulling.
