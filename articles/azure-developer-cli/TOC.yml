@@ -151,16 +151,18 @@
       href: sovereign-clouds.md
     - name: Configure a proxy
       href: configure-proxy.md
-  - name: Troubleshoot
+  - name: Errors, troubleshooting, and FAQs
     items:
-    - name: Troubleshoot
-      href: troubleshoot.md
-    - name: Troubleshoot PowerShell errors
+    - name: Provisioning and deployment errors FAQ
+      href: provisioning-deployment-faq.md
+    - name: Tooling and environment FAQ
+      href: tooling-environment-faq.md
+    - name: PowerShell guidance
       href: powershell-guidance.md
   - name: Reference and resources
     items:
     - name: Frequently asked questions (FAQ)
-      href: faq.yml
+      href: tooling-environment-faq.md
     - name: azure.yaml schema
       href: azd-schema.md
     - name: Commands reference
