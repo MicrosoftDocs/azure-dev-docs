@@ -315,7 +315,7 @@
 | Resource Management - MySQL | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-mysql/v/5.1.0) | [docs](/javascript/api/overview/azure/arm-mysql-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql) |
 | Resource Management - MySQL Flexible | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/3.1.0)<br>npm [4.0.0-beta.4](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/4.0.0-beta.4) | [docs](/javascript/api/overview/azure/arm-mysql-flexible-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_3.1.0/sdk/mysql/arm-mysql-flexible/)<br>GitHub [4.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_4.0.0-beta.4/sdk/mysql/arm-mysql-flexible/) |
 | Resource Management - Neon Postgres | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-neonpostgres/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-neonpostgres-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-neonpostgres_1.0.0/sdk/neonpostgres/arm-neonpostgres/) |
-| Resource Management - NetApp Files | npm [22.0.0](https://www.npmjs.com/package/@azure/arm-netapp/v/22.0.0)<br>npm [22.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-netapp/v/22.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-netapp-readme) | GitHub [22.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
+| Resource Management - NetApp Files | npm [23.0.0](https://www.npmjs.com/package/@azure/arm-netapp/v/23.0.0) | [docs](/javascript/api/overview/azure/arm-netapp-readme) | GitHub [23.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
 | Resource Management - Network | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-network/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network-rest) |
 | Resource Management - Network | npm [36.0.0](https://www.npmjs.com/package/@azure/arm-network/v/36.0.0) | [docs](/javascript/api/overview/azure/arm-network-readme) | GitHub [36.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network) |
 | Resource Management - Network Cloud | npm [1.3.0](https://www.npmjs.com/package/@azure/arm-networkcloud/v/1.3.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-networkcloud/v/2.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-networkcloud-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.3.0/sdk/networkcloud/arm-networkcloud/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_2.0.0-beta.1/sdk/networkcloud/arm-networkcloud/) |
@@ -417,7 +417,7 @@
 | @microsoft.azure/autorest-core | npm [2.0.4432](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4432) |  |  |
 | @microsoft.azure/autorest.testserver | npm [3.3.51](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.51) |  |  |
 | @microsoft.azure/openapi-validator | npm [2.2.4](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.4) |  |  |
-| @microsoft.azure/openapi-validator-rulesets | npm [2.2.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.2.3) |  |  |
+| @microsoft.azure/openapi-validator-rulesets | npm [2.2.4](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.2.4) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | @typespec/bundler | npm [0.5.0](https://www.npmjs.com/package/@typespec/bundler/v/0.5.0) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.9](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.9) |  |  |
@@ -428,13 +428,13 @@
 | App Configuration Provider | npm [3.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/3.0.0-preview) |  |  |
 | App Configuration Provider | npm [2.4.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.4.0) |  |  |
 | App Configuration Provider File Source | npm [3.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/3.0.0-preview) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.23](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.23) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.23](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.23) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.23](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.23) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.23](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.23) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.23](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.23) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.23](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.23) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.23](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.23) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.24](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.24) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.24](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.24) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.24](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.24) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.24](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.24) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.24](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.24) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.24](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.24) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.24](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.24) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
