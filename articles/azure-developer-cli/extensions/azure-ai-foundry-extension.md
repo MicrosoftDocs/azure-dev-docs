@@ -156,7 +156,7 @@ When `azd up` finishes, the output shows the Microsoft Foundry project endpoint,
 `azd` automatically configures secure access patterns so you don't have to manage credentials manually:
 
 - **Managed identity**: Your agent uses the Foundry project's system-assigned managed identity to authenticate with other Azure resources.
-- **Role assignments**: `azd` grants required permissions automatically (for example, giving your agent access to Azure AI services, storage, or databases).
+- **Role assignments**: `azd` grants required permissions automatically (for example, giving your agent access to Foundry Tools, storage, or databases).
 - **Endpoint security**: Agent endpoints use Microsoft Entra ID (Azure AD) authentication by default, so only authorized users or applications can call your agent.
 
 These security configurations follow Azure best practices and work out of the box, so you start with a secure foundation.
@@ -274,4 +274,4 @@ Drive consistency across teams.
 - [Microsoft Foundry documentation](/azure/ai-foundry/)
 - [Agent Framework repository (samples and tools)](https://github.com/microsoft/agent-framework)
 - [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev)
-- [AI Foundry starter template](https://github.com/Azure-Samples/ai-foundry-starter-basic)
+- [Foundry starter template](https://github.com/Azure-Samples/ai-foundry-starter-basic)

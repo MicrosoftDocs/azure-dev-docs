@@ -1,5 +1,5 @@
 ---
-title: "Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK"
+title: "Develop reasoning apps with DeepSeek models on Microsoft Foundry using the OpenAI SDK"
 description: "Learn how to use reasoning models like DeepSeek in Azure OpenAI with the OpenAI SDK for Python."
 ms.date: 01/30/2026
 ms.topic: how-to 
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As an AI app developer, I want to learn how to use reasoning models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python.
 ---
-# Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK
+# Develop reasoning apps with DeepSeek models on Microsoft Foundry using the OpenAI SDK
 
 Learn how to use reasoning models like DeepSeek in Azure OpenAI with the OpenAI SDK for Python.
 
@@ -38,7 +38,7 @@ The app relies on these services and components:
 
 - A Python [Quart](https://quart.palletsprojects.com/en/latest/) app that uses the [OpenAI client library](https://pypi.org/project/openai/) package to generate responses to user messages
 - A basic HTML/JS frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream)
-- [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure AI Services, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
+- [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Foundry Tools, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
 
 ## Cost
 

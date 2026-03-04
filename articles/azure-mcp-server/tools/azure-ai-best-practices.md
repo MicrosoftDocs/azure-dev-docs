@@ -21,7 +21,7 @@ The Azure MCP Server allows you to get best practices for building AI applicatio
 
 <!-- azureaibestpractices get -->
 
-Returns best practices and code generation guidance for building AI applications in Azure. Use this tool when you need recommendations on how to write code for AI agents, chatbots, workflows, or other AI features. This tool also provides guidance for code generation using the Azure resources (for example [Azure AI Foundry](/azure/ai-foundry/)) for application development only. 
+Returns best practices and code generation guidance for building AI applications in Azure. Use this tool when you need recommendations on how to write code for AI agents, chatbots, workflows, or other AI features. This tool also provides guidance for code generation using the Azure resources (for example [Microsoft Foundry](/azure/ai-foundry/)) for application development only. 
 
 <!-- No parameters for this tool -->
 
@@ -33,5 +33,5 @@ Returns best practices and code generation guidance for building AI applications
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure AI Foundry](/azure/ai-foundry/)
+- [Foundry](/azure/ai-foundry/)
 

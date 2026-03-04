@@ -54,7 +54,7 @@ Use the following link to begin modernizing applications with GitHub Copilot:
 
 After you modernize on Azure, applications can integrate with Azure AI capabilities and services:
 
-- **Azure AI Foundry**: Access to over 11,000 AI models
+- **Microsoft Foundry**: Access to over 11,000 AI models
 - **AI agent services**: Built-in capabilities for intelligent application features
 - **Observe performance**: Real-time insights into AI-powered application performance
 - **Ensure content safety**: Responsible AI implementation at scale
