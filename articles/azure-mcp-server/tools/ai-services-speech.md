@@ -27,16 +27,16 @@ Recognize speech from an audio file using [Speech](/azure/ai-services/speech-ser
 
 Example prompts include:
 
-- **Basic conversion**: "Convert the audio file ./meeting-recording.wav to text using endpoint https://myservice.cognitiveservices.azure.com/ with Azure Speech Services"
-- **With language detection**: "Recognize speech from file ./recording.mp3 using endpoint https://myservice.cognitiveservices.azure.com/ with language detection"
-- **With profanity filtering**: "Transcribe speech from file ./interview.wav using endpoint https://myservice.cognitiveservices.azure.com/ with profanity option removed"
-- **Specify endpoint**: "Convert speech to text from file ./audio.wav using endpoint https://myservice.cognitiveservices.azure.com/"
-- **Spanish language**: "Transcribe the audio file ./session.wav using endpoint https://myservice.cognitiveservices.azure.com/ in es-ES language"
-- **Detailed output**: "Convert speech to text from file ./audio.wav using endpoint https://myservice.cognitiveservices.azure.com/ with detailed output format"
-- **With phrase hints**: "Recognize speech from file ./notes.wav using endpoint https://myservice.cognitiveservices.azure.com/ with phrase hints 'Azure' for better accuracy"
-- **Multiple phrase hints**: "Transcribe file ./meeting.wav using endpoint https://myservice.cognitiveservices.azure.com/ with phrase hints: 'Azure', 'cognitive services', 'machine learning'"
-- **Comma-separated hints**: "Convert speech to text from file ./podcast.mp3 using endpoint https://myservice.cognitiveservices.azure.com/ with phrase hints: 'Azure, cognitive services, API'"
-- **Raw profanity output**: "Transcribe audio from file ./audio.wav using endpoint https://myservice.cognitiveservices.azure.com/ with profanity option raw"
+- **Basic conversion**: "Convert the audio file ./meeting-recording.wav to text using endpoint `https://myservice.cognitiveservices.azure.com/` with Azure Speech Services"
+- **With language detection**: "Recognize speech from file ./recording.mp3 using endpoint `https://myservice.cognitiveservices.azure.com/` with language detection"
+- **With profanity filtering**: "Transcribe speech from file ./interview.wav using endpoint `https://myservice.cognitiveservices.azure.com/` with profanity option removed"
+- **Specify endpoint**: "Convert speech to text from file ./audio.wav using endpoint `https://myservice.cognitiveservices.azure.com/`"
+- **Spanish language**: "Transcribe the audio file ./session.wav using endpoint `https://myservice.cognitiveservices.azure.com/` in es-ES language"
+- **Detailed output**: "Convert speech to text from file ./audio.wav using endpoint `https://myservice.cognitiveservices.azure.com/` with detailed output format"
+- **With phrase hints**: "Recognize speech from file ./notes.wav using endpoint `https://myservice.cognitiveservices.azure.com/` with phrase hints 'Azure' for better accuracy"
+- **Multiple phrase hints**: "Transcribe file ./meeting.wav using endpoint `https://myservice.cognitiveservices.azure.com/` with phrase hints: 'Azure', 'cognitive services', 'machine learning'"
+- **Comma-separated hints**: "Convert speech to text from file ./podcast.mp3 using endpoint `https://myservice.cognitiveservices.azure.com/` with phrase hints: 'Azure, cognitive services, API'"
+- **Raw profanity output**: "Transcribe audio from file ./audio.wav using endpoint `https://myservice.cognitiveservices.azure.com/` with profanity option raw"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -59,8 +59,8 @@ Convert text to speech using Speech. This command takes text input and generates
 
 Example prompts include:
 
-- **Basic synthesis**: "Convert the text 'Hello, welcome to Foundry Tools' to speech using endpoint https://myservice.cognitiveservices.azure.com/ and save to output.wav"
-- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my custom voice my-custom-voice under service 'https://myservice.cognitiveservices.azure.com/' and endpoint "guid-endpoint.
+- **Basic synthesis**: "Convert the text 'Hello, welcome to Foundry Tools' to speech using endpoint `https://myservice.cognitiveservices.azure.com/` and save to output.wav"
+- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my custom voice my-custom-voice under service `https://myservice.cognitiveservices.azure.com/` and endpoint "guid-endpoint"
 - **Different language**: "Generate Spanish speech for 'Bienvenido a Azure' and save to welcome-es.wav using my speech endpoint https://myresource.cognitiveservices.azure.com/ in es-ES language"
 
 | Parameter |  Required or optional | Description |
