@@ -85,7 +85,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 Identify all identity providers and all Spring Cloud applications that require authentication and/or authorization. For information on how you can configure identity providers, see the following resources:
 
 * For OAuth2 configuration, see the [Spring Cloud Security quickstart](https://spring.io/projects/spring-cloud-security).
-* For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization).
+* For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5).
 * For PingFederate Spring Security configuration, see the [Auth0 PingFederate instructions](https://auth0.com/authenticate/java-spring-security/ping-federate/).
 
 #### Resources configured through VMware Tanzu Application Service (TAS) (formerly Pivotal Cloud Foundry)
