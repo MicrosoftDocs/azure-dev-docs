@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [datadog monitoredresources list](../includes/tools/annotations/azure-datadog-monitored-resources-list-annotations.md)]
 # azmcp datadog monitoredresources list
 ---

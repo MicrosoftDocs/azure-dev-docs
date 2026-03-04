@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server to discover and manage availa
 keywords: azure mcp server, azmcp, tools, tool management
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

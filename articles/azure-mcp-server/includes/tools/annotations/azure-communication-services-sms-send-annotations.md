@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [communication sms send](../includes/tools/annotations/azure-communication-services-sms-send-annotations.md)]
 # azmcp communication sms send
 ---

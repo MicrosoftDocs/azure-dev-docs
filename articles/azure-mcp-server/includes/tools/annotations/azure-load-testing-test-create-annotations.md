@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [loadtesting test create](../includes/tools/annotations/azure-load-testing-test-create-annotations.md)]
 # azmcp loadtesting test create
 ---

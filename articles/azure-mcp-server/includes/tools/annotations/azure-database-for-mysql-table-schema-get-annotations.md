@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [mysql table schema get](../includes/tools/annotations/azure-database-for-mysql-table-schema-get-annotations.md)]
 # azmcp mysql table schema get
 ---

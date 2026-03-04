@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [monitor metrics query](../includes/tools/annotations/azure-monitor-metrics-query-annotations.md)]
 # azmcp monitor metrics query
 ---

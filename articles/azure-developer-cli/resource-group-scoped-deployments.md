@@ -62,4 +62,4 @@ Alternatively, if you do not have a resource group specified in your environment
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Developer CLI FAQ](./faq.yml)
+> [Azure Developer CLI FAQ](./tooling-environment-faq.md)

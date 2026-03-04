@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [keyvault key get](../includes/tools/annotations/azure-key-vault-key-get-annotations.md)]
 # azmcp keyvault key get
 ---

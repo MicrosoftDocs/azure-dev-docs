@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [cloudarchitect design](../includes/tools/annotations/azure-cloud-architect-design-annotations.md)]
 # azmcp cloudarchitect design
 ---

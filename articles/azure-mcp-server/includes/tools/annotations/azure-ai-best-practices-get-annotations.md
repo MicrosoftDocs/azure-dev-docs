@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/13/2025
+ms.date: 02/27/2026
 # [!INCLUDE [azureaibestpractices get](../includes/tools/annotations/azure-ai-best-practices-get-annotations.md)]
 # azmcp azureaibestpractices get
 ---

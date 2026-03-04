@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [kusto table schema](../includes/tools/annotations/azure-data-explorer-table-schema-annotations.md)]
 # azmcp kusto table schema
 ---

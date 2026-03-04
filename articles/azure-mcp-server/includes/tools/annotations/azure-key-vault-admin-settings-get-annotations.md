@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [keyvault admin settings get](../includes/tools/annotations/azure-key-vault-admin-settings-get-annotations.md)]
 # azmcp keyvault admin settings get
 ---
