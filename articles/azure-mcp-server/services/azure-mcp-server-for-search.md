@@ -13,11 +13,11 @@ mcp-version: 2.0.0-beta.21+5fab1ed6588bc5e128601746ab9b7d58ec108a38
 
 # Use Azure MCP Server with Azure AI Search
 
-Azure Model Context Protocol (MCP) Server enables AI assistants like GitHub Copilot, Claude Desktop, and others to interact with Azure AI Search through natural language commands. This integration allows you to manage full-text search capabilities for indexed data without writing code or remembering complex CLI syntax.
+Azure Model Context Protocol (MCP) Server enables AI assistants like GitHub Copilot, Claude Desktop, and others to interact with Azure AI Search through natural language commands. This integration allows you to manage search resources and query both indexed and remote data without writing code or remembering complex CLI syntax.
 
 ## Overview
 
-Azure AI Search is a cloud-based search service that provides powerful full-text search capabilities over large datasets. It allows users to quickly find relevant information by querying extensive indexes and knowledge bases that store both structured and unstructured data.
+Azure AI Search is a cloud-based search service that supports full-text, vector, and hybrid search over scattered enterprise content. You can load and query an index for classic search scenarios, or you can use a knowledge base for agentic retrieval over indexed and remote data.
 
 With Azure MCP Server integration, you can use natural language to:
 
@@ -35,7 +35,7 @@ To use the Azure MCP Server with Azure Functions, you need:
 Before using Azure MCP Server with Azure AI Search, ensure you have:
 
 - **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
-- **Azure AI Search service** - You need to have at least one Azure AI Search service provisioned to utilize its features.
+- **Azure AI Search service**: You need to have at least one Azure AI Search service provisioned to use its features.
 - **Azure permissions**: Appropriate roles like Search Service Contributor or Search Index Data Reader to perform the operations you want. See [Connect to Azure AI Search using roles](/azure/search/search-security-rbac?tabs=roles-portal-admin).
 
 [!INCLUDE [mcp-prerequisites](../includes/mcp-prerequisites.md)]
@@ -60,7 +60,7 @@ For detailed parameter information and usage examples, see the [Azure AI Search 
 Ready to use Azure MCP Server with your Azure AI Search resources?
 
 1. **Set up your environment**: Choose an AI assistant or development tool that supports MCP. For setup and authentication instructions, see the links in the [Where can you use Azure MCP Server?](#where-can-you-use-azure-mcp-server) section above.
-2. **Start exploring**: Ask your AI assistant questions about your function apps or request operations. Try prompts like:
+2. **Start exploring**: Ask your AI assistant questions about your search resources. Try prompts like:
   - "Get details of the search index named 'products'."
   - "Query the search index 'products' for items with 'laptop' in the title."
   - "Retrieve information from knowledge base 'faq-kb' with the question 'What are the return policies?'."
