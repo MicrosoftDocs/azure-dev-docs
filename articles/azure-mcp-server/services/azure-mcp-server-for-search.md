@@ -60,7 +60,7 @@ Azure MCP Server provides the following tools for Azure AI Search operations:
 | `search knowledge source get` | Get details of knowledge sources utilized in Azure AI Search. |
 | `search service list` | List all Azure AI Search services available in the subscription. |
 
-For detailed information about each tool, including parameters and examples, see [Azure AI Search tools for Azure MCP Server](../tools/search.md).
+For detailed information about each tool, including parameters and examples, see [Azure AI Search tools for Azure MCP Server](../tools/azure-ai-search.md).
 
 ## Get started
 
