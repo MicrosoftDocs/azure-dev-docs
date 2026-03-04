@@ -1,6 +1,6 @@
 ---
 title: Use Azure MCP Server with Azure AI Search
-description: Learn how to use Azure Model Context Protocol (MCP) Server to interact with Azure AI Search using natural language commands through AI assistants.
+description: Learn how to use Azure Model Context Protocol (MCP) Server to interact with Azure AI Search using natural-language commands through AI assistants.
 ms.date: 02/20/2026
 author: diberry
 content_well_notification:
@@ -13,7 +13,7 @@ mcp-version: 2.0.0-beta.21+5fab1ed6588bc5e128601746ab9b7d58ec108a38
 
 # Use Azure MCP Server with Azure AI Search
 
-Azure Model Context Protocol (MCP) Server enables AI assistants like GitHub Copilot, Claude Desktop, and others to interact with Azure AI Search through natural language commands. This integration allows you to manage full-text search capabilities for indexed data without writing code or remembering complex CLI syntax.
+Azure Model Context Protocol (MCP) Server enables AI assistants like GitHub Copilot, Claude Desktop, and others to interact with Azure AI Search through natural-language commands. This integration allows you to manage full-text search capabilities for indexed data without writing code or remembering complex CLI syntax.
 
 ## Overview
 
