@@ -1,6 +1,6 @@
 ---
-title: Azure AI Speech Tools
-description: Learn how to use the Azure MCP Server with Azure AI Speech.
+title: Azure Speech in Foundry Tools
+description: Learn how to use the Azure MCP Server with Azure Speech in Foundry Tools.
 keywords: azure mcp server, azmcp, ai speech services, speech recognition, speech to text, text to speech, cognitive services, azure services
 author: diberry
 ms.author: diberry
@@ -11,9 +11,9 @@ ai-usage: ai-assisted
 ms.topic: concept-article
 ms.custom: build-2025
 ---
-# Azure AI Speech tools for the Azure MCP Server overview
+# Azure Speech in Foundry Tools for the Azure MCP Server overview
 
-Use the Azure MCP Server to manage Azure AI Speech functionalities such as speech-to-text (STT) and text-to-speech (TTS) with natural language prompts.
+Use the Azure MCP Server to manage Azure Speech in Foundry Tools functionalities such as speech-to-text (STT) and text-to-speech (TTS) with natural language prompts.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -23,7 +23,7 @@ Use the Azure MCP Server to manage Azure AI Speech functionalities such as speec
 <!-- speech stt recognize -->
 
 
-Recognize speech from an audio file using [Azure AI Services Speech](/azure/ai-services/speech-service/speech-to-text). This command takes an audio file and converts it to text using advanced speech recognition capabilities. Supported audio formats include WAV, MP3, OPUS/OGG, FLAC, ALAW, MULAW, MP4, M4A, and AAC. Compressed formats require GStreamer to be installed on the system.
+Recognize speech from an audio file using [Speech](/azure/ai-services/speech-service/speech-to-text). This command takes an audio file and converts it to text using advanced speech recognition capabilities. Supported audio formats include WAV, MP3, OPUS/OGG, FLAC, ALAW, MULAW, MP4, M4A, and AAC. Compressed formats require GStreamer to be installed on the system.
 
 Example prompts include:
 
@@ -55,11 +55,11 @@ Example prompts include:
 
 <!-- speech tts synthesize -->
 
-Convert text to speech using Azure AI Services Speech. This command takes text input and generates an audio file using advanced neural text-to-speech capabilities.
+Convert text to speech using Speech. This command takes text input and generates an audio file using advanced neural text-to-speech capabilities.
 
 Example prompts include:
 
-- **Basic synthesis**: "Convert the text 'Hello, welcome to Azure AI Services' to speech using endpoint https://myservice.cognitiveservices.azure.com/ and save to output.wav"
+- **Basic synthesis**: "Convert the text 'Hello, welcome to Foundry Tools' to speech using endpoint https://myservice.cognitiveservices.azure.com/ and save to output.wav"
 - **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my custom voice my-custom-voice under service 'https://myservice.cognitiveservices.azure.com/' and endpoint "guid-endpoint.
 - **Different language**: "Generate Spanish speech for 'Bienvenido a Azure' and save to welcome-es.wav using my speech endpoint https://myresource.cognitiveservices.azure.com/ in es-ES language"
 
@@ -81,4 +81,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure AI Services tools](/azure/ai-services)
+- [Foundry Tools](/azure/ai-services)

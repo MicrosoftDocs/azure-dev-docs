@@ -80,11 +80,11 @@ items:
           href: tools/azure-advisor.md
         - name: Application Insights
           href: tools/application-insights.md
-        - name: Azure AI Foundry
+        - name: Microsoft Foundry
           href: tools/azure-foundry.md
         - name: Azure AI Search
           href: tools/azure-ai-search.md
-        - name: Azure AI Speech
+        - name: Azure Speech in Foundry Tools
           href: tools/ai-services-speech.md
         - name: Azure App Configuration
           href: tools/app-configuration.md

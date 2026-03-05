@@ -1,6 +1,6 @@
 ---
-title: Azure AI Foundry Tools - Azure MCP Server
-description: Learn how to use the Azure MCP Server with Azure AI Foundry to manage your AI models and deployments.
+title: Microsoft Foundry Tools - Azure MCP Server
+description: Learn how to use the Azure MCP Server with Microsoft Foundry to manage your AI models and deployments.
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: concept-article
@@ -10,13 +10,13 @@ content_well_notification:
 ai-usage: ai-assisted
 ---
 
-# Azure AI Foundry tools for the Azure MCP Server overview
+# Microsoft Foundry tools for the Azure MCP Server overview
 
-The Azure MCP Server enables you to manage Azure resources, including Azure AI Foundry models and deployments, with natural language prompts. This capability helps you quickly manage your AI models without needing to remember complex syntax.
+The Azure MCP Server enables you to manage Azure resources, including Microsoft Foundry models and deployments, with natural language prompts. This capability helps you quickly manage your AI models without needing to remember complex syntax.
 
-[Azure AI Foundry](/azure/ai-foundry/) is a platform for deploying and managing custom AI models in Azure. It provides tools and services for training, fine-tuning, deploying, and monitoring AI models in production environments. With Azure AI Foundry, you can more easily incorporate AI capabilities into your applications.
+[Foundry](/azure/ai-foundry/) is a platform for deploying and managing custom AI models in Azure. It provides tools and services for training, fine-tuning, deploying, and monitoring AI models in production environments. With Foundry, you can more easily incorporate AI capabilities into your applications.
 
-When connecting to your Azure AI Foundry resource, the Azure MCP Server requires either the **endpoint** or the **resource group** of your Azure AI Foundry resource. For operations that don't require a specific resource, such as listing available models, neither the endpoint or resource group is required.
+When connecting to your Foundry resource, the Azure MCP Server requires either the **endpoint** or the **resource group** of your Foundry resource. For operations that don't require a specific resource, such as listing available models, neither the endpoint or resource group is required.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -36,7 +36,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The ID of the agent to interact with. |
 | **Query** |  Required | The query sent to the agent. |
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -46,7 +46,7 @@ Example prompts include:
 
 <!-- foundry agents create -->
 
-Creates an AI Foundry Agent that processes messages according to a given system instruction using an existing AI Foundry model deployment.
+Creates a Foundry Agent that processes messages according to a given system instruction using an existing Foundry model deployment.
 
 Example prompts include:
 
@@ -56,7 +56,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Model deployment** |  Required | Name of the model deployment. |
 | **Agent name** |  Required | A human-readable name of the Agent. |
 | **System instruction** |  Required | System instruction for the agent to follow when process messages. |
@@ -81,7 +81,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Endpoint** |  Required |  The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 | **Query** |  Required | The query sent to the agent. |
 | **Evaluator** |  Required | The name of the evaluator to use (`intent_resolution`, `tool_call_accuracy`, `task_adherence`). |
@@ -96,12 +96,12 @@ Example prompts include:
 
 <!-- foundry agents get-sdk-sample -->
 
-Get code samples to interact with a Foundry Agent using AI Foundry SDK and programming language of your choice.
+Get code samples to interact with a Foundry Agent using Foundry SDK and programming language of your choice.
 
 Example prompts include: 
 
 - **Get Python sample**: "Show me a Python code sample for interacting with a Foundry Agent"
-- **Get C# sample**: "Generate a csharp code example to work with my AI Foundry agent"
+- **Get C# sample**: "Generate a csharp code example to work with my Foundry agent"
 - **Get TypeScript sample**: "Provide a typescript sample code for connecting to and using a Foundry Agent"
 
 | Parameter |  Required or optional | Description |
@@ -117,7 +117,7 @@ Example prompts include:
 <!-- foundry agents list -->
 
 
-List all Azure AI Agents in an Azure AI Foundry project. Shows agents that can be used for AI workflows, evaluations, and interactive tasks. 
+List all Azure AI Agents in a Foundry project. Shows agents that can be used for AI workflows, evaluations, and interactive tasks. 
 
 Example prompts include:
 
@@ -129,7 +129,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`.|
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`.|
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -151,7 +151,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 | **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 | **Agent ID** |  Required | The ID of the agent to interact with. |
@@ -167,9 +167,9 @@ Example prompts include:
 
 <!-- foundry knowledge index list -->
 
-Get a list of knowledge indexes from Azure AI Foundry:
+Get a list of knowledge indexes from Foundry:
 
-- Find knowledge indexes created within Azure AI Foundry projects.
+- Find knowledge indexes created within Foundry projects.
 - Use these indexes with AI agents for knowledge retrieval and RAG applications.
 - The list updates as you create new indexes or update existing ones.
 
@@ -183,7 +183,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`|
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`|
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -193,7 +193,7 @@ Example prompts include:
 
 <!-- foundry knowledge index schema -->
 
-Get the detailed schema configuration of a specific knowledge index from Azure AI Foundry.
+Get the detailed schema configuration of a specific knowledge index from Foundry.
 
 This operation shows you comprehensive information about the structure and configuration of a knowledge index, including field definitions, data types, searchable attributes, and other schema properties. Use this schema information to understand how the index structures and indexes your data for searching.
 
@@ -203,7 +203,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 | **Index** |  Required | The name of the knowledge index. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -214,20 +214,20 @@ Example prompts include:
 
 <!-- foundry models list -->
 
-List all available Azure OpenAI models and deployments in an AI Foundry resource. This tool retrieves information about Azure OpenAI models deployed in your AI Foundry resource including model names, versions, capabilities, and deployment status.
+List all available Azure OpenAI models and deployments in a Foundry resource. This tool retrieves information about Azure OpenAI models deployed in your Foundry resource including model names, versions, capabilities, and deployment status.
 
 Example prompts include:
 
-- **View all models**: "Show me all available AI models in Azure AI Foundry"
-- **Filter by free usage**: "List all free models available for prototyping in Azure AI Foundry that I can use in the playground"
-- **Filter by free usage**: "List all free models available for prototyping in Azure AI Foundry"
-- **Filter by publisher**: "Show me models published by Microsoft in Azure AI Foundry"
-- **Filter by license**: "What models with Apache license are available in Azure AI Foundry?"
-- **Search by name**: "Find the llama model in Azure AI Foundry"
+- **View all models**: "Show me all available AI models in Foundry"
+- **Filter by free usage**: "List all free models available for prototyping in Foundry that I can use in the playground"
+- **Filter by free usage**: "List all free models available for prototyping in Foundry"
+- **Filter by publisher**: "Show me models published by Microsoft in Foundry"
+- **Filter by license**: "What models with Apache license are available in Foundry?"
+- **Search by name**: "Find the llama model in Foundry"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Search for free playground** | Optional | If set to true, returns a list of models from Azure AI Foundry that you can also use with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Azure AI Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
+| **Search for free playground** | Optional | If set to true, returns a list of models from Foundry that you can also use with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
 | **Publisher** | Optional | A filter to specify the publisher of the models to retrieve. |
 | **License** | Optional | A filter to specify the license type of the models to retrieve. |
 | **Model** | Optional | The name of the model to search for. |
@@ -240,23 +240,23 @@ Example prompts include:
 
 <!-- foundry models deploy -->
 
-Deploy an AI model to your Azure environment. Use this command to deploy selected models from Azure AI Foundry and make them available for use in your applications.
+Deploy an AI model to your Azure environment. Use this command to deploy selected models from Foundry and make them available for use in your applications.
 
 Example prompts include:
 
 - **Deploy with required parameters**: "Deploy GPT-4 model in OpenAI format to my ai-services account in resource group 'my-resource-group'"
-- **Specify deployment name**: "Set up a deployment named text-embedding for the Ada embedding model in my AI services account in resource group 'my-resource-group' with Standard SKU"
-- **Include model version**: "Deploy version 2 of Llama model from Meta to my Azure AI services account in resource group 'my-resource-group' with scale capacity of 3"
+- **Specify deployment name**: "Set up a deployment named text-embedding for the Ada embedding model in my Foundry Tools account in resource group 'my-resource-group' with Standard SKU"
+- **Include model version**: "Deploy version 2 of Llama model from Meta to my Foundry Tools account in resource group 'my-resource-group' with scale capacity of 3"
 - **Deploy to specific resource group**: "Create a deployment named content-generation with GPT-4 model in my ai-central service in resource group 'my-resource-group'"
-- **Configure scaling**: "Deploy Claude model to my Azure AI service in resource group 'my-resource-group' with autoscaling enabled and maximum capacity of 5"
+- **Configure scaling**: "Deploy Claude model to my Foundry Tool in resource group 'my-resource-group' with autoscaling enabled and maximum capacity of 5"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Deployment** | Required | The name of the Azure AI Foundry model deployment. |
+| **Deployment** | Required | The name of the Foundry model deployment. |
 | **Model** | Required | The name of the model to deploy. |
 | **Model format** | Required | The format of the model (for example, `OpenAI`, `Meta`, `Microsoft`). |
-| **Azure AI services** | Required | The name of the Azure AI services account to deploy to. |
+| **Foundry Tools** | Required | The name of the Foundry Tools account to deploy to. |
 | **Model version** | Optional | The version of the model to deploy. |
 | **Model source** | Optional | The source of the model. |
 | **SKU** | Optional | The SKU name for the deployment. |
@@ -272,7 +272,7 @@ Example prompts include:
 
 <!-- foundry models deployments list -->
 
-List model deployments in an Azure AI Foundry (Cognitive Services) project. Shows currently deployed AI models at the project level.
+List model deployments in a Foundry (Cognitive Services) project. Shows currently deployed AI models at the project level.
 
 Example prompts include:
 
@@ -284,7 +284,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Endpoint** | Required |The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
+| **Endpoint** | Required |The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -294,7 +294,7 @@ Example prompts include:
 
 <!-- foundry openai chat-completions-create -->
 
- Create chat completions using Azure OpenAI in AI Foundry. Send messages to Azure OpenAI chat models deployed in your AI Foundry resource and receive AI-generated conversational responses. Supports multi-turn conversations with message history, system instructions, and response customization.
+ Create chat completions using Azure OpenAI in Foundry. Send messages to Azure OpenAI chat models deployed in your Foundry resource and receive AI-generated conversational responses. Supports multi-turn conversations with message history, system instructions, and response customization.
 
 Example prompts include:
 
@@ -312,7 +312,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
-| **Deployment** |  Required | The name of the Azure AI Foundry model deployment. |
+| **Deployment** |  Required | The name of the Foundry model deployment. |
 | **Message array** |  Required | Array of messages in the conversation (JSON format). Each message should have `role` and `content` properties. |
 | **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
 | **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
@@ -333,7 +333,7 @@ Example prompts include:
 
 <!-- foundry openai embeddings-create -->
 
-Create embeddings using Azure OpenAI in AI Foundry. Generate vector embeddings from text using Azure OpenAI deployments in your AI Foundry resource for semantic search, similarity comparisons, clustering, or machine learning.
+Create embeddings using Azure OpenAI in Foundry. Generate vector embeddings from text using Azure OpenAI deployments in your Foundry resource for semantic search, similarity comparisons, clustering, or machine learning.
 
 Example prompts include:
 
@@ -353,7 +353,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
-| **Deployment** |  Required | The name of the Azure AI Foundry model deployment. |
+| **Deployment** |  Required | The name of the Foundry model deployment. |
 | **Input text** |  Required | The input text to generate embeddings for. |
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
 | **Encoding format** |  Optional | The format to return embeddings in (`float` or `base64`). |
@@ -367,7 +367,7 @@ Example prompts include:
 
 <!-- foundry openai create-completion -->
 
- Create text completions using Azure OpenAI in AI Foundry. Send a prompt or question to Azure OpenAI models deployed in your AI Foundry resource and receive generated text answers. Use this when you need to create completions, get AI-generated content, generate answers to questions, or produce text completions from Azure OpenAI based on any input prompt. Supports customization with temperature and max tokens. 
+ Create text completions using Azure OpenAI in Foundry. Send a prompt or question to Azure OpenAI models deployed in your Foundry resource and receive generated text answers. Use this when you need to create completions, get AI-generated content, generate answers to questions, or produce text completions from Azure OpenAI based on any input prompt. Supports customization with temperature and max tokens. 
 
 Example prompts include:
 
@@ -423,15 +423,15 @@ Example prompts include:
 
 <!-- foundry resource get -->
 
-Get detailed information about Azure AI Foundry resources, including endpoint URL, 
+Get detailed information about Foundry resources, including endpoint URL, 
 location, SKU, and all deployed models with their configuration. If a specific resource name is provided, 
-returns details for that resource only. If no resource name is provided, lists all AI Foundry resources 
+returns details for that resource only. If no resource name is provided, lists all Foundry resources 
 in the subscription or resource group. 
 
 Example prompts include:
 
-- **Get specific resource**: "Show me details for the 'ai-foundry-prod' Azure AI Foundry resource including all deployed models"
-- **List all resources**: "What Azure AI Foundry resources do I have in my subscription?"
+- **Get specific resource**: "Show me details for the 'ai-foundry-prod' Foundry resource including all deployed models"
+- **List all resources**: "What Foundry resources do I have in my subscription?"
 - **Resource with configuration**: "Get the endpoint URL, location, and SKU information for my 'customer-ai-foundry' foundry resource"
 
 | Parameter |  Required or optional | Description |
@@ -446,7 +446,7 @@ Example prompts include:
 
 <!-- foundry threads create -->
 
-Creates an AI Foundry agent thread that holds the messages between the Agent and the user.
+Creates a Foundry agent thread that holds the messages between the Agent and the user.
 
 Example prompts include:
 
@@ -456,7 +456,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **User message** |  Required | The user message to add to the thread. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -467,7 +467,7 @@ Example prompts include:
 
 <!-- foundry threads get-messages -->
 
-Get messages in an AI Foundry agent thread.
+Get messages in a Foundry agent thread.
 
 Example prompts include:
 
@@ -477,7 +477,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Thread ID** |  Required | The Foundry Agent Thread ID. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -488,7 +488,7 @@ Example prompts include:
 
 <!-- foundry threads list -->
 
-List AI Foundry agent threads.
+List Foundry agent threads.
 
 Example prompts include:
 
@@ -498,7 +498,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -508,6 +508,6 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure AI Foundry documentation](/azure/ai-foundry/)
-- [Azure AI Services overview](/azure/ai-services/)
+- [Foundry documentation](/azure/ai-foundry/)
+- [Foundry Tools overview](/azure/ai-services/)
 - [Deploy and consume models](/azure/ai-foundry/concepts/deployments-overview)

@@ -21,9 +21,9 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure AI Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Azure AI Foundry models, deployments, and endpoints. |
+| [Microsoft Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
-| [Azure AI Speech](../../tools/ai-services-speech.md) | `speech` | Manage Azure AI Speech resources such as speech-to-text and text-to-speech services. |
+| [Azure Speech in Foundry Tools](../../tools/ai-services-speech.md) | `speech` | Manage Speech resources such as speech-to-text and text-to-speech services. |
 
 ### Analytics
 
@@ -145,7 +145,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure AI Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Azure AI Foundry models, deployments, and endpoints. |
+| [Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure App Configuration](../../tools/app-configuration.md) | `appconfig` | Manage centralized application settings and feature flags. |
 | [Azure Communication Services](../../tools/azure-communication.md) | `communication` | Send SMS and email messages using Azure Communication Services. |
