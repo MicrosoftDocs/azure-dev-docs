@@ -5,7 +5,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-app-service
 ms.topic: how-to
-ms.date: 02/20/2026
+ms.date: 03/05/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-generated
@@ -27,10 +27,11 @@ Manage web applications and configure database connections using natural languag
 
 For Azure App Service developers, this means you can:
 
-- Add database connections to existing App Service resources using plain language
-- Configure database settings for web applications conversationally
-- Set up connections to SQL Server, PostgreSQL, MySQL, and other database types
-- Verify database connection configurations across environments
+- Add a database connection for an App Service
+- Retrieve detailed information about web app deployments
+- Retrieve detailed information about web apps
+- Retrieve application settings for an App Service web app
+- Update application settings for an App Service web app
 
 ## Prerequisites
 
@@ -51,19 +52,17 @@ To use the Azure MCP Server with Azure App Service, you need:
 
 ## Available tools for Azure App Service
 
-The Azure MCP Server provides one tool specifically designed for Azure App Service operations, enabling you to configure database connections through natural language conversations.
+Azure MCP Server provides the following tools for Azure App Service operations:
 
-### Add a database connection
+| Tool | Description |
+| --- | --- |
+| `appservice database add` | Add a database connection for an app using a connection string. |
+| `appservice webapp deployment get` | Retrieve detailed information about web app deployments. |
+| `appservice webapp get` | Retrieve detailed information about Azure App Service web apps. |
+| `appservice webapp settings get-appsettings` | Retrieve application settings for an App Service web app. |
+| `appservice webapp settings update-appsettings` | Update application settings for an App Service web app. |
 
-Configure a database connection for an existing App Service, linking your web application to a database resource.
-
-**Common scenarios**:
-
-- Add a SQL Server database connection to a web application
-- Configure PostgreSQL or MySQL database access for an App Service
-- Set up database connections across development and production environments
-
-For detailed information about each tool, including parameters and examples, see [Azure App Service tools for Azure MCP Server](../tools/azure-app-service.md).
+For detailed information about each tool, including parameters and examples, see [Azure App Service tools for Azure MCP Server](../tools/appservice.md).
 
 ## Get started
 
@@ -72,9 +71,11 @@ Ready to use Azure MCP Server with your Azure App Service resources?
 1. **Set up your environment**: Choose an AI assistant or development tool that supports MCP. For setup and authentication instructions, see the links in the [Where can you use Azure MCP Server?](#where-can-you-use-azure-mcp-server) section above.
 
 1. **Start exploring**: Ask your AI assistant questions about your App Service resources or request operations. Try prompts like:
-   - "Add a database connection to 'myapp' with SQL Server 'mydb' and server 'mydbserver'"
-   - "Configure database settings for 'prod-app' connecting to 'production-db' on 'prod-server'"
-   - "Set up database access for 'dev-app' using MySQL named 'dev-db' from 'dev-server'"
+   - "Add a database connection for 'myapp' to a SQL database named 'mydatabase' with Azure SQL server."
+   - "Retrieve details for deployment ID '12345' for web app 'myapp'."
+   - "Retrieve details for web app 'myapp'."
+   - "Retrieve application settings for web app 'myapp'."
+   - "Update app setting 'API_URL' for web app 'myapp' to 'https://api.example.com'."
 
 1. **Learn more**: Review the [Azure App Service tools reference](../tools/azure-app-service.md) for all available capabilities and detailed parameter information.
 
@@ -82,11 +83,8 @@ Ready to use Azure MCP Server with your Azure App Service resources?
 
 When using Azure MCP Server with Azure App Service:
 
-- **Use managed identities**: Use managed identities for secure database access without storing credentials in connection strings.
-- **Specify resource details clearly**: Always include the exact App Service name, database name, and server name to avoid ambiguity.
-- **Verify connections after setup**: Use your AI assistant to confirm that database connections are configured correctly after adding them.
-- **Review connection settings regularly**: Ensure database connection strings are up-to-date and only include necessary permissions.
-- **Combine with other tools**: Use Azure MCP Server for quick database connection setup and the Azure portal or Azure CLI for broader App Service configuration changes.
+- **Use version control for settings**: Track changes to application settings to prevent configuration drift.
+- **Verify settings before applying updates**: Use get-appsettings to confirm current settings before making changes.
 
 ## Related content
 
