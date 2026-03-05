@@ -53,7 +53,7 @@ items:
           href: services/azure-mcp-server-for-key-vault.md
         - name: Azure Redis
           href: services/azure-mcp-server-for-redis.md
-        - name: Azure Speech
+        - name: Azure Speech in Foundry Tools
           href: services/azure-mcp-speech-foundry-tools.md
     - name: Tools
       expanded: true
