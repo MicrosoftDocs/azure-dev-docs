@@ -62,7 +62,7 @@ Azure MCP Server provides the following tools for Azure App Service operations:
 | `appservice webapp settings get-appsettings` | Retrieve application settings for an App Service web app. |
 | `appservice webapp settings update-appsettings` | Update application settings for an App Service web app. |
 
-For detailed information about each tool, including parameters and examples, see [Azure App Service tools for Azure MCP Server](../tools/appservice.md).
+For detailed information about each tool, including parameters and examples, see [Azure App Service tools for Azure MCP Server](../tools/azure-app-service.md).
 
 ## Get started
 
