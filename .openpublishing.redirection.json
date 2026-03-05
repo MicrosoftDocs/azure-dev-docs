@@ -1957,6 +1957,11 @@
       "source_path": "articles/python/sdk/authentication/azure-hosted-apps.md",
       "redirect_url": "/azure/developer/python/sdk/authentication/system-assigned-managed-identity",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-mcp-server/tools/azure-health-resource.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-resource-health",
+      "redirect_document_id": false
     }
   ]
 }
