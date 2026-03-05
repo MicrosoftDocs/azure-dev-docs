@@ -27,11 +27,11 @@ Get the availability and health status for your Azure resources. This command di
 
 Example prompts include:
 
-- Get the availability status for resource `resourceId`
-- Show me the health status of the virtual machine `vm_name`
+- Get the availability status for resource `resourceId`.
+- Show me the health status of the virtual machine `vm_name`.
 - What is the availability status of storage account `storage_account_name` in resource group `resource_group_name`?
-- List availability status for all resources in subscription `subscription`
-- Show me the health status of all resources in resource group `resource_group_name`
+- List availability status for all resources in subscription `subscription`.
+- Show me the health status of all resources in resource group `resource_group_name`.
 - What resources in subscription `subscription` have health issues?
 
 | Parameter |  Required or optional | Description |
