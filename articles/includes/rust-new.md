@@ -1,9 +1,9 @@
 | Name | Package | Docs | Source |
 | ---- | ------- | ---- | ------ |
-| Core | crate [0.32.0](https://crates.io/crates/azure_core/0.32.0) |  | GitHub [0.32.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.32.0/sdk/core/azure_core) |
-| Core - AMQP | crate [0.11.0](https://crates.io/crates/azure_core_amqp/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.11.0/sdk/core/azure_core_amqp) |
-| Core - Macros | crate [0.6.0](https://crates.io/crates/azure_core_macros/0.6.0) |  | GitHub [0.6.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@0.6.0/sdk/core/azure_core_macros) |
-| Core - OpenTelemetry | crate [0.6.0](https://crates.io/crates/azure_core_opentelemetry/0.6.0) |  | GitHub [0.6.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.6.0/sdk/core/azure_core_opentelemetry) |
+| Core | crate [0.33.0](https://crates.io/crates/azure_core/0.33.0) |  | GitHub [0.33.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@0.33.0/sdk/core/azure_core) |
+| Core - AMQP | crate [0.12.0](https://crates.io/crates/azure_core_amqp/0.12.0) |  | GitHub [0.12.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@0.12.0/sdk/core/azure_core_amqp) |
+| Core - Macros | crate [0.7.0](https://crates.io/crates/azure_core_macros/0.7.0) |  | GitHub [0.7.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@0.7.0/sdk/core/azure_core_macros) |
+| Core - OpenTelemetry | crate [0.7.0](https://crates.io/crates/azure_core_opentelemetry/0.7.0) |  | GitHub [0.7.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@0.7.0/sdk/core/azure_core_opentelemetry) |
 | Cosmos DB | crate [0.31.0](https://crates.io/crates/azure_data_cosmos/0.31.0) |  | GitHub [0.31.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.31.0/sdk/cosmos/azure_data_cosmos) |
 | Event Hubs | crate [0.11.0](https://crates.io/crates/azure_messaging_eventhubs/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.11.0/sdk/eventhubs/azure_messaging_eventhubs) |
 | EventHubs Checkpoint Store for Azure Blob Storage | crate [0.5.0](https://crates.io/crates/azure_messaging_eventhubs_checkpointstore_blob/0.5.0) |  | GitHub [0.5.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs_checkpointstore_blob@0.5.0/sdk/eventhubs/azure_messaging_eventhubs_checkpointstore_blob) |
@@ -12,6 +12,6 @@
 | Key Vault - Keys | crate [0.11.0](https://crates.io/crates/azure_security_keyvault_keys/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.11.0/sdk/keyvault/azure_security_keyvault_keys) |
 | Key Vault - Secrets | crate [0.11.0](https://crates.io/crates/azure_security_keyvault_secrets/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.11.0/sdk/keyvault/azure_security_keyvault_secrets) |
 | Storage - Blobs | crate [0.9.0](https://crates.io/crates/azure_storage_blob/0.9.0) |  | GitHub [0.9.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@0.9.0/sdk/storage/azure_storage_blob) |
-| TypeSpec Client Core | crate [0.11.0](https://crates.io/crates/typespec_client_core/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.11.0/sdk/core/typespec_client_core) |
-| TypeSpec Core | crate [0.12.0](https://crates.io/crates/typespec/0.12.0) |  | GitHub [0.12.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.12.0/sdk/core/typespec) |
-| TypeSpec Core Macros | crate [0.11.0](https://crates.io/crates/typespec_macros/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.11.0/sdk/core/typespec_macros) |
+| TypeSpec Client Core | crate [0.12.0](https://crates.io/crates/typespec_client_core/0.12.0) |  | GitHub [0.12.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.12.0/sdk/core/typespec_client_core) |
+| TypeSpec Core | crate [0.13.0](https://crates.io/crates/typespec/0.13.0) |  | GitHub [0.13.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.13.0/sdk/core/typespec) |
+| TypeSpec Core Macros | crate [0.12.0](https://crates.io/crates/typespec_macros/0.12.0) |  | GitHub [0.12.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.12.0/sdk/core/typespec_macros) |
