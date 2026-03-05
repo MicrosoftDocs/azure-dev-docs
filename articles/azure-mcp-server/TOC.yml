@@ -157,7 +157,7 @@ items:
         - name: Azure Redis
           href: tools/azure-redis.md    
         - name: Azure Resource Health
-          href: tools/azure-health-resource.md
+          href: tools/azure-resource-health.md
         - name: Azure Service Bus
           href: tools/azure-service-bus.md
         - name: Azure Service Fabric
