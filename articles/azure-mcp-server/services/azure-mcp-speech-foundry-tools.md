@@ -33,8 +33,7 @@ To use the Azure MCP Server with Azure Speech in Foundry, you need:
 
 - **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [**Foundry resource**](/azure/ai-services/multi-service-resource?pivots=azcli): You must have an existing Azure AI Services endpoint to process speech and text.
-- **Azure permissions**: Appropriate roles to perform the operations you want:
-  - Cognitive Services User - Required for using speech recognition and text-to-speech capabilities.
+- **Azure permissions**: Appropriate roles to perform the operations you want. See [Azure Built-in Roles](/azure/role-based-access-control/built-in-roles).
 
 [!INCLUDE [mcp-prerequisites](../includes/mcp-prerequisites.md)]
 
