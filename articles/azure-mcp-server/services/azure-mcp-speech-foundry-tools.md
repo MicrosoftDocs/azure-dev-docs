@@ -24,7 +24,7 @@ Azure Model Context Protocol (MCP) Server enables AI assistants like GitHub Copi
 
 For Azure Speech developers, this means you can:
 
-- Recognize speech from audio files.
+- Transcribe speech from audio files.
 - Synthesize speech from text input.
 
 ## Prerequisites
@@ -32,7 +32,7 @@ For Azure Speech developers, this means you can:
 To use the Azure MCP Server with Azure Speech in Foundry, you need:
 
 - **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
-- [**Azure AI Services endpoint**](/azure/ai-services/multi-service-resource): You must have an existing Azure AI Services endpoint to process speech and text.
+- [**Foundry resource**](/azure/ai-services/multi-service-resource?pivots=azcli): You must have an existing Azure AI Services endpoint to process speech and text.
 - **Azure permissions**: Appropriate roles to perform the operations you want:
   - Cognitive Services User - Required for using speech recognition and text-to-speech capabilities.
 
