@@ -37,9 +37,7 @@ Before using Azure MCP Server with Azure AI Search, ensure you have:
 
 - **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 - **Azure AI Search service**: You need to have at least one Azure AI Search service provisioned to use its features.
-- **Azure permissions**: Appropriate roles to perform the operations you want:
-  - Search Service Contributor - Required to list services and get details of indexes and knowledge bases.
-  - Search Index Data Reader - Required for querying indexes and retrieving information from knowledge bases.
+- **Azure permissions**: Appropriate roles to perform the operations you want. See [Azure Built-in Roles](/azure/role-based-access-control/built-in-roles).
 
 [!INCLUDE [mcp-prerequisites](../includes/mcp-prerequisites.md)]
 
