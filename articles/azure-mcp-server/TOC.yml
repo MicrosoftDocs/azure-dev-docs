@@ -74,8 +74,6 @@ items:
           items: 
           - name: Azure best practices
             href: tools/azure-best-practices.md
-          - name: AI best practices
-            href: tools/azure-ai-best-practices.md
           - name: Terraform best practices for Azure
             href: tools/azure-terraform-best-practices.md
         - name: Azure Advisor

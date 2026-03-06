@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 02/27/2026
+ ms.date: 03/02/2025
 ---
 
 ## Available tools
@@ -14,8 +14,8 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure AI best practices](../../tools/azure-ai-best-practices.md) | `azureaibestpractices` | Get recommendations for building AI applications with Azure using natural language prompts. |
-| [Azure best practices](../../tools/azure-best-practices.md) | `get_bestpractices` | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
+| [Azure best practices](../../tools/azure-best-practices.md) | `get azure bestpractices get` | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
+| [Azure AI best practices for app development](../../tools/azure-best-practices.md) | `get azure bestpractices ai app` | Get best practices and code generation guidance for building AI applications in Azure. Use it when you need recommendations on writing code for AI agents, chatbots, workflows, or any AI/LLM features. Additionally, this command provides guidance for code generation on Microsoft Foundry for application development. |
 | [Terraform best practices for Azure](../../tools/azure-terraform-best-practices.md) | `azureterraformbestpractices` | Get guidance on implementing Terraform for Azure resources. |
 
 ### AI and Machine Learning
