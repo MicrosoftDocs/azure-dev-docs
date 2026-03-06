@@ -1960,7 +1960,7 @@
     },
     {
       "source_path": "articles/azure-mcp-server/tools/azure-ai-best-practices.md",
-      "redirect_url": "/azure/azure-mcp-server/tools/azure-best-practices.md",
+      "redirect_url": "/azure/azure-mcp-server/tools/azure-best-practices"
     },
     {
       "source_path": "articles/azure-mcp-server/tools/azure-health-resource.md",

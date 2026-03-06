@@ -19,7 +19,7 @@ ms.reviewer: conniey
 
 The Azure MCP Server lets you manage data retrieval and analysis, including working with AI applications and executing get commands, with natural language prompts.
 
-## Get Azure Best Practices for AI App
+## Get Azure best practices for AI app
 
 <!-- @mcpcli get azure bestpractices ai app -->
 
@@ -27,11 +27,11 @@ This command returns best practices and code generation guidance for building AI
 
 Example prompts include:
 
-- "Get best practices for code generation in AI applications"
-- "Show me code guidance for chatbots in Azure"
-- "Get recommendations for building workflows using AI components"
-- "Create an AI app that helps me improve customer interactions"
-- "Create an AI app that supports data analysis in Microsoft Foundry"
+- "Get best practices for code generation in AI applications?"
+- "Show me code guidance for chatbots in Azure?"
+- "Get recommendations for building workflows using AI components?"
+- "Create an AI app that helps me improve customer interactions?"
+- "Create an AI app that supports data analysis in Microsoft Foundry?"
 
 <!-- No parameters for this tool -->
 
@@ -47,15 +47,15 @@ This tool returns a list of best practices for code generation, operations, and 
 
 Example prompts include:
 
-- "Get the latest Azure coding agent best practices"
-- "Get the latest Azure operations best practices"
-- "Get the latest general Azure best practices"
-- "Get the latest Azure Static Web Apps code generation best practices"
-- "Get the latest Azure Static Web Apps deployment best practices"
-- "Get the latest Azure Static Web Apps best practices"
-- "Get the latest Azure Functions all best practices"
+- "Get the latest Azure coding agent best practices?"
+- "Get the latest Azure operations best practices?"
+- "Get the latest general Azure best practices?"
+- "Get the latest Azure Static Web Apps code generation best practices?"
+- "Get the latest Azure Static Web Apps deployment best practices?"
+- "Get the latest Azure Static Web Apps best practices?"
+- "Get the latest Azure Functions all best practices?"
 - "What are coding agent best practices?"
-- "Configure Azure MCP for my coding agent project"
+- "Configure Azure MCP for my coding agent project?"
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
