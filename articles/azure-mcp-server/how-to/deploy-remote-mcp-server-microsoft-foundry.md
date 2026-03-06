@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure MCP Server as a remote MCP server and
 keywords: azure mcp server, azmcp
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 11/14/2025
+ms.date: 02/27/2026
 ms.topic: how-to
 ai-usage: ai-generated
 ---
