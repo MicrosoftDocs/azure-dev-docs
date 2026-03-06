@@ -4,7 +4,7 @@ description: Learn how to connect to and consume Azure MCP Server operations wit
 keywords: azure developer cli, azd, windsurf, mcp
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/14/2025
+ms.date: 02/27/2026
 ms.topic: get-started
 ms.custom: build-2025
 ---
@@ -22,7 +22,7 @@ In this article, you learn how to complete the following tasks:
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
-- [Cursor](https://cursor.sh/) installed
+- [Windsurf](https://codeium.com/windsurf) installed
 - [Node.js](https://nodejs.org/) LTS installed
 
 ## Install the Azure MCP Server
