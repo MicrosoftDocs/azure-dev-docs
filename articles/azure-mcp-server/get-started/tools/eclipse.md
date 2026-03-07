@@ -4,7 +4,7 @@ description: Learn how to connect to and consume Azure MCP Server operations wit
 keywords: azure developer cli, azd, Eclipse, mcp
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 11/03/2025
+ms.date: 02/27/2026
 ms.topic: get-started
 ms.custom: build-2025
 ---

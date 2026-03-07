@@ -63,6 +63,8 @@ items:
           href: services/azure-mcp-server-for-key-vault.md
         - name: Azure Redis
           href: services/azure-mcp-server-for-redis.md
+        - name: Azure Speech in Foundry Tools
+          href: services/azure-mcp-speech-foundry-tools.md
     - name: Tools
       expanded: true
       items:
@@ -72,8 +74,6 @@ items:
           items: 
           - name: Azure best practices
             href: tools/azure-best-practices.md
-          - name: AI best practices
-            href: tools/azure-ai-best-practices.md
           - name: Terraform best practices for Azure
             href: tools/azure-terraform-best-practices.md
         - name: Azure Advisor
