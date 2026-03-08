@@ -22,10 +22,9 @@ Humans remain in the loop throughout, with every recommendation transparent, eve
 
 The following GitHub Copilot modernization capabilities are currently available:
 
-- **General availability**: IDE experience - Language and framework upgrades for .NET and Java
-- **General availability**: IDE experience -  Migration scenarios for Java
-- **Public preview**: modernization agent – CLI experience for application assessment and planning
-- **Public preview**: App modernization – migration scenarios for .NET
+- **General availability**: IDE experience - language and framework upgrades for .NET and Java.
+- **General availability**: IDE experience - migration scenarios for .NET and Java.
+- **Public preview**: Modernization agent - CLI experience for application assessment and planning. For more information, see [Modernization agent overview](modernization-agent/modernization-agent-overview.md).
 
 <br>
 
@@ -53,10 +52,11 @@ The following GitHub Copilot modernization capabilities are currently available:
 
 ## Get started
 
-Use the following link to begin modernizing applications with GitHub Copilot:
+Use the following links to begin modernizing applications with GitHub Copilot:
 
 - [GitHub Copilot app modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
 - [GitHub Copilot app modernization for .NET](/dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
+- [Modernization Agent](modernization-agent/modernization-agent-overview.md)
 
 After you modernize on Azure, applications can integrate with Azure AI capabilities and services:
 

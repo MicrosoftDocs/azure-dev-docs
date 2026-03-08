@@ -4,6 +4,26 @@ items:
     items:
       - name: Overview
         href: overview.md
+      - name: Modernization Agent
+        expanded: true
+        items:
+          - name: Overview
+            href: modernization-agent/modernization-agent-overview.md
+          - name: Quickstart
+            href: modernization-agent/modernization-agent-quickstart.md
+          - name: Modernize CLI commands
+            href: modernization-agent/modernization-agent-cli-commands.md
+          - name: Batch modernization
+            expanded: true
+            items:
+              - name: Batch assessment
+                href: modernization-agent/modernization-agent-batch-assess.md
+              - name: Batch upgrade
+                href: modernization-agent/modernization-agent-batch-upgrade.md
+          - name: Customization
+            href: modernization-agent/modernization-agent-customization.md
+          - name: Infrastructure and Deployment
+            href: modernization-agent/modernization-agent-infra-deployment.md
       - name: Languages and frameworks supported
         href: languages.md
       - name: Portfolio assessment integration

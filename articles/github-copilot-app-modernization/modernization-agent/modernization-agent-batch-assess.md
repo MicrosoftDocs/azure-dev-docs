@@ -1,0 +1,293 @@
+---
+title: Batch Assessment
+description: Learn how to use the GitHub Copilot modernization agent to assess multiple applications simultaneously and generate aggregated report.
+author: KarlErickson
+ms.author: karler
+ms.topic: how-to
+ai-usage: ai-assisted
+ms.date: 02/26/2026
+keywords: batch assessment, multi-repo assessment, aggregated report, scale assessment
+---
+
+# Batch assessment
+
+Batch assessment enables you to analyze multiple applications simultaneously, providing a comprehensive view of the modernization landscape across your applications. This capability is especially valuable for migration planning, as it allows you to efficiently assess the readiness and requirements of various applications at once. By leveraging batch assessment, you can evaluate different repositories at the same time and obtain detailed assessment reports for each application. It produces two kinds of reports to support your migration planning:
+- Per App Report: Provides detailed insights into all modernization issues identified at the individual repository level.
+- Aggregated Report: Presents an overall perspective of all assessed applications, offering summary insights, recommendations on Azure services, target platforms, and upgrade paths. Additionally, the aggregated report includes shortcuts for easy access to each per app report.
+
+This article guides you through the process of assessing multiple repositories in an efficient manner.
+
+## Benefits of batch assessment
+
+### Cross-applications visibility
+
+- **Aggregated reports**: Get a comprehensive view across applications
+- **Cross-repository analysis**: Identify common patterns and dependencies across applications
+- **Prioritization insights**: Understand which applications need immediate attention
+
+### Scale and efficiency
+
+- **Parallel processing**: Use Cloud Coding Agents to process multiple repositories simultaneously
+- **Automated workflows**: Integrate with CI/CD pipelines for scheduled assessment
+- **Time savings**: Reduce total assessment time from weeks to hours
+
+## Prerequisites
+
+Before performing batch assessment:
+
+- [Modernize CLI installed](modernization-agent-quickstart.md)
+- Access to all repositories you want to assess
+- GitHub authentication configured (`gh auth login`)
+
+## Configure repositories
+
+To enable batch assessment, create a `.github/modernize/repos.json` file in your working directory listing all repositories you want to assess:
+
+Please make sure you have right permission to the repos or fork them.
+
+```json
+[
+  {
+    "name": "PhotoAlbum-Java",
+    "url": "https://github.com/Azure-Samples/PhotoAlbum-Java.git"
+  },
+  {
+    "name": "PhotoAlbum",
+    "url": "https://github.com/Azure-Samples/PhotoAlbum.git"
+  },
+  {
+    "name": "eShopOnWeb",
+    "url": "https://github.com/dotnet-architecture/eShopOnWeb.git"
+  }
+]
+```
+
+### Repository configuration
+
+Each entry requires:
+
+- **name**: A friendly name for the repository (used in reports and dashboards)
+- **url**: The Git clone URL (HTTPS format)
+
+> [!TIP]
+> You can include repositories from different organizations and use different authentication methods as long as you have access.
+
+### File location
+
+The `repos.json` file must be located at:
+```
+.github/modernize/repos.json
+```
+
+This file is automatically detected by the modernization agent when running batch operations.
+
+## Run batch assessment
+There are two execution modes:
+- Local execution: Processes repositories sequentially on your local machine. Best for smaller set of applications or initial testing.
+- Cloud Coding Agent delegation: Submits tasks to GitHub Cloud Coding Agents for parallel processing in the cloud. Significantly faster for multi-repo scenarios.
+> [!TIP]
+> Cloud Coding Agent delegation enables parallel execution across all repositories, significantly reducing total assessment time for large portfolios.
+
+### Interactive mode (assess locally)
+
+1. Run the modernization agent:
+   ```bash
+   modernize
+   ```
+
+2. The agent detects the `repos.json` file and displays the repository list:
+
+:::image type="content" source="../media/modernization-agent/assess-repo-list.png" alt-text="Screenshot of Modernize CLI to display the repository list in terminal.":::
+
+3. Select repositories to assess, and press `Enter` to confirm your selection.
+   - **Press `Ctrl+A`** to select all repositories
+   - **Or use arrow keys** to navigate and press `Space` to select individual repositories
+
+4. Select **1. Assess application** from the main menu.
+
+:::image type="content" source="../media/modernization-agent/assess-understand-application-menu.png" alt-text="Screenshot of Modernize CLI to show the menu of understanding my application in terminal.":::
+
+5. To run assessment, you can choose to either assess locally or delegate to cloud coding agents. Here select **1. Assess locally**.
+
+:::image type="content" source="../media/modernization-agent/assess-locally-option.png" alt-text="Screenshot of Modernize CLI to do assess locally in terminal.":::
+
+6. The agent then will automatically:
+  - Clones all selected repositories
+  - Runs assessment on each repository one by one
+  - Generates individual assessment reports
+
+  :::image type="content" source="../media/modernization-agent/assess-individual-report-output.png" alt-text="Screenshot of Modernize CLI to display the output of individual assessment report generation in terminal.":::
+
+  - Creates an aggregated report.
+
+  :::image type="content" source="../media/modernization-agent/assess-aggregated-report-output.png" alt-text="Screenshot of Modernize CLI to display the output of the aggregated report generation in terminal.":::
+
+7. When the assessment completes, the aggregated report will be opened automatically as below.
+
+:::image type="content" source="../media/modernization-agent/assess-repo-list-report.png" alt-text="Screenshot of Modernize CLI to display the content of the aggregated report":::
+
+### Interactive mode (delegating to Cloud Coding Agents)
+
+Firstly, please do below configuration for Cloud Coding Agents in each application repository. Please fork the sample repositories to be capable of configuring Cloud Coding agents.
+
+
+#### Configuration for .NET applications
+
+**Configure to run on Windows for .NET framework application**
+
+By default, the Copilot Coding Agent runs in an Ubuntu Linux environment. For .NET Framework applications, a Windows environment is required. To enable it, please configure `.github/workflows/copilot-setup-steps.yaml` in main branch of your application repository as below:
+
+```yaml
+# Windows-based Copilot Setup Steps for .NET tasks
+# Note: Windows runners have firewall limitations that may affect some network operations
+# Use this workflow for .NET projects that require Windows-specific tooling
+
+name: "Copilot Setup Step (Windows)"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+```
+
+Learn more from: [Customizing Copilot's development environment with Copilot setup steps](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment#customizing-copilots-development-environment-with-copilot-setup-steps)
+
+**Disable Firewall** 
+
+Disable Copilot coding agent's integrated firewall in your repository settings as below:
+
+:::image type="content" source="../media/modernization-agent/disable-firewall-for-cloud-coding-agent.png" alt-text="Screenshot of repository setting to disableCopilot coding agent's integrated firewall.":::
+
+#### Configuration for Java applications
+
+Configure GitHub Copilot Modernization MCP Server in Cloud Coding Agent section of your repository settings as below.
+
+```json
+{
+  "mcpServers": {
+    "app-modernization": {
+      "type": "local",
+      "command": "npx",
+      "tools": [
+        "*"
+      ],
+      "args": [
+        "-y",
+        "@microsoft/github-copilot-app-modernization-mcp-server"
+      ]
+    }
+  }
+}
+```
+
+:::image type="content" source="../media/modernization-agent/mcp-config-cloud-coding-agent.png" alt-text="Screenshot of repository setting to configure coding agent's MCP server.":::
+
+#### Steps
+1. Run the modernization agent:
+   ```bash
+   modernize
+   ```
+
+2. The agent detects the `repos.json` file and displays the repository list:
+
+:::image type="content" source="../media/modernization-agent/assess-repo-list.png" alt-text="Screenshot of Modernize CLI to display the repository list in terminal.":::
+
+3. Select repositories to assess, and press `Enter` to confirm your selection. 
+   - **Press `Ctrl+A`** to select all repositories
+   - **Or use arrow keys** to navigate and press `Space` to select individual repositories
+
+4. Select **1. Assess applications** from the main menu.
+
+:::image type="content" source="../media/modernization-agent/assess-understand-application-menu.png" alt-text="Screenshot of Modernize CLI to show the menu of understanding my application in terminal.":::
+
+5. To run assessment, here select **2. Delegate to Cloud Coding Agents**.
+
+:::image type="content" source="../media/modernization-agent/assess-delegate-cloud-coding-agents-option.png" alt-text="Screenshot of Modernize CLI to do assess by delegating to Cloud Coding Agents in terminal.":::
+
+6. The agent then will automatically:
+  - Delegate assessment task for each repository to Cloud Coding Agents and execute them in the cloud in parallel.
+
+:::image type="content" source="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png" alt-text="Screenshot of Modernize CLI to display the output of the progress of delegating assessment to Cloud Coding Agents in terminal.":::
+
+  - Pull per app assessment result back to local and then generate the aggregated report locally
+
+ :::image type="content" source="../media/modernization-agent/assess-aggregated-report-output.png" alt-text="Screenshot of Modernize CLI to display the output of how the aggregated report gets generated locally in terminal.":::
+
+7. When the assessment completes, the aggregated report will be opened automatically same as above.
+
+### Non-interactive mode (CLI)
+
+You can also use headless mode with specifying command arguments directly. use the `modernize assess` command:
+
+**Assess locally:**
+```bash
+modernize assess --multi-repo
+```
+
+**Assess by delegating to Cloud Coding Agents:**
+```bash
+modernize assess --delegate cloud
+```
+Refer to [assess - CLI commands](./modernization-agent-cli-commands.md?#assess) for details.
+
+## Understanding the aggregated report
+
+The aggregated report provides a comprehensive view across assessed applications as below:
+#### Dashboard
+- Snapshot of portfolio health: total apps, how many need upgrades, and aggregate blocker/issue counts
+- Technology distribution — what frameworks are in use and how many apps share them
+- Effort distribution — whether the overall migration is a small or large undertaking
+#### Recommendations
+- Azure Services: maps current dependencies to recommended Azure equivalents; shared deps across apps are decided once, avoiding per-app rework
+- Target Platform: guides hosting choice (e.g., Container Apps vs. AKS) and surfaces consolidation opportunities
+- Upgrade Path: identifies which apps need framework upgrades as a prerequisite — separating upgrade work from migration work
+- Migration Waves: sequences apps by readiness and risk into phases, enabling early wins while harder apps are prepared in parallel
+#### Application Assessment Matrix
+- quick overview per application on aspects of framework, target platform, upgrade recommendation, Issue breakdown (Mandatory / Potential / Optional), Effort sizing, etc. 
+- Links to individual app reports for drill-down when needed
+
+## Troubleshooting batch assessment
+
+### Common issues
+
+**Repository access errors:**
+- Verify GitHub authentication with `gh auth status`
+- Ensure you have access to all repositories in `repos.json`
+
+**Clone failures:**
+- Verify repository URLs in `repos.json` are correct and accessible
+- Ensure you have proper access permissions to all repositories
+- Check network connectivity and VPN settings
+
+**Assessment failures:**
+- Check if the repository contains valid Java or .NET projects
+- Verify build files exist (pom.xml, build.gradle, *.csproj, *.sln)
+- Review error messages in the console output
+
+**Cloud Coding Agent delegation issues:**
+- Ensure you have proper permissions to create GitHub Actions workflows
+- Check GitHub Actions permissions and quota limits for your organization
+- For .NET Framework apps, ensure Windows runner configuration is properly set
+- Check your MCP server configuration
+
+## Next steps
+
+After completing batch assessment, you can:
+
+**Continue the modernization workflow:**
+- [Run batch upgrade across repositories](modernization-agent-batch-upgrade.md) - Apply consistent upgrades based on assessment findings
+
+**Learn more:**
+- [Create custom skills for organization-specific patterns](modernization-agent-customization.md)
+- [Learn about CLI commands](modernization-agent-cli-commands.md)
+
+## Provide feedback
+
+We value your input! If you have any feedback about batch assessment or the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot app modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
