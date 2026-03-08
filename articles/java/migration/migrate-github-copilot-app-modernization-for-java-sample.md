@@ -24,7 +24,7 @@ To help you explore GitHub Copilot app modernization, we prepared a migration co
 You can use GitHub Copilot app modernization to migrate the app estate to Azure by using the following features:
 
 - AppCAT for solution assessment
-- Predefined and custom tasks to migrate code and configurations to the following locations:
+- Predefined tasks and custom skills to migrate code and configurations to the following locations:
 
   - Azure Database for PostgreSQL
   - Azure Blob Storage

@@ -93,5 +93,5 @@ The AppModernization agent supports various migration scenarios with simple prom
 ## Next steps
 
 - [Quickstart: assess and migrate a Java project](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
-- [Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
+- [Quickstart: create and apply your own skills](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
 - [Predefined tasks for GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)

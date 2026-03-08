@@ -192,4 +192,4 @@ To remove an assessment report, right-click **Assessment Report** and then selec
 
 ## Next step
 
-[Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
+[Quickstart: create and apply your own skills](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)

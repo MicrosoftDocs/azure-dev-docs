@@ -58,7 +58,7 @@ landingContent:
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Assess and migrate a Java project
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-          - text: Create and apply your own task
+          - text: Create and apply your own skill
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Deploy your project
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json

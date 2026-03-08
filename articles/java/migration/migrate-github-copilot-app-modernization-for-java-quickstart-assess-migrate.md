@@ -110,4 +110,4 @@ The agent generates unit tests and creates a **TestReport** to show test results
 ## Next steps
 
 - [Working with assessment](migrate-github-copilot-app-modernization-for-java-working-with-assessment.md)
-- [Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
+- [Quickstart: create and apply your own skills](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)

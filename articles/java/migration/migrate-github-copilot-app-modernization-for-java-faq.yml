@@ -38,7 +38,7 @@ sections:
 
       - question: Does GitHub Copilot app modernization store my source code?
         answer: |
-          No. GitHub Copilot app modernization uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom tasks either.
+          No. GitHub Copilot app modernization uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom skills either.
 
           Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
 
@@ -168,11 +168,11 @@ sections:
       - question: Why is the code regeneration process unstable?
         answer: GitHub Copilot app modernization is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
 
-      - question: Where are tasks stored on the local machine and how can they be shared?
+      - question: Where are skills stored on the local machine and how can they be shared?
         answer: |
           Predefined tasks are in the following location: `%USERPROFILE%.vscode\extensions\microsoft.migrate-java-to-azure-0.1.0\rag`
 
-          Custom tasks are in the following location: `%USERPROFILE%.azure\migrate-copilot\custom-rule`
+          Custom skills are stored in the `.github/skills/` directory within your project. Legacy custom tasks are automatically migrated from `.github/appmod/custom-tasks/` and VS Code user data on first load.
 
       - question: How can I view more details about the code changes made by the agent?
         answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.

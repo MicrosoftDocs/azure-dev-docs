@@ -42,7 +42,7 @@ This quickstart shows you how to upgrade a Java project using GitHub Copilot app
 > [!NOTE]
 > If you're using Gradle, only the Gradle wrapper version 5+ is supported. The Kotlin Domain Specific Language (DSL) isn't supported.
 >
-> The function `My Tasks` isn't supported yet for IntelliJ IDEA.
+> The function `My Skills` isn't supported yet for IntelliJ IDEA.
 
 ## Sign in to use Copilot and then install the required extension
 
