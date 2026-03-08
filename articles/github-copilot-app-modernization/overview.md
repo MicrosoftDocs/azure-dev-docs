@@ -1,24 +1,30 @@
 ---
-title: Analyze Applications and Migrate to Azure by using GitHub Copilot App Modernization
+title: Analyze Applications and Migrate to Azure by using GitHub Copilot modernization
 titleSuffix: Azure
 description: Provides an overview of GitHub Copilot app modernization.
 author: KarlErickson
 ms.author: karler
 ms.topic: upgrade-and-migration-article
 ai-usage: ai-assisted
-ms.date: 09/23/2025
+ms.date: 03/4/2026
 ---
 
-# GitHub Copilot app modernization
+# GitHub Copilot modernization
 
-GitHub Copilot app modernization provides AI-powered agents that analyze and upgrade Java and .NET applications, and migrate them to Azure. These agents handle complex, time-consuming tasks like version upgrades, dependency analysis, and cloud-platform-specific code transformations. You can modernize applications efficiently while maintaining code quality and build integrity.
+GitHub Copilot modernization is an agentic, end-to-end solution that analyzes, upgrades, and migrates Java and .NET applications to Azure.
+
+The modernization experience is delivered through two complementary layers. The modernization agent, delivered via the Modernize CLI, enables architects and application owners to orchestrate assessment, migration planning and automate framework upgrades across multiple applications simultaneously, then seamlessly hand off plans to developers. In the IDE, developers can use GitHub Copilot modernization to execute transformations: migrating dependencies to Azure services, containerizing applications, generating infrastructure-as-code, and deploying directly to Azure.
+
+Humans remain in the loop throughout, with every recommendation transparent, every change reviewable, and every step validated.
+
 
 ## Current availability
 
-The following GitHub Copilot app modernization capabilities are currently available:
+The following GitHub Copilot modernization capabilities are currently available:
 
-- **General availability**: Language and framework upgrades for .NET and Java
-- **General availability**: App modernization – migration scenarios for Java
+- **General availability**: IDE experience - Language and framework upgrades for .NET and Java
+- **General availability**: IDE experience -  Migration scenarios for Java
+- **Public preview**: modernization agent – CLI experience for application assessment and planning
 - **Public preview**: App modernization – migration scenarios for .NET
 
 <br>
