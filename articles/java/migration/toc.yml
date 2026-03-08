@@ -23,10 +23,12 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
         - name: "Quickstart: Create and apply your own task"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md
-        - name: "Quickstart: Deploy your project"
-          href: migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md
+        - name: "Quickstart: Prepare infrastructure"
+          href: migrate-github-copilot-app-modernization-for-java-quickstart-infrastructure.md
         - name: "Quickstart: Containerize your project"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md
+        - name: "Quickstart: Deploy your project"
+          href: migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md
         - name: "Sample: Asset Manager"
           href: migrate-github-copilot-app-modernization-for-java-sample.md
         - name: Migrate from Oracle to PostgreSQL
