@@ -68,12 +68,22 @@ landingContent:
         links:
           - text: Migration sample
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-sample.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-  - title: Upgrade .NET projects
+  - title: Upgrade .NET apps
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Upgrade .NET apps
+            url: /dotnet/core/porting/github-copilot-app-modernization/overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: Install
+            url: /dotnet/core/porting/github-copilot-app-modernization/install?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: FAQ
+            url: /dotnet/core/porting/github-copilot-app-modernization/faq?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: How to upgrade a .NET app
-            url: /dotnet/core/porting/how-to-upgrade-with-github-copilot?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            url: /dotnet/core/porting/github-copilot-app-modernization/how-to-upgrade-with-github-copilot?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: How to apply custom upgrade instructions
+            url: /dotnet/core/porting/github-copilot-app-modernization/how-to-custom-upgrade-instructions?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
   - title: Migrate .NET projects to Azure
     linkLists:
       - linkListType: reference
