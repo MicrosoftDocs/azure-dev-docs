@@ -11,7 +11,7 @@
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | AI Agents | npm [1.1.0](https://www.npmjs.com/package/@azure/ai-agents/v/1.1.0) | [docs](/javascript/api/overview/azure/ai-agents-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0/sdk/ai/ai-agents/) |
 | AI Model Inference | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure-rest/ai-inference/v/1.0.0-beta.6) |  | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.6/sdk/ai/ai-inference-rest/) |
-| AI Projects | npm [1.0.1](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.1)<br>npm [2.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-projects/v/2.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-projects-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.1/sdk/ai/ai-projects/)<br>GitHub [2.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0-beta.5/sdk/ai/ai-projects/) |
+| AI Projects | npm [2.0.0](https://www.npmjs.com/package/@azure/ai-projects/v/2.0.0) | [docs](/javascript/api/overview/azure/ai-projects-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.0.0/sdk/ai/ai-projects/) |
 | App Configuration | npm [1.11.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.11.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.11.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.11.0/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.16](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.16) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.16](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.16/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
@@ -429,13 +429,13 @@
 | App Configuration Provider | npm [3.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/3.0.0-preview) |  |  |
 | App Configuration Provider | npm [2.4.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.4.0) |  |  |
 | App Configuration Provider File Source | npm [3.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/3.0.0-preview) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [1.0.2-beta.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.2-beta.1) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [1.0.2-beta.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.2-beta.1) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [1.0.2-beta.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.2-beta.1) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [1.0.2-beta.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.2-beta.1) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [1.0.2-beta.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.2-beta.1) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [1.0.2-beta.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.2-beta.1) |  |  |
-| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [1.0.2-beta.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.2-beta.1) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.25](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.25) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.25](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.25) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.25](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.25) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.25](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.25) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.25](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.25) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.25](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.25) |  |  |
+| Azure MCP | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.25](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.25) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
