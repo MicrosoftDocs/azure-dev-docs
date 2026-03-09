@@ -2,8 +2,9 @@
 title: "Quickstart: Create a new API project with TypeSpec and .NET"
 description: Learn how to generate and set up a new RESTful API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.topic: quickstart
-ms.date: 04/30/2025
+ms.date: 03/09/2026
 ms.custom: devx-track-typespec, devx-track-dotnet
+ai-usage: ai-assisted
 #zone_pivot_groups: typespec-quickstart-on-azure-languages
 #zone_pivot_group_filename: developer/typespec/zone-pivot-groups.json
 #customer intent: As a developer or API designer, I want to create an TypeSpec API and deploy it to Azure so that I can learn the entire end to end development and deployment cycle.
@@ -12,6 +13,12 @@ ms.custom: devx-track-typespec, devx-track-dotnet
 # Quickstart: Create a new API project with TypeSpec and .NET
 
 In this quickstart, you learn how to use TypeSpec to design, generate, and implement a RESTful API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
+
+In this quickstart, you build a working RESTful API service from a TypeSpec definition. You define an API contract in just a few lines of TypeSpec code, then use TypeSpec's code generator to scaffold an ASP.NET Core server application with routing, Swagger UI documentation, and Azure integration. You connect it to Azure Cosmos DB for persistence and deploy to Azure Container Apps — all from a single TypeSpec definition.
+
+For context on TypeSpec's role in API development, see [Overview of TypeSpec](overview.md).
+
+**Time to complete:** 20–25 minutes
 
 In this quickstart, you:
 
@@ -108,7 +115,10 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
     ```console
     tsp compile .
     ```
-    
+
+    > [!TIP]
+    > For iterative development, use watch mode to automatically recompile on file changes: `tsp compile . --watch`. This keeps your generated server and schema up to date as you modify `main.tsp`.
+
 1. TypeSpec generates the default project in `./tsp-output`, creating two separate folders:
 
     * schema
@@ -1077,9 +1087,72 @@ azd down
 
 Or delete the resource group directly from the Azure portal.
 
+## Troubleshooting
+
+### .NET 9 requirement not met
+
+**Error:** `Build error: This project requires .NET 9. You have <version> installed.`
+
+**Solution:**
+
+1. Check your .NET version: `dotnet --version`.
+1. Install .NET 9 from [dot.net](https://dot.net/download).
+
+### HTTPS certificate error
+
+**Error:** `System.IO.IOException: The certificate generation failed` when running `dotnet dev-certs https`
+
+**Solution:**
+
+1. Trust the existing certificate: `dotnet dev-certs https --trust`.
+1. If that fails, clean and recreate: `dotnet dev-certs https --clean`, then `dotnet dev-certs https`.
+1. On Windows, ensure you run the terminal as administrator.
+
+### @typespec/http-server-csharp emitter conflict
+
+**Error:** `Emitter error: Dependency conflict` when running `tsp compile .`
+
+**Solution:**
+
+1. Verify `tspconfig.yaml` includes both emitters under `emit:`:
+
+    ```yaml
+    emit:
+      - "@typespec/openapi3"
+      - "@typespec/http-server-csharp"
+    ```
+
+1. Clear cache: `npm cache clean --force`, then retry: `tsp compile .`.
+
+### Cosmos DB authentication fails
+
+**Error:** `Azure.Identity.AuthenticationFailedException` or `Connection string/key not set`
+
+**Solution:**
+
+1. Ensure the environment variable is set: `echo $AZURE_COSMOS_ENDPOINT` (macOS/Linux) or `echo %AZURE_COSMOS_ENDPOINT%` (Windows).
+1. For local development, set the value in `Program.cs` or an `.env` file.
+1. For production, ensure the Container App secret is configured (see the "Create deployment infrastructure" section).
+
+### Swagger UI shows 404
+
+**Error:** Browser shows `404 Not Found` at `/swagger`
+
+**Solution:**
+
+1. Verify the Swagger endpoint configuration in `Program.cs`:
+
+    ```csharp
+    c.SwaggerEndpoint("/openapi.yaml", "TypeSpec Generated OpenAPI Docs");
+    c.RoutePrefix = "swagger";
+    ```
+
+1. Ensure `openapi.yaml` is in the `wwwroot/` directory.
+1. Rebuild and restart: `dotnet clean && dotnet build && dotnet run`.
+
 ## Next steps
 
-- [TypeSpec documentation](https://microsoft.github.io/typespec/)
+- [TypeSpec documentation](https://typespec.io/docs/)
 - [Azure Cosmos DB documentation](/azure/cosmos-db/)
 - [Deploy Node.js apps to Azure](/azure/app-service/quickstart-nodejs)
 - [Azure Container Apps documentation](/azure/container-apps/)
