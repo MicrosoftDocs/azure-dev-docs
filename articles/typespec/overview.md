@@ -171,8 +171,6 @@ TypeSpec has been successfully used in various industries to streamline API desi
 * For more information on how to contribute, refer to the [contributor guide](https://github.com/microsoft/typespec/blob/main/CONTRIBUTING.md).
 * If you have questions or need assistance, feel free to [ask the community](https://github.com/microsoft/typespec/discussions) or [submit an issue on GitHub](https://github.com/microsoft/typespec/issues).
 
-TypeSpec is expanding to support new protocols, including Model Context Protocol (MCP) for AI agent integration (preview).
-
 ## Learn more
 
 Enjoy these YouTube videos for a deeper dive on TypeSpec:
