@@ -704,7 +704,7 @@
 | azure-toolkit-storage-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.55.0) |  |  |
 | Bundler Maven Plugin | Maven [0.0.5](https://central.sonatype.com/artifact/com.microsoft.azure/bundler-maven-plugin/0.0.5) |  |  |
 | codesnippet-maven-plugin | Maven [1.0.0-beta.10](https://central.sonatype.com/artifact/com.azure.tools/codesnippet-maven-plugin/1.0.0-beta.10) |  |  |
-| Functions - Maven Plugin | Maven [1.40.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.40.0) |  |  |
+| Functions - Maven Plugin | Maven [1.41.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.41.0) |  |  |
 | Maven - Plugin | Maven [0.2.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugin/0.2.0) |  |  |
 | Maven - Plugin Common | Maven [0.2.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugin-common/0.2.0) |  |  |
 | Maven - Plugin Lib | Maven [0.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/maven-plugin-lib/0.1.1) |  |  |
