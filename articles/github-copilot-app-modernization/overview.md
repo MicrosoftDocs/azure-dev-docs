@@ -1,9 +1,10 @@
 ---
-title: Analyze Applications and Migrate to Azure by using GitHub Copilot modernization
+title: Analyze Applications and Migrate to Azure by using GitHub Copilot Modernization
 titleSuffix: Azure
 description: Provides an overview of GitHub Copilot modernization.
 author: KarlErickson
 ms.author: karler
+ms.reviewer: seal
 ms.topic: upgrade-and-migration-article
 ai-usage: ai-assisted
 ms.date: 03/11/2026
@@ -71,4 +72,4 @@ After you modernize on Azure, applications can integrate with Azure AI capabilit
 
 ## Privacy statement
 
-GitHub Copilot modernization for Java uses GitHub Copilot the same way you use GitHub Copilot to modify code. This process doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom skills either. For more information, see the [Microsoft privacy statement](https://www.microsoft.com/en-us/privacy/privacystatement).
+GitHub Copilot modernization uses GitHub Copilot the same way you use GitHub Copilot to modify code. This process doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom skills either. For more information, see the [Microsoft privacy statement](https://www.microsoft.com/en-us/privacy/privacystatement).

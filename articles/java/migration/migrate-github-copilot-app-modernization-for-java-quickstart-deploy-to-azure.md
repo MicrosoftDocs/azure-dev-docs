@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploy your project to Azure by using GitHub Copilot modernization"
+title: "Quickstart: Deploy Your Project to Azure by Using GitHub Copilot Modernization"
 description: Shows you how to deploy your migrated application to Azure by using GitHub Copilot modernization.
 author: KarlErickson
 ms.author: karler
@@ -20,6 +20,7 @@ During development, you often need to deploy your project to a cloud environment
 
 ## Prerequisites
 
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account with an active [GitHub Copilot](https://github.com/features/copilot) subscription under any plan.
 - One of the following IDEs:
   - The latest version of [Visual Studio Code](https://code.visualstudio.com/) (version 1.106 or later) with the following extensions:
@@ -28,7 +29,6 @@ During development, you often need to deploy your project to a cloud environment
   - The latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download) (version 2023.3 or later) with the following plugins:
     - [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot) (version 1.5.59 or later). Be sure to sign in to your GitHub account within IntelliJ IDEA.
     - [GitHub Copilot modernization](https://plugins.jetbrains.com/plugin/28791-github-copilot-app-modernization). Restart IntelliJ IDEA after installation.
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Deploy your project
 
@@ -62,13 +62,13 @@ Use the following steps to start the deployment process:
 
 ## Customize with your own prompts
 
-The **Deploy to Existing Azure Infrastructure** button sends a predefined prompt. For more control, type a custom prompt directly in the Copilot chat with Agent Mode. This approach lets you specify deployment targets and preferences.
+The **Deploy to Existing Azure Infrastructure** button sends a predefined prompt. For more control, type a custom prompt directly in the Copilot chat with Agent mode. This approach lets you specify deployment targets and preferences.
 
 > [!TIP]
 > Example prompts for different scenarios:
 >
-> - `"Deploy my app to the AKS cluster in subscription: <sub-id>, resource group: <rg-name>"`—target a specific Kubernetes cluster.
-> - `"Deploy my containerized application to Azure Container Apps and configure auto-scaling with a minimum of 2 replicas"`—specify scaling preferences.
+> - `"Deploy my app to the AKS cluster in subscription: <sub-id>, resource group: <rg-name>"` - target a specific Kubernetes cluster.
+> - `"Deploy my containerized application to Azure Container Apps and configure auto-scaling with a minimum of 2 replicas"` - specify scaling preferences.
 
 
 ## See also

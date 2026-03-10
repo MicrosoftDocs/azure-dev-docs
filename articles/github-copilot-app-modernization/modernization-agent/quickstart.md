@@ -1,15 +1,16 @@
 ---
-title: Quickstart - Modernization Agent
+title: Quickstart - Install and use the GitHub Copilot modernization agent
 description: Learn how to install and use the GitHub Copilot modernization agent to assess, plan, and execute application modernization.
 author: KarlErickson
 ms.author: karler
+ms.reviewer: jessiehuang
 ms.topic: quickstart
 ai-usage: ai-assisted
 ms.date: 03/11/2026
 keywords: modernize cli, install modernization agent, assess application, create modernization plan, execute plan
 ---
 
-# Quickstart: Modernization agent
+# Quickstart: Install and use the GitHub Copilot modernization agent
 
 This quickstart guides you through installing the GitHub Copilot modernization agent and using it to modernize a sample application.
 

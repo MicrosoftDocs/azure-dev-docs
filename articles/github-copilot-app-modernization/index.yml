@@ -20,6 +20,8 @@ landingContent:
             url: overview.md
           - text: Languages and frameworks supported
             url: languages.md
+          - text: Portfolio assessment integration
+            url: ../java/migration/github-copilot-app-modernization-for-java-portfolio-assessment-integration.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Java overview
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Java FAQ
@@ -28,6 +30,32 @@ landingContent:
             url: /dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: .NET FAQ
             url: /dotnet/core/porting/github-copilot-app-modernization-faq?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+  - title: "CLI: Modernization agent"
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Modernization agent overview
+            url: modernization-agent/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Modernization agent quickstart
+            url: modernization-agent/quickstart.md
+      - linkListType: reference
+        links:
+          - text: Modernization agent CLI commands
+            url: modernization-agent/cli-commands.md
+      - linkListType: how-to-guide
+        links:
+          - text: Batch assessment
+            url: modernization-agent/batch-assess.md
+          - text: Batch upgrade
+            url: modernization-agent/batch-upgrade.md              
+          - text: Customization
+            url: modernization-agent/customization.md
+          - text: CI/CD integration
+            url: modernization-agent/cicd-integration.md
+          - text: Infrastructure and deployment
+            url: modernization-agent/infra-deployment.md
   - title: Upgrade Java projects
     linkLists:
       - linkListType: quickstart
@@ -60,10 +88,12 @@ landingContent:
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Create and apply your own skill
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-          - text: Deploy your project
-            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: Prepare infrastructure
+            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-infrastructure.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Containerize your project
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: Deploy your project
+            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: sample
         links:
           - text: Migration sample

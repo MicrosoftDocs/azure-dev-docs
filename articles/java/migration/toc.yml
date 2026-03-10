@@ -6,7 +6,7 @@ items:
       href: migration-overview.md
     - name: Azure Migrate application and code assessment
       href: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-    - name: GitHub Copilot app modernization
+    - name: GitHub Copilot modernization
       expanded: true
       items:
         - name: Overview

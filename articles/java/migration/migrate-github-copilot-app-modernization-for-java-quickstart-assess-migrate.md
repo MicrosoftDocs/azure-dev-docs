@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Assess and Migrate a Java Project Using GitHub Copilot Modernization"
+title: "Quickstart: Assess and Migrate a Java Project by Using GitHub Copilot Modernization"
 titleSuffix: Azure
 description: Shows you how to use GitHub Copilot modernization to assess and migrate a Java project.
 author: KarlErickson
@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Quickstart: assess and migrate a Java project using GitHub Copilot modernization
+# Quickstart: assess and migrate a Java project by using GitHub Copilot modernization
 
 This quickstart shows you how to use GitHub Copilot modernization to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined task to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 

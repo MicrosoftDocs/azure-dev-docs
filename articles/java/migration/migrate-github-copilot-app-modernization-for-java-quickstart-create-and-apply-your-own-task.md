@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create and Apply Your Own Skill"
-titleSuffix: GitHub Copilot modernization - Azure
+titleSuffix: GitHub Copilot Modernization - Azure
 description: Shows you how to create and apply your own custom skill.
 author: KarlErickson
 ms.author: karler
@@ -17,10 +17,10 @@ ms.update-cycle: 180-days
 
 This quickstart shows you how to create and apply your own custom skills when you use GitHub Copilot modernization.
 
-GitHub Copilot modernization supports custom skills to codify your organizational knowledge for custom library upgrade, configuration updates, enforcing coding standards and more. You may also copy the out-of-box Microsoft tasks into custom skills to adjust them to your needs. Custom skills can be reused, shared and improved to boost the efficiency of your team.
+GitHub Copilot modernization supports custom skills to codify your organizational knowledge for custom library upgrade, configuration updates, enforcing coding standards, and more. You can also copy the out-of-box Microsoft tasks into custom skills to adjust them to your needs. You can reuse, share, and improve custom skills to boost the efficiency of your team.
 
 > [!NOTE]
-> If you previously used custom tasks (stored in `.github/appmod/custom-tasks/` of the project or VS Code user data), the extension automatically migrates them to the new `.github/skills/` location of the project on first load.
+> If you previously used custom tasks - stored in `.github/appmod/custom-tasks/` of the project or Visual Studio Code user data - the extension automatically migrates them to the new `.github/skills/` location of the project on first load.
 
 ## Prerequisites
 

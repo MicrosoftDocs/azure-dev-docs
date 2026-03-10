@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Containerize your project by using GitHub Copilot modernization"
+title: "Quickstart: Containerize Your Project by Using GitHub Copilot Modernization"
 titleSuffix: Azure
 description: Shows you how to containerize your project by using GitHub Copilot modernization.
 author: KarlErickson
@@ -64,15 +64,15 @@ Use the following steps to start the containerization process:
 
 ## Customize with your own prompts
 
-The **Containerize Application** button sends a predefined prompt. For more control, type a custom prompt directly in the Copilot chat with Agent Mode. This approach lets you specify containerization preferences for your project.
+The **Containerize Application** button sends a predefined prompt. For more control, type a custom prompt directly in the Copilot chat with Agent mode. This approach lets you specify containerization preferences for your project.
 
 > [!TIP]
 > Example prompts for different scenarios:
 >
-> - `"Containerize my application using a multi-stage Dockerfile to minimize the final image size"`—optimize for production image size.
-> - `"Create a Dockerfile for my project using Eclipse Temurin 21 as the base image"`—specify a particular base image.
-> - `"Containerize all modules in this multi-module project and create a docker-compose.yml for local testing"`—handle multi-module projects with compose.
-> - `"Containerize my app and push the image to my Azure Container Registry: <acr-name>.azurecr.io"`—build and push in one step.
+> - `"Containerize my application using a multi-stage Dockerfile to minimize the final image size"` - optimize for production image size.
+> - `"Create a Dockerfile for my project using Eclipse Temurin 21 as the base image"` - specify a particular base image.
+> - `"Containerize all modules in this multi-module project and create a docker-compose.yml for local testing"` - handle multi-module projects with compose.
+> - `"Containerize my app and push the image to my Azure Container Registry: <acr-name>.azurecr.io"` - build and push in one step.
 
 ## See also
 

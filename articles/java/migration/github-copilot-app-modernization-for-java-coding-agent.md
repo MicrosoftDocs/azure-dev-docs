@@ -1,7 +1,7 @@
 ---
-title: Modernize Java Apps by Using GitHub Copilot App Modernization in Coding Agent
+title: Modernize Java Apps by Using GitHub Copilot Modernization in Coding Agent
 titleSuffix: Azure
-description: Provides an overview of how Java developers can modernize applications by using GitHub Copilot app modernization in the Copilot coding agent.
+description: Provides an overview of how Java developers can modernize applications by using GitHub Copilot modernization in the Copilot coding agent.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xinrzhu
@@ -13,9 +13,9 @@ ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Modernize Java apps by using GitHub Copilot app modernization in coding agent
+# Modernize Java apps by using GitHub Copilot modernization in coding agent
 
-This article provides an overview of how Java developers can modernize their applications using GitHub Copilot app modernization within the [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent). The agent can work independently in the background to complete modernization tasks, just like a human developer. Developers can delegate tasks via issues or pull requests, and the agent executes them in the cloud, helping teams complete the entire modernization journey efficiently.
+This article provides an overview of how Java developers can modernize their applications using GitHub Copilot modernization within the [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent). The agent can work independently in the background to complete modernization tasks, just like a human developer. Developers can delegate tasks via issues or pull requests, and the agent executes them in the cloud, helping teams complete the entire modernization journey efficiently.
 
 > [!NOTE]
 > Copilot coding agent is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business and GitHub Copilot Enterprise plans. The agent is available in all repositories stored on GitHub, except repositories owned by managed user accounts and where it has been explicitly disabled.
@@ -23,7 +23,7 @@ This article provides an overview of how Java developers can modernize their app
 Supported scenarios:
 
 - **Upgrade your Java application** – for example: `Upgrade this project to the latest Java version`.
-- **Migrate your Java application to Azure** – using predefined tasks listed in [Predefined tasks for GitHub Copilot app modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list).
+- **Migrate your Java application to Azure** – using predefined tasks listed in [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list).
 - **Deploy your Java application to Azure** – for example: `Deploy this application to Azure`.
 
 ## Prerequisites
@@ -94,7 +94,7 @@ The following steps illustrate the upgrade process:
 
 ## Migrate your Java application to Azure
 
-To migrate your Java application to Azure, describe your migration scenario for the coding agent as shown in the following example prompt. For more information about predefined migration tasks, see [Predefined tasks for GitHub Copilot app modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md). 
+To migrate your Java application to Azure, describe your migration scenario for the coding agent as shown in the following example prompt. For more information about predefined migration tasks, see [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md). 
 
 ```prompt
 Run migration task for scenario Migrate Cassandra integration to Azure SDK using Managed Identity
@@ -131,4 +131,4 @@ If you have any feedback about GitHub Copilot agent, [create an issue at the git
 ## Next step
 
 - [Use GitHub Copilot agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents)
-- [Migrate Java apps to Azure by using GitHub Copilot app modernization via custom agent](migrate-github-copilot-app-modernization-for-java-custom-agent.md)
+- [Migrate Java apps to Azure by using GitHub Copilot modernization via custom agent](migrate-github-copilot-app-modernization-for-java-custom-agent.md)

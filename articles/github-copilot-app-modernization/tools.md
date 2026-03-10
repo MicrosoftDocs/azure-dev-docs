@@ -1,6 +1,5 @@
 ---
 title: GitHub Copilot Modernization Java Utilities
-titleSuffix: Azure
 description: Describes Java-focused tools available in GitHub Copilot modernization.
 author: KarlErickson
 ms.author: karler

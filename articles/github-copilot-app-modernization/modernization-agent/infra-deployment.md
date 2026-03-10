@@ -1,8 +1,9 @@
 ---
 title: Prepare infrastructure and deploy applications
 description: Learn how to use the GitHub Copilot modernization agent to prepare Azure infrastructure and containerize and deploy your application.
-author: HongkunChen
-ms.author: honc
+author: KarlErickson
+ms.author: karler
+ms.reviewer: honc
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.date: 03/11/2026

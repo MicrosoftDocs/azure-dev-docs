@@ -1,15 +1,16 @@
 ---
-title: Modernize CLI commands
+title: GitHub Copilot modernization agent CLI commands
 description: Complete reference for GitHub Copilot modernization agent CLI commands, including interactive and non-interactive modes.
 author: KarlErickson
 ms.author: karler
+ms.reviewer: jessiehuang
 ms.topic: reference
 ai-usage: ai-assisted
 ms.date: 03/11/2026
 keywords: modernize cli, cli commands, interactive, non-interactive
 ---
 
-# Modernize CLI commands
+# GitHub Copilot modernization agent CLI commands
 
 The GitHub Copilot modernization agent provides both interactive and non-interactive modes for application modernization.
 

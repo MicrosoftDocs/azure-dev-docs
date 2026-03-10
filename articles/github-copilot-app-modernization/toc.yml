@@ -15,7 +15,7 @@ items:
             href: modernization-agent/overview.md
           - name: Quickstart
             href: modernization-agent/quickstart.md
-          - name: Modernize CLI commands
+          - name: CLI commands
             href: modernization-agent/cli-commands.md
           - name: Batch modernization
             expanded: true
@@ -28,7 +28,7 @@ items:
             href: modernization-agent/customization.md
           - name: CI/CD integration
             href: modernization-agent/cicd-integration.md
-          - name: Infrastructure and Deployment
+          - name: Infrastructure and deployment
             href: modernization-agent/infra-deployment.md
       - name: Developer environment
         expanded: true

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Prepare Azure infrastructure by using GitHub Copilot modernization"
+title: "Quickstart: Prepare Azure Infrastructure by Using GitHub Copilot Modernization"
 description: Shows you how to generate infrastructure as code and provision Azure resources by using GitHub Copilot modernization.
 author: KarlErickson
 ms.author: karler
