@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 
 In this quickstart: learn how to use TypeSpec to design, generate, and implement a RESTful TypeScript API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
 
-In this quickstart, you build a working RESTful API service from a TypeSpec definition. You define an API contract in just a few lines of TypeSpec code, then use TypeSpec's code generator to scaffold an entire Express.js server application with routing, Swagger UI documentation, and Azure integration. You connect it to Azure Cosmos DB for persistence and deploy to Azure Container Apps — all from a single TypeSpec definition.
+You'll use TypeSpec's code generator to scaffold an Express.js server with routing and Swagger UI, connect it to Azure Cosmos DB for persistence, and deploy to Azure Container Apps.
 
 For context on TypeSpec's role in API development, see [Overview of TypeSpec](overview.md).
 

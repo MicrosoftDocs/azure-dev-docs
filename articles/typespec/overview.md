@@ -22,19 +22,18 @@ As an open source language, TypeSpec can describe any API, not just Azure APIs. 
 
 This article is for you if you:
 
-- Design APIs or work as a backend developer, API architect, or cloud engineer
+- Build or maintain APIs — whether you're writing them, reviewing them, or managing the process
 - Need to create new APIs, maintain multiple API versions, or ensure consistency across API protocols
 - Want to automate code generation or work with specifications like OpenAPI
 - Use any language — TypeSpec works with .NET, JavaScript, Java, Python, and more. No prior TypeSpec experience needed.
 
 > [!NOTE]
-> **Prerequisites**
-> - No prior TypeSpec knowledge is required to get started.
+> **Getting started**
+> - No prior TypeSpec knowledge is required.
 > - Familiarity with OpenAPI or API specification concepts is helpful but not required.
-> - You need access to Visual Studio Code (with the TypeSpec extension), Visual Studio, or a browser (for TypeSpec Playground).
-> - Node.js LTS and npm are required for local development and quickstarts.
+> - See the quickstart prerequisites for tool requirements.
 
-TypeSpec 1.0 is generally available (GA) with stable core components (`@typespec/compiler`, `@typespec/http`, `@typespec/openapi`) and production-ready emitters (`@typespec/openapi3`, `@typespec/json-schema`). Client code generation for .NET, JavaScript, Java, and Python is also stable, so you can confidently adopt TypeSpec for production API workflows.
+TypeSpec 1.0 is generally available (GA) with stable core components (`@typespec/compiler`, `@typespec/http`, `@typespec/openapi`) and production-ready emitters (`@typespec/openapi3`, `@typespec/json-schema`). Client and server code generation for .NET, JavaScript, Java, and Python is available in preview, with active development toward full release.
 
 ## Benefits of TypeSpec
 
@@ -136,7 +135,7 @@ TypeSpec seamlessly integrates with existing industry toolchains, ensuring inter
 
 Developer integrations include a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode) and [Visual Studio](https://marketplace.visualstudio.com/items?itemName=typespec.typespecvs). These integrations provide efficient and error-free coding with features like autocompletion, syntax highlighting, build-time error identification, symbol renaming, and document formatting. For example, when writing TypeSpec definitions in Visual Studio Code, the extension provides real-time autocompletion and syntax highlighting, making it easier to write correct and consistent API definitions.
 
-The VS Code extension also includes quick commands to streamline common tasks: **Create TypeSpec Project**, **Generate From TypeSpec**, **Preview API Documentation**, and **Import TypeSpec from OpenAPI 3**.
+The VS Code extension also includes quick commands to streamline common tasks: **Create TypeSpec Project**, **Emit from TypeSpec**, **Preview API Documentation**, and **Import TypeSpec from OpenAPI 3**.
 
 :::image type="content" source="media/visual-studio-code-extension.gif" alt-text="Screenshot animation of Visual Studio Code extension for TypeSpec providing autocompletion and syntax highlighting.":::
 
@@ -160,8 +159,8 @@ TypeSpec has been successfully used in various industries to streamline API desi
 
 ## Next steps
 
-1. [Quickstart: TypeSpec & .NET](quickstart-scaffold-dotnet.md) — Create an API and generate .NET client and server code (10 min)
-1. [Quickstart: TypeSpec & TypeScript](quickstart-scaffold-typescript.md) — Set up a TypeSpec project with TypeScript (10 min)
+1. [Quickstart: TypeSpec & .NET](quickstart-scaffold-dotnet.md) — Create an API and generate .NET client and server code
+1. [Quickstart: TypeSpec & TypeScript](quickstart-scaffold-typescript.md) — Set up a TypeSpec project with TypeScript
 1. [TypeSpec Documentation Hub](resources.md) — Explore full docs, examples, and troubleshooting
 1. [TypeSpec for OpenAPI developers](https://typespec.io/docs/getting-started/typespec-for-openapi-dev/) — Migrate existing OpenAPI specs to TypeSpec
 
