@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Deploy to Azure Container Apps using the Azure Developer CLI
 
-The Azure Developer CLI (`azd`) supports deploying both Azure Container Apps (`Microsoft.App/containerApps`) and Azure Container App Jobs (`Microsoft.App/jobs`). For Container Apps, `azd` offers two deployment strategies:
+The Azure Developer CLI (`azd`) supports deploying both Azure Container Apps and Azure Container App Jobs. For Azure Container Apps, `azd` offers two deployment strategies:
 
 - **Image-based strategy**. Separates container app configuration updates from image deployments.
 - **Revision-based strategy**. Combines both into a single deployment and supports advanced rollout patterns.
@@ -309,28 +309,9 @@ When `azd` discovers a job resource tagged with `azd-service-name`, it:
           context: .
     ```
 
-1. Create a Bicep module that provisions a `Microsoft.App/jobs` resource. Tag the resource with `azd-service-name` so `azd` can discover it:
+1. Create a Bicep module that provisions a `Microsoft.App/jobs` resource. Tag the resource with `azd-service-name` so `azd` can discover it. The parameters and existing resource references (container registry, managed environment, identity) follow the same pattern as the [Container Apps examples above](#revision-based-deployment-strategy):
 
     ```bicep
-    @description('Unique environment name used for resource naming.')
-    param environmentName string
-
-    @description('Primary location for all resources.')
-    param location string
-
-    param containerRegistryName string
-    param containerAppsEnvironmentName string
-    param imageName string
-    param identityId string
-
-    resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-01-01-preview' existing = {
-      name: containerRegistryName
-    }
-
-    resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' existing = {
-      name: containerAppsEnvironmentName
-    }
-
     resource job 'Microsoft.App/jobs@2025-02-02-preview' = {
       name: 'job'
       location: location
