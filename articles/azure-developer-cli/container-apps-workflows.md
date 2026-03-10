@@ -1,9 +1,9 @@
 ---
-title: Deploying to Azure Container Apps
-description: Learn how to deploy container apps using either image-based or revision-based deployment strategies with Azure Developer CLI (azd).
+title: Deploying to Azure Container Apps and Container App Jobs
+description: Learn how to deploy container apps and container app jobs using image-based or revision-based deployment strategies with Azure Developer CLI (azd).
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 11/07/2025
+ms.date: 03/10/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -11,12 +11,12 @@ ms.custom: devx-track-azdevcli
 
 # Deploy to Azure Container Apps using the Azure Developer CLI
 
-The Azure Developer CLI (`azd`) supports two deployment strategies for Azure Container Apps:
+The Azure Developer CLI (`azd`) supports deploying both Azure Container Apps (`Microsoft.App/containerApps`) and Azure Container App Jobs (`Microsoft.App/jobs`). For Container Apps, `azd` offers two deployment strategies:
 
 - **Image-based strategy**. Separates container app configuration updates from image deployments.
 - **Revision-based strategy**. Combines both into a single deployment and supports advanced rollout patterns.
 
-The following sections explain both strategies.
+The following sections explain both strategies, along with how to deploy Container App Jobs.
 
 ## Image-based deployment strategy
 
@@ -278,9 +278,121 @@ In this strategy, both the container app **definition** and **image** are deploy
 | Use case | Simple environments | Advanced deployments |
 | Container app definition location | Provision-time Bicep | Deploy-time Bicep |
 
+## Deploy Container App Jobs
+
+In addition to Container Apps, `azd` supports deploying Azure Container App Jobs (`Microsoft.App/jobs`). Container App Jobs are designed for tasks that run to completion, such as batch processing, scheduled tasks, or event-driven work.
+
+> [!NOTE]
+> Container App Jobs use the same `host: containerapp` setting in `azure.yaml`. No new host type is required. The Bicep template determines whether `azd` provisions a Container App or a Container App Job based on the resource type you define.
+
+### How it works
+
+When `azd` discovers a job resource tagged with `azd-service-name`, it:
+
+1. Builds and pushes the Docker image to Azure Container Registry (same as Container Apps).
+1. Updates the job's container image by calling the Container App Jobs API instead of the Container Apps API.
+1. Returns empty endpoints, because jobs have no ingress.
+
+### Configure a Container App Job deployment
+
+1. Define the `azure.yaml` file for your job service. Use `host: containerapp` and `language: docker`:
+
+    ```yaml
+    name: myapp
+    services:
+      job:
+        host: containerapp
+        language: docker
+        project: ./src/job
+        docker:
+          path: ./Dockerfile
+          context: .
+    ```
+
+1. Create a Bicep module that provisions a `Microsoft.App/jobs` resource. Tag the resource with `azd-service-name` so `azd` can discover it:
+
+    ```bicep
+    @description('Unique environment name used for resource naming.')
+    param environmentName string
+
+    @description('Primary location for all resources.')
+    param location string
+
+    param containerRegistryName string
+    param containerAppsEnvironmentName string
+    param imageName string
+    param identityId string
+
+    resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-01-01-preview' existing = {
+      name: containerRegistryName
+    }
+
+    resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' existing = {
+      name: containerAppsEnvironmentName
+    }
+
+    resource job 'Microsoft.App/jobs@2025-02-02-preview' = {
+      name: 'job'
+      location: location
+      tags: {
+        'azd-env-name': environmentName
+        'azd-service-name': 'job'
+      }
+      properties: {
+        environmentId: containerAppsEnvironment.id
+        configuration: {
+          replicaTimeout: 300
+          replicaRetryLimit: 1
+          triggerType: 'Manual'
+          registries: [
+            {
+              server: containerRegistry.properties.loginServer
+              identity: identityId
+            }
+          ]
+        }
+        template: {
+          containers: [
+            {
+              image: imageName
+              name: 'main'
+              resources: {
+                cpu: json('0.5')
+                memory: '1.0Gi'
+              }
+            }
+          ]
+        }
+      }
+      identity: {
+        type: 'UserAssigned'
+        userAssignedIdentities: {
+          '${identityId}': {}
+        }
+      }
+    }
+    ```
+
+    > [!IMPORTANT]
+    > The `azd-service-name` tag value must match the service name in your `azure.yaml` file. This tag is how `azd` associates the provisioned resource with your service.
+
+1. Run `azd up` to provision and deploy. The CLI automatically detects that the tagged resource is a Container App Job and handles the deployment accordingly.
+
+### Key differences from Container Apps
+
+| Aspect | Container Apps | Container App Jobs |
+|--------|---------------|--------------------|
+| Resource type | `Microsoft.App/containerApps` | `Microsoft.App/jobs` |
+| Ingress/endpoints | Supports HTTP ingress | No ingress (empty endpoints) |
+| Execution model | Long-running services | Run-to-completion tasks |
+| Trigger types | Request-driven | Manual, scheduled, or event-driven |
+| Host setting in `azure.yaml` | `host: containerapp` | `host: containerapp` |
+
 ## Additional resources
 
 - [Azure Container Apps overview](/azure/container-apps/overview)
+- [Azure Container Apps Jobs overview](/azure/container-apps/jobs)
 - [Azure Container Apps Bicep reference](/azure/templates/microsoft.app/containerapps)
+- [Azure Container App Jobs Bicep reference](/azure/templates/microsoft.app/jobs)
 - [.NET Aspire overview](/dotnet/aspire/get-started/aspire-overview)
 - [Todo application templates](https://github.com/Azure-Samples/todo-nodejs-mongo-aca) (uses image-based)
