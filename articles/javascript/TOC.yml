@@ -75,9 +75,9 @@
     - name: API development with TypeSpec
       href: /azure/developer/typespec
     - name: Cosmos DB for NoSQL developer guide
-      href: /azure/cosmos-db/nosql/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+      href: /azure/cosmos-db/nosql/how-to-javascript-get-started
     - name: Cosmos DB for MongoDB developer guide
-      href: /azure/cosmos-db/mongodb/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+      href: /azure/cosmos-db/mongodb/how-to-javascript-get-started
     - name: Key Vault
       items:
       - name: Keys
