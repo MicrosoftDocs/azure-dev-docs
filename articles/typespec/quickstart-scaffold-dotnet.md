@@ -136,7 +136,7 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
 
 Use the TypeSpec files to configure the API server generation.
 
-1. Open the `tsconfig.yaml` and replace the existing configuration with the following YAML:
+1. Open the `tspconfig.yaml` and replace the existing configuration with the following YAML:
 
     ```yml
     emit:

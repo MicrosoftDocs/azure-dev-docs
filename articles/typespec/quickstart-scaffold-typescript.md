@@ -111,14 +111,14 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
 
     * **schema** is the OpenApi 3 specification. Notice that the few lines in `./main.tsp` generated over 200 lines of OpenApi specification for you.
     * **server** is the generated middleware. This middleware can be incorporated into a Node.js server project.
-        * `./tsp-output/js/src/generated/models/all/demo-service.ts` defines the interfaces for the Widgets API.
-        * `./tsp-output/js/src/generated/http/openapi3.ts` defines the Open API spec as a TypeScript file and is regenerated every time you compile your TypeSpec project.
+        * `./tsp-output/server/js/src/generated/models/all/demo-service.ts` defines the interfaces for the Widgets API.
+        * `./tsp-output/server/js/src/generated/http/openapi3.ts` defines the Open API spec as a TypeScript file and is regenerated every time you compile your TypeSpec project.
     
 ## Configure TypeSpec emitters
 
 Use the TypeSpec files to configure the API server generation to scaffold the entire Express.js server.
 
-1. Open the `./tsconfig.yaml` and replace the existing configuration with the following YAML:
+1. Open the `./tspconfig.yaml` and replace the existing configuration with the following YAML:
 
     ```yml
     emit:
@@ -538,7 +538,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
     const azureCosmosEndpoint = process.env.AZURE_COSMOS_ENDPOINT!;
     const azureCosmosDatabase = "WidgetDb";
     const azureCosmosContainer = "Widgets";
-    const azureCosmosPartitionKey = "/Id";
+    const azureCosmosPartitionKey = "/id";
     
     const router = createDemoServiceRouter(
       new WidgetsCosmosController(
