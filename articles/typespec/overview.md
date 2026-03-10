@@ -32,7 +32,7 @@ This article is for you if you:
 > - No prior TypeSpec knowledge is required to get started.
 > - Familiarity with OpenAPI or API specification concepts is helpful but not required.
 > - You need access to Visual Studio Code (with the TypeSpec extension), Visual Studio, or a browser (for TypeSpec Playground).
-> - Node.js 18 LTS or later and npm are required for local development and quickstarts.
+> - Node.js LTS and npm are required for local development and quickstarts.
 
 TypeSpec 1.0 is generally available (GA) with stable core components (`@typespec/compiler`, `@typespec/http`, `@typespec/openapi`) and production-ready emitters (`@typespec/openapi3`, `@typespec/json-schema`). Client code generation for .NET, JavaScript, Java, and Python is also stable, so you can confidently adopt TypeSpec for production API workflows.
 

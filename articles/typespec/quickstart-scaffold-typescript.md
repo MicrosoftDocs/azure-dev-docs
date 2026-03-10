@@ -983,7 +983,7 @@ Or delete the resource group directly from the Azure portal.
 **Solution:**
 
 1. Verify your Node.js version: `node --version`.
-1. Ensure it's 18 LTS or later. Update from [nodejs.org](https://nodejs.org/) or your package manager.
+1. Ensure it's an LTS version. Update from [nodejs.org](https://nodejs.org/) or your package manager.
 1. Clear npm cache: `npm cache clean --force`, then reinstall: `npm install -g @typespec/compiler`.
 
 ### @typespec/http-server-js emitter not found
