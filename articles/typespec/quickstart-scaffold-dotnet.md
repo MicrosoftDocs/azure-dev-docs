@@ -2,7 +2,7 @@
 title: "Quickstart: Create a new API project with TypeSpec and .NET"
 description: Learn how to generate and set up a new RESTful API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.topic: quickstart
-ms.date: 03/09/2026
+ms.date: 03/10/2026
 ms.custom: devx-track-typespec, devx-track-dotnet
 ai-usage: ai-assisted
 #zone_pivot_groups: typespec-quickstart-on-azure-languages
