@@ -63,6 +63,7 @@ modernize --version
 For this quickstart, we'll use a sample application. Choose either Java or .NET:
 
 **Java sample:**
+
 ```bash
 git clone https://github.com/Azure-Samples/PhotoAlbum-Java.git
 cd PhotoAlbum-Java
@@ -70,6 +71,7 @@ git checkout -b modernize
 ```
 
 **.NET sample:**
+
 ```bash
 git clone https://github.com/Azure-Samples/PhotoAlbum.git
 cd PhotoAlbum
@@ -90,7 +92,7 @@ Then, run the modernization agent:
 modernize
 ```
 
-You'll see the main menu:
+The main menu appears:
 
 ```
 ○ How would you like to modernize your Java app?
@@ -106,9 +108,9 @@ You'll see the main menu:
 ### Step 1: Assess application
 
 1. Select **1. Assess application**
-2. Follow the prompts to configure assessment options (or press Enter to use defaults)
-3. Review your selections and press Enter to start the assessment
-4. Wait for the assessment to complete
+1. Follow the prompts to configure assessment options (or press Enter to use defaults)
+1. Review your selections and press Enter to start the assessment
+1. Wait for the assessment to complete
 
 The assessment results are saved to `.github\modernize\assessment\` in your project directory. The agent analyzes your code, dependencies, and configuration to identify:
 
@@ -130,12 +132,12 @@ After the assessment completes, the agent prompts you to create a modernization 
 ```
 
 1. Select **1. Create modernization plan**
-2. Enter a plan name (or press Enter for default)
-3. Enter your modernization goal as a prompt. By default, the prompt is `References the assessment summary and creates plan`  to create plan based on the assessment findings. You can replace it with any other migration request, for example:
+1. Enter a plan name (or press Enter for default)
+1. Enter your modernization goal as a prompt. By default, the prompt is `References the assessment summary and creates plan`  to create plan based on the assessment findings. You can replace it with any other migration request, for example:
    - `migrate the database to Azure PostgreSQL`
    - `upgrade to Spring Boot 3`
    - `deploy to Azure Container Apps`
-4. Press Enter to generate the plan
+1. Press Enter to generate the plan
 
 The agent analyzes your codebase and generates:
 
@@ -158,8 +160,8 @@ After the plan verified, confirm to execute the plan.
 ```
 
 1. Select **1. Execute modernization plan**
-2. Press Enter to Execute the plan
-3. Monitor progress as the agent applies changes
+1. Press Enter to Execute the plan
+1. Monitor progress as the agent applies changes
 
 The agent executes each task in order:
 
@@ -173,15 +175,17 @@ The agent executes each task in order:
 After execution completes, you can review all changes made by the agent before merging them:
 
 1. **Review changes**: Check the modifications on the current branch
-   ```bash
-   git status
-   git diff main
-   ```
 
-2. **Create a pull request**: If you're satisfied with the changes, create a PR for team review
-   ```bash
-   gh pr create --title "Modernization: migrate the app to azure" --body "Automated modernization by GitHub Copilot agent"
-   ```
+    ```bash
+    git status
+    git diff main
+    ```
+
+1. **Create a pull request**: If you're satisfied with the changes, create a PR for team review
+
+    ```bash
+    gh pr create --title "Modernization: migrate the app to azure" --body "Automated modernization by GitHub Copilot agent"
+    ```
 
 ## Next steps
 

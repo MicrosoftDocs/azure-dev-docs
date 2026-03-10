@@ -146,124 +146,125 @@ jobs:
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
-1. Create a pipeline YAML file (for example, `azure-pipelines-modernize.yml`) in your repository with the following content.
-1. Create an Azure Pipeline that references this YAML file. See [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
+1. Create a pipeline YAML file - for example, `azure-pipelines-modernize.yml`) - in your repository with the following content.
 
-```yaml
-name: Modernization CLI
+    ```yaml
+    name: Modernization CLI
+    
+    schedules:
+      - cron: '0 2 * * *'
+        displayName: 'Daily 2 AM UTC build'
+        branches:
+          include:
+            - main
+        always: true
+    
+    parameters:
+      - name: upgrade_target
+        displayName: 'Upgrade target (e.g., Java 21)'
+        type: string
+        default: 'latest'
+    
+    variables:
+      - name: BRANCH_NAME
+        value: modernize-${{ parameters.upgrade_target }}-$(Build.BuildId)
+    
+    pool:
+      vmImage: 'ubuntu-latest'
+    
+    jobs:
+      - job: modernization
+        displayName: 'Modernization CLI'
+        steps:
+          - checkout: self
+            persistCredentials: true
+    
+          - task: Bash@3
+            displayName: 'Download Modernize CLI'
+            inputs:
+              targetType: 'inline'
+              script: |
+                mkdir -p "$HOME/modernize-cli"
+                curl -sL https://github.com/microsoft/modernize-cli/releases/latest/download/modernize_linux_x64.tar.gz | tar -xz -C "$HOME/modernize-cli"
+                chmod +x "$HOME/modernize-cli/modernize"
+    
+          - task: Bash@3
+            displayName: 'Run Modernize CLI to upgrade code'
+            inputs:
+              targetType: 'inline'
+              script: |
+                TARGET="${{ parameters.upgrade_target }}"
+                if [ -z "$TARGET" ] || [ "$TARGET" = "latest" ]; then
+                  "$HOME/modernize-cli/modernize" upgrade --no-tty
+                else
+                  "$HOME/modernize-cli/modernize" upgrade "$TARGET" --no-tty
+                fi
+            env:
+              GH_TOKEN: $(GH_TOKEN)
+    
+          - task: Bash@3
+            displayName: 'Push changes to result branch'
+            inputs:
+              targetType: 'inline'
+              script: |
+                git config user.name "Azure Pipelines"
+                git config user.email "azuredevops@microsoft.com"
+    
+                git add -A
+                git reset .github/workflows
+                git diff --cached --quiet || git commit -m "chore: apply Modernize CLI changes [skip ci]"
+                git checkout -B "$(BRANCH_NAME)"
+                git push origin "$(BRANCH_NAME)"
+    
+          - task: Bash@3
+            displayName: 'Display results summary'
+            condition: succeeded()
+            inputs:
+              targetType: 'inline'
+              script: |
+                mkdir -p "$(Build.ArtifactStagingDirectory)/summary"
+                cat > "$(Build.ArtifactStagingDirectory)/summary/SUMMARY.md" <<EOF
+                ## Modernization Complete
+    
+                ### Branch Information
+                - **Result Branch**: \`$(BRANCH_NAME)\`
+                - **Target**: ${{ parameters.upgrade_target }}
+    
+                ### Links
+                - [View Branch]($(Build.Repository.Uri)/tree/$(BRANCH_NAME))
+                - [View Build]($(System.CollectionUri)$(System.TeamProject)/_build/results?buildId=$(Build.BuildId))
+                EOF
+    
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish summary'
+            condition: succeeded()
+            inputs:
+              pathToPublish: '$(Build.ArtifactStagingDirectory)/summary'
+              artifactName: 'modernize-summary'
+            continueOnError: true
+    
+          - task: Bash@3
+            displayName: 'Prepare logs for upload'
+            condition: always()
+            inputs:
+              targetType: 'inline'
+              script: |
+                if [ -d "$HOME/.modernize/logs" ]; then
+                  mkdir -p "$(Build.ArtifactStagingDirectory)/modernize-logs"
+                  cp -r "$HOME/.modernize/logs/"* "$(Build.ArtifactStagingDirectory)/modernize-logs/" 2>/dev/null || true
+                fi
+            continueOnError: true
+    
+          - task: PublishBuildArtifacts@1
+            displayName: 'Upload Modernize CLI logs'
+            condition: always()
+            inputs:
+              pathToPublish: '$(Build.ArtifactStagingDirectory)/modernize-logs'
+              artifactName: 'modernize-logs'
+            continueOnError: true
+    ```
 
-schedules:
-  - cron: '0 2 * * *'
-    displayName: 'Daily 2 AM UTC build'
-    branches:
-      include:
-        - main
-    always: true
-
-parameters:
-  - name: upgrade_target
-    displayName: 'Upgrade target (e.g., Java 21)'
-    type: string
-    default: 'latest'
-
-variables:
-  - name: BRANCH_NAME
-    value: modernize-${{ parameters.upgrade_target }}-$(Build.BuildId)
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-jobs:
-  - job: modernization
-    displayName: 'Modernization CLI'
-    steps:
-      - checkout: self
-        persistCredentials: true
-
-      - task: Bash@3
-        displayName: 'Download Modernize CLI'
-        inputs:
-          targetType: 'inline'
-          script: |
-            mkdir -p "$HOME/modernize-cli"
-            curl -sL https://github.com/microsoft/modernize-cli/releases/latest/download/modernize_linux_x64.tar.gz | tar -xz -C "$HOME/modernize-cli"
-            chmod +x "$HOME/modernize-cli/modernize"
-
-      - task: Bash@3
-        displayName: 'Run Modernize CLI to upgrade code'
-        inputs:
-          targetType: 'inline'
-          script: |
-            TARGET="${{ parameters.upgrade_target }}"
-            if [ -z "$TARGET" ] || [ "$TARGET" = "latest" ]; then
-              "$HOME/modernize-cli/modernize" upgrade --no-tty
-            else
-              "$HOME/modernize-cli/modernize" upgrade "$TARGET" --no-tty
-            fi
-        env:
-          GH_TOKEN: $(GH_TOKEN)
-
-      - task: Bash@3
-        displayName: 'Push changes to result branch'
-        inputs:
-          targetType: 'inline'
-          script: |
-            git config user.name "Azure Pipelines"
-            git config user.email "azuredevops@microsoft.com"
-
-            git add -A
-            git reset .github/workflows
-            git diff --cached --quiet || git commit -m "chore: apply Modernize CLI changes [skip ci]"
-            git checkout -B "$(BRANCH_NAME)"
-            git push origin "$(BRANCH_NAME)"
-
-      - task: Bash@3
-        displayName: 'Display results summary'
-        condition: succeeded()
-        inputs:
-          targetType: 'inline'
-          script: |
-            mkdir -p "$(Build.ArtifactStagingDirectory)/summary"
-            cat > "$(Build.ArtifactStagingDirectory)/summary/SUMMARY.md" <<EOF
-            ## Modernization Complete
-
-            ### Branch Information
-            - **Result Branch**: \`$(BRANCH_NAME)\`
-            - **Target**: ${{ parameters.upgrade_target }}
-
-            ### Links
-            - [View Branch]($(Build.Repository.Uri)/tree/$(BRANCH_NAME))
-            - [View Build]($(System.CollectionUri)$(System.TeamProject)/_build/results?buildId=$(Build.BuildId))
-            EOF
-
-      - task: PublishBuildArtifacts@1
-        displayName: 'Publish summary'
-        condition: succeeded()
-        inputs:
-          pathToPublish: '$(Build.ArtifactStagingDirectory)/summary'
-          artifactName: 'modernize-summary'
-        continueOnError: true
-
-      - task: Bash@3
-        displayName: 'Prepare logs for upload'
-        condition: always()
-        inputs:
-          targetType: 'inline'
-          script: |
-            if [ -d "$HOME/.modernize/logs" ]; then
-              mkdir -p "$(Build.ArtifactStagingDirectory)/modernize-logs"
-              cp -r "$HOME/.modernize/logs/"* "$(Build.ArtifactStagingDirectory)/modernize-logs/" 2>/dev/null || true
-            fi
-        continueOnError: true
-
-      - task: PublishBuildArtifacts@1
-        displayName: 'Upload Modernize CLI logs'
-        condition: always()
-        inputs:
-          pathToPublish: '$(Build.ArtifactStagingDirectory)/modernize-logs'
-          artifactName: 'modernize-logs'
-        continueOnError: true
-```
+1. Create an Azure Pipeline that references this YAML file. For more information, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
 
 ---
 
@@ -339,18 +340,22 @@ After the pipeline completes, review the published artifacts for the summary and
 ### Common issues
 
 **Authentication errors:**
+
 - Verify the `GH_TOKEN` secret or variable is set correctly with a valid GitHub Personal Access Token.
 - Ensure the token has the required scopes for GitHub Copilot access.
 
 **No changes detected:**
+
 - The Modernize CLI might determine that no changes are needed for the specified target.
 - Review the uploaded logs artifact for details on the assessment.
 
 **Push failures (Azure Pipelines):**
+
 - Confirm the build service identity has **Create branch**, **Contribute**, and **Read** permissions on the repository.
 - See [Run Git commands in a script](/azure/devops/pipelines/scripts/git-commands) for detailed setup instructions.
 
 **Modernize CLI download errors:**
+
 - Verify the runner has internet access to <https://github.com>.
 - Check for proxy or firewall restrictions that might block the download.
 

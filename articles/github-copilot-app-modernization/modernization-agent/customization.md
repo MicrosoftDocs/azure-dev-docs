@@ -27,10 +27,10 @@ Custom skills are useful for:
 
 Each custom skill is defined in a `SKILL.md` file with:
 
-1. **YAML front matter**: Metadata for skill detection
-2. **Overview**: Description of the migration scenario
-3. **Steps**: Detailed instructions for the agent
-4. **Sample code**: Concrete examples demonstrating the migration
+- **YAML front matter**: Metadata for skill detection
+- **Overview**: Description of the migration scenario
+- **Steps**: Detailed instructions for the agent
+- **Sample code**: Concrete examples demonstrating the migration
 
 ## Create a custom skill
 
@@ -58,10 +58,12 @@ description: A concrete description of what this skill helps migrate
 **Important**: The `description` field is critical. The agent uses it to determine when to apply the skill based on the user's migration prompt. Make it specific and accurate.
 
 Good descriptions:
+
 - ✅ "Migrate from RabbitMQ with AMQP to Azure Service Bus for messaging"
 - ✅ "Replace direct JDBC calls with Spring Data repositories"
 
 Bad descriptions:
+
 - ❌ "Messaging migration" (too vague)
 - ❌ "Update libraries" (not specific)
 - ❌ "Improve code" (unclear goal)
@@ -83,10 +85,10 @@ You may also provide resource files in the skill directory and tell the agent ho
 
 When you create a modernization plan, the agent automatically:
 
-1. Scans `.github/skills/` for custom skills
-2. Compares your migration prompt with skill descriptions
-3. Incorporates relevant skills into the plan
-4. Uses skill to guide code transformations
+1. Scans `.github/skills/` for custom skills.
+1. Compares your migration prompt with skill descriptions.
+1. Incorporates relevant skills into the plan.
+1. Uses skill to guide code transformations.
 
 Example:
 
@@ -100,16 +102,19 @@ modernize plan create "migrate from rabbitmq to azure service bus"
 To verify which skills are detected:
 
 1. Create a plan with your prompt
-2. Review `.github/modernization/{plan-name}/tasks.json`
-3. Look for references to your custom skills
-```
+
+1. Review `.github/modernization/{plan-name}/tasks.json`
+
+1. Look for references to your custom skills
+
+    ```
     "skills": [
         {
           "name": "your-skill-name",
           "location": "project"
         }
     ]
-```
+    ```
 
 If a skill isn't being detected:
 
@@ -141,6 +146,7 @@ modernize plan create "migrate from rabbitmq to azure service bus"
 **Problem**: Agent doesn't use your custom skill
 
 **Solutions**:
+
 - Check that the skill name in the YAML front matter doesn't contain spaces; use hyphens instead (for example, `my-custom-skill` not `my custom skill`)
 - Verify `description` matches your prompt keywords
 - Check YAML front matter syntax

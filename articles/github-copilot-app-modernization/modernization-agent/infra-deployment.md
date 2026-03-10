@@ -126,17 +126,16 @@ modernize plan execute --plan-name deploy
 
 1. **Review code changes**: Check the generated Dockerfile, deployment manifests, and configuration changes.
 
-   ```bash
-   git status
-   git diff main
-   ```
+    ```bash
+    git status
+    git diff main
+    ```
 
 1. **Validate the running application**: Access your deployed application through the URL provided by the target hosting service.
 
 ## Use interactive mode
 
 You can also perform both phases through the interactive TUI by running `modernize` and selecting **Create modernization plan** from the menu.
-
 
 ## Next steps
 

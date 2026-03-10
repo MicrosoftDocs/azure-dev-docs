@@ -93,8 +93,8 @@ This solution is designed for enterprise-scale modernization across large portfo
 Ready to modernize your applications? Follow these steps:
 
 1. **[Install and try the Modernize CLI](quickstart.md)**: Get started in minutes with the interactive quickstart.
-2. **[Learn the CLI commands](cli-commands.md)**: Explore all available commands and options.
-3. **[Scale to multiple repos](batch-assess.md)**: Assess and upgrade applications at enterprise scale.
+1. **[Learn the CLI commands](cli-commands.md)**: Explore all available commands and options.
+1. **[Scale to multiple repos](batch-assess.md)**: Assess and upgrade applications at enterprise scale.
 
 > [!NOTE]
 > New users should start with the [quickstart guide](quickstart.md) to experience the full workflow on a sample application.
@@ -113,9 +113,11 @@ Use the modernization agent when you need:
 ## Next steps
 
 **Get started:**
+
 - [**Quickstart: Install and try the CLI**](quickstart.md): Best place to start! Modernize your first app in 5-10 minutes.
 
 **Learn more:**
+
 - [CLI command reference](cli-commands.md)
 - [Batch assessment: Assess multiple applications](batch-assess.md)
 - [Batch upgrade: Upgrade multiple applications](batch-upgrade.md)
