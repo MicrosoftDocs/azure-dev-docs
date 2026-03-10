@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 02/26/2026
+ms.date: 03/11/2026
 keywords: custom skills, SKILL.md, organization patterns, customization
 ---
 
@@ -148,8 +148,8 @@ modernize plan create "migrate from rabbitmq to azure service bus"
 
 ## Next steps
 
-- [Quick start: Get started with the modernization agent](modernization-agent-quickstart.md)
-- [Batch assessment: Assess multiple applications](modernization-agent-batch-assess.md)
-- [Batch upgrade: Upgrade multiple applications](modernization-agent-batch-upgrade.md)
-- [CLI reference](modernization-agent-cli-commands.md)
-- [Return to overview](modernization-agent-overview.md)
+- [Quick start: Get started with the modernization agent](quickstart.md)
+- [Batch assessment: Assess multiple applications](batch-assess.md)
+- [Batch upgrade: Upgrade multiple applications](batch-upgrade.md)
+- [CLI reference](cli-commands.md)
+- [Return to overview](overview.md)

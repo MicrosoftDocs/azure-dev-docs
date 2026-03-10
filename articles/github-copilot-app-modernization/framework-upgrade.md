@@ -1,6 +1,6 @@
 ---
-title: Upgrade a Java Framework or Third-Party Dependency by Using GitHub Copilot App Modernization
-description: Shows you how to use GitHub Copilot app modernization to upgrade a framework or third-party dependency without requiring a JDK runtime upgrade.
+title: Upgrade a Java Framework or Third-Party Dependency by Using GitHub Copilot Modernization
+description: Shows you how to use GitHub Copilot modernization to upgrade a framework or third-party dependency without requiring a JDK runtime upgrade.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xinrzhu
@@ -9,9 +9,9 @@ ms.date: 09/23/2025
 ms.custom: devx-track-java
 ---
 
-# Upgrade a Java framework or third-party dependency by using GitHub Copilot app modernization
+# Upgrade a Java framework or third-party dependency by using GitHub Copilot modernization
 
-This article shows you how to use GitHub Copilot app modernization to upgrade a Java framework or third-party dependency without requiring a JDK runtime upgrade.
+This article shows you how to use GitHub Copilot modernization to upgrade a Java framework or third-party dependency without requiring a JDK runtime upgrade.
 
 ## Initiate a framework upgrade
 
@@ -54,4 +54,4 @@ This *targeted upgrade flow* enables you to modernize dependencies with transpar
 
 ## See also
 
-[GitHub Copilot app modernization](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java?toc=/java/upgrade/toc.json&bc=/java/upgrade/breadcrumb/toc.json)
+[GitHub Copilot modernization](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java?toc=/java/upgrade/toc.json&bc=/java/upgrade/breadcrumb/toc.json)

@@ -1,23 +1,23 @@
 ---
 title: "Quickstart: Create and Apply Your Own Skill"
-titleSuffix: GitHub Copilot app modernization - Azure
+titleSuffix: GitHub Copilot modernization - Azure
 description: Shows you how to create and apply your own custom skill.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: quickstart
-ms.date: 02/25/2026
+ms.date: 03/11/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Quickstart: create and apply your own skills for GitHub Copilot app modernization
+# Quickstart: create and apply your own skills for GitHub Copilot modernization
 
-This quickstart shows you how to create and apply your own custom skills when you use GitHub Copilot app modernization.
+This quickstart shows you how to create and apply your own custom skills when you use GitHub Copilot modernization.
 
-GitHub Copilot app modernization supports custom skills to codify your organizational knowledge for custom library upgrade, configuration updates, enforcing coding standards and more. You may also copy the out-of-box Microsoft tasks into custom skills to adjust them to your needs. Custom skills can be reused, shared and improved to boost the efficiency of your team.
+GitHub Copilot modernization supports custom skills to codify your organizational knowledge for custom library upgrade, configuration updates, enforcing coding standards and more. You may also copy the out-of-box Microsoft tasks into custom skills to adjust them to your needs. Custom skills can be reused, shared and improved to boost the efficiency of your team.
 
 > [!NOTE]
 > If you previously used custom tasks (stored in `.github/appmod/custom-tasks/` of the project or VS Code user data), the extension automatically migrates them to the new `.github/skills/` location of the project on first load.
@@ -32,9 +32,9 @@ Use the following steps to create a custom skill.
 
 ### Define skill information
 
-1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane, hover over the **TASKS** section, and then select **Create a Custom Skill**.
+1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane, hover over the **TASKS** section, and then select **Create a Custom Skill**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-custom-skill.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-custom-skill.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization with the Create a Custom Skill button highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-custom-skill.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-custom-skill.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization with the Create a Custom Skill button highlighted.":::
 
 1. A `SKILL.md` file opens. Fill in the following fields. For the full skill format specification, see the [Agent Skills specification](https://agentskills.io/specification).
 
@@ -50,7 +50,7 @@ Resources provide reference knowledge that Copilot uses when it applies the skil
 
 - **Folders**: Select a folder to include all files within it as resources. This option is useful when reference knowledge spans multiple related files.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/custom-skill-add-resources.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/custom-skill-add-resources.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization custom skill with the Add Resources button highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/custom-skill-add-resources.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/custom-skill-add-resources.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization custom skill with the Add Resources button highlighted.":::
 
 The selected files are copied to `.github/skills/<skill-name>/` in your project. Resource files and folders are stored alongside `SKILL.md` in the skill folder. The total resource size is limited. Be sure to reference these files or folders by name in the **Skill Content** field so that Copilot knows when to use them.
 
@@ -126,4 +126,4 @@ If you manually place extra files in the skill folder without adding these link 
 
 ## Next step
 
-[Predefined tasks for GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)
+[Predefined tasks for GitHub Copilot modernization](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)

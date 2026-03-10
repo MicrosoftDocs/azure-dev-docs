@@ -5,7 +5,7 @@ author: HongkunChen
 ms.author: honc
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 03/04/2026
+ms.date: 03/11/2026
 keywords: infrastructure, containerization, deployment, modernization agent
 ---
 
@@ -23,12 +23,12 @@ The workflow consists of two phases:
 
 ## Prerequisites
 
-- **Modernize CLI installed**: Follow the [quickstart](modernization-agent-quickstart.md) to install and authenticate.
+- **Modernize CLI installed**: Follow the [quickstart](quickstart.md) to install and authenticate.
 - **Azure subscription**: An active Azure subscription for infrastructure provisioning.
 
 ## Phase 1: Infrastructure preparation
 
-The modernization agent creates a plan to provision Azure infrastructure based on the inputs you provide.
+The modernization agent creates a plan to provision Azure infrastructure based on the inputs you provide. This includes the ability to design an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) tailored to your application, covering networking, identity, governance, and security foundations.
 
 ### Inputs
 
@@ -37,7 +37,7 @@ The agent can use a variety of inputs to inform the infrastructure plan:
 - **Application source code** — Codebase analysis to determine technology stack, dependencies, and resource requirements.
 - **Assessment reports** — Reports from `modernize assess`, Azure Migrate, or other migration and assessment tools.
 - **Architecture diagrams** — Pre-migration architecture diagrams or design documents in the repository.
-- **Compliance and security requirements** — Organizational policies or security standards, provided as documents in the repository or as natural language in your prompt.
+- **Compliance and security requirements** — Organizational policies, security standards, or landing zone guidelines, provided as documents in the repository or as natural language in your prompt.
 
 ### Create the infrastructure plan
 
@@ -52,6 +52,7 @@ The agent generates a plan that includes a proposed Azure architecture and a det
 > [!TIP]
 > Combine different inputs and preferences in your prompt. For example:
 >
+> - `"create an Azure landing zone tailored to my application's architecture and requirements"`
 > - `"create azure infrastructure based on the assessment report, following our compliance policies in docs/security-requirements.md"`
 > - `"generate Bicep files for the target architecture in the design doc, don't provision yet"`
 > - `"provision azure resources based on the architecture diagram and assessment findings"`
@@ -138,6 +139,6 @@ You can also perform both phases through the interactive TUI by running `moderni
 
 ## Next steps
 
-- [Learn about CLI commands](modernization-agent-cli-commands.md)
-- [Create custom skills for your organization](modernization-agent-customization.md)
-- [Return to overview](modernization-agent-overview.md)
+- [Learn about CLI commands](cli-commands.md)
+- [Create custom skills for your organization](customization.md)
+- [Return to overview](overview.md)

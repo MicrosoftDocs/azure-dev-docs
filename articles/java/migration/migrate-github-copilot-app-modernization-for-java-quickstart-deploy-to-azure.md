@@ -1,22 +1,22 @@
 ---
-title: "Quickstart: Deploy your project to Azure by using GitHub Copilot app modernization"
-description: Shows you how to deploy your migrated application to Azure by using GitHub Copilot app modernization.
-author: houk-ms
-ms.author: honc
-ms.reviewer: karler
+title: "Quickstart: Deploy your project to Azure by using GitHub Copilot modernization"
+description: Shows you how to deploy your migrated application to Azure by using GitHub Copilot modernization.
+author: KarlErickson
+ms.author: karler
+ms.reviewer: honc
 ms.topic: quickstart
-ms.date: 03/05/2026
+ms.date: 03/11/2026
 ai-usage: ai-assisted
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Quickstart: Deploy your project to Azure by using GitHub Copilot app modernization
+# Quickstart: Deploy your project to Azure by using GitHub Copilot modernization
 
-In this quickstart, you deploy your project to Azure by using GitHub Copilot app modernization.
+In this quickstart, you deploy your project to Azure by using GitHub Copilot modernization.
 
-During development, you often need to deploy your project to a cloud environment for testing. The GitHub Copilot app modernization extension automates the deployment process, deploying your migrated project to Azure and fixing any deployment errors along the way.
+During development, you often need to deploy your project to a cloud environment for testing. The GitHub Copilot modernization extension automates the deployment process, deploying your migrated project to Azure and fixing any deployment errors along the way.
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ During development, you often need to deploy your project to a cloud environment
 - One of the following IDEs:
   - The latest version of [Visual Studio Code](https://code.visualstudio.com/) (version 1.106 or later) with the following extensions:
     - [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). For setup instructions, see [Set up GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup). Be sure to sign in to your GitHub account within Visual Studio Code.
-    - [GitHub Copilot app modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart Visual Studio Code after installation.
+    - [GitHub Copilot modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart Visual Studio Code after installation.
   - The latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download) (version 2023.3 or later) with the following plugins:
     - [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot) (version 1.5.59 or later). Be sure to sign in to your GitHub account within IntelliJ IDEA.
-    - [GitHub Copilot app modernization](https://plugins.jetbrains.com/plugin/28791-github-copilot-app-modernization). Restart IntelliJ IDEA after installation.
+    - [GitHub Copilot modernization](https://plugins.jetbrains.com/plugin/28791-github-copilot-app-modernization). Restart IntelliJ IDEA after installation.
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Deploy your project
@@ -36,7 +36,7 @@ Use the following steps to start the deployment process:
 
 1. In Visual Studio Code, open your migrated project.
 
-1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane.
+1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane.
 
 1. In the **Tasks** section, open **Deployment Tasks** and select **Deploy to Existing Azure Infrastructure**.
 
@@ -74,4 +74,4 @@ The **Deploy to Existing Azure Infrastructure** button sends a predefined prompt
 ## See also
 
 - [Quickstart: Prepare Azure infrastructure](migrate-github-copilot-app-modernization-for-java-quickstart-infrastructure.md)
-- [GitHub Copilot app modernization documentation](../../github-copilot-app-modernization/index.yml)
+- [GitHub Copilot modernization documentation](../../github-copilot-app-modernization/index.yml)

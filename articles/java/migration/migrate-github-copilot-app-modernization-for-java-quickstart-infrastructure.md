@@ -1,22 +1,22 @@
 ---
-title: "Quickstart: Prepare Azure infrastructure by using GitHub Copilot app modernization"
-description: Shows you how to generate infrastructure as code and provision Azure resources by using GitHub Copilot app modernization.
-author: houk-ms
-ms.author: honc
-ms.reviewer: karler
+title: "Quickstart: Prepare Azure infrastructure by using GitHub Copilot modernization"
+description: Shows you how to generate infrastructure as code and provision Azure resources by using GitHub Copilot modernization.
+author: KarlErickson
+ms.author: karler
+ms.reviewer: honc
 ms.topic: quickstart
-ms.date: 03/05/2026
+ms.date: 03/11/2026
 ai-usage: ai-generated
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Quickstart: Prepare Azure infrastructure by using GitHub Copilot app modernization
+# Quickstart: Prepare Azure infrastructure by using GitHub Copilot modernization
 
-In this quickstart, you generate infrastructure-as-code (IaC) files and provision Azure resources for your project by using GitHub Copilot app modernization.
+In this quickstart, you generate infrastructure-as-code (IaC) files and provision Azure resources for your project by using GitHub Copilot modernization.
 
-Before deploying an application to Azure, you need the right cloud infrastructure in place. The **Generate Infrastructure as Code and Provision** task in the GitHub Copilot app modernization extension automates this process—analyzing your project, generating IaC files, and provisioning the required Azure resources.
+Before deploying an application to Azure, you need the right cloud infrastructure in place. The **Generate Infrastructure as Code and Provision** task in the GitHub Copilot modernization extension automates this process—analyzing your project, generating IaC files, and provisioning the required Azure resources. This includes the ability to create an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) tailored to your application, covering networking, identity, governance, and security foundations.
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ Before deploying an application to Azure, you need the right cloud infrastructur
 - One of the following IDEs:
   - The latest version of [Visual Studio Code](https://code.visualstudio.com/) (version 1.106 or later) with the following extensions:
     - [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). For setup instructions, see [Set up GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup). Be sure to sign in to your GitHub account within Visual Studio Code.
-    - [GitHub Copilot app modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart Visual Studio Code after installation.
+    - [GitHub Copilot modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart Visual Studio Code after installation.
   - The latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download) (version 2023.3 or later) with the following plugins:
     - [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot) (version 1.5.59 or later). Be sure to sign in to your GitHub account within IntelliJ IDEA.
-    - [GitHub Copilot app modernization](https://plugins.jetbrains.com/plugin/28791-github-copilot-app-modernization). Restart IntelliJ IDEA after installation.
+    - [GitHub Copilot modernization](https://plugins.jetbrains.com/plugin/28791-github-copilot-app-modernization). Restart IntelliJ IDEA after installation.
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prepare your infrastructure
@@ -36,7 +36,7 @@ Use the following steps to generate IaC files and provision Azure resources:
 
 1. In Visual Studio Code, open your project.
 
-1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane.
+1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane.
 
 1. In the **Tasks** section, select **Generate Infrastructure as Code and Provision**.
 
@@ -57,7 +57,7 @@ Use the following steps to generate IaC files and provision Azure resources:
 > [!NOTE]
 > We recommend using Claude Sonnet 4 or later models for the best results.
 >
-> The agent can also reference assessment reports, architecture diagrams, or compliance and security requirement documents in the repository to inform infrastructure decisions.
+> The agent can also reference assessment reports, architecture diagrams, landing zone guidelines, or compliance and security requirement documents in the repository to inform infrastructure decisions.
 
 ## Customize with your own prompts
 
@@ -66,10 +66,11 @@ The **Generate Infrastructure as Code and Provision** button sends a predefined 
 > [!TIP]
 > Example prompts for different scenarios:
 >
+> - `"Create an Azure landing zone tailored to my application's architecture and requirements"`—design a landing zone with networking, identity, and governance foundations.
 > - `"Generate Bicep files for my project's Azure infrastructure based on the assessment report in docs/assessment.md, don't provision yet"`—generate IaC only, referencing an assessment report.
 > - `"Provision Azure infrastructure following the architecture diagram in docs/architecture.png and the compliance policies in docs/security-requirements.md"`—combine architecture and compliance inputs.
 > - `"Generate Terraform files for my project and provision resources in East US region"`—request a specific IaC format and region.
 
 ## See also
 
-- [GitHub Copilot app modernization documentation](../../github-copilot-app-modernization/index.yml)
+- [GitHub Copilot modernization documentation](../../github-copilot-app-modernization/index.yml)

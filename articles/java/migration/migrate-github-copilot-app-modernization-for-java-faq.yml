@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: GitHub Copilot App Modernization FAQ
+  title: GitHub Copilot Modernization FAQ
   titleSuffix: Azure
-  description: Answers frequently asked questions about GitHub Copilot app modernization.
+  description: Answers frequently asked questions about GitHub Copilot modernization.
   author: KarlErickson
   ms.author: karler
   ms.reviewer: xiading
@@ -13,43 +13,43 @@ metadata:
   ms.collection: ce-skilling-ai-copilot
   ms.update-cycle: 180-days
 
-title: GitHub Copilot app modernization FAQ
-summary: Answers frequently asked questions about GitHub Copilot app modernization.
+title: GitHub Copilot modernization FAQ
+summary: Answers frequently asked questions about GitHub Copilot modernization.
 
 sections:
   - name: FAQ
     questions:
 
-      - question: What's the product scope of the GitHub Copilot app modernization?
+      - question: What's the product scope of the GitHub Copilot modernization?
         answer: |
-          We recognize that the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we're limiting the migration scope to Java backend apps. We support projects that are built with Maven or Gradle. For information about key product capabilities, see the [GitHub Copilot app modernization overview](../../github-copilot-app-modernization/overview.md).
+          We recognize that the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we're limiting the migration scope to Java backend apps. We support projects that are built with Maven or Gradle. For information about key product capabilities, see the [GitHub Copilot modernization overview](../../github-copilot-app-modernization/overview.md).
 
-      - question: Will GitHub Copilot app modernization be open sourced in the future?
-        answer: We currently have no plans to open source GitHub Copilot app modernization.
+      - question: Will GitHub Copilot modernization be open sourced in the future?
+        answer: We currently have no plans to open source GitHub Copilot modernization.
 
-      - question: What GitHub Copilot license plan do I need to use GitHub Copilot app modernization?
-        answer: GitHub Copilot app modernization is available to any GitHub Copilot plan.
+      - question: What GitHub Copilot license plan do I need to use GitHub Copilot modernization?
+        answer: GitHub Copilot modernization is available to any GitHub Copilot plan.
 
-      - question: How is GitHub Copilot app modernization billed?
-        answer: GitHub Copilot app modernization is a feature of GitHub Copilot, and shares the same [subscription billing model](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans) as GitHub Copilot. App modernization tasks consume premium requests, with each subscription plan offering a monthly allowance of premium requests. Exceeding the plan limit requires a plan upgrade or extra purchase of premium requests.
+      - question: How is GitHub Copilot modernization billed?
+        answer: GitHub Copilot modernization is a feature of GitHub Copilot, and shares the same [subscription billing model](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans) as GitHub Copilot. GitHub Copilot modernization tasks consume premium requests, with each subscription plan offering a monthly allowance of premium requests. Exceeding the plan limit requires a plan upgrade or extra purchase of premium requests.
 
-      - question: In addition to Java, I also need to migrate apps written in other languages. Is there a plan for GitHub Copilot app modernization to go beyond Java?
-        answer: Currently, GitHub Copilot app modernization is focused on assisting with Java and .NET applications. However, we're actively collecting requirements and feedback from customers regarding the need to support other languages.
+      - question: In addition to Java, I also need to migrate apps written in other languages. Is there a plan for GitHub Copilot modernization to go beyond Java?
+        answer: Currently, GitHub Copilot modernization is focused on assisting with Java and .NET applications. However, we're actively collecting requirements and feedback from customers regarding the need to support other languages.
 
-      - question: Does GitHub Copilot app modernization store my source code?
+      - question: Does GitHub Copilot modernization store my source code?
         answer: |
-          No. GitHub Copilot app modernization uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom skills either.
+          No. GitHub Copilot modernization uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom skills either.
 
           Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
 
           For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com/).
 
-      - question: What kind of applications did you use to evaluate GitHub Copilot app modernization?
-        answer: We tested GitHub Copilot app modernization on hundreds of open-source repositories to ensure build, consistency, and unit tests pass after the modernization process. We also worked extensively with customers during the Technical Preview phase. Input from users is used to improve the product experience. You can submit feedback using [this link](https://www.surveymonkey.com/r/NDBTC6B).
+      - question: What kind of applications did you use to evaluate GitHub Copilot modernization?
+        answer: We tested GitHub Copilot modernization on hundreds of open-source repositories to ensure build, consistency, and unit tests pass after the modernization process. We also worked extensively with customers during the Technical Preview phase. Input from users is used to improve the product experience. You can submit feedback using [this link](https://www.surveymonkey.com/r/NDBTC6B).
 
-      - question: What frameworks is GitHub Copilot app modernization optimized for in upgrade scenarios?
+      - question: What frameworks is GitHub Copilot modernization optimized for in upgrade scenarios?
         answer: |
-          Although GitHub Copilot app modernization focuses on upgrading Java runtimes, it also optimizes upgrades for the following frameworks:
+          Although GitHub Copilot modernization focuses on upgrading Java runtimes, it also optimizes upgrades for the following frameworks:
 
           - Spring Boot up to version 3.5.
           - Java EE - Javax to Jakarta EE, up to Jakarta EE 10.
@@ -103,7 +103,7 @@ sections:
 
       - question: How do I change the model used by the AppModernization custom agent?
         answer: |
-          In Visual Studio Code, app modernization uses the `AppModernization` custom agent with Claude Sonnet 4.5 by default for best results when updating Java code to migrate to Azure. It falls back to the 'auto' model if Sonnet 4.5 is not available to you. You can configure the custom agent to [modify the 'model' setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
+          In Visual Studio Code, GitHub Copilot modernization uses the `AppModernization` custom agent with Claude Sonnet 4.5 by default for best results when updating Java code to migrate to Azure. It falls back to the 'auto' model if Sonnet 4.5 is not available to you. You can configure the custom agent to [modify the 'model' setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
 
           :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/configure-custom-agents.png" alt-text="Screenshot of the GitHub Copilot chat pane in Visual Studio Code that shows the Configure Custom Agents option." lightbox="media/migrate-github-copilot-app-modernization-for-java/configure-custom-agents.png":::
 
@@ -123,21 +123,21 @@ sections:
           - The source and target JDK paths - the paths to the installed JDKs for the current and target versions.
           - The Maven/Gradle setup - paths to the Maven/Gradle build tools. For Gradle, only Gradle wrappers are supported.
 
-      - question: How does GitHub Copilot app modernization use the MCP server, and how can I check for updates or troubleshoot issues?
+      - question: How does GitHub Copilot modernization use the MCP server, and how can I check for updates or troubleshoot issues?
         answer: |
-          GitHub Copilot app modernization uses the MCP server to enhance code transformation capabilities. After you install the Visual Studio Code extension, the MCP server is registered and starts automatically.
+          GitHub Copilot modernization uses the MCP server to enhance code transformation capabilities. After you install the Visual Studio Code extension, the MCP server is registered and starts automatically.
 
           If you notice a special refresh button in the bottom-right corner of the GitHub Copilot Chat panel, it might indicate that tool updates are available. Select the button to automatically load the latest versions of the tools.
 
-          The GitHub Copilot app modernization MCP server also maintains logs. To troubleshoot, check the log files located at: `%USERPROFILE%/.ghcp-appmod-java/logs`
+          The GitHub Copilot modernization MCP server also maintains logs. To troubleshoot, check the log files located at: `%USERPROFILE%/.ghcp-appmod-java/logs`
 
-      - question: Why does GitHub Copilot app modernization stop after listing a plan without making any code changes?
+      - question: Why does GitHub Copilot modernization stop after listing a plan without making any code changes?
         answer: |
-          Sometimes, GitHub Copilot app modernization requires explicit confirmation before proceeding. You can type **yes** or **continue** in the chat to enable the agent to move forward with the code modifications.
+          Sometimes, GitHub Copilot modernization requires explicit confirmation before proceeding. You can type **yes** or **continue** in the chat to enable the agent to move forward with the code modifications.
 
           :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/continue-in-chat.png" alt-text="Screenshot of the GitHub Copilot chat pane in Visual Studio Code that shows the user typing continue in response to an update plan." lightbox="media/migrate-github-copilot-app-modernization-for-java/continue-in-chat.png":::
 
-      - question: Why does GitHub Copilot app modernization frequently prompt me to select **Continue**?
+      - question: Why does GitHub Copilot modernization frequently prompt me to select **Continue**?
         answer: |
           To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation, you can use the following configuration as a workaround.
 
@@ -149,7 +149,7 @@ sections:
 
             :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/intellij-allow-mcp-tool.png" alt-text="Screenshot of the GitHub Copilot chat pane that shows the Continue button in Intellij IDEA." lightbox="media/migrate-github-copilot-app-modernization-for-java/intellij-allow-mcp-tool.png":::
 
-      - question: What network configurations are required to use GitHub Copilot app modernization in Visual Studio Code?
+      - question: What network configurations are required to use GitHub Copilot modernization in Visual Studio Code?
         answer: To ensure that the extension works correctly within Visual Studio Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you might need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, see the official troubleshooting guide [Managing GitHub Copilot access to your enterprise's network](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
 
       - question: Are there any settings in GitHub Copilot that I should configure to make sure I get all the features?
@@ -158,15 +158,15 @@ sections:
 
           To manage the settings for GitHub Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
-      - question: Why don't I see tools in GitHub Copilot app modernization that use the Model Context Protocol (MCP) server?
+      - question: Why don't I see tools in GitHub Copilot modernization that use the Model Context Protocol (MCP) server?
         answer: |
-          GitHub Copilot app modernization uses the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:
+          GitHub Copilot modernization uses the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:
 
           - When you open a Java project for migration for the first time.
           - When you upgrade the extension to a newer version.
 
       - question: Why is the code regeneration process unstable?
-        answer: GitHub Copilot app modernization is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
+        answer: GitHub Copilot modernization is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
 
       - question: Where are skills stored on the local machine and how can they be shared?
         answer: |
@@ -177,5 +177,5 @@ sections:
       - question: How can I view more details about the code changes made by the agent?
         answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
 
-      - question: Can I use the GitHub Copilot app modernization feature in IntelliJ IDEA on a Linux platform?
+      - question: Can I use the GitHub Copilot modernization feature in IntelliJ IDEA on a Linux platform?
         answer: We currently only support Windows and macOS platforms.

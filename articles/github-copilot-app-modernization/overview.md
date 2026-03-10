@@ -1,12 +1,12 @@
 ---
 title: Analyze Applications and Migrate to Azure by using GitHub Copilot modernization
 titleSuffix: Azure
-description: Provides an overview of GitHub Copilot app modernization.
+description: Provides an overview of GitHub Copilot modernization.
 author: KarlErickson
 ms.author: karler
 ms.topic: upgrade-and-migration-article
 ai-usage: ai-assisted
-ms.date: 03/4/2026
+ms.date: 03/11/2026
 ---
 
 # GitHub Copilot modernization
@@ -24,7 +24,7 @@ The following GitHub Copilot modernization capabilities are currently available:
 
 - **General availability**: IDE experience - language and framework upgrades for .NET and Java.
 - **General availability**: IDE experience - migration scenarios for .NET and Java.
-- **Public preview**: Modernization agent - CLI experience for application assessment and planning. For more information, see [Modernization agent overview](modernization-agent/modernization-agent-overview.md).
+- **Public preview**: Modernization agent - CLI experience for application assessment and planning. For more information, see [Modernization agent overview](modernization-agent/overview.md).
 
 <br>
 
@@ -34,7 +34,7 @@ The following GitHub Copilot modernization capabilities are currently available:
 
 - **Application assessment and planning**: Analyze code, configuration, and dependencies.
 
-  Modernization begins with comprehensive codebase analysis. GitHub Copilot app modernization analyzes your project's current state and generates modernization plans. The tool identifies dependencies, outdated libraries, and potential migration issues. It provides actionable strategies to remediate problems.
+  Modernization begins with comprehensive codebase analysis. GitHub Copilot modernization analyzes your project's current state and generates modernization plans. The tool identifies dependencies, outdated libraries, and potential migration issues. It provides actionable strategies to remediate problems.
 
 - **Code transformations**: Upgrade Java or .NET runtime and framework, and migrate to Azure.
 
@@ -54,9 +54,9 @@ The following GitHub Copilot modernization capabilities are currently available:
 
 Use the following links to begin modernizing applications with GitHub Copilot:
 
-- [GitHub Copilot app modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
-- [GitHub Copilot app modernization for .NET](/dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
-- [Modernization Agent](modernization-agent/modernization-agent-overview.md)
+- [GitHub Copilot modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
+- [GitHub Copilot modernization for .NET](/dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
+- [Modernization Agent](modernization-agent/overview.md)
 
 After you modernize on Azure, applications can integrate with Azure AI capabilities and services:
 
@@ -71,4 +71,4 @@ After you modernize on Azure, applications can integrate with Azure AI capabilit
 
 ## Privacy statement
 
-App modernization for Java uses GitHub Copilot the same way you use GitHub Copilot to modify code. This process doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom skills either. For more information, see the [Microsoft privacy statement](https://www.microsoft.com/en-us/privacy/privacystatement).
+GitHub Copilot modernization for Java uses GitHub Copilot the same way you use GitHub Copilot to modify code. This process doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom skills either. For more information, see the [Microsoft privacy statement](https://www.microsoft.com/en-us/privacy/privacystatement).

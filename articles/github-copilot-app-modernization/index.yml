@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: GitHub Copilot app modernization documentation
-summary: Provides an overview, reference, and quickstarts on using GitHub Copilot app modernization.
+title: GitHub Copilot modernization documentation
+summary: Provides an overview, reference, and quickstarts on using GitHub Copilot modernization.
 
 metadata:
-  title: GitHub Copilot App Modernization Documentation
-  description: Provides an overview, reference, and quickstarts on using GitHub Copilot app modernization.
+  title: GitHub Copilot Modernization Documentation
+  description: Provides an overview, reference, and quickstarts on using GitHub Copilot modernization.
   author: KarlErickson
   ms.author: karler
   ms.date: 11/18/2025
@@ -16,7 +16,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: GitHub Copilot app modernization overview
+          - text: GitHub Copilot modernization overview
             url: overview.md
           - text: Languages and frameworks supported
             url: languages.md

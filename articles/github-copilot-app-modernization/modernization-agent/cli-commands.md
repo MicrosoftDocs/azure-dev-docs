@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: reference
 ai-usage: ai-assisted
-ms.date: 02/26/2026
+ms.date: 03/11/2026
 keywords: modernize cli, cli commands, interactive, non-interactive
 ---
 
@@ -74,7 +74,7 @@ modernize assess [options]
 | `--output-path <path>` | Custom output path for assessment results | `.github/modernize/assessment/` |
 | `--issue-url <url>` | GitHub issue URL to update with assessment summary | None |
 | `--multi-repo` | Enable multi-repo assess. Scans first-level subdirectories for multiple repositories | Disabled |
-| `--model <model>` | LLM model to use | `claude-sonnet-4.5` |
+| `--model <model>` | LLM model to use | `claude-sonnet-4.6` |
 | `--delegate <delegate>` | Execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent) | `local` |
 | `--wait` | Wait for delegated tasks to complete and generate results (only valid with `--delegate cloud`) | Disabled |
 | `--force` | Force restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`) | Disabled |
@@ -138,7 +138,7 @@ modernize plan create <prompt> [options]
 | `--plan-name <name>` | Name for the modernization plan | `modernization-plan` |
 | `--language <lang>` | Programming language (java, dotnet, python) | Auto-detected |
 | `--issue-url <url>` | GitHub issue to reference when creating plan | None |
-| `--model <model>` | LLM model to use | `claude-sonnet-4.5` |
+| `--model <model>` | LLM model to use | `claude-sonnet-4.6` |
 
 #### Examples
 
@@ -229,7 +229,7 @@ modernize plan execute [prompt] [options]
 | `--source <path>` | Path to the application source code | Current directory |
 | `--plan-name <name>` | Name of the plan to execute | `modernization-plan` |
 | `--no-tty` | Run in headless mode (for CI/CD) | Interactive mode |
-| `--model <model>` | LLM model to use | `claude-sonnet-4.5` |
+| `--model <model>` | LLM model to use | `claude-sonnet-4.6` |
 | `--delegate <delegate>` | Execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent) | `local` |
 | `--wait` | Wait for delegated tasks to complete and generate results (only valid with `--delegate cloud`) | Disabled |
 | `--force` | Force restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`) | Disabled |
@@ -291,7 +291,7 @@ modernize upgrade [options]
 |--------|-------------|---------|
 | `--source <source>` | Path to source project (relative or absolute local path) | `.` (current directory) |
 | `--delegate <delegate>` | Execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent) | `local` |
-| `--model <model>` | LLM model to use | `claude-sonnet-4.5` |
+| `--model <model>` | LLM model to use | `claude-sonnet-4.6` |
 
 #### Examples
 
@@ -314,18 +314,45 @@ Run upgrade using the Cloud Coding Agent:
 modernize upgrade "Java 17" --delegate cloud
 ```
 
+## Configure the CLI
+
+The modernization agent allows users to customize application behavior through JSON files and environment variables.  
+
 ### Environment variables
+
+Set environment variables to override all other configuration scopes:
 
 | Variable | Description | Default |
 |----------|-------------|---------|
+| `MODERNIZE_LOG_LEVEL` | Logging level (`none`, `error`, `warning`, `info`, `debug`, `all`) | `info` |
+| `MODERNIZE_MODEL` | LLM model to use | `claude-sonnet-4.6` |
 | `MODERNIZE_COLLECT_TELEMETRY` | Enable/disable telemetry collection | `true` |
-| `MODERNIZE_LOG_LEVEL` | Logging level (debug, info, warn, error) | `info` |
 
 Example:
 ```bash
-export MODERNIZE_COLLECT_TELEMETRY=false
+export MODERNIZE_LOG_LEVEL=debug
+export MODERNIZE_MODEL=claude-sonnet-4.6
 modernize assess
 ```
+
+### User configuration
+
+Store user-specific preferences in `~/.modernize/config.json` or repository-wide settings in `.github/modernize/config.json`. 
+
+```json
+{
+  "model": "claude-sonnet-4.6",
+  "log_level": "info",
+  "trusted_folders": [
+    "/path/to/trusted/project",
+  ]
+}
+```
+
+The `trusted_folders` property specifies the folders that are trusted to use LLM in interactive mode.
+
+> [!NOTE]
+> Environment variables take the highest precedence, followed by user configuration, and then repository configuration. Use environment variables for CI/CD overrides and user configuration for personal preferences.
 
 ### Multi-repository configuration
 
@@ -363,7 +390,7 @@ modernize upgrade --delegate cloud
 
 ## Next steps
 
-- [Batch assessment: Assess multiple applications](modernization-agent-batch-assess.md)
-- [Batch upgrade: Upgrade multiple applications](modernization-agent-batch-upgrade.md)
-- [Create custom skills for your organization](modernization-agent-customization.md)
-- [Return to overview](modernization-agent-overview.md)
+- [Batch assessment: Assess multiple applications](batch-assess.md)
+- [Batch upgrade: Upgrade multiple applications](batch-upgrade.md)
+- [Create custom skills for your organization](customization.md)
+- [Return to overview](overview.md)

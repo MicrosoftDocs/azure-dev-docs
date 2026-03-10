@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 02/26/2026
+ms.date: 03/11/2026
 keywords: batch upgrade, multi-repo upgrade, parallel upgrade, scale modernization
 ---
 
@@ -39,8 +39,8 @@ Batch upgrade allows you to:
 
 Before performing batch upgrade:
 
-- [Modernize CLI installed](modernization-agent-quickstart.md)
-- Completed [batch assessment](modernization-agent-batch-assess.md) (recommended but not required)
+- [Modernize CLI installed](quickstart.md)
+- Completed [batch assessment](batch-assess.md) (recommended but not required)
 - All repositories use the same programming language (Java or .NET)
 - Access to all repositories you want to upgrade
 - GitHub authentication configured (`gh auth login`)
@@ -255,7 +255,7 @@ modernize upgrade "Java 21" --delegate cloud
 The command automatically detects the `repos.json` file and processes all repositories.
 
 > [!NOTE]
-> For batch headless execution and additional CLI options, see the [Multi-repository configuration](modernization-agent-cli-commands.md#multi-repository-configuration) section in the CLI commands reference.
+> For batch headless execution and additional CLI options, see the [Multi-repository configuration](cli-commands.md#multi-repository-configuration) section in the CLI commands reference.
 
 ## Review results
 
@@ -313,12 +313,12 @@ After batch upgrade completes:
 After completing batch upgrade, you can:
 
 **Continue improving:**
-- [Run batch assessment](modernization-agent-batch-assess.md) - Reassess to verify improvements and identify new opportunities
-- [Create custom skills for organization-specific patterns](modernization-agent-customization.md) - Capture successful patterns for reuse
+- [Run batch assessment](batch-assess.md) - Reassess to verify improvements and identify new opportunities
+- [Create custom skills for organization-specific patterns](customization.md) - Capture successful patterns for reuse
 
 **Learn more:**
-- [Learn about CLI commands](modernization-agent-cli-commands.md)
+- [Learn about CLI commands](cli-commands.md)
 
 ## Provide feedback
 
-We value your input! If you have any feedback about batch upgrade or the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot app modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+We value your input! If you have any feedback about batch upgrade or the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).

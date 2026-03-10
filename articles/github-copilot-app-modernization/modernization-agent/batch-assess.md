@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 02/26/2026
+ms.date: 03/11/2026
 keywords: batch assessment, multi-repo assessment, aggregated report, scale assessment
 ---
 
@@ -35,7 +35,7 @@ This article guides you through the process of assessing multiple repositories i
 
 Before performing batch assessment:
 
-- [Modernize CLI installed](modernization-agent-quickstart.md)
+- [Modernize CLI installed](quickstart.md)
 - Access to all repositories you want to assess
 - GitHub authentication configured (`gh auth login`)
 
@@ -235,7 +235,7 @@ modernize assess --multi-repo
 ```bash
 modernize assess --delegate cloud
 ```
-Refer to [assess - CLI commands](./modernization-agent-cli-commands.md?#assess) for details.
+Refer to [assess - CLI commands](cli-commands.md?#assess) for details.
 
 ## Understanding the aggregated report
 
@@ -282,12 +282,12 @@ The aggregated report provides a comprehensive view across assessed applications
 After completing batch assessment, you can:
 
 **Continue the modernization workflow:**
-- [Run batch upgrade across repositories](modernization-agent-batch-upgrade.md) - Apply consistent upgrades based on assessment findings
+- [Run batch upgrade across repositories](batch-upgrade.md) - Apply consistent upgrades based on assessment findings
 
 **Learn more:**
-- [Create custom skills for organization-specific patterns](modernization-agent-customization.md)
-- [Learn about CLI commands](modernization-agent-cli-commands.md)
+- [Create custom skills for organization-specific patterns](customization.md)
+- [Learn about CLI commands](cli-commands.md)
 
 ## Provide feedback
 
-We value your input! If you have any feedback about batch assessment or the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot app modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+We value your input! If you have any feedback about batch assessment or the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).

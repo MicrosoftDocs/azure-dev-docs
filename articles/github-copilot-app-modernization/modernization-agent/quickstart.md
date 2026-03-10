@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ai-usage: ai-assisted
-ms.date: 02/26/2026
+ms.date: 03/11/2026
 keywords: modernize cli, install modernization agent, assess application, create modernization plan, execute plan
 ---
 
@@ -26,35 +26,36 @@ This quickstart guides you through installing the GitHub Copilot modernization a
 
 ## Install the modernization agent
 
-1. Download the appropriate archive for your platform from the [GitHub releases page](https://github.com/microsoft/modernize-cli/releases):
+Use the following commands to install the modernization agent or update to the latest version.
 
-   - **Windows x64**: `modernize_X.Y.Z_windows_x64.zip`
-   - **Windows ARM64**: `modernize_X.Y.Z_windows_arm64.zip`
-   - **Linux x64**: `modernize_X.Y.Z_linux_x64.tar.gz`
-   - **Linux ARM64**: `modernize_X.Y.Z_linux_arm64.tar.gz`
-   - **macOS (Intel)**: `modernize_X.Y.Z_darwin_x64.tar.gz`
-   - **macOS (Apple Silicon)**: `modernize_X.Y.Z_darwin_arm64.tar.gz`
+### Linux/macOS
 
-2. Extract the archive to a directory of your choice.
+Run the following command:
 
-3. Add the extracted directory that contains `modernize.exe` (or `modernize` on Linux/macOS) to your system PATH:
+```bash
+curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | bash
+```
 
-   **Windows (PowerShell):**
-   ```powershell
-   $env:PATH += ";C:\path\to\modernize"
-   ```
+### Windows
 
-   **Linux/macOS:**
-   ```bash
-   export PATH="$PATH:/path/to/modernize"
-   ```
+Run the following command in PowerShell:
 
-   To make this change permanent, add the export command to your shell profile (`~/.bashrc`, `~/.zshrc`, or equivalent).
+```powershell
+iex (irm 'https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.ps1')
+```
 
-4. Verify the installation:
-   ```bash
-   modernize --version
-   ```
+Alternatively, download and run the MSI installer from the [GitHub releases page](https://github.com/microsoft/modernize-cli/releases).
+
+> [!NOTE]
+> These commands work for both initial installation and updating to the latest version. A dedicated version update command will be available in a future release.
+
+---
+
+Verify the installation:
+
+```bash
+modernize --version
+```
 
 ## Get a sample application
 
@@ -76,14 +77,17 @@ git checkout -b modernize
 
 ## Use the interactive mode
 
-The easiest way to get started is using the interactive mode:
+The easiest way to get started is using the interactive mode. First, authenticate with the GitHub CLI:
+
+```bash
+gh auth login
+```
+
+Then, run the modernization agent:
 
 ```bash
 modernize
 ```
-
-> [!NOTE]
-> If you haven't authenticated previously through the GitHub CLI (`gh auth login`), the agent prompts you to authenticate before proceeding.
 
 You'll see the main menu:
 
@@ -180,11 +184,11 @@ After execution completes, you can review all changes made by the agent before m
 
 ## Next steps
 
-- [Learn about CLI](modernization-agent-cli-commands.md)
-- [Batch assessment: Assess multiple applications](modernization-agent-batch-assess.md)
-- [Batch upgrade: Upgrade multiple applications](modernization-agent-batch-upgrade.md)
-- [Create custom skills for your organization](modernization-agent-customization.md)
+- [Learn about CLI](cli-commands.md)
+- [Batch assessment: Assess multiple applications](batch-assess.md)
+- [Batch upgrade: Upgrade multiple applications](batch-upgrade.md)
+- [Create custom skills for your organization](customization.md)
 
 ## Provide feedback
 
-We value your input! If you have any feedback about the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot app modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+We value your input! If you have any feedback about the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
