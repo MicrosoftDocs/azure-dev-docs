@@ -19,6 +19,9 @@ Use the Azure MCP Server to manage Azure AI Search resources, including search s
 
 [Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) is a cloud search service that provides APIs and tools for building applications and agents that follow the Retrieval Augmented Generation (RAG) pattern to connect AI models with external data, as well as for more traditional scenarios such as catalog and document search. It can play the role of a vector database or of a comprehensive retrieval system with vector and keyword retrieval, reranking, and most recently agentic retrieval support.
 
+> [!NOTE]
+> Each Azure AI Search knowledge base exposes a native MCP endpoint for direct retrieval. For more information, see [Call the MCP endpoint](/azure/search/agentic-retrieval-how-to-retrieve#call-the-mcp-endpoint).
+
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Index: Get index details
