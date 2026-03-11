@@ -1,5 +1,5 @@
 ---
-title: Languages and Frameworks Supported by GitHub Copilot modernization
+title: Languages and Frameworks Supported by GitHub Copilot Modernization
 description: Introduces the support scope of GitHub Copilot modernization for languages and frameworks.
 author: KarlErickson
 ms.author: karler

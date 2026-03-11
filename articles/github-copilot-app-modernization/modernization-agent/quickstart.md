@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Install and use the GitHub Copilot modernization agent
+title: "Quickstart: Install and Use the GitHub Copilot Modernization Agent"
 description: Learn how to install and use the GitHub Copilot modernization agent to assess, plan, and execute application modernization.
 author: KarlErickson
 ms.author: karler
@@ -15,7 +15,7 @@ This quickstart guides you through installing the GitHub Copilot modernization a
 
 ## Prerequisites
 
-- **GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
+- **A GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
 - **GitHub CLI**: Install the GitHub CLI (`gh`) for authentication. See [Installing gh](https://cli.github.com/).
 
 ### Platform requirements
@@ -27,14 +27,6 @@ This quickstart guides you through installing the GitHub Copilot modernization a
 ## Install the modernization agent
 
 Use the following commands to install the modernization agent or update to the latest version.
-
-### [Linux/macOS](#tab/linux-macos)
-
-Run the following command:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | bash
-```
 
 ### [Windows](#tab/windows)
 
@@ -48,6 +40,14 @@ Alternatively, download and run the MSI installer from the [GitHub releases page
 
 > [!NOTE]
 > These commands work for both initial installation and updating to the latest version. A dedicated version update command will be available in a future release.
+
+### [Linux/macOS](#tab/linux-macos)
+
+Run the following command:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | bash
+```
 
 ---
 
@@ -199,4 +199,4 @@ After execution finishes, you can review all changes that the agent made before 
 
 ## Provide feedback
 
-We value your input! If you have any feedback about the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+We value your input! If you have any feedback about the Modernization agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).

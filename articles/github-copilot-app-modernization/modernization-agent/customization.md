@@ -1,5 +1,5 @@
 ---
-title: Customize The GitHub Copilot Modernization Agent
+title: Customize the GitHub Copilot Modernization Agent
 description: Learn how to customize the GitHub Copilot modernization agent with custom skills to encode organization-specific migration patterns.
 author: KarlErickson
 ms.author: karler
@@ -100,9 +100,9 @@ modernize plan create "migrate from rabbitmq to azure service bus"
 
 To verify which skills are detected:
 
-1. Create a plan with your prompt:
+1. Create a plan with your prompt.
 
-1. Review `.github/modernization/{plan-name}/tasks.json`
+1. Review `.github/modernization/{plan-name}/tasks.json`.
 
 1. Look for references to your custom skills:
 

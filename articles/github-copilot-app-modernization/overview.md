@@ -1,5 +1,5 @@
 ---
-title: Analyze Applications and Migrate to Azure by using GitHub Copilot Modernization
+title: Analyze Applications and Migrate to Azure by Using GitHub Copilot Modernization
 titleSuffix: Azure
 description: Learn how GitHub Copilot modernization simplifies application assessment, framework upgrades, and Azure migration for Java and .NET projects.
 author: KarlErickson
@@ -57,7 +57,7 @@ Use the following links to begin modernizing applications with GitHub Copilot:
 
 - [GitHub Copilot modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
 - [GitHub Copilot modernization for .NET](/dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
-- [Modernization Agent](modernization-agent/overview.md)
+- [Modernization agent](modernization-agent/overview.md)
 
 After you modernize on Azure, applications can integrate with Azure AI capabilities and services:
 
