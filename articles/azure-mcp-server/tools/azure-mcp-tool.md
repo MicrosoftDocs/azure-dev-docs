@@ -1,7 +1,6 @@
 ---
 title: Azure MCP Tools Management
 description: Learn how to use the Azure MCP Server to discover and manage available tools.
-keywords: azure mcp server, azmcp, tools, tool management
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
