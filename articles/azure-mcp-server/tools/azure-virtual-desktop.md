@@ -1,7 +1,6 @@
 ---
 title: Azure Virtual Desktop Tools
 description: Learn how to use the Azure MCP Server with Azure Virtual Desktop.
-keywords: azure mcp server, azmcp, azure virtual desktop, avd, host pools, session hosts
 author: diberry
 ms.author: diberry
 ms.date: 12/06/2025

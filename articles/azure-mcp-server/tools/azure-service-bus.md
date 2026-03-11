@@ -1,7 +1,6 @@
 ---
 title: Azure Service Bus Tools 
 description: "Learn how to use Azure MCP Server with Azure Service Bus to manage queues, topics, and peek at messages with natural language prompts."
-keywords: azure mcp server, azmcp, service bus, queue, topic
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025
