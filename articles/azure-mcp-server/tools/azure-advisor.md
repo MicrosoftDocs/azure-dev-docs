@@ -4,7 +4,6 @@ description: Learn about the tools in Azure Advisor for managing resource optimi
 #customer intent: As an Azure admin, I want to learn how to use Azure Advisor tools so I can optimize resource performance and costs in the Azure MCP Server.
 ms.date: 02/18/2026
 ms.reviewer: ankiga
-keywords: Azure, MCP Server, advisor, resource optimization, recommendations, management
 ms.service: azure-mcp-server
 ms.topic: concept-article
 tool_count: 1

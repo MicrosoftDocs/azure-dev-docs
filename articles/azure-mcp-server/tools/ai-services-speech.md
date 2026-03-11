@@ -1,7 +1,6 @@
 ---
 title: Azure Speech in Foundry Tools
 description: Learn how to use the Azure MCP Server with Azure Speech in Foundry Tools.
-keywords: azure mcp server, azmcp, ai speech services, speech recognition, speech to text, text to speech, cognitive services, azure services
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025

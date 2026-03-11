@@ -1,7 +1,6 @@
 ---
 title: Azure App Service tools - Azure MCP Server
 description: Use the Azure App Service tools in Azure MCP Server to get guidance on Azure Functions development, deployment, and Azure SDK usage.
-keywords: azure mcp server, azmcp, app service
 ms.service: azure-mcp-server
 content_well_notification: 
   - AI-contribution
