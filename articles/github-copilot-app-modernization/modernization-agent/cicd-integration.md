@@ -14,8 +14,6 @@ ms.date: 03/11/2026
 
 Integrate the Modernize CLI into your CI/CD pipelines to automate application modernization at scale. This article shows you how to configure both GitHub Actions and Azure Pipelines to run the Modernize CLI on a schedule or on demand.
 
-## Overview
-
 Running the Modernize CLI in a CI/CD pipeline enables you to:
 
 - **Automate upgrades** on a recurring schedule without manual intervention.
@@ -34,12 +32,12 @@ The sample pipelines in this article perform the following steps:
 
 ### [GitHub Actions](#tab/github-actions)
 
-- **GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
-- **GitHub Personal Access Token (PAT)**: Create a token and store it as a repository secret named `GH_TOKEN`. See [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+- **A GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
+- **A GitHub Personal Access Token (PAT)**: Create a token and store it as a repository secret named `GH_TOKEN`. See [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
-- **GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
+- **A GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
 - **Permissions to create Azure Pipelines**: See [About permissions and security groups](/azure/devops/organizations/security/about-permissions).
 - **Build service permissions**: The pipeline's build service identity needs permissions to write to the repository. See [Run Git commands in a script](/azure/devops/pipelines/scripts/git-commands).
   - Navigate to **Project Settings** > **Repositories**.
@@ -49,7 +47,7 @@ The sample pipelines in this article perform the following steps:
     - **Create branch**
     - **Contribute**
     - **Read**
-- **GitHub Personal Access Token (PAT)**: Create a token and store it as a pipeline variable named `GH_TOKEN`. See [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and [Define variables](/azure/devops/pipelines/process/variables).
+- **A GitHub Personal Access Token (PAT)**: Create a token and store it as a pipeline variable named `GH_TOKEN`. See [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and [Define variables](/azure/devops/pipelines/process/variables).
 
 ---
 

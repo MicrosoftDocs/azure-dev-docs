@@ -368,7 +368,7 @@ modernize help models
 
 ## Configure the CLI
 
-The modernization agent allows users to customize application behavior through JSON files and environment variables.
+The modernization agent enables you to customize application behavior through JSON files and environment variables.
 
 ### Environment variables
 

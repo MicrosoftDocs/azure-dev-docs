@@ -13,34 +13,30 @@ ms.date: 03/11/2026
 
 Batch upgrade enables you to apply consistent modernization plans across multiple repositories simultaneously. This article shows you how to upgrade multiple applications efficiently at enterprise scale.
 
-## Overview
+Batch upgrade enables you to:
 
-Batch upgrade allows you to:
-
-- **Upgrade multiple applications** simultaneously using the same upgrade target.
-- **Apply consistent patterns** similar upgrade patterns across applications.
+- **Upgrade multiple applications** simultaneously by using the same upgrade target.
+- **Apply consistent patterns** by using similar upgrade patterns across applications.
 - **Leverage parallel execution** when delegating to Cloud Coding Agents.
 
-## Benefits of batch upgrade
+Batch upgrade provides the following benefits:
 
-### Consistent execution
+- Consistent execution:
 
-- **Standardized approach**: Apply the same modernization patterns across all repositories.
-- **Reduced variability**: Ensure consistent upgrade paths for similar applications.
-- **Reusable strategies**: Leverage organization-specific skills across applications.
+    - **Standardized approach**: Apply the same modernization patterns across all repositories.
+    - **Reduced variability**: Ensure consistent upgrade paths for similar applications.
+    - **Reusable strategies**: Leverage organization-specific skills across applications.
 
-### Scale and efficiency
+- Scale and efficiency:
 
-- **Parallel processing**: Use Cloud Coding Agents to process multiple repositories simultaneously.
-- **Automated workflows**: Integrate with CI/CD pipelines for scheduled modernization.
-- **Time savings**: Reduce total modernization time from weeks to hours.
+    - **Parallel processing**: Use Cloud Coding Agents to process multiple repositories simultaneously.
+    - **Automated workflows**: Integrate with CI/CD pipelines for scheduled modernization.
+    - **Time savings**: Reduce total modernization time from weeks to hours.
 
 ## Prerequisites
 
-Before performing batch upgrade:
-
-- [Modernize CLI installed](quickstart.md).
-- Completed [batch assessment](batch-assess.md) (recommended but not required).
+- [Modernize CLI](quickstart.md).
+- A completed [batch assessment](batch-assess.md) (recommended but not required).
 - All repositories use the same programming language (Java or .NET).
 - Access to all repositories you want to upgrade.
 - GitHub authentication configured (`gh auth login`).
