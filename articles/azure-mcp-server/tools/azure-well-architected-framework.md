@@ -21,7 +21,7 @@ Azure Well-Architected Framework is a set of guiding tenets that enable you to o
 
 <!-- @mcpcli wellarchitectedframework serviceguide get -->
 
-Get Azure Well-Architected Framework guidance for a specific Azure service. This includes architectural best practices, design patterns, and recommendations based on the five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency. You must specify the `--service` option with the Azure service name (case-insensitive; spaces and hyphens are normalized), for example, `App Service`, `app-service`, `SQL Database`, `sql-database`, `Cosmos DB`, or `cosmos-db`.
+Get Azure Well-Architected Framework guidance for a specific Azure service. This tool returns architectural best practices, design patterns, and recommendations based on the five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency. Specify an Azure service name such as `App Service`, `SQL Database`, or `Cosmos DB`.
 
 Example prompts include:
 - "Get Well-Architected Framework guidance for `SQL Database`."
