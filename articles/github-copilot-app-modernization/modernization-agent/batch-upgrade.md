@@ -1,5 +1,5 @@
 ---
-title: Batch Upgrade With The GitHub Copilot Modernization Agent
+title: Batch Upgrade with the GitHub Copilot Modernization Agent
 description: Learn how to use the GitHub Copilot modernization agent to upgrade multiple applications simultaneously with consistent modernization patterns.
 author: KarlErickson
 ms.author: karler
@@ -341,4 +341,4 @@ After completing batch upgrade, you can:
 
 ## Provide feedback
 
-We value your input! If you have any feedback about batch upgrade or the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+We value your input! If you have any feedback about batch upgrade or the Modernization agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).

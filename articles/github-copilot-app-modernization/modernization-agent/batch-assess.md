@@ -1,5 +1,5 @@
 ---
-title: Batch Assessment With The GitHub Copilot Modernization Agent
+title: Batch Assessment with the GitHub Copilot Modernization Agent
 description: Learn how to use the GitHub Copilot modernization agent to assess multiple applications simultaneously and generate aggregated report.
 author: KarlErickson
 ms.author: karler
@@ -311,4 +311,4 @@ After completing batch assessment, you can:
 
 ## Provide feedback
 
-We value your input! If you have any feedback about batch assessment or the Modernization Agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+We value your input! If you have any feedback about batch assessment or the Modernization agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
