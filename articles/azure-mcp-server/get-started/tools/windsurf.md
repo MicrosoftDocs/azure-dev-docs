@@ -1,7 +1,6 @@
 ---
 title: Get started using the Azure MCP Server with Windsurf
 description: Learn how to connect to and consume Azure MCP Server operations with Windsurf
-keywords: azure developer cli, azd, windsurf, mcp
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 02/27/2026
