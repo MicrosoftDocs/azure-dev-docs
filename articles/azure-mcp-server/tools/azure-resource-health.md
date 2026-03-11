@@ -1,7 +1,6 @@
 ---
 title: Azure Resource Health Tools 
 description: Learn how to use the Azure MCP Server with Azure Resource Health.
-keywords: azure mcp server, azmcp, resource health
 author: diberry
 ms.author: diberry
 ms.date: 02/25/2026

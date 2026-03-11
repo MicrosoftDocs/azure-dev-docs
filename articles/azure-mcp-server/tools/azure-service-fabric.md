@@ -1,7 +1,6 @@
 ---
 title: Azure Service Fabric tools for the Azure MCP Server overview
 description: Learn about the tools available in Azure Service Fabric for managing microservices and containerized applications as part of the Azure MCP Server.
-keywords: Azure, MCP Server, Service Fabric, microservices, container orchestration, application management
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.date: 02/18/2026

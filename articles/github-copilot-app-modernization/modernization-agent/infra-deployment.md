@@ -24,8 +24,8 @@ The workflow consists of two phases:
 
 ## Prerequisites
 
-- **Modernize CLI installed**: Follow the [quickstart](quickstart.md) to install and authenticate.
-- **Azure subscription**: An active Azure subscription for infrastructure provisioning.
+- **An Azure subscription**: An active Azure subscription for infrastructure provisioning.
+- **Modernize CLI**: Follow the [quickstart](quickstart.md) to install and authenticate.
 
 ## Phase 1: Infrastructure preparation
 

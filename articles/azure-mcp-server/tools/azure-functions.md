@@ -1,7 +1,6 @@
 ---
 title: Azure Functions app tools in Azure MCP Server
 description: Learn how to use the Azure MCP Server to manage your function app resources in Azure.
-keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026

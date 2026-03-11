@@ -127,7 +127,7 @@
           href: full-stack-deployment.md
         - name: Full-stack deployment templates
           href: full-stack-templates.md
-      - name: Deploy to Azure Container Apps
+      - name: Deploy to Azure Container Apps and Jobs
         href: container-apps-workflows.md
       - name: Use Terraform for infrastructure as code
         href: use-terraform-for-azd.md

@@ -1,7 +1,6 @@
 ---
 title: Azure SignalR Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure SignalR to manage your real-time messaging and communication services.
-keywords: azure mcp server, azmcp, azure signalr, signalr service
 ai-usage: ai-assisted
 content_well_notification: 
   - AI-contribution
