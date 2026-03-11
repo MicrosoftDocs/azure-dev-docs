@@ -1,7 +1,6 @@
 ---
 title: Azure Subscription Tools 
 description: Learn how to use the Azure MCP Server with Azure Subscriptions.
-keywords: azure mcp server, azmcp, subscription
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
