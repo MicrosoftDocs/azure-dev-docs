@@ -1,7 +1,6 @@
 ---
 title: Azure AI Search Tools
 description: Learn how to use Azure MCP Server tools to manage Azure AI Search resources, indexes, and queries with natural language prompts.
-keywords: azure mcp server, azmcp, ai search, cognitive search, azure search, rag
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025

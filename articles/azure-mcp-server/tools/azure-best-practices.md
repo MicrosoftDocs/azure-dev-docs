@@ -1,7 +1,6 @@
 ---
 title: Azure best practices tools - Azure MCP Server
 description: Use the Azure best practices tools in Azure MCP Server to get guidance on Azure Functions development, deployment, and Azure SDK usage.
-keywords: azure mcp server, azmcp, best practices
 ms.service: azure-mcp-server
 content_well_notification: 
   - AI-contribution
