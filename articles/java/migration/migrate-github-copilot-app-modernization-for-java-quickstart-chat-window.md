@@ -1,6 +1,6 @@
 ---
 title: "Optimize Chat Results for Migrating Java Apps to Azure"
-titleSuffix: GitHub Copilot app modernization - Azure
+titleSuffix: GitHub Copilot Modernization - Azure
 description: Shows you how to optimize chat results by using the AppModernization custom agent for migrating Java applications to Azure.
 author: KarlErickson
 ms.author: karler
@@ -26,7 +26,7 @@ This quickstart shows you how to optimize chat results by using the AppModerniza
 
 The AppModernization custom agent provides the best experience for Java application migration and modernization tasks. Use the following steps to select it:
 
-1. Open Visual Studio Code and ensure you have the GitHub Copilot app modernization extension installed.
+1. Open Visual Studio Code and ensure you have the GitHub Copilot modernization extension installed.
 
 1. Open the Copilot chat window by selecting the chat icon in the **Activity Bar**.
 
@@ -93,5 +93,5 @@ The AppModernization agent supports various migration scenarios with simple prom
 ## Next steps
 
 - [Quickstart: assess and migrate a Java project](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
-- [Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
-- [Predefined tasks for GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)
+- [Quickstart: create and apply your own skills](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
+- [Predefined tasks for GitHub Copilot modernization](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)

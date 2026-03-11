@@ -1,6 +1,6 @@
 ---
-title: Configure Settings to Optimize GitHub Copilot App Modernization for IntelliJ
-description: Learn how to configure GitHub Copilot app modernization to optimize the experience for IntelliJ.
+title: Configure Settings to Optimize GitHub Copilot Modernization for IntelliJ
+description: Learn how to configure GitHub Copilot modernization to optimize the experience for IntelliJ.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xinrzhu
@@ -9,9 +9,9 @@ ms.date: 10/28/2025
 ms.custom: devx-track-java
 ---
 
-# Configure settings for GitHub Copilot app modernization to optimize the experience for IntelliJ
+# Configure settings for GitHub Copilot modernization to optimize the experience for IntelliJ
 
-This article shows you how to configure GitHub Copilot app modernization on IntelliJ to optimize the experience. Because app modernization relies on Model Context Protocol (MCP) tools, these adjustments are useful to ensure smoother execution.
+This article shows you how to configure GitHub Copilot modernization on IntelliJ to optimize the experience. Because GitHub Copilot modernization relies on Model Context Protocol (MCP) tools, these adjustments are useful to ensure smoother execution.
 
 ## Enable auto-approve in MCP sampling
 
@@ -43,6 +43,6 @@ For optimal upgrade results, we recommend enabling access to the **Claude Sonnet
 
 ## Increase maximum requests to 100
 
-Because app modernization tasks can be long-running, it's best to increase the **maximum requests per turn** in Agent Mode from the default of 25 to **100**. You can adjust this setting directly in the **GitHub Copilot settings**.
+Because GitHub Copilot modernization tasks can be long-running, it's best to increase the **maximum requests per turn** in Agent Mode from the default of 25 to **100**. You can adjust this setting directly in the **GitHub Copilot settings**.
 
 :::image type="content" source="media/configure-settings-intellij/max-request.png" alt-text="Screenshot of IntelliJ showing GitHub Copilot settings with max request configuration" lightbox="media/configure-settings-intellij/max-request.png":::

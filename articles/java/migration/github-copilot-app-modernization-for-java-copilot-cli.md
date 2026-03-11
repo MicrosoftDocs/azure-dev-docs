@@ -1,7 +1,7 @@
 ---
-title: Modernize Java Apps by Using GitHub Copilot App Modernization in the Copilot CLI
+title: Modernize Java Apps by Using GitHub Copilot Modernization in the Copilot CLI
 titleSuffix: Azure
-description: Provides an overview of how Java developers can modernize applications by using GitHub Copilot app modernization in the Copilot CLI.
+description: Provides an overview of how Java developers can modernize applications by using GitHub Copilot modernization in the Copilot CLI.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jessiehuang
@@ -13,21 +13,21 @@ ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Modernize Java apps by using GitHub Copilot app modernization in the Copilot CLI
+# Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI
 
-This article provides an overview of how Java developers can modernize their applications by using GitHub Copilot app modernization within the [Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli). With this approach, developers can modernize applications wherever they code. Copilot CLI delivers a seamless, end-to-end experience - from upgrade and migration to deployment - helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms. It's currently in public preview - give it a try and let us know if you have any [feedback](https://aka.ms/ghcp-appmod/feedback).
+This article provides an overview of how Java developers can modernize their applications by using GitHub Copilot modernization within the [Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli). With this approach, developers can modernize applications wherever they code. Copilot CLI delivers a seamless, end-to-end experience - from upgrade and migration to deployment - helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms. It's currently in public preview - give it a try and let us know if you have any [feedback](https://aka.ms/ghcp-appmod/feedback).
 
-:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" alt-text="Screenshot of the GitHub Copilot CLI that shows an app modernization prompt.":::
+:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" alt-text="Screenshot of the GitHub Copilot CLI that shows a GitHub Copilot modernization prompt.":::
 
 > [!NOTE]
 > GitHub Copilot CLI is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business, and GitHub Copilot Enterprise plans. If you receive Copilot from an organization, the Copilot CLI policy must be enabled in the organization's settings.
 
-Using Copilot CLI for app modernization enables you to run modernization tasks directly from the terminal, with no need to switch to an IDE. This approach supports both interactive - human-in-the-loop - and batch workflows.
+Using Copilot CLI for modernization enables you to run modernization tasks directly from the terminal, with no need to switch to an IDE. This approach supports both interactive - human-in-the-loop - and batch workflows.
 
 Supported scenarios:
 
 - **Upgrade your Java application** – for example: `Upgrade to the latest Java version`.
-- **Migrate your Java application to Azure** – using predefined tasks listed in [Predefined tasks for GitHub Copilot app modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
+- **Migrate your Java application to Azure** – using predefined tasks listed in [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
 - **Deploy your Java application to Azure** – for example: `Deploy this application to Azure`.
 
 ## Prerequisites
@@ -39,7 +39,7 @@ Supported scenarios:
 
 ## Get started
 
-Use the following steps to get started with app modernization using Copilot CLI.
+Use the following steps to get started with modernization using Copilot CLI.
 
 1. In your terminal, go to the Java project folder that contains the code you want to work on.
 
@@ -57,7 +57,7 @@ Use the following steps to get started with app modernization using Copilot CLI.
    - **Yes, and remember this folder for future sessions**: You trust the files in this folder for this and future sessions. You won't be asked again when you start Copilot CLI from this folder. Choose this option only if you're sure that it's always safe for Copilot to work with files in this location.
    - **No, exit (Esc)**: End your Copilot CLI session.
 
-1. Add MCP servers by running `/mcp add` in Copilot CLI as shown in the following example, which adds the app modernization MCP server:
+1. Add MCP servers by running `/mcp add` in Copilot CLI as shown in the following example, which adds the GitHub Copilot modernization MCP server:
 
    ```Copilot CLI
    /mcp add app-modernization
@@ -89,7 +89,7 @@ Use the following steps to get started with app modernization using Copilot CLI.
    /mcp show
    ```
 
-## Run app modernization tasks
+## Run modernization tasks
 
 You can trigger key modernization tasks directly from the Copilot CLI by using natural language. Typical scenarios include upgrading Java version and framework, migrating workloads to Azure, containerizing applications, and deploying to Azure services.
 
@@ -111,7 +111,7 @@ The project is successfully upgraded to JDK 21 and Spring Boot 3.2, and an upgra
 
 ### Migrate your Java application to Azure
 
-To migrate your Java application to Azure, describe your migration scenario in Copilot CLI, as shown in the following example prompt. For more information on predefined migration tasks, see [Predefined tasks for GitHub Copilot app modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
+To migrate your Java application to Azure, describe your migration scenario in Copilot CLI, as shown in the following example prompt. For more information on predefined migration tasks, see [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
 
 ```prompt
 Migrate this application from S3 to Azure Blob Storage
@@ -148,4 +148,4 @@ If you have any feedback about GitHub Copilot CLI, [create an issue at the githu
 ## Next step
 
 - [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#using-copilot-cli)
-- [Migrate Java apps to Azure by using GitHub Copilot app modernization via custom agent](migrate-github-copilot-app-modernization-for-java-custom-agent.md)
+- [Migrate Java apps to Azure by using GitHub Copilot modernization via custom agent](migrate-github-copilot-app-modernization-for-java-custom-agent.md)
