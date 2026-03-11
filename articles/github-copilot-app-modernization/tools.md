@@ -1,7 +1,6 @@
 ---
-title: GitHub Copilot App Modernization Java Utilities
-titleSuffix: Azure
-description: Describes Java-focused tools available in GitHub Copilot app modernization.
+title: GitHub Copilot Modernization Java Utilities
+description: Describes Java-focused tools available in GitHub Copilot modernization.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xinrzhu
@@ -10,9 +9,9 @@ ms.date: 09/23/2025
 ms.custom: devx-track-java
 ---
 
-# GitHub Copilot app modernization Java utilities
+# GitHub Copilot modernization Java utilities
 
-This article describes several Java-focused tools that are now available using GitHub Copilot app modernization. These tools provide more flexibility for day-to-day development and code maintenance.
+This article describes several Java-focused tools that are now available using GitHub Copilot modernization. These tools provide more flexibility for day-to-day development and code maintenance.
 
 ## Validation
 
@@ -56,4 +55,4 @@ These tools help streamline the Java development lifecycle, making it easier to 
 
 ## See also
 
-[GitHub Copilot app modernization](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java?toc=/java/upgrade/toc.json&bc=/java/upgrade/breadcrumb/toc.json)
+[GitHub Copilot modernization](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java?toc=/java/upgrade/toc.json&bc=/java/upgrade/breadcrumb/toc.json)

@@ -22,7 +22,7 @@ landingContent:
             url: migration-overview.md
           - text: Azure Migrate application and code assessment
             url: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-  - title: GitHub Copilot app modernization for Java
+  - title: GitHub Copilot modernization for Java
     linkLists:
       - linkListType: overview
         links:
@@ -42,12 +42,14 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md
           - text: Assess and migrate a Java project
             url: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
-          - text: Create and apply your own task
+          - text: Create and apply your own skill
             url: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md
-          - text: Deploy your project
-            url: migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md
+          - text: Prepare infrastructure
+            url: migrate-github-copilot-app-modernization-for-java-quickstart-infrastructure.md
           - text: Containerize your project
             url: migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md
+          - text: Deploy your project
+            url: migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md
       - linkListType: sample
         links:
           - text: Migration sample

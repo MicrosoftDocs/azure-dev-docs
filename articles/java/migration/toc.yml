@@ -6,7 +6,7 @@ items:
       href: migration-overview.md
     - name: Azure Migrate application and code assessment
       href: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-    - name: GitHub Copilot app modernization
+    - name: GitHub Copilot modernization
       expanded: true
       items:
         - name: Overview
@@ -21,12 +21,14 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md
         - name: "Quickstart: Assess and migrate a Java project"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
-        - name: "Quickstart: Create and apply your own task"
+        - name: "Quickstart: Create and apply your own skill"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md
-        - name: "Quickstart: Deploy your project"
-          href: migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md
+        - name: "Quickstart: Prepare infrastructure"
+          href: migrate-github-copilot-app-modernization-for-java-quickstart-infrastructure.md
         - name: "Quickstart: Containerize your project"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md
+        - name: "Quickstart: Deploy your project"
+          href: migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md
         - name: "Sample: Asset Manager"
           href: migrate-github-copilot-app-modernization-for-java-sample.md
         - name: Migrate from Oracle to PostgreSQL
