@@ -28,14 +28,6 @@ This quickstart guides you through installing the GitHub Copilot modernization a
 
 Use the following commands to install the modernization agent or update to the latest version.
 
-### [Linux/macOS](#tab/linux-macos)
-
-Run the following command:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | bash
-```
-
 ### [Windows](#tab/windows)
 
 Run the following command in PowerShell:
@@ -48,6 +40,14 @@ Alternatively, download and run the MSI installer from the [GitHub releases page
 
 > [!NOTE]
 > These commands work for both initial installation and updating to the latest version. A dedicated version update command will be available in a future release.
+
+### [Linux/macOS](#tab/linux-macos)
+
+Run the following command:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | bash
+```
 
 ---
 
