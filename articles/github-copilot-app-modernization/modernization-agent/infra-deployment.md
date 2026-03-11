@@ -1,5 +1,6 @@
 ---
-title: Prepare infrastructure and deploy applications
+title: Prepare Infrastructure and Deploy Applications
+titleSuffix: GitHub Copilot Modernization Agent
 description: Learn how to use the GitHub Copilot modernization agent to prepare Azure infrastructure and containerize and deploy your application.
 author: KarlErickson
 ms.author: karler
@@ -7,17 +8,16 @@ ms.reviewer: honc
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.date: 03/11/2026
-keywords: infrastructure, containerization, deployment, modernization agent
 ---
 
-# Prepare infrastructure and deploy applications
+# Prepare infrastructure and deploy applications with the GitHub Copilot modernization agent
 
 The GitHub Copilot modernization agent supports infrastructure provisioning, containerization, and deployment. These capabilities follow the same **plan create → plan execute** model used throughout the agent.
 
 The workflow consists of two phases:
 
-1. **Infrastructure preparation** — Generate and provision Azure infrastructure.
-1. **Containerization and deployment** — Containerize and deploy the application.
+1. **Infrastructure preparation**: Generate and provision Azure infrastructure.
+1. **Containerization and deployment**: Containerize and deploy the application.
 
 > [!NOTE]
 > These two phases are independent. You can run them together or use each phase separately. For example, skip infrastructure preparation if you already have an environment provisioned, or prepare infrastructure now and deploy later.
@@ -35,10 +35,10 @@ The modernization agent creates a plan to provision Azure infrastructure based o
 
 The agent can use a variety of inputs to inform the infrastructure plan:
 
-- **Application source code** — Codebase analysis to determine technology stack, dependencies, and resource requirements.
-- **Assessment reports** — Reports from `modernize assess`, Azure Migrate, or other migration and assessment tools.
-- **Architecture diagrams** — Pre-migration architecture diagrams or design documents in the repository.
-- **Compliance and security requirements** — Organizational policies, security standards, or landing zone guidelines, provided as documents in the repository or as natural language in your prompt.
+- **Application source code**: Codebase analysis to determine technology stack, dependencies, and resource requirements.
+- **Assessment reports**: Reports from `modernize assess`, Azure Migrate, or other migration and assessment tools.
+- **Architecture diagrams**: Pre-migration architecture diagrams or design documents in the repository.
+- **Compliance and security requirements**: Organizational policies, security standards, or landing zone guidelines, provided as documents in the repository or as natural language in your prompt.
 
 ### Create the infrastructure plan
 
@@ -100,14 +100,14 @@ modernize plan create "containerize and deploy my app to azure, subscription: <s
 
 You can containerize and deploy together, or handle them separately with individual plans.
 
-- **Containerization** — Generates a Dockerfile for your project and validates the container image build.
-- **Deployment** — Creates all required configuration files and manifests based on the target Azure hosting service, deploys the application, and generates a reusable deployment script for future use.
+- **Containerization**: Generates a Dockerfile for your project and validates the container image build.
+- **Deployment**: Creates all required configuration files and manifests based on the target Azure hosting service, deploys the application, and generates a reusable deployment script for future use.
 
 > [!TIP]
 > Customize the prompt to match your needs:
 >
-> - `"containerize my app and create dockerfile"` — containerize only, without deploying.
-> - `"deploy my app to the AKS cluster in subscription: <sub-id>, resource group: <rg-name>"` — deploy an already containerized application.
+> - `"containerize my app and create dockerfile"`: containerize only, without deploying.
+> - `"deploy my app to the AKS cluster in subscription: <sub-id>, resource group: <rg-name>"`: deploy an already containerized application.
 
 ### Review the plan
 

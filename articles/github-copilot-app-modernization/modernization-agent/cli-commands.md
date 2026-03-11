@@ -1,5 +1,5 @@
 ---
-title: GitHub Copilot modernization agent CLI commands
+title: GitHub Copilot Modernization Agent CLI Commands
 description: Complete reference for GitHub Copilot modernization agent CLI commands, including interactive and non-interactive modes.
 author: KarlErickson
 ms.author: karler
@@ -7,7 +7,6 @@ ms.reviewer: jessiehuang
 ms.topic: reference
 ai-usage: ai-assisted
 ms.date: 03/11/2026
-keywords: modernize cli, cli commands, interactive, non-interactive
 ---
 
 # GitHub Copilot modernization agent CLI commands
@@ -242,7 +241,7 @@ modernize plan execute [prompt] [options]
 |-------------------------|------------------------------------------------------------------------------------------------|----------------------|
 | `--source <path>`       | Path to the application source code                                                            | Current directory    |
 | `--plan-name <name>`    | Name of the plan to execute                                                                    | `modernization-plan` |
-| `--language <lang>`     | Programming language (`java` or `dotnet`)                                                      | Auto-detected | 
+| `--language <lang>`     | Programming language (`java` or `dotnet`)                                                      | Auto-detected        |
 | `--model <model>`       | LLM model to use                                                                               | `claude-sonnet-4.6`  |
 | `--delegate <delegate>` | Execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent)                         | `local`              |
 | `--force`               | Force execution even when a CCA job is in progress                                             | Disabled             |
@@ -297,7 +296,7 @@ During execution, the agent:
 
 ### upgrade
 
-Runs an end-to-end upgrade workflow — plan, and execute — in a single command.
+Runs an end-to-end upgrade workflow - plan, and execute - in a single command.
 
 #### Syntax
 
@@ -307,9 +306,9 @@ modernize upgrade [prompt] [options]
 
 #### Arguments
 
-| Argument   | Description                                                                             |
-|------------|-----------------------------------------------------------------------------------------|
-| `[prompt]` | Target version (e.g., `Java 17`, `Spring Boot 3.2`, `.NET 10`). Defaults to latest LTS. |
+| Argument   | Description                                                                              |
+|------------|------------------------------------------------------------------------------------------|
+| `[prompt]` | Target version, such as `Java 17`, `Spring Boot 3.2`, `.NET 10`. Defaults to latest LTS. |
 
 #### Options
 
@@ -362,13 +361,14 @@ modernize help [command]
 #### Examples
 
 List available models:
+
 ```bash
 modernize help models
 ```
 
 ## Configure the CLI
 
-The modernization agent allows users to customize application behavior through JSON files and environment variables.  
+The modernization agent allows users to customize application behavior through JSON files and environment variables.
 
 ### Environment variables
 
@@ -390,7 +390,7 @@ modernize assess
 
 ### User configuration
 
-Store user-specific preferences in `~/.modernize/config.json` or repository-wide settings in `.github/modernize/config.json`. 
+Store user-specific preferences in `~/.modernize/config.json` or repository-wide settings in `.github/modernize/config.json`.
 
 ```json
 {

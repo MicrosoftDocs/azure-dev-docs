@@ -1,5 +1,6 @@
 ---
-title: CI/CD integration with Modernize CLI
+title: CI/CD Integration With Modernize CLI
+titleSuffix: GitHub Copilot Modernization Agent
 description: Learn how to integrate the GitHub Copilot modernization agent into CI/CD pipelines using GitHub Actions and Azure Pipelines for automated application modernization.
 author: KarlErickson
 ms.author: karler
@@ -7,10 +8,9 @@ ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.date: 03/11/2026
-keywords: modernize cli, ci/cd integration, github actions, azure pipelines, automated modernization
 ---
 
-# CI/CD integration
+# CI/CD integration with Modernize CLI
 
 Integrate the Modernize CLI into your CI/CD pipelines to automate application modernization at scale. This article shows you how to configure both GitHub Actions and Azure Pipelines to run the Modernize CLI on a schedule or on demand.
 

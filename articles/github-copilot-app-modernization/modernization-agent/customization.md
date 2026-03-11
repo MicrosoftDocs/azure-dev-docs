@@ -1,5 +1,5 @@
 ---
-title: Customization
+title: Customize The GitHub Copilot Modernization Agent
 description: Learn how to customize the GitHub Copilot modernization agent with custom skills to encode organization-specific migration patterns.
 author: KarlErickson
 ms.author: karler
@@ -7,10 +7,9 @@ ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.date: 03/11/2026
-keywords: custom skills, SKILL.md, organization patterns, customization
 ---
 
-# Customization
+# Customize the GitHub Copilot modernization agent
 
 The GitHub Copilot modernization agent supports custom skills that allow you to define organization-specific migration patterns, internal library usage, and coding standards. This enables consistent modernization across your organization while leveraging proprietary knowledge.
 

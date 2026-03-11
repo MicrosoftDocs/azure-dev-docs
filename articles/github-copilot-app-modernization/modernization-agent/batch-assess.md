@@ -1,5 +1,5 @@
 ---
-title: Batch Assessment
+title: Batch Assessment With The GitHub Copilot Modernization Agent
 description: Learn how to use the GitHub Copilot modernization agent to assess multiple applications simultaneously and generate aggregated report.
 author: KarlErickson
 ms.author: karler
@@ -7,12 +7,12 @@ ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.date: 03/11/2026
-keywords: batch assessment, multi-repo assessment, aggregated report, scale assessment
 ---
 
-# Batch assessment
+# Batch assessment with the GitHub Copilot modernization agent
 
 Batch assessment enables you to analyze multiple applications simultaneously, providing a comprehensive view of the modernization landscape across your applications. This capability is especially valuable for migration planning, as it allows you to efficiently assess the readiness and requirements of various applications at once. By using batch assessment, you can evaluate different repositories at the same time and obtain detailed assessment reports for each application. It produces two kinds of reports to support your migration planning:
+
 - **Per app report**: Provides detailed insights into all modernization issues identified at the individual repository level.
 - **Aggregated report**: Presents an overall perspective of all assessed applications, offering summary insights, recommendations on Azure services, target platforms, and upgrade paths. Additionally, the aggregated report includes shortcuts for easy access to each per app report.
 
@@ -75,10 +75,7 @@ Each entry requires:
 
 ### File location
 
-The `repos.json` file must be located at:
-```
-.github/modernize/repos.json
-```
+The `repos.json` file must be located at `.github/modernize/repos.json`.
 
 The modernization agent automatically detects this file when running batch operations.
 
@@ -96,9 +93,9 @@ There are two execution modes:
 
 1. Run the modernization agent:
 
-   ```bash
-   modernize
-   ```
+    ```bash
+    modernize
+    ```
 
 1. The agent detects the `repos.json` file and displays the repository list:
 

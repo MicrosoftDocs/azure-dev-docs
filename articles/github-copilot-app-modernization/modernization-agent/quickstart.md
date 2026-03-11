@@ -7,7 +7,6 @@ ms.reviewer: jessiehuang
 ms.topic: quickstart
 ai-usage: ai-assisted
 ms.date: 03/11/2026
-keywords: modernize cli, install modernization agent, assess application, create modernization plan, execute plan
 ---
 
 # Quickstart: Install and use the GitHub Copilot modernization agent
@@ -21,15 +20,15 @@ This quickstart guides you through installing the GitHub Copilot modernization a
 
 ### Platform requirements
 
-- **Windows**: x64 or ARM64
-- **Linux**: x64 or ARM64 with glibc 2.27+ (Ubuntu 18.04+, Debian 10+, Fedora 29+, Azure Linux 2.0+)
-- **macOS**: Apple Silicon or Intel
+- **Windows**: x64 or ARM64.
+- **Linux**: x64 or ARM64 with `glibc` 2.27 or later (Ubuntu 18.04 or later, Debian 10 or later, Fedora 29 or later, Azure Linux 2.0 or later).
+- **macOS**: Apple Silicon or Intel.
 
 ## Install the modernization agent
 
 Use the following commands to install the modernization agent or update to the latest version.
 
-### Linux/macOS
+### [Linux/macOS](#tab/linux-macos)
 
 Run the following command:
 
@@ -37,7 +36,7 @@ Run the following command:
 curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | bash
 ```
 
-### Windows
+### [Windows](#tab/windows)
 
 Run the following command in PowerShell:
 
@@ -60,9 +59,9 @@ modernize --version
 
 ## Get a sample application
 
-For this quickstart, we'll use a sample application. Choose either Java or .NET:
+For this quickstart, use a sample application. Choose either Java or .NET:
 
-**Java sample:**
+### [Java](#tab/java)
 
 ```bash
 git clone https://github.com/Azure-Samples/PhotoAlbum-Java.git
@@ -70,7 +69,7 @@ cd PhotoAlbum-Java
 git checkout -b modernize
 ```
 
-**.NET sample:**
+### [.NET](#tab/dotnet)
 
 ```bash
 git clone https://github.com/Azure-Samples/PhotoAlbum.git
@@ -78,9 +77,11 @@ cd PhotoAlbum
 git checkout -b modernize
 ```
 
+---
+
 ## Use the interactive mode
 
-The easiest way to get started is using the interactive mode. First, authenticate with the GitHub CLI:
+The easiest way to get started is by using the interactive mode. First, authenticate by using the GitHub CLI:
 
 ```bash
 gh auth login
@@ -121,7 +122,7 @@ The assessment results are saved to `.github\modernize\assessment\` in your proj
 
 ### Step 2: Create a modernization plan
 
-After the assessment completes, the agent prompts you to create a modernization plan based on the identified issues:
+After the assessment finishes, the agent prompts you to create a modernization plan based on the identified problems:
 
 ```
 ○ How would you like to continue?
@@ -131,13 +132,13 @@ After the assessment completes, the agent prompts you to create a modernization 
     2. Return to main menu
 ```
 
-1. Select **1. Create modernization plan**
-1. Enter a plan name (or press Enter for default)
-1. Enter your modernization goal as a prompt. By default, the prompt is `References the assessment summary and creates plan`  to create plan based on the assessment findings. You can replace it with any other migration request, for example:
+1. Select **1. Create modernization plan**.
+1. Enter a plan name or press Enter to use the default name.
+1. Enter your modernization goal as a prompt. By default, the prompt is `References the assessment summary and creates plan` to create a plan based on the assessment findings. You can replace it with any other migration request, for example:
    - `migrate the database to Azure PostgreSQL`
    - `upgrade to Spring Boot 3`
    - `deploy to Azure Container Apps`
-1. Press Enter to generate the plan
+1. Press Enter to generate the plan.
 
 The agent analyzes your codebase and generates:
 
@@ -145,11 +146,11 @@ The agent analyzes your codebase and generates:
 - **Task list** (`.github/modernize/{plan-name}/tasks.json`): Breakdown of executable steps
 
 > [!TIP]
-> You can manually edit `plan.md` to add clarifications or adjust details, and update `tasks.json` to modify, reorder, add, or remove tasks before executing the plan.
+> You can manually edit `plan.md` to add clarifications or adjust details. You can also update `tasks.json` to modify, reorder, add, or remove tasks before executing the plan.
 
 ### Step 3: Execute the modernization plan
 
-After the plan verified, confirm to execute the plan.
+After you verify the plan, confirm that you want to execute the plan.
 
 ```
 ○ How would you like to continue?
@@ -159,29 +160,29 @@ After the plan verified, confirm to execute the plan.
     2. Return to main menu
 ```
 
-1. Select **1. Execute modernization plan**
-1. Press Enter to Execute the plan
-1. Monitor progress as the agent applies changes
+1. Select **1. Execute modernization plan**.
+1. Press Enter to execute the plan.
+1. Monitor progress as the agent applies changes.
 
 The agent executes each task in order:
 
-- Makes code changes according to the plan
-- Validates builds after each change
-- Scans for and addresses CVEs
-- Commits changes
+- Makes code changes according to the plan.
+- Validates builds after each change.
+- Scans for and addresses CVEs.
+- Commits changes.
 
 ### Step 4: Review the results
 
-After execution completes, you can review all changes made by the agent before merging them:
+After execution finishes, you can review all changes that the agent made before merging them:
 
-1. **Review changes**: Check the modifications on the current branch
+1. **Review changes**: Check the modifications on the current branch.
 
     ```bash
     git status
     git diff main
     ```
 
-1. **Create a pull request**: If you're satisfied with the changes, create a PR for team review
+1. **Create a pull request**: If you're satisfied with the changes, create a PR for team review.
 
     ```bash
     gh pr create --title "Modernization: migrate the app to azure" --body "Automated modernization by GitHub Copilot agent"

@@ -1,5 +1,5 @@
 ---
-title: Modernization Agent Overview
+title: GitHub Copilot Modernization Agent Overview
 description: Learn about the GitHub Copilot modernization agent, its key capabilities, and how it enables end-to-end application modernization.
 author: KarlErickson
 ms.author: karler
@@ -10,7 +10,7 @@ ms.date: 03/11/2026
 keywords: modernize cli, modernization agent
 ---
 
-# Modernization agent overview
+# GitHub Copilot modernization agent overview
 
 This overview describes the GitHub Copilot modernization agent, which is currently in public preview.
 
@@ -25,7 +25,7 @@ The modernization agent supports the full modernization lifecycle through an **A
 
 - **Multi-repo assessment**: Assess multiple applications and repositories simultaneously to identify modernization opportunities, map dependencies, and generate cloud readiness scores.
 - **Upgrades and migrations**: Perform framework upgrades, language version migrations, containerization, and cloud service integrations through structured, repeatable workflows.
-- **Customizable skills**: Define organization-specific migration patterns, internal library usage, and coding standards as reusable custom skills. These skills enable consistent modernization across your organization while using proprietary knowledge.
+- **Customizable skills**: Define organization-specific migration patterns, internal library usage, and coding standards as reusable custom skills. By using these skills, you can enable consistent modernization across your organization while using proprietary knowledge.
 - **Structured planning**: Generate reviewable modernization plans with ordered tasks and success criteria, aligned to organizational goals.
 - **Autonomous execution**: Apply code transformations, dependency upgrades, and validation checks automatically, with version-controlled traceability at each step.
 - **Batch operations**: Run modernization workflows across multiple applications in non-interactive mode, with support for CI/CD pipeline integration.
@@ -59,7 +59,7 @@ The Modernize CLI assesses applications and repositories to determine modernizat
 
 ### 2. Intelligent planning
 
-Generate detailed modernization plans aligned to enterprise intent:
+Generate detailed modernization plans that align with enterprise intent:
 
 - **AI-driven contextual analysis**: Interprets modernization goals, such as upgrade, migrate, and deploy, in the context of your codebase.
 - **Diverse modernization scenarios**: Supports upgrades, framework migrations (Spring Boot), containerization, and Azure service integrations.
@@ -73,7 +73,7 @@ Execute modernization plans with validation at every stage:
 
 - **Code transformations**: Automated dependency upgrades, API replacements, and framework updates.
 - **Build and validation checks**: Ensure successful compilation and integrity after each step.
-- **Security scanning**: Identify and address Common Vulnerabilities and Exposures (CVEs).
+- **Security scanning**: Identify and address common vulnerabilities and exposures (CVEs).
 - **Version control integration**: Create branches and commits with traceable change history.
 - **Cloud alignment**: Support containerization and deployment workflows as part of execution.
 
@@ -81,9 +81,9 @@ You can also delegate assessment, upgrade, and execution tasks to GitHub Copilot
 
 ### 4. Multi-repo and batch modernization
 
-This solution is designed for enterprise-scale modernization across large portfolios:
+Use this solution for enterprise-scale modernization across large portfolios:
 
-- **Parallel processing**: Assess and upgrade multiple repositories simultaneously.
+- **Parallel processing**: Assess and upgrade multiple repositories at the same time.
 - **Batch operations**: Execute modernization workflows across entire estates.
 - **CI/CD integration**: Run headless in automated pipelines.
 - **Progress tracking**: Monitor modernization status across applications.
