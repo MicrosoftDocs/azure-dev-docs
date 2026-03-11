@@ -25,7 +25,7 @@ modernize
 
 The interactive mode provides:
 
-- Menu-driven navigation through modernization workflow.
+- Menu-driven navigation through the modernization workflow.
 - Visual plan and progress indicators.
 - Guided prompts for configuration options.
 - Multi-repository selection interface.
@@ -49,16 +49,16 @@ Use non-interactive mode when:
 
 All commands support these global options:
 
-| Option         | Description                                 |
-|----------------|---------------------------------------------|
-| `--help`, `-h` | Display help information                    |
-| `--no-tty`     | Disable interactive prompts (headless mode) |
+| Option         | Description                                   |
+|----------------|-----------------------------------------------|
+| `--help`, `-h` | Displays help information.                    |
+| `--no-tty`     | Disables interactive prompts (headless mode). |
 
 ## Commands
 
 ### assess
 
-Runs assessment and generates a comprehensive analysis report.
+Runs an assessment and generates a comprehensive analysis report.
 
 #### Syntax
 
@@ -68,16 +68,16 @@ modernize assess [options]
 
 #### Options
 
-| Option                  | Description                                                                                    | Default                         |
-|-------------------------|------------------------------------------------------------------------------------------------|---------------------------------|
-| `--source <path>`       | Path to source project (relative or absolute local path)                                       | `.` (current directory)         |
-| `--output-path <path>`  | Custom output path for assessment results                                                      | `.github/modernize/assessment/` |
-| `--issue-url <url>`     | GitHub issue URL to update with assessment summary                                             | None                            |
-| `--multi-repo`          | Enable multi-repo assess. Scans first-level subdirectories for multiple repositories           | Disabled                        |
-| `--model <model>`       | LLM model to use                                                                               | `claude-sonnet-4.6`             |
-| `--delegate <delegate>` | Execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent)                         | `local`                         |
-| `--wait`                | Wait for delegated tasks to complete and generate results (only valid with `--delegate cloud`) | Disabled                        |
-| `--force`               | Force restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`)          | Disabled                        |
+| Option                  | Description                                                                                          | Default                         |
+|-------------------------|------------------------------------------------------------------------------------------------------|---------------------------------|
+| `--source <path>`       | The path to the source project (relative or absolute local path).                                    | `.` (current directory)         |
+| `--output-path <path>`  | A custom output path for assessment results.                                                         | `.github/modernize/assessment/` |
+| `--issue-url <url>`     | A GitHub issue URL to update with the assessment summary.                                            | None                            |
+| `--multi-repo`          | Enables multi-repo assess. Scans first-level subdirectories for multiple repositories.               | Disabled                        |
+| `--model <model>`       | The LLM model to use.                                                                                | `claude-sonnet-4.6`             |
+| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent).                          | `local`                         |
+| `--wait`                | Waits for the delegated tasks to complete and generate results (only valid with `--delegate cloud`). | Disabled                        |
+| `--force`               | Forces restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`).              | Disabled                        |
 
 #### Examples
 
@@ -115,9 +115,9 @@ modernize assess  --multi-repo
 
 The assessment generates:
 
-- **Report files**: Detailed analysis in JSON, MD and HTML formats.
+- **Report files**: Detailed analysis in JSON, MD, and HTML formats.
 - **Summary**: Key findings and recommendations.
-- **Issue updates** (if `--issue-url` provided): GitHub issue comment with summary.
+- **Issue updates** (if you provide `--issue-url`): GitHub issue comment with summary.
 
 ### plan create
 
@@ -131,19 +131,19 @@ modernize plan create <prompt> [options]
 
 #### Arguments
 
-| Argument   | Description                                                    |
-|------------|----------------------------------------------------------------|
-| `<prompt>` | Natural language description of modernization goals (required) |
+| Argument   | Description                                                           |
+|------------|-----------------------------------------------------------------------|
+| `<prompt>` | A natural-language description of the modernization goals (required). |
 
 #### Options
 
-| Option               | Description                                  | Default              |
-|----------------------|----------------------------------------------|----------------------|
-| `--source <path>`    | Path to the application source code          | Current directory    |
-| `--plan-name <name>` | Name for the modernization plan              | `modernization-plan` |
-| `--language <lang>`  | Programming language (java, dotnet, python)  | Auto-detected        |
-| `--overwrite`        | Overwrite an existing plan with the same name| Disabled             |
-| `--model <model>`    | LLM model to use                             | `claude-sonnet-4.6`  |
+| Option               | Description                                               | Default              |
+|----------------------|-----------------------------------------------------------|----------------------|
+| `--source <path>`    | The path to the application source code.                  | Current directory    |
+| `--plan-name <name>` | The name for the modernization plan.                      | `modernization-plan` |
+| `--language <lang>`  | The programming language (`java`, `dotnet`, or `python`). | Auto-detected        |
+| `--overwrite`        | Overwrites an existing plan with the same name.           | Disabled             |
+| `--model <model>`    | The LLM model to use.                                     | `claude-sonnet-4.6`  |
 
 #### Examples
 
@@ -231,20 +231,20 @@ modernize plan execute [prompt] [options]
 
 #### Arguments
 
-| Argument   | Description                                                               |
-|------------|---------------------------------------------------------------------------|
-| `[prompt]` | Optional natural language instructions for execution (e.g., "skip tests") |
+| Argument   | Description                                                                           |
+|------------|---------------------------------------------------------------------------------------|
+| `[prompt]` | The optional natural language instructions for execution (for example, "skip tests"). |
 
 #### Options
 
-| Option                  | Description                                                                                    | Default              |
-|-------------------------|------------------------------------------------------------------------------------------------|----------------------|
-| `--source <path>`       | Path to the application source code                                                            | Current directory    |
-| `--plan-name <name>`    | Name of the plan to execute                                                                    | `modernization-plan` |
-| `--language <lang>`     | Programming language (`java` or `dotnet`)                                                      | Auto-detected        |
-| `--model <model>`       | LLM model to use                                                                               | `claude-sonnet-4.6`  |
-| `--delegate <delegate>` | Execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent)                         | `local`              |
-| `--force`               | Force execution even when a CCA job is in progress                                             | Disabled             |
+| Option                  | Description                                                                 | Default              |
+|-------------------------|-----------------------------------------------------------------------------|----------------------|
+| `--source <path>`       | The path to the application source code.                                    | Current directory    |
+| `--plan-name <name>`    | The name of the plan to execute.                                            | `modernization-plan` |
+| `--language <lang>`     | The programming language (`java` or `dotnet`).                              | Auto-detected        |
+| `--model <model>`       | The LLM model to use.                                                       | `claude-sonnet-4.6`  |
+| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent). | `local`              |
+| `--force`               | Forces execution even when a CCA job is in progress.                        | Disabled             |
 
 #### Examples
 
@@ -260,7 +260,7 @@ Execute a specific plan:
 modernize plan execute --plan-name spring-boot-upgrade
 ```
 
-Execute with additional instructions:
+Execute with extra instructions:
 
 ```bash
 modernize plan execute "skip the test" --plan-name spring-boot-upgrade
@@ -290,7 +290,7 @@ During execution, the agent:
 #### Output
 
 - **Commit history**: Detailed commits for each task executed.
-- **Summary report**: Overview of changes, successes, and any issues encountered.
+- **Summary report**: Overview of changes, successes, and any problems encountered.
 - **Build validation**: Confirmation that the application builds successfully.
 - **CVE report**: Security vulnerabilities identified and addressed.
 
@@ -306,21 +306,21 @@ modernize upgrade [prompt] [options]
 
 #### Arguments
 
-| Argument   | Description                                                                              |
-|------------|------------------------------------------------------------------------------------------|
-| `[prompt]` | Target version, such as `Java 17`, `Spring Boot 3.2`, `.NET 10`. Defaults to latest LTS. |
+| Argument   | Description                                                                                      |
+|------------|--------------------------------------------------------------------------------------------------|
+| `[prompt]` | The target version, such as `Java 17`, `Spring Boot 3.2`, `.NET 10`. Defaults to the latest LTS. |
 
 #### Options
 
-| Option                  | Description                                                            | Default                 |
-|-------------------------|------------------------------------------------------------------------|-------------------------|
-| `--source <source>`     | Path to source project (relative or absolute local path)               | `.` (current directory) |
-| `--delegate <delegate>` | Execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent) | `local`                 |
-| `--model <model>`       | LLM model to use                                                       | `claude-sonnet-4.6`     |
+| Option                  | Description                                                                 | Default                 |
+|-------------------------|-----------------------------------------------------------------------------|-------------------------|
+| `--source <source>`     | The path to source project (relative or absolute local path).               | `.` (current directory) |
+| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent). | `local`                 |
+| `--model <model>`       | The LLM model to use.                                                       | `claude-sonnet-4.6`     |
 
 #### Examples
 
-Run upgrade on current directory:
+Run `upgrade` on the current directory:
 
 ```bash
 modernize upgrade "Java 17"
@@ -330,13 +330,13 @@ modernize upgrade "Java 17"
 modernize upgrade ".NET 10"
 ```
 
-Run upgrade on a specific project:
+Run `upgrade` on a specific project:
 
 ```bash
 modernize upgrade "Java 17" --source /path/to/project
 ```
 
-Run upgrade using the Cloud Coding Agent:
+Run `upgrade` by using the Cloud Coding Agent:
 
 ```bash
 modernize upgrade "Java 17" --delegate cloud
@@ -354,9 +354,9 @@ modernize help [command]
 
 #### Commands
 
-| Command  | Description                                     |
-|----------|-------------------------------------------------|
-| `models` | List available LLM models and their multipliers |
+| Command  | Description                                       |
+|----------|---------------------------------------------------|
+| `models` | Lists available LLM models and their multipliers. |
 
 #### Examples
 
@@ -368,17 +368,17 @@ modernize help models
 
 ## Configure the CLI
 
-The modernization agent enables you to customize application behavior through JSON files and environment variables.
+By using the modernization agent, you can customize application behavior through JSON files and environment variables.
 
 ### Environment variables
 
 Set environment variables to override all other configuration scopes:
 
-| Variable                      | Description                                                        | Default             |
-|-------------------------------|--------------------------------------------------------------------|---------------------|
-| `MODERNIZE_LOG_LEVEL`         | Logging level (`none`, `error`, `warning`, `info`, `debug`, `all`) | `info`              |
-| `MODERNIZE_MODEL`             | LLM model to use                                                   | `claude-sonnet-4.6` |
-| `MODERNIZE_COLLECT_TELEMETRY` | Enable/disable telemetry collection                                | `true`              |
+| Variable                      | Description                                                            | Default             |
+|-------------------------------|------------------------------------------------------------------------|---------------------|
+| `MODERNIZE_LOG_LEVEL`         | The logging level (`none`, `error`, `warning`, `info`, `debug`, `all`) | `info`              |
+| `MODERNIZE_MODEL`             | The LLM model to use.                                                  | `claude-sonnet-4.6` |
+| `MODERNIZE_COLLECT_TELEMETRY` | Enable or disable telemetry collection.                                | `true`              |
 
 Example:
 
@@ -432,13 +432,13 @@ Assess all repositories locally:
 modernize assess
 ```
 
-Assess all repositories using the Cloud Coding Agent:
+Assess all repositories by using the Cloud Coding Agent:
 
 ```bash
 modernize assess --delegate cloud
 ```
 
-Upgrade all repositories using the Cloud Coding Agent:
+Upgrade all repositories by using the Cloud Coding Agent:
 
 ```bash
 modernize upgrade --delegate cloud

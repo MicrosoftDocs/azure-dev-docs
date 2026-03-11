@@ -13,7 +13,7 @@ ms.date: 03/11/2026
 
 Batch upgrade enables you to apply consistent modernization plans across multiple repositories simultaneously. This article shows you how to upgrade multiple applications efficiently at enterprise scale.
 
-Batch upgrade enables you to:
+By using batch upgrade, you can:
 
 - **Upgrade multiple applications** simultaneously by using the same upgrade target.
 - **Apply consistent patterns** by using similar upgrade patterns across applications.
@@ -25,7 +25,7 @@ Batch upgrade provides the following benefits:
 
     - **Standardized approach**: Apply the same modernization patterns across all repositories.
     - **Reduced variability**: Ensure consistent upgrade paths for similar applications.
-    - **Reusable strategies**: Leverage organization-specific skills across applications.
+    - **Reusable strategies**: Use organization-specific skills across applications.
 
 - Scale and efficiency:
 
@@ -42,11 +42,11 @@ Batch upgrade provides the following benefits:
 - GitHub authentication configured (`gh auth login`).
 
 > [!IMPORTANT]
-> All repositories in a batch upgrade must use the same programming language. If a repository uses a different language, it will be marked as failed and skipped for now.
+> All repositories in a batch upgrade must use the same programming language. If a repository uses a different language, the batch upgrade marks the repository as failed and skips it.
 
 ## Configure repositories
 
-To enable batch upgrade, create a `.github/modernize/repos.json` file in your working directory listing all repositories you want to upgrade.
+To enable batch upgrade, create a `.github/modernize/repos.json` file in your working directory that lists all repositories you want to upgrade.
 
 > [!TIP]
 > Make sure you have the right permissions to access the repositories, or fork them first.
@@ -68,17 +68,17 @@ To enable batch upgrade, create a `.github/modernize/repos.json` file in your wo
 
 Each entry requires:
 
-- **name**: A friendly name for the repository (used in reports and dashboards)
-- **url**: The Git clone URL (HTTPS format)
+- **name**: A friendly name for the repository (used in reports and dashboards).
+- **url**: The Git clone URL (HTTPS format).
 
 > [!TIP]
 > You can include repositories from different organizations and use different authentication methods as long as you have access.
 
 ### File location
 
-The `repos.json` file must be located at `.github/modernize/repos.json`.
+You must place the `repos.json` file at `.github/modernize/repos.json`.
 
-This file is automatically detected by the modernization agent when running batch operations.
+The modernization agent automatically detects this file when running batch operations.
 
 ## Choose your execution mode
 
@@ -96,10 +96,10 @@ Batch upgrade supports two execution modes and two interaction methods:
 
 - **Best for**: Enterprise-scale operations, large portfolios (5+ repos), or parallel processing.
 - **How it works**: Submits tasks to GitHub Cloud Coding Agents for parallel execution in the cloud.
-- **Setup required**: MCP server configuration in each repository (configured during setup below).
+- **Setup required**: MCP server configuration in each repository (configured during setup).
 
 > [!TIP]
-> Cloud Coding Agent delegation can reduce total modernization time from hours to minutes by processing repositories in parallel.
+> By processing repositories in parallel, Cloud Coding Agent delegation can reduce total modernization time from hours to minutes.
 
 ### Interaction methods
 
@@ -134,7 +134,7 @@ The batch upgrade workflow:
 
 ## Run batch upgrade
 
-Now that you've configured your repositories and chosen an execution mode, you can start the batch upgrade.
+After you configure your repositories and choose an execution mode, start the batch upgrade.
 
 ### Interactive mode (upgrade locally)
 
@@ -146,7 +146,7 @@ Now that you've configured your repositories and chosen an execution mode, you c
 
 1. The agent detects the `repos.json` file and displays the repository list:
 
-    :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI displaying the repository list in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the Choose repositories list in the terminal." lightbox="../media/modernization-agent/upgrade-repo-list.png":::
 
 1. Select repositories to upgrade, and press `Enter` to confirm your selection.
 
@@ -155,20 +155,20 @@ Now that you've configured your repositories and chosen an execution mode, you c
 
 1. Select **2. Upgrade** from the main menu.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI showing the upgrade menu option in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI that shows the Upgrade Runtime & Framework menu option in the terminal." lightbox="../media/modernization-agent/upgrade-menu.png":::
 
 1. To run the upgrade, select **1. Upgrade locally**.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-local-option.png" alt-text="Screenshot of Modernize CLI showing the upgrade locally option in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-local-option.png" alt-text="Screenshot of Modernize CLI that shows the Upgrade locally menu option in the terminal." lightbox="../media/modernization-agent/upgrade-local-option.png":::
 
-1. The agent then will automatically:
+1. The agent automatically:
 
-    - Create an upgrade plan based on your request.
-    - Apply the plan to each repository sequentially.
-    - Build and validate each repository after changes.
-    - Display progress and summary for each repository.
+    - Creates an upgrade plan based on your request.
+    - Applies the plan to each repository sequentially.
+    - Builds and validates each repository after changes.
+    - Displays progress and summary for each repository.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-progress.png" alt-text="Screenshot of Modernize CLI displaying the upgrade progress for each repository in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-progress.png" alt-text="Screenshot of Modernize CLI that shows the upgrade progress for each repository in the terminal." lightbox="../media/modernization-agent/upgrade-progress.png":::
 
 ### Interactive mode (delegating to Cloud Coding Agents)
 
@@ -196,7 +196,7 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
 }
 ```
 
-:::image type="content" source="../media/modernization-agent/mcp-config-cloud-coding-agent.png" alt-text="Screenshot of repository setting to configure coding agent's MCP server.":::
+:::image type="content" source="../media/modernization-agent/mcp-config-cloud-coding-agent.png" alt-text="Screenshot of GitHub that shows the repository Coding agent settings pane with the MCP configuration section highlighted." lightbox="../media/modernization-agent/mcp-config-cloud-coding-agent.png":::
 
 #### Steps
 
@@ -208,7 +208,7 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
 
 1. The agent detects the `repos.json` file and displays the repository list:
 
-    :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI displaying the repository list in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the repository list in terminal." lightbox="../media/modernization-agent/upgrade-repo-list.png":::
 
 1. Select repositories to upgrade, and press `Enter` to confirm your selection.
 
@@ -219,28 +219,28 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
 
 1. To run the upgrade, select **2. Delegate to Cloud Coding Agents**.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-delegate-option.png" alt-text="Screenshot of Modernize CLI showing the delegate to Cloud Coding Agents option in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-delegate-option.png" alt-text="Screenshot of Modernize CLI that shows the Delegate to Cloud Coding Agents menu option in the terminal." lightbox="../media/modernization-agent/upgrade-delegate-option.png":::
 
-1. The agent then will automatically:
+1. The agent automatically:
 
-    - Create upgrade plans for each repository.
-    - Submit a Cloud Coding Agent job for each repository.
-    - Jobs run independently in parallel in the cloud.
-    - Display job IDs and PR URLs for each repository.
+    - Creates upgrade plans for each repository.
+    - Submits a Cloud Coding Agent job for each repository.
+    - Runs jobs independently in parallel in the cloud.
+    - Displays job IDs and PR URLs for each repository.
 
-        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-progress.png" alt-text="Screenshot of Modernize CLI displaying the progress of delegating upgrades to Cloud Coding Agents in terminal.":::
+        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-progress.png" alt-text="Screenshot of Modernize CLI that shows the progress of delegating upgrades to Cloud Coding Agents in the terminal." lightbox="../media/modernization-agent/upgrade-cloud-coding-agent-progress.png":::
 
-    - Delegate tasks to AgentHQ for parallel execution.
+    - Delegates tasks to AgentHQ for parallel execution.
 
-        :::image type="content" source="../media/modernization-agent/upgrade-agent-headquarters-tasks.png" alt-text="Screenshot showing upgrade tasks delegated to AgentHQ.":::
+        :::image type="content" source="../media/modernization-agent/upgrade-agent-headquarters-tasks.png" alt-text="Screenshot of GitHub that shows the Agents pane with the upgrade tasks delegated to AgentHQ." lightbox="../media/modernization-agent/upgrade-agent-headquarters-tasks.png":::
 
-    - Track progress for each individual task in real-time.
+    - Tracks progress for each individual task in real-time.
 
-        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-status.png" alt-text="Screenshot showing progress tracking for individual Cloud Coding Agent upgrade tasks.":::
+        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-status.png" alt-text="Screenshot of GitHub that shows the Agents pane with progress tracking for individual Cloud Coding Agent upgrade tasks." lightbox="../media/modernization-agent/upgrade-cloud-coding-agent-status.png":::
 
-    - Display upgrade summary for each completed task.
+    - Displays upgrade summary for each completed task.
 
-        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-summary.png" alt-text="Screenshot showing upgrade summary for individual Cloud Coding Agent tasks.":::
+        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-summary.png" alt-text="Screenshot of GitHub that shows the Agents pane with the upgrade summary for individual Cloud Coding Agent tasks." lightbox="../media/modernization-agent/upgrade-cloud-coding-agent-summary.png":::
 
 ### Non-interactive mode (CLI)
 
@@ -261,11 +261,11 @@ modernize upgrade "Java 21" --delegate cloud
 The command automatically detects the `repos.json` file and processes all repositories.
 
 > [!NOTE]
-> For batch headless execution and additional CLI options, see the [Multi-repository configuration](cli-commands.md#multi-repository-configuration) section in the CLI commands reference.
+> For batch headless execution and more CLI options, see the [Multi-repository configuration](cli-commands.md#multi-repository-configuration) section in the CLI commands reference.
 
 ## Review results
 
-After batch upgrade completes:
+When the batch upgrade finishes:
 
 1. **Check the aggregated report** displayed in the terminal.
 
@@ -286,28 +286,28 @@ After batch upgrade completes:
 
 ## Troubleshooting batch upgrades
 
-### Common issues
+### Common problems
 
 **Repository access errors:**
 
-- Verify GitHub authentication with `gh auth status`.
-- Ensure you have access to all repositories in `repos.json`.
+- Verify GitHub authentication by using `gh auth status`.
+- Make sure you have access to all repositories in `repos.json`.
 
 **Language mismatch errors:**
 
-- Ensure all repositories in `repos.json` use the same language (Java or .NET).
+- Make sure all repositories in `repos.json` use the same language (Java or .NET).
 - Create separate batch operations for different languages.
 
 **Clone failures:**
 
 - Verify repository URLs in `repos.json` are correct and accessible.
-- Ensure you have proper access permissions to all repositories.
+- Make sure you have proper access permissions to all repositories.
 - Check network connectivity and VPN settings.
 
 **Build failures after upgrade:**
 
 - Review build error messages in the aggregated report.
-- Check if additional dependencies need to be updated.
+- Check if you need to update other dependencies.
 - Verify compatibility of third-party libraries with the new version.
 
 **Individual repository failures:**
@@ -320,7 +320,7 @@ After batch upgrade completes:
 **Cloud Coding Agent failures:**
 
 - Check GitHub Actions permissions and quota limits.
-- For .NET Framework, ensure Windows runner configuration is properly set.
+- For .NET Framework, make sure Windows runner configuration is properly set.
 
 ## Next steps
 

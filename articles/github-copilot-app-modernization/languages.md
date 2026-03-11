@@ -67,14 +67,14 @@ To migrate to Microsoft Agent Framework:
    - Select the **Convert to Agent Framework** button when detected automatically.
    - Manually navigate to **Tasks** > **Python** > **Agent Framework Migration** > **Migrate AutoGen to Agent Framework** or **Migrate Semantic Kernel to Agent Framework**.
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-quickstart.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization pane with the Convert to Agent Framework button highlighted.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-quickstart.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization pane with the Convert to Agent Framework button highlighted." lightbox="media/languages/migrate-to-agent-framework-quickstart.png":::
 
    > [!TIP]
    > If you have a hybrid project with both Java and Python, use the manual navigation method through the **Tasks** list to select the Python migration option.
 
 1. The extension starts the migration process in the Copilot Agent chat window.
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization chat pane with the migration task being invoked through the appmod-run-task tool.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization chat pane with the migration task being invoked through the appmod-run-task tool." lightbox="media/languages/migrate-to-agent-framework-run-task.png":::
 
 1. To complete the migration, follow the guidance in the chat window. After code migration, the workflow sets up a Python virtual environment if it isn't already set up, installs project dependencies, then runs the following Python-specific validation steps:
 
@@ -82,13 +82,13 @@ To migrate to Microsoft Agent Framework:
    - **Checks Python lint issues**: Installs linters if they aren't already installed then resolves lint issues per project configuration.
    - **Runs Python tests**: Installs test runners if they aren't already installed then runs tests to verify the migration quality.
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization pane with the environment setup, syntax checking, and lint checking in the migration workflow.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization pane with the environment setup, syntax checking, and lint checking in the migration workflow." lightbox="media/languages/migrate-to-agent-framework-workflow.png":::
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-run-test.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization pane with the Run Python Tests step in the migration workflow.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-run-test.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization pane with the Run Python Tests step in the migration workflow." lightbox="media/languages/migrate-to-agent-framework-workflow-run-test.png":::
 
 1. Review the migration summary, which includes the files migrated, validation results, and more.
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-summary.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization pane with the migration summary including the migrated files and validation results.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-summary.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot modernization pane with the migration summary including the migrated files and validation results." lightbox="media/languages/migrate-to-agent-framework-summary.png":::
 
 ## Language-agnostic
 

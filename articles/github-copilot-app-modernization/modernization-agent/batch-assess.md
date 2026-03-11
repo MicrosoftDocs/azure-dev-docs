@@ -132,10 +132,9 @@ Two execution modes are available:
 
 First, configure Cloud Coding Agents in each application repository. To configure Cloud Coding Agents, fork the sample repositories.
 
-
 #### Configuration for .NET applications
 
-**Configure to run on Windows for .NET Framework application**
+##### Configure to run on Windows for .NET Framework applications
 
 By default, the Copilot Coding Agent runs in an Ubuntu Linux environment. For .NET Framework applications, you need a Windows environment. To enable it, configure `.github/workflows/copilot-setup-steps.yaml` in the `main` branch of your application repository as shown in the following example:
 
@@ -161,7 +160,7 @@ jobs:
 
 Learn more from: [Customizing Copilot's development environment with Copilot setup steps](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment#customizing-copilots-development-environment-with-copilot-setup-steps)
 
-**Disable Firewall** 
+##### Disable firewall 
 
 Disable Copilot coding agent's integrated firewall in your repository settings as shown in the following image:
 
@@ -248,20 +247,20 @@ For more information, see [assess - CLI commands](cli-commands.md?#assess).
 
 The aggregated report provides a comprehensive view across assessed applications as follows:
 
-#### Dashboard
+### Dashboard
 
 - Snapshot of portfolio health: total apps, how many need upgrades, and aggregate blocker and issue counts.
 - Technology distribution: what frameworks are in use and how many apps share them.
 - Effort distribution: whether the overall migration is a small or large undertaking.
 
-#### Recommendations
+### Recommendations
 
 - Azure Services: maps current dependencies to recommended Azure equivalents. Shared dependencies across apps are decided once, so you avoid per-app rework.
 - Target Platform: guides hosting choice, such as Container Apps versus AKS, and surfaces consolidation opportunities.
 - Upgrade Path: identifies which apps need framework upgrades as a prerequisite, separating upgrade work from migration work.
 - Migration Waves: sequences apps by readiness and risk into phases. This approach enables early wins while harder apps are prepared in parallel.
 
-#### Application Assessment Matrix
+### Application Assessment Matrix
 
 - Quick overview for each application on aspects of framework, target platform, upgrade recommendation, issue breakdown (Mandatory, Potential, Optional), effort sizing, and more. 
 - Links to individual app reports for drill-down when needed.

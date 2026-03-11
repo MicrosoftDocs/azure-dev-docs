@@ -95,7 +95,7 @@ Examples:
 
 ```
 
-:::image type="content" source="media/customize-upgrade-plan/guidelines.png" alt-text="Screenshot of Java upgrade plan that contains the Upgrade Goals and Guidelines sections." lightbox="media/customize-upgrade-plan/guidelines.png":::
+:::image type="content" source="media/customize-upgrade-plan/guidelines.png" alt-text="Screenshot of the Java upgrade plan that shows the Upgrade Goals and Guidelines sections." lightbox="media/customize-upgrade-plan/guidelines.png":::
 
 ## See also
 
