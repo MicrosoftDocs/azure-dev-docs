@@ -34,6 +34,7 @@ Example prompts include:
 | **Service** | Required | The Azure service name (case-insensitive; spaces and hyphens are normalized). For example, `App Service`, `app-service`, `SQL Database`, `sql-database`, `Cosmos DB`, or `cosmos-db`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
