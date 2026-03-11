@@ -1,7 +1,6 @@
 ---
 title: Azure File Shares Tools
 description: Learn to use Azure MCP Server tools to manage file shares with natural language prompts. Create, update, delete, and snapshot file shares with ease.
-keywords: azure mcp server, azmcp, file shares, azure services
 author: diberry
 ms.author: diberry
 ms.date: 02/03/2026
