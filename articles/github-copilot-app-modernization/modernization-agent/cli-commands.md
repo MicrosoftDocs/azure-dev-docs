@@ -25,10 +25,10 @@ modernize
 
 The interactive mode provides:
 
-- Menu-driven navigation through modernization workflow
-- Visual plan and progress indicators
-- Guided prompts for configuration options
-- Multi-repository selection interface
+- Menu-driven navigation through modernization workflow.
+- Visual plan and progress indicators.
+- Guided prompts for configuration options.
+- Multi-repository selection interface.
 
 ### Non-interactive mode
 
@@ -40,10 +40,10 @@ modernize <command> [options]
 
 Use non-interactive mode when:
 
-- Integrating with CI/CD pipelines
-- Automating batch operations
-- Scripting modernization workflows
-- Running in headless environments
+- Integrating with CI/CD pipelines.
+- Automating batch operations.
+- Scripting modernization workflows.
+- Running in headless environments.
 
 ## Global options
 
@@ -115,9 +115,9 @@ modernize assess  --multi-repo
 
 The assessment generates:
 
-- **Report files**: Detailed analysis in JSON, MD and HTML formats
-- **Summary**: Key findings and recommendations
-- **Issue updates** (if `--issue-url` provided): GitHub issue comment with summary
+- **Report files**: Detailed analysis in JSON, MD and HTML formats.
+- **Summary**: Key findings and recommendations.
+- **Issue updates** (if `--issue-url` provided): GitHub issue comment with summary.
 
 ### plan create
 
@@ -169,10 +169,10 @@ Full options example:
 
 ```bash
 modernize plan create "upgrade to .NET 8" \
-  --source /path/to/project \
-  --plan-name dotnet8-upgrade \
-  --language dotnet \
-  --issue-url https://github.com/org/repo/issues/456
+    --source /path/to/project \
+    --plan-name dotnet8-upgrade \
+    --language dotnet \
+    --issue-url https://github.com/org/repo/issues/456
 ```
 
 #### Prompt examples
@@ -280,19 +280,19 @@ During execution, the agent:
 
 1. **Executes tasks**: Processes each task in the task list sequentially:
 
-    - Applies code transformations
-    - Validates builds after changes
-    - Scans for CVEs
-    - Commits changes with descriptive messages
+    - Applies code transformations.
+    - Validates builds after changes.
+    - Scans for CVEs.
+    - Commits changes with descriptive messages.
 
-1. **Generates summary**: Provides a report of all changes and results
+1. **Generates summary**: Provides a report of all changes and results.
 
 #### Output
 
-- **Commit history**: Detailed commits for each task executed
-- **Summary report**: Overview of changes, successes, and any issues encountered
-- **Build validation**: Confirmation that the application builds successfully
-- **CVE report**: Security vulnerabilities identified and addressed
+- **Commit history**: Detailed commits for each task executed.
+- **Summary report**: Overview of changes, successes, and any issues encountered.
+- **Build validation**: Confirmation that the application builds successfully.
+- **CVE report**: Security vulnerabilities identified and addressed.
 
 ### upgrade
 

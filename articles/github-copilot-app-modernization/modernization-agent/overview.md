@@ -48,7 +48,7 @@ It provides a flexible execution substrate for both local and scaled modernizati
 
 ## Key capabilities
 
-### 1. Application assessment
+### Application assessment
 
 The Modernize CLI assesses applications and repositories to determine modernization readiness:
 
@@ -57,7 +57,7 @@ The Modernize CLI assesses applications and repositories to determine modernizat
 - **Rich aggregated reports**: Delivers comprehensive insights with cross-repository analysis, dependency mapping, and cloud readiness scores.
 - **GitHub integration**: Optionally publishes assessment summaries directly to GitHub issues.
 
-### 2. Intelligent planning
+### Intelligent planning
 
 Generate detailed modernization plans that align with enterprise intent:
 
@@ -67,7 +67,7 @@ Generate detailed modernization plans that align with enterprise intent:
 - **Structured task breakdown**: Converts complex modernization efforts into ordered, executable steps with success criteria.
 - **Editable plans**: Review, refine, and approve plans before execution.
 
-### 3. Autonomous execution
+### Autonomous execution
 
 Execute modernization plans with validation at every stage:
 
@@ -79,7 +79,7 @@ Execute modernization plans with validation at every stage:
 
 You can also delegate assessment, upgrade, and execution tasks to GitHub Copilot Coding Agent for enhanced tracking and collaboration.
 
-### 4. Multi-repo and batch modernization
+### Multi-repo and batch modernization
 
 Use this solution for enterprise-scale modernization across large portfolios:
 

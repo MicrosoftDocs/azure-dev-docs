@@ -252,16 +252,16 @@ The aggregated report provides a comprehensive view across assessed applications
 
 #### Dashboard
 
-- Snapshot of portfolio health: total apps, how many need upgrades, and aggregate blocker and issue counts
-- Technology distribution: what frameworks are in use and how many apps share them
-- Effort distribution: whether the overall migration is a small or large undertaking
+- Snapshot of portfolio health: total apps, how many need upgrades, and aggregate blocker and issue counts.
+- Technology distribution: what frameworks are in use and how many apps share them.
+- Effort distribution: whether the overall migration is a small or large undertaking.
 
 #### Recommendations
 
-- Azure Services: maps current dependencies to recommended Azure equivalents; shared dependencies across apps are decided once, avoiding per-app rework
-- Target Platform: guides hosting choice (for example, Container Apps versus AKS) and surfaces consolidation opportunities
-- Upgrade Path: identifies which apps need framework upgrades as a prerequisite, separating upgrade work from migration work
-- Migration Waves: sequences apps by readiness and risk into phases, enabling early wins while harder apps are prepared in parallel
+- Azure Services: maps current dependencies to recommended Azure equivalents; shared dependencies across apps are decided once, avoiding per-app rework.
+- Target Platform: guides hosting choice (for example, Container Apps versus AKS) and surfaces consolidation opportunities.
+- Upgrade Path: identifies which apps need framework upgrades as a prerequisite, separating upgrade work from migration work.
+- Migration Waves: sequences apps by readiness and risk into phases, enabling early wins while harder apps are prepared in parallel.
 
 #### Application Assessment Matrix
 

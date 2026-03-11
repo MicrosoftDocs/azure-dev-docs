@@ -19,17 +19,17 @@ Custom skills follow the [agent skills specification](https://agentskills.io/spe
 
 Custom skills are useful for:
 
-- **Internal library migrations**: Switching to organization-specific SDKs or frameworks
-- **Re-use migration pattern**: Capturing and reusing successful migration patterns
+- **Internal library migrations**: Switching to organization-specific SDKs or frameworks.
+- **Re-use migration pattern**: Capturing and reusing successful migration patterns.
 
 ## Custom skill structure
 
 Each custom skill is defined in a `SKILL.md` file with:
 
-- **YAML front matter**: Metadata for skill detection
-- **Overview**: Description of the migration scenario
-- **Steps**: Detailed instructions for the agent
-- **Sample code**: Concrete examples demonstrating the migration
+- **YAML front matter**: Metadata for skill detection.
+- **Overview**: Description of the migration scenario.
+- **Steps**: Detailed instructions for the agent.
+- **Sample code**: Concrete examples demonstrating the migration.
 
 ## Create a custom skill
 
@@ -71,10 +71,10 @@ Bad descriptions:
 
 Include code examples and verification checks to guide the agent:
 
-- **Code changes**: code snippets showing the migrated implementation using the new approach
-- **Configuration changes**: Updates to properties, XML, or other config files
-- **Dependency changes**: Maven/Gradle/NuGet updates required for the migration
-- **Verification checks**: Criteria the agent should validate after applying the migration
+- **Code changes**: code snippets showing the migrated implementation using the new approach.
+- **Configuration changes**: Updates to properties, XML, or other config files.
+- **Dependency changes**: Maven/Gradle/NuGet updates required for the migration.
+- **Verification checks**: Criteria the agent should validate after applying the migration.
 
 You may also provide resource files in the skill directory and tell the agent how to use them in the content of SKILL.md file.
 
@@ -100,13 +100,13 @@ modernize plan create "migrate from rabbitmq to azure service bus"
 
 To verify which skills are detected:
 
-1. Create a plan with your prompt
+1. Create a plan with your prompt:
 
 1. Review `.github/modernization/{plan-name}/tasks.json`
 
-1. Look for references to your custom skills
+1. Look for references to your custom skills:
 
-    ```
+    ```json
     "skills": [
         {
           "name": "your-skill-name",
@@ -117,17 +117,17 @@ To verify which skills are detected:
 
 If a skill isn't being detected:
 
-- Refine the skill `description` to better match your prompt
-- Make the prompt more specific
-- Ensure `SKILL.md` is properly formatted
+- Refine the skill `description` to better match your prompt.
+- Make the prompt more specific.
+- Ensure `SKILL.md` is properly formatted.
 
 ## Sample repository
 
 For a complete example, see the [NewsFeedSite sample repository](https://github.com/Azure-Samples/NewsFeedSite) which includes:
 
-- Custom skill for RabbitMQ to Azure Service Bus migration
-- Demonstrates using internal JDK libraries
-- Shows proper skill structure and formatting
+- Custom skill for RabbitMQ to Azure Service Bus migration.
+- Demonstrates using internal JDK libraries.
+- Shows proper skill structure and formatting.
 
 Clone and explore:
 
@@ -142,15 +142,15 @@ modernize plan create "migrate from rabbitmq to azure service bus"
 
 ### Skill not detected
 
-**Problem**: Agent doesn't use your custom skill
+**Problem**: Agent doesn't use your custom skill.
 
 **Solutions**:
 
-- Check that the skill name in the YAML front matter doesn't contain spaces; use hyphens instead (for example, `my-custom-skill` not `my custom skill`)
-- Verify `description` matches your prompt keywords
-- Check YAML front matter syntax
-- Ensure `SKILL.md` is in `.github/skills/{skill-name}/`
-- Make your migration prompt more specific
+- Check that the skill name in the YAML front matter doesn't contain spaces. Use hyphens instead (for example, `my-custom-skill` not `my custom skill`).
+- Verify `description` matches your prompt keywords.
+- Check YAML front matter syntax.
+- Ensure `SKILL.md` is in `.github/skills/{skill-name}/`.
+- Make your migration prompt more specific.
 
 ## Next steps
 

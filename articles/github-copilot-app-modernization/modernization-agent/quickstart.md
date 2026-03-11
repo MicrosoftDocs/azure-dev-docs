@@ -95,7 +95,7 @@ modernize
 
 The main menu appears:
 
-```
+```Modernize CLI
 ○ How would you like to modernize your Java app?
 
   > 1. Assess application
@@ -106,12 +106,12 @@ The main menu appears:
        Run the tasks defined in the modernization plan
 ```
 
-### Step 1: Assess application
+### Step 1: Assess the application
 
-1. Select **1. Assess application**
-1. Follow the prompts to configure assessment options (or press Enter to use defaults)
-1. Review your selections and press Enter to start the assessment
-1. Wait for the assessment to complete
+1. Select **1. Assess application**.
+1. Follow the prompts to configure assessment options (or press Enter to use defaults).
+1. Review your selections and press Enter to start the assessment.
+1. Wait for the assessment to complete.
 
 The assessment results are saved to `.github\modernize\assessment\` in your project directory. The agent analyzes your code, dependencies, and configuration to identify:
 
@@ -124,7 +124,7 @@ The assessment results are saved to `.github\modernize\assessment\` in your proj
 
 After the assessment finishes, the agent prompts you to create a modernization plan based on the identified problems:
 
-```
+```Modernize CLI
 ○ How would you like to continue?
 
   > 1. Create modernization plan
@@ -142,8 +142,8 @@ After the assessment finishes, the agent prompts you to create a modernization p
 
 The agent analyzes your codebase and generates:
 
-- **Plan file** (`.github/modernize/{plan-name}/plan.md`): Detailed strategy and approach
-- **Task list** (`.github/modernize/{plan-name}/tasks.json`): Breakdown of executable steps
+- **Plan file** (`.github/modernize/{plan-name}/plan.md`): Detailed strategy and approach.
+- **Task list** (`.github/modernize/{plan-name}/tasks.json`): Breakdown of executable steps.
 
 > [!TIP]
 > You can manually edit `plan.md` to add clarifications or adjust details. You can also update `tasks.json` to modify, reorder, add, or remove tasks before executing the plan.
@@ -152,7 +152,7 @@ The agent analyzes your codebase and generates:
 
 After you verify the plan, confirm that you want to execute the plan.
 
-```
+```Modernize CLI
 ○ How would you like to continue?
 
   > 1. Execute modernization plan
@@ -185,7 +185,9 @@ After execution finishes, you can review all changes that the agent made before 
 1. **Create a pull request**: If you're satisfied with the changes, create a PR for team review.
 
     ```bash
-    gh pr create --title "Modernization: migrate the app to azure" --body "Automated modernization by GitHub Copilot agent"
+    gh pr create \
+        --title "Modernization: migrate the app to azure" \
+        --body "Automated modernization by GitHub Copilot agent"
     ```
 
 ## Next steps
