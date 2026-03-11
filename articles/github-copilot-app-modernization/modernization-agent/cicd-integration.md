@@ -40,8 +40,8 @@ The sample pipelines in this article perform the following steps:
 - **A GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
 - **Permissions to create Azure Pipelines**: See [About permissions and security groups](/azure/devops/organizations/security/about-permissions).
 - **Build service permissions**: The pipeline's build service identity needs permissions to write to the repository. See [Run Git commands in a script](/azure/devops/pipelines/scripts/git-commands).
-  - Navigate to **Project Settings** > **Repositories**.
-  - Select the target repository and then the **Security** tab.
+  - Go to **Project Settings** > **Repositories**.
+  - Select the target repository and then select the **Security** tab.
   - Search for the build service identity (for example, `Project Collection Build Service (<Organization>)`).
   - Set the following permissions to **Allow**:
     - **Create branch**
@@ -144,7 +144,7 @@ jobs:
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
-1. Create a pipeline YAML file - for example, `azure-pipelines-modernize.yml`) - in your repository with the following content.
+1. Create a pipeline YAML file - for example, `azure-pipelines-modernize.yml` - in your repository with the following content.
 
     ```yaml
     name: Modernization CLI
@@ -279,7 +279,7 @@ Each run performs the following steps:
 
 1. Checks out the repository code.
 1. Downloads and installs the latest Modernize CLI.
-1. Runs `modernize upgrade` with the specified target (or defaults to `latest`).
+1. Runs `modernize upgrade` with the specified target or defaults to `latest`.
 1. Commits any changes and pushes them to a timestamped branch.
 1. Writes a summary with branch and PR links to the GitHub Actions step summary.
 1. Uploads Modernize CLI logs as a build artifact for troubleshooting.
@@ -298,7 +298,7 @@ Each run performs the following steps:
 
 1. Checks out the repository with persisted credentials for pushing changes.
 1. Downloads and installs the latest Modernize CLI.
-1. Runs `modernize upgrade` with the specified target (or defaults to `latest`).
+1. Runs `modernize upgrade` with the specified target or defaults to `latest`.
 1. Commits any changes and pushes them to a result branch named with the build ID.
 1. Publishes a summary markdown file as a build artifact.
 1. Uploads Modernize CLI logs as a build artifact for troubleshooting.
@@ -311,31 +311,31 @@ Each run performs the following steps:
 
 To trigger the workflow manually:
 
-1. Navigate to your repository on GitHub.
+1. Go to your repository on GitHub.
 1. Select the **Actions** tab.
 1. Select **Modernization CLI** from the workflow list.
 1. Select **Run workflow**.
-1. Optionally enter an upgrade target, then select **Run workflow** to confirm.
+1. Optionally enter an upgrade target, and then select **Run workflow** to confirm.
 
-After the workflow completes, review the step summary for links to the result branch and create a pull request to merge the changes.
+After the workflow finishes, review the step summary for links to the result branch and create a pull request to merge the changes.
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
 To trigger the pipeline manually:
 
-1. Navigate to your Azure DevOps project.
+1. Go to your Azure DevOps project.
 1. Select **Pipelines** from the left navigation.
 1. Select the **Modernization CLI** pipeline.
 1. Select **Run pipeline**.
-1. Optionally update the **Upgrade target** parameter, then select **Run**.
+1. Optionally update the **Upgrade target** parameter, and then select **Run**.
 
-After the pipeline completes, review the published artifacts for the summary and logs, then create a pull request from the result branch.
+After the pipeline finishes, review the published artifacts for the summary and logs. Then create a pull request from the result branch.
 
 ---
 
 ## Troubleshooting
 
-### Common issues
+### Common problems
 
 **Authentication errors:**
 

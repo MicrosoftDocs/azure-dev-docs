@@ -29,11 +29,11 @@ The workflow consists of two phases:
 
 ## Phase 1: Infrastructure preparation
 
-The modernization agent creates a plan to provision Azure infrastructure based on the inputs you provide. This includes the ability to design an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) tailored to your application, covering networking, identity, governance, and security foundations.
+The modernization agent creates a plan to provision Azure infrastructure based on the inputs you provide. This capability includes the ability to design an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) tailored to your application, covering networking, identity, governance, and security foundations.
 
 ### Inputs
 
-The agent can use a variety of inputs to inform the infrastructure plan:
+The agent can use various inputs to inform the infrastructure plan:
 
 - **Application source code**: Codebase analysis to determine technology stack, dependencies, and resource requirements.
 - **Assessment reports**: Reports from `modernize assess`, Azure Migrate, or other migration and assessment tools.
@@ -90,7 +90,7 @@ git diff main
 Use a second plan to containerize your application and deploy it.
 
 > [!NOTE]
-> This phase requires application source code that has already been migrated or upgraded. Complete your code modernization before proceeding with containerization and deployment.
+> This phase requires application source code that you already migrated or upgraded. Complete your code modernization before proceeding with containerization and deployment.
 
 ### Create the deployment plan
 
