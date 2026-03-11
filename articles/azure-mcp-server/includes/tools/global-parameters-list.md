@@ -1,7 +1,6 @@
 ---
 title: Azure Key Vault Tools 
 description: Learn how to use the Azure MCP Server with Azure Key Vault keys.
-keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
