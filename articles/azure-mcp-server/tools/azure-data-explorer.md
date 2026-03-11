@@ -1,7 +1,6 @@
 ---
 title: Azure Data Explorer 
 description: "Learn how to use the Azure MCP Server with Azure Data Explorer. Query data, list clusters, and manage databases using natural language prompts. You can also include KQL syntax in your prompts if needed."
-keywords: azure mcp server, azmcp, kusto, azure data explorer, adx
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025

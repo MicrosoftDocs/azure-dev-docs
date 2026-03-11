@@ -1,7 +1,6 @@
 ---
 title: Azure Quick Review CLI Tools
 description: Learn how to use the Azure MCP Server with the Azure Quick Review CLI Tools.
-keywords: azure mcp server, azmcp, azure quick review, azqr, compliance
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026

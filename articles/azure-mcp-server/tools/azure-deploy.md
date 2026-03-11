@@ -1,7 +1,6 @@
 ---
 title: Deploy Tools
 description: Streamline Azure resource deployment with Azure MCP Server. Learn how to deploy applications and infrastructure efficiently. 
-keywords: azure mcp server, azmcp, deploy
 ai-usage: ai-assisted
 content_well_notification: 
   - AI-contribution
