@@ -3,9 +3,9 @@ title: Azure Well-Architected Framework tools for architecture guidance
 description: Use Azure MCP Server tools to get Azure Well-Architected Framework guidance, best practices, and recommendations for Azure services from your IDE.
 #customer intent: As a developer, I want to get Well-Architected Framework guidance for Azure services so I can follow architectural best practices.
 ms.date: 03/11/2026
-keywords: Azure, MCP Server, well-architected framework, WAF, architecture, best practices
 ms.service: azure-mcp-server
 ms.topic: concept-article
+ms.reviewer: conniey
 tool_count: 1
 ---
 

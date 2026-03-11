@@ -76,6 +76,8 @@ items:
             href: tools/azure-best-practices.md
           - name: Terraform best practices for Azure
             href: tools/azure-terraform-best-practices.md
+          - name: Azure Well-Architected Framework
+            href: tools/azure-well-architected-framework.md
         - name: Azure Advisor
           href: tools/azure-advisor.md
         - name: Application Insights
@@ -173,10 +175,7 @@ items:
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
         - name: Azure Virtual Machines
-          href: tools/azure-virtual-machines.md
-        - name: Azure Well-Architected Framework
-          href: tools/azure-well-architected-framework.md
-        - name: Resource Group
+          href: tools/azure-virtual-machines.md        - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription
           href: tools/subscription.md
