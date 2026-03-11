@@ -74,10 +74,10 @@ items:
           items: 
           - name: Azure best practices
             href: tools/azure-best-practices.md
-          - name: Terraform best practices for Azure
-            href: tools/azure-terraform-best-practices.md
           - name: Azure Well-Architected Framework
             href: tools/azure-well-architected-framework.md
+          - name: Terraform best practices for Azure
+            href: tools/azure-terraform-best-practices.md
         - name: Azure Advisor
           href: tools/azure-advisor.md
         - name: Application Insights
