@@ -146,7 +146,7 @@ Now that you've configured your repositories and chosen an execution mode, you c
 
 1. The agent detects the `repos.json` file and displays the repository list:
 
-    :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI displaying the repository list in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the Choose repositories list in the terminal." lightbox="../media/modernization-agent/upgrade-repo-list.png":::
 
 1. Select repositories to upgrade, and press `Enter` to confirm your selection.
 
@@ -155,11 +155,11 @@ Now that you've configured your repositories and chosen an execution mode, you c
 
 1. Select **2. Upgrade** from the main menu.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI showing the upgrade menu option in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI that shows the Upgrade Runtime & Framework menu option in the terminal." lightbox="../media/modernization-agent/upgrade-menu.png":::
 
 1. To run the upgrade, select **1. Upgrade locally**.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-local-option.png" alt-text="Screenshot of Modernize CLI showing the upgrade locally option in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-local-option.png" alt-text="Screenshot of Modernize CLI that shows the Upgrade locally menu option in the terminal." lightbox="../media/modernization-agent/upgrade-local-option.png":::
 
 1. The agent then will automatically:
 
@@ -168,7 +168,7 @@ Now that you've configured your repositories and chosen an execution mode, you c
     - Build and validate each repository after changes.
     - Display progress and summary for each repository.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-progress.png" alt-text="Screenshot of Modernize CLI displaying the upgrade progress for each repository in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-progress.png" alt-text="Screenshot of Modernize CLI that shows the upgrade progress for each repository in the terminal." lightbox="../media/modernization-agent/upgrade-progress.png":::
 
 ### Interactive mode (delegating to Cloud Coding Agents)
 
@@ -196,7 +196,7 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
 }
 ```
 
-:::image type="content" source="../media/modernization-agent/mcp-config-cloud-coding-agent.png" alt-text="Screenshot of repository setting to configure coding agent's MCP server.":::
+:::image type="content" source="../media/modernization-agent/mcp-config-cloud-coding-agent.png" alt-text="Screenshot of GitHub that shows the repository Coding agent settings pane with the MCP configuration section highlighted." lightbox="../media/modernization-agent/mcp-config-cloud-coding-agent.png":::
 
 #### Steps
 
@@ -208,7 +208,7 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
 
 1. The agent detects the `repos.json` file and displays the repository list:
 
-    :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI displaying the repository list in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the repository list in terminal." lightbox="../media/modernization-agent/upgrade-repo-list.png":::
 
 1. Select repositories to upgrade, and press `Enter` to confirm your selection.
 
@@ -219,7 +219,7 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
 
 1. To run the upgrade, select **2. Delegate to Cloud Coding Agents**.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-delegate-option.png" alt-text="Screenshot of Modernize CLI showing the delegate to Cloud Coding Agents option in terminal.":::
+    :::image type="content" source="../media/modernization-agent/upgrade-delegate-option.png" alt-text="Screenshot of Modernize CLI that shows the Delegate to Cloud Coding Agents menu option in the terminal." lightbox="../media/modernization-agent/upgrade-delegate-option.png":::
 
 1. The agent then will automatically:
 
@@ -228,19 +228,19 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
     - Jobs run independently in parallel in the cloud.
     - Display job IDs and PR URLs for each repository.
 
-        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-progress.png" alt-text="Screenshot of Modernize CLI displaying the progress of delegating upgrades to Cloud Coding Agents in terminal.":::
+        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-progress.png" alt-text="Screenshot of Modernize CLI that shows the progress of delegating upgrades to Cloud Coding Agents in the terminal." lightbox="../media/modernization-agent/upgrade-cloud-coding-agent-progress.png":::
 
     - Delegate tasks to AgentHQ for parallel execution.
 
-        :::image type="content" source="../media/modernization-agent/upgrade-agent-headquarters-tasks.png" alt-text="Screenshot showing upgrade tasks delegated to AgentHQ.":::
+        :::image type="content" source="../media/modernization-agent/upgrade-agent-headquarters-tasks.png" alt-text="Screenshot of GitHub that shows the Agents pane with the upgrade tasks delegated to AgentHQ." lightbox="../media/modernization-agent/upgrade-agent-headquarters-tasks.png":::
 
     - Track progress for each individual task in real-time.
 
-        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-status.png" alt-text="Screenshot showing progress tracking for individual Cloud Coding Agent upgrade tasks.":::
+        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-status.png" alt-text="Screenshot of GitHub that shows the Agents pane with progress tracking for individual Cloud Coding Agent upgrade tasks." lightbox="../media/modernization-agent/upgrade-cloud-coding-agent-status.png":::
 
     - Display upgrade summary for each completed task.
 
-        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-summary.png" alt-text="Screenshot showing upgrade summary for individual Cloud Coding Agent tasks.":::
+        :::image type="content" source="../media/modernization-agent/upgrade-cloud-coding-agent-summary.png" alt-text="Screenshot of GitHub that shows the Agents pane with the upgrade summary for individual Cloud Coding Agent tasks." lightbox="../media/modernization-agent/upgrade-cloud-coding-agent-summary.png":::
 
 ### Non-interactive mode (CLI)
 
