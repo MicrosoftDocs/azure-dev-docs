@@ -5,7 +5,7 @@ description: Use Azure MCP Server tools to get Azure Well-Architected Framework 
 ms.date: 03/11/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.reviewer: conniey
+ms.reviewer: skakara
 tool_count: 1
 ---
 
