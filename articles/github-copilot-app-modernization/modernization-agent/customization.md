@@ -11,7 +11,7 @@ ms.date: 03/11/2026
 
 # Customize the GitHub Copilot modernization agent
 
-The GitHub Copilot modernization agent supports custom skills that allow you to define organization-specific migration patterns, internal library usage, and coding standards. This enables consistent modernization across your organization while leveraging proprietary knowledge.
+The GitHub Copilot modernization agent supports custom skills that you can use to define organization-specific migration patterns, internal library usage, and coding standards. By using these custom skills, you can ensure consistent modernization across your organization while using proprietary knowledge.
 
 ## What are custom skills?
 
@@ -20,11 +20,11 @@ Custom skills follow the [agent skills specification](https://agentskills.io/spe
 Custom skills are useful for:
 
 - **Internal library migrations**: Switching to organization-specific SDKs or frameworks.
-- **Re-use migration pattern**: Capturing and reusing successful migration patterns.
+- **Re-use migration patterns**: Capturing and reusing successful migration patterns.
 
 ## Custom skill structure
 
-Each custom skill is defined in a `SKILL.md` file with:
+Define each custom skill in a `SKILL.md` file with:
 
 - **YAML front matter**: Metadata for skill detection.
 - **Overview**: Description of the migration scenario.
@@ -43,7 +43,7 @@ mkdir -p .github/skills/my-migration-pattern
 
 ### Step 2: Write the SKILL.md file
 
-Create `.github/skills/my-migration-pattern/SKILL.md` with the structure shown below.
+Create `.github/skills/my-migration-pattern/SKILL.md` with the structure shown in the following section.
 
 #### Required front matter fields
 
@@ -72,11 +72,11 @@ Bad descriptions:
 Include code examples and verification checks to guide the agent:
 
 - **Code changes**: code snippets showing the migrated implementation using the new approach.
-- **Configuration changes**: Updates to properties, XML, or other config files.
-- **Dependency changes**: Maven/Gradle/NuGet updates required for the migration.
-- **Verification checks**: Criteria the agent should validate after applying the migration.
+- **Configuration changes**: updates to properties, XML, or other config files.
+- **Dependency changes**: Maven, Gradle, or NuGet updates required for the migration.
+- **Verification checks**: criteria the agent should validate after applying the migration.
 
-You may also provide resource files in the skill directory and tell the agent how to use them in the content of SKILL.md file.
+You can also provide resource files in the skill directory and tell the agent how to use them in the content of the `SKILL.md` file.
 
 ## Use custom skills
 
@@ -115,7 +115,7 @@ To verify which skills are detected:
     ]
     ```
 
-If a skill isn't being detected:
+If a skill isn't detected:
 
 - Refine the skill `description` to better match your prompt.
 - Make the prompt more specific.
@@ -123,7 +123,7 @@ If a skill isn't being detected:
 
 ## Sample repository
 
-For a complete example, see the [NewsFeedSite sample repository](https://github.com/Azure-Samples/NewsFeedSite) which includes:
+For a complete example, see the [NewsFeedSite sample repository](https://github.com/Azure-Samples/NewsFeedSite), which includes:
 
 - Custom skill for RabbitMQ to Azure Service Bus migration.
 - Demonstrates using internal JDK libraries.
@@ -142,14 +142,14 @@ modernize plan create "migrate from rabbitmq to azure service bus"
 
 ### Skill not detected
 
-**Problem**: Agent doesn't use your custom skill.
+**Problem**: The agent doesn't use your custom skill.
 
 **Solutions**:
 
 - Check that the skill name in the YAML front matter doesn't contain spaces. Use hyphens instead (for example, `my-custom-skill` not `my custom skill`).
-- Verify `description` matches your prompt keywords.
-- Check YAML front matter syntax.
-- Ensure `SKILL.md` is in `.github/skills/{skill-name}/`.
+- Verify that the `description` matches your prompt keywords.
+- Check the YAML front matter syntax.
+- Ensure that `SKILL.md` is in `.github/skills/{skill-name}/`.
 - Make your migration prompt more specific.
 
 ## Next steps
