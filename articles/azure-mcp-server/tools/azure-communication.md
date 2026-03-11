@@ -1,7 +1,6 @@
 ---
 title: Azure Communication Services Tools 
 description: Send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
-keywords: azure mcp server, azmcp, communication services
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026

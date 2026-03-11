@@ -1,7 +1,6 @@
 ---
 title: Azure Cosmos DB Tools 
 description: Learn how to use the Azure MCP Server with Azure Cosmos DB to manage NoSQL databases, containers, and query data using natural language prompts.
-keywords: azure mcp server, azmcp, cosmos db
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025
