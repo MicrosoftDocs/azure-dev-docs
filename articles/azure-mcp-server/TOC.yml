@@ -38,12 +38,22 @@ items:
     - name: How to
       expanded: true
       items:
-        - name: Connect GitHub Copilot coding agent to Azure MCP Server
-          href: how-to/github-copilot-coding-agent.md
-        - name: Deploy a self-hosted Azure MCP Server (Microsoft Foundry)
-          href: how-to/deploy-remote-mcp-server-microsoft-foundry.md
-        - name: Deploy a self-hosted Azure MCP Server (Copilot Studio)
-          href: how-to/deploy-remote-mcp-server-copilot-studio.md
+        - name: Connect
+          expanded: true
+          items:
+          - name: GitHub Copilot coding agent
+            href: how-to/github-copilot-coding-agent.md
+          - name: GitHub Copilot CLI
+            href: how-to/github-copilot-cli.md
+          - name: GitHub Copilot SDK
+            href: how-to/github-copilot-sdk.md
+        - name: Self-host
+          expanded: true
+          items:
+          - name: Azure Container Apps with Microsoft Foundry
+            href: how-to/deploy-remote-mcp-server-microsoft-foundry.md
+          - name: Azure Container Apps with Copilot Studio
+            href: how-to/deploy-remote-mcp-server-copilot-studio.md
     - name: Use with Azure services
       expanded: true
       items:
@@ -55,6 +65,8 @@ items:
           href: services/azure-mcp-server-for-redis.md
         - name: Azure AI Search
           href: services/azure-mcp-server-for-search.md
+        - name: Azure Speech in Foundry Tools
+          href: services/azure-mcp-speech-foundry-tools.md
     - name: Tools
       expanded: true
       items:
@@ -64,19 +76,19 @@ items:
           items: 
           - name: Azure best practices
             href: tools/azure-best-practices.md
-          - name: AI best practices
-            href: tools/azure-ai-best-practices.md
+          - name: Azure Well-Architected Framework
+            href: tools/azure-well-architected-framework.md
           - name: Terraform best practices for Azure
             href: tools/azure-terraform-best-practices.md
         - name: Azure Advisor
           href: tools/azure-advisor.md
         - name: Application Insights
           href: tools/application-insights.md
-        - name: Azure AI Foundry
+        - name: Microsoft Foundry
           href: tools/azure-foundry.md
         - name: Azure AI Search
           href: tools/azure-ai-search.md
-        - name: Azure AI Speech
+        - name: Azure Speech in Foundry Tools
           href: tools/ai-services-speech.md
         - name: Azure App Configuration
           href: tools/app-configuration.md
@@ -132,6 +144,8 @@ items:
           href: tools/azure-marketplace.md
         - name: Azure MCP tool
           href: tools/azure-mcp-tool.md
+        - name: Azure Migrate
+          href: tools/azure-migrate.md
         - name: Azure Monitor
           href: tools/azure-monitor.md
         - name: Azure Native ISV
@@ -149,9 +163,11 @@ items:
         - name: Azure Redis
           href: tools/azure-redis.md    
         - name: Azure Resource Health
-          href: tools/azure-health-resource.md
+          href: tools/azure-resource-health.md
         - name: Azure Service Bus
           href: tools/azure-service-bus.md
+        - name: Azure Service Fabric
+          href: tools/azure-service-fabric.md
         - name: Azure SignalR
           href: tools/azure-signalr.md
         - name: Azure SQL

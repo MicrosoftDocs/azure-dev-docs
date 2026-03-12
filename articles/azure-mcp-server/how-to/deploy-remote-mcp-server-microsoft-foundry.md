@@ -1,10 +1,9 @@
 ---
 title: Deploy the Azure MCP Server as a remote MCP server and connect using Microsoft Foundry
 description: Learn how to deploy the Azure MCP Server as a remote MCP server and connect using Microsoft Foundry
-keywords: azure mcp server, azmcp
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 11/14/2025
+ms.date: 02/27/2026
 ms.topic: how-to
 ai-usage: ai-generated
 ---
@@ -80,9 +79,9 @@ Deploy the Azure MCP server to Azure Container Apps:
 
 1. Copy the `CONTAINER_APP_URL` and `ENTRA_APP_CLIENT_ID` values to use in the next section, or leave the terminal open for reference.
 
-## Use the Azure MCP server from AI Foundry agent
+## Use the Azure MCP server from Foundry agent
 
-After deployment, connect your AI Foundry agent to the Azure MCP Server running on Azure Container Apps. The agent authenticates using its managed identity to gain access to the configured Azure Storage tools.
+After deployment, connect your Foundry agent to the Azure MCP Server running on Azure Container Apps. The agent authenticates using its managed identity to gain access to the configured Azure Storage tools.
 
 1. Go to your Foundry project at  https://ai.azure.com/nextgen.
 1. Select **Build → Create agent**.
@@ -122,7 +121,7 @@ The `azd` template includes the following Bicep modules:
 - *aca-infrastructure.bicep* deploys the container app hosting Azure MCP Server.
 - *aca-role-assignment-resource-storage.bicep* assigns Azure Storage RBAC roles to the container app's managed identity on the storage account specified by the input storage account resource ID.
 - *entra-app.bicep* creates an Entra app registration and a custom app role for OAuth 2.0 authentication.
-- *aif-role-assignment-entraapp.bicep* assigns the Entra app role to the AI Foundry project's managed identity (specified by the input AI Foundry resource ID) for Azure MCP Server access.
+- *aif-role-assignment-entraapp.bicep* assigns the Entra app role to the Foundry project's managed identity (specified by the input Foundry resource ID) for Azure MCP Server access.
 - *application-insights.bicep* deploys Application Insights for telemetry and monitoring when enabled.
 
 ## Related content

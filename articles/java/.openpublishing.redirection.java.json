@@ -709,6 +709,26 @@
         {
             "source_path": "spring/index.yml",
             "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "sdk/authentication/azure-hosted-apps.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/system-assigned-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "sdk/authentication/dev-env.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/local-development-dev-accounts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "sdk/authentication/user.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/local-development-dev-accounts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "sdk/authentication/service-principal.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/local-development-service-principal",
+            "redirect_document_id": true
         }
     ]
 }

@@ -1,10 +1,9 @@
 ---
 title: Azure Container Registry Tools 
 description: Learn how to use the Azure MCP Server with Azure Container Registry.
-keywords: azure mcp server, azmcp, container registry
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

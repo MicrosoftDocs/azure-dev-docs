@@ -1,10 +1,9 @@
 ---
 title: Azure CLI Tools
 description: Learn how to use Azure CLI tools with the Azure MCP Server to generate commands, execute operations, and get installation instructions for Azure resource management.
-keywords: azure mcp server, azmcp, azure cli extension
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

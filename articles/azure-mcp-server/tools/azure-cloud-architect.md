@@ -1,7 +1,6 @@
 ---
 title: Azure Cloud Architect - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Cloud Architect to design cloud system by gathering requirements through guided questions and recommending optimal solutions.
-keywords: azure mcp server, azmcp, azure cloud architect, cloud, architecture
 ai-usage: ai-assisted
 content_well_notification: 
   - AI-contribution
@@ -9,7 +8,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 ---
 
 # Azure Cloud Architect design tools for the Azure MCP Server overview

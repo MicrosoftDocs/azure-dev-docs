@@ -1,7 +1,6 @@
 ---
 title: Azure Database for MySQL Tools for Azure MCP Server
 description: Learn how to manage Azure Database for MySQL with Azure MCP Server using natural language prompts.
-keywords: azure mcp server, azmcp, mysql
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025

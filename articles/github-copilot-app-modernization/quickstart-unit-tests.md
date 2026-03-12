@@ -1,23 +1,24 @@
 ---
-title: "Quickstart: Generate Java Unit Tests with GitHub Copilot App Modernization"
-description: Shows you how to generate Java unit tests using GitHub Copilot app modernization.
-author: NickZhu
-ms.author: xinrzhu
+title: "Quickstart: Generate Java Unit Tests with GitHub Copilot Modernization"
+description: Shows you how to generate Java unit tests using GitHub Copilot modernization.
+author: KarlErickson
+ms.author: karler
+ms.reviewer: xinrzhu
 ms.topic: quickstart
 ms.date: 09/23/2025
 ms.custom: devx-track-java
 ---
 
-# Quickstart: generate Java unit tests with GitHub Copilot app modernization
+# Quickstart: generate Java unit tests with GitHub Copilot modernization
 
-This quickstart shows you how to generate Jave unit tests using GitHub Copilot app modernization.
+This quickstart shows you how to generate Jave unit tests using GitHub Copilot modernization.
 
 ## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). For setup instructions, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup). Be sure to sign in to your GitHub account within VS Code.
-- [GitHub Copilot app modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart VS Code after installation.
+- [GitHub Copilot modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart VS Code after installation.
 - [Java JDK](/java/openjdk/download) for both the source and target JDK versions.
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 - A Git-managed Java project using Maven or Gradle.
@@ -34,8 +35,8 @@ To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Sel
 Then, use the following steps to install the extension in Visual Studio Code:
 
 1. In Visual Studio Code, open the **Extensions** view from the Activity Bar.
-1. Search for **GitHub Copilot app modernization** in the marketplace.
-1. Select the **GitHub Copilot app modernization** extension pack.
+1. Search for **GitHub Copilot modernization** in the marketplace.
+1. Select the **GitHub Copilot modernization** extension pack.
 1. On the extension page, select **Install**.
 1. Restart Visual Studio Code.
 
@@ -57,7 +58,7 @@ Use the following steps to launch GitHub Copilot Agent Mode and generate unit te
 
 ## Wait for the test generation to complete
 
-GitHub Copilot app modernization analyzes the Java project within the current workspace. This includes evaluating the project's JDK version, build tools, and any existing unit tests.
+GitHub Copilot modernization analyzes the Java project within the current workspace. This includes evaluating the project's JDK version, build tools, and any existing unit tests.
 
 As part of the process, the tool generates a **TestReport.md** file that tracks test generation progress and provides a summary of test results both before and after test generation. The report includes the following details:
 
@@ -78,4 +79,4 @@ After test generation is complete, GitHub Copilot displays a detailed report sum
 
 ## See also
 
-[GitHub Copilot app modernization](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java?toc=/java/upgrade/toc.json&bc=/java/upgrade/breadcrumb/toc.json)
+[GitHub Copilot modernization](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java?toc=/java/upgrade/toc.json&bc=/java/upgrade/breadcrumb/toc.json)

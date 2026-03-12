@@ -1,10 +1,9 @@
 ---
 title: Get started using the Azure MCP Server with Cursor
 description: Learn how to connect to and consume Azure MCP Server operations with Cursor
-keywords: azure developer cli, azd, cursor, mcp
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/11/2025
+ms.date: 02/27/2026
 ms.topic: get-started
 ms.custom: build-2025
 ---

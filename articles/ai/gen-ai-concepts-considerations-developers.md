@@ -21,7 +21,7 @@ Here are the most significant challenges and limitations to keep in mind when yo
 
 - **Knowledge cutoff**: LLMs only know what they were trained on up to a certain date. Without external data connections, they can’t access real-time or private information.
 
-- **Hallucination**: LLMs might generate inaccurate or misleading information. The Groundedness detection feature in Azure AI Foundry helps you determine whether an LLM’s responses are based on the source materials you provide. Ungrounded responses  include information not supported by your data. Learn how to use groundedness detection in this [quickstart](/azure/ai-services/content-safety/quickstart-groundedness?tabs=python&pivots=programming-language-rest).
+- **Hallucination**: LLMs might generate inaccurate or misleading information. The Groundedness detection feature in Microsoft Foundry helps you determine whether an LLM’s responses are based on the source materials you provide. Ungrounded responses  include information not supported by your data. Learn how to use groundedness detection in this [quickstart](/azure/ai-services/content-safety/quickstart-groundedness?tabs=python&pivots=programming-language-rest).
 
 - **Transparency**: You can’t always trace the source or accuracy of generated content, and there’s no built-in verification step.
 

@@ -1,10 +1,9 @@
 ---
 title: Application Insights Tools 
 description: "Use Azure MCP Server with Application Insights to list resources and code optimization recommendations using natural language prompts."
-keywords: azure mcp server, azmcp, application insights, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

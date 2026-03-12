@@ -36,10 +36,10 @@ The Azure SDK for Java build tool, introduced in [Get started with Azure SDK and
 
 Run `mvn dependency:tree` or `gradle dependencies --scan` to show the full dependency tree for your application, with version numbers. `mvn dependency:tree -Dverbose` gives more information, but may be misleading. For more information, see [Apache Maven Dependency Tree](https://maven.apache.org/shared/maven-dependency-tree/) in the Maven documentation. For each library that you suspect has a version conflict, note its version number and determine which components depend on it.
 
-Dependency resolution in development and production environments may work differently. [Apache Spark](https://spark.apache.org/docs/latest/), [Apache Flink](https://ci.apache.org/projects/flink/flink-docs-release-1.13/), [Databricks](https://databricks.com/), and IDE plugins need extra configuration for custom dependencies. They can also bring their own versions of Azure Client libraries or common components. For more information, see the following articles:
+Dependency resolution in development and production environments may work differently. [Apache Spark](https://spark.apache.org/docs/latest/), [Apache Flink](https://nightlies.apache.org/flink/flink-docs-release-1.13/), [Databricks](https://databricks.com/), and IDE plugins need extra configuration for custom dependencies. They can also bring their own versions of Azure Client libraries or common components. For more information, see the following articles:
 
 - [Bundling Your Application’s Dependencies](https://spark.apache.org/docs/latest/submitting-applications.html#bundling-your-applications-dependencies) for Apache Spark
-- [Project Configuration](https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/datastream/project-configuration/) for Apache Flink
+- [Project Configuration](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/dev/datastream/project-configuration/) for Apache Flink
 - [How to correctly update a Maven library in Databricks](https://kb.databricks.com/libraries/maven-library-version-mgmt.html) for Databricks
 
 For more information on conflict resolution in such environments, see the [Create a fat JAR](#create-a-fat-jar) section later in this article.

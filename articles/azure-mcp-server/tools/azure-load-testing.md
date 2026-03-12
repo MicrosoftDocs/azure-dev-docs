@@ -1,7 +1,6 @@
 ---
 title: Azure Load Testing Tools - Azure MCP Server
 description: "Learn how to use Azure MCP Server with Azure Load Testing to create, run, and analyze performance tests. Get started with load testing tools and natural language commands."
-keywords: azure mcp server, azmcp, azure load testing, performance testing, stress testing, load tests
 ai-usage: ai-assisted
 content_well_notification: 
   - AI-contribution

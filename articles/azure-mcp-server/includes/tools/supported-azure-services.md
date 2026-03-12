@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 01/22/2025
+ ms.date: 03/11/2026
 ---
 
 ## Available tools
@@ -14,16 +14,17 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure best practices](../../tools/azure-best-practices.md) | `get_bestpractices` | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
+| [Azure best practices](../../tools/azure-best-practices.md) | `get azure bestpractices get` | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
+| [Azure AI best practices for app development](../../tools/azure-best-practices.md) | `get azure bestpractices ai app` | Get best practices and code generation guidance for building AI applications in Azure. Use it when you need recommendations on writing code for AI agents, chatbots, workflows, or any AI/LLM features. Additionally, this command provides guidance for code generation on Microsoft Foundry for application development. |
 | [Terraform best practices for Azure](../../tools/azure-terraform-best-practices.md) | `azureterraformbestpractices` | Get guidance on implementing Terraform for Azure resources. |
 
 ### AI and Machine Learning
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure AI Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Azure AI Foundry models, deployments, and endpoints. |
+| [Microsoft Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
-| [Azure AI Speech](../../tools/ai-services-speech.md) | `speech` | Manage Azure AI Speech resources such as speech-to-text and text-to-speech services. |
+| [Azure Speech in Foundry Tools](../../tools/ai-services-speech.md) | `speech` | Manage Speech resources such as speech-to-text and text-to-speech services. |
 
 ### Analytics
 
@@ -42,6 +43,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure App Service](../../tools/azure-app-service.md) | `appservice` | Manage database connections for Azure App Service instances. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
+| [Azure Service Fabric](../../tools/azure-service-fabric.md) | `servicefabric` | Manage Service Fabric managed clusters, including node details and restarts. |
 | [Azure Virtual Machines](../../tools/azure-virtual-machines.md) | `compute` | Get details for Azure virtual machines, virtual machine scale sets, and managed disks. |
 
 ### Containers
@@ -51,6 +53,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Container Registry](../../tools/azure-container-registry.md) | `acr` | List Azure Container Registry instances. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
+| [Azure Service Fabric](../../tools/azure-service-fabric.md) | `servicefabric` | Manage Service Fabric managed clusters, including node details and restarts. |
 
 ### Databases
 
@@ -103,7 +106,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | `datadog` | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
-| [Azure Service Bus](../../tools/service-bus.md) | `servicebus` | Work with Azure Service Bus messaging services. |
+| [Azure Service Bus](../../tools/azure-service-bus.md) | `servicebus` | Manage Azure Service Bus resources, including queues, topics, and peek at messages. |
 
 ### Internet of Things (IoT)
 
@@ -120,12 +123,14 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | Get recommendations to optimize Azure resources and improve performance. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | `cloudarchitect` | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | `grafana` | List Azure Managed Grafana workspaces. |
+| [Azure Migrate](../../tools/azure-migrate.md) | `azuremigrate` | Get step-by-step guidance for changing a Platform Landing Zone and make or download platform landing zone setups for Azure Migrate projects. |
 | [Azure Monitor](../../tools/azure-monitor.md) | `monitor` | Query Azure Monitor logs and metrics. |
 | [Azure Policy](../../tools/azure-policy.md) | `policy` | Manage Azure Policy assignments, definitions, and initiatives. |
 | [Azure Pricing](../../tools/azure-pricing.md) | `pricing` | Get Azure retail pricing, cost estimates, and billing details for services, SKUs, and regions. |
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | `extension` | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | `quota` | Manage Azure resource quotas and limits. |
-| [Azure Resource Health](../../tools/azure-health-resource.md) | `resourcehealth` | Check the health status of Azure resources. |
+| [Azure Resource Health](../../tools/azure-resource-health.md) | `resourcehealth` | Check the health status of Azure resources. |
+| [Azure Well-Architected Framework](../../tools/azure-well-architected-framework.md) | `wellarchitectedframework` | Get architectural best practices, design patterns, and recommendations for Azure services based on the five Well-Architected Framework pillars. |
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
 | [Resource Groups](../../tools/resource-group.md) | `group` | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | `subscription` | List Azure subscriptions. |
@@ -136,13 +141,13 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Event Hubs](../../tools/azure-event-hubs.md) | `eventhubs` | Manage Azure Event Hubs namespaces and event hubs. |
-| [Azure Service Bus](../../tools/service-bus.md) | `servicebus` | Work with Azure Service Bus messaging services. |
+| [Azure Service Bus](../../tools/azure-service-bus.md) | `servicebus` | Manage Azure Service Bus resources, including queues, topics, and peek at messages. |
 
 ### Mobile
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure AI Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Azure AI Foundry models, deployments, and endpoints. |
+| [Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure App Configuration](../../tools/app-configuration.md) | `appconfig` | Manage centralized application settings and feature flags. |
 | [Azure Communication Services](../../tools/azure-communication.md) | `communication` | Send SMS and email messages using Azure Communication Services. |
@@ -160,7 +165,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Product, tool, or service | Namespace | Description |
 |------|------|------------|
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
-| [Azure File Sync](../../tools/azure-storage-sync.md) | `storagesync` | Manage Azure file sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints for Azure File Sync. |
+| [Azure File Sync](../../tools/azure-file-sync.md) | `storagesync` | Manage Azure file sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints for Azure File Sync. |
 | [Azure Files](../../tools/azure-file-shares.md) | `fileshares` | Manage Azure file shares, including creating, updating, deleting, and snapshotting file shares. |
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | `managedlustre` | Manage Azure Managed Lustre file systems, including auto-import and auto-export jobs. |
 | [Azure Storage](../../tools/azure-storage.md) | `storage` | Manage Azure Storage accounts, containers, blobs, and tables. |

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [eventgrid events publish](../includes/tools/annotations/azure-event-grid-events-publish-annotations.md)]
 # azmcp eventgrid events publish
 ---

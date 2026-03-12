@@ -61,7 +61,7 @@ Visit the [Build a minimal template using the compose feature](compose-quickstar
 The `azd compose` feature supports adding resources for the following Azure services:
 
 - AI
-  - Azure AI Services models and Azure AI Foundry
+  - Foundry Tools models and Microsoft Foundry
   - Azure OpenAI with Microsoft Entra ID authentication
   - Azure AI Search
 - Database

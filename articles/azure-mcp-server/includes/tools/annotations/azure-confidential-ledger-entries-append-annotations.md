@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [confidentialledger entries append](../includes/tools/annotations/azure-confidential-ledger-entries-append-annotations.md)]
 # azmcp confidentialledger entries append
 ---

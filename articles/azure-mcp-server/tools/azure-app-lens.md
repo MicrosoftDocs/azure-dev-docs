@@ -1,7 +1,6 @@
 ---
 title: Azure App Lens Tools - Azure MCP Server
 description: "Learn how to use Azure MCP Server with Azure App Lens to manage application performance and insights. Get started with natural language prompts."
-keywords: azure mcp server, azmcp, azure app lens, application performance, insights
 ai-usage: ai-assisted
 content_well_notification: 
   - AI-contribution
@@ -9,7 +8,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 ---
 
 # Azure App Lens tools for the Azure MCP Server overview

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [storage account create](../includes/tools/annotations/azure-storage-account-create-annotations.md)]
 # azmcp storage account create
 ---

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [extension cli install](../includes/tools/annotations/azure-extension-cli-install-annotations.md)]
 # azmcp extension cli install
 ---

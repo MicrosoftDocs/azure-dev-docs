@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [foundry agents create](../includes/tools/annotations/azure-ai-foundry-agents-create-annotations.md)]
 # azmcp foundry agents create
 ---

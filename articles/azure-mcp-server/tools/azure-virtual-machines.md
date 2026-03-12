@@ -3,7 +3,6 @@ title: Azure Virtual Machines tools for managing virtual machines
 description: Discover Azure Virtual Machines tools for managing virtual machines and scale sets in Azure MCP Server. Explore features and start optimizing your resources.
 #customer intent: As a system admin, I want to list all Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
 ms.date: 02/12/2026
-keywords: Azure, MCP Server, virtual machines, vm, tools, virtual machines, scalability
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.reviewer: vigera
@@ -92,4 +91,4 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure Compute documentation](/azure/compute/)
+- [Azure Virtual Machines documentation](/azure/virtual-machines/)

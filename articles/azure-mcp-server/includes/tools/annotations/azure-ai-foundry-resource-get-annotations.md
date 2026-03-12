@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [foundry resource get](../includes/tools/annotations/azure-ai-foundry-resource-get-annotations.md)]
 # azmcp foundry resource get
 ---

@@ -109,4 +109,4 @@ In the preceding example, the following options are defined in the `deploymentSt
   - **applyToChildScopes**: A boolean value that sets whether the deny settings apply to child resources of resources in the deployment stack. For example, a SQL Server resource has child database resources.
 
 > [!div class="nextstepaction"]
-> [Azure Developer CLI FAQ](./faq.yml)
+> [Azure Developer CLI FAQ](./tooling-environment-faq.md)

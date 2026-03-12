@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 11/12/2025
+ms.date: 02/27/2026
 # [!INCLUDE [aks nodepool get](../includes/tools/annotations/azure-kubernetes-service-node-pool-get-annotations.md)]
 # azmcp aks nodepool get
 ---

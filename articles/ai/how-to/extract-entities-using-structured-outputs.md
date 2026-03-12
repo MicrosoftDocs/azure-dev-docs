@@ -49,7 +49,7 @@ Use this same general approach for entity extraction across many file types, as 
 
 ## Architectural diagram
 
-:::image type="content" source="../media/get-started-structured-output/architecture-diagram.png" lightbox="../media/get-started-structured-output/architecture-diagram.png" alt-text="Diagram that shows Microsoft Entra managed identity connecting to Azure AI services.":::
+:::image type="content" source="../media/get-started-structured-output/architecture-diagram.png" lightbox="../media/get-started-structured-output/architecture-diagram.png" alt-text="Diagram that shows Microsoft Entra managed identity connecting to Foundry Tools.":::
 
 ## Cost
 
@@ -436,7 +436,7 @@ class RepoOverview(BaseModel):
 
   ```python
   class AzureService(str, Enum):
-      AIFOUNDRY = "AI Foundry"
+      AIFOUNDRY = "Foundry"
       AISEARCH = "AI Search"
       POSTGRESQL = "PostgreSQL"
       COSMOSDB = "CosmosDB"

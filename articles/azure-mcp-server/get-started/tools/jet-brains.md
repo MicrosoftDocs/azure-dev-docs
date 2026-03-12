@@ -1,10 +1,9 @@
 ---
 title: Get started using the Azure MCP Server with IntelliJ
 description: Learn how to connect to and consume Azure MCP Server operations with IntelliJ
-keywords: azure developer cli, azd, IntelliJ, mcp
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/19/2025
+ms.date: 02/27/2026
 ms.topic: get-started
 ---
 
