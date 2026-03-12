@@ -1,7 +1,6 @@
 ---
 title: Azure SQL Tools - Azure MCP Server
 description: "Learn how to use Azure MCP Server with Azure SQL Database to manage databases, servers, and firewall rules. Complete reference guide with examples."
-keywords: azure mcp server, azmcp, azure sql, sql database, sql server
 ai-usage: ai-assisted
 content_well_notification: 
   - AI-contribution

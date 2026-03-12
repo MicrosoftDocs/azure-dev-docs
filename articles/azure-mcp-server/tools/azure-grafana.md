@@ -1,7 +1,6 @@
 ---
 title: Azure Managed Grafana Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Managed Grafana to monitor and visualize your metrics and logs.
-keywords: azure mcp server, azmcp, azure managed grafana, monitoring, dashboards, visualization
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.date: 02/27/2026

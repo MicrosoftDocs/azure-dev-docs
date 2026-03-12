@@ -164,7 +164,7 @@ New articles:
 
 Updated articles:
 
-- [Quickstart: create and apply your own tasks for GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md) - updates for Ignite
+- [Quickstart: create and apply your own skills for GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md) - updates for Ignite
 
 ### Azure for JavaScript
 

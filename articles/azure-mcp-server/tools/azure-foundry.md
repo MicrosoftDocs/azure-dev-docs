@@ -1,7 +1,6 @@
 ---
 title: Microsoft Foundry Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Microsoft Foundry to manage your AI models and deployments.
-keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.date: 12/05/2025

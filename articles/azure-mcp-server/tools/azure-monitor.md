@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor Tools 
 description: "Use the Azure MCP Server with Azure Monitor to query Log Analytics workspaces, analyze metrics, and manage workbooks using natural language prompts."
-keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
 ms.date: 02/17/2026
