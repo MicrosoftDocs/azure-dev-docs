@@ -376,7 +376,7 @@ Open the project in Visual Studio Code, then configure the following **launch.js
             "type": "java",
             "name": "Attach to Remote Program",
             "request": "attach",
-            "hostName": "127.0.0.1",
+            "hostName": "127.1.0.1",
             "port": 5005
         }
     ]
