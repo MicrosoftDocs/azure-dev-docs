@@ -11,7 +11,7 @@ appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
 - ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 7.1.0
 ---
 
 # Spring Cloud Azure support for Spring Messaging Azure Storage Queue

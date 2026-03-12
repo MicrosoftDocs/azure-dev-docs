@@ -49,7 +49,7 @@ Batch upgrade provides the following benefits:
 To enable batch upgrade, create a `.github/modernize/repos.json` file in your working directory that lists all repositories you want to upgrade.
 
 > [!TIP]
-> Make sure you have the right permissions to access the repositories, or fork them first.
+> For sample repositories, fork them first and make sure you have admin permission to delegate the job to Cloud Coding Agents.
 
 ```json
 [
@@ -59,7 +59,7 @@ To enable batch upgrade, create a `.github/modernize/repos.json` file in your wo
   },
   {
     "name": "ZavaSocialFrontEnd",
-    "url": "https://github.com/bradygaster/ZavaSocialFrontEnd"
+    "url": "https://github.com/Azure-Samples/ZavaSocialFrontEnd"
   }
 ]
 ```
