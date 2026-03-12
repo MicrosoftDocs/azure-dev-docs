@@ -88,10 +88,7 @@ jobs:
 
       - name: Download Modernize CLI
         run: |
-          mkdir -p "$HOME/modernize-cli"
-          curl -sL https://github.com/microsoft/modernize-cli/releases/latest/download/modernize_linux_x64.tar.gz | tar -xz -C "$HOME/modernize-cli"
-          chmod +x "$HOME/modernize-cli/modernize"
-          echo "$HOME/modernize-cli" >> $GITHUB_PATH
+          curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | sh
 
       - name: Run Modernize CLI to upgrade code
         run: |
@@ -182,9 +179,7 @@ jobs:
             inputs:
               targetType: 'inline'
               script: |
-                mkdir -p "$HOME/modernize-cli"
-                curl -sL https://github.com/microsoft/modernize-cli/releases/latest/download/modernize_linux_x64.tar.gz | tar -xz -C "$HOME/modernize-cli"
-                chmod +x "$HOME/modernize-cli/modernize"
+                curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | sh
     
           - task: Bash@3
             displayName: 'Run Modernize CLI to upgrade code'
