@@ -130,7 +130,7 @@ First, create a new "todo" item in the database using the following command:
 curl --header "Content-Type: application/json" \
     --request POST \
     --data '{"description":"configuration","details":"congratulations, you have set up R2DBC correctly!","done": "true"}' \
-    http://127.1.0.1:8080
+    http://127.0.0.1:8080
 ```
 
 This command should return the created item, as shown here:
@@ -142,7 +142,7 @@ This command should return the created item, as shown here:
 Next, retrieve the data by using a new cURL request with the following command:
 
 ```bash
-curl http://127.1.0.1:8080
+curl http://127.0.0.1:8080
 ```
 
 This command will return the list of "todo" items, including the item you've created, as shown here:
