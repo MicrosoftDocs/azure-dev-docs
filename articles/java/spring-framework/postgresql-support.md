@@ -10,7 +10,7 @@ appliesto:
   - ✅ Version 4.20.0
   - ✅ Version 5.25.0
   - ✅ Version 6.1.0
-  - ✅ Version 7.0.0
+  - ✅ Version 7.1.0
 ms.custom:
   - devx-track-java
   - devx-track-extended-java
