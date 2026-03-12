@@ -188,9 +188,9 @@ jobs:
               script: |
                 TARGET="${{ parameters.upgrade_target }}"
                 if [ -z "$TARGET" ] || [ "$TARGET" = "latest" ]; then
-                  "$HOME/modernize-cli/modernize" upgrade --no-tty
+                  modernize upgrade --no-tty
                 else
-                  "$HOME/modernize-cli/modernize" upgrade "$TARGET" --no-tty
+                  modernize upgrade "$TARGET" --no-tty
                 fi
             env:
               GH_TOKEN: $(GH_TOKEN)
