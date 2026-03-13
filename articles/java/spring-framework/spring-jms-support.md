@@ -150,27 +150,27 @@ Spring Cloud Azure provides the following three Connection Factory options for c
 When all the three classes exist in the classpath, which one is used? The following table describes which is used based on configuration properties (since Spring Cloud Azure **7.1.0**):
 
 > [!div class="mx-tdBreakAll"]
-> | spring.jms. servicebus.pool.enabled   | spring.jms. cache.enabled   | Sender ConnectionFactory       | Listener Container ConnectionFactory |
-> |--------------------------------------|----------------------------|--------------------------------|--------------------------------------|
-> | not set                              | not set                    | CachingConnectionFactory       | ServiceBusJmsConnectionFactory       |
-> | not set                              | true                       | CachingConnectionFactory       | CachingConnectionFactory             |
-> | not set                              | false                      | ServiceBusJmsConnectionFactory | ServiceBusJmsConnectionFactory       |
-> | true                                 | not set                    | JmsPoolConnectionFactory       | JmsPoolConnectionFactory             |
-> | true                                 | true                       | CachingConnectionFactory       | CachingConnectionFactory             |
-> | true                                 | false                      | JmsPoolConnectionFactory       | JmsPoolConnectionFactory             |
-> | false                                | not set                    | CachingConnectionFactory       | ServiceBusJmsConnectionFactory       |
-> | false                                | true                       | CachingConnectionFactory       | CachingConnectionFactory             |
-> | false                                | false                      | ServiceBusJmsConnectionFactory | ServiceBusJmsConnectionFactory       |
+> | `spring.jms.servicebus.pool.enabled` | `spring.jms.cache.enabled` | Sender `ConnectionFactory`       | Listener Container `ConnectionFactory` |
+> |--------------------------------------|----------------------------|----------------------------------|----------------------------------------|
+> | not set                              | not set                    | `CachingConnectionFactory`       | `ServiceBusJmsConnectionFactory`       |
+> | not set                              | `true`                     | `CachingConnectionFactory`       | `CachingConnectionFactory`             |
+> | not set                              | `false`                    | `ServiceBusJmsConnectionFactory` | `ServiceBusJmsConnectionFactory`       |
+> | `true`                               | not set                    | `JmsPoolConnectionFactory`       | `JmsPoolConnectionFactory`             |
+> | `true`                               | `true`                     | `CachingConnectionFactory`       | `CachingConnectionFactory`             |
+> | `true`                               | `false`                    | `JmsPoolConnectionFactory`       | `JmsPoolConnectionFactory`             |
+> | `false`                              | not set                    | `CachingConnectionFactory`       | `ServiceBusJmsConnectionFactory`       |
+> | `false`                              | `true`                     | `CachingConnectionFactory`       | `CachingConnectionFactory`             |
+> | `false`                              | `false`                    | `ServiceBusJmsConnectionFactory` | `ServiceBusJmsConnectionFactory`       |
 
 > [!NOTE]
 > The following table shows the default `ConnectionFactory` when both `spring.jms.servicebus.pool.enabled` and `spring.jms.cache.enabled` aren't set for different Spring Cloud Azure versions:
 >
 > [!div class="mx-tdBreakAll"]
-> | Spring Cloud Azure Version | Sender ConnectionFactory         | Listener Container ConnectionFactory |
-> |----------------------------|----------------------------------|--------------------------------------|
-> | >= 7.1.0                   | CachingConnectionFactory         | ServiceBusJmsConnectionFactory       |
-> | >=6.1.0 and <= 7.0.0       | ServiceBusJmsConnectionFactory   | ServiceBusJmsConnectionFactory       |
-> | <= 6.1.0                   | JmsPoolConnectionFactory         | JmsPoolConnectionFactory             |
+> | Spring Cloud Azure version | Sender `ConnectionFactory`         | Listener container `ConnectionFactory` |
+> |----------------------------|------------------------------------|----------------------------------------|
+> | >= 7.1.0                   | `CachingConnectionFactory`         | `ServiceBusJmsConnectionFactory`       |
+> | >=6.1.0 and <= 7.0.0       | `ServiceBusJmsConnectionFactory`   | `ServiceBusJmsConnectionFactory`       |
+> | <= 6.1.0                   | `JmsPoolConnectionFactory`         | `JmsPoolConnectionFactory`             |
 
 
 ## Samples
