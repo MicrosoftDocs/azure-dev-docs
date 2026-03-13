@@ -57,12 +57,16 @@ items:
     - name: Use with Azure services
       expanded: true
       items:
+        - name: Azure App Service
+          href: services/azure-mcp-server-for-app-service.md
         - name: Azure Functions
           href: services/azure-mcp-server-for-functions.md
         - name: Azure Key Vault
           href: services/azure-mcp-server-for-key-vault.md
         - name: Azure Redis
           href: services/azure-mcp-server-for-redis.md
+        - name: Azure AI Search
+          href: services/azure-mcp-server-for-search.md
         - name: Azure Speech in Foundry Tools
           href: services/azure-mcp-speech-foundry-tools.md
     - name: Tools

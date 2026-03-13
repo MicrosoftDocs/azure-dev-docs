@@ -39,7 +39,7 @@ winget install microsoft.azd
 ### [MacOS](#tab/mac)
 
 ```bash
-brew tap azure/azd && brew install azd
+brew install azure/azd/azd
 ```
 
 ### [Linux](#tab/linux)
