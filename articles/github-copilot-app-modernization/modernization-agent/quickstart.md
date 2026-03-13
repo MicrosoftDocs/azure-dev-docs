@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: quickstart
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 03/13/2026
 ---
 
 # Quickstart: Install and use the GitHub Copilot modernization agent
@@ -16,7 +16,7 @@ This quickstart guides you through installing the GitHub Copilot modernization a
 ## Prerequisites
 
 - **A GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
-- **GitHub CLI**: Install the GitHub CLI (`gh`) for authentication. See [Installing gh](https://cli.github.com/).
+- **GitHub CLI**: Install the GitHub CLI (`gh`) for authentication, `v2.45.0` or above. See [Installing gh](https://cli.github.com/).
 
 ### Platform requirements
 
@@ -30,20 +30,45 @@ Use the following commands to install the modernization agent or update to the l
 
 ### [Windows](#tab/windows)
 
-Run the following command in PowerShell:
+Use one of the following options:
+
+**Option 1 - Winget (recommended):**
+
+```powershell
+winget install GitHub.Copilot.modernization.agent
+```
+
+For silent installation with no prompts:
+
+```powershell
+winget install GitHub.Copilot.modernization.agent --silent
+```
+
+**Option 2 - PowerShell one-liner:**
 
 ```powershell
 iex (irm 'https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.ps1')
 ```
 
-Alternatively, download and run the MSI installer from the [GitHub releases page](https://github.com/microsoft/modernize-cli/releases).
+**Option 3 - MSI installer:**
+
+Download and run the latest MSI from the [GitHub releases page](https://github.com/microsoft/modernize-cli/releases/latest).
 
 > [!NOTE]
-> These commands work for both initial installation and updating to the latest version. A dedicated version update command will be available in a future release.
+> After installation, open a new terminal for the `modernize` command to be available on your PATH. These commands work for both initial installation and updating to the latest version. A dedicated version update command will be available in a future release.
 
 ### [Linux/macOS](#tab/linux-macos)
 
-Run the following command:
+Use one of the following options:
+
+**Option 1 - Homebrew:**
+
+```bash
+brew tap microsoft/modernize https://github.com/microsoft/modernize-cli
+brew install modernize
+```
+
+**Option 2 - Shell script:**
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | bash
