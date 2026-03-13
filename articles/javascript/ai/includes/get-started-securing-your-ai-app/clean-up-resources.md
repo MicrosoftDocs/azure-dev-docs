@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js, devx-track-ts, 
 ms.topic: include
-ms.date: 11/08/2024
+ms.date: 03/13/2026
 # Used as part of /developer/ai/get-started-securing-your-ai-app
 ---
 1. Sign into the [GitHub Codespaces dashboard](https://github.com/codespaces).

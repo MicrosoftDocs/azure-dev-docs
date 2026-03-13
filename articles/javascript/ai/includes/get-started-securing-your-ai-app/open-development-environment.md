@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js, devx-track-ts, 
 ms.topic: include
-ms.date: 11/12/2024
+ms.date: 03/13/2026
 # Used as part of /developer/ai/get-started-securing-your-ai-app
 ---
 
