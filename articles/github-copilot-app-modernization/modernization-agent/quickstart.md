@@ -16,7 +16,7 @@ This quickstart guides you through installing the GitHub Copilot modernization a
 ## Prerequisites
 
 - **A GitHub Copilot subscription**: Free, Pro, Pro+, Business, or Enterprise plan. See [Copilot plans](https://github.com/features/copilot/plans).
-- **GitHub CLI**: Install the GitHub CLI (`gh`) v2.45.0 or above. See [Installing gh](https://cli.github.com/).
+- **GitHub CLI**: Install the GitHub CLI (`gh`) for authentication, `v2.45.0` or above. See [Installing gh](https://cli.github.com/).
 
 ### Platform requirements
 
