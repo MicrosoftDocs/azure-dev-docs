@@ -143,7 +143,7 @@ Spring Cloud Azure provides the following three Connection Factory options for c
 
 - `JmsPoolConnectionFactory`: This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. More pool configuration settings - prefixed with `spring.jms.servicebus.pool.` - are detailed in the [Configuration](#configuration) section. This setup enhances performance by using Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
 
-- `CachingConnectionFactory`: This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode does not use Azure Service Bus's load-balancing capability.
+- `CachingConnectionFactory`: This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode doesn't use Azure Service Bus's load-balancing capability.
 
 - `ServiceBusJmsConnectionFactory`: In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
 
