@@ -141,14 +141,37 @@ spring:
 
 Spring Cloud Azure provides the following three Connection Factory options for connecting to Azure Service Bus JMS:
 
-- `JmsPoolConnectionFactory`: Set `spring.jms.servicebus.pool.enabled=true`. This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. Additional pool configuration settings - prefixed with `spring.jms.servicebus.pool.` - are detailed in the [Configuration](#configuration) section. This setup enhances performance by leveraging Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
+- `JmsPoolConnectionFactory`: This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. Additional pool configuration settings - prefixed with `spring.jms.servicebus.pool.` - are detailed in the [Configuration](#configuration) section. This setup enhances performance by leveraging Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
 
-- `CachingConnectionFactory`: Set `spring.jms.cache.enabled=true`. This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode does not leverage Azure Service Bus's load-balancing capability.
+- `CachingConnectionFactory`: This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode does not leverage Azure Service Bus's load-balancing capability.
 
-- `ServiceBusJmsConnectionFactory`: Set `spring.jms.servicebus.pool.enabled=false` and `spring.jms.cache.enabled=false` or leave both pool and cache settings unset to use the default value, with no pooling or caching. In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
+- `ServiceBusJmsConnectionFactory`: In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
+
+When all the 3 classes exist in the classpath, which one will be used? The following table describes which one will used based on configuration properties (since Spring Cloud Azure **7.1.0**):
+
+> [!div class="mx-tdBreakAll"]
+> | `spring.jms.servicebus.pool.enabled` | `spring.jms.cache.enabled` | Sender ConnectionFactory       | Listener Container ConnectionFactory |
+> |--------------------------------------|----------------------------|--------------------------------|--------------------------------------|
+> | not set                              | not set                    | CachingConnectionFactory       | ServiceBusJmsConnectionFactory       |
+> | not set                              | true                       | CachingConnectionFactory       | CachingConnectionFactory             |
+> | not set                              | false                      | ServiceBusJmsConnectionFactory | ServiceBusJmsConnectionFactory       |
+> | true                                 | not set                    | JmsPoolConnectionFactory       | JmsPoolConnectionFactory             |
+> | true                                 | true                       | CachingConnectionFactory       | CachingConnectionFactory             |
+> | true                                 | false                      | JmsPoolConnectionFactory       | JmsPoolConnectionFactory             |
+> | false                                | not set                    | CachingConnectionFactory       | ServiceBusJmsConnectionFactory       |
+> | false                                | true                       | CachingConnectionFactory       | CachingConnectionFactory             |
+> | false                                | false                      | ServiceBusJmsConnectionFactory | ServiceBusJmsConnectionFactory       |
 
 > [!NOTE]
-> Starting with Spring Cloud Azure 6.1.0, the default `ConnectionFactory` has been switched to `ServiceBusJmsConnectionFactory`.
+> The following table shows the default `ConnectionFactory` when both `spring.jms.servicebus.pool.enabled` and `spring.jms.cache.enabled` aren't set for different Spring Cloud Azure versions:
+>
+> [!div class="mx-tdBreakAll"]
+> | Spring Cloud Azure Version | Sender ConnectionFactory         | Listener Container ConnectionFactory |
+> |----------------------------|----------------------------------|--------------------------------------|
+> | >= 7.1.0                   | `CachingConnectionFactory`       | `ServiceBusJmsConnectionFactory`     |
+> | >=6.1.0 and <= 7.0.0       | `ServiceBusJmsConnectionFactory` | `ServiceBusJmsConnectionFactory`     |
+> | <= 6.1.0                   | `JmsPoolConnectionFactory`       | `JmsPoolConnectionFactory`           |
+
 
 ## Samples
 
