@@ -788,7 +788,7 @@ Manage environments (ex: default environment, environment variables).
 
 ### See also
 
-* [azd env config](#azd-env-config): Manage environment configuration (ex: stored in .azure/<environment>/config.json).
+* [azd env config](#azd-env-config): Manage environment configuration (ex: stored in `.azure/<environment>/config.json`).
 * [azd env get-value](#azd-env-get-value): Get specific environment value.
 * [azd env get-values](#azd-env-get-values): Get all environment values.
 * [azd env list](#azd-env-list): List environments.
@@ -802,7 +802,7 @@ Manage environments (ex: default environment, environment variables).
 
 ## azd env config
 
-Manage environment configuration (ex: stored in .azure/<environment>/config.json).
+Manage environment configuration (ex: stored in `.azure/<environment>/config.json`).
 
 ### Options
 
@@ -857,7 +857,7 @@ azd env config get <path> [flags]
 
 ### See also
 
-* [azd env config](#azd-env-config): Manage environment configuration (ex: stored in .azure/<environment>/config.json).
+* [azd env config](#azd-env-config): Manage environment configuration (ex: stored in `.azure/<environment>/config.json`).
 * [Back to top](#azd)
 
 ## azd env config set
@@ -905,7 +905,7 @@ azd env config set myapp.port '"8080"'
 
 ### See also
 
-* [azd env config](#azd-env-config): Manage environment configuration (ex: stored in .azure/<environment>/config.json).
+* [azd env config](#azd-env-config): Manage environment configuration (ex: stored in `.azure/<environment>/config.json`).
 * [Back to top](#azd)
 
 ## azd env config unset
@@ -944,7 +944,7 @@ azd env config unset myapp.endpoint
 
 ### See also
 
-* [azd env config](#azd-env-config): Manage environment configuration (ex: stored in .azure/<environment>/config.json).
+* [azd env config](#azd-env-config): Manage environment configuration (ex: stored in `.azure/<environment>/config.json`).
 * [Back to top](#azd)
 
 ## azd env get-value
@@ -1766,10 +1766,10 @@ without prompting for permission. You can specify different permission
 levels and scopes for the rules.
 
 Examples:
-  # Grant always permission to all tools globally
+  **Grant always permission to all tools globally**
   azd mcp consent grant --global --permission always
 
-  # Grant project permission to a specific tool with read-only scope
+  **Grant project permission to a specific tool with read-only scope**
   azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
 
 ```azdeveloper
