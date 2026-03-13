@@ -74,7 +74,7 @@ A package manager assists developers and administrators with installing, updatin
 ### [Brew](#tab/brew)
 
 ```bash
-brew tap azure/azd && brew install azd
+brew install azure/azd/azd
 ```
 
 ### [Winget](#tab/winget)
