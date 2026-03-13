@@ -141,13 +141,13 @@ spring:
 
 Spring Cloud Azure provides the following three Connection Factory options for connecting to Azure Service Bus JMS:
 
-- `JmsPoolConnectionFactory`: This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. Additional pool configuration settings - prefixed with `spring.jms.servicebus.pool.` - are detailed in the [Configuration](#configuration) section. This setup enhances performance by leveraging Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
+- `JmsPoolConnectionFactory`: This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. More pool configuration settings - prefixed with `spring.jms.servicebus.pool.` - are detailed in the [Configuration](#configuration) section. This setup enhances performance by using Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
 
-- `CachingConnectionFactory`: This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode does not leverage Azure Service Bus's load-balancing capability.
+- `CachingConnectionFactory`: This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode does not use Azure Service Bus's load-balancing capability.
 
 - `ServiceBusJmsConnectionFactory`: In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
 
-When all the 3 classes exist in the classpath, which one will be used? The following table describes which one will used based on configuration properties (since Spring Cloud Azure **7.1.0**):
+When all the three classes exist in the classpath, which one is used? The following table describes which is used based on configuration properties (since Spring Cloud Azure **7.1.0**):
 
 > [!div class="mx-tdBreakAll"]
 > | `spring.jms.servicebus.pool.enabled` | `spring.jms.cache.enabled` | Sender ConnectionFactory       | Listener Container ConnectionFactory |
