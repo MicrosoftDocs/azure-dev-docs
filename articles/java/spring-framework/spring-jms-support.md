@@ -150,7 +150,7 @@ Spring Cloud Azure provides the following three Connection Factory options for c
 When all the three classes exist in the classpath, which one is used? The following table describes which is used based on configuration properties (since Spring Cloud Azure **7.1.0**):
 
 > [!div class="mx-tdBreakAll"]
-> | spring.jms.servicebus.pool.enabled   | spring.jms.cache.enabled   | Sender ConnectionFactory       | Listener Container ConnectionFactory |
+> | spring.jms. servicebus.pool.enabled   | spring.jms. cache.enabled   | Sender ConnectionFactory       | Listener Container ConnectionFactory |
 > |--------------------------------------|----------------------------|--------------------------------|--------------------------------------|
 > | not set                              | not set                    | CachingConnectionFactory       | ServiceBusJmsConnectionFactory       |
 > | not set                              | true                       | CachingConnectionFactory       | CachingConnectionFactory             |
