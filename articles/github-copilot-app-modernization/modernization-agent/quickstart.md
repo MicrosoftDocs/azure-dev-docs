@@ -71,7 +71,7 @@ brew install modernize
 **Option 2 - Shell script:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.sh | bash
 ```
 
 ---
