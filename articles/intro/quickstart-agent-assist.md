@@ -39,7 +39,7 @@ Install the following tools locally to get a full development experience on your
 1. [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension.
 1. [Node.js](https://nodejs.org/) (LTS version recommended).
 1. [Azure Developer CLI (azd)](../azure-developer-cli/install-azd.md).
-1. [Azure CLI](../cli/install-azure-cli.md) (optional, for manual resource management).
+1. [Azure CLI](../cli/azure/install-azure-cli.md).
 1. [Azure Skills](https://github.com/microsoft/azure-skills) for enhanced Azure development experience.
 
 ---
@@ -63,7 +63,11 @@ Agent mode gives GitHub Copilot the ability to run terminal commands, create and
 Copy and paste the following prompt into the Copilot chat panel. This prompt instructs the agent to scaffold a React to-do app with Vite, handle version compatibility automatically, and verify the build.
 
 ```text
-Create a React to-do app using Vite with the JavaScript React template. First check Node/npm versions, and if latest Vite is incompatible, automatically use the newest compatible Vite version and continue. Implement add, complete/incomplete toggle, and remove. Persist state in localStorage. Run npm run build and verify success. Return a concise summary of what was done.
+Create a React to-do app using Vite with the JavaScript React template.
+First check Node/npm versions, and if latest Vite is incompatible, 
+automatically use the newest compatible Vite version and continue.
+Implement add, complete/incomplete toggle, and remove. Persist state in localStorage.
+Run npm run build and verify success. Return a concise summary of what was done.
 ```
 
 Select **Send** or press **Enter** to submit the prompt. The agent:
@@ -111,7 +115,12 @@ Copy and paste the following prompt:
 
 ```text
 Add production behavior and API support:
-Persist the to-do items in localStorage. Create an API endpoint that supports POST, PATCH, and DELETE for to-do functionality. Add Swagger UI at /swagger with an OpenAPI file configured to use a relative server URL. The to-do app should fetch from the API endpoint. Configure it for Azure App Service so npm run build creates production output and npm start serves that output. Update the README with the changes. Return a concise summary of what was done.
+Persist the to-do items in localStorage.
+Create an API endpoint that supports POST, PATCH, and DELETE for to-do functionality.
+Add Swagger UI at /swagger with an OpenAPI file configured to use a relative server URL.
+The to-do app should fetch from the API endpoint.
+onfigure it for Azure App Service so npm run build creates production output and npm start serves that output.
+Update the README with the changes. Return a concise summary of what was done.
 ```
 
 The agent:
@@ -150,7 +159,8 @@ Now that you have a working app with API support, ask the agent about which Azur
 Copy and paste the following prompt:
 
 ```text
-I want to change the local persistence to a no-cost or low-cost storage option in Azure. What's a good fit for this app?
+I want to change the local persistence to a no-cost or low-cost storage option in Azure.
+What's a good fit for this app?
 ```
 
 ```output
@@ -177,7 +187,14 @@ Copy and paste the following prompt:
 
 ```text
 Create a deployment template and deploy to Azure:
-Change the to-do item persistence to Azure Table Storage. Create a deployment template that uses Azure Developer CLI. The template should deploy a resource group, and create free or low-cost resources for the app in Azure. The template uses environment variables for resource group name, location, and a prefix to prepend to resource names. Test the template with resource group rg-firstazureexp, location eastus2, and prefix todoapp. If deployment is misconfigured, diagnose and fix automatically until the live site serves built production files, not source or default pages. Final verification must confirm HTML references production assets and that the main JS/CSS asset URLs return HTTP 200. Update the README. Return a concise summary and the app website URL.
+Change the to-do item persistence to Azure Table Storage.
+Create a deployment template that uses Azure Developer CLI.
+The template should deploy a resource group, and create free or low-cost resources for the app in Azure.
+The template uses environment variables for resource group name, location, and a prefix to prepend to resource names.
+Test the template with resource group rg-firstazureexp, location eastus2, and prefix todoapp.
+If deployment is misconfigured, diagnose and fix automatically until the live site serves built production files, not source or default pages.
+Final verification must confirm HTML references production assets and that the main JS/CSS asset URLs return HTTP 200.
+Update the README. Return a concise summary and the app website URL.
 ```
 
 The agent:
