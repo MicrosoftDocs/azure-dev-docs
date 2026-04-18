@@ -44,6 +44,8 @@ items:
         href: how-to/github-copilot-cli.md
       - name: GitHub Copilot SDK
         href: how-to/github-copilot-sdk.md
+      - name: Sovereign clouds
+        href: how-to/connect-sovereign-clouds.md
 - name: Self-host
   expanded: true
   items:
