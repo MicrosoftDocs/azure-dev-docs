@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: reference
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 04/17/2026
 ---
 
 # GitHub Copilot modernization agent CLI commands
@@ -26,8 +26,9 @@ modernize
 The interactive mode provides:
 
 - Menu-driven navigation through the modernization workflow.
+- Flexible source selection: current folder, manual input (local paths or Git URLs), or repository config files.
 - Visual plan and progress indicators.
-- Guided prompts for configuration options.
+- Guided prompts for configuration options, including assessment domains and parameters.
 - Multi-repository selection interface.
 
 ### Non-interactive mode
@@ -68,16 +69,17 @@ modernize assess [options]
 
 #### Options
 
-| Option                  | Description                                                                                          | Default                         |
-|-------------------------|------------------------------------------------------------------------------------------------------|---------------------------------|
-| `--source <path>`       | The path to the source project (relative or absolute local path).                                    | `.` (current directory)         |
-| `--output-path <path>`  | A custom output path for assessment results.                                                         | `.github/modernize/assessment/` |
-| `--issue-url <url>`     | A GitHub issue URL to update with the assessment summary.                                            | None                            |
-| `--multi-repo`          | Enables multi-repo assess. Scans first-level subdirectories for multiple repositories.               | Disabled                        |
-| `--model <model>`       | The LLM model to use.                                                                                | `claude-sonnet-4.6`             |
-| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent).                          | `local`                         |
-| `--wait`                | Waits for the delegated tasks to complete and generate results (only valid with `--delegate cloud`). | Disabled                        |
-| `--force`               | Forces restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`).              | Disabled                        |
+| Option                   | Description                                                                                                                                                 | Default                         |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
+| `--source <source>`      | Source to assess (repeatable). Accepts local paths, Git URLs, or a JSON config file path. Use multiple `--source` flags to specify several repositories.    | `.` (current directory)         |
+| `--output-path <path>`   | A custom output path for assessment results.                                                                                                                | `.github/modernize/assessment/` |
+| `--issue-url <url>`      | A GitHub issue URL to update with the assessment summary.                                                                                                   | None                            |
+| `--format <format>`      | Output format for assessment reports: `html` or `markdown`.                                                                                                 | `html`                          |
+| `--assess-config <path>` | Path to an assessment configuration YAML file that overrides default assessment parameters such as target runtime, compute services, and analysis coverage. | Auto-discovered or defaults     |
+| `--model <model>`        | The LLM model to use.                                                                                                                                       | `claude-sonnet-4.6`             |
+| `--delegate <delegate>`  | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent).                                                                                 | `local`                         |
+| `--wait`                 | Waits for the delegated tasks to complete and generate results (only valid with `--delegate cloud`).                                                        | Disabled                        |
+| `--force`                | Forces restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`).                                                                     | Disabled                        |
 
 #### Examples
 
@@ -105,10 +107,22 @@ Assess specific project directory:
 modernize assess --source /path/to/project
 ```
 
-Assess multiple repos in current directory:
+Assess multiple repositories by using a config file:
 
 ```bash
-modernize assess  --multi-repo
+modernize assess --source .github/modernize/repos.json
+```
+
+Assess multiple repositories by specifying sources directly:
+
+```bash
+modernize assess --source https://github.com/org/repo1 --source https://github.com/org/repo2
+```
+
+Assess and output reports in markdown format:
+
+```bash
+modernize assess --format markdown
 ```
 
 #### Output
@@ -312,11 +326,11 @@ modernize upgrade [prompt] [options]
 
 #### Options
 
-| Option                  | Description                                                                 | Default                 |
-|-------------------------|-----------------------------------------------------------------------------|-------------------------|
-| `--source <source>`     | The path to source project (relative or absolute local path).               | `.` (current directory) |
-| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent). | `local`                 |
-| `--model <model>`       | The LLM model to use.                                                       | `claude-sonnet-4.6`     |
+| Option                  | Description                                                                                                                                               | Default                 |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
+| `--source <source>`     | Source to upgrade (repeatable). Accepts local paths, Git URLs, or a JSON config file path. Use multiple `--source` flags to specify several repositories. | `.` (current directory) |
+| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent).                                                                               | `local`                 |
+| `--model <model>`       | The LLM model to use.                                                                                                                                     | `claude-sonnet-4.6`     |
 
 #### Examples
 
@@ -340,6 +354,18 @@ Run `upgrade` by using the Cloud Coding Agent:
 
 ```bash
 modernize upgrade "Java 17" --delegate cloud
+```
+
+Upgrade multiple repositories by using a config file:
+
+```bash
+modernize upgrade "Java 21" --source .github/modernize/repos.json
+```
+
+Upgrade multiple repositories by specifying sources directly:
+
+```bash
+modernize upgrade "Java 21" --source https://github.com/org/repo1 --source https://github.com/org/repo2
 ```
 
 ### help
@@ -409,7 +435,17 @@ The `trusted_folders` property specifies the folders that are trusted to use LLM
 
 ### Multi-repository configuration
 
-Create a `.github/modernize/repos.json` file to enable multi-repository mode:
+You can provide multiple sources to the CLI in several ways:
+
+- **Repository config file**: Create a `.github/modernize/repos.json` file that lists all repositories, then pass it with `--source`.
+- **Multiple `--source` flags**: Specify local paths or Git URLs directly on the command line.
+- **Interactive mode**: Select sources through the TUI (current folder, manual input, or repository config).
+
+#### Repository config file
+
+Create a `.github/modernize/repos.json` file to define your repository list. The config supports two formats:
+
+**Simple format** (array of repositories):
 
 ```json
 [
@@ -424,24 +460,114 @@ Create a `.github/modernize/repos.json` file to enable multi-repository mode:
 ]
 ```
 
-After the `repos.json` file is in place, use the following commands to operate across all configured repositories:
+**Full format** (with branch and local paths):
+
+```json
+{
+  "repos": [
+    {
+      "name": "PhotoAlbum-Java",
+      "url": "https://github.com/Azure-Samples/PhotoAlbum-Java.git",
+      "branch": "main"
+    },
+    {
+      "name": "local-project",
+      "path": "/absolute/path/to/project"
+    }
+  ]
+}
+```
+
+Each repo entry supports the following fields:
+
+| Field         | Description                         | Required               |
+|---------------|-------------------------------------|------------------------|
+| `name`        | A friendly name for the repository. | Yes                    |
+| `url`         | Git clone URL (HTTPS or SSH).       | One of `url` or `path` |
+| `path`        | Absolute local directory path.      | One of `url` or `path` |
+| `branch`      | Branch to check out after cloning.  | No                     |
+| `description` | Human-readable description.         | No                     |
+
+**Full format with app grouping** (optional, for organized reporting):
+
+You can add an `apps[]` section to group repositories into logical applications. When apps are defined, the aggregated report organizes results by application and supports report distribution.
+
+```json
+{
+  "repos": [
+    {
+      "name": "PhotoAlbum-Java",
+      "url": "https://github.com/Azure-Samples/PhotoAlbum-Java.git",
+      "branch": "main"
+    },
+    {
+      "name": "PhotoAlbum",
+      "url": "https://github.com/Azure-Samples/PhotoAlbum.git"
+    }
+  ],
+  "apps": [
+    {
+      "identifier": "photo-app",
+      "description": "Photo management application",
+      "repos": ["PhotoAlbum-Java"],
+      "output": {
+        "type": "local",
+        "path": "/path/to/reports/photo-app"
+      }
+    }
+  ]
+}
+```
+
+Each app entry supports:
+
+| Field         | Description                                                        | Required |
+|---------------|--------------------------------------------------------------------|----------|
+| `identifier`  | Unique display name of the application.                            | Yes      |
+| `description` | Human-readable description.                                        | No       |
+| `repos`       | List of repo names that belong to this app.                        | Yes      |
+| `output`      | Where to distribute this app's assessment report after generation. | No       |
+
+The `output` field supports the following distribution types:
+
+| Type    | Description                                                                                  | Required fields |
+|---------|----------------------------------------------------------------------------------------------|-----------------|
+| `local` | Copy reports to a local directory.                                                           | `path`          |
+| `git`   | Push reports to a Git repository. URL format: `https://github.com/org/repo.git#branch:path`. | `url`           |
+
+> [!IMPORTANT]
+> Cloud Coding Agent delegation (`--delegate cloud`) requires repositories to have **GitHub (github.com) repository URLs**. Local path repositories and non-GitHub providers (GitLab, Azure DevOps) aren't supported for cloud delegation and are skipped.
+
+Then use `--source` to pass the config file path:
 
 Assess all repositories locally:
 
 ```bash
-modernize assess
+modernize assess --source .github/modernize/repos.json
 ```
 
 Assess all repositories by using the Cloud Coding Agent:
 
 ```bash
-modernize assess --delegate cloud
+modernize assess --source .github/modernize/repos.json --delegate cloud
 ```
 
 Upgrade all repositories by using the Cloud Coding Agent:
 
 ```bash
-modernize upgrade --delegate cloud
+modernize upgrade --source .github/modernize/repos.json --delegate cloud
+```
+
+#### Multiple sources on the command line
+
+You can also specify multiple sources directly:
+
+```bash
+modernize assess --source https://github.com/org/repo1 --source https://github.com/org/repo2
+```
+
+```bash
+modernize upgrade "Java 21" --source ./project-a --source ./project-b
 ```
 
 ## Next steps

@@ -41,6 +41,9 @@ Choose the environment where you want to use custom agents:
 
 ---
 
+> [!NOTE]
+> [!INCLUDE [Azure account note](../../includes/github-copilot-modernization-azure-note.md)]
+
 ## Add the MCP server
 
 Before creating a custom agent, add the GitHub Copilot modernization MCP server. The setup process differs between CLI and coding agent.

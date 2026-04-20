@@ -16,7 +16,7 @@ This article shows you how to create and use the Azure OpenAI security building 
 
 By following the instructions in this article, you will:
 
-- Deploy a secure Azure Container chat app.
+- Deploy a secure chat app on Azure Container Apps.
 - Use managed identity for Azure OpenAI access.
 - Chat with an Azure OpenAI Large Language Model (LLM) using the OpenAI library.
 
@@ -39,8 +39,7 @@ The application architecture relies on the following services and components:
 - [Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
 :::zone pivot="python"
-- [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
-- A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages.
+- A Python [Quart](https://quart.palletsprojects.com/en/latest/) app that uses the [`openai`](https://pypi.org/project/openai/) package and the [Responses API](/azure/ai-services/openai/how-to/responses) to generate responses to user messages.
 - A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 
 :::zone-end
@@ -309,7 +308,7 @@ The sample repository contains all the code and configuration files for chat app
 
 ### Configure authentication with managed identity
 
-In this sample, the `src\quartapp\chat.py` file begins with configuring keyless authentication.
+In this sample, the `src/quartapp/chat.py` file begins with configuring keyless authentication.
 
 The following snippet uses the [azure.identity.aio](/python/api/azure-identity/azure.identity.aio?view=azure-python&preserve-view=true) module to create an asynchronous Microsoft Entra authentication flow.
 
@@ -332,7 +331,7 @@ The Azure Identity client library provides _credentials_&mdash;public classes th
 
 The following snippet creates a `ChainedTokenCredential` using a `ManagedIdentityCredential` and an `AzureDeveloperCliCredential`:
 
-- The `ManagedIdentityCredential` is used for Azure Functions and Azure App Service. A user-assigned managed identity is supported by passing the `client_id` to `ManagedIdentityCredential`.
+- The `ManagedIdentityCredential` is used for Azure Functions, Azure App Service, and Azure Container Apps. A user-assigned managed identity is supported by passing the `client_id` to `ManagedIdentityCredential`.
 - The `AzureDeveloperCliCredential` is used for local development. It was set previously based on the Microsoft Entra tenant to use.
 
 ```python
@@ -359,29 +358,29 @@ token_provider = get_bearer_token_provider(
 )
 ```
 
-The following lines check for the required `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_CHATGPT_DEPLOYMENT` `azd` resource environment variables, which are provisioned during `azd` app deployment. An error is thrown if a value isn't present.
+The following lines check for the required `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_CHAT_DEPLOYMENT`, two `azd` environment variables which are set during `azd` provisioning. An error is thrown if a value isn't present.
 
 ```python
-if not os.getenv("AZURE_OPENAI_ENDPOINT"):
+openai_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+if not openai_endpoint:
     raise ValueError("AZURE_OPENAI_ENDPOINT is required for Azure OpenAI")
-if not os.getenv("AZURE_OPENAI_CHATGPT_DEPLOYMENT"):
-    raise ValueError("AZURE_OPENAI_CHATGPT_DEPLOYMENT is required for Azure OpenAI")
+if not os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT"):
+    raise ValueError("AZURE_OPENAI_CHAT_DEPLOYMENT is required for Azure OpenAI")
 ```
 
-This snippet initializes the Azure OpenAI client, setting the `api_version`, `azure_endpoint`, and `azure_ad_token_provider` (`client_args`) parameters:
+This snippet initializes the OpenAI client against Azure's `/openai/v1/` endpoint, passing the token provider as the `api_key`. No `api_version` is needed with the v1 endpoint:
 
 ```python
-bp.openai_client = AsyncAzureOpenAI(
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION") or "2024-02-15-preview",
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    azure_ad_token_provider=token_provider,
-)  
+bp.openai_client = AsyncOpenAI(
+    base_url=f"{openai_endpoint.rstrip('/')}/openai/v1/",
+    api_key=token_provider,
+)
 ```
 
 The following line sets the Azure OpenAI model deployment name for use in API calls:
 
 ```python
-bp.openai_model = os.getenv("AZURE_OPENAI_CHATGPT_DEPLOYMENT")
+bp.openai_model = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT")
 ```
 
 >[!NOTE]
@@ -389,23 +388,23 @@ bp.openai_model = os.getenv("AZURE_OPENAI_CHATGPT_DEPLOYMENT")
 
 Once this function completes, the client is properly configured and ready to interact with Azure OpenAI services.
 
-### Response stream using the OpenAI Client and model
+### Stream responses using the OpenAI Responses API
 
-The `response_stream` handles the chat completion call in the route. The following code snippet shows how `openai_client` and `model` are used.
+The `response_stream` handles the Responses API streaming call in the route. The frontend sends Responses-shaped `input` items directly, and the backend forwards them to `responses.stream()`:
 
 ```python
 async def response_stream():
-    # This sends all messages, so API request may exceed token limits
-    all_messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-    ] + request_messages
-
-    chat_coroutine = bp.openai_client.chat.completions.create(
-        # Azure OpenAI takes the deployment name as the model name
-        model=bp.openai_model,
-        messages=all_messages,
-        stream=True,
-    )
+    try:
+        async with bp.openai_client.responses.stream(
+            model=bp.openai_model,
+            input=request_input,
+            store=False,
+        ) as openai_stream:
+            async for event in openai_stream:
+                yield json.dumps(event.model_dump(), ensure_ascii=False) + "\n"
+    except Exception as e:
+        current_app.logger.exception("Responses stream failed")
+        yield json.dumps({"error": str(e)}, ensure_ascii=False) + "\n"
 ```
 
 :::zone-end
@@ -442,7 +441,7 @@ The Azure Identity client library provides credential classes that implement the
 
 The following snippet registers the `AzureOpenAIClient` for dependency injection and creates a `ChainedTokenCredential` using a `ManagedIdentityCredential` and an `AzureDeveloperCliCredential`:
 
-- The `ManagedIdentityCredential` is used for Azure Functions and Azure App Service. A user-assigned managed identity is supported using the `AZURE_CLIENT_ID` that was provided to the `ManagedIdentityCredential`.
+- The `ManagedIdentityCredential` is used for Azure Functions, Azure App Service, and Azure Container Apps. A user-assigned managed identity is supported using the `AZURE_CLIENT_ID` that was provided to the `ManagedIdentityCredential`.
 - The `AzureDeveloperCliCredential` is used for local development. It was set previously based on the Microsoft Entra tenant to use.
 
 ```csharp

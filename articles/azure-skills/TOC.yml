@@ -1,0 +1,57 @@
+items:
+- name: Overview
+  href: overview.md
+- name: Install and configure
+  href: install.md
+- name: Quickstart
+  href: quickstart.md
+- name: Skills reference
+  items:
+  - name: App Insights Instrumentation
+    href: skills/app-insights-instrumentation.md
+  - name: Azure AI Gateway
+    href: skills/azure-ai-gateway.md
+  - name: Azure AI Services
+    href: skills/azure-ai.md
+  - name: Azure Cloud Migration
+    href: skills/azure-cloud-migrate.md
+  - name: Azure Compliance
+    href: skills/azure-compliance.md
+  - name: Azure Compute
+    href: skills/azure-compute.md
+  - name: Azure Cost Optimization
+    href: skills/azure-cost.md
+  - name: Azure Deploy
+    href: skills/azure-deploy.md
+  - name: Azure Diagnostics
+    href: skills/azure-diagnostics.md
+  - name: Azure Enterprise Infrastructure Planner
+    href: skills/azure-enterprise-infra-planner.md
+  - name: Azure Hosted Copilot SDK
+    href: skills/azure-hosted-copilot-sdk.md
+  - name: Azure Kubernetes
+    href: skills/azure-kubernetes.md
+  - name: Azure Kusto (Data Explorer)
+    href: skills/azure-kusto.md
+  - name: Azure Messaging
+    href: skills/azure-messaging.md
+  - name: Azure Prepare
+    href: skills/azure-prepare.md
+  - name: Azure Quotas
+    href: skills/azure-quotas.md
+  - name: Azure RBAC
+    href: skills/azure-rbac.md
+  - name: Azure Resource Lookup
+    href: skills/azure-resource-lookup.md
+  - name: Azure Resource Visualizer
+    href: skills/azure-resource-visualizer.md
+  - name: Azure Storage
+    href: skills/azure-storage.md
+  - name: Azure Upgrade
+    href: skills/azure-upgrade.md
+  - name: Azure Validate
+    href: skills/azure-validate.md
+  - name: Entra App Registration
+    href: skills/entra-app-registration.md
+  - name: Microsoft Foundry
+    href: skills/microsoft-foundry.md

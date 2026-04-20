@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 04/17/2026
 ---
 
 # Batch assessment with the GitHub Copilot modernization agent
@@ -40,9 +40,19 @@ Batch assessment provides the following benefits:
 
 ## Configure repositories
 
-To enable batch assessment, create a `.github/modernize/repos.json` file in your working directory that lists all repositories you want to assess.
+The modernization agent supports multiple ways to specify the repositories you want to assess:
+
+- **Current folder**: Assess the project in your current working directory.
+- **Manual input**: Enter local directory paths or remote Git URLs directly.
+- **Repository config file**: Use a JSON config file that lists all repositories.
+
+### Repository config file
+
+For batch operations across many repositories, create a JSON config file to list all repositories. For example, create it at `.github/modernize/repos.json` in your working directory, or provide a custom path.
 
 Make sure you have the right permissions for the repositories or fork them.
+
+**Simple format** (array of repositories):
 
 ```json
 [
@@ -61,28 +71,95 @@ Make sure you have the right permissions for the repositories or fork them.
 ]
 ```
 
-### Repository configuration
+**Full format** (with branch and local paths):
 
-Each entry requires:
+```json
+{
+  "repos": [
+    {
+      "name": "PhotoAlbum-Java",
+      "url": "https://github.com/Azure-Samples/PhotoAlbum-Java.git",
+      "branch": "main"
+    },
+    {
+      "name": "local-project",
+      "path": "/absolute/path/to/project"
+    }
+  ]
+}
+```
 
-- **name**: A friendly name for the repository (used in reports and dashboards).
-- **url**: The Git clone URL in HTTPS format.
+Each repo entry supports the following fields:
+
+| Field         | Description                                                          | Required               |
+|---------------|----------------------------------------------------------------------|------------------------|
+| `name`        | A friendly name for the repository (used in reports and dashboards). | Yes                    |
+| `url`         | Git clone URL in HTTPS or SSH format.                                | One of `url` or `path` |
+| `path`        | Absolute local directory path.                                       | One of `url` or `path` |
+| `branch`      | Branch to check out after cloning.                                   | No                     |
+| `description` | Human-readable description.                                          | No                     |
+
+**Full format with app grouping** (optional, for organized reporting):
+
+You can add an `apps[]` section to group repositories into logical applications. When apps are defined, the aggregated report organizes results by application and supports report distribution to external destinations.
+
+```json
+{
+  "repos": [
+    {
+      "name": "PhotoAlbum-Java",
+      "url": "https://github.com/Azure-Samples/PhotoAlbum-Java.git",
+      "branch": "main"
+    },
+    {
+      "name": "PhotoAlbum",
+      "url": "https://github.com/Azure-Samples/PhotoAlbum.git"
+    }
+  ],
+  "apps": [
+    {
+      "identifier": "photo-app",
+      "description": "Photo management application",
+      "repos": ["PhotoAlbum-Java"],
+      "output": {
+        "type": "local",
+        "path": "/path/to/reports/photo-app"
+      }
+    }
+  ]
+}
+```
+
+Each app entry supports:
+
+| Field         | Description                                                        | Required |
+|---------------|--------------------------------------------------------------------|----------|
+| `identifier`  | Unique display name of the application.                            | Yes      |
+| `description` | Human-readable description.                                        | No       |
+| `repos`       | List of repo names that belong to this app.                        | Yes      |
+| `output`      | Where to distribute this app's assessment report after generation. | No       |
+
+The `output` field supports the following distribution types:
+
+| Type    | Description                                                                                        | Required fields |
+|---------|----------------------------------------------------------------------------------------------------|-----------------|
+| `local` | Copy reports to a local directory.                                                                 | `path`          |
+| `git`   | Push reports to a Git repository. The URL format is `https://github.com/org/repo.git#branch:path`. | `url`           |
 
 > [!TIP]
 > You can include repositories from different organizations and use different authentication methods as long as you have access.
 
-### File location
-
-You must place the `repos.json` file at `.github/modernize/repos.json`.
-
-The modernization agent automatically detects this file when it runs batch operations.
+The modernization agent automatically detects the `repos.json` file at `.github/modernize/repos.json` when you select **From a config file** in interactive mode. You can also provide a custom path.
 
 ## Run batch assessment
 
 Two execution modes are available:
 
-- Local execution: The modernization agent processes repositories one after another on your local machine. This mode works best for a smaller set of applications or for initial testing.
-- Cloud Coding Agent delegation: The modernization agent submits tasks to GitHub Cloud Coding Agents for parallel processing in the cloud. This mode is faster for multi-repo scenarios.
+- **Local execution**: The modernization agent processes repositories one after another on your local machine. This mode works best for a smaller set of applications or for initial testing. Supports both Git URL and local path repositories.
+- **Cloud Coding Agent delegation**: The modernization agent submits tasks to GitHub Cloud Coding Agents for parallel processing in the cloud. This mode is faster for multi-repo scenarios.
+
+> [!IMPORTANT]
+> Cloud Coding Agent delegation requires repositories to have **GitHub (github.com) repository URLs**. Local path repositories and non-GitHub providers (GitLab, Azure DevOps) aren't supported for cloud delegation. Use local execution for those repositories.
 
 > [!TIP]
 > By using Cloud Coding Agent delegation, you enable parallel execution across all repositories. This approach significantly reduces the total assessment time for large portfolios.
@@ -95,26 +172,52 @@ Two execution modes are available:
     modernize
     ```
 
-1. The agent detects the `repos.json` file and displays the repository list:
+1. Select **Assess** from the main menu.
+
+    :::image type="content" source="../media/modernization-agent/assess-understand-application-menu.png" alt-text="Screenshot of Modernize CLI that shows the main menu with the Assess option in the terminal." lightbox="../media/modernization-agent/assess-understand-application-menu.png":::
+
+1. Choose how to specify your target repositories. Select **From a config file** to use a `repos.json` file.
+
+    :::image type="content" source="../media/modernization-agent/source-type-selection.png" alt-text="Screenshot of Modernize CLI that shows the source type selection in the terminal." lightbox="../media/modernization-agent/source-type-selection.png":::
+
+    > [!TIP]
+    > You can also select **Manual input** to enter local paths or remote Git URLs directly, or **Current folder** to assess the project in your current directory.
+
+1. If the `repos.json` file is detected at the default location, the agent automatically fills it in. Otherwise, enter the path to your config file and press <kbd>Enter</kbd>.
+
+1. All repositories are selected by default. Deselect any repositories you want to skip, and then press <kbd>Enter</kbd> to confirm your selection.
+
+    - **Use arrow keys** to navigate and press <kbd>Space</kbd> to toggle individual repositories.
 
     :::image type="content" source="../media/modernization-agent/assess-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the repository list in the terminal." lightbox="../media/modernization-agent/assess-repo-list.png":::
 
-1. Select repositories to assess, and press `Enter` to confirm your selection.
+1. Choose the execution mode. Select **Assess locally**.
 
-    - **Press `Ctrl+A`** to select all repositories.
-    - **Use arrow keys** to navigate and press `Space` to select individual repositories.
+    :::image type="content" source="../media/modernization-agent/assess-locally-option.png" alt-text="Screenshot of Modernize CLI that shows the assess mode menu in the terminal." lightbox="../media/modernization-agent/assess-locally-option.png":::
 
-1. Select **1. Assess application** from the main menu.
+1. Select the assessment domains to analyze. Choose from **Java upgrade** and **Cloud Readiness**, and then press <kbd>Enter</kbd>.
 
-    :::image type="content" source="../media/modernization-agent/assess-understand-application-menu.png" alt-text="Screenshot of Modernize CLI that shows the modernize menu in the terminal." lightbox="../media/modernization-agent/assess-understand-application-menu.png":::
+    :::image type="content" source="../media/modernization-agent/assess-domain-selection.png" alt-text="Screenshot of Modernize CLI that shows the assessment domain selection in the terminal." lightbox="../media/modernization-agent/assess-domain-selection.png":::
 
-1. To run assessment, choose to either assess locally or delegate to cloud coding agents. Select **1. Assess locally**.
+1. Review and configure the assessment options. The configuration page shows options grouped by language and domain:
 
-    :::image type="content" source="../media/modernization-agent/assess-locally-option.png" alt-text="Screenshot of Modernize CLI that shows the assess menu in the terminal." lightbox="../media/modernization-agent/assess-locally-option.png":::
+    - **Java / GENERAL**: Analysis Coverage (Issue only, Issues & Technologies, or Issues, Technologies & Dependencies).
+    - **Java / JAVA UPGRADE**: Target Runtime (OpenJDK 11, 17, or 21).
+    - **Java / CLOUD READINESS**: Target Compute Services, Target Operating System, and Containerization.
+    - **.NET / CLOUD READINESS**: Target Compute Services.
+
+    Use the arrow keys to navigate, press <kbd>Enter</kbd> to change a value, or select **Continue** to proceed with the current settings.
+
+    :::image type="content" source="../media/modernization-agent/assess-configuration.png" alt-text="Screenshot of Modernize CLI that shows the assessment configuration page in the terminal." lightbox="../media/modernization-agent/assess-configuration.png":::
+
+    > [!TIP]
+    > The recommended defaults work for most scenarios. You only need to change these settings if you have specific requirements, such as targeting a particular JDK version or Azure compute service.
+
+1. Enter the output path for assessment results or press <kbd>Enter</kbd> to accept the default.
 
 1. The agent automatically:
 
-    - Clones all selected repositories.
+    - Clones remote repositories (local path repositories are used directly).
     - Runs assessment on each repository one by one.
     - Generates individual assessment reports.
 
@@ -198,28 +301,36 @@ Configure GitHub Copilot Modernization MCP Server in Cloud Coding Agent section 
    modernize
    ```
 
-1. The agent detects the `repos.json` file and displays the repository list:
+1. Select **Assess** from the main menu.
+
+    :::image type="content" source="../media/modernization-agent/assess-understand-application-menu.png" alt-text="Screenshot of Modernize CLI that shows the main menu with the Assess option in the terminal." lightbox="../media/modernization-agent/assess-understand-application-menu.png":::
+
+1. Choose how to specify your target repositories. Select **From a config file** to use a `repos.json` file, or select **Manual input** to enter GitHub repository URLs directly.
+
+    :::image type="content" source="../media/modernization-agent/source-type-selection.png" alt-text="Screenshot of Modernize CLI that shows the source type selection in the terminal." lightbox="../media/modernization-agent/source-type-selection.png":::
+
+1. If you selected **From a config file** and the `repos.json` file is detected at the default location, the agent automatically fills it in. Otherwise, enter the path to your config file and press <kbd>Enter</kbd>.
+
+1. All repositories are selected by default. Deselect any repositories you want to skip, and then press <kbd>Enter</kbd> to confirm your selection.
+
+    - **Use arrow keys** to navigate and press <kbd>Space</kbd> to toggle individual repositories.
 
     :::image type="content" source="../media/modernization-agent/assess-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the repository list in terminal." lightbox="../media/modernization-agent/assess-repo-list.png":::
 
-1. Select repositories to assess, and press `Enter` to confirm your selection. 
-
-    - **Press `Ctrl+A`** to select all repositories.
-    - **Use arrow keys** to navigate and press `Space` to select individual repositories.
-
-1. Select **1. Assess applications** from the main menu.
-
-    :::image type="content" source="../media/modernization-agent/assess-understand-application-menu.png" alt-text="Screenshot of Modernize CLI that shows the modernize menu in the terminal." lightbox="../media/modernization-agent/assess-understand-application-menu.png":::
-
-1. To run the assessment, select **2. Delegate to Cloud Coding Agents**.
+1. Choose the execution mode. Select **Delegate to Cloud Agents**.
 
     :::image type="content" source="../media/modernization-agent/assess-delegate-cloud-coding-agents-option.png" alt-text="Screenshot of Modernize CLI that shows the assess menu with the Delegate to Cloud Coding Agents option selected." lightbox="../media/modernization-agent/assess-delegate-cloud-coding-agents-option.png":::
+
+    > [!NOTE]
+    > When you delegate to Cloud Coding Agents, the domain selection and assessment configuration steps aren't supported. The cloud agent uses the default configurations to run assessment.
+
+1. Enter the output path for assessment results or press <kbd>Enter</kbd> to accept the default.
 
 1. The agent automatically delegates assessment tasks for each repository to Cloud Coding Agents and executes them in the cloud in parallel.
 
     :::image type="content" source="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png" alt-text="Screenshot of Modernize CLI that shows the output of the progress of delegating assessment to Cloud Coding Agents in the terminal." lightbox="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png":::
 
-    The agent then pulls the per-app assessment results back to local and generates the aggregated report locally.
+    The agent pulls the per-app assessment results back to local and generates the aggregated report locally.
 
     :::image type="content" source="../media/modernization-agent/assess-aggregated-report-output.png" alt-text="Screenshot of Modernize CLI that shows the Aggregating Assessment Reports in the terminal." lightbox="../media/modernization-agent/assess-aggregated-report-output.png":::
 
@@ -229,19 +340,25 @@ Configure GitHub Copilot Modernization MCP Server in Cloud Coding Agent section 
 
 You can also use non-interactive mode by specifying command arguments directly. Use the `modernize assess` command:
 
-**Assess locally:**
+**Assess locally using a repository config file:**
 
 ```bash
-modernize assess --multi-repo
+modernize assess --source .github/modernize/repos.json
+```
+
+**Assess multiple repositories by specifying sources directly:**
+
+```bash
+modernize assess --source https://github.com/org/repo1 --source https://github.com/org/repo2
 ```
 
 **Assess by delegating to Cloud Coding Agents:**
 
 ```bash
-modernize assess --delegate cloud
+modernize assess --source .github/modernize/repos.json --delegate cloud --wait
 ```
 
-For more information, see [assess - CLI commands](cli-commands.md?#assess).
+For more information, see [assess - CLI commands](cli-commands.md#assess).
 
 ## Understanding the aggregated report
 
@@ -256,7 +373,7 @@ The aggregated report provides a comprehensive view across assessed applications
 ### Recommendations
 
 - Azure Services: maps current dependencies to recommended Azure equivalents. Shared dependencies across apps are decided once, so you avoid per-app rework.
-- Target Platform: guides hosting choice, such as Container Apps versus AKS, and surfaces consolidation opportunities.
+- Target Platform: guides hosting choice, such as Azure Container Apps versus AKS, and surfaces consolidation opportunities.
 - Upgrade Path: identifies which apps need framework upgrades as a prerequisite, separating upgrade work from migration work.
 - Migration Waves: sequences apps by readiness and risk into phases. This approach enables early wins while harder apps are prepared in parallel.
 
@@ -283,7 +400,7 @@ The aggregated report provides a comprehensive view across assessed applications
 **Assessment failures:**
 
 - Check if the repository contains valid Java or .NET projects.
-- Verify that build files exist, such as `pom.xml`, `build.gradle`, `*.csproj`, or `*.sln`.
+- Verify that build files exist, such as `pom.xml`, `build.gradle`, `*.csproj`, `*.sln`, or `*.slnx`.
 - Review error messages in the console output.
 
 **Cloud Coding Agent delegation problems:**

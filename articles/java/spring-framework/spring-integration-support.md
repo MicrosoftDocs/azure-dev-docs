@@ -11,7 +11,7 @@ appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
 - ✅ Version 6.2.0
-- ✅ Version 7.1.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure support for Spring Integration
@@ -254,7 +254,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
        public EventHubsInboundChannelAdapter messageChannelAdapter(
                @Qualifier(INPUT_CHANNEL) MessageChannel inputChannel,
                EventHubsMessageListenerContainer listenerContainer) {
-           EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(processorContainer);
+           EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(listenerContainer);
            adapter.setOutputChannel(inputChannel);
            return adapter;
        }
@@ -307,7 +307,7 @@ class Demo {
     public EventHubsInboundChannelAdapter messageChannelAdapter(
             @Qualifier(INPUT_CHANNEL) MessageChannel inputChannel,
             EventHubsMessageListenerContainer listenerContainer) {
-        EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(processorContainer, ListenerMode.BATCH);
+        EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(listenerContainer, ListenerMode.BATCH);
         adapter.setOutputChannel(inputChannel);
         return adapter;
     }
@@ -488,7 +488,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
                @Override
                public void onFailure(Throwable ex) {
-                   LOGGER.info("There was an error sending the message.");
+                   LOGGER.error("There was an error sending the message.", ex);
                }
            });
 
@@ -808,7 +808,7 @@ Connection configurable properties of `spring-cloud-azure-starter-integration-st
 
                @Override
                public void onFailure(Throwable ex) {
-                   LOGGER.info("There was an error sending the message.");
+                   LOGGER.error("There was an error sending the message.", ex);
                }
            });
            return handler;

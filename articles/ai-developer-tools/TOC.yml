@@ -1,0 +1,12 @@
+items:
+- name: AI developer tools for Azure
+  href: index.yml
+  items:
+  - name: Overview
+    href: overview.md
+  - name: GitHub Copilot for Azure
+    href: ../github-copilot-azure/TOC.yml
+  - name: Azure MCP Server
+    href: ../azure-mcp-server/TOC.yml
+  - name: Azure Skills
+    href: ../azure-skills/TOC.yml

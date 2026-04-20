@@ -27,7 +27,7 @@ Both `SyncPoller` and `PollerFlux` are the client-side abstractions intended to 
 Calling any API that returns a `SyncPoller` will immediately start the long-running operation. The API will return the `SyncPoller` immediately, letting you monitor the progress of the long-running operation and retrieve the final result. The following example shows how to monitor the progress of a long-running operation using the `SyncPoller`.
 
 ```java
-SyncPoller<UploadBlobProgress, UploadedBlobProperties> poller = syncClient.beginUploadFromUri(<URI to upload from>)
+SyncPoller<UploadBlobProgress, UploadedBlobProperties> poller = syncClient.beginUploadFromUri(<URI to upload from>);
 PollResponse<UploadBlobProgress> response;
 
 do {

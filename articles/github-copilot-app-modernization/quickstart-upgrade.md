@@ -41,9 +41,11 @@ This quickstart shows you how to upgrade a Java project using GitHub Copilot mod
 - In the Visual Studio Code settings, make sure `chat.extensionTools.enabled` is set to `true`. This setting might be controlled by your organization.
 
 > [!NOTE]
-> If you're using Gradle, only the Gradle wrapper version 5+ is supported. The Kotlin Domain Specific Language (DSL) isn't supported.
+> [!INCLUDE [Azure account note](../includes/github-copilot-modernization-azure-note.md)]
 >
-> The function `My Skills` isn't supported yet for IntelliJ IDEA.
+> [!INCLUDE [Gradle Kotlin note](../includes/github-copilot-modernization-gradle-kotlin-note.md)]
+>
+> [!INCLUDE [IntelliJ note](../includes/github-copilot-modernization-intellij-note.md)]
 
 ## Sign in to use Copilot and then install the required extension
 

@@ -1,29 +1,26 @@
 items:
-- name: GitHub Copilot for Azure
-  href: index.yml
+- name: Overview
+  href: introduction.md
+- name: Get started
+  href: get-started.md
+- name: Get support
+  href: support.md
+- name: Quickstarts
   items:
-    - name: Overview
-      href: introduction.md
-    - name: Get started
-      href: get-started.md
-    - name: Get support
-      href: support.md
-    - name: Quickstarts
-      items:
-        - name: Deploy an existing app with agent mode
-          href: quickstart-deploy-app-agent-mode.md
-    - name: Learn about Azure and your app
-      href: learn-examples.md
-    - name: Design and develop your app
-      href: design-develop-examples.md
-    - name: Deploy your app
-      href: deploy-examples.md
-    - name: Troubleshooting your app
-      href: troubleshoot-examples.md
-    - name: Advanced scenarios
-      expanded: true
-      items: 
-        - name: Create Bicep files
-          href: bicep-generate-edit.md
-        - name: Generate and deploy a Django / PostgreSQL app
-          href: generate-deploy-django-postgresql.md
+    - name: Deploy an existing app with agent mode
+      href: quickstart-deploy-app-agent-mode.md
+- name: Learn about Azure and your app
+  href: learn-examples.md
+- name: Design and develop your app
+  href: design-develop-examples.md
+- name: Deploy your app
+  href: deploy-examples.md
+- name: Troubleshooting your app
+  href: troubleshoot-examples.md
+- name: Advanced scenarios
+  expanded: true
+  items: 
+    - name: Create Bicep files
+      href: bicep-generate-edit.md
+    - name: Generate and deploy a Django / PostgreSQL app
+      href: generate-deploy-django-postgresql.md

@@ -14,6 +14,8 @@ ms.date: 01/21/2026
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 
 > [!NOTE]
-> If you're using Gradle, only the Gradle wrapper version 5+ is supported. The Kotlin Domain Specific Language (DSL) isn't supported.
+> [!INCLUDE [Azure account note](../../../includes/github-copilot-modernization-azure-note.md)]
 >
-> The function `My Skills` isn't supported yet for IntelliJ IDEA.
+> [!INCLUDE [Gradle Kotlin note](../../../includes/github-copilot-modernization-gradle-kotlin-note.md)]
+>
+> [!INCLUDE [IntelliJ note](../../../includes/github-copilot-modernization-intellij-note.md)]

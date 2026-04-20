@@ -31,6 +31,9 @@ To use container compute services like Azure Kubernetes Service and Azure Contai
     - [GitHub Copilot modernization](https://plugins.jetbrains.com/plugin/28791-github-copilot-app-modernization). Restart IntelliJ IDEA after installation.
 - [Docker](https://www.docker.com/) installed and running.
 
+> [!NOTE]
+> [!INCLUDE [Azure account note](../../includes/github-copilot-modernization-azure-note.md)]
+
 ## Containerize your project
 
 Use the following steps to start the containerization process:

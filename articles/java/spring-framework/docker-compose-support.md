@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 appliesto:
 - ✅ Version 5.25.0
 - ✅ Version 6.2.0
-- ✅ Version 7.1.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure support for Docker Compose
@@ -51,7 +51,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.1.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -88,7 +88,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.1.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -125,7 +125,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.1.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -162,7 +162,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.1.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -203,7 +203,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.1.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -244,7 +244,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.1.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>

@@ -10,7 +10,7 @@ appliesto:
   - ✅ Version 4.20.0
   - ✅ Version 5.25.0
   - ✅ Version 6.2.0
-  - ✅ Version 7.1.0
+  - ✅ Version 7.2.0
 ms.custom:
   - devx-track-java
   - devx-track-extended-java
@@ -507,14 +507,14 @@ Then you can use `OAuth2AuthorizedClient` in application like this
 public class Demo {
     @GetMapping("/resource-server-1")
     @ResponseBody
-    public String graph(
+    public String graph1(
     @RegisteredOAuth2AuthorizedClient("resource-server-1") OAuth2AuthorizedClient client) {
         return callResourceServer1(client);
     }
 
     @GetMapping("/resource-server-2")
     @ResponseBody
-    public String graph(
+    public String graph2(
     @RegisteredOAuth2AuthorizedClient("resource-server-2") OAuth2AuthorizedClient client) {
         return callResourceServer2(client);
     }
@@ -1352,7 +1352,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
    private final AadB2cOidcLoginConfigurer configurer;
 
    public WebSecurityConfiguration(AadB2cOidcLoginConfigurer configurer) {
-       this.configurer == configurer;
+       this.configurer = configurer;
    }
 
    @Override
@@ -1362,7 +1362,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                .anyRequest().authenticated()
                .and()
            .apply(configurer);
-       // @formatter:off
+       // @formatter:on
    }
 }
 ```

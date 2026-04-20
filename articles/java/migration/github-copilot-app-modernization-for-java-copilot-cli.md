@@ -37,6 +37,9 @@ Supported scenarios:
 - [Node.js](https://nodejs.org/) version 22 or later.
 - [npm](https://www.npmjs.com/get-npm) version 10 or later.
 
+> [!NOTE]
+> [!INCLUDE [Azure account note](../../includes/github-copilot-modernization-azure-note.md)]
+
 ## Get started
 
 Use the following steps to get started with modernization using Copilot CLI.

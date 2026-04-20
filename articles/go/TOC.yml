@@ -24,10 +24,10 @@ items:
       items:
         - name: Overview
           href: management-libraries.md
-        - name: Manage Resource Groups
-          href: manage-resource-groups.md
-        - name: Deploy VMs 
-          href: azure-sdk-qs-vm.md
+        - name: Control plane operations
+          href: control-plane.md
+        - name: Data plane operations
+          href: data-plane.md
     - name: Authentication
       expanded: false
       items:

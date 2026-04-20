@@ -11,7 +11,7 @@ appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
 - ✅ Version 6.2.0
-- ✅ Version 7.1.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure support for Spring Cloud Stream
@@ -757,7 +757,7 @@ spring:
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       eventhubs:
         resource:
-          resource-group: ${AZURE_EVENTHUBS_RESOURECE_GROUP}
+          resource-group: ${AZURE_EVENTHUBS_RESOURCE_GROUP}
 ```
 
 > [!NOTE]
@@ -899,65 +899,65 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 
    * For credentials as connection string, configure the following properties in your **application.yml** file:
 
-     ```yaml
-         spring:
-           cloud:
-             azure:
-               servicebus:
-                 connection-string: ${SERVICEBUS_NAMESPACE_CONNECTION_STRING}
-             function:
-               definition: consume;supply
-             stream:
-               bindings:
-                 consume-in-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME}
-                   # If you use Service Bus Topic, add the following configuration
-                   # group: ${SUBSCRIPTION_NAME}
-                 supply-out-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
-               servicebus:
-                 bindings:
-                   consume-in-0:
-                     consumer:
-                       auto-complete: false
-                   supply-out-0:
-                     producer:
-                       entity-type: queue # set as "topic" if you use Service Bus Topic
+      ```yaml
+      spring:
+        cloud:
+          azure:
+            servicebus:
+              connection-string: ${SERVICEBUS_NAMESPACE_CONNECTION_STRING}
+          function:
+            definition: consume;supply
+          stream:
+            bindings:
+              consume-in-0:
+                destination: ${SERVICEBUS_ENTITY_NAME}
+                # If you use Service Bus Topic, add the following configuration
+                # group: ${SUBSCRIPTION_NAME}
+              supply-out-0:
+                destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
+            servicebus:
+              bindings:
+                consume-in-0:
+                  consumer:
+                    auto-complete: false
+                supply-out-0:
+                  producer:
+                    entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
 
      [!INCLUDE [security-note](../includes/security-note.md)]
 
    * For credentials as service principal, configure the following properties in your **application.yml** file:
 
-     ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 client-id: ${AZURE_CLIENT_ID}
-                 client-secret: ${AZURE_CLIENT_SECRET}
-               profile:
-                 tenant-id: <tenant>
-               servicebus:
-                 namespace: ${SERVICEBUS_NAMESPACE}
-             function:
-               definition: consume;supply
-             stream:
-               bindings:
-                 consume-in-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME}
-                   # If you use Service Bus Topic, add the following configuration
-                   # group: ${SUBSCRIPTION_NAME}
-                 supply-out-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
-               servicebus:
-                 bindings:
-                   consume-in-0:
-                     consumer:
-                       auto-complete: false
-                   supply-out-0:
-                     producer:
-                       entity-type: queue # set as "topic" if you use Service Bus Topic
+      ```yaml
+      spring:
+        cloud:
+          azure:
+            credential:
+              client-id: ${AZURE_CLIENT_ID}
+              client-secret: ${AZURE_CLIENT_SECRET}
+            profile:
+              tenant-id: <tenant>
+            servicebus:
+              namespace: ${SERVICEBUS_NAMESPACE}
+          function:
+            definition: consume;supply
+          stream:
+            bindings:
+              consume-in-0:
+                destination: ${SERVICEBUS_ENTITY_NAME}
+                # If you use Service Bus Topic, add the following configuration
+                # group: ${SUBSCRIPTION_NAME}
+              supply-out-0:
+                destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
+            servicebus:
+              bindings:
+                consume-in-0:
+                  consumer:
+                    auto-complete: false
+                supply-out-0:
+                  producer:
+                    entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
 
 > [!NOTE]
@@ -965,33 +965,33 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 
    * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
-     ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 managed-identity-enabled: true
-                 client-id: ${MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
-               servicebus:
-                 namespace: ${SERVICEBUS_NAMESPACE}
-             function:
-               definition: consume;supply
-             stream:
-               bindings:
-                 consume-in-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME}
-                   # If you use Service Bus Topic, add the following configuration
-                   # group: ${SUBSCRIPTION_NAME}
-                 supply-out-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
-               servicebus:
-                 bindings:
-                   consume-in-0:
-                     consumer:
-                       auto-complete: false
-                   supply-out-0:
-                     producer:
-                       entity-type: queue # set as "topic" if you use Service Bus Topic
+      ```yaml
+      spring:
+        cloud:
+          azure:
+            credential:
+              managed-identity-enabled: true
+              client-id: ${MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
+            servicebus:
+              namespace: ${SERVICEBUS_NAMESPACE}
+          function:
+            definition: consume;supply
+          stream:
+            bindings:
+              consume-in-0:
+                destination: ${SERVICEBUS_ENTITY_NAME}
+                # If you use Service Bus Topic, add the following configuration
+                # group: ${SUBSCRIPTION_NAME}
+              supply-out-0:
+                destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
+            servicebus:
+              bindings:
+                consume-in-0:
+                  consumer:
+                    auto-complete: false
+                supply-out-0:
+                  producer:
+                    entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
 
 1. Define supplier and consumer.
@@ -1392,7 +1392,7 @@ spring:
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       servicebus:
         resource:
-          resource-group: ${AZURE_SERVICEBUS_RESOURECE_GROUP}
+          resource-group: ${AZURE_SERVICEBUS_RESOURCE_GROUP}
     stream:
       servicebus:
         bindings:

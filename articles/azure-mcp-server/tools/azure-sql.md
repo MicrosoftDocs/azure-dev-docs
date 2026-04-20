@@ -1,382 +1,325 @@
 ---
-title: Azure SQL Tools - Azure MCP Server
-description: "Learn how to use Azure MCP Server with Azure SQL Database to manage databases, servers, and firewall rules. Complete reference guide with examples."
+title: Azure MCP Server tools for Azure SQL Database
+description: "Use Azure MCP Server tools to manage Azure SQL databases, servers, elastic pools, and firewall rules with natural language prompts from your IDE."
 ai-usage: ai-assisted
 content_well_notification: 
   - AI-contribution
 author: diberry
 ms.author: diberry
+reviewer: akromm
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 02/27/2026
+ms.date: 04/09/2026
+tool_count: 13
+mcp-cli.version: 2.0.0-beta.31
 ---
 
-# Azure SQL tools for the Azure MCP Server overview
+# Azure MCP Server tools for Azure SQL Database
 
-The Azure MCP Server lets you manage Azure SQL Database resources by using natural language prompts. This Azure SQL tools reference provides comprehensive commands for managing databases, servers, firewall rules, and elastic pools without complex syntax.
+The Azure MCP Server lets you manage Azure SQL Database resources, including creating, deleting, updating, and listing databases, with natural language prompts.
 
-[Azure SQL Database](/azure/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most database management functions such as upgrading, patching, backups, and monitoring without user involvement.
+Azure SQL Database is a relational database service in the Microsoft Azure cloud that provides high availability, scalability, and security. For more information, see [Azure SQL Database documentation](/azure/sql-database/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Database: Create database
+## Create SQL Database
 
-<!-- sql db create -->
+<!-- @mcpcli sql db create -->
 
-Create a new database on an existing Azure SQL Server. This command creates a database with configurable performance tiers, size limits, and other settings.
+Create a new Azure SQL Database on an existing SQL Server. Create a database with configurable performance tiers, size limits, and other settings. It returns the newly created database information, including configuration details.
 
 Example prompts include:
-
-- **Create database**: "Create a new SQL database named 'sales-data' in server 'prod-sql-server' in resource group 'my-resource-group'"
-- **Specify tier**: "Create a SQL database 'inventory' with Basic tier in server 'eastus-sql' in resource group 'my-resource-group'"
-- **Resource group**: "Create a new database called 'customer-info' on SQL server 'analytics-sql' in resource group 'my-resource-group'"
-
+- "Create a SQL database named 'my-database' with SKU tier Premium in server 'my-sql-server'."
+- "Create a new SQL database called 'products-db' in resource group 'my-resource-group' on server 'my-sql-server'."
+- "Create a SQL database 'reports-db' with a maximum size of 2GB in server 'my-sql-server'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Database name** |  Required | The Azure SQL Database name. |
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The Azure SQL Server name. |
-| **Database** |  Required | The Azure SQL Database name. |
+| **Server name** |  Required | The Azure SQL Server name. |
+| **Collation** |  Optional | The collation for the database (for example, `SQL_Latin1_General_CP1_CI_AS`). |
+| **Elastic pool name** |  Optional | The name of the elastic pool to assign the database to. |
+| **Max size bytes** |  Optional | The maximum size of the database in bytes. |
+| **Read scale** |  Optional | Read scale option for the database (Enabled or Disabled). |
+| **SKU capacity** |  Optional | The SKU capacity (DTU or vCore count) for the database. |
 | **SKU name** |  Optional | The SKU name for the database (for example, `Basic`, `S0`, `P1`, `GP_Gen5_2`). |
 | **SKU tier** |  Optional | The SKU tier for the database (for example, `Basic`, `Standard`, `Premium`, `GeneralPurpose`). |
-| **SKU capacity** |  Optional | The SKU capacity (DTU or vCore count) for the database. |
-| **Collation** |  Optional | The collation for the database (for example, `SQL_Latin1_General_CP1_CI_AS`). |
-| **Max size bytes** |  Optional | The maximum size of the database in bytes. |
-| **Elastic pool name** |  Optional | The name of the elastic pool to assign the database to. |
-| **Zone redundant** |  Optional | Whether the database should be zone redundant. |
-| **Read scale** |  Optional | Read scale option for the database (`Enabled` or `Disabled`). |
+| **Zone redundant** |  Optional | Indicates whether the database should be zone redundant. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Database: Delete database
+## Create SQL Server
 
-<!-- sql db delete -->
+<!-- @mcpcli sql server create -->
 
-Delete a SQL database.
+Create a new Azure SQL server in the specified resource group and location. The server is configured with the provided administrator credentials and optional settings. The command returns the created server along with its properties, including the fully qualified domain name.
 
 Example prompts include:
-
-- **Delete database**: "Delete the SQL database 'sales-data' from server 'prod-sql-server' in resource group 'my-resource-group'"
-- **Remove from resource group**: "Remove database 'inventory' from SQL server 'eastus-sql' in resource group 'my-resource-group'"
-- **Delete by name**: "Delete the database called 'customer-info' on server 'analytics-sql' in resource group 'my-resource-group'"
-
+- "Create an Azure SQL server named 'my-sql-server' in location 'eastus' with admin login 'sqladmin'."
+- "Set up a new SQL server called 'prod-sql-server' in resource group 'my-resource-group' with your administrator password."
+- "Create a SQL server with name 'dev-sql-server' in resource group 'dev-resource-group' located in 'westus2'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The Azure SQL Server name. |
-| **Database** |  Required | The Azure SQL Database name. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Database: List databases
-
-<!-- sql db list -->
-
-Lists all databases in your cloud resource with their configuration, status, SKU, and performance details. Use when you need to: view database inventory, check database status, compare database configurations, or find databases for management operations.
-
-Example prompts include:
-
-- **List databases**: "Show me all databases on my 'eastus-sql' server in resource group 'my-resource-group'"
-- **Database inventory**: "List databases in resource group 'my-resource-group' on server 'eastus-sql'"
-- **Check database status**: "What databases are currently active on my 'eastus-sql' server in resource group 'my-resource-group'?"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required |The name of the resource. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Database: Rename database
-
-<!-- sql db rename -->
-
-Rename an existing database to a new name within the same Azure SQL server.
-
-Example prompts include:
-
-- **Rename database**: "Rename the SQL database 'sales-data' on server 'prod-sql-server' in resource group 'my-resource-group' to 'sales-archive'"
-- **Rename with explicit server**: "Rename my Azure SQL database 'inventory' to 'inventory-2025' on server 'eastus-sql' in resource group 'my-resource-group'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The Azure SQL Server name. |
-| **Database** |  Required | The Azure SQL Database name. |
-| **New database name** |  Required | The new name for the Azure SQL Database. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Database: Show database details
-
-<!-- sql db show -->
-
-Retrieves detailed information about a specific database. Use this command to check the configuration, performance tier, size, and other characteristics of your database.
-
-Example prompts include:
-
-- **View database details**: "Show me details for the 'inventory' database on my 'eastus-sql' server in resource group 'my-resource-group'"
-- **Check database configuration**: "Can you tell me the specifications and current state of my customer-db database on server 'prod-sql-server' in resource group 'my-resource-group'?"
-- **Check performance tier**: "What service tier for server 'prod-sql-server' in resource group 'my-resource-group' is my analytics database using?"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** | Required | The name of the resource. |
-| **Database** | Required | The name of the database on the resource. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Database: Update database
-
-<!-- sql db update -->
-
-Update configuration settings for an existing Azure SQL Database. 
-
-Example prompts include:
-
-- **Update performance tier**: "Update the performance tier of SQL database 'sales-data' on server 'prod-sql-server' in resource group 'my-resource-group'"
-- **Scale database SKU**: "Scale SQL database 'inventory' on server 'eastus-sql' in resource group 'my-resource-group' to use S3 SKU"
-- **Change database settings**: "Update the Azure SQL database 'analytics' to use Premium tier on server 'eastus-sql' in resource group 'my-resource-group'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The Azure SQL Server name. |
-| **Database** |  Required | The Azure SQL Database name. |
-| **SKU name** |  Optional | The SKU name for the database (for example, `Basic`, `S0`, `P1`, `GP_Gen5_2`). |
-| **SKU tier** |  Optional | The SKU tier for the database (for example, `Basic`, `Standard`, `Premium`, `GeneralPurpose`). |
-| **SKU capacity** |  Optional | The SKU capacity (DTU or vCore count) for the database. |
-| **Collation** |  Optional | The collation for the database (for example, `SQL_Latin1_General_CP1_CI_AS`). |
-| **Max size bytes** |  Optional | The maximum size of the database in bytes. |
-| **Elastic pool name** |  Optional | The name of the elastic pool to assign the database to. |
-| **Zone redundant** |  Optional | Whether the database should be zone redundant. |
-| **Read scale** |  Optional | Read scale option for the database (`Enabled` or `Disabled`). |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Server authentication: List Microsoft Entra administrators
-
-<!-- sql server entra-admin list -->
-
-Lists Microsoft Entra ID administrators configured for an Azure SQL server. Use this command to manage and audit identity-based access to your resource.
-
-Example prompts include:
-
-- **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server in resource group 'my-resource-group'"
-- **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'my-resource-group'"
-- **Security check**: "Who has admin access to server 'prod-sql-server' in resource group 'my-resource-group'?"
-
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** | Required | The name of the Azure SQL Server resource. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Server: Create server
-
-<!-- sql server create -->
-
-Creates a new Azure SQL server in the specified resource group and location.
-
-Example prompts include:
-
-- **Create SQL server**: "Create a new Azure SQL server named 'prod-sql-server' in resource group 'my-resource-group' with admin user 'sqladmin' and password 'MyStr0ngP@ssw0rd!' in East US"
-- **Specify admin user**: "Create an Azure SQL server with name 'eastus-sql' in resource group 'my-resource-group' in location 'East US' with admin user 'sqladmin' and password 'SecureP@ss123!'"
-- **Set up server in resource group**: "Set up a new SQL server called 'analytics-sql' for admin user 'sqladmin' with password 'Analytics2024!' in West US 2 in resource group 'my-resource-group' with public network access enabled"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The name of the Azure SQL Server resource. |
-| **Administrator user** |  Required | The administrator login name for the SQL server. |
+| **Administrator login** |  Required | The administrator login name for the SQL server. |
 | **Administrator password** |  Required | The administrator password for the SQL server. |
-| **Location** |  Required | The Azure region location where the SQL server is created. |
-| **Version** |  Optional | The version of SQL Server to create (for example, `12.0`). |
+| **Location** |  Required | The Azure region where the SQL server will be created. |
+| **Resource group** |  Required | The name of the Azure resource group, which is a logical container for Azure resources. |
+| **Server name** |  Required | The Azure SQL Server name. |
 | **Public network access** |  Optional | Whether public network access is enabled for the SQL server (`Enabled` or `Disabled`). |
+| **Version** |  Optional | The version of SQL Server to create (currently only `12.0` is supported). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Server: Delete server
+## Create SQL Server firewall rule
 
-<!-- sql server delete -->
+<!-- @mcpcli sql server firewall-rule create -->
 
-Deletes an Azure SQL server and all of its databases from the specified resource group.
+Creates a firewall rule for an Azure SQL Server. Firewall rules control which IP addresses are allowed to connect to the SQL Server. You can specify either a single IP address (by setting the start and end IP to the same value) or a range of IP addresses. This command returns the created firewall rule with its properties.
 
 Example prompts include:
+- "Create a firewall rule named 'allow-office-ip' for SQL Server 'my-sql-server' in resource group 'my-resource-group'."
+- "Add a firewall rule for SQL Server 'my-sql-server' allowing IP range '203.0.113.0' to '203.0.113.255'."
+- "Create a new firewall rule for Azure SQL Server 'prod-sql-server' with IP limits from '198.51.100.0' to '198.51.100.255'."
 
-- **Delete SQL server**: "Delete the Azure SQL server 'prod-sql-server' from resource group 'my-resource-group'"
-- **Remove from subscription**: "Remove the SQL server 'test-sql-server' from resource group 'my-resource-group'"
-- **Permanent delete**: "Delete SQL server 'analytics-sql' in resource group 'my-resource-group' permanently"
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **End IP address** |  Required | The end IP address of the firewall rule range. |
+| **Firewall rule name** |  Required | The name of the firewall rule. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name** |  Required | The Azure SQL Server name. |
+| **Start IP address** |  Required | The start IP address of the firewall rule range. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
+
+## Delete SQL Database
+
+<!-- @mcpcli sql db delete -->
+
+Deletes a database from an Azure SQL Server. This idempotent operation removes the specified database from the server, returning `Deleted = false` if the database doesn't exist or `Deleted = true` if it was successfully removed.
+
+Example prompts include:
+- "Delete the SQL database 'my-database' from server 'my-sql-server'."
+- "Remove the database 'old-database' from resource group 'my-resource-group' on server 'my-sql-server'."
+- "Delete the database 'test-database' from SQL server 'dev-sql-server'."
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Database name** |  Required | The Azure SQL Database name. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name** |  Required | The Azure SQL Server name. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
+
+## Delete SQL Server
+
+<!-- @mcpcli sql server delete -->
+
+Remove the specified Azure SQL server from your Azure subscription, including all associated databases. This operation permanently deletes all server data and cannot be reversed. Use `force` to bypass confirmation.
+
+Example prompts include:
+- "Delete SQL server 'my-sql-server' in resource group 'my-resource-group'."
+- "Remove the Azure SQL server 'old-sql-server' from my resource group."
+- "Permanently delete SQL server 'test-sql-server' without confirmation."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The name of the Azure SQL Server resource. |
+| **Server name** |  Required | The Azure SQL Server name. |
 | **Force** |  Optional | Force delete the server without confirmation prompts. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Server: List servers
+## Delete SQL Server firewall rule
 
-<!-- sql server list -->
+<!-- @mcpcli sql server firewall-rule delete -->
 
-Lists Azure SQL servers within a resource group. 
+Delete a firewall rule from an Azure SQL Server. This operation removes the specified firewall rule, which may restrict access for the IP addresses that were previously allowed by this rule. The operation is idempotent; if the rule does not exist, no error is returned.
 
 Example prompts include:
-
-- **List SQL servers**: "List all Azure SQL servers in resource group 'my-resource-group'"
-- **Show all servers**: "Show me every SQL server available in resource group 'my-resource-group'"
-- **Server inventory**: "What SQL servers do I have in resource group 'my-resource-group'?"
+- "Delete the firewall rule 'allow-office-ip' from resource group 'my-resource-group' in SQL server 'my-sql-server'."
+- "Remove firewall rule 'temp-access-rule' for SQL server 'my-sql-server' in resource group 'my-resource-group'."
+- "Delete firewall rule 'old-firewall-rule' from my SQL server 'dev-sql-server'."
 
 | Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Resource group** | Optional | The resource group to filter servers by. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Server: Show server details
-
-<!-- sql server show -->
-
-Retrieves detailed information about an Azure SQL server including its configuration,
-status, and properties such as the fully qualified domain name, version,
-administrator login, and network access settings.
-
-Example prompts include:
-
-- **Show server details**: "Show me the details of Azure SQL server 'prod-sql-server' in resource group 'my-resource-group'"
-- **Get configuration**: "Get the configuration details for SQL server 'analytics-sql' in resource group 'my-resource-group'"
-- **Display properties**: "Display the properties of SQL server 'eastus-sql' in resource group 'my-resource-group'"
-
-
-| Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The name of the Azure SQL Server resource. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Server firewall: List rules
-
-<!-- sql firewall-rule list -->
-
-Lists all firewall rules for a specific resource. Use this command to manage and review the network access settings for your resource.
-
-Example prompts include:
-
-- **View firewall settings**: "Show me all firewall rules for my 'prod-sql-server' in resource group 'my-resource-group'"
-- **Check access controls**: "Are there any firewall rules for my analytics-db SQL server in resource group 'my-resource-group'?"
-- **Security audit**: "List the firewall rules for our finance-db server in resource group 'my-resource-group'"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** | Required | The name of the Azure SQL Server resource. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Server firewall: Create rule
-
-<!-- sql server firewall-rule create -->
-
-Creates a firewall rule for a resource. Firewall rules control which IP addresses 
-are allowed to connect to the resource. You can specify either a single IP address 
-(by setting start and end IP to the same value) or a range of IP addresses. 
-
-Example prompts include:
-
-- **Add firewall rule**: "Create a firewall rule named 'office-access' for my 'prod-sql' server in resource group 'my-resource-group' allowing IP range 192.168.1.1 to 192.168.1.100"
-- **Set access range**: "I need to set a 'test' firewall rule on my 'analytics-sql' server in resource group 'my-resource-group' to allow access from IP range 10.0.0.1 to 10.0.0.255"
-- **Allow single IP**: "Create a firewall rule 'allow-single-ip' to allow access from IP address 203.0.113.5 to my 'production-uswest' SQL server in resource group 'my-resource-group'"
-
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The name of the Azure SQL Server resource. |
-| **Firewall rule** |  Required | The name of the firewall rule. |
-| **Start ip address** |  Required | The start IP address of the firewall rule range. |
-| **End ip address** |  Required | The end IP address of the firewall rule range. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Server firewall: Delete rule
-
-<!-- sql server firewall-rule delete -->
-
-Deletes a firewall rule from a resource. This operation removes the specified firewall rule, potentially restricting access for the IP addresses that were previously allowed by this rule. If the rule doesn't exist, no error is returned.
-
-Example prompts include:
-
-- **Remove firewall rule**: "Delete the firewall rule named 'office-access' from my 'prod-sql' server in resource group 'my-resource-group'"
-- **Revoke access**: "Revoke the firewall rule 'temp-access' on my 'test-sql' server in resource group 'my-resource-group'"
-- **Delete access rule**: "Remove the firewall rule 'guest-access' from our development SQL server in resource group 'my-resource-group'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** |  Required | The name of the Azure SQL Server resource. |
-| **Firewall rule** |  Required | The name of the firewall rule. |
+| **Firewall rule name** | Required | The name of the firewall rule. |
+| **Resource group** | Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name** | Required | The Azure SQL Server name. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Elastic pools: List elastic pools
+## Get Azure SQL Database details
 
-<!-- sql elastic-pool list -->
+<!-- @mcpcli sql db get -->
 
-Lists all elastic pools for a specific resource. Elastic pools are a resource allocation solution that lets you manage and scale multiple databases with varying resource demands.
+Retrieve information about Azure SQL databases in a SQL Server. You can show details for a specific Azure SQL database by name or list all Azure SQL databases within the specified SQL Server. This tool provides database information, including configuration details and current status.
 
 Example prompts include:
-
-- **View resource pools**: "Show me all elastic pools on my 'main-sql' server in resource group 'my-resource-group'"
-- **Check elasticity**: "List any elastic pools we have running on our customer-db SQL server in resource group 'my-resource-group'"
-- **Pool inventory**: "What elastic pools are deployed on SQL server 'main-sql' in resource group 'my-resource-group'?"
+- "List all databases in resource group 'my-rg' for server 'my-server'."
+- "Get details for the Azure SQL database 'my-database' in resource group 'my-rg' and server 'my-server'."
+- "Show all Azure SQL databases in resource group 'my-rg' within server 'my-server'."
+- "Retrieve the Azure SQL database 'my-database' from resource group 'my-rg' in server 'my-server'."
 
 | Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Server** | Required | The name of the Azure SQL Server resource. |
+|-----------------------|----------------------|-------------|
+| **Resource group** | Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name** | Required | The Azure SQL Server name. |
+| **Database name** | Optional | The Azure SQL Database name. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
+## Get elastic pool list
+
+<!-- @mcpcli sql elastic-pool list -->
+
+Lists all SQL elastic pools in an Azure SQL Server, including their SKU, capacity, state, and database limits. You can view the elastic pool inventory, check pool utilization, compare pool configurations, or find available pools for database placement. The tool returns a JSON array of elastic pools with complete configuration details.
+
+Example prompts include:
+- "List all elastic pools in resource group 'my-resource-group' for SQL server 'my-sql-server'."
+- "Show me the elastic pools in resource group 'prod-resource-group' for SQL server 'prod-sql-server'."
+- "What elastic pools exist in my SQL server 'dev-sql-server' under resource group 'dev-resource-group'?"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name** |  Required | The Azure SQL Server name. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+## Get firewall rule list
+
+<!-- @mcpcli sql server firewall-rule list -->
+
+Retrieve a list of firewall rules for an Azure SQL Server. This command retrieves all firewall rules configured for the specified SQL server, including their IP address ranges and rule names. It returns an array of firewall rule objects with their properties.
+
+Example prompts include:
+- "List all firewall rules in resource group 'my-resource-group' for SQL server 'my-sql-server'."
+- "Show me the firewall rules in resource group 'prod-resource-group' for SQL server 'prod-sql-server'."
+- "What firewall rules are set for SQL server 'dev-sql-server' in resource group 'dev-resource-group'?"
+
+| Parameter       | Required or optional | Description                                                                        |
+|------------------|----------------------|------------------------------------------------------------------------------------|
+| **Resource group** | Required             | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name**        | Required             | The name of the Azure SQL Server.                                                  |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+## Get SQL server information
+
+<!-- @mcpcli sql server get -->
+
+Retrieve details about Azure SQL servers in a resource group. Display information for a specific Azure SQL server by name or list all Azure SQL servers within the specified resource group. It returns comprehensive server information, including configuration details and the current state.
+
+Example prompts include:
+- "List all Azure SQL servers in resource group 'my-resource-group'."
+- "Show me every Azure SQL server in resource group 'prod-resource-group'."
+- "Show me the details of Azure SQL server 'my-sql-server'."
+- "Get information for Azure SQL server 'prod-sql-server'."
+- "Display the properties of Azure SQL server 'dev-sql-server'."
+
+| Parameter         | Required or optional | Description |
+|-------------------|----------------------|-------------|
+| **Resource group** | Required             | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name**        | Optional             | The Azure SQL server name. |
+
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+## List Microsoft Entra ID administrators
+
+<!-- @mcpcli sql server entra-admin list -->
+
+List the Microsoft Entra ID administrators configured for a SQL server. This command retrieves all Entra ID administrators, including their display names, object IDs, and tenant information.
+
+Example prompts include:
+
+- "List Microsoft Entra ID administrators for SQL server 'prod-sql-server' in resource group 'prod-resource-group'."
+- "Show me the Entra ID administrators configured for SQL server 'dev-sql-server' in resource group 'dev-resource-group'."
+- "What Microsoft Entra ID administrators are set up for my SQL server 'analytics-sql-server' in resource group 'data-resource-group'?"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Resource group** | Required | The name of the Azure resource group. |
+| **Server name** | Required | The Azure SQL Server name (for example, `prod-sql-server`). |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+## Rename SQL Database
+
+<!-- @mcpcli sql db rename -->
+
+Renames an existing Azure SQL Database to a new name within the same SQL Server. This command changes the database resource's identifier while preserving its configuration and data. It returns the updated database information with the new name.
+
+Example prompts include:
+- "Rename the database 'my-database' on server 'my-sql-server' to 'my-database-v2' in resource group 'my-resource-group'."
+- "Rename my SQL database 'old-database' to 'new-database' on server 'prod-sql-server'."
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Database name** |  Required | The Azure SQL Database name. |
+| **New database name** |  Required | The new name for the Azure SQL Database. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name** |  Required | The Azure SQL Server name. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
+
+## Update SQL Database
+
+<!-- @mcpcli sql db update -->
+
+Scale and configure Azure SQL Database performance settings. Update an existing database's SKU, compute tier, storage capacity, or redundancy options to meet changing performance requirements. This command returns the updated database configuration, including applied scaling changes.
+
+Example prompts include:
+- "Change the collation of SQL database 'my-database' on server 'my-sql-server' in resource group 'my-resource-group'."
+- "Update SQL database 'my-database' on server 'my-sql-server' to have a maximum size of 2GB."
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Database name** |  Required | The Azure SQL Database name. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Server name** |  Required | The Azure SQL Server name. |
+| **Collation** |  Optional | The collation for the database (for example, `SQL_Latin1_General_CP1_CI_AS`). |
+| **Elastic pool name** |  Optional | The name of the elastic pool to assign the database to. |
+| **Max size bytes** |  Optional | The maximum size of the database in bytes. |
+| **Read scale** |  Optional | Read scale option for the database (Enabled or Disabled). |
+| **SKU capacity** |  Optional | The SKU capacity (DTU or vCore count) for the database. |
+| **SKU name** |  Optional | The SKU name for the database (for example, `Basic`, `S0`, `P1`, `GP_Gen5_2`). |
+| **SKU tier** |  Optional | The SKU tier for the database (for example, `Basic`, `Standard`, `Premium`, `GeneralPurpose`). |
+| **Zone redundant** |  Optional | Whether the database should be zone redundant. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
+
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure SQL Database documentation](/azure/azure-sql/database/)
-
+- [Azure SQL Database documentation](/azure/sql-database/)

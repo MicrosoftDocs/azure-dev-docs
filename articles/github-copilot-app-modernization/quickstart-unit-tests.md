@@ -26,7 +26,9 @@ This quickstart shows you how to generate Jave unit tests using GitHub Copilot m
 - In the Visual Studio Code settings, make sure `chat.extensionTools.enabled` is set to `true`. This setting might be controlled by your organization.
 
 > [!NOTE]
-> If you're using Gradle, only the Gradle wrapper version 5+ is supported. The Kotlin DSL isn't supported.
+> [!INCLUDE [Azure account note](../includes/github-copilot-modernization-azure-note.md)]
+>
+> [!INCLUDE [Gradle Kotlin note](../includes/github-copilot-modernization-gradle-kotlin-note.md)]
 
 ## Sign in to use Copilot and then install the required extension
 

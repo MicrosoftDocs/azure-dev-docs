@@ -32,6 +32,9 @@ Supported scenarios:
 - A GitHub Copilot Pro, Pro+, Business, or Enterprise subscription
 - A GitHub repo
 
+> [!NOTE]
+> [!INCLUDE [Azure account note](../../includes/github-copilot-modernization-azure-note.md)]
+
 ## Get started
 
 Use the following steps to get started with the Copilot coding agent:

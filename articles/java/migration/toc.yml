@@ -13,6 +13,12 @@ items:
           href: migrate-github-copilot-app-modernization-for-java.md
         - name: FAQ
           href: migrate-github-copilot-app-modernization-for-java-faq.yml
+        - name: Portfolio assessment integration
+          href: github-copilot-app-modernization-for-java-portfolio-assessment-integration.md
+        - name: Copilot CLI
+          href: github-copilot-app-modernization-for-java-copilot-cli.md
+        - name: Coding agent
+          href: github-copilot-app-modernization-for-java-coding-agent.md
         - name: Predefined tasks
           href: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
         - name: Working with assessment
@@ -36,7 +42,9 @@ items:
         - name: Migrate from Oracle to PostgreSQL
           href: migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md
         - name: Migration via custom agent
-          href: migrate-github-copilot-app-modernization-for-java-custom-agent.md  
+          href: migrate-github-copilot-app-modernization-for-java-custom-agent.md
+        - name: Re-architect (preview)
+          href: github-copilot-app-modernization-for-java-rearchitecture.md
     - name: Spring to Azure
       expanded: true
       items:

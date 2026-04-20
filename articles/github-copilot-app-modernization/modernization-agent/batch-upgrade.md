@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 04/17/2026
 ---
 
 # Batch upgrade with the GitHub Copilot modernization agent
@@ -46,10 +46,20 @@ Batch upgrade provides the following benefits:
 
 ## Configure repositories
 
-To enable batch upgrade, create a `.github/modernize/repos.json` file in your working directory that lists all repositories you want to upgrade.
+The modernization agent supports multiple ways to specify the repositories you want to upgrade:
+
+- **Current folder**: Upgrade the project in your current working directory.
+- **Manual input**: Enter local directory paths or remote Git URLs directly.
+- **Repository config file**: Use a JSON config file that lists all repositories.
+
+### Repository config file
+
+For batch operations across many repositories, create a JSON config file to list all repositories. For example, create it at `.github/modernize/repos.json` in your working directory, or provide a custom path.
 
 > [!TIP]
 > For sample repositories, fork them first and make sure you have admin permission to delegate the job to Cloud Coding Agents.
+
+**Simple format** (array of repositories):
 
 ```json
 [
@@ -64,21 +74,38 @@ To enable batch upgrade, create a `.github/modernize/repos.json` file in your wo
 ]
 ```
 
-### Repository configuration
+**Full format** (with branch and local paths):
 
-Each entry requires:
+```json
+{
+  "repos": [
+    {
+      "name": "PhotoAlbum-Java",
+      "url": "https://github.com/Azure-Samples/PhotoAlbum-Java.git",
+      "branch": "main"
+    },
+    {
+      "name": "local-project",
+      "path": "/absolute/path/to/project"
+    }
+  ]
+}
+```
 
-- **name**: A friendly name for the repository (used in reports and dashboards).
-- **url**: The Git clone URL (HTTPS format).
+Each repo entry supports the following fields:
+
+| Field         | Description                                                          | Required               |
+|---------------|----------------------------------------------------------------------|------------------------|
+| `name`        | A friendly name for the repository (used in reports and dashboards). | Yes                    |
+| `url`         | Git clone URL in HTTPS or SSH format.                                | One of `url` or `path` |
+| `path`        | Absolute local directory path.                                       | One of `url` or `path` |
+| `branch`      | Branch to check out after cloning.                                   | No                     |
+| `description` | Human-readable description.                                          | No                     |
 
 > [!TIP]
 > You can include repositories from different organizations and use different authentication methods as long as you have access.
 
-### File location
-
-You must place the `repos.json` file at `.github/modernize/repos.json`.
-
-The modernization agent automatically detects this file when running batch operations.
+The modernization agent automatically detects the `repos.json` file at `.github/modernize/repos.json` when you select **From a config file** in interactive mode. You can also provide a custom path.
 
 ## Choose your execution mode
 
@@ -91,12 +118,17 @@ Batch upgrade supports two execution modes and two interaction methods:
 - **Best for**: Testing, smaller sets of repositories (1-5 repos), or when you prefer local control.
 - **How it works**: Processes repositories sequentially on your local machine.
 - **Setup required**: None beyond the basic prerequisites.
+- **Supports**: Both Git URL and local path repositories.
 
 **Cloud Coding Agent delegation**
 
 - **Best for**: Enterprise-scale operations, large portfolios (5+ repos), or parallel processing.
 - **How it works**: Submits tasks to GitHub Cloud Coding Agents for parallel execution in the cloud.
 - **Setup required**: MCP server configuration in each repository (configured during setup).
+- **Supports**: Only repositories with GitHub (github.com) URLs. Local paths and non-GitHub providers aren't supported.
+
+> [!IMPORTANT]
+> Cloud Coding Agent delegation requires repositories to have **GitHub (github.com) repository URLs**. Repositories specified with local paths or hosted on non-GitHub providers (GitLab, Azure DevOps) are skipped during cloud delegation. Use local execution for those repositories.
 
 > [!TIP]
 > By processing repositories in parallel, Cloud Coding Agent delegation can reduce total modernization time from hours to minutes.
@@ -118,10 +150,10 @@ Batch upgrade supports two execution modes and two interaction methods:
 > [!NOTE]
 > You can combine any execution mode with any interaction method. For example:
 >
-> - `modernize` (interactive, local)
-> - `modernize` → select Cloud Coding Agents (interactive, cloud)
-> - `modernize upgrade "Java 21"` (non-interactive, local)
-> - `modernize upgrade "Java 21" --delegate cloud` (non-interactive, cloud)
+> - `modernize` → select Upgrade (interactive, local)
+> - `modernize` → select Upgrade → Delegate to Cloud Agents (interactive, cloud)
+> - `modernize upgrade "Java 21" --source ./repos.json` (non-interactive, local)
+> - `modernize upgrade "Java 21" --source ./repos.json --delegate cloud` (non-interactive, cloud)
 
 ## How batch upgrade works
 
@@ -144,22 +176,30 @@ After you configure your repositories and choose an execution mode, start the ba
    modernize
    ```
 
-1. The agent detects the `repos.json` file and displays the repository list:
+1. Select **Upgrade** from the main menu.
+
+    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI that shows the main menu with the Upgrade option in the terminal." lightbox="../media/modernization-agent/upgrade-menu.png":::
+
+1. Choose how to specify your target repositories. Select **From a config file** to use a `repos.json` file.
+
+    :::image type="content" source="../media/modernization-agent/source-type-selection.png" alt-text="Screenshot of Modernize CLI that shows the source type selection in the terminal." lightbox="../media/modernization-agent/source-type-selection.png":::
+
+    > [!TIP]
+    > You can also select **Manual input** to enter local paths or remote Git URLs directly, or **Current folder** to upgrade the project in your current directory.
+
+1. If the `repos.json` file is detected at the default location, the agent automatically fills it in. Otherwise, enter the path to your config file and press <kbd>Enter</kbd>.
+
+1. All repositories are selected by default. Deselect any repositories you want to skip, and then press <kbd>Enter</kbd> to confirm your selection.
+
+    - **Use arrow keys** to navigate and press <kbd>Space</kbd> to toggle individual repositories.
 
     :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the Choose repositories list in the terminal." lightbox="../media/modernization-agent/upgrade-repo-list.png":::
 
-1. Select repositories to upgrade, and press `Enter` to confirm your selection.
-
-    - **Press `Ctrl+A`** to select all repositories.
-    - **Or use arrow keys** to navigate and press `Enter` to select individual repositories.
-
-1. Select **2. Upgrade** from the main menu.
-
-    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI that shows the Upgrade Runtime & Framework menu option in the terminal." lightbox="../media/modernization-agent/upgrade-menu.png":::
-
-1. To run the upgrade, select **1. Upgrade locally**.
+1. Choose the execution mode. Select **Upgrade locally**.
 
     :::image type="content" source="../media/modernization-agent/upgrade-local-option.png" alt-text="Screenshot of Modernize CLI that shows the Upgrade locally menu option in the terminal." lightbox="../media/modernization-agent/upgrade-local-option.png":::
+
+1. Enter the upgrade target prompt (for example, `Java 21` or `.NET 10`) or press <kbd>Enter</kbd> to accept the default (latest LTS version).
 
 1. The agent automatically:
 
@@ -206,20 +246,25 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
     modernize
     ```
 
-1. The agent detects the `repos.json` file and displays the repository list:
+1. Select **Upgrade** from the main menu.
+
+    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI that shows the main menu with the Upgrade option in the terminal." lightbox="../media/modernization-agent/upgrade-menu.png":::
+
+1. Choose how to specify your target repositories. Select **From a config file**.
+
+    :::image type="content" source="../media/modernization-agent/source-type-selection.png" alt-text="Screenshot of Modernize CLI that shows the source type selection in the terminal." lightbox="../media/modernization-agent/source-type-selection.png":::
+
+1. If the `repos.json` file is detected at the default location, the agent automatically fills it in. Otherwise, enter the path to your config file and press <kbd>Enter</kbd>.
+
+1. All repositories are selected by default. Deselect any repositories you want to skip, and then press <kbd>Enter</kbd> to confirm your selection. Use arrow keys to navigate and press <kbd>Space</kbd> to toggle individual repositories.
 
     :::image type="content" source="../media/modernization-agent/upgrade-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the repository list in terminal." lightbox="../media/modernization-agent/upgrade-repo-list.png":::
 
-1. Select repositories to upgrade, and press `Enter` to confirm your selection.
-
-    - **Press `Ctrl+A`** to select all repositories.
-    - **Or use arrow keys** to navigate and press `Enter` to select individual repositories.
-
-1. Select **2. Upgrade** from the main menu.
-
-1. To run the upgrade, select **2. Delegate to Cloud Coding Agents**.
+1. Choose the execution mode. Select **Delegate to Cloud Agents**.
 
     :::image type="content" source="../media/modernization-agent/upgrade-delegate-option.png" alt-text="Screenshot of Modernize CLI that shows the Delegate to Cloud Coding Agents menu option in the terminal." lightbox="../media/modernization-agent/upgrade-delegate-option.png":::
+
+1. Enter the upgrade target prompt (for example, `Java 21`) or press <kbd>Enter</kbd> to accept the default.
 
 1. The agent automatically:
 
@@ -246,19 +291,23 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
 
 For automation and CI/CD integration, use the `modernize upgrade` command:
 
-**Upgrade locally:**
+**Upgrade locally using a repository config file:**
 
 ```bash
-modernize upgrade "Java 21"
+modernize upgrade "Java 21" --source .github/modernize/repos.json
+```
+
+**Upgrade multiple repositories by specifying sources directly:**
+
+```bash
+modernize upgrade "Java 21" --source https://github.com/org/repo1 --source https://github.com/org/repo2
 ```
 
 **Upgrade using Cloud Coding Agents:**
 
 ```bash
-modernize upgrade "Java 21" --delegate cloud
+modernize upgrade "Java 21" --source .github/modernize/repos.json --delegate cloud
 ```
-
-The command automatically detects the `repos.json` file and processes all repositories.
 
 > [!NOTE]
 > For batch headless execution and more CLI options, see the [Multi-repository configuration](cli-commands.md#multi-repository-configuration) section in the CLI commands reference.

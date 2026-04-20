@@ -36,10 +36,10 @@ The template provisions two [Microsoft Entra](/entra/fundamentals/whatis) app re
 
 This article shows how to use the [`azmcp-obo-aca`](https://github.com/Azure-Samples/azmcp-obo-template/) `azd` template to deploy the Azure MCP Server to Azure Container Apps with OBO authentication. Deploy the server:
 
-1. Initialize the `azmcp-obo-aca` template by using the `azd init` command.
+1. Initialize the `azmcp-obo-template` template by using the `azd init` command.
 
     ```bash
-    azd init -t azmcp-obo-aca
+    azd init -t azmcp-obo-template
     ```
 
     When prompted, enter an environment name.

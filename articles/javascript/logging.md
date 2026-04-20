@@ -2,7 +2,7 @@
 title: Monitor JavaScript applications in Azure with logs, metrics, and alerts
 description: Learn how to monitor your Azure resources and applications.
 ms.topic: concept-article
-ms.date: 06/03/2025
+ms.date: 04/09/2026
 ms.custom: devx-track-js
 # intent: As a developer new to Azure, I want to understand how to monitor my applications and resources using logs, metrics, and alerts.
 ---
@@ -63,6 +63,7 @@ location="eastus"
 workspaceName="myWorkspace"
 webAppName="myWebApp"
 diagName="${webAppName}/appServiceLogging"
+SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 
 # 1) Create a Log Analytics workspace
 workspaceId=$(az monitor log-analytics workspace create \
@@ -82,13 +83,17 @@ az monitor diagnostic-settings create \
 
 ### Create a Log Analytics workspace using Bicep
 
-Use Bicep to define and deploy your Azure Monitor resources declaratively. This example creates a Log Analytics workspace and configures diagnostic settings for an App Service:
-
-```bicep
+Use Bicep to define and deploy your Azure Monitor resources declaratively. This example creates a Log Analytics workspace and configures diagnostic settings for an App Service.
 
 Include logging, metrics, and alerting in your IaC templates with a [Bicep diagnosticSettings resource reference](/azure/templates/microsoft.insights/diagnosticsettings). Example (Bicep):
 
 ```bicep
+param webAppName string
+
+resource webApp 'Microsoft.Web/sites@2022-09-01' existing = {
+  name: webAppName
+}
+
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   name: 'myWorkspace'
   location: resourceGroup().location
@@ -230,7 +235,7 @@ Initialize the [Application Insights for Node.js SDK](/azure/azure-monitor/app/n
 ```js
 import appInsights from "applicationinsights";
 appInsights
-  .setup("<INSTRUMENTATION_KEY>")
+  .setup(process.env.APPLICATIONINSIGHTS_CONNECTION_STRING || "<YOUR_CONNECTION_STRING>")
   .setAutoCollectConsole(true, true)        // collect console.log
   .setAutoCollectDependencies(true)        // track outgoing requests
   .setInternalLogging(false, true)         // SDK internal logs
@@ -267,7 +272,7 @@ For client applications, use the [`@microsoft/applicationinsights-web` package](
 ```js
 import { ApplicationInsights } from "@microsoft/applicationinsights-web";
 const ai = new ApplicationInsights({ config: {
-  instrumentationKey: "<INSTRUMENTATION_KEY>",
+  connectionString: "<YOUR_CONNECTION_STRING>",
   enableAutoRouteTracking: true
 }});
 ai.loadAppInsights();

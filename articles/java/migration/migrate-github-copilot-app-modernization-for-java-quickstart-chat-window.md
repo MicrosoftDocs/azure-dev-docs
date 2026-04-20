@@ -50,7 +50,7 @@ With the AppModernization agent selected, use simple, natural language prompts t
 
 1. In the Copilot chat window with the AppModernization agent selected, enter the following prompt:
 
-   ```
+   ```prompt
    migrate from rabbitmq to Azure service bus
    ```
 
@@ -62,31 +62,31 @@ The AppModernization agent supports various migration scenarios with simple prom
 
 - **Database migration**:
 
-  ```
+  ```prompt
   migrate from Oracle to Azure PostgreSQL
   ```
 
 - **Authentication migration**:
 
-  ```
+  ```prompt
   migrate to Managed Identity for Azure SQL Database
   ```
 
 - **Storage migration**:
 
-  ```
+  ```prompt
   migrate from AWS S3 to Azure Storage Blob
   ```
 
 - **Messaging migration**:
 
-  ```
+  ```prompt
   migrate from ActiveMQ to Azure Service Bus
   ```
 
 - **Secret management**:
 
-  ```
+  ```prompt
   migrate secrets to Azure Key Vault
   ```
 
