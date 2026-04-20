@@ -79,6 +79,7 @@ Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#a
     and npm start serves it.
     Use Azure Developer CLI (azd) for infrastructure and deployment.
     Use Azure Table Storage for persistent data.
+    Create a README file with instructions on how to run and deploy the app.
     ```
 
 1. Answer any clarifying questions the Plan agent asks after researching your task.
