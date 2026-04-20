@@ -41,7 +41,7 @@ Install the following tools locally to get a full development experience on your
 1. [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension.
 1. [Node.js](https://nodejs.org/) (LTS version recommended).
 1. [Azure Developer CLI (azd)](../azure-developer-cli/install-azd.md).
-1. [Azure CLI](../cli/azure/install-azure-cli.md).
+1. [Azure CLI](/cli/azure/install-azure-cli).
 1. [Azure Skills](https://github.com/microsoft/azure-skills) for enhanced Azure development experience.
 
 ---
