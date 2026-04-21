@@ -48,7 +48,7 @@ Install the following tools locally to get a full development experience on your
 
 ## Enable Azure Skills
 
-Azure Skills provide Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin announcement](https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/).
+Azure Skills provide Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin repository](http://aka.ms/azure-skills).
 
 1. Open the command palette.
 1. Select **MCP: List servers**.
