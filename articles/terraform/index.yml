@@ -41,7 +41,7 @@ landingContent:
         links:
           - text: Install and configure Terraform
             url: quickstart-configure.md
-          - text: Install the Azure Terraform Visual Studio Code extension
+          - text: Install the Microsoft Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
           - text: Generate Terraform configurations using Azure Copilot
             url: ./terraform-handler-for-azure-copilot/generate-terraform-configuration-using-copilot.md

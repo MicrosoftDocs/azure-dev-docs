@@ -62,7 +62,7 @@ provider "azapi" {}
 
 ## Parse a resource ID with `parse_resource_id`
 
-Use `parse_resource_id` to decompose an existing Azure resource ID into its individual components. This is useful when you need the subscription ID, resource group name, or resource name from a resource managed elsewhere in your configuration or passed in as a variable.
+Use `parse_resource_id` to decompose an existing Azure resource ID into its individual components. The function is useful when you need the subscription ID, resource group name, or resource name from a resource managed elsewhere in your configuration or passed in as a variable.
 
 ```terraform
 locals {
@@ -190,7 +190,7 @@ locals {
 
 ## Build a resource ID with `build_resource_id`
 
-Use `build_resource_id` when the scope is determined by a parent resource ID and you don't need to specify subscription or resource group separately. This function infers the scope from the parent ID:
+Use `build_resource_id` when a parent resource ID determines the scope and you don't need to specify subscription or resource group separately. This function infers the scope from the parent ID:
 
 ```terraform
 locals {

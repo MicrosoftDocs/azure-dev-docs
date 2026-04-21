@@ -10,8 +10,10 @@
   items:
     - name: Install and configure Terraform
       href: quickstart-configure.md
-    - name: Install the Azure Terraform Visual Studio Code extension
+    - name: Install the Microsoft Terraform Visual Studio Code extension
       href: configure-vs-code-extension-for-terraform.md
+    - name: Use the Microsoft Terraform VS Code extension
+      href: how-to-use-terraform-vscode-extension.md
     - name: Authenticate Terraform to Azure
       href: authenticate-to-azure.md
     - name: Store Terraform state in Azure Storage
@@ -426,7 +428,7 @@
           href: how-to-use-azapi-preflight-validation.md
         - name: Use AzAPI provider functions
           href: how-to-use-azapi-provider-functions.md
-        - name: Migrate resources from AzAPI to AzureRM
+        - name: Migration paths between Azure, AzureRM, and AzAPI
           href: how-to-migrate-between-azurerm-and-azapi.md
         - name: AzAPI data plane framework
           href: concept-azapi-data-plane-framework.md

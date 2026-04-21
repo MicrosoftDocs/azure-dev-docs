@@ -13,9 +13,9 @@ ai-usage: ai-generated
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-The AzAPI Terraform provider includes built-in preflight validation that validates your Azure resource configuration against the ARM API schema during `terraform plan`, before any resources are created or modified in Azure. Preflight catches configuration errors early — such as invalid address prefixes, unsupported property combinations, or quota violations — without incurring the cost of a failed deployment.
+The AzAPI Terraform provider includes built-in preflight validation that validates your Azure resource configuration against the ARM API schema during `terraform plan`, before any resources are created or modified in Azure. Preflight catches configuration errors early—such as invalid address prefixes, unsupported property combinations, or quota violations—without incurring the cost of a failed deployment.
 
-Preflight validation is one of AzAPI's key differentiators and works natively with the provider's direct-to-ARM-API architecture.
+Preflight validation is one of AzAPI's key differentiators and works natively with the provider's direct-to-ARM-API architecture. You can also run preflight from the [Microsoft Terraform VS Code extension](how-to-use-terraform-vscode-extension.md#preflight-validation) without setting the provider flag directly.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Preflight is disabled by default to preserve backward compatibility. Enable it i
 
 ## Example: Catch an invalid address prefix at plan time
 
-The following configuration creates a virtual network with an invalid CIDR block. With preflight enabled, the error surfaces during `terraform plan` rather than during `terraform apply`:
+The following configuration creates a virtual network with an invalid Classless Inter-Domain Routing (CIDR) block. With preflight enabled, the error surfaces during `terraform plan` rather than during `terraform apply`:
 
 ```terraform
 terraform {
@@ -103,7 +103,7 @@ Correcting the address prefix to a valid value (for example, `10.0.0.0/16`) clea
 
 Preflight sends the resource body to the ARM API's preflight endpoint, which validates:
 
-- Property values against the ARM resource schema (for example, valid CIDR ranges, allowed SKU names, required fields).
+- Property values against the ARM resource schema (for example, valid CIDR (Classless Inter-Domain Routing) ranges, allowed SKU names, required fields).
 - Subscription-level quota and capacity constraints for supported resource types.
 - Policy compliance for Azure Policy assignments that run in preflight mode.
 
@@ -111,11 +111,11 @@ Preflight does **not** validate:
 
 - Cross-resource dependencies or sequencing.
 - Resources that don't have ARM preflight endpoint support (the provider silently skips validation for those resource types).
-- Authentication or authorization (IAM) failures — those surface during `terraform apply`.
+- Authentication or authorization (Identity and Access Management (IAM)) failures—these failures surface during `terraform apply`.
 
 ## Use preflight in CI pipelines
 
-Adding preflight to a CI pipeline provides a fast, non-destructive validation step that catches configuration errors before code is merged. Example GitHub Actions step:
+Adding preflight to a CI pipeline provides a fast, nondestructive validation step that catches configuration errors before code is merged. Example GitHub Actions step:
 
 ```yaml
 - name: Terraform plan with preflight
@@ -128,7 +128,7 @@ Because preflight runs during `terraform plan` with no side effects, it's safe t
 
 ## Disable output noise with `ignore_no_op_changes`
 
-When running repeated plans, AzAPI may detect minor no-op differences between the configuration and the ARM state (for example, normalized default values returned by the API). To suppress these plan-time differences and focus on real changes, set `ignore_no_op_changes = true` in the provider block:
+If you run plans repeatedly, AzAPI may detect minor no-op differences between the configuration and the ARM state (for example, normalized default values returned by the API). To suppress these plan-time differences and focus on real changes, set `ignore_no_op_changes = true` in the provider block:
 
 ```terraform
 provider "azapi" {

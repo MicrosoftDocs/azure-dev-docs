@@ -15,7 +15,7 @@ Azure has two official Terraform providers: **AzureRM** and **AzAPI**. Both prov
 
 ## Overview of each provider
 
-**AzureRM** is the standard provider for managing Azure resources with Terraform. It provides curated, strongly typed resource blocks with integrated validation, consistent behavior, and broad community documentation. However, AzureRM supports only a subset of Azure resource types and API versions, and new features often lag behind Azure releases.
+**AzureRM** is the standard provider for managing Azure resources with Terraform. It provides curated, typed resource blocks with integrated validation, consistent behavior, and broad community documentation. However, AzureRM supports only a subset of Azure resource types and API versions, and new features often lag behind Azure releases.
 
 **AzAPI** is a thin layer on top of the Azure Resource Manager (ARM) REST APIs. It supports any Azure resource type at any API version, including preview features and services not yet supported in AzureRM. AzAPI gives you direct access to the ARM API without waiting for provider updates.
 
@@ -42,7 +42,7 @@ Use AzAPI as your primary provider—or to supplement AzureRM—when:
 
 ## When to use both providers together
 
-AzureRM and AzAPI are designed to work side by side. A common pattern is to use AzureRM for the majority of your infrastructure while using AzAPI to fill specific gaps:
+AzureRM and AzAPI are designed to work side by side. A common pattern is to use AzureRM for most of your infrastructure while using AzAPI to fill specific gaps:
 
 - Use `azapi_update_resource` to set properties on AzureRM-managed resources that AzureRM doesn't expose.
 - Use `azapi_resource` to manage a new service or preview feature while the rest of your stack uses AzureRM.
@@ -92,11 +92,11 @@ Most teams should start with an AzureRM-primary strategy and adopt AzAPI as need
 
 | Feature | AzureRM | AzAPI |
 |---|---|---|
-| Supports all Azure resource types | No — curated subset | Yes |
+| Supports all Azure resource types | No—curated subset | Yes |
 | Supports preview API versions | No | Yes |
 | Curated resource schemas | Yes | No |
 | Built-in property validation | Yes | Partial (via preflight) |
-| IDE auto-complete for properties | Yes | Yes (with VS Code extension) |
+| IDE autocomplete for properties | Yes | Yes (with VS Code extension) |
 | Response export / JMESPath filtering | No | Yes |
 | Data plane resource management | No | Yes (selected resource types) |
 | Provider functions for ID construction | No | Yes (v2.0 and later) |

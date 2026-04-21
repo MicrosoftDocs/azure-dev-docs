@@ -21,7 +21,7 @@ In this article, you learn how to use [`azapi_resource_action`](https://registry
 - **Resource**: Performs a state-changing operation during `terraform apply`. Terraform tracks the action in state and can optionally reverse it on `terraform destroy`.
 - **Data source**: Performs a read-only operation during planning. See the [resource action data source quickstart](get-started-azapi-resource-action.md) for that scenario.
 
-Use the resource form when you need Terraform to perform an Azure operation that isn't based on a standard CRUD lifecycle — for example, starting or stopping a VM, rotating a key, or triggering a failover. To understand when to choose AzAPI versus AzureRM as your primary provider, see [Choose between AzureRM and AzAPI Terraform providers](provider-selection-azurerm-vs-azapi.md).
+Use the resource form when you need Terraform to perform an Azure operation that isn't based on a standard CRUD lifecycle—for example, starting or stopping a VM, rotating a key, or triggering a failover.
 
 > [!div class="checklist"]
 > * Define and configure the AzureRM and AzAPI providers
@@ -250,3 +250,7 @@ resource "azapi_resource_action" "regenerate_key" {
 
 > [!div class="nextstepaction"]
 > [Learn how to use the AzAPI resource action as a data source](get-started-azapi-resource-action.md)
+
+## Additional reading
+
+- [Choose between AzureRM and AzAPI Terraform providers](provider-selection-azurerm-vs-azapi.md)

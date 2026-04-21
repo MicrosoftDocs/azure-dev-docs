@@ -14,7 +14,7 @@ ai-usage: ai-generated
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage Azure data plane resources using [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource). Unlike `azapi_resource`, which targets the Azure Resource Manager (ARM) control plane, `azapi_data_plane_resource` targets the Azure data plane APIs directly. In this example, you configure certificate contacts for an Azure Key Vault. To understand when to choose AzAPI versus AzureRM as your primary provider, see [Choose between AzureRM and AzAPI Terraform providers](provider-selection-azurerm-vs-azapi.md).
+In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage Azure data plane resources using [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource). Unlike `azapi_resource`, which targets the Azure Resource Manager (ARM) control plane, `azapi_data_plane_resource` targets the Azure data plane APIs directly. In this example, you configure certificate contacts for an Azure Key Vault.
 
 For a conceptual explanation of how the data plane framework works, including why only a curated set of resource types is supported and how `parent_id` differs from control plane resources, see [Understand the AzAPI data plane framework](concept-azapi-data-plane-framework.md).
 
@@ -146,7 +146,7 @@ For a conceptual explanation of how the data plane framework works, including wh
 
     - The `type` field uses the format `<resource-type>@<api-version>` for the data plane API.
     - The `parent_id` is the data plane endpoint hostname (without the `https://` prefix), not an ARM resource ID.
-    - The `name` field identifies the specific resource within the parent. For Key Vault certificate contacts, this is always `default`.
+    - The `name` field identifies the specific resource within the parent. For Key Vault certificate contacts, the value is always `default`.
 
 1. Create a file named `outputs.tf` and insert the following code:
 
@@ -205,3 +205,8 @@ For a conceptual explanation of how the data plane framework works, including wh
 
 > [!div class="nextstepaction"]
 > [Learn how to use the AzAPI resource](get-started-azapi-resource.md)
+
+## Additional reading
+
+- [Choose between AzureRM and AzAPI Terraform providers](provider-selection-azurerm-vs-azapi.md)
+- [Understand the AzAPI data plane framework](concept-azapi-data-plane-framework.md)

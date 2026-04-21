@@ -11,9 +11,9 @@ ai-usage: ai-generated
 
 # Understand the AzAPI data plane framework
 
-Most Azure resources are managed through the Azure Resource Manager (ARM) control plane — a single, unified API surface at `management.azure.com`. The `azapi_resource`, `azapi_update_resource`, and `azapi_resource_action` resource types all target this control plane.
+Most Azure resources are managed through the Azure Resource Manager (ARM) control plane—a single, unified API surface at `management.azure.com`. The `azapi_resource`, `azapi_update_resource`, and `azapi_resource_action` resource types all target this control plane.
 
-Some Azure services expose a separate **data plane API** — a service-specific HTTPS endpoint where you interact directly with the service rather than through ARM. Examples include the Key Vault secrets API at `{vaultName}.vault.azure.net`, the Azure AI Search index API at `{searchServiceName}.search.windows.net`, and the Synapse workspace pipeline API at `{workspaceName}.dev.azuresynapse.net`.
+Some Azure services expose a separate **data plane API**—a service-specific HTTPS endpoint where you interact directly with the service rather than through ARM. Examples include the Key Vault secrets API at `{vaultName}.vault.azure.net`, the Azure AI Search index API at `{searchServiceName}.search.windows.net`, and the Synapse workspace pipeline API at `{workspaceName}.dev.azuresynapse.net`.
 
 `azapi_data_plane_resource` bridges this gap by enabling Terraform to manage resources on these data plane endpoints using the same AzAPI provider authentication and lifecycle model.
 
@@ -34,9 +34,9 @@ Each registered resource type adds this mapping to the framework. Unregistered r
 
 ## How `parent_id` works for data plane resources
 
-For control plane resources (`azapi_resource`), `parent_id` is always an ARM resource ID — a path in the form `/subscriptions/{sub}/resourceGroups/{rg}/providers/{namespace}/{type}/{name}`.
+For control plane resources (`azapi_resource`), `parent_id` is always an ARM resource ID—a path in the form `/subscriptions/{sub}/resourceGroups/{rg}/providers/{namespace}/{type}/{name}`.
 
-For data plane resources, `parent_id` is the **service's data plane hostname**, stripped of the `https://` scheme and any trailing slash. This is typically a property exposed on the ARM control plane resource after creation.
+For data plane resources, `parent_id` is the **service's data plane hostname**, stripped of the `https://` scheme and any trailing slash. This endpoint is typically a property exposed on the ARM control plane resource after creation.
 
 The pattern varies by service:
 
@@ -111,14 +111,14 @@ resource "azapi_data_plane_resource" "index" {
 
 ## Authentication to data plane endpoints
 
-The AzAPI provider handles authentication transparently. It uses the same credentials you configure on the `provider "azapi"` block (Azure CLI, service principal, managed identity, or OIDC), but automatically requests tokens scoped to each service's data plane audience rather than the ARM audience.
+The AzAPI provider handles authentication transparently. It uses the same credentials you configure on the `provider "azapi"` block (Azure CLI, service principal, managed identity, or OpenID Connect (OIDC)), but automatically requests tokens scoped to each service's data plane audience rather than the ARM audience.
 
 For example, Key Vault data plane operations require a token audience of `https://vault.azure.net`, not `https://management.azure.com`. The AzAPI provider selects the correct audience based on the registered endpoint for each resource type.
 
-As a practitioner, you don't need to configure anything differently. The standard RBAC permissions for the service apply — for example, `Key Vault Secrets Officer` to manage Key Vault secrets, or `App Configuration Data Owner` to manage App Configuration key-values.
+As a practitioner, you don't need to configure anything differently. The standard role-based access control (RBAC) permissions for the service apply—for example, `Key Vault Secrets Officer` to manage Key Vault secrets, or `App Configuration Data Owner` to manage App Configuration key-values.
 
 > [!NOTE]
-> For some services (such as Azure App Configuration and Azure AI Search), the caller must have the appropriate data plane role assignment, not just the control plane owner role. Ensure the identity running Terraform has the correct data plane RBAC assignment before applying configurations that use `azapi_data_plane_resource`.
+> For some services (such as Azure App Configuration and Azure AI Search), the caller must have the appropriate data plane role assignment, not just the control plane owner role. Ensure the identity running Terraform has the correct data plane role-based access control (RBAC) assignment before applying configurations that use `azapi_data_plane_resource`.
 
 ## Resource ID format for import
 
@@ -141,15 +141,15 @@ terraform import azapi_data_plane_resource.example 'exampleappconf.azconfig.io/k
 
 The AzAPI provider currently supports `azapi_data_plane_resource` for resource types across these services:
 
-- **Azure App Configuration** — key-values
-- **Azure AI Foundry** — agents
-- **Azure Device Update** — groups, deployments
-- **Azure Digital Twins** — digital twins, relationships, event routes, import jobs
-- **Azure IoT Central** — organizations, users, scheduled jobs, API tokens, dashboards, device groups, device templates, devices, enrollment groups, data exports, deployment manifests
-- **Azure Key Vault** — certificates contacts, certificate issuers, keys, secrets, storage accounts, SAS definitions
-- **Microsoft Purview** — collections, resource set rule configs, key vaults, classification rules, credentials, data sources, scans, scan triggers, integration runtimes, managed private endpoints, workflows
-- **Azure AI Search** — data sources, indexers, indexes, skillsets, synonym maps
-- **Azure Synapse Analytics** — databases, dataflows, datasets, KQL scripts, libraries, link connections, linked services, managed private endpoints, notebooks, pipelines, role assignments, Spark job definitions, Spark configurations, SQL scripts, triggers
+- **Azure App Configuration**—key-values
+- **Azure AI Foundry**—agents
+- **Azure Device Update**—groups, deployments
+- **Azure Digital Twins**—digital twins, relationships, event routes, import jobs
+- **Azure IoT Central**—organizations, users, scheduled jobs, API tokens, dashboards, device groups, device templates, devices, enrollment groups, data exports, deployment manifests
+- **Azure Key Vault**—certificates contacts, certificate issuers, keys, secrets, storage accounts, SAS definitions
+- **Microsoft Purview**—collections, resource set rule configs, key vaults, classification rules, credentials, data sources, scans, scan triggers, integration runtimes, managed private endpoints, workflows
+- **Azure AI Search**—data sources, indexers, indexes, skillsets, synonym maps
+- **Azure Synapse Analytics**—databases, dataflows, datasets, Kusto Query Language (KQL) scripts, libraries, link connections, linked services, managed private endpoints, notebooks, pipelines, role assignments, Spark job definitions, Spark configurations, SQL scripts, triggers
 
 For the complete list with API versions and endpoint patterns, see the [available resources reference](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) in the Terraform Registry.
 

@@ -26,7 +26,7 @@ The AzAPI provider features the following benefits:
 - Common and consistent Azure authentication
 - Built-in preflight validation
 - Granular control over infrastructure development
-- [Robust VS Code Extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi)
+- [Microsoft Terraform Visual Studio Code extension](how-to-use-terraform-vscode-extension.md)
 
 ## Resources
 
@@ -35,7 +35,7 @@ To allow you to manage all Azure resources and features without requiring update
 | Resource Name | Description |
 | ------------- | ----------- |
 | [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
-| [`azapi_update_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/update_resource) | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update pre-created child resource - such as DNS SOA record. |
+| [`azapi_update_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/update_resource) | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update precreated child resource - such as DNS SOA record. |
 | [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
 | [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries|
 
@@ -159,7 +159,7 @@ When enabled, preflight surfaces configuration errors during `terraform plan` ra
 
 ## Data Sources
 
-The AzAPI provider supports a variety of useful data sources:
+The AzAPI provider supports various useful data sources:
 
 | Data Source Name | Description |
 | ------------- | ----------- |
@@ -224,18 +224,20 @@ This section describes some tools to help you use the AzAPI provider.
 
 ### VS Code extension and Language Server
 
-The [AzAPI VS Code extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi) provides a rich authoring experience with the following benefits:
+The [Microsoft Terraform VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform) provides a rich authoring experience for both the AzureRM and AzAPI providers, including:
 
 - List all available resource types and API versions.
 ![List all available resource types](media/overview-azapi-provider/list-all-available-resource-types.png)
-- Auto-completion of the allowed properties and values for any resource.
+- Autocompletion of the allowed properties and values for any resource.
 ![List allowed properties](media/overview-azapi-provider/list-allowed-properties.png)
 - Show hints when hovering over a property.
 ![Show hint when hovering over a property](media/overview-azapi-provider/show-hint-when-hovering.png)
 - Syntax validation
 ![Syntax validation](media/overview-azapi-provider/syntax-validation.png)
-- Auto-completion with code samples.
-![Auto-completion with code samples](media/overview-azapi-provider/auto-completion-with-code-samples.png)
+- Autocompletion with code samples.
+![Autocompletion with code samples](media/overview-azapi-provider/auto-completion-with-code-samples.png)
+
+The extension also supports paste-as-AzAPI (converts ARM JSON to `azapi_resource` blocks), Azure resource export via `aztfexport`, AzureRM-to-AzAPI migration, and preflight validation. For a full guide, see [Use the Microsoft Terraform VS Code extension](how-to-use-terraform-vscode-extension.md).
 
 ### `aztfmigrate` migration tool
 
@@ -246,7 +248,7 @@ The [`aztfmigrate` tool](https://github.com/Azure/aztfmigrate/releases) is desig
 - Plan displays the AzAPI resources that can be migrated.
 - Migrate migrates the AzAPI resources to AzureRM resources in both the HCL files and the state.
 
-`aztfmigrate` ensures after migration that your Terraform configuration and state are aligned with your actual state. You can validate the update to state by running `terraform plan` after completing the migration to see that nothing has changed.
+`aztfmigrate` ensures after migration that your Terraform configuration and state are aligned with your actual state. You can validate the update to state by running `terraform plan` after completing the migration to confirm no changes occurred.
 
 For a step-by-step walkthrough, see [Migrate resources from AzAPI to AzureRM](how-to-migrate-between-azurerm-and-azapi.md).
 
@@ -279,7 +281,7 @@ To import multiple resources at once from existing Azure infrastructure, use [Az
 
 ## Granular controls over infrastructure
 
-One major benefit of AzAPI is through its ability to fine-tune your configuration to match the right design patterns. There are several ways in which you can do this:
+One major benefit of AzAPI is through its ability to fine-tune your configuration to match the right design patterns. There are several ways to do this:
 
 ### Provider configuration options
 
@@ -305,14 +307,14 @@ AzAPI v2.0 and later includes several [provider functions](https://developer.has
 | Function Name | Description |
 | ------------- | ----------- |
 | [`build_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/build_resource_id) | Constructs an Azure resource ID given the parent ID, resource type, and resource name. <br> Useful for creating resource IDs for top-level and nested resources within a specific scope. |
-| [`extension_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/extension_resource_id) | Constructs an Azure extension resource ID given the base resource ID, resource type, and additional resource names. |
+| [`extension_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/extension_resource_id) | Constructs an Azure extension resource ID given the base resource ID, resource type, and more resource names. |
 | [`management_group_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/management_group_resource_id) | Constructs an Azure management group scope resource ID given the management group name, resource type, and resource names.|
 | [`parse_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/parse_resource_id) |This function takes an Azure resource ID and a resource type and parses the ID into its individual components such as subscription ID, resource group name, provider namespace, and other parts.|
 | [`resource_group_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/resource_group_resource_id) | Constructs an Azure resource group scope resource ID given the subscription ID, resource group name, resource type, and resource names. |
 | [`subscription_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/subscription_resource_id) | Constructs an Azure subscription scope resource ID given the subscription ID, resource type, and resource names.|
 | [`tenant_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/tenant_resource_id) |Constructs an Azure tenant scope resource ID given the resource type and resource names.|
 
-### User-defined retriable errors with the `retry` block
+### User-defined retryable errors with the `retry` block
 The AzAPI provider handles expected errors through the `retry` block. For example, use the following configuration to retry when a resource encounters a create timeout:
 ```terraform
 resource "azapi_resource" "example" {
@@ -371,7 +373,7 @@ resource "azapi_resource" "example" {
 }
 ```
 
-Use `sensitive_body_version` to control when write-only properties are re-sent to the API (for example, when rotating credentials).
+Use `sensitive_body_version` to control when write-only properties are resent to the API (for example, when rotating credentials).
 
 ### Triggers for resource replacement
 
@@ -395,7 +397,7 @@ resource "azapi_resource" "example" {
   ]
 }
 ```
-This works across a broad set of resources — for example, a policy assignment when properties of the definition change.
+This trigger works across a broad set of resources—for example, a policy assignment when properties of the definition change.
 
 #### `replace_triggers_refs`
 
@@ -418,7 +420,7 @@ resource "azapi_resource" "example" {
   replace_triggers_refs = ["sku"]
 }
 ```
-This would not trigger a replace if a different resource's SKU were to change.
+This wouldn't trigger a replace if a different resource's SKU changes.
 
 ## Next steps
 
@@ -432,5 +434,5 @@ This would not trigger a replace if a different resource's SKU were to change.
 - [List Azure resources with the AzAPI provider](get-started-azapi-resource-list.md)
 - [Enable preflight validation](how-to-use-azapi-preflight-validation.md)
 - [Use AzAPI provider functions](how-to-use-azapi-provider-functions.md)
-- [Migrate resources from AzAPI to AzureRM](how-to-migrate-between-azurerm-and-azapi.md)
+- [Migration paths between Azure, AzureRM, and AzAPI](how-to-migrate-between-azurerm-and-azapi.md)
 - [Visit the provider registry](https://registry.terraform.io/providers/Azure/azapi/latest/docs)
