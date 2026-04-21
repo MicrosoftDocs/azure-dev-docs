@@ -3,7 +3,7 @@ title: Overview of the Terraform AzAPI provider
 description: Get an overview of the AzAPI provider and when to use it.
 ms.topic: overview
 ms.date: 04/05/2022
-adobe-target: trues
+adobe-target: true
 ms.custom:
   - devx-track-terraform
   - sfi-image-nochange
@@ -11,7 +11,7 @@ ms.custom:
 
 # Overview of the Terraform AzAPI provider
 
-The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). It enables you to manage any Azure resource type using any API version, enabling you to utilize the latest functionality within Azure. AzAPI is a first-class provider designed to be used on its own or in tandem with the AzureRM provider.
+The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). It enables you to manage any Azure resource type using any API version, enabling you to use the latest functionality within Azure. AzAPI is a first-class provider designed to be used on its own or in tandem with the AzureRM provider.
 
 ## Benefits of using the AzAPI provider
 
@@ -44,7 +44,7 @@ For a detailed explanation of how the data plane framework works and how `parent
 ### Usage hierarchy
 
 Overall, usage should follow these steps:
-1. It's always recommended to start with performing as many operations as possible within `azapi_resource`. 
+1. Start with performing as many operations as possible within `azapi_resource`.
 2. If the resource type doesn't exist within `azapi_resource` but does fall under one of the types supported by `azapi_data_plane_resource`, use that instead.
 3. If the resource already exists in AzureRM or has a property that can't be accessed within `azapi_resource`, use `azapi_update_resource` to access these specific properties. Resources that `azapi_resource` or `azapi_data_plane_resource` don't support can't be updated through this resource.
 4. If you're trying to perform an action that isn't based on an Azure CRUD-friendly resource, `azapi_resource_action` is less straightforward than `azapi_update_resource` but more flexible.
@@ -155,7 +155,7 @@ resource "azapi_resource" "vnet" {
 }
 ```
 
-Preflight is hidden behind a provider flag but will help throw errors in `plan` stage.
+When enabled, preflight surfaces configuration errors during `terraform plan` rather than at apply time.
 
 ## Data Sources
 
@@ -174,7 +174,7 @@ For a hands-on example using `azapi_resource_list` with JMESPath filtering, see 
 
 ### Read an existing resource with `azapi_resource` data source
 
-The `azapi_resource` data source reads the current state of any Azure resource and exposes its properties via the `output` attribute. Use it when you need a property that the AzureRM provider doesn't expose:
+The `azapi_resource` data source reads the current state of any Azure resource and exposes its properties through the `output` attribute. Use it when you need a property that the AzureRM provider doesn't expose:
 
 ```terraform
 data "azapi_resource" "aks" {
@@ -300,7 +300,7 @@ For a walkthrough of enabling preflight, see [Enable preflight validation in the
 
 ### Provider functions
 
-AzAPI (v2.0 and newer) has a slew of [provider functions](https://developer.hashicorp.com/terraform/plugin/framework/functions/concepts?product_intent=terraform):
+AzAPI v2.0 and later includes several [provider functions](https://developer.hashicorp.com/terraform/plugin/framework/functions/concepts?product_intent=terraform):
 
 | Function Name | Description |
 | ------------- | ----------- |
@@ -313,7 +313,7 @@ AzAPI (v2.0 and newer) has a slew of [provider functions](https://developer.hash
 | [`tenant_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/tenant_resource_id) |Constructs an Azure tenant scope resource ID given the resource type and resource names.|
 
 ### User-defined retriable errors with the `retry` block
-The `AzAPI` provider can digest errors when expected through the `retry` block. For example, if a resource may run into a create timeout issue, the following block of code may help:
+The AzAPI provider handles expected errors through the `retry` block. For example, use the following configuration to retry when a resource encounters a create timeout:
 ```terraform
 resource "azapi_resource" "example" {
     # usual properties
@@ -395,7 +395,7 @@ resource "azapi_resource" "example" {
   ]
 }
 ```
-This can work across a broad set of resources, i.e. a policy assignment when properties of the definition changes.
+This works across a broad set of resources — for example, a policy assignment when properties of the definition change.
 
 #### `replace_triggers_refs`
 

@@ -84,12 +84,6 @@
           href: get-started-azapi-data-plane-resource.md
         - name: List Azure resources with AzAPI
           href: get-started-azapi-resource-list.md
-        - name: Perform resource actions with the AzAPI provider
-          href: get-started-azapi-resource-action-mutation.md
-        - name: Manage Azure data plane resources with AzAPI
-          href: get-started-azapi-data-plane-resource.md
-        - name: List Azure resources with AzAPI
-          href: get-started-azapi-resource-list.md
     - name: Terraform Quickstarts for Azure services
       items:
         - name: AI + Machine Learning
