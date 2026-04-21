@@ -145,7 +145,11 @@ Review the agent's output to confirm a successful build and read the summary of 
 
 # [Local development environment](#tab/local)
 
-If you used Plan mode, Copilot already has the full implementation plan in context. The agent begins executing the plan steps automatically after you select **Implement**.
+If you used Plan mode, Copilot already has the full implementation plan in context. The agent begins executing the plan steps automatically after you select **Implement**. To build the to-do app, run the following command in the terminal:
+
+```bash
+npm run build
+```
 
 ---
 
@@ -161,7 +165,6 @@ In the **Ports** tab, open the **Forwarded Address** port URL in your browser to
 
 
 ```bash
-npm run build
 npm start
 ```
 
@@ -292,7 +295,14 @@ When the agent finishes, open the URL it reports in your browser. You see your t
 
 Plan mode should have generated an `infra/` directory with an Azure Developer CLI template using Bicep. Review the generated infrastructure code in the `infra/` directory to understand what resources will be deployed.
 
+Run azd up to deploy the application to Azure.
+
+```bash
+azd up
+```
+
 ---
+
 ## Explore your deployed resources
 
 After deployment, you can explore your Azure resources directly in VS Code.
