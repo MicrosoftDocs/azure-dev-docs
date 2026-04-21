@@ -69,30 +69,32 @@ Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#a
     Copy and paste the following prompt into the Copilot chat panel:
 
     ```text
-    /plan Create a React to-do app with a production deployment to Azure App Service.
-    The app should use Vite with the JavaScript React template.
-    Features: add, complete/incomplete toggle, and remove to-do items.
-    Persist state in localStorage initially.
+    /plan Create a React to-do app with a production deployment to Azure.
+    Features: Add, complete/incomplete toggle, and remove to-do items.
+    To do items are persisted.
     Include an API endpoint with POST, PATCH, and DELETE for to-do operations.
     Add Swagger UI at /swagger with an OpenAPI spec.
-    Configure for Azure App Service so npm run build creates production output 
-    and npm start serves it.
     Use Azure Developer CLI (azd) for infrastructure and deployment.
-    Use Azure Table Storage for persistent data.
+    Choose free or low-cost Azure resources for deployment.
     Create a README file with instructions on how to run and deploy the app.
     ```
 
 1. Answer any clarifying questions the Plan agent asks after researching your task.
 1. Review the generated plan. The Plan agent produces a high-level summary, implementation steps, and verification steps. Submit follow-up prompts to iterate on the plan until it meets your requirements.
 
-    > [!TIP]
-    > The Plan agent automatically saves its implementation plan to a session memory file (`/memories/session/plan.md`). You can access this file by running the **Chat: Show Memory Files** command and selecting `plan.md`.
-
 1. When you're satisfied with the plan, select **Implement** to hand it off to agent mode for execution.
 
 ---
 
 ## Agent mode
+
+1. In the Copilot Chat panel, confirm that **Agent** mode, **Auto** model, and **Autopilot** are selected. The transition from Plan mode should configure these automatically.
+
+Before the agent starts building, verify that [Azure Skills](https://github.com/microsoft/azure-skills) are available. Azure Skills provide Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin announcement](https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/).
+
+1. Open the command palette.
+1. Select **MCP: List servers**.
+1. If the Azure MCP server is not running, start it by selecting **Azure MCP** > **Start server**.
 
 # [VS Code for the Web](#tab/vscode-web)
 
@@ -112,16 +114,6 @@ Agent mode gives GitHub Copilot the ability to run terminal commands, create and
 
 After Plan mode generates your implementation plan and you select **Implement**, Copilot switches to agent mode. Agent mode gives Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong.
 
-Verify that agent mode is active:
-
-1. In the Copilot Chat panel, confirm that **Agent** mode, **Auto** model, and **Autopilot** are selected. The transition from Plan mode should configure these automatically.
-
-Before the agent starts building, verify that [Azure Skills](https://github.com/microsoft/azure-skills) are available. Azure Skills provide Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin announcement](https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/).
-
-1. Open the command palette.
-1. Select **MCP: List servers**.
-1. If the Azure MCP server is not running, start it by selecting **Azure MCP** > **Start server**.
-
 ---
 
 ## Build the to-do app
@@ -138,19 +130,6 @@ Implement add, complete/incomplete toggle, and remove. Persist state in localSto
 Run npm run build and verify success. Return a concise summary of what was done.
 ```
 
-# [Local development environment](#tab/local)
-
-If you used Plan mode, Copilot already has the full implementation plan in context. The agent begins executing the plan steps automatically after you select **Implement**.
-
-If the agent doesn't start building automatically, or if you want to start with a specific step, paste the following prompt:
-
-```text
-I want to create a React to-do app using Vite with the JavaScript React template. The app should allow users to add, toggle, and remove tasks. The tasks should be persisted in storage.
-The app should also support calling an API for to-do functions. The app will be hosted in Azure. Choose a free or low-cost resources for hosting. The app deployment should use Azure Developer API for deployment.
-```
-
----
-
 Select **Send** or press **Enter** to submit the prompt. The agent:
 
 - Checks your Node.js and npm versions.
@@ -164,6 +143,12 @@ Review the agent's output to confirm a successful build and read the summary of 
 > [!TIP]
 > Agent mode iterates automatically. If a build fails, the agent reads the error output and attempts to fix the issue without further input from you.
 
+# [Local development environment](#tab/local)
+
+If you used Plan mode, Copilot already has the full implementation plan in context. The agent begins executing the plan steps automatically after you select **Implement**.
+
+---
+
 ## Test the React app
 
 Test the app locally by running `npm run dev` in the terminal. 
@@ -174,7 +159,15 @@ In the **Ports** tab, open the **Forwarded Address** port URL in your browser to
 
 # [Local development environment](#tab/local)
 
-Open the provided localhost URL in your browser to see the to-do app in action. 
+
+```bash
+npm run build
+npm start
+```
+
+Builds the React frontend to `dist/` and starts the Express server on `http://localhost:3000`, serving both the UI and API.
+
+Open the provided localhost URL in your browser. 
 
 ---
 
@@ -187,22 +180,6 @@ When you're done testing, stop the development server by pressing `Ctrl + C` in 
 Update the app for production hosting on Azure App Service. Add functionality to support calling an API for to-do functions. With [Azure Skills](https://github.com/microsoft/azure-skills) active, Copilot uses curated Azure workflows and decision trees to make informed choices about service configuration, SKUs, and deployment patterns.
 
 # [VS Code for the Web](#tab/vscode-web)
-
-Verify that the Azure MCP server is started. This lets the agent use Azure tools to create and manage Azure resources.
-
-1. Open the command palette.
-1. Select **MCP: List servers**.
-1. If the Azure MCP server is not running, start it by selecting **Azure MCP** > **Start server**.
-
-# [Local development environment](#tab/local)
-
-If you verified Azure Skills during the [Agent mode](#agent-mode) setup, the Azure MCP server should already be running. If not, verify now:
-
-1. Open the command palette.
-1. Select **MCP: List servers**.
-1. If the Azure MCP server is not running, start it by selecting **Azure MCP** > **Start server**.
-
----
 
 Copy and paste the following prompt:
 
@@ -225,6 +202,13 @@ The agent:
 1. Configures the app for Azure App Service so `npm run build` creates production assets and `npm start` serves them, then updates the `README` with the implementation details.
 
 Review the chat output and confirm the local verification passed.
+
+# [Local development environment](#tab/local)
+
+The application created in Plan mode is already configured for production hosting and includes API support.
+
+---
+
 
 ## Test the host configuration and API
 
@@ -272,6 +256,8 @@ The agent explains that Azure Table Storage is a great fit for your to-do app's 
 
 ## Create a deployment template and deploy to Azure
 
+# [VS Code for the Web](#tab/vscode-web)
+
 With the app built and production-ready, use the final prompt to add table storage support and create an Azure Developer CLI template to deploy to Azure. 
 
 Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run `azd auth login --use-device-code` and follow the prompts to authenticate.
@@ -301,6 +287,12 @@ The agent:
 
 When the agent finishes, open the URL it reports in your browser. You see your to-do application running on Azure App Service.
 
+
+# [Local development environment](#tab/local)
+
+Plan mode should have generated an `infra/` directory with an Azure Developer CLI template using Bicep. Review the generated infrastructure code in the `infra/` directory to understand what resources will be deployed.
+
+---
 ## Explore your deployed resources
 
 After deployment, you can explore your Azure resources directly in VS Code.
