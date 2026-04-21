@@ -24,7 +24,7 @@ Agent mode lets Copilot autonomously run commands, edit files, and iterate on er
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- A [GitHub Copilot](https://github.com/features/copilot) subscription
+- A [GitHub Copilot](https://github.com/features/copilot) subscription.
 
 # [VS Code for the Web](#tab/vscode-web)
 
@@ -45,6 +45,14 @@ Install the following tools locally to get a full development experience on your
 1. [Azure Skills](https://github.com/microsoft/azure-skills) for enhanced Azure development experience.
 
 ---
+
+## Enable Azure Skills
+
+Azure Skills provide Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin announcement](https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/).
+
+1. Open the command palette.
+1. Select **MCP: List servers**.
+1. If the Azure MCP server is not running, start it by selecting **Azure MCP** > **Start server**.
 
 ## Plan your application
 
@@ -82,19 +90,9 @@ Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#a
 1. Answer any clarifying questions the Plan agent asks after researching your task.
 1. Review the generated plan. The Plan agent produces a high-level summary, implementation steps, and verification steps. Submit follow-up prompts to iterate on the plan until it meets your requirements.
 
-1. When you're satisfied with the plan, select **Implement** to hand it off to agent mode for execution.
-
 ---
 
 ## Agent mode
-
-1. In the Copilot Chat panel, confirm that **Agent** mode, **Auto** model, and **Autopilot** are selected. The transition from Plan mode should configure these automatically.
-
-Before the agent starts building, verify that [Azure Skills](https://github.com/microsoft/azure-skills) are available. Azure Skills provide Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin announcement](https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/).
-
-1. Open the command palette.
-1. Select **MCP: List servers**.
-1. If the Azure MCP server is not running, start it by selecting **Azure MCP** > **Start server**.
 
 # [VS Code for the Web](#tab/vscode-web)
 
@@ -107,12 +105,14 @@ Agent mode gives GitHub Copilot the ability to run terminal commands, create and
     mkdir todo-app && cd todo-app
     ```
 
-1. Open the [Copilot Chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) view by selecting the chat icon in the Activity Bar.
-1. Select **Agent** mode, **Auto** model, **Autopilot** in the chat panel. Agent mode and autopilot allow Copilot to run terminal commands and make file changes autonomously. Auto model lets Copilot choose the best model for each step.
+1. Open the [Copilot Chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) view by selecting the chat icon in the Activity Bar. You might need to authenticate with GitHub Copilot if you haven't already.
+1. Select **Agent** mode, **Auto** model, **Autopilot** in the chat panel. Agent mode and autopilot allow Copilot to run terminal commands and make file changes autonomously. Auto model lets Copilot choose the best model for each step. Autopilot mode gives Copilot the ability to self-correct and iterate without needing further input from you. If you prefer more control, you can choose default approvals mode to approve each step before it executes.
 
 # [Local development environment](#tab/local)
 
-After Plan mode generates your implementation plan and you select **Implement**, Copilot switches to agent mode. Agent mode gives Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong.
+After Plan mode generates your implementation plan, select **Start Implementation**.
+
+Copilot switches to agent mode. Agent mode gives Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong.
 
 ---
 
@@ -123,7 +123,7 @@ After Plan mode generates your implementation plan and you select **Implement**,
 Copy and paste the following prompt into the Copilot chat panel. This prompt instructs the agent to scaffold a React to-do app with Vite, handle version compatibility automatically, and verify the build.
 
 ```text
-Create a React to-do app using Vite with the JavaScript React template.
+/agent Create a React to-do app using Vite with the JavaScript React template.
 First check Node/npm versions, and if latest Vite is incompatible, 
 automatically use the newest compatible Vite version and continue.
 Implement add, complete/incomplete toggle, and remove. Persist state in localStorage.
