@@ -37,12 +37,12 @@ No local installation required. [VS Code for the Web (vscode.dev/azure)](https:/
 
 Install the following tools locally to get a full development experience on your machine.
 
-1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension.
-1. [Node.js](https://nodejs.org/) (LTS version recommended).
-1. [Azure Developer CLI (azd)](../azure-developer-cli/install-azd.md).
-1. [Azure CLI](/cli/azure/install-azure-cli).
-1. [Azure Skills](https://github.com/microsoft/azure-skills) for enhanced Azure development experience.
+- [Visual Studio Code](https://code.visualstudio.com/). Verify: `code --version`
+- [GitHub Copilot VS Code extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) . Verify: `code --list-extensions | grep -i github.copilot`
+- [Node.js](https://nodejs.org/). Verify: `node --version`
+- [Azure Developer CLI (azd)](../azure-developer-cli/install-azd.md). Verify: `azd version`
+- [Azure CLI](/cli/azure/install-azure-cli). Verify: `az version`
+- [Azure Skills](https://aka.ms/azure-skills) for enhanced Azure development experience. Verify: `code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server`
 
 ---
 
@@ -50,7 +50,7 @@ Install the following tools locally to get a full development experience on your
 
 Azure Skills provide Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin repository](https://aka.ms/azure-skills).
 
-1. Open the command palette.
+1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 1. Select **MCP: List servers**.
 1. If the Azure MCP server is not running, start it by selecting **Azure MCP** > **Start server**.
 
@@ -79,7 +79,7 @@ Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#a
     ```text
     /plan Create a React to-do app with a production deployment to Azure.
     Features: Add, complete/incomplete toggle, and remove to-do items.
-    To do items are persisted.
+    To-do items are persisted in localStorage.
     Include an API endpoint with POST, PATCH, and DELETE for to-do operations.
     Add Swagger UI at /swagger with an OpenAPI spec.
     Use Azure Developer CLI (azd) for infrastructure and deployment.
@@ -88,7 +88,22 @@ Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#a
     ```
 
 1. Answer any clarifying questions the Plan agent asks after researching your task.
-1. Review the generated plan. The Plan agent produces a high-level summary, implementation steps, and verification steps. Submit follow-up prompts to iterate on the plan until it meets your requirements.
+1. Review the generated plan. Your plan looks something like this:
+
+    ```Output
+    Plan: React Todo App on Azure App Service
+    Build a single Node.js + Express + TypeScript app that serves both the React frontend and API, persists todos in Azure Table Storage, exposes Swagger UI at /swagger, and deploys with azd using low-cost defaults. This keeps cost and operational complexity low while meeting all requested features.
+
+    Steps
+
+    1. Phase 1 - Project foundation
+    2. Scaffold frontend (React + Vite + TypeScript) and backend (Express + TypeScript) with shared root scripts for local dev and production build.
+    3. Configure backend to serve compiled frontend assets so one App Service hosts everything. (depends on step 2)
+    4. Add centralized configuration for local and Azure settings (port, storage connection, API base paths). (parallel with step 3 after config contract is set)
+    ...
+    ```
+
+    The Plan agent produces a high-level summary, implementation steps, and verification steps. You can submit follow-up prompts to iterate on the plan until it meets your requirements.
 
 ---
 
@@ -110,13 +125,30 @@ Agent mode gives GitHub Copilot the ability to run terminal commands, create and
 
 # [Local development environment](#tab/local)
 
-After Plan mode generates your implementation plan, select **Start Implementation**.
+In the chat panel, select or type **Start Implementation** to hand off the plan to agent mode for execution.
 
-Copilot switches to agent mode. Agent mode gives Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong.
+Agent mode gives Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong.
+
+When Copilot is finished with the implementation, you should see output in the chat panel similar to this:
+
+```Output
+Implemented the full solution end to end and validated a production build successfully.
+
+What is now in place:
+
+1. Full-stack workspace with React frontend and Express TypeScript backend
+2. Todo features implemented: add, complete or incomplete toggle, remove, and persisted reads
+3. Persistence implemented with Azure Table Storage plus local file fallback for local development
+4. API endpoints implemented including required POST, PATCH, DELETE, and supporting GET list
+5. OpenAPI spec added and Swagger UI exposed at /swagger
+6. Azure deployment assets added for azd with low-cost App Service plus Storage setup
+7. Deployment and run instructions documented in README
+8. Dependency install and build completed successfully
+```
 
 ---
 
-## Build the to-do app
+## Build the app
 
 # [VS Code for the Web](#tab/vscode-web)
 
@@ -145,7 +177,7 @@ Review the agent's output to confirm a successful build and read the summary of 
 
 # [Local development environment](#tab/local)
 
-If you used Plan mode, Copilot already has the full implementation plan in context. The agent begins executing the plan steps automatically after you select **Implement**. To build the to-do app, run the following command in the terminal:
+To build the to-do app, run the following command in the terminal:
 
 ```bash
 npm run build
@@ -212,7 +244,6 @@ The application created in Plan mode is already configured for production hostin
 
 ---
 
-
 ## Test the host configuration and API
 
 Test the production server locally by running `npm start` in the terminal.
@@ -223,7 +254,7 @@ In the **Ports** tab, open the **Forwarded Address** port URL in your browser to
 
 # [Local development environment](#tab/local)
 
-Open the provided localhost URL in your browser. For example, `http://localhost:3000`.
+Open the provided localhost URL in your browser. For example, `http://localhost:3000/swagger`.
 
 ---
 
@@ -295,11 +326,16 @@ When the agent finishes, open the URL it reports in your browser. You see your t
 
 Plan mode should have generated an `infra/` directory with an Azure Developer CLI template using Bicep. Review the generated infrastructure code in the `infra/` directory to understand what resources will be deployed.
 
-Run azd up to deploy the application to Azure.
+1. Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run:
 
-```bash
-azd up
-```
+    ``` azdeveloper
+    azd auth login` and follow the prompts to authenticate.
+    ```
+1. Deploy the application to Azure.
+
+    ``` azdeveloper
+    azd up
+    ```
 
 ---
 
