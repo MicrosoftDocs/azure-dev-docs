@@ -37,6 +37,9 @@ items:
     - name: Python
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
+    - name: Rust
+      tocHref: /azure/developer/rust
+      topicHref: /azure/developer/rust/index
     - name: Terraform
       tocHref: /azure/developer/terraform
       topicHref: /azure/developer/terraform/index
@@ -49,15 +52,22 @@ items:
     - name: GitHub Copilot app modernization
       tocHref: /azure/developer/github-copilot-app-modernization
       topicHref: /azure/developer/github-copilot-app-modernization/index
-    - name: GitHub Copilot for Azure
-      tocHref: /azure/developer/github-copilot-azure
-      topicHref: /azure/developer/github-copilot-azure/index
     - name: TypeSpec
       tocHref: /azure/developer/typespec
       topicHref: /azure/developer/typespec/index
-    - name: Azure MCP Server
-      tocHref: /azure/developer/azure-mcp-server
-      topicHref: /azure/developer/azure-mcp-server/index
+    - name: AI developer tools
+      tocHref: /azure/developer/ai-developer-tools
+      topicHref: /azure/developer/ai-developer-tools/index
+      items:
+      - name: GitHub Copilot for Azure
+        tocHref: /azure/developer/github-copilot-azure
+        topicHref: /azure/developer/github-copilot-azure/index
+      - name: Azure MCP Server
+        tocHref: /azure/developer/azure-mcp-server
+        topicHref: /azure/developer/azure-mcp-server/index
+      - name: Azure Skills
+        tocHref: /azure/developer/azure-skills
+        topicHref: /azure/developer/azure-skills/index
     - name: Introduction
       tocHref: /azure/developer/intro
       topicHref: /azure/developer/intro/index

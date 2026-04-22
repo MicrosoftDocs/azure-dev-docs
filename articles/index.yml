@@ -117,30 +117,20 @@ conceptualContent:
         url: /azure/developer/ai/
         text: See more
     # Card
-    - title: Azure MCP Server
-      summary: Interact with Azure resources through natural language commands from AI agents and other clients.
-      links:
-        - url: ./azure-mcp-server/overview.md
-          itemType: overview
-          text: What is Azure MCP Server?
-        - url: ./azure-mcp-server/get-started.md
-          itemType: get-started
-          text: Get started
-      footerLink:
-        url: /azure/developer/azure-mcp-server
-        text: See more
-    # Card
-    - title: GitHub Copilot for Azure
-      summary: Use AI to add cloud features and deploy your app to Azure.
+    - title: Azure AI developer tools
+      summary: Use Azure AI developer tools to enhance your AI development workflow.
       links:
         - url: ./github-copilot-azure/introduction.md
           itemType: overview
           text: What is GitHub Copilot for Azure?
-        - url: ./github-copilot-azure/get-started.md
-          itemType: get-started
-          text: Get started
+        - url: ./azure-mcp-server/overview.md
+          itemType: overview
+          text: What is Azure MCP Server?
+        - url: ./azure-skills/overview.md
+          itemType: overview
+          text: What are Azure Skills?
       footerLink:
-        url: /azure/developer/github-copilot-azure/
+        url: /azure/developer/ai-developer-tools/
         text: See more
     # Card
     - title: GitHub Copilot app modernization

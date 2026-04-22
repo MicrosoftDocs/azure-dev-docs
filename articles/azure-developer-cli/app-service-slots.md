@@ -3,7 +3,7 @@ title: Deploy to Azure App Service slots with Azure Developer CLI
 description: Learn how to use Azure Developer CLI to deploy to Azure App Service slots and swap slots for staging, promotion, or rollback. Get started today.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 03/26/2026
+ms.date: 04/01/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -62,16 +62,58 @@ Run `azd up` or `azd provision` and `azd deploy` as usual.
 azd up
 ```
 
-On the first deployment, `azd` deploys to the production site and any slots defined in your infrastructure. After that, if your service has more than one slot, `azd deploy` prompts you to choose the target slot.
+On the first deployment, `azd` deploys to the production site and any slots defined in your infrastructure. This first deployment establishes the same baseline across the main app and every slot.
 
-To skip the prompt, set an environment variable for the service you want to deploy. Use the service name from `azure.yaml` in uppercase.
+After the first deployment, `azd deploy` changes how it selects the deployment target when slots exist. `azd` doesn't continue deploying directly to the production app when slots are available. Instead, you deploy to a slot, validate the release, and then swap it into production.
+
+## How azd selects the deployment target
+
+When `azd deploy` runs for an App Service that has deployment slots, it selects the target by checking deployment history on the main app and then evaluating the available slots.
+
+The behavior works as follows:
+
+- If no previous deployments exist, `azd` deploys to the main app and all slots.
+- If previous deployments exist and no slots exist, `azd` deploys to the main app only.
+- If previous deployments exist and exactly one slot exists, `azd` deploys to that slot only.
+- If previous deployments exist and two or more slots exist, `azd` uses the slot specified by an environment variable or prompts you to choose one.
+
+> [!IMPORTANT]
+> After the first deployment, `azd` doesn't deploy directly to the main App Service app when slots exist. This behavior is intentional and helps prevent accidental direct-to-production deployments. To update production, deploy to a slot and then swap the slot into production (`@main`).
+
+## Select a slot with an environment variable
+
+When your service has two or more slots after the first deployment, you can skip the interactive prompt by setting an environment variable for the service you want to deploy.
+
+Use the following format:
+
+`AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME`
+
+Build the variable name from the service name in `azure.yaml` by using uppercase and replacing hyphens with underscores.
+
+For example, if your service is named `my-api`, use `AZD_DEPLOY_MY_API_SLOT_NAME`.
 
 ```bash
-azd env set AZD_DEPLOY_MYAPI_SLOT_NAME staging
-azd deploy myapi
+azd env set AZD_DEPLOY_MY_API_SLOT_NAME staging
+azd deploy my-api
 ```
 
-For example, if your service is named `web`, set `AZD_DEPLOY_WEB_SLOT_NAME`. This approach is useful for CI/CD because you can set the same environment variable in your pipeline before running `azd deploy`.
+You can store this value in your `azd` environment by using `azd env set`, or define it directly in your CI system before running `azd deploy`.
+
+If your service has exactly one slot, `azd` ignores the environment variable because there is only one possible deployment target.
+
+If your service has two or more slots and the environment variable isn't set, `azd` prompts you to choose a slot.
+
+## CI and noninteractive behavior
+
+When you run `azd deploy --no-prompt` or deploy from CI, slot selection behaves differently depending on how many slots are available:
+
+| Slots | Environment variable behavior | Result |
+| --- | --- | --- |
+| `0` | Not applicable. | `azd` deploys to the main app. |
+| `1` | Ignored. | `azd` deploys to the only slot. |
+| `2+` | Required to avoid prompting. | `azd` deploys to the specified slot, or fails if no slot can be selected. |
+
+If you automate deployments for an App Service that has two or more slots, set `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` in the pipeline environment before running `azd deploy`.
 
 ## Swap Azure App Service deployment slots
 
@@ -99,11 +141,14 @@ Use these patterns to support common release flows:
 - Roll back by swapping production back into the staging slot with `--src @main --dst staging`.
 - Target a specific App Service-backed service in a multiservice `azd` project with `--service`.
 
+Swapping is the intended path for updating production after slots are configured. Use `azd deploy` to update a slot, then use `azd appservice swap` to promote that slot into production.
+
 ## Recommended deployment slot workflow
 
 1. Define one or more App Service deployment slots in your Bicep templates.
 1. Provision the App Service resources by using `azd provision` or `azd up`.
-1. Deploy application code to a staging slot by setting `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` or by selecting the slot when prompted.
+1. Let the first deployment establish a baseline on the main app and every slot.
+1. Deploy later application updates to a staging slot by setting `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` when you have two or more slots, or by selecting the slot when prompted.
 1. Validate the staged deployment.
 1. Run `azd appservice swap --src <slot> --dst @main` to promote the release.
 1. If needed, run the reverse swap to roll back.
