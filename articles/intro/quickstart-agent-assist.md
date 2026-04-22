@@ -19,7 +19,7 @@ In this quickstart, you use GitHub Copilot to build a React to-do application an
 - An API endpoint for your to-do app
 - Azure Developer CLI (azd) to provision and deploy Azure resources from an infrastructure template
 
-Agent mode lets Copilot autonomously run commands, edit files, and iterate on errors. You provide the goal; Copilot figures out the steps. Plan mode lets Copilot research your codebase and create a structured implementation plan before any code is written, ensuring your requirements are clear and your approach is sound.
+Plan mode lets Copilot research your codebase and create a structured implementation plan before any code is written, ensuring your requirements are clear and your approach is sound. Agent mode lets Copilot autonomously run commands, edit files, and iterate on errors. You provide the goal and Copilot determines the steps.
 
 ## Prerequisites
 
@@ -30,19 +30,57 @@ Agent mode lets Copilot autonomously run commands, edit files, and iterate on er
 
 No local installation required. [VS Code for the Web (vscode.dev/azure)](https://vscode.dev/azure) gives you a browser-based VS Code environment with the Azure Developer CLI, Node.js, and several Azure extensions preinstalled.
 
+# [Local development environment](#tab/local)
+
+Install the following tools locally to get a full development experience.
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [GitHub Copilot VS Code extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+- [Node.js](https://nodejs.org/)
+- [Azure Developer CLI (azd)](../azure-developer-cli/install-azd.md)
+- [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure Skills](https://aka.ms/azure-skills) for enhanced Azure development experience
+
+You can verify tool installation with the following commands:
+
+```bash
+# Visual Studio Code
+code --version
+# GitHub Copilot
+code --list-extensions | grep -i github.copilot
+# Node.js
+node --version
+# Azure Developer CLI
+azd version
+# Azure CLI
+az version
+# Azure Skills
+code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
+```
+
+---
+
+## Create a new workspace
+
+# [VS Code for the Web](#tab/vscode-web)
+
 1. Open [vscode.dev/azure](https://vscode.dev/azure) in your browser.
 1. Sign in by using your Azure account when prompted.
 
 # [Local development environment](#tab/local)
 
-Install the following tools locally to get a full development experience on your machine.
+1. Create and change into a new directory for your project.
 
-- [Visual Studio Code](https://code.visualstudio.com/). Verify: `code --version`
-- [GitHub Copilot VS Code extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) . Verify: `code --list-extensions | grep -i github.copilot`
-- [Node.js](https://nodejs.org/). Verify: `node --version`
-- [Azure Developer CLI (azd)](../azure-developer-cli/install-azd.md). Verify: `azd version`
-- [Azure CLI](/cli/azure/install-azure-cli). Verify: `az version`
-- [Azure Skills](https://aka.ms/azure-skills) for enhanced Azure development experience. Verify: `code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server`
+    ```bash
+    mkdir todo-app && cd todo-app
+    ```
+1. Open the directory in VS Code.
+
+    ```bash
+    code .
+    ```
+
+    The command opens a new VS Code window with the current directory as the workspace. You can also open the folder manually from VS Code by selecting **File > Open Folder** from the menu.
 
 ---
 
@@ -64,13 +102,6 @@ Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#a
 
 [Plan mode](https://code.visualstudio.com/docs/copilot/agents/planning) lets Copilot research your project and generate a detailed implementation plan before writing any code. You review and refine the plan, then hand it off to agent mode for execution.
 
-1. Open the terminal from the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) via **Terminal > Create New Terminal**.
-1. Create and change into a new directory for your project.
-
-    ```bash
-    mkdir todo-app && cd todo-app
-    ```
-
 1. Open the [Copilot Chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) view by selecting the chat icon in the Activity Bar.
 1. Select **Plan** from the agents dropdown in the chat panel, or type `/plan` followed by your task description.
 
@@ -86,6 +117,9 @@ Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#a
     Choose free or low-cost Azure resources for deployment.
     Create a README file with instructions on how to run and deploy the app.
     ```
+
+    > [!NOTE]
+    > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
 
 1. Answer any clarifying questions the Plan agent asks after researching your task.
 1. Review the generated plan. Your plan looks something like this:
@@ -152,17 +186,22 @@ What is now in place:
 
 # [VS Code for the Web](#tab/vscode-web)
 
-Copy and paste the following prompt into the Copilot chat panel. This prompt instructs the agent to scaffold a React to-do app with Vite, handle version compatibility automatically, and verify the build.
+1. Copy and paste the following prompt into the Copilot chat panel. This prompt instructs the agent to scaffold a React to-do app with Vite, handle version compatibility automatically, and verify the build.
 
-```text
-/agent Create a React to-do app using Vite with the JavaScript React template.
-First check Node/npm versions, and if latest Vite is incompatible, 
-automatically use the newest compatible Vite version and continue.
-Implement add, complete/incomplete toggle, and remove. Persist state in localStorage.
-Run npm run build and verify success. Return a concise summary of what was done.
-```
+    ```text
+    /agent Create a React to-do app using Vite with the JavaScript React template.
+    First check Node/npm versions, and if latest Vite is incompatible, 
+    automatically use the newest compatible Vite version and continue.
+    Implement add, complete/incomplete toggle, and remove. Persist state in localStorage.
+    Run npm run build and verify success. Return a concise summary of what was done.
+    ```
 
-Select **Send** or press **Enter** to submit the prompt. The agent:
+1. Select **Send** or press **Enter** to submit the prompt. 
+
+    > [!NOTE]
+    > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
+
+The agent:
 
 - Checks your Node.js and npm versions.
 - Scaffolds a new React project using the Vite JavaScript React template, selecting a compatible Vite version if needed.
