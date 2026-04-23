@@ -30,13 +30,13 @@ The extension provides rich language intelligence for the AzAPI provider in `.tf
 
 When you type `type = "` inside an `azapi_resource`, `azapi_update_resource`, or `azapi_data_plane_resource` block, the extension shows a list of all available Azure resource types and API versions:
 
-:::image type="content" source="media/configure-vs-code-extension-for-terraform/list-all-available-resource-types.png" alt-text="Screenshot showing autocomplete for available AzAPI resource types and API versions.":::
+:::image type="content" source="media/overview-azapi-provider/list-all-available-resource-types.png" alt-text="Screenshot showing autocomplete for available AzAPI resource types and API versions.":::
 
 ### Property name and value completion
 
 Inside the `body` attribute, the extension suggests allowed property names and valid values based on the selected resource type and API version:
 
-:::image type="content" source="media/configure-vs-code-extension-for-terraform/list-allowed-properties.png" alt-text="Screenshot showing autocomplete for allowed property names and values in an azapi_resource body.":::
+:::image type="content" source="media/overview-azapi-provider/list-allowed-properties.png" alt-text="Screenshot showing autocomplete for allowed property names and values in an azapi_resource body.":::
 
 For properties that use discriminated objects (such as `kind`-based type hierarchies), the extension populates required sub-properties automatically.
 
@@ -44,13 +44,13 @@ For properties that use discriminated objects (such as `kind`-based type hierarc
 
 Hovering over a resource type, property name, or property value shows inline documentation sourced from the Azure resource schema:
 
-:::image type="content" source="media/configure-vs-code-extension-for-terraform/show-hint-when-hovering.png" alt-text="Screenshot showing hover documentation for an AzAPI property.":::
+:::image type="content" source="media/overview-azapi-provider/show-hint-when-hovering.png" alt-text="Screenshot showing hover documentation for an AzAPI property.":::
 
 ### Schema validation
 
 The extension underlines schema errors as you type — for example, unrecognized property names, incorrect value types, or missing required properties:
 
-:::image type="content" source="media/configure-vs-code-extension-for-terraform/syntax-validation.png" alt-text="Screenshot showing inline schema error highlighting in an azapi_resource body.":::
+:::image type="content" source="media/overview-azapi-provider/syntax-validation.png" alt-text="Screenshot showing inline schema error highlighting in an azapi_resource body.":::
 
 ## Paste ARM JSON as AzAPI configuration
 
@@ -61,8 +61,6 @@ If you have an Azure portal resource definition, an ARM template resource object
 1. Copy the resource JSON or ARM template to the clipboard.
 1. Open a `.tf` file and place your cursor at the insertion point.
 1. Paste (`Ctrl`+`V` on Windows/Linux, `Cmd`+`V` on macOS). The extension detects the JSON format and converts it to `azapi_resource` HCL.
-
-:::image type="content" source="media/configure-vs-code-extension-for-terraform/paste-json-as-config.png" alt-text="Screenshot showing a portal resource JSON being pasted and converted to an azapi_resource block.":::
 
 For ARM templates that contain multiple resources, parameters, and variables, manual cleanup is usually required after conversion. Review the generated `type`, `body`, and `parent_id` before applying.
 
