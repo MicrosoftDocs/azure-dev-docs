@@ -1,4 +1,6 @@
-items:
+- name: Azure MCP Server
+  href: index.yml
+
 - name: Overview
   href: overview.md
 - name: Get started
@@ -109,6 +111,10 @@ items:
       href: tools/azure-communication.md
     - name: Azure Confidential Ledger
       href: tools/azure-confidential-ledger.md
+    - name: Azure Compute
+      href: tools/azure-compute.md
+    - name: Azure Container Apps
+      href: tools/azure-container-apps.md
     - name: Azure Container Registry
       href: tools/azure-container-registry.md
     - name: Azure Cosmos DB
@@ -179,8 +185,6 @@ items:
       href: tools/azure-storage.md
     - name: Azure Virtual Desktop
       href: tools/azure-virtual-desktop.md
-    - name: Azure Virtual Machines
-      href: tools/azure-virtual-machines.md
     - name: Resource Group
       href: tools/resource-group.md
     - name: Subscription

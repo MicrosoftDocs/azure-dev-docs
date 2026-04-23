@@ -1,4 +1,6 @@
-items:
+- name: GitHub Copilot for Azure
+  href: index.yml
+
 - name: Overview
   href: introduction.md
 - name: Get started

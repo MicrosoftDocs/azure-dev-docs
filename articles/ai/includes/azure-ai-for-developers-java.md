@@ -51,7 +51,7 @@ In addition to Azure OpenAI Service, there are many other Foundry Tools that hel
 
 |AI service|Description|API reference|Quickstart|
 |---|---|---|---|
-|[Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/)|A Foundry Tool that detects unwanted content.|[Content Safety API reference](/java/api/overview/azure/ai-contentsafety-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-java)|
+|[Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/)|A Foundry tool that detects unwanted content.|[Content Safety API reference](/java/api/overview/azure/ai-contentsafety-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-java)|
 |[Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/java/api/overview/azure/ai-formrecognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-java)|
 |[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural language understanding capabilities.|[Language API reference](/java/api/overview/azure/ai-textanalytics-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-java)|
 |[Azure AI Search](/azure/search/)|Bring AI-powered cloud search to your applications.|[Azure AI Search API reference](/java/api/overview/azure/search-documents-readme)|[Quickstart](/azure/search/search-get-started-text?tabs=java) |
