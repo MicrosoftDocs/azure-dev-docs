@@ -1,7 +1,7 @@
 ---
-title: Azure MCP Server tools for Azure Compute
-description: Discover Azure Compute tools for managing virtual machines, virtual machine scale sets, and disks in Azure MCP Server. Explore features and start optimizing your resources.
-#customer intent: As a system admin, I want to list all Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
+title: Azure MCP Server Tools for Azure Compute
+description: Discover compute tools for managing virtual machines, virtual machine scale sets, and disks in Azure MCP Server. Explore features and start optimizing your resources.
+#customer intent: As a system admin, I want to list all Azure Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
 ms.date: 04/07/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
@@ -10,11 +10,11 @@ tool_count: 12
 mcp-cli.version: 2.0.0-beta.39
 ---
 
-# Azure MCP Server tools for Azure Compute overview
+# Azure MCP Server tools for Azure compute overview
 
 The Azure MCP Server tools help you manage virtual machines, virtual machine scale sets, and disks by using natural language prompts. By using key capabilities such as creating, retrieving, and updating resources, you can efficiently control your cloud environment.
 
-Azure Compute provides scalable computing resources for applications and workloads. For more information, see [Azure Compute documentation](/azure/virtual-machines/).
+Azure compute provides scalable computing resources for applications and workloads. For more information, see the documentation for [creating and managing virtual machines in Azure](/azure/virtual-machines/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -22,55 +22,76 @@ Azure Compute provides scalable computing resources for applications and workloa
 
 <!-- @mcpcli compute disk create -->
 
-Creates a new Azure managed disk in the specified resource group. You can create empty disks (specify `size-gb`), disks from a source such as a snapshot, another managed disk, or a blob URI (specify `source`), disks from a Shared Image Gallery image version (specify `gallery-image-reference`), or disks ready for upload (specify `upload-type` and `upload-size-bytes`). If you don't specify the location, it defaults to the resource group's location. You can configure disk size, storage SKU (for example, `Premium_LRS`, `Standard_LRS`, `UltraSSD_LRS`), OS type, availability zone, hypervisor generation, tags, encryption settings, performance tier, shared disk, on-demand bursting, and IOPS/throughput limits for UltraSSD disks. Create a disk with network access policy `DenyAll`, `AllowAll`, or `AllowPrivate`, and associate a disk access resource during creation.
+With this tool, you can create a new Azure managed disk in the specified resource group. You can create empty disks (specify `size-gb`), disks from a source such as a snapshot, another managed disk, or a blob URI (specify `source`). You can also create disks from a shared image gallery image version (specify `gallery-image-reference`), or disks ready for upload (specify `upload-type` and `upload-size-bytes`). If you don't specify the location, it defaults to the resource group's location.
+
+You can configure disk size, storage SKU (for example, `Premium_LRS`, `Standard_LRS`, or `UltraSSD_LRS`), OS type, availability zone, and hypervisor generation. Other configurations possible include those for tags, encryption settings, performance tier, shared disk, on-demand bursting, and IOPS/throughput limits for UltraSSD disks. Create a disk with network access policy `DenyAll`, `AllowAll`, or `AllowPrivate`, and associate a disk access resource during creation.
 
 Example prompts include:
-- "Create a 128 GB managed disk named `<disk-name>` in resource group `<resource-group>`"
-- "Create a new `Premium_LRS` disk called `<disk-name>` in resource group `<resource-group>` with 256 GB"
-- "Create a managed disk `<disk-name>` in resource group `<resource-group>` in `eastus`"
-- "Create a disk from snapshot `<snapshot-resource-id>` in resource group `<resource-group>`"
-- "Create a managed disk `<disk-name>` in resource group `<resource-group>` from blob `<blob-uri>`"
-- "Create a 64 GB `Standard_LRS` Linux disk named `<disk-name>` in resource group `<resource-group>` in zone 1"
-- "Create a managed disk `<disk-name>` in resource group `<resource-group>` with tags env=prod team=infra"
-- "Create a 128 GB `Premium_LRS` disk named `<disk-name>` in resource group `<resource-group>` with performance tier `P30`"
-- "Create a disk `<disk-name>` in resource group `<resource-group>` with customer-managed encryption using disk encryption set `<disk-encryption-set-id>`"
-- "Create a managed disk from gallery image version `<image-version-resource-id>` in resource group `<resource-group>`"
-- "Create a data disk from LUN 0 of gallery image version `<image-version-resource-id>` in resource group `<resource-group>`"
-- "Create a disk ready for upload named `<disk-name>` in resource group `<resource-group>` with upload size 20972032 bytes"
-- "Create a Trusted Launch upload disk named `<disk-name>` in resource group `<resource-group>` with `UploadWithSecurityData` type and security type `TrustedLaunch`"
-- "Create an `UltraSSD_LRS` disk named `<disk-name>` in resource group `<resource-group>` with 256 GB, 10000 IOPS, and 500 MBps throughput"
-- "Create a shared managed disk named `<disk-name>` in resource group `<resource-group>` with 512 GB and max shares set to 3"
-- "Create a managed disk `<disk-name>` in resource group `<resource-group>` with network access policy `DenyAll` and disk access `<disk-access-resource-id>`"
-- "Create a 128 GB managed disk named `<disk-name>` in resource group `<resource-group>` with on-demand bursting enabled"
-- "Create a managed disk `<disk-name>` in resource group `<resource-group>` with encryption type `EncryptionAtRestWithPlatformAndCustomerKeys`"
-- "Create a V2 hypervisor generation disk named `<disk-name>` in resource group `<resource-group>` with 128 GB"
+
+- *"Create a 128 GB managed disk named `<disk-name>` in resource group `<resource-group>`."*
+
+- *"Create a new `Premium_LRS` disk called `<disk-name>` in resource group `<resource-group>` with 256 GB."*
+
+- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` in `eastus`."*
+
+- *"Create a disk from snapshot `<snapshot-resource-id>` in resource group `<resource-group>`."*
+
+- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` from blob `<blob-uri>`."*
+
+- *"Create a 64 GB `Standard_LRS` Linux disk named `<disk-name>` in resource group `<resource-group>` in zone 1."*
+
+- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` with tags env=prod team=infra."*
+
+- *"Create a 128 GB `Premium_LRS` disk named `<disk-name>` in resource group `<resource-group>` with performance tier `P30`."*
+
+- *"Create a disk `<disk-name>` in resource group `<resource-group>` with customer-managed encryption using disk encryption set `<disk-encryption-set-id>`."*
+
+- *"Create a managed disk from gallery image version `<image-version-resource-id>` in resource group `<resource-group>`."*
+
+- *"Create a data disk from LUN 0 of gallery image version `<image-version-resource-id>` in resource group `<resource-group>`."*
+
+- *"Create a disk ready for upload named `<disk-name>` in resource group `<resource-group>` with upload size 20972032 bytes."*
+
+- *"Create a Trusted Launch upload disk named `<disk-name>` in resource group `<resource-group>` with `UploadWithSecurityData` type and security type `TrustedLaunch`."*
+
+- *"Create an `UltraSSD_LRS` disk named `<disk-name>` in resource group `<resource-group>` with 256 GB, 10000 IOPS, and 500 MBps throughput."*
+
+- *"Create a shared managed disk named `<disk-name>` in resource group `<resource-group>` with 512 GB and max shares set to 3."*
+
+- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` with network access policy `DenyAll` and disk access `<disk-access-resource-id>`."*
+
+- *"Create a 128 GB managed disk named `<disk-name>` in resource group `<resource-group>` with on-demand bursting enabled."*
+
+- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` with encryption type `EncryptionAtRestWithPlatformAndCustomerKeys`."*
+
+- *"Create a V2 hypervisor generation disk named `<disk-name>` in resource group `<resource-group>` with 128 GB."*
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Disk name** | Required | The name of the disk. |
 | **Resource group** | Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| **Disk access** | Optional | Resource ID of the disk access resource for using private endpoints on disks. |
-| **Disk encryption set** | Optional | Resource ID of the disk encryption set to use for enabling encryption at rest. |
+| **Disk access** | Optional | The resource ID of the disk access resource for using private endpoints on disks. |
+| **Disk encryption set** | Optional | The resource ID of the disk encryption set to use for enabling encryption at rest. |
 | **Disk iops read write** | Optional | The number of IOPS allowed for this disk. Only settable for UltraSSD disks. |
 | **Disk mbps read write** | Optional | The bandwidth allowed for this disk in MBps. Only settable for UltraSSD disks. |
-| **Enable bursting** | Optional | Enable on-demand bursting beyond the provisioned performance target of the disk. Doesn't apply to Ultra disks. Accepted values: `true`, `false`. |
-| **Encryption type** | Optional | Encryption type of the disk. Accepted values: `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, `EncryptionAtRestWithPlatformKey`. |
-| **Gallery image reference** | Optional | Resource ID of a Shared Image Gallery image version to use as the source for the disk. Format: /subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Compute/galleries/{gallery}/images/{image}/versions/{version}. |
-| **Gallery image reference lun** | Optional | LUN (Logical Unit Number) of the data disk in the gallery image version. If specified, the disk is created from the data disk at this LUN. If not specified, the disk is created from the OS disk of the image. |
-| **Hyper v generation** | Optional | The hypervisor generation of the Virtual Machine. Applicable to OS disks only. Accepted values: `V1`, `V2`. |
-| **Location** | Optional | The Azure region/location. Defaults to the resource group's location if not specified. |
+| **Enable bursting** | Optional | Enable on-demand bursting beyond the provisioned performance target of the disk. Doesn't apply to Ultra disks. Accepted values: `true` or `false`. |
+| **Encryption type** | Optional | Encryption type of the disk. Accepted values: `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, or `EncryptionAtRestWithPlatformKey`. |
+| **Gallery image reference** | Optional | The resource ID of a shared image gallery image version to use as the source for the disk. Format: /subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Compute/galleries/{gallery}/images/{image}/versions/{version}. |
+| **Gallery image reference lun** | Optional | The LUN (Logical Unit Number) of the data disk in the gallery image version. If you specify this parameter, you create the disk from the data disk at this LUN. If you don't specify this parameter, you create the disk from the OS disk of the image. |
+| **Hyper v generation** | Optional | The hypervisor generation of the virtual machine (VM). Applicable to OS disks only. Accepted values: `V1`, `V2`. |
+| **Location** | Optional | The Azure region/location. The resource group's location is the default if you don't specify this parameter. |
 | **Max shares** | Optional | The maximum number of VMs that can attach to the disk at the same time. A value greater than one indicates a shared disk. |
-| **Network access policy** | Optional | Policy for accessing the disk via network. Accepted values: `AllowAll`, `AllowPrivate`, `DenyAll`. |
-| **Os type** | Optional | The Operating System type of the disk. Accepted values: `Linux`, `Windows`. |
-| **Security type** | Optional | Security type of the managed disk. Accepted values: `ConfidentialVM_DiskEncryptedWithCustomerKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey`, `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `Standard`, `TrustedLaunch`. Required when `upload-type` is `UploadWithSecurityData`. |
-| **Size gb** | Optional | Size of the disk in GB. Max size: 4095 GB. |
-| **SKU** | Optional | Underlying storage SKU. Accepted values: `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Standard_LRS`, `UltraSSD_LRS`. |
-| **Source** | Optional | Source to create the disk from, including a resource ID of a snapshot or disk, or a blob URI of a VHD. When a source is provided, `size-gb` is optional and defaults to the source size. |
-| **Tags** | Optional | Space-separated tags in 'key=value' format. Use '' to clear existing tags. |
-| **Tier** | Optional | Performance tier of the disk (for example, `P10`, `P15`, `P20`, `P30`, `P40`, `P50`, `P60`, `P70`, `P80`). Applicable to Premium SSD disks only. |
-| **Upload size bytes** | Optional | The size in bytes (including the VHD footer of 512 bytes) of the content to be uploaded. Required when `upload-type` is specified. |
-| **Upload type** | Optional | Type of upload for the disk. Accepted values: `Upload`, `UploadWithSecurityData`. When specified, the disk is created in a `ReadyToUpload` state. |
-| **Zone** | Optional | Availability zone into which to provision the resource. |
+| **Network access policy** | Optional | The policy for accessing the disk via network. Accepted values: `AllowAll`, `AllowPrivate`, or `DenyAll`. |
+| **Os type** | Optional | The operating system type of the disk. Accepted values: `Linux` or `Windows`. |
+| **Security type** | Optional | The security type of the managed disk. Accepted values: `ConfidentialVM_DiskEncryptedWithCustomerKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey`, `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `Standard`, or `TrustedLaunch`. This parameter is required when `upload-type` is `UploadWithSecurityData`. |
+| **Size gb** | Optional | The size of the disk in GB. Max size: 4095 GB. |
+| **SKU** | Optional | The underlying storage SKU. Accepted values: `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Standard_LRS`, or `UltraSSD_LRS`. |
+| **Source** | Optional | The source to create the disk from, including a resource ID of a snapshot or disk, or a blob URI of a VHD. When you provide a source, `size-gb` is optional and defaults to the source size. |
+| **Tags** | Optional | The space-separated tags in 'key=value' format. Use '' to clear existing tags. |
+| **Tier** | Optional | The performance tier of the disk (for example, `P10`, `P15`, `P20`, `P30`, `P40`, `P50`, `P60`, `P70`, or `P80`). Applicable to Premium SSD disks only. |
+| **Upload size bytes** | Optional | The size in bytes (including the VHD footer of 512 bytes) of the content to be uploaded. This parameter is required when you specify `upload-type`. |
+| **Upload type** | Optional | The type of upload for the disk. Accepted values: `Upload` or `UploadWithSecurityData`. When you specify this parameter, you create the disk in a `ReadyToUpload` state. |
+| **Zone** | Optional | The availability zone into which to provision the resource. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
