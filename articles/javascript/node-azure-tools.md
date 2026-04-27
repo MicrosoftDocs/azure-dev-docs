@@ -2,7 +2,7 @@
 title: JavaScript Developer Tools for Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: concept-article
-ms.date: 04/22/2025
+ms.date: 04/27/2026
 ms.custom: devx-track-js, devx-track-azurecli, linux-related-content, devx-track-ts
 #customer intent: As a JavaScript developer new to Azure, I want understand which tools are recommended so that my development can be efficient.
 ---
