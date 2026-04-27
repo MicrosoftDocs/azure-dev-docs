@@ -2,7 +2,7 @@
 title: GraphQL on Azure for JavaScript developers
 description: Learn how to build and deploy GraphQL applications on Azure using JavaScript, and discover the Azure services that make your GraphQL implementation easier.
 ms.topic: concept-article
-ms.date: 04/22/2025
+ms.date: 04/27/2026
 ms.custom: devx-graphql
 #CustomerIntent: As a developer new to Azure, I want to understand how to find the right services and tools to bring or build GraphQL applications with Azure so that my application runs without any more work than is necessary. 
 ---
