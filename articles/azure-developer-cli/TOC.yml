@@ -183,6 +183,20 @@
     items:
     - name: All release notes and blog posts
       href: https://devblogs.microsoft.com/azure-sdk/tag/azure-developer-cli/
+    - name: March 2026
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-march-2026/
+    - name: February 2026
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-february-2026/
+    - name: January 2026
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-january-2026/
+    - name: December 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-december-2025/
+    - name: November 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-november-2025/
+    - name: October 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-october-2025/
+    - name: August 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-august-2025/
     - name: July 2025
       href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-july-2025/
     - name: June 2025
@@ -191,16 +205,4 @@
       href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-may-2025/
     - name: April 2025
       href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-april-2025/
-    - name: March 2025
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-march-2025/
-    - name: February 2025
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-february-2025/
-    - name: November 2024
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-november-2024/
-    - name: October 2024
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-october-2024/
-    - name: September 2024
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-september-2024/
-    - name: August 2024
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-august-2024/
     

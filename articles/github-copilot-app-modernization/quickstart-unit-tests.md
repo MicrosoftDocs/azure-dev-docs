@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Quickstart: generate Java unit tests with GitHub Copilot modernization
 
-This quickstart shows you how to generate Jave unit tests using GitHub Copilot modernization.
+This quickstart shows you how to generate Java unit tests using GitHub Copilot modernization.
 
 ## Prerequisites
 
