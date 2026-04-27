@@ -73,6 +73,15 @@ GraphQL needs to connect to your data. Azure offers several ways to do this:
 * **Role-based access**: Control exactly which users can query or modify what data through your GraphQL endpoints.
 * **API protection**: Add rate limiting and monitoring to prevent abuse of your GraphQL APIs.
 
+## AI-assisted GraphQL development
+
+[GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) can accelerate GraphQL development by generating code from context in your editor:
+
+* Generate GraphQL type definitions from your data models
+* Write resolver functions with Azure SDK integrations (Cosmos DB, SQL Database)
+* Suggest query and mutation patterns based on your schema
+* Create data validation logic for GraphQL inputs
+
 ## Create GraphQL APIs for your existing data
 
 Already have data in Azure and want to access it with GraphQL? There are simple ways to do this:
