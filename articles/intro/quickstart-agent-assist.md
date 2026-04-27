@@ -66,6 +66,11 @@ code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 
 1. Open [vscode.dev/azure](https://vscode.dev/azure) in your browser.
 1. Sign in by using your Azure account when prompted.
+1. Create and change into a new directory for your project.
+
+    ```bash
+    mkdir todo-app && cd todo-app
+    ```
 
 # [Local development environment](#tab/local)
 
@@ -94,12 +99,6 @@ Azure Skills provide Copilot with curated Azure expertise, workflows, and guardr
 
 ## Plan your application
 
-# [VS Code for the Web](#tab/vscode-web)
-
-Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#agent-mode) to start building with Copilot agent mode directly.
-
-# [Local development environment](#tab/local)
-
 [Plan mode](https://code.visualstudio.com/docs/copilot/agents/planning) lets Copilot research your project and generate a detailed implementation plan before writing any code. You review and refine the plan, then hand it off to agent mode for execution.
 
 1. Open the [Copilot Chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) view by selecting the chat icon in the Activity Bar.
@@ -108,125 +107,78 @@ Plan mode is not available in VS Code for the Web. Skip ahead to [Agent mode](#a
     Copy and paste the following prompt into the Copilot chat panel:
 
     ```text
-    /plan Create a React to-do app with a production deployment to Azure.
-    Features: Add, complete/incomplete toggle, and remove to-do items.
-    To-do items are persisted in localStorage.
+    /plan Create a React to-do app with the following features:
+    Add, complete/incomplete toggle, and remove to-do items.
     Include an API endpoint with POST, PATCH, and DELETE for to-do operations.
     Add Swagger UI at /swagger with an OpenAPI spec.
-    Use Azure Developer CLI (azd) for infrastructure and deployment.
-    Choose free or low-cost Azure resources for deployment.
+    Choose free or low-cost Azure resources.
+    Create a deployment template for Azure Developer CLI (azd).
     Create a README file with instructions on how to run and deploy the app.
     ```
 
     > [!NOTE]
     > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
 
-1. Answer any clarifying questions the Plan agent asks after researching your task.
+1. Answer any clarifying questions the Plan agent asks after researching your task. For example, which deployment shape do you prefer for lowest cost with azd?
 1. Review the generated plan. Your plan looks something like this:
 
     ```Output
-    Plan: React Todo App on Azure App Service
-    Build a single Node.js + Express + TypeScript app that serves both the React frontend and API, persists todos in Azure Table Storage, exposes Swagger UI at /swagger, and deploys with azd using low-cost defaults. This keeps cost and operational complexity low while meeting all requested features.
+    Plan: React Todo App with API, Swagger, and azd
+    Build a single Node/Express deployment that serves both the React app and API, with Swagger UI at /swagger and in-memory todo storage. This keeps Azure cost and complexity low while meeting all requested features.
 
     Steps
 
-    1. Phase 1 - Project foundation
-    2. Scaffold frontend (React + Vite + TypeScript) and backend (Express + TypeScript) with shared root scripts for local dev and production build.
-    3. Configure backend to serve compiled frontend assets so one App Service hosts everything. (depends on step 2)
-    4. Add centralized configuration for local and Azure settings (port, storage connection, API base paths). (parallel with step 3 after config contract is set)
+    1. Phase 1 - Scaffold project and deployment foundation.
+    2. Create root azd setup, service structure, and build/start wiring for one deployable service.
+    3. Scaffold React frontend for add, toggle complete/incomplete, and remove actions.
+    4. Scaffold Express backend with health endpoint and static hosting for built frontend.
     ...
     ```
 
     The Plan agent produces a high-level summary, implementation steps, and verification steps. You can submit follow-up prompts to iterate on the plan until it meets your requirements.
 
----
-
 ## Agent mode
-
-# [VS Code for the Web](#tab/vscode-web)
 
 Agent mode gives GitHub Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong. You provide a high-level goal, and the agent decides what steps to take.
 
-1. Open the terminal from the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) via **Terminal > Create New Terminal**.
-1. Create and change into a new directory for your project.
-
-    ```bash
-    mkdir todo-app && cd todo-app
-    ```
-
-1. Open the [Copilot Chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) view by selecting the chat icon in the Activity Bar. You might need to authenticate with GitHub Copilot if you haven't already.
 1. Select **Agent** mode, **Auto** model, **Autopilot** in the chat panel. Agent mode and autopilot allow Copilot to run terminal commands and make file changes autonomously. Auto model lets Copilot choose the best model for each step. Autopilot mode gives Copilot the ability to self-correct and iterate without needing further input from you. If you prefer more control, you can choose default approvals mode to approve each step before it executes.
 
-# [Local development environment](#tab/local)
-
-In the chat panel, select or type **Start Implementation** to hand off the plan to agent mode for execution.
-
-Agent mode gives Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong.
+1. In the chat panel, select **Start Implementation** or **Start with Autopilot** to hand off the plan to agent mode for execution. Autopilot mode gives Copilot the ability to iterate without needing further input from you. If you prefer more control, you can choose default approvals mode to approve each step before it executes.
 
 When Copilot is finished with the implementation, you should see output in the chat panel similar to this:
 
 ```Output
-Implemented the full solution end to end and validated a production build successfully.
+Implementation Complete
+I've successfully built a full-stack React Todo App with Express API, Swagger UI, and Azure deployment via Azure Developer CLI. Here's what was implemented:
 
-What is now in place:
+Project Structure
+- Backend (api): Express.js + TypeScript with API routes, in-memory todo store, and OpenAPI spec
+- Frontend (frontend): React + TypeScript + Vite with responsive UI and error handling
+- Infrastructure (infra): Bicep templates for low-cost Azure deployment (App Service F1 tier)
+- Deployment: Azure Developer CLI config (azure.yaml) with build/deploy hooks
 
-1. Full-stack workspace with React frontend and Express TypeScript backend
-2. Todo features implemented: add, complete or incomplete toggle, remove, and persisted reads
-3. Persistence implemented with Azure Table Storage plus local file fallback for local development
-4. API endpoints implemented including required POST, PATCH, DELETE, and supporting GET list
-5. OpenAPI spec added and Swagger UI exposed at /swagger
-6. Azure deployment assets added for azd with low-cost App Service plus Storage setup
-7. Deployment and run instructions documented in README
-8. Dependency install and build completed successfully
+Core Features Implemented
+1. Todo API with POST (create), PATCH (toggle), DELETE, and GET endpoints
+2. Swagger UI at /swagger with full OpenAPI 3.0 documentation
+3. React Frontend with:
+   - Add, toggle completion, and delete todo actions
+   - Error handling and loading states
+   - Optimistic UI updates with rollback on error
+   - Accessibility labels for screen readers
+   - Beautiful gradient UI with responsive design
+4. In-Memory Storage with deterministic todo IDs
+5. Backend Tests (Jest) validating todo CRUD operations (4/4 passing)
+6. Docker Support with multi-stage build for efficient deployment
+...
 ```
 
 ---
 
-## Build the app
 
-# [VS Code for the Web](#tab/vscode-web)
 
-1. Copy and paste the following prompt into the Copilot chat panel. This prompt instructs the agent to scaffold a React to-do app with Vite, handle version compatibility automatically, and verify the build.
+## Test the app
 
-    ```text
-    /agent Create a React to-do app using Vite with the JavaScript React template.
-    First check Node/npm versions, and if latest Vite is incompatible, 
-    automatically use the newest compatible Vite version and continue.
-    Implement add, complete/incomplete toggle, and remove. Persist state in localStorage.
-    Run npm run build and verify success. Return a concise summary of what was done.
-    ```
-
-1. Select **Send** or press **Enter** to submit the prompt. 
-
-    > [!NOTE]
-    > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
-
-The agent:
-
-- Checks your Node.js and npm versions.
-- Scaffolds a new React project using the Vite JavaScript React template, selecting a compatible Vite version if needed.
-- Implements the to-do features: add and remove tasks. Toggle tasks between complete or incomplete.
-- Adds localStorage persistence so tasks are saved across page refreshes.
-- Runs `npm run build` and reports the result.
-
-Review the agent's output to confirm a successful build and read the summary of changes.
-
-> [!TIP]
-> Agent mode iterates automatically. If a build fails, the agent reads the error output and attempts to fix the issue without further input from you.
-
-# [Local development environment](#tab/local)
-
-To build the to-do app, run the following command in the terminal:
-
-```bash
-npm run build
-```
-
----
-
-## Test the React app
-
-Test the app locally by running `npm run dev` in the terminal. 
+Depending on how you answered questions during planning mode, testing your app locally might depend on the implementation. Review the README file for testing locally.
 
 # [VS Code for the Web](#tab/vscode-web)
 
@@ -236,64 +188,17 @@ In the **Ports** tab, open the **Forwarded Address** port URL in your browser to
 
 
 ```bash
-npm start
+npm run dev
 ```
 
-Builds the React frontend to `dist/` and starts the Express server on `http://localhost:3000`, serving both the UI and API.
+The command starts the Express server serving both the UI and API. The terminal output includes the localhost URL where the app is running.
 
-Open the provided localhost URL in your browser. 
+```Output
+> todo-app@1.0.0 start
+> node server/index.js
 
----
-
-Test the to-do app in the browser. Add, remove and change the completion status of tasks to confirm everything works as expected.
-
-When you're done testing, stop the development server by pressing `Ctrl + C` in the terminal.
-
-## Production configuration and API support
-
-Update the app for production hosting on Azure App Service. Add functionality to support calling an API for to-do functions. With [Azure Skills](https://github.com/microsoft/azure-skills) active, Copilot uses curated Azure workflows and decision trees to make informed choices about service configuration, SKUs, and deployment patterns.
-
-# [VS Code for the Web](#tab/vscode-web)
-
-Copy and paste the following prompt:
-
-```text
-Add production behavior and API support:
-Persist the to-do items in localStorage.
-Create an API endpoint that supports POST, PATCH, and DELETE for to-do functionality.
-Add Swagger UI at /swagger with an OpenAPI file configured to use a relative server URL.
-The to-do app should fetch from the API endpoint.
-Configure it for Azure App Service so npm run build creates production output and npm start serves that output.
-Update the README with the changes. Return a concise summary of what was done.
+Server listening on http://localhost:7071
 ```
-
-The agent:
-
-1. Adds localStorage persistence so your tasks remain after page refreshes.
-1. Creates an API endpoint for to-do operations that supports POST, PATCH, and DELETE requests.
-1. Adds Swagger UI at `/swagger` and configures the OpenAPI document to use a relative server URL.
-1. Updates the client app to fetch to-do data and actions through the API endpoint.
-1. Configures the app for Azure App Service so `npm run build` creates production assets and `npm start` serves them, then updates the `README` with the implementation details.
-
-Review the chat output and confirm the local verification passed.
-
-# [Local development environment](#tab/local)
-
-The application created in Plan mode is already configured for production hosting and includes API support.
-
----
-
-## Test the host configuration and API
-
-Test the production server locally by running `npm start` in the terminal.
-
-# [VS Code for the Web](#tab/vscode-web)
-
-In the **Ports** tab, open the **Forwarded Address** port URL in your browser to see the to-do app in action. Add, toggle, and remove tasks to confirm everything works as expected.
-
-# [Local development environment](#tab/local)
-
-Open the provided localhost URL in your browser. For example, `http://localhost:3000/swagger`.
 
 ---
 
@@ -309,25 +214,31 @@ Now that you have a working app with API support, ask the agent about which Azur
 Copy and paste the following prompt:
 
 ```text
-I want to change the local persistence to a no-cost or low-cost storage option in Azure.
-What's a good fit for this app?
+I want to change the storage persistence. What are my no-cost or low-cost storage options for this app in Azure?
 ```
 
-```output
-A very good fit for this app is Azure Table Storage.
+The agent uses Azure Skills to analyze your app's architecture, data storage needs, and API patterns to recommend an appropriate Azure service for hosting your to-do data. The agent considers factors like cost, scalability, ease of integration, and suitability for the app's workload. The agent then explains its recommendation like the following example:
 
-Why this is a strong choice:
+``` Output
+For this to-do app, these are the best no-cost or low-cost Azure persistence options, ordered from cheapest/simple to stronger capability.
 
-Very low cost for simple CRUD to-do data.
-Great match for your schema (id, text, completed, timestamps) without needing relational features.
-Easy migration path from your current API: swap in table operations behind existing endpoints.
-Minimal ops burden since it is fully managed.
+1. Azure Cosmos DB for NoSQL with free tier
+- Cost profile: can be zero if you stay within free-tier limits.
+- Best for: JSON to-do items, easy API fit, good scaling path.
+- Pros: schema-flexible, globally available, SDK support, free tier available.
+- Cons: RU-based model can become costly if queries are inefficient.
+- Good default choice if you want cloud-native persistence with minimal redesign.
+
+2. Azure Table Storage
+- Cost profile: typically very low (often cents to a few dollars at small scale).
+- Best for: simple key-based to-do storage.
+- Pros: cheapest at low volume, straightforward, durable.
+- Cons: limited query features versus Cosmos DB/SQL.
+- Great choice if your app only needs basic CRUD by id/user partition.
 ...
 ```
 
-The agent explains that Azure Table Storage is a great fit for your to-do app's storage needs due to its low cost, suitability for your data schema, easy migration path, and fully managed nature.
-
-## Create a deployment template and deploy to Azure
+## Deploy to Azure
 
 # [VS Code for the Web](#tab/vscode-web)
 
@@ -335,35 +246,7 @@ With the app built and production-ready, use the final prompt to add table stora
 
 Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run `azd auth login --use-device-code` and follow the prompts to authenticate.
 
-Copy and paste the following prompt:
-
-```text
-Create a deployment template and deploy to Azure:
-Change the to-do item persistence to Azure Table Storage.
-Create a deployment template that uses Azure Developer CLI.
-The template should deploy a resource group, and create free or low-cost resources for the app in Azure.
-The template uses environment variables for resource group name, location, and a prefix to prepend to resource names.
-Test the template with resource group rg-firstazureexp, location eastus2, and prefix todoapp.
-If deployment is misconfigured, diagnose and fix automatically until the live site serves built production files, not source or default pages.
-Final verification must confirm HTML references production assets and that the main JS/CSS asset URLs return HTTP 200.
-Update the README. Return a concise summary and the app website URL.
-```
-
-The agent:
-
-- Creates an Azure Developer CLI (`azd`) infrastructure template with Bicep files that define a resource group, App Service plan, web app, and Azure Table Storage.
-- Uses environment variables for the resource group name (`rg-firstazureexp`), location (`eastus2`), and name prefix (`todoapp`).
-- Runs `azd up` to provision resources and deploy the application.
-- Verifies the live site serves production assets (not source files or default pages).
-- Confirms the HTML references production JavaScript and CSS bundles and that those asset URLs return HTTP 200.
-- Reports the app name, URL, and a summary of what was deployed.
-
-When the agent finishes, open the URL it reports in your browser. You see your to-do application running on Azure App Service.
-
-
 # [Local development environment](#tab/local)
-
-Plan mode should have generated an `infra/` directory with an Azure Developer CLI template using Bicep. Review the generated infrastructure code in the `infra/` directory to understand what resources will be deployed.
 
 1. Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run:
 
@@ -375,6 +258,14 @@ Plan mode should have generated an `infra/` directory with an Azure Developer CL
     ``` azdeveloper
     azd up
     ```
+
+## Debug deployment
+
+```text
+Deploy the app using `azd up`. If deployment is misconfigured, diagnose and fix automatically until the live site serves built production files, not source or default pages.
+Final verification must confirm HTML references production assets and that the main JS/CSS asset URLs return HTTP 200.
+Update the README. Return a concise summary and the app website URL.
+```
 
 ---
 
