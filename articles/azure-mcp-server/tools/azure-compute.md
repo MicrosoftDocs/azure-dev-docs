@@ -101,12 +101,13 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute disk delete -->
 
-Delete an Azure managed disk from the specified resource group. This operation is idempotent - it returns success whether the disk was removed or didn't exist.
+Delete an Azure managed disk from the specified resource group. This operation is idempotent; it returns *success* whether the disk was removed or didn't exist.
 
 Example prompts include:
 
-- "Delete the managed disk 'temp-data-disk' in resource group 'dev-rg'."
-- "Remove managed disk 'old-backup-disk' from resource group 'prod-rg'."
+- *"Delete the managed disk `temp-data-disk` in resource group `dev-rg`."*
+
+- *"Remove managed disk `old-backup-disk` from resource group `prod-rg`."*
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -121,15 +122,23 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute disk get -->
 
-Lists available Azure managed disks or retrieves detailed information about a specific disk. You can view all disks in a subscription or in a specific resource group, including disk size, SKU, provisioning state, and OS type. The tool supports wildcard patterns in disk names (for example, `win_OsDisk*`). If you provide a disk name without specifying a resource group, it searches across the entire subscription. Specifying a resource group scopes the search to that resource group. Both parameters are optional.
+You can list available Azure managed disks or retrieve detailed information about a specific disk. You can view all disks in a subscription or in a specific resource group, including disk size, SKU, provisioning state, and OS type. The tool supports wildcard patterns in disk names (for example, `win_OsDisk*`).
+
+If you provide a disk name without specifying a resource group, the tool searches across the entire subscription. Specify a resource group to scope the search to that resource group. Both parameters are optional.
 
 Example prompts include:
-- "List all managed disks in my subscription."
-- "Show me all disks in resource group `<resource-group>`."
-- "Get details of disk `<disk-name>`."
-- "What are the available disk sizes?"
-- "Show me the disks with name pattern `win_OsDisk*` in resource group `<resource-group>`."
-- "Get information about disk `<disk-name>` in resource group `<resource-group>`."
+
+- *"List all managed disks in my subscription."*
+
+- *"Show me all disks in resource group `<resource-group>`."*
+
+- *"Get details of disk `<disk-name>`."*
+
+- *"What are the available disk sizes?"*
+
+- *"Show me the disks with name pattern `win_OsDisk*` in resource group `<resource-group>`."*
+
+- *"Get information about disk `<disk-name>` in resource group `<resource-group>`."*
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -143,39 +152,57 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli compute disk update -->
 
-Update or modify properties of an existing Azure managed disk that you previously created. If you don't specify the resource group, the disk is located by name within the subscription. This operation supports changing disk size (only increases are allowed), storage SKU, IOPS and throughput limits (for UltraSSD only), maximum shares for shared disk attachments, on-demand bursting, tags, encryption settings, disk access, and performance tier. You can modify the network access policy to `DenyAll`, `AllowAll`, or `AllowPrivate` on an existing disk. Only specified properties are updated; unspecified properties remain unchanged.
+Update or modify properties of an existing Azure managed disk that you previously created. If you don't specify the resource group, the disk is located by name within the subscription.
+
+This operation supports increasing the disk size, and modifying the storage SKU, IOPS and throughput limits (for UltraSSD only), and the maximum shares for shared disk attachments. You can also change on-demand bursting, tags, encryption settings, disk access, and the performance tier.
+
+You can modify the network access policy to `DenyAll`, `AllowAll`, or `AllowPrivate` on an existing disk. Only specified properties are updated; unspecified properties remain unchanged.
 
 Example prompts include:
-- "Update disk `<disk-name>` in resource group `<resource-group>` to 1024 GB"
-- "Change the SKU of disk `<disk-name>` to `UltraSSD_LRS`"
-- "Resize disk `<disk-name>` in resource group `<resource-group>` to 2048 GB"
-- "Update disk `<disk-name>` to disable bursting"
-- "Set the max shares on disk `<disk-name>` to 3"
-- "Change the network access policy of disk `<disk-name>` to `AllowPrivate`"
-- "Update disk `<disk-name>` in resource group `<resource-group>` with tags `env=production`"
-- "Set the IOPS limit on Ultra disk `<disk-name>` in resource group `<resource-group>` to 15000"
-- "Update the throughput of disk `<disk-name>` in resource group `<resource-group>` to 1000 MBps"
-- "Change the performance tier of disk `<disk-name>` in resource group `<resource-group>` to `P50`"
-- "Update disk `<disk-name>` in resource group `<resource-group>` to use disk encryption set `<disk-encryption-set-id>`"
-- "Change the encryption type of disk `<disk-name>` in resource group `<resource-group>` to `EncryptionAtRestWithCustomerKey`"
-- "Set disk access on disk `<disk-name>` in resource group `<resource-group>` to `<disk-access-resource-id>` with network access policy `DenyAll`"
-- "Update disk `<disk-name>` to `PremiumV2_LRS` SKU with 256 GB size and tags `env=test`"
+
+- *"Update disk `<disk-name>` in resource group `<resource-group>` to 1024 GB."*
+
+- *"Change the SKU of disk `<disk-name>` to `UltraSSD_LRS`."*
+
+- *"Resize disk `<disk-name>` in resource group `<resource-group>` to 2048 GB."*
+
+- *"Update disk `<disk-name>` to disable bursting."*
+
+- *"Set the max shares on disk `<disk-name>` to 3."*
+
+- *"Change the network access policy of disk `<disk-name>` to `AllowPrivate`."*
+
+- *"Update disk `<disk-name>` in resource group `<resource-group>` with tags `env=production`."*
+
+- *"Set the IOPS limit on Ultra disk `<disk-name>` in resource group `<resource-group>` to 15000."*
+
+- *"Update the throughput of disk `<disk-name>` in resource group `<resource-group>` to 1000 MBps."*
+
+- *"Change the performance tier of disk `<disk-name>` in resource group `<resource-group>` to `P50`."*
+
+- *"Update disk `<disk-name>` in resource group `<resource-group>` to use disk encryption set `<disk-encryption-set-id>`."*
+
+- *"Change the encryption type of disk `<disk-name>` in resource group `<resource-group>` to `EncryptionAtRestWithCustomerKey`."*
+
+- *"Set disk access on disk `<disk-name>` in resource group `<resource-group>` to `<disk-access-resource-id>` with network access policy `DenyAll`."*
+
+- *"Update disk `<disk-name>` to `PremiumV2_LRS` SKU with 256 GB size and tags `env=test`."*
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Disk name** |  Required | The name of the disk. |
-| **Disk access** |  Optional | Resource ID of the disk access resource for using private endpoints on disks. |
-| **Disk encryption set** |  Optional | Resource ID of the disk encryption set to use for enabling encryption at rest. |
+| **Disk access** |  Optional | The resource ID of the disk access resource for using private endpoints on disks. |
+| **Disk encryption set** |  Optional | The resource ID of the disk encryption set to use for enabling encryption at rest. |
 | **Disk iops read write** |  Optional | The number of IOPS allowed for this disk. Only settable for UltraSSD disks. |
 | **Disk mbps read write** |  Optional | The bandwidth allowed for this disk in MBps. Only settable for UltraSSD disks. |
-| **Enable bursting** |  Optional | Enable on-demand bursting beyond the provisioned performance target of the disk. Doesn't apply to Ultra disks. Accepted values: `true`, `false`. |
-| **Encryption type** |  Optional | Encryption type of the disk. Accepted values: `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, `EncryptionAtRestWithPlatformKey`. |
-| **Max shares** |  Optional | The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a shared disk. |
-| **Network access policy** |  Optional | Policy for accessing the disk via network. Accepted values: `AllowAll`, `AllowPrivate`, `DenyAll`. |
-| **Size gb** |  Optional | Size of the disk in GB. Max size: 4095 GB. |
-| **SKU** |  Optional | Underlying storage SKU. Accepted values: `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Standard_LRS`, `UltraSSD_LRS`. |
+| **Enable bursting** |  Optional | Enable on-demand bursting beyond the provisioned performance target of the disk. Doesn't apply to Ultra disks. Accepted values: `true` or `false`. |
+| **Encryption type** |  Optional | The encryption type of the disk. Accepted values: `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, or `EncryptionAtRestWithPlatformKey`. |
+| **Max shares** |  Optional | The maximum number of VMs that can attach to the disk at the same time. A value greater than one indicates a shared disk. |
+| **Network access policy** |  Optional | The policy for accessing the disk via network. Accepted values: `AllowAll`, `AllowPrivate`, or `DenyAll`. |
+| **Size gb** |  Optional | The size of the disk in GB. Max size: 4095 GB. |
+| **SKU** |  Optional | The underlying storage SKU. Accepted values: `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Standard_LRS`, or `UltraSSD_LRS`. |
 | **Tags** |  Optional | Space-separated tags in `key=value` format. Use `''` to clear existing tags. |
-| **Tier** |  Optional | Performance tier of the disk (for example, `P10`, `P15`, `P20`, `P30`, `P40`, `P50`, `P60`, `P70`, `P80`). Applicable to Premium SSD disks only. |
+| **Tier** |  Optional | The performance tier of the disk (for example, `P10`, `P15`, `P20`, `P30`, `P40`, `P50`, `P60`, `P70`, or `P80`). Applicable to Premium SSD disks only. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -185,19 +212,25 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vm create -->
 
-Create, deploy, or provision a single Azure Virtual Machine (VM). This command launches a new Linux or Windows VM with either SSH key or password authentication. It automatically creates networking resources (VNet, subnet, NSG, NIC, public IP) if you don't specify them. The default VM size is `Standard_DS1_v2`, and the default OS is Ubuntu 24.04 LTS if you don't specify otherwise.
+Create, deploy, or provision a single instance of Azure Virtual Machines. This command launches a new Linux or Windows VM with either SSH key or password authentication. If you don't specify networking resources (such as a virtual network or subnet), this tool automatically creates them. The default VM size is `Standard_DS1_v2`, and the default OS is Ubuntu 24.04 LTS if you don't specify otherwise.
 
-You can create a Linux VM using an SSH public key by providing the key content or the path to the key file. For example, you can specify your public key file at `~/.ssh/id_rsa.pub`. 
+You can create a Linux VM by using an SSH public key. You provide the key content or the path to the key file. For example, you can specify your public key file at `~/.ssh/id_rsa.pub`.
 
-This command doesn't support creating Virtual Machine Scale Sets with multiple identical instances. Instead, use `VMSS create`. 
+This command doesn't support creating virtual machine scale sets with multiple identical instances. Instead, use `VMSS create`.
 
 Example prompts include:
-- "Create a new Linux VM named `<vm-name>` with SSH key in resource group `<resource-group>`"
-- "Launch a virtual machine with the Ubuntu2404 image in `<resource-group>`"
-- "Create a Windows VM named `<vm-name>` with an admin password in resource group `<resource-group>`"
-- "Deploy VM `<vm-name>` in `<location>` with `Standard_DS1_v2` size"
-- "Spin up a VM with `Standard_B2s` size and no public IP in resource group `<resource-group>`"
-- "Create a Linux VM named `<vm-name>` in `<location>` with a custom network security group"
+
+- *"Create a new Linux VM named `<vm-name>` with SSH key in resource group `<resource-group>`."*
+
+- *"Launch a virtual machine with the Ubuntu2404 image in `<resource-group>`."*
+
+- *"Create a Windows VM named `<vm-name>` with an admin password in resource group `<resource-group>`."*
+
+- *"Deploy VM `<vm-name>` in `<location>` with `Standard_DS1_v2` size."*
+
+- *"Spin up a VM with `Standard_B2s` size and no public IP in resource group `<resource-group>`."*
+
+- *"Create a Linux VM named `<vm-name>` in `<location>` with a custom network security group."*
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -206,19 +239,19 @@ Example prompts include:
 | **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **VM name** |  Required | The name of the virtual machine. |
 | **Admin password** |  Optional | The admin password for Windows VMs or when the SSH key isn't provided for Linux VMs. |
-| **Image** |  Optional | The OS image to use. Can be URN (publisher:offer:SKU:version) or an alias like `Ubuntu2404` or `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
-| **Network security group** |  Optional | Name of the network security group to use or create. |
-| **No public IP** |  Optional | Don't create or assign a public IP address. |
-| **OS disk size GB** |  Optional | OS disk size in GB. Defaults based on image requirements. |
-| **OS disk type** |  Optional | OS disk type: `Premium_LRS`, `StandardSSD_LRS`, `Standard_LRS`. Defaults based on VM size. |
-| **OS type** |  Optional | The Operating System type of the disk. Accepted values: `Linux`, `Windows`. |
-| **Public IP address** |  Optional | Name of the public IP address to use or create. |
-| **Source address prefix** |  Optional | Source IP address range for NSG inbound rules (for example, `203.0.113.0/24` or a specific IP). Defaults to `*` (any source). |
-| **SSH public key** |  Optional | SSH public key for Linux VMs. Can be the key content or path to a file. |
-| **Subnet** |  Optional | Name of the subnet within the virtual network. |
-| **Virtual network** |  Optional | Name of an existing virtual network to use. If you don't specify it, the command creates a new one. |
+| **Image** |  Optional | The OS image to use. Can be a URN (publisher:offer:SKU:version), or an alias like `Ubuntu2404` or `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
+| **Network security group** |  Optional | The name of the network security group to use or create. |
+| **No public IP** |  Optional | The instruction not to create or assign a public IP address. |
+| **OS disk size GB** |  Optional | The OS disk size in GB. Defaults are based on image requirements. |
+| **OS disk type** |  Optional | The OS disk type: `Premium_LRS`, `StandardSSD_LRS`, or `Standard_LRS`. Defaults are based on VM size. |
+| **OS type** |  Optional | The operating system type of the disk. Accepted values: `Linux` or `Windows`. |
+| **Public IP address** |  Optional | The name of the public IP address to use or create. |
+| **Source address prefix** |  Optional | The source IP address range for NSG inbound rules (for example, `203.0.113.0/24` or a specific IP). Defaults to `*` (any source). |
+| **SSH public key** |  Optional | The SSH public key for Linux VMs. Can be the key content or path to a file. |
+| **Subnet** |  Optional | The name of the subnet within the virtual network. |
+| **Virtual network** |  Optional | The name of an existing virtual network to use. If you don't specify it, the command creates a new one. |
 | **VM size** |  Optional | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if you don't specify it. |
-| **Zone** |  Optional | Availability zone into which to provision the resource. |
+| **Zone** |  Optional | The availability zone into which to provision the resource. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
