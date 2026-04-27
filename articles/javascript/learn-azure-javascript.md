@@ -2,7 +2,7 @@
 title: Training with Azure and JavaScript 
 description: Use Microsoft's training platform to expand your understanding of Azure with JavaScript.
 ms.topic: how-to
-ms.date: 03/28/2025
+ms.date: 04/27/2026
 ms.custom: devx-track-js
 ---
 
@@ -43,10 +43,6 @@ Continue your learning with JavaScript and Azure by building on your foundationa
 * [Beginner's Series to: JavaScript](/shows/beginners-series-to-javascript)
 * [Beginner's Series to: Vue.js](/shows/beginners-series-to-vuejs/)
 * [Beginner's Series to: Node.js](/shows/beginners-series-to-nodejs/)
-
-## Exams
-
-* [Exam 70-480](/certifications/exams/70-480): Programming in HTML5 with JavaScript and CSS3
 
 ## Next steps
 
