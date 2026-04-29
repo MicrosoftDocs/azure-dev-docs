@@ -7,19 +7,20 @@ ms.date: 04/10/2026
 
 ## Prerequisites
 
-- An Azure account and access to an Azure subscription. For details on how to set them up, see the [pricing page for Azure accounts](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+To complete the steps in this article, make sure that you have:
 
 - A GitHub account and a GitHub Copilot subscription. For details on how to set them up, see [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart), respectively.
 
-- Visual Studio 2022 (Any edition). For details on how to download and install it, see [Install Visual Studio](/visualstudio/install/install-visual-studio).
+- Visual Studio 2022 version 17.14.30 or later (any edition). For details on how to download and install it, see [Install Visual Studio](/visualstudio/install/install-visual-studio).
 
 >[!IMPORTANT]
 >GitHub Copilot is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Getting started with a GitHub Copilot plan](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan).
 
+By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. For more information, see [Manage access to Microsoft Copilot in Azure](/azure/copilot/manage-access).
 
 ## Install GitHub Copilot for Azure
 
-Azure MCP is built in to Visual Studio 2022. You need the Azure development workload installed to access the Azure MCP tools.
+Azure MCP is built in to Visual Studio 2022. No separate GitHub Copilot for Azure extension is required; the Azure MCP tools are included with the Azure development workload.
 
 1. If you already installed Visual Studio 2022 and want to add GitHub Copilot for Azure after initial install, open Visual Studio Installer and select the **Modify** button, which displays the available workloads.
 
@@ -32,6 +33,9 @@ Azure MCP is built in to Visual Studio 2022. You need the Azure development work
    :::image type="content" source="../media/get-started/visual-studio-2022-installer-workloads.png" alt-text="Screenshot that shows the Visual Studio Installer with the Azure development button highlighted.":::
 
 1. Select the **Install** button to complete the installation.
+
+> [!NOTE]
+> Azure MCP tools are serviced with regular Visual Studio updates. To get updates, use the Visual Studio Installer (**Modify** or **Update**) and ensure you are on the latest Visual Studio 2022 version.
 
 1. Launch Visual Studio 2022 and create or load a project.
 
@@ -46,7 +50,7 @@ Azure MCP is built in to Visual Studio 2022. You need the Azure development work
    :::image type="content" source="../media/get-started/visual-studio-2022-select-tools-mcp-server.png" alt-text="Screenshot that shows the select tools dialog with the Azure MCP Server node checked.":::
 
 > [!NOTE]
-> The Azure MCP tools are disabled by default in Visual Studio 2022 and need to be manually enabled before use. The VS-specific tools that are available in Visual Studio 2026 aren't included in Visual Studio 2022.
+> The Azure MCP tools are disabled by default in Visual Studio 2022 and need to be manually enabled before use. Once enabled from the Select tools dialog, your Azure MCP tool selections persist across sessions. Visual Studio 2026–specific tools aren't available in Visual Studio 2022.
 
 ## Write your first prompt
 

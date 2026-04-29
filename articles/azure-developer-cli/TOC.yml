@@ -105,7 +105,7 @@
           href: use-external-registry.md
         - name: Azure deployment stacks integration
           href: azure-deployment-stacks-integration.md
-        - name: Deploy to Azure AI/ML online endpoints
+        - name: Deploy to Microsoft Foundry online endpoints
           href: azure-ai-ml-endpoints.md
         - name: Configure service packaging ignore files
           href: service-packaging-ignore-files.md

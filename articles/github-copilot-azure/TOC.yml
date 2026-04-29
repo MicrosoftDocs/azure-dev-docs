@@ -9,6 +9,14 @@
   href: support.md
 - name: Quickstarts
   items:
+    - name: Overview
+      href: introduction.md
+    - name: Get started
+      href: get-started.md
+    - name: Get support
+      href: support.md
+    - name: Quickstarts
+      items:
     - name: Deploy an existing app with agent mode
       href: quickstart-deploy-app-agent-mode.md
 - name: Learn about Azure and your app

@@ -10,7 +10,7 @@ metadata:
   ms.topic: hub-page
   ms.service: azure
   ms.subservice: developer
-  author: mcleanbyron
+  author: Susan-Potter
   ms.author: mcleans
   manager: mcleans
   ms.date: 10/14/2025
@@ -133,12 +133,12 @@ conceptualContent:
         url: /azure/developer/ai-developer-tools/
         text: See more
     # Card
-    - title: GitHub Copilot app modernization
+    - title: GitHub Copilot modernization
       summary: AI-powered agents that analyze and upgrade Java and .NET applications, and migrate them to Azure.
       links:
         - url: ./github-copilot-app-modernization/overview.md
           itemType: overview
-          text: What is GitHub Copilot app modernization?
+          text: What is GitHub Copilot modernization?
       footerLink:
         url: /azure/developer/github-copilot-app-modernization/
         text: See more

@@ -97,8 +97,8 @@
         }
       },
       "author": {
-        "**/*.md": "mcleanbyron",
-        "**/*.yml": "mcleanbyron",
+        "**/*.md": "Susan-Potter",
+        "**/*.yml": "Susan-Potter",
         "ansible/**/*.md": "TomArcherMsft",
         "ansible/**/*.yml": "TomArcherMsft",
         "azure-developer-cli/**/*.md": "alexwolfmsft",
@@ -117,8 +117,8 @@
         "jenkins/**/*.yml": "TomArcherMsft",
         "github-copilot-app-modernization/**/*.md": "KarlErickson",
         "github-copilot-app-modernization/**/*.yml": "KarlErickson",
-        "python/**/*.md": "bobtabor-msft",
-        "python/**/*.yml": "bobtabor-msft",
+        "python/**/*.md": "PatAltimore",
+        "python/**/*.yml": "PatAltimore",
         "terraform/**/*.md": "TomArcherMsft",
         "terraform/**/*.yml": "TomArcherMsft",
         "typespec/**/*.md": "diberry",
@@ -141,14 +141,14 @@
         "ai-developer-tools/**/*.yml": "diberry"
       },
       "manager":{
-        "**/*.md": "mcleans",
-        "**/*.yml": "mcleans",
+        "**/*.md": "susanpotter",
+        "**/*.yml": "susanpotter",
         "terraform/**/*.md": "jasongroce",
         "terraform/**/*.yml": "jasongroce"
       },
       "ms.author": {
-        "**/*.md": "mcleans",
-        "**/*.yml": "mcleans",
+        "**/*.md": "susanpotter",
+        "**/*.yml": "susanpotter",
         "ansible/**/*.md": "tarcher",
         "ansible/**/*.yml": "tarcher",
         "azure-developer-cli/**/*.md": "alexwolf",
@@ -167,8 +167,8 @@
         "jenkins/**/*.yml": "tarcher",
         "github-copilot-app-modernization/**/*.md": "karler",
         "github-copilot-app-modernization/**/*.yml": "karler",
-        "python/**/*.md": "rotabor",
-        "python/**/*.yml": "rotabor",
+        "python/**/*.md": "patricka",
+        "python/**/*.yml": "patricka",
         "terraform/**/*.md": "tarcher",
         "terraform/**/*.yml": "tarcher",
         "typespec/**/*.md": "diberry",
