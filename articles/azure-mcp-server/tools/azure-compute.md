@@ -261,19 +261,21 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vm delete -->
 
-Delete an Azure virtual machine permanently. This operation is irreversible and the VM data is lost. Use the `Force deletion` parameter to force-delete a VM that is in a running or failed state.
+Delete an Azure virtual machine permanently. This operation is irreversible and the VM data is lost. Use the `Force deletion` parameter to delete a VM that's in a running or failed state.
 
 Example prompts include:
 
-- "Delete VM 'test-vm-01' in resource group 'dev-rg'."
-- "Remove virtual machine 'staging-web' from resource group 'staging-rg'."
-- "Force delete VM 'stuck-vm' in resource group 'prod-rg'."
+- *"Delete VM `test-vm-01` in resource group `dev-rg`."*
+
+- *"Remove virtual machine `staging-web` from resource group `staging-rg`."*
+
+- *"Force delete VM `stuck-vm` in resource group `prod-rg`."*
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Resource group** | Required | The name of the Azure resource group. |
 | **VM name** | Required | The name of the virtual machine to delete. |
-| **Force deletion** | Optional | Force delete the resource even if it's in a running or failed state. |
+| **Force deletion** | Optional | Delete the resource even if it's in a running or failed state. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -283,23 +285,37 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vm get -->
 
-List or get Azure Virtual Machines (VMs) in a subscription or resource group. This command returns VM details, including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state.
+List or get Azure virtual machines (VMs) in a subscription or resource group. This command returns VM details, including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state.
 
 Example prompts include:
-- "List all virtual machines in my subscription."
-- "Show me all VMs in my subscription."
-- "What virtual machines do I have?"
-- "List virtual machines in resource group `resource-group-name`."
-- "Show me VMs in resource group `resource-group-name`."
-- "What VMs are in resource group `resource-group-name`?"
-- "Get details for virtual machine `vm-name` in resource group `resource-group-name`."
-- "Show me virtual machine `vm-name` in resource group `resource-group-name`"
-- "What are the details of VM `vm-name` in resource group `resource-group-name`?"
-- "Get virtual machine `vm-name` with instance view in resource group `resource-group-name`."
-- "Show me VM `vm-name` with runtime status in resource group `resource-group-name`."
-- "What is the power state of virtual machine `vm-name` in resource group `resource-group-name`?"
-- "Get VM `vm-name` status and provisioning state in resource group `resource-group-name`."
-- "Show me the current status of VM `vm-name`."
+
+- *"List all virtual machines in my subscription."*
+
+- *"Show me all VMs in my subscription."*
+
+- *"What virtual machines do I have?"*
+
+- *"List virtual machines in resource group `resource-group-name`."*
+
+- *"Show me VMs in resource group `resource-group-name`."*
+
+- *"What VMs are in resource group `resource-group-name`?"*
+
+- *"Get details for virtual machine `vm-name` in resource group `resource-group-name`."*
+
+- *"Show me virtual machine `vm-name` in resource group `resource-group-name`"*
+
+- *"What are the details of VM `vm-name` in resource group `resource-group-name`?"*
+
+- *"Get virtual machine `vm-name` with instance view in resource group `resource-group-name`."*
+
+- *"Show me VM `vm-name` with runtime status in resource group `resource-group-name`."*
+
+- *"What is the power state of virtual machine `vm-name` in resource group `resource-group-name`?"*
+
+- *"Get VM `vm-name` status and provisioning state in resource group `resource-group-name`."*
+
+- *"Show me the current status of VM `vm-name`."*
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -316,21 +332,25 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 Update, modify, or reconfigure an existing Azure virtual machine (VM). You can resize a VM, update tags, configure boot diagnostics, or change user data. You might need to deallocate the VM before resizing it to certain sizes.
 
-Here are some example prompts for using this tool:
-- "Add license type `Windows_Server` to VM `<vm-name>` in resource group `<resource-group-name>`"
-- "Update user data for VM `<vm-name>` in resource group `<resource-group-name>`"
-- "Resize VM `<vm-name>` in resource group `<resource-group-name>` to `Standard_B2s`"
-- "Enable boot diagnostics for VM `<vm-name>` in resource group `<resource-group-name>`"
+Example prompts include:
 
-| Parameter            | Required or optional | Description |
-|----------------------|----------------------|-------------|
-| **Resource group**    | Required             | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| **VM name**           | Required             | The name of the virtual machine. |
-| **Boot diagnostics**   | Optional             | Enable or disable boot diagnostics: `true` or `false`. |
-| **License type**      | Optional             | License type for Azure Hybrid Benefit: `Windows_Server`, `Windows_Client`, `RHEL_BYOS`, `SLES_BYOS`, or `None` to disable. |
-| **Tags**              | Optional             | Space-separated tags in `key=value` format. Use `''` to clear existing tags. |
-| **User data**         | Optional             | Base64-encoded user data for the VM. Use to update custom data scripts. |
-| **VM size**           | Optional             | The VM size (for example, `Standard_D2s_v3`, `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified. |
+- *"Add license type `Windows_Server` to VM `<vm-name>` in resource group `<resource-group-name>`."*
+
+- *"Update user data for VM `<vm-name>` in resource group `<resource-group-name>`."*
+
+- *"Resize VM `<vm-name>` in resource group `<resource-group-name>` to `Standard_B2s`."*
+
+- *"Enable boot diagnostics for VM `<vm-name>` in resource group `<resource-group-name>`."*
+
+| Parameter            | Required or optional | Description                                                                                                                    |
+|----------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| **Resource group**   | Required             | The name of the Azure resource group. This name is a logical container for Azure resources.                                    |
+| **VM name**          | Required             | The name of the virtual machine.                                                                                               |
+| **Boot diagnostics** | Optional             | Enable or disable boot diagnostics: `true` or `false`.                                                                         |
+| **License type**     | Optional             | The license type for Azure hybrid benefit: `Windows_Server`, `Windows_Client`, `RHEL_BYOS`, `SLES_BYOS`, or `None` to disable. |
+| **Tags**             | Optional             | The space-separated tags in `key=value` format. Use `''` to clear existing tags.                                               |
+| **User data**        | Optional             | The base64-encoded user data for the VM. Use to update custom data scripts.                                                    |
+| **VM size**          | Optional             | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified.                |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -340,33 +360,36 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vmss create -->
 
-Create, deploy, or provision an Azure Virtual Machine Scale Set (VMSS) for running multiple identical VM instances. This tool helps you deploy workloads that require horizontal scaling, load balancing, or high availability across instances. The default configuration creates two instances of size Standard_DS1_v2 running Ubuntu 24.04 LTS.
+Create, deploy, or provision a virtual machine scale set to run multiple identical VM instances. This tool helps you deploy workloads that require horizontal scaling, load balancing, or high availability across instances. The default configuration creates two instances of size Standard_DS1_v2, running Ubuntu 24.04 LTS.
 
 Create a scale set by specifying the `resource group`, `VMSS name`, and `admin username`, along with other optional settings. Here are some example commands:
 
-- "Create a virtual machine scale set named `my-vmss` in resource group `my-rg`."
-- "Create a VMSS with four instances in `my-rg`."
-- "Deploy a scale set with a Manual upgrade policy and two instances in `my-rg`."
-- "Create a Linux VMSS with SSH public key from '`~/.ssh/id_rsa.pub`' in `my-rg`."
+- *"Create a virtual machine scale set named `my-vmss` in resource group `my-rg`."*
+
+- *"Create a virtual machine scale set with four instances in `my-rg`."*
+
+- *"Deploy a scale set with a manual upgrade policy and two instances in `my-rg`."*
+
+- *"Create a Linux virtual machine scale set with SSH public key from '`~/.ssh/id_rsa.pub`' in `my-rg`."*
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Admin username** | Required | The admin username for the VM. Required for VM creation. |
 | **Location** | Required | The Azure region or location. Defaults to the resource group's location if you don't specify it. |
 | **Resource group** | Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| **Virtual machine scale set (VMSS) name** | Required | The name of the virtual machine scale set. |
+| **Virtual machine scale set name** | Required | The name of the virtual machine scale set. |
 | **Admin password** | Optional | The admin password for Windows VMs or when an SSH key isn't provided for Linux VMs. |
 | **Image** | Optional | The OS image to use. Can be a URN (publisher:offer:SKU:version) or alias like `Ubuntu2404`, `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
-| **Instance count** | Optional | Number of VM instances in the scale set. Default is 2. |
-| **Os disk size gb** | Optional | OS disk size in GB. Defaults based on image requirements. |
-| **Os disk type** | Optional | OS disk type: `Premium_LRS`, `StandardSSD_LRS`, `Standard_LRS`. Defaults based on VM size. |
-| **Os type** | Optional | The Operating System type of the disk. Accepted values: Linux, Windows. |
-| **Ssh public key** | Optional | SSH public key for Linux VMs. Can be the key content or path to a file. |
-| **Subnet** | Optional | Name of the subnet within the virtual network. |
-| **Upgrade policy** | Optional | Upgrade policy mode: `Automatic`, `Manual`, or `Rolling`. Default is `Manual`. |
-| **Virtual network** | Optional | Name of an existing virtual network to use. If you don't specify it, the tool creates a new one. |
-| **VM size** | Optional | The VM size (for example, `Standard_D2s_v3`, `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified. |
-| **Zone** | Optional | Availability zone into which to provision the resource. |
+| **Instance count** | Optional | The number of VM instances in the scale set. Default is 2. |
+| **OS disk size gb** | Optional | OS disk size in GB. Defaults based on image requirements. |
+| **OS disk type** | Optional | OS disk type: `Premium_LRS`, `StandardSSD_LRS`, or `Standard_LRS`. Defaults based on VM size. |
+| **OS type** | Optional | The operating system type of the disk. Accepted values: Linux or Windows. |
+| **Ssh public key** | Optional | The SSH public key for Linux VMs. Can be the key content or path to a file. |
+| **Subnet** | Optional | The name of the subnet within the virtual network. |
+| **Upgrade policy** | Optional | The upgrade policy mode: `Automatic`, `Manual`, or `Rolling`. Default is `Manual`. |
+| **Virtual network** | Optional | The name of an existing virtual network to use. If you don't specify it, the tool creates a new one. |
+| **VM size** | Optional | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified. |
+| **Zone** | Optional | The availability zone into which to provision the resource. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -376,18 +399,20 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vmss delete -->
 
-Delete an Azure Virtual Machine Scale Set and all its VM instances permanently. This operation is irreversible. Use the `Force deletion` parameter to force-delete a scale set that is in a running or failed state.
+Delete a virtual machine scale set and all its VM instances permanently. This operation is irreversible. Use the `Force deletion` parameter to delete a scale set that's in a running or failed state.
 
 Example prompts include:
 
-- "Delete scale set 'web-frontend-vmss' in resource group 'prod-rg'."
-- "Remove VMSS 'test-scaleset' from resource group 'dev-rg'."
-- "Force delete virtual machine scale set 'stuck-vmss' in resource group 'staging-rg'."
+- *"Delete scale set `web-frontend-vmss` in resource group `prod-rg`."*
+
+- *"Remove virtual machine scale set `test-scaleset` from resource group `dev-rg`."*
+
+- *"Force delete virtual machine scale set `stuck-vmss` in resource group `staging-rg`."*
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Resource group** | Required | The name of the Azure resource group. |
-| **VMSS name** | Required | The name of the virtual machine scale set to delete. |
+| **Virtual machine scale set name** | Required | The name of the virtual machine scale set to delete. |
 | **Force deletion** | Optional | Force delete the resource even if it's in a running or failed state. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -398,21 +423,28 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vmss get -->
 
-List or get Azure Virtual Machine Scale Sets (VMSS) and their instances in a subscription or resource group. This tool returns scale set details, including name, location, SKU, capacity, upgrade policy, and individual VM instance information.
+List or get virtual machine scale sets and their instances in a subscription or resource group. This tool returns scale set details, including name, location, SKU, capacity, upgrade policy, and individual VM instance information.
 
 Example prompts include:
-- "List all virtual machine scale sets in my subscription."
-- "List virtual machine scale sets in resource group `<resource-group-name>`."
-- "What scale sets are in resource group `<resource-group-name>`?"
-- "Get details for virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."
-- "Show me VMSS `<vmss-name>` in resource group `<resource-group-name>`."
-- "Show me instance `<instance-id>` of VMSS `<vmss-name>` in resource group `<resource-group-name>`."
-- "What is the status of instance `<instance-id>` in scale set `<vmss-name>`?"
 
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Instance ID** |  Optional | The instance ID of the virtual machine in the scale set. |
-| **Virtual machine scale set (VMSS) name** |  Optional | The name of the virtual machine scale set. |
+- *"List all virtual machine scale sets in my subscription."*
+
+- *"List virtual machine scale sets in resource group `<resource-group-name>`."*
+
+- *"What scale sets are in resource group `<resource-group-name>`?"*
+
+- *"Get details for virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."*
+
+- *"Show me virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."*
+
+- *"Show me instance `<instance-id>` of virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."*
+
+- *"What is the status of instance `<instance-id>` in scale set `<vmss-name>`?"*
+
+| Parameter                          | Required or optional | Description                                              |
+|------------------------------------|----------------------|----------------------------------------------------------|
+| **Instance ID**                    | Optional             | The instance ID of the virtual machine in the scale set. |
+| **Virtual machine scale set name** | Optional             | The name of the virtual machine scale set.               |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -422,25 +454,29 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli compute vmss update -->
 
-Update, modify, or reconfigure an existing Azure Virtual Machine Scale Set (VMSS). You can scale the instance count, resize VMs, change the upgrade policy, or update tags on a scale set. Some changes require `update-instances` to roll out to existing VMs. This tool doesn't create a new VMSS. Use `VMSS create` instead. To update a single VM, use `VM update`.
+Update, modify, or reconfigure an existing virtual machine scale set. You can scale the instance count, resize VMs, change the upgrade policy, or update tags on a scale set. Some changes require `update-instances` to roll out to existing VMs. This tool doesn't create a new virtual machine scale set. Use `VMSS create` instead. To update a single VM, use `VM update`.
 
 Example prompts include:
-- "Update the capacity of VMSS `myScaleSet` to 15."
-- "Enable overprovisioning on the scale set `myScaleSet`."
-- "Change the VM size to `Standard_D4s_v3` for `myScaleSet`."
-- "Clear existing tags on scale set `myScaleSet` in resource group `myResourceGroup`."
 
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| **Virtual machine scale set (VMSS) name** |  Required | The name of the virtual machine scale set. |
-| **Capacity** |  Optional | Number of VM instances (capacity) in the scale set. |
-| **Enable auto os upgrade** |  Optional | Enable automatic OS image upgrades. Requires health probes or the Application Health extension. |
-| **Overprovision** |  Optional | Enable or disable overprovisioning. When enabled, Azure provisions more VMs than requested and deletes extra VMs after deployment. |
-| **Scale in policy** |  Optional | Scale-in policy to determine which VMs to remove: `Default`, `NewestVM`, or `OldestVM`. |
-| **Tags** |  Optional | Space-separated tags in `key=value` format. Use `''` to clear existing tags. |
-| **Upgrade policy** |  Optional | Upgrade policy mode: `Automatic`, `Manual`, or `Rolling`. Default is `Manual`. |
-| **VM size** |  Optional | The VM size (for example, `Standard_D2s_v3`, `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified. |
+- *"Update the capacity of virtual machine scale set `myScaleSet` to 15."*
+
+- *"Enable overprovisioning on the scale set `myScaleSet`."*
+
+- *"Change the VM size to `Standard_D4s_v3` for `myScaleSet`."*
+
+- *"Clear existing tags on scale set `myScaleSet` in resource group `myResourceGroup`."*
+
+| Parameter                          | Required or optional | Description                                                                                                                         |
+|------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| **Resource group**                 | Required             | The name of the Azure resource group. This name is a logical container for Azure resources.                                         |
+| **Virtual machine scale set name** | Required             | The name of the virtual machine scale set.                                                                                          |
+| **Capacity**                       | Optional             | The number of VM instances (capacity) in the scale set.                                                                                 |
+| **Enable auto OS upgrade**         | Optional             | Enable automatic OS image upgrades. Requires health probes or the application health extension.                                     |
+| **Overprovision**                  | Optional             | Enable or disable overprovisioning. When enabled, Azure provisions more VMs than requested, and deletes extra VMs after deployment. |
+| **Scale in policy**                | Optional             | The scale-in policy to determine which VMs to remove: `Default`, `NewestVM`, or `OldestVM`.                                         |
+| **Tags**                           | Optional             | The space-separated tags in `key=value` format. Use `''` to clear existing tags.                                                    |
+| **Upgrade policy**                 | Optional             | The upgrade policy mode: `Automatic`, `Manual`, or `Rolling`. Default is `Manual`.                                                  |
+| **VM size**                        | Optional             | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified.                     |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
