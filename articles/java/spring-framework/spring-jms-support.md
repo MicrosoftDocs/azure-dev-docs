@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
-- ✅ Version 6.2.0
+- ✅ Version 6.3.0
 - ✅ Version 7.2.0
 ---
 
@@ -147,7 +147,7 @@ Spring Cloud Azure provides the following three Connection Factory options for c
 
 - `ServiceBusJmsConnectionFactory`: In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
 
-When all the three classes exist in the classpath, which one is used? The following table describes which is used based on configuration properties (since Spring Cloud Azure **7.2.0** and **6.2.0**):
+When all the three classes exist in the classpath, which one is used? The following table describes which is used based on configuration properties (since Spring Cloud Azure **7.2.0** and **6.3.0**):
 
 > [!div class="mx-tdBreakAll"]
 > | `spring.jms.servicebus.pool.enabled` | `spring.jms.cache.enabled` | Sender `ConnectionFactory`       | Listener Container `ConnectionFactory` |
