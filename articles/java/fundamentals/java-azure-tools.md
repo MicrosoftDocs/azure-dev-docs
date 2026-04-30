@@ -37,7 +37,7 @@ Manage Azure resources and deploy apps from your IDE with The Azure toolkits for
 
 For Azure development, [GitHub Copilot for Azure](../../github-copilot-azure/introduction.md) provides specialized assistance with Azure SDK code, deployment configurations, and infrastructure setup.
 
-If you're modernizing legacy Java applications for Azure, the [GitHub Copilot app modernization](../migration/migrate-github-copilot-app-modernization-for-java.md) tools can help automate the migration process and recommend Azure-optimized patterns.
+If you're modernizing legacy Java applications for Azure, the [GitHub Copilot modernization](../migration/migrate-github-copilot-app-modernization-for-java.md) tools can help automate the migration process and recommend Azure-optimized patterns.
 
 ## Apache Maven and Gradle plugins
 
