@@ -24,7 +24,7 @@ Azure compute provides scalable computing resources for applications and workloa
 
 With this tool, you can create a new Azure managed disk in the specified resource group. You can create empty disks (specify `size-gb`), disks from a source such as a snapshot, another managed disk, or a blob URI (specify `source`). You can also create disks from a shared image gallery image version (specify `gallery-image-reference`), or disks ready for upload (specify `upload-type` and `upload-size-bytes`). If you don't specify the location, it defaults to the resource group's location.
 
-You can configure disk size, storage SKU (for example, `Premium_LRS`, `Standard_LRS`, or `UltraSSD_LRS`), OS type, availability zone, and hypervisor generation. Other configurations possible include those for tags, encryption settings, performance tier, shared disk, on-demand bursting, and IOPS/throughput limits for UltraSSD disks. Create a disk with network access policy `DenyAll`, `AllowAll`, or `AllowPrivate`, and associate a disk access resource during creation.
+You can configure disk size, storage SKU (for example, `Premium_LRS`, `Standard_LRS`, or `UltraSSD_LRS`), OS type, availability zone, and hypervisor generation. Other configurations possible include tags, encryption settings, performance tier, shared disk, on-demand bursting, and IOPS/throughput limits for UltraSSD disks. Create a disk with network access policy `DenyAll`, `AllowAll`, or `AllowPrivate`, and associate a disk access resource during creation.
 
 Example prompts include:
 
@@ -38,11 +38,11 @@ Example prompts include:
 
 - *"Create a managed disk `<disk-name>` in resource group `<resource-group>` from blob `<blob-uri>`."*
 
-- *"Create a 64 GB `Standard_LRS` Linux disk named `<disk-name>` in resource group `<resource-group>` in zone 1."*
+- *"Create a 64-GB `Standard_LRS` Linux disk named `<disk-name>` in resource group `<resource-group>` in zone 1."*
 
 - *"Create a managed disk `<disk-name>` in resource group `<resource-group>` with tags env=prod team=infra."*
 
-- *"Create a 128 GB `Premium_LRS` disk named `<disk-name>` in resource group `<resource-group>` with performance tier `P30`."*
+- *"Create a 128-GB `Premium_LRS` disk named `<disk-name>` in resource group `<resource-group>` with performance tier `P30`."*
 
 - *"Create a disk `<disk-name>` in resource group `<resource-group>` with customer-managed encryption using disk encryption set `<disk-encryption-set-id>`."*
 
@@ -50,11 +50,11 @@ Example prompts include:
 
 - *"Create a data disk from LUN 0 of gallery image version `<image-version-resource-id>` in resource group `<resource-group>`."*
 
-- *"Create a disk ready for upload named `<disk-name>` in resource group `<resource-group>` with upload size 20972032 bytes."*
+- *"Create a disk ready for upload named `<disk-name>` in resource group `<resource-group>` with upload size 20,972,032 bytes."*
 
 - *"Create a trusted launch upload disk named `<disk-name>` in resource group `<resource-group>` with `UploadWithSecurityData` type and security type `TrustedLaunch`."*
 
-- *"Create an `UltraSSD_LRS` disk named `<disk-name>` in resource group `<resource-group>` with 256 GB, 10000 IOPS, and 500 MBps throughput."*
+- *"Create an `UltraSSD_LRS` disk named `<disk-name>` in resource group `<resource-group>` with 256 GB, 10,000 IOPS, and 500-MBps throughput."*
 
 - *"Create a shared managed disk named `<disk-name>` in resource group `<resource-group>` with 512 GB and max shares set to 3."*
 
@@ -84,7 +84,7 @@ Example prompts include:
 | **Network access policy** | Optional | The policy for accessing the disk via network. Accepted values: `AllowAll`, `AllowPrivate`, or `DenyAll`. |
 | **Os type** | Optional | The operating system type of the disk. Accepted values: `Linux` or `Windows`. |
 | **Security type** | Optional | The security type of the managed disk. Accepted values: `ConfidentialVM_DiskEncryptedWithCustomerKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey`, `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `Standard`, or `TrustedLaunch`. This parameter is required when `upload-type` is `UploadWithSecurityData`. |
-| **Size gb** | Optional | The size of the disk in GB. Max size: 4095 GB. |
+| **Size gb** | Optional | The size of the disk in GB. Max size: 4,095 GB. |
 | **SKU** | Optional | The underlying storage SKU. Accepted values: `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Standard_LRS`, or `UltraSSD_LRS`. |
 | **Source** | Optional | The source to create the disk from, including a resource ID of a snapshot or disk, or a blob URI of a virtual hard disk (VHD). When you provide a source, `size-gb` is optional and defaults to the source size. |
 | **Tags** | Optional | The space-separated tags in 'key=value' format. Use '' to clear existing tags. |
@@ -160,11 +160,11 @@ You can modify the network access policy to `DenyAll`, `AllowAll`, or `AllowPriv
 
 Example prompts include:
 
-- *"Update disk `<disk-name>` in resource group `<resource-group>` to 1024 GB."*
+- *"Update disk `<disk-name>` in resource group `<resource-group>` to 1,024 GB."*
 
 - *"Change the SKU of disk `<disk-name>` to `UltraSSD_LRS`."*
 
-- *"Resize disk `<disk-name>` in resource group `<resource-group>` to 2048 GB."*
+- *"Resize disk `<disk-name>` in resource group `<resource-group>` to 2,048 GB."*
 
 - *"Update disk `<disk-name>` to disable bursting."*
 
@@ -174,9 +174,9 @@ Example prompts include:
 
 - *"Update disk `<disk-name>` in resource group `<resource-group>` with tags `env=production`."*
 
-- *"Set the IOPS limit on Ultra disk `<disk-name>` in resource group `<resource-group>` to 15000."*
+- *"Set the IOPS limit on Ultra disk `<disk-name>` in resource group `<resource-group>` to 15,000."*
 
-- *"Update the throughput of disk `<disk-name>` in resource group `<resource-group>` to 1000 MBps."*
+- *"Update the throughput of disk `<disk-name>` in resource group `<resource-group>` to 1,000 MBps."*
 
 - *"Change the performance tier of disk `<disk-name>` in resource group `<resource-group>` to `P50`."*
 
@@ -186,7 +186,7 @@ Example prompts include:
 
 - *"Set disk access on disk `<disk-name>` in resource group `<resource-group>` to `<disk-access-resource-id>` with network access policy `DenyAll`."*
 
-- *"Update disk `<disk-name>` to `PremiumV2_LRS` SKU with 256 GB size and tags `env=test`."*
+- *"Update disk `<disk-name>` to `PremiumV2_LRS` SKU with 256-GB size and tags `env=test`."*
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -199,7 +199,7 @@ Example prompts include:
 | **Encryption type** |  Optional | The encryption type of the disk. Accepted values: `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, or `EncryptionAtRestWithPlatformKey`. |
 | **Max shares** |  Optional | The maximum number of VMs that can attach to the disk at the same time. A value greater than one indicates a shared disk. |
 | **Network access policy** |  Optional | The policy for accessing the disk via network. Accepted values: `AllowAll`, `AllowPrivate`, or `DenyAll`. |
-| **Size gb** |  Optional | The size of the disk in GB. Max size: 4095 GB. |
+| **Size gb** |  Optional | The size of the disk in GB. Max size: 4,095 GB. |
 | **SKU** |  Optional | The underlying storage SKU. Accepted values: `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Standard_LRS`, or `UltraSSD_LRS`. |
 | **Tags** |  Optional | Space-separated tags in `key=value` format. Use `''` to clear existing tags. |
 | **Tier** |  Optional | The performance tier of the disk (for example, `P10`, `P15`, `P20`, `P30`, `P40`, `P50`, `P60`, `P70`, or `P80`). Applicable to Premium SSD disks only. |
