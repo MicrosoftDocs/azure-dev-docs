@@ -1,7 +1,7 @@
 ---
 title: Azure MCP Server Tools for Azure Compute
 description: Discover compute tools for managing virtual machines, virtual machine scale sets, and disks in Azure MCP Server. Explore features and start optimizing your resources.
-#customer intent: As a system admin, I want to list all Azure Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
+#customer intent: As a system admin, I want to list all virtual machine scale sets in a subscription so I can manage their capacity and upgrade policies.
 ms.date: 04/07/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
@@ -52,7 +52,7 @@ Example prompts include:
 
 - *"Create a disk ready for upload named `<disk-name>` in resource group `<resource-group>` with upload size 20972032 bytes."*
 
-- *"Create a Trusted Launch upload disk named `<disk-name>` in resource group `<resource-group>` with `UploadWithSecurityData` type and security type `TrustedLaunch`."*
+- *"Create a trusted launch upload disk named `<disk-name>` in resource group `<resource-group>` with `UploadWithSecurityData` type and security type `TrustedLaunch`."*
 
 - *"Create an `UltraSSD_LRS` disk named `<disk-name>` in resource group `<resource-group>` with 256 GB, 10000 IOPS, and 500 MBps throughput."*
 
@@ -77,7 +77,7 @@ Example prompts include:
 | **Enable bursting** | Optional | Enable on-demand bursting beyond the provisioned performance target of the disk. Doesn't apply to Ultra disks. Accepted values: `true` or `false`. |
 | **Encryption type** | Optional | Encryption type of the disk. Accepted values: `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, or `EncryptionAtRestWithPlatformKey`. |
 | **Gallery image reference** | Optional | The resource ID of a shared image gallery image version to use as the source for the disk. Format: /subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Compute/galleries/{gallery}/images/{image}/versions/{version}. |
-| **Gallery image reference lun** | Optional | The LUN (Logical Unit Number) of the data disk in the gallery image version. If you specify this parameter, you create the disk from the data disk at this LUN. If you don't specify this parameter, you create the disk from the OS disk of the image. |
+| **Gallery image reference lun** | Optional | The LUN (logical unit number) of the data disk in the gallery image version. If you specify this parameter, you create the disk from the data disk at this LUN. If you don't specify this parameter, you create the disk from the OS disk of the image. |
 | **Hyper v generation** | Optional | The hypervisor generation of the virtual machine (VM). Applicable to OS disks only. Accepted values: `V1`, `V2`. |
 | **Location** | Optional | The Azure region/location. The resource group's location is the default if you don't specify this parameter. |
 | **Max shares** | Optional | The maximum number of VMs that can attach to the disk at the same time. A value greater than one indicates a shared disk. |
@@ -86,7 +86,7 @@ Example prompts include:
 | **Security type** | Optional | The security type of the managed disk. Accepted values: `ConfidentialVM_DiskEncryptedWithCustomerKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey`, `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `Standard`, or `TrustedLaunch`. This parameter is required when `upload-type` is `UploadWithSecurityData`. |
 | **Size gb** | Optional | The size of the disk in GB. Max size: 4095 GB. |
 | **SKU** | Optional | The underlying storage SKU. Accepted values: `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Standard_LRS`, or `UltraSSD_LRS`. |
-| **Source** | Optional | The source to create the disk from, including a resource ID of a snapshot or disk, or a blob URI of a VHD. When you provide a source, `size-gb` is optional and defaults to the source size. |
+| **Source** | Optional | The source to create the disk from, including a resource ID of a snapshot or disk, or a blob URI of a virtual hard disk (VHD). When you provide a source, `size-gb` is optional and defaults to the source size. |
 | **Tags** | Optional | The space-separated tags in 'key=value' format. Use '' to clear existing tags. |
 | **Tier** | Optional | The performance tier of the disk (for example, `P10`, `P15`, `P20`, `P30`, `P40`, `P50`, `P60`, `P70`, or `P80`). Applicable to Premium SSD disks only. |
 | **Upload size bytes** | Optional | The size in bytes (including the VHD footer of 512 bytes) of the content to be uploaded. This parameter is required when you specify `upload-type`. |
@@ -261,7 +261,7 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vm delete -->
 
-Delete an Azure virtual machine permanently. This operation is irreversible and the VM data is lost. Use the `Force deletion` parameter to delete a VM that's in a running or failed state.
+Delete a virtual machine permanently. This operation is irreversible and the VM data is lost. Use the `Force deletion` parameter to delete a VM that's in a running or failed state.
 
 Example prompts include:
 
@@ -285,7 +285,7 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vm get -->
 
-List or get Azure virtual machines (VMs) in a subscription or resource group. This command returns VM details, including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state.
+List or get virtual machines (VMs) in a subscription or resource group. This command returns VM details, including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state.
 
 Example prompts include:
 
@@ -330,7 +330,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli compute vm update -->
 
-Update, modify, or reconfigure an existing Azure virtual machine (VM). You can resize a VM, update tags, configure boot diagnostics, or change user data. You might need to deallocate the VM before resizing it to certain sizes.
+Update, modify, or reconfigure an existing virtual machine (VM). You can resize a VM, update tags, configure boot diagnostics, or change user data. You might need to deallocate the VM before resizing it to certain sizes.
 
 Example prompts include:
 
