@@ -69,7 +69,7 @@ conceptualContent:
 
     - title: Migrate to Azure
       links:
-        - text: GitHub Copilot App Modernization for Java
+        - text: GitHub Copilot modernization for Java
           itemType: overview
           url: migration/migrate-github-copilot-app-modernization-for-java.md
         - text: Spring to Azure Container Apps

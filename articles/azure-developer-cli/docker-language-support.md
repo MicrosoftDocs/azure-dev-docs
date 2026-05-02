@@ -1,6 +1,6 @@
 ---
-title: Docker support as a language
-description: Information regarding Docker support as a language in Azure Developer CLI, including an overview, use cases, and configuration example.
+title: "Use Docker to deploy Go, Rust, and other languages with Azure Developer CLI"
+description: "Learn how to use Docker as a language in Azure Developer CLI (azd) to build and deploy Go, Rust, Ruby, and other containerized apps to Azure with full control over the build process."
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 06/04/2025
@@ -9,21 +9,21 @@ ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
 ---
 
-# Docker support as a language
+# Use Docker support to deploy containerized apps in any language
 
-The Azure Developer CLI (`azd`) supports Docker as a language, allowing you to define services that are built and deployed using a Dockerfile. By specifying Docker as the language, you gain full control over the containerization process, making it ideal for:
+The Azure Developer CLI (`azd`) supports Docker as a language, allowing you to define services that are built and deployed using a Dockerfile. If your app is written in a language that `azd` doesn't have built-in support for — such as Go, Rust, Ruby, PHP, or Kotlin — you can use Docker as the language to build and deploy it to Azure. By specifying Docker as the language, you gain full control over the containerization process, making it ideal for:
 
-- Apps built with languages that aren't directly supported by `azd`
-- Polyglot applications (apps using more than one programming language)
+- **Go, Rust, Ruby, PHP, Kotlin**, and other languages without built-in `azd` support
+- Polyglot applications (for example, a service that uses both Python and Node.js)
 - Scenarios where you want to reduce local dependencies to run the template
 - Workloads with custom OS or runtime requirements
 - Migrating existing Docker-based projects to Azure
 
-For example, if you have an app written in Go, or a service that uses both Python and Node.js, you can use a custom Dockerfile to define the build and runtime environment.
+For example, if you have an app written in Go and want to deploy it to Azure Container Apps with `azd`, you can define a Dockerfile for your Go service and configure `azd` to use it.
 
-## Configure Docker as a language
+## Configure Docker as a language in azure.yaml
 
-To configure Docker as a language in your `azure.yaml` file, set the `language` property to `docker` and specify the path to your Dockerfile. Example:
+To use Docker for a Go app, Rust app, or any other service, set the `language` property to `docker` in your `azure.yaml` file and specify the path to your Dockerfile:
 
 ```yaml
 services:
@@ -34,7 +34,7 @@ services:
       path: ./Dockerfile
 ```
 
-With this configuration, `azd` uses the specified Dockerfile to build and deploy your service, giving you maximum flexibility over the build process.
+With this configuration, `azd` uses the specified Dockerfile to build and deploy your service. This approach works for any language or runtime that can be containerized.
 
 ## Example scenario
 

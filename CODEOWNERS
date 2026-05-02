@@ -1,27 +1,28 @@
 # Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
 
 # Global owner
-* @mcleanbyron
+* @Susan-Potter
 
 # Config
-/articles/docfx.json @KarlErickson @mcleanbyron
-/.openpublishing.publish.config.json @KarlErickson @mcleanbyron
-/CODEOWNERS @KarlErickson @mcleanbyron
+/articles/docfx.json @KarlErickson @Susan-Potter
+/.openpublishing.publish.config.json @KarlErickson @Susan-Potter
+/CODEOWNERS @KarlErickson @Susan-Potter
 
 # AI
 
 /articles/ai/ @ms-johnalex
 
 # Intro
-/articles/intro/ @mcleanbyron
+/articles/intro/ @Susan-Potter
 
 # DevEx
-/articles/java/ @KarlErickson
-/articles/python/ @bobtabor-msft
-/articles/go/ @bobtabor-msft
-/articles/cpp/ @ronniegeraghty @antkmsft
+/articles/python/ @PatAltimore
+/articles/go/ @PatAltimore
+/articles/cpp/ @ronniegeraghty @antkmsft @PatAltimore
 /articles/rust/ @ronniegeraghty @heaths @diberry
 /articles/javascript/ @diberry
+/articles/java/ @KarlErickson
+/articles/github-copilot-app-modernization/ @KarlErickson
 
 # Tools
 /articles/azure-developer-cli/ @alexwolfmsft @kristenwomack

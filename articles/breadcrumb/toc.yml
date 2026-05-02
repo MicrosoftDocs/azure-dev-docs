@@ -49,7 +49,7 @@ items:
     - name: Dev Tunnels CLI
       tocHref: /azure/developer/dev-tunnels
       topicHref: /azure/developer/dev-tunnels/index
-    - name: GitHub Copilot app modernization
+    - name: GitHub Copilot modernization
       tocHref: /azure/developer/github-copilot-app-modernization
       topicHref: /azure/developer/github-copilot-app-modernization/index
     - name: TypeSpec

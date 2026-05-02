@@ -2,20 +2,16 @@
 author: rotabor
 ms.service: github-copilot-for-azure
 ms.topic: include
-ms.date: 10/16/2025
+ms.date: 03/02/2026
 ---
 
 ## Prerequisites
 
-- An Azure account and access to an Azure subscription. For details on how to set them up, see the [pricing page for Azure accounts](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+To complete the steps in this article, make sure that you have:
 
-- A GitHub account and a GitHub Copilot subscription. For details on how to set them up, see [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart), respectively.
+[!INCLUDE [ghcpa-prerequisites-2026](./prerequisites-2026.md)]
 
-- Visual Studio 2026 (Any edition). For details on how to download and install it, see [Install Visual Studio](https://visualstudio.microsoft.com/insiders/).
-
->[!IMPORTANT]
->GitHub Copilot is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Getting started with a GitHub Copilot plan](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan).
-
+By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. For more information, see [Manage access to Microsoft Copilot in Azure](/azure/copilot/manage-access).
 
 ## Install GitHub Copilot for Azure
 

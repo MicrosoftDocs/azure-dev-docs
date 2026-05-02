@@ -76,6 +76,10 @@ Learn more:
 * [Development Container Specification](https://containers.dev/)
 * [Open Container Initiative](https://opencontainers.org/about/overview/)
 
+## AI and developer productivity tools
+
+[!INCLUDE [Azure AI developer tools](../includes/azure-ai-developer-tools.md)]
+
 ## Unit tests in JavaScript
 
 Unit testing with Azure SDKs in JavaScript often uses frameworks like [Jest](https://jestjs.io/) or [Vitest](https://vitest.dev/) to isolate and test individual components or functions.
@@ -83,6 +87,9 @@ Unit testing with Azure SDKs in JavaScript often uses frameworks like [Jest](htt
 For native Node.js tests, stub Azure SDK calls manually without additional libraries by overriding methods on the SDK client prototypes or using simple mock functions.
 
 For more information, see the [Azure SDK tests](#azure-sdk-tests) section later in this article.
+
+> [!TIP]
+> **AI developer tools:** Use [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) to generate unit test boilerplate and mock patterns for Azure SDK clients from interface types.
 
 ## Integration tests in JavaScript
 
@@ -124,6 +131,9 @@ Learn more:
 
 * [Get started with Playwright](https://playwright.dev/docs/intro)
 * [Run end-to-end tests at scale](/azure/playwright-testing/quickstart-run-end-to-end-tests)
+
+> [!TIP]
+> **AI developer tools:** Use [Azure MCP Server](/azure/developer/azure-mcp-server/overview) tools to verify deployment targets and service health before running E2E tests against live Azure resources.
 
 ## Performance tests
 
@@ -200,6 +210,9 @@ For developers who work with Azure services, gaining proficiency with the Azure 
 * [Azure IoT Hub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/test)
 
 Exploring these tests offers insights into seamless Azure service integration, showcases best practices for Azure resource interaction, and aids in ensuring efficient and secure implementations. Explore a broader range of SDK examples for a comprehensive understanding.
+
+> [!TIP]
+> **AI developer tools:** Use [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) to navigate Azure SDK test patterns and generate test fixtures from SDK interface definitions. [Azure Skills](/azure/developer/azure-skills/overview) can provision test resources matching SDK sample configurations.
 
 ## Additional resources
 
