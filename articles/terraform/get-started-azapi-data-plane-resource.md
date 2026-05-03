@@ -14,23 +14,21 @@ ai-usage: ai-generated
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage Azure data plane resources using [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource). Unlike `azapi_resource`, which targets the Azure Resource Manager (ARM) control plane, `azapi_data_plane_resource` targets the Azure data plane APIs directly. In this example, you configure certificate contacts for an Azure Key Vault.
+Use [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource) to manage Azure data plane resources in Terraform. In this example, you configure certificate contacts for an Azure Key Vault.
 
-For a conceptual explanation of how the data plane framework works, including why only a curated set of resource types is supported and how `parent_id` differs from control plane resources, see [Understand the AzAPI data plane framework](concept-azapi-data-plane-framework.md).
-
-> [!NOTE]
-> `azapi_data_plane_resource` supports a [specific subset of Azure data plane resources](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources), including Key Vault certificates, keys, and secrets, and Azure Synapse workspace libraries.
+For foundational concepts about how the data plane framework works and `parent_id` patterns, see [Understand the AzAPI data plane framework](concept-azapi-data-plane-framework.md).
 
 > [!div class="checklist"]
-> * Define and configure the AzureRM and AzAPI providers
-> * Create a resource group and Azure Key Vault with the AzureRM provider
-> * Use `azapi_data_plane_resource` to configure certificate contacts on the Key Vault
+> * Create a Key Vault with the AzureRM provider
+> * Use `azapi_data_plane_resource` to configure certificate contacts
 
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+[!INCLUDE [confirm-default-azure-subscription-or-authenticate.md](includes/confirm-default-azure-subscription-or-authenticate.md)]
 
 ## Implement the Terraform code
 
@@ -122,8 +120,8 @@ For a conceptual explanation of how the data plane framework works, including wh
     }
     
     resource "azapi_data_plane_resource" "certificate_contacts" {
-      type      = "Microsoft.KeyVault/vaults/certificatecontacts@7.3"
-      parent_id = trimprefix(azurerm_key_vault.example.vault_uri, "https://")
+      type      = "Microsoft.KeyVault/vaults/certificates/contacts@7.3"
+      parent_id = trimsuffix(trimprefix(azurerm_key_vault.example.vault_uri, "https://"), "/")
       name      = "default"
     
       body = {

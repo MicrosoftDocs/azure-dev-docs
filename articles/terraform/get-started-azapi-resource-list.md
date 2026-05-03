@@ -14,16 +14,9 @@ ai-usage: ai-generated
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [`azapi_resource_list`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_list) data source in the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to list Azure resources under a given scope. You also learn how to use `response_export_values` with [JMESPath](https://jmespath.org/) expressions to extract specific properties from the response. In this example, you create two storage accounts and list them within a resource group.
-
-`azapi_resource_list` is useful for:
-
-- Auditing resources across a subscription or resource group.
-- Building dynamic configurations that react to existing infrastructure.
-- Extracting properties from lists of resources for use in downstream Terraform resources or outputs.
+In this article, you use the [`azapi_resource_list`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_list) data source to list Azure resources and filter results with [JMESPath](https://jmespath.org/) expressions. You create two storage accounts, then use `azapi_resource_list` to list and extract their properties.
 
 > [!div class="checklist"]
-> * Define and configure the AzureRM and AzAPI providers
 > * Create a resource group and two storage accounts with the AzureRM provider
 > * Use `azapi_resource_list` to list the storage accounts and extract their names and locations using JMESPath
 
@@ -32,6 +25,8 @@ In this article, you learn how to use the [`azapi_resource_list`](https://regist
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+[!INCLUDE [confirm-default-azure-subscription-or-authenticate.md](includes/confirm-default-azure-subscription-or-authenticate.md)]
 
 ## Understand `response_export_values`
 
@@ -115,7 +110,21 @@ The map form is preferred when you need to extract specific fields or transform 
       account_tier             = "Standard"
       account_replication_type = "LRS"
     }
-    
+    ```
+
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+
+## List resources with `azapi_resource_list`
+
+Now that the storage accounts are created, add a data source to list them and extract properties using JMESPath.
+
+1. Create a file named `list_resources.tf` and insert the following code:
+
+    ```terraform
     data "azapi_resource_list" "storage_accounts" {
       type      = "Microsoft.Storage/storageAccounts@2023-01-01"
       parent_id = azurerm_resource_group.example.id
@@ -127,17 +136,8 @@ The map form is preferred when you need to extract specific fields or transform 
         "locations" = "value[].location"
         "skus"      = "value[].sku.name"
       }
-    
-      depends_on = [azurerm_storage_account.example]
     }
     ```
-
-    Key points about `azapi_resource_list`:
-
-    - The `type` field identifies the resource type and API version to list.
-    - The `parent_id` field sets the scope. Use a resource group ID to list within a resource group, a subscription ID to list across a subscription, or a parent resource ID to list child resources (for example, subnets under a VNet).
-    - The `depends_on` ensures the storage accounts are created before the data source attempts to list them.
-    - The map form of `response_export_values` uses JMESPath expressions against the raw API response. The storage account list API returns results in a top-level `value` array, so expressions start with `value[]`.
 
 1. Create a file named `outputs.tf` and insert the following code:
 
@@ -159,37 +159,21 @@ The map form is preferred when you need to extract specific fields or transform 
     }
     ```
 
-[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+1. Run `terraform apply` again to create the data source and extract the outputs:
 
-[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
-
-[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
-
-## Verify the results
-
-After `terraform apply` completes, the output values include the names, locations, and SKUs of the storage accounts in the resource group. The `output` attribute on an `azapi_resource_list` data source always reflects the current state of the resource list in Azure, so it updates on every `terraform plan` or `terraform apply`.
-
-#### [Azure CLI](#tab/azure-cli)
-
-1. Run [az storage account list](/cli/azure/storage/account#az-storage-account-list) to verify the storage accounts.
-
-    ```azurecli
-    az storage account list --resource-group <resource_group_name> --query "[].{name:name, location:location, sku:sku.name}" --output table
+    ```console
+    terraform apply
     ```
 
-#### [Azure PowerShell](#tab/azure-powershell)
+## Key points about `azapi_resource_list`
 
-1. Run [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) to verify the storage accounts.
+- The `type` field identifies the resource type and API version to list.
+- The `parent_id` field sets the scope: a resource group ID to list within a resource group, a subscription ID to list across a subscription, or a parent resource ID to list child resources (for example, subnets under a VNet).
+- The map form of `response_export_values` uses JMESPath expressions against the raw API response. The storage account list API returns results in a top-level `value` array, so expressions start with `value[]`.
 
-    ```powershell
-    Get-AzStorageAccount -ResourceGroupName <resource_group_name> | Select-Object StorageAccountName, Location, @{Name="Sku";Expression={$_.Sku.Name}}
-    ```
+## List resources at different scopes
 
----
-
-## List resources at other scopes
-
-The `parent_id` field determines the listing scope. You can use `azapi_resource_list` at any scope supported by the API:
+The `parent_id` determines the listing scope. Examples:
 
 ```terraform
 # List all storage accounts in a subscription

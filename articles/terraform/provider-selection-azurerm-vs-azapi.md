@@ -100,7 +100,7 @@ Most teams should start with an AzureRM-primary strategy and adopt AzAPI as need
 | Response export / JMESPath filtering | No | Yes |
 | Data plane resource management | No | Yes (selected resource types) |
 | Provider functions for ID construction | No | Yes (v2.0 and later) |
-| Preflight validation at plan time | No | Yes |
+| Preflight validation at plan time | No | Yes—[Enable preflight validation](how-to-use-azapi-preflight-validation.md) |
 
 ## Next steps
 

@@ -81,18 +81,21 @@ output "resource_group_name" {
 }
 
 output "storage_account_name" {
-  value = local.storage_id_parts.resource_name
+  value = local.storage_id_parts.name
 }
 ```
 
 The function returns an object with these fields:
 
-- `subscription_id`
-- `resource_group_name`
+- `id` — the full resource ID
+- `name` — the resource name
+- `parent_id` — the resource ID of the parent resource
+- `parts` — a map of all resource ID segments
 - `provider_namespace` (for example, `Microsoft.Storage`)
-- `resource_type` (for example, `storageAccounts`)
-- `resource_name`
-- `parent_id`
+- `resource_group_name`
+- `resource_group_id`
+- `subscription_id`
+- `type` (for example, `Microsoft.Storage/storageAccounts`)
 
 ## Construct a resource group–scoped ID with `resource_group_resource_id`
 

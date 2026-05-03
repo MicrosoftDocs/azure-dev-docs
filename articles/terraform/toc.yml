@@ -430,8 +430,6 @@
           href: how-to-use-azapi-provider-functions.md
         - name: Migration paths between Azure, AzureRM, and AzAPI
           href: how-to-migrate-between-azurerm-and-azapi.md
-        - name: AzAPI data plane framework
-          href: concept-azapi-data-plane-framework.md
     - name: Terraform how-to guides for Azure services
       items:
         - name: Compute

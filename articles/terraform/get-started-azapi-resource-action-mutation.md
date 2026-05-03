@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Perform Azure resource actions with the AzAPI Terraform provider
-description: Learn how to use azapi_resource_action as a managed resource to perform imperative Azure operations such as deallocating a virtual machine.
-keywords: azure devops terraform virtual machine azapi resource_action mutation
+description: Learn how to use azapi_resource_action as a managed resource to perform imperative Azure operations such as rotating storage account keys.
+keywords: azure devops terraform storage account azapi resource_action key rotation
 ms.topic: quickstart
 ms.date: 04/20/2026
 ms.custom: devx-track-terraform
@@ -14,25 +14,26 @@ ai-usage: ai-generated
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) as a managed Terraform **resource** (not a data source) to perform an imperative, state-changing operation on an Azure resource. In this example, you create a Linux virtual machine and then deallocate it using `azapi_resource_action`.
+Use [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) as a managed Terraform resource to perform imperative, state-changing operations on Azure resources. In this example, you create an Azure storage account and then rotate its access keys.
 
 `azapi_resource_action` has two usage forms:
 
 - **Resource**: Performs a state-changing operation during `terraform apply`. Terraform tracks the action in state and can optionally reverse it on `terraform destroy`.
 - **Data source**: Performs a read-only operation during planning. See the [resource action data source quickstart](get-started-azapi-resource-action.md) for that scenario.
 
-Use the resource form when you need Terraform to perform an Azure operation that isn't based on a standard CRUD lifecycle—for example, starting or stopping a VM, rotating a key, or triggering a failover.
+Use the resource form when you need Terraform to perform an Azure operation that isn't based on a standard create/read/update/delete lifecycle—for example, rotating credentials, starting or stopping a VM, or triggering a failover.
 
 > [!div class="checklist"]
-> * Define and configure the AzureRM and AzAPI providers
-> * Create a resource group, virtual network, subnet, and Linux virtual machine with the AzureRM provider
-> * Use `azapi_resource_action` to deallocate the virtual machine
+> * Create a storage account with the AzureRM provider
+> * Rotate the storage account access key with `azapi_resource_action`
 
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+[!INCLUDE [confirm-default-azure-subscription-or-authenticate.md](includes/confirm-default-azure-subscription-or-authenticate.md)]
 
 ## Implement the Terraform code
 
@@ -80,16 +81,10 @@ Use the resource form when you need Terraform to perform an Azure operation that
       description = "Prefix of the resource group name that's combined with a random value to create a unique name."
     }
     
-    variable "admin_username" {
+    variable "storage_account_name_prefix" {
       type        = string
-      default     = "adminuser"
-      description = "Administrator username for the virtual machine."
-    }
-    
-    variable "admin_password" {
-      type        = string
-      sensitive   = true
-      description = "Administrator password for the virtual machine."
+      default     = "st"
+      description = "Prefix of the storage account name that's combined with a random value to create a unique name."
     }
     ```
 
@@ -100,75 +95,43 @@ Use the resource form when you need Terraform to perform an Azure operation that
       prefix = var.resource_group_name_prefix
     }
     
+    resource "random_string" "storage_suffix" {
+      length  = 8
+      upper   = false
+      special = false
+    }
+    
     resource "azurerm_resource_group" "example" {
       location = var.resource_group_location
       name     = random_pet.rg_name.id
     }
     
-    resource "azurerm_virtual_network" "example" {
-      name                = "vnet-example"
-      address_space       = ["10.0.0.0/16"]
-      location            = azurerm_resource_group.example.location
-      resource_group_name = azurerm_resource_group.example.name
+    resource "azurerm_storage_account" "example" {
+      name                     = "${var.storage_account_name_prefix}${random_string.storage_suffix.result}"
+      resource_group_name      = azurerm_resource_group.example.name
+      location                 = azurerm_resource_group.example.location
+      account_tier             = "Standard"
+      account_replication_type = "LRS"
     }
     
-    resource "azurerm_subnet" "example" {
-      name                 = "subnet-example"
-      resource_group_name  = azurerm_resource_group.example.name
-      virtual_network_name = azurerm_virtual_network.example.name
-      address_prefixes     = ["10.0.1.0/24"]
-    }
-    
-    resource "azurerm_network_interface" "example" {
-      name                = "nic-example"
-      location            = azurerm_resource_group.example.location
-      resource_group_name = azurerm_resource_group.example.name
-    
-      ip_configuration {
-        name                          = "internal"
-        subnet_id                     = azurerm_subnet.example.id
-        private_ip_address_allocation = "Dynamic"
-      }
-    }
-    
-    resource "azurerm_linux_virtual_machine" "example" {
-      name                            = "vm-example"
-      resource_group_name             = azurerm_resource_group.example.name
-      location                        = azurerm_resource_group.example.location
-      size                            = "Standard_B1s"
-      admin_username                  = var.admin_username
-      admin_password                  = var.admin_password
-      disable_password_authentication = false
-    
-      network_interface_ids = [azurerm_network_interface.example.id]
-    
-      os_disk {
-        caching              = "ReadWrite"
-        storage_account_type = "Standard_LRS"
-      }
-    
-      source_image_reference {
-        publisher = "Canonical"
-        offer     = "0001-com-ubuntu-server-jammy"
-        sku       = "22_04-lts"
-        version   = "latest"
-      }
-    }
-    
-    resource "azapi_resource_action" "deallocate_vm" {
-      type        = "Microsoft.Compute/virtualMachines@2023-07-01"
-      resource_id = azurerm_linux_virtual_machine.example.id
-      action      = "deallocate"
+    resource "azapi_resource_action" "regenerate_key" {
+      type        = "Microsoft.Storage/storageAccounts@2023-01-01"
+      resource_id = azurerm_storage_account.example.id
+      action      = "regenerateKey"
       method      = "POST"
+    
+      body = {
+        keyName = "key1"
+      }
     }
     ```
 
     Key points about using `azapi_resource_action` as a resource:
 
-    - The `action` field specifies the ARM operation to perform. Common examples include `deallocate`, `start`, `powerOff`, `restart`, and `regenerateKey`.
+    - The `action` field specifies the ARM operation to perform. For storage account key rotation, use `regenerateKey`.
     - The `method` field specifies the HTTP method. Most imperative actions use `POST`.
+    - The `body` attribute passes data to the action. For key regeneration, specify which key (`key1` or `key2`) to rotate.
     - The action is performed during `terraform apply` and tracked in Terraform state.
-    - To pass a request body with the action (for example, when rotating a storage account key), use the `body` attribute.
 
 1. Create a file named `outputs.tf` and insert the following code:
 
@@ -177,8 +140,8 @@ Use the resource form when you need Terraform to perform an Azure operation that
       value = azurerm_resource_group.example.name
     }
     
-    output "virtual_machine_name" {
-      value = azurerm_linux_virtual_machine.example.name
+    output "storage_account_name" {
+      value = azurerm_storage_account.example.name
     }
     ```
 
@@ -190,50 +153,43 @@ Use the resource form when you need Terraform to perform an Azure operation that
 
 ## Verify the results
 
-After `terraform apply` completes, the virtual machine is in a deallocated state. You're not billed for compute resources while the VM is deallocated, but the VM disk and network resources remain.
+After `terraform apply` completes, the storage account key has been rotated. You can verify the key rotation by checking the storage account keys in Azure.
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Run [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to check the power state of the virtual machine.
+1. Run [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) to view the storage account keys.
 
     ```azurecli
-    az vm get-instance-view \
+    az storage account keys list \
       --resource-group <resource_group_name> \
-      --name vm-example \
-      --query instanceView.statuses[1].displayStatus \
-      --output tsv
+      --account-name <storage_account_name>
     ```
 
-    The output should be `VM deallocated`.
+    The `value` field shows the current key.
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. Run [Get-AzVM](/powershell/module/az.compute/get-azvm) to check the power state of the virtual machine.
+1. Run [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to view the storage account keys.
 
     ```powershell
-    (Get-AzVM -ResourceGroupName <resource_group_name> -Name vm-example -Status).Statuses[1].DisplayStatus
+    Get-AzStorageAccountKey `
+      -ResourceGroupName <resource_group_name> `
+      -Name <storage_account_name>
     ```
 
-    The output should be `VM deallocated`.
+    The `Value` property shows the current key.
 
 ---
 
-## Pass a request body with an action
+## Examples of other resource actions
 
-Some actions require a request body. For example, to regenerate a storage account access key, include a `body` attribute:
+The `azapi_resource_action` resource works with many Azure operations. Here are common examples:
 
-```terraform
-resource "azapi_resource_action" "regenerate_key" {
-  type        = "Microsoft.Storage/storageAccounts@2023-01-01"
-  resource_id = azurerm_storage_account.example.id
-  action      = "regenerateKey"
-  method      = "POST"
-
-  body = {
-    keyName = "key1"
-  }
-}
-```
+- **Virtual Machines**: `deallocate`, `start`, `restart`, `powerOff`, `reimage`
+- **Key Vaults**: `purge` (for soft-deleted vaults), `rotate` (for managed keys)
+- **App Services**: `swap` (for deployment slots), `restart`
+- **Databases**: `failover`, `promote`
+- **Compute resources**: Any operation exposed by the Azure REST API that modifies state without creating or destroying a resource
 
 ## Clean up resources
 
@@ -250,7 +206,3 @@ resource "azapi_resource_action" "regenerate_key" {
 
 > [!div class="nextstepaction"]
 > [Learn how to use the AzAPI resource action as a data source](get-started-azapi-resource-action.md)
-
-## Additional reading
-
-- [Choose between AzureRM and AzAPI Terraform providers](provider-selection-azurerm-vs-azapi.md)

@@ -289,7 +289,7 @@ The AzAPI provider block accepts several settings that apply globally across all
 
 | Option | Description |
 |---|---|
-| `enable_preflight` | Enables preflight validation at plan time. Defaults to `false`. Can also be set with the `ARM_ENABLE_PREFLIGHT` environment variable. |
+| `enable_preflight` | Enables preflight validation at plan time. Defaults to `false`. See [Enable preflight validation in the AzAPI Terraform provider](how-to-use-azapi-preflight-validation.md) for details. |
 | `ignore_no_op_changes` | Suppresses plan-time noise from no-op differences between the configuration and normalized API responses. Defaults to `true`. |
 | `disable_default_output` | When set to `true`, disables automatic output of read-only properties when `response_export_values` isn't specified. Defaults to `false`. |
 | `default_location` | Sets a default `location` for all resources that don't specify one explicitly. |

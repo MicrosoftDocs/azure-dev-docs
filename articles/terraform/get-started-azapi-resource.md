@@ -11,20 +11,19 @@ ms.custom: devx-track-terraform
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) currently doesn't support. In the example code, the `azapi_resource` is used to manage an [Azure Container Registry](/azure/container-registry/) resource.
+Use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage Azure services not yet supported by [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). In this example, you use `azapi_resource` to create an [Azure Container Registry](/azure/container-registry/).
 
 > [!div class="checklist"]
-
-> * Define and configure the AzureRM and AzAPI providers
-> * Use the AzureRM provider to create an Azure resource group with a unique name
-> * Use the AzureRM provider to register the "Microsoft.ContainerRegistry" provider in your subscription
-> * Use the AzAPI provider to create the Azure Container Registry resource
+> * Create a resource group and container registry with AzAPI
+> * Register the Microsoft.ContainerRegistry provider
 
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+[!INCLUDE [confirm-default-azure-subscription-or-authenticate.md](includes/confirm-default-azure-subscription-or-authenticate.md)]
 
 ## Implement the Terraform code
 

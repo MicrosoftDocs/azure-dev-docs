@@ -23,6 +23,8 @@ Preflight validation is one of AzAPI's key differentiators and works natively wi
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
+[!INCLUDE [confirm-default-azure-subscription-or-authenticate.md](includes/confirm-default-azure-subscription-or-authenticate.md)]
+
 ## Enable preflight validation
 
 Set `enable_preflight = true` in the `provider "azapi"` block:
@@ -31,12 +33,6 @@ Set `enable_preflight = true` in the `provider "azapi"` block:
 provider "azapi" {
   enable_preflight = true
 }
-```
-
-You can also enable it using the `ARM_ENABLE_PREFLIGHT` environment variable:
-
-```bash
-export ARM_ENABLE_PREFLIGHT=true
 ```
 
 Preflight is disabled by default to preserve backward compatibility. Enable it in environments where you want early validation, such as CI pipelines and pull request checks.
@@ -115,13 +111,12 @@ Preflight does **not** validate:
 
 ## Use preflight in CI pipelines
 
-Adding preflight to a CI pipeline provides a fast, nondestructive validation step that catches configuration errors before code is merged. Example GitHub Actions step:
+Adding preflight to a CI pipeline provides a fast, nondestructive validation step that catches configuration errors before code is merged. Enable `enable_preflight = true` in the provider block of your Terraform configuration, then run `terraform plan`:
 
-```yaml
-- name: Terraform plan with preflight
-  env:
-    ARM_ENABLE_PREFLIGHT: true
-  run: terraform plan -out=tfplan
+```terraform
+provider "azapi" {
+  enable_preflight = true
+}
 ```
 
 Because preflight runs during `terraform plan` with no side effects, it's safe to run in pull request workflows against live Azure subscriptions.

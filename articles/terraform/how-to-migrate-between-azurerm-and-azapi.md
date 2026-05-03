@@ -19,102 +19,54 @@ Use the following table to identify which section applies to your scenario:
 
 | Starting point | Goal | Recommended path |
 |---|---|---|
-| Existing Azure resources (not yet in Terraform) | Bring under Terraform management | [Export with `aztfexport`](#export-existing-azure-resources-to-terraform-with-aztfexport) |
-| ARM template or Azure portal resource JSON | Author new AzAPI Terraform resources | [Paste as AzAPI in VS Code](#author-azapi-resources-from-arm-json-paste-as-azapi) |
+| Existing Azure resources (not yet in Terraform) | Bring under Terraform management | [Export with `aztfexport`](#export-existing-azure-resources-to-terraform) |
+| ARM template or Azure portal resource JSON | Author new AzAPI Terraform resources | [Paste as AzAPI in VS Code](how-to-use-terraform-vscode-extension.md#paste-arm-json-as-azapi-configuration) |
 | Existing Terraform config using AzAPI | Migrate to AzureRM provider | [Migrate with `aztfmigrate`](#migrate-azapi-resources-to-azurerm-with-aztfmigrate) |
-| Existing Terraform config using AzureRM | Migrate to AzAPI provider | [VS Code AzureRM → AzAPI migration](#migrate-azurerm-resources-to-azapi-in-vs-code) |
+| Existing Terraform config using AzureRM | Migrate to AzAPI provider | [Migrate with `aztfmigrate` or the VS Code extension](#migrate-azurerm-resources-to-azapi) |
 
 For guidance on which provider should be primary for new projects, see [Choose between AzureRM and AzAPI Terraform providers](provider-selection-azurerm-vs-azapi.md).
 
-## Export existing Azure resources to Terraform with `aztfexport`
+## Export existing Azure resources to Terraform
 
-[Azure Export for Terraform (`aztfexport`)](./azure-export-for-terraform/export-terraform-overview.md) brings existing Azure resources—ones not currently managed by Terraform—under Terraform management. It generates both the HashiCorp Configuration Language (HCL) configuration and the Terraform state file so that `terraform plan` shows no diff after export.
+[Azure Export for Terraform (`aztfexport`)](./azure-export-for-terraform/export-terraform-overview.md) brings existing Azure resources under Terraform management by generating HCL configuration and Terraform state. It supports both AzureRM and AzAPI as output targets.
 
-`aztfexport` supports both the AzureRM and AzAPI providers as output targets. Choose the provider that matches your team's primary provider.
+**Use this path when**: You have existing Azure resources that aren't yet managed by Terraform and want to import them.
 
-### Install `aztfexport`
+### Export methods
 
-Install `aztfexport` using one of the following methods:
+Choose the export method that best fits your workflow:
 
-#### [Windows](#tab/windows)
+- **CLI**: Use the `aztfexport` binary directly. See [Azure Export for Terraform overview](./azure-export-for-terraform/export-terraform-overview.md) for installation and CLI command reference.
+- **VS Code extension**: Use the [Microsoft Terraform VS Code extension](how-to-use-terraform-vscode-extension.md#export-existing-azure-resources-as-terraform) for a guided export experience with resource filtering and provider selection.
+- **Azure portal**: Export resources directly from the Azure portal without local tools. See [Export resources in the Azure portal](#export-resources-in-the-azure-portal).
 
-```console
-winget install aztfexport
-```
+For detailed quickstarts and advanced scenarios, see:
+- [Export your first resources](./azure-export-for-terraform/export-first-resources.md)
+- [Export resources to HCL code](./azure-export-for-terraform/export-resources-hcl.md)
+- [Advanced export scenarios](./azure-export-for-terraform/export-advanced-scenarios.md)
 
-#### [macOS](#tab/macos)
+### Export resources in the Azure portal
 
-```console
-brew install aztfexport
-```
+The Azure portal integration allows you to export resources without installing additional tools:
 
-#### [Linux (apt)](#tab/linux-apt)
+1. Navigate to the resource in the Azure portal.
+1. Locate the **Export to Terraform** option (exact location depends on resource type).
+1. Follow the prompts to select output provider (AzureRM or AzAPI) and export scope.
+1. Download the generated Terraform configuration and state file.
+1. Review the output and run `terraform plan` to confirm no drift.
 
-```bash
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc > /etc/apt/trusted.gpg.d/microsoft.asc
-apt-add-repository https://packages.microsoft.com/ubuntu/22.04/prod
-apt-get install aztfexport
-```
+For step-by-step guidance, see [Export a resource in the Azure portal](./azure-export-for-terraform/get-started-export-resources-portal.md).
 
-#### [Go toolchain](#tab/go)
+## Author AzAPI resources from ARM JSON
 
-```console
-go install github.com/Azure/aztfexport@latest
-```
+If you have an ARM template, Azure portal resource definition, or raw REST API response and want to generate a corresponding `azapi_resource` block, the Microsoft Terraform VS Code extension can convert it automatically.
 
----
+**Use this path when**: You're authoring new AzAPI resources and have an existing JSON definition (ARM template, portal export, API response) as a starting point.
 
-### Export with the CLI
-
-1. Authenticate to Azure:
-
-    ```azurecli
-    az login
-    az account set --subscription <subscription_id>
-    ```
-
-1. Export a resource group to AzureRM (default) or AzAPI:
-
-    ```console
-    # Export as AzureRM (default)
-    aztfexport resource-group <resource_group_name>
-
-    # Export as AzAPI
-    aztfexport resource-group --provider-name=azapi <resource_group_name>
-    ```
-
-    For a single resource, use `aztfexport resource <resource_id>`. For an Azure Resource Graph query, use `aztfexport query <ARG_where_predicate>`.
-
-1. Review the generated `.tf` files and state, then run `terraform plan` to confirm no diff.
-
-### Export with the VS Code extension
-
-The [Microsoft Terraform VS Code extension](how-to-use-terraform-vscode-extension.md) provides a guided export experience backed by `aztfexport`:
-
-1. Open the Command Palette (`Ctrl`+`Shift`+`P` on Windows/Linux, `Cmd`+`Shift`+`P` on macOS).
-1. Search for and select **Microsoft Terraform: Export Azure Resource as Terraform**.
-1. Follow the prompts to select your subscription, resource group, and individual resources.
-1. Select **azurerm** or **azapi** as the output provider.
-1. The extension generates the Terraform configuration and opens it in a new editor tab.
-
-You can also export resources directly from the Azure portal without installing any tools. See [Export a resource in the Azure portal](./azure-export-for-terraform/get-started-export-resources-portal.md).
-
-## Author AzAPI resources from ARM JSON (Paste as AzAPI)
-
-If you have an Azure portal resource definition, an ARM template, or raw resource JSON and want to create a corresponding `azapi_resource` block, the Microsoft Terraform VS Code extension can convert it directly.
-
-**Use this path when**: You're authoring net-new AzAPI resources and have an existing JSON definition to start from, such as a portal export, an ARM template, or a REST API response.
-
-1. Install the [Microsoft Terraform VS Code extension](how-to-use-terraform-vscode-extension.md).
-1. Open a `.tf` file.
-1. Copy the resource JSON or ARM template to the clipboard.
-1. Place your cursor at the location in the file where you want to insert the block.
-1. Paste (`Ctrl`+`V` / `Cmd`+`V`). The extension detects the JSON format and prompts to convert it to an `azapi_resource` block.
-
-The extension converts properties to the `body` attribute format used by `azapi_resource` and attempts to infer the correct `type` and `api-version`. Review and adjust the generated block before applying.
+The extension converts the JSON properties to the `body` attribute format and infers the `type` and `api-version`. For detailed steps and examples, see [Paste ARM JSON as AzAPI configuration](how-to-use-terraform-vscode-extension.md#paste-arm-json-as-azapi-configuration) in the VS Code extension guide.
 
 > [!NOTE]
-> This feature works best when pasting a single resource object. Full ARM templates with multiple resources, parameters, and variables may require manual cleanup after conversion.
+> This feature works best for single resource objects. Full ARM templates with multiple resources, parameters, and variables may require manual cleanup after conversion.
 
 ## Migrate AzAPI resources to AzureRM with `aztfmigrate`
 
@@ -183,22 +135,18 @@ After confirming a clean plan:
 - Update any `output` or `locals` blocks that reference AzAPI-specific attributes.
 - Run `terraform apply` to apply any legitimate drift, such as normalized defaults introduced by AzureRM.
 
-## Migrate AzureRM resources to AzAPI in VS Code
+## Migrate AzureRM resources to AzAPI
 
-The Microsoft Terraform VS Code extension includes a feature to generate AzAPI equivalents for existing AzureRM resource blocks within a module. This is useful when you're converting a module or configuration to use AzAPI as the primary provider.
+To convert an existing AzureRM configuration to use AzAPI, use the [Microsoft Terraform VS Code extension](how-to-use-terraform-vscode-extension.md), which includes tooling to generate AzAPI equivalents for `azurerm_*` resource blocks.
 
-**Use this path when**: You're converting a Terraform module from AzureRM to AzAPI and want tooling assistance to generate the equivalent `azapi_resource` blocks.
+**Use this path when**: You're converting a Terraform module or configuration from AzureRM to AzAPI and want editor assistance with the conversion.
 
-1. Install the [Microsoft Terraform VS Code extension](how-to-use-terraform-vscode-extension.md).
-1. Open the `.tf` file containing the `azurerm_*` resource blocks you want to convert.
-1. Open the Command Palette and search for the migrate to AzAPI command, or use the in-editor code action.
-1. Follow the prompts. The extension generates AzAPI equivalents and opens them for review.
-1. Review the output carefully—validate the `type`, `api-version`, and `body` structure against the [AzAPI provider documentation](https://registry.terraform.io/providers/Azure/azapi/latest/docs) before replacing the original blocks.
+For step-by-step instructions, code actions, and state migration guidance, see [the VS Code extension guide](how-to-use-terraform-vscode-extension.md).
 
 > [!IMPORTANT]
-> This feature assists with authoring—it doesn't update the Terraform state file. If you replace `azurerm_*` blocks with `azapi_resource` blocks in an existing configuration without updating state, Terraform treats the AzureRM resources as deleted and the AzAPI resources as new, which causes re-creation of the underlying Azure resources.
+> The VS Code extension assists with HCL authoring only—it does not update the Terraform state file. Replacing `azurerm_*` blocks with `azapi_resource` blocks without updating state causes Terraform to treat the resources as deleted and re-create them.
 >
-> To migrate state alongside configuration, manually use `terraform state mv` for each resource after converting the HCL, or re-import using the `import` block. Run `terraform plan` after each state change to confirm no unintended re-creation occurs.
+> After converting HCL, use `terraform state mv` for each resource or re-import using the `import` block. Run `terraform plan` after each state change to confirm no unintended re-creation occurs.
 
 ## When not to migrate
 
