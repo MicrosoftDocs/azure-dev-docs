@@ -123,7 +123,7 @@ Because preflight runs during `terraform plan` with no side effects, it's safe t
 
 ## Disable output noise with `ignore_no_op_changes`
 
-If you run plans repeatedly, AzAPI may detect minor no-op differences between the configuration and the ARM state (for example, normalized default values returned by the API). To suppress these plan-time differences and focus on real changes, set `ignore_no_op_changes = true` in the provider block:
+If you run plans repeatedly, AzAPI might detect minor no-op differences between the configuration and the ARM state (for example, normalized default values returned by the API). To suppress these plan-time differences and focus on real changes, set `ignore_no_op_changes = true` in the provider block:
 
 ```terraform
 provider "azapi" {

@@ -66,7 +66,7 @@ If you have an ARM template, Azure portal resource definition, or raw REST API r
 The extension converts the JSON properties to the `body` attribute format and infers the `type` and `api-version`. For detailed steps and examples, see [Paste ARM JSON as AzAPI configuration](how-to-use-terraform-vscode-extension.md#paste-arm-json-as-azapi-configuration) in the VS Code extension guide.
 
 > [!NOTE]
-> This feature works best for single resource objects. Full ARM templates with multiple resources, parameters, and variables may require manual cleanup after conversion.
+> This feature works best for single resource objects. Full ARM templates with multiple resources, parameters, and variables might require manual cleanup after conversion.
 
 ## Migrate AzAPI resources to AzureRM with `aztfmigrate`
 
