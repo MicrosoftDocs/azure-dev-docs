@@ -14,7 +14,7 @@ mcp-cli.version: 2.0.0-beta.39
 
 The Azure MCP Server tools help you manage virtual machines, virtual machine scale sets, and disks by using natural language prompts. By using key capabilities such as creating, retrieving, and updating resources, you can efficiently control your cloud environment.
 
-Azure compute provides scalable computing resources for applications and workloads. For more information, see the documentation for [creating and managing virtual machines in Azure](/azure/virtual-machines/).
+Azure compute provides scalable computing resources for applications and workloads. For more information, see [Virtual machines in Azure](/azure/virtual-machines/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -339,7 +339,7 @@ Create a scale set by specifying the `resource group`, `VMSS name`, and `admin u
 | **Admin username** | Required | The admin username for the VM. Required for VM creation. |
 | **Location** | Required | The Azure region or location. Defaults to the resource group's location if you don't specify it. |
 | **Resource group** | Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| **Virtual machine scale set name** | Required | The name of the virtual machine scale set. |
+| **VMSS name** | Required | The name of the virtual machine scale set. |
 | **Admin password** | Optional | The admin password for Windows VMs or when an SSH key isn't provided for Linux VMs. |
 | **Image** | Optional | The OS image to use. Can be a URN (publisher:offer:SKU:version) or alias like `Ubuntu2404`, `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
 | **Instance count** | Optional | The number of VM instances in the scale set. Default is 2. |
@@ -374,7 +374,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Resource group** | Required | The name of the Azure resource group. |
-| **Virtual machine scale set name** | Required | The name of the virtual machine scale set to delete. |
+| **VMSS name** | Required | The name of the virtual machine scale set to delete. |
 | **Force deletion** | Optional | Force delete the resource even if it's in a running or failed state. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -428,17 +428,17 @@ Example prompts include:
 
 - "Clear existing tags on scale set `myScaleSet` in resource group `myResourceGroup`."
 
-| Parameter                          | Required or optional | Description                                                                                                                         |
-|------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **Resource group**                 | Required             | The name of the Azure resource group. This name is a logical container for Azure resources.                                         |
-| **Virtual machine scale set name** | Required             | The name of the virtual machine scale set.                                                                                          |
-| **Capacity**                       | Optional             | The number of VM instances (capacity) in the scale set.                                                                                 |
-| **Enable auto OS upgrade**         | Optional             | Enable automatic OS image upgrades. Requires health probes or the application health extension.                                     |
-| **Overprovision**                  | Optional             | Enable or disable overprovisioning. When enabled, Azure provisions more VMs than requested, and deletes extra VMs after deployment. |
-| **Scale in policy**                | Optional             | The scale-in policy to determine which VMs to remove: `Default`, `NewestVM`, or `OldestVM`.                                         |
-| **Tags**                           | Optional             | The space-separated tags in `key=value` format. Use `''` to clear existing tags.                                                    |
-| **Upgrade policy**                 | Optional             | The upgrade policy mode: `Automatic`, `Manual`, or `Rolling`. Default is `Manual`.                                                  |
-| **VM size**                        | Optional             | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified.                     |
+| Parameter                  | Required or optional | Description                                                                                                                         |
+|----------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| **Resource group**         | Required             | The name of the Azure resource group. This name is a logical container for Azure resources.                                         |
+| **VMSS name**              | Required             | The name of the virtual machine scale set.                                                                                          |
+| **Capacity**               | Optional             | The number of VM instances (capacity) in the scale set.                                                                             |
+| **Enable auto OS upgrade** | Optional             | Enable automatic OS image upgrades. Requires health probes or the application health extension.                                     |
+| **Overprovision**          | Optional             | Enable or disable overprovisioning. When enabled, Azure provisions more VMs than requested, and deletes extra VMs after deployment. |
+| **Scale in policy**        | Optional             | The scale-in policy to determine which VMs to remove: `Default`, `NewestVM`, or `OldestVM`.                                         |
+| **Tags**                   | Optional             | The space-separated tags in `key=value` format. Use `''` to clear existing tags.                                                    |
+| **Upgrade policy**         | Optional             | The upgrade policy mode: `Automatic`, `Manual`, or `Rolling`. Default is `Manual`.                                                  |
+| **VM size**                | Optional             | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified.                     |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
