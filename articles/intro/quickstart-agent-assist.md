@@ -174,38 +174,16 @@ Core Features Implemented
 
 ## Test the app
 
-Depending on how you answered questions during planning mode, testing your app locally might depend on the implementation. Review the README file for testing locally.
+Depending on how you answered questions during planning mode, testing your app locally might depend on the implementation. 
 
-# [VS Code for the Web](#tab/vscode-web)
-
-In the **Ports** tab, open the **Forwarded Address** port URL in your browser to see the to-do app in action. Add, toggle, and remove tasks to confirm everything works as expected.
-
-# [Local development environment](#tab/local)
-
-
-```bash
-npm run dev
-```
-
-The command starts the Express server serving both the UI and API. The terminal output includes the localhost URL where the app is running.
-
-```Output
-> todo-app@1.0.0 start
-> node server/index.js
-
-Server listening on http://localhost:7071
-```
-
----
-
+1. Review the README file for testing locally.
 1. Test the to-do app in the browser. Add, remove and change the completion status of tasks to confirm everything works as expected.
-1. Test the API endpoints using the Swagger UI at the '/swagger' endpoint. For example, `http://localhost:3000/swagger`. Confirm that POST, PATCH, and DELETE requests work as expected.
 
 When you're done testing, stop the development server by pressing `Ctrl + C` in the terminal.
 
 ## Ask about Azure services
 
-Now that you have a working app with API support, ask the agent about which Azure services would be a good fit for hosting the app, API, and storage for persistent data.
+Now that you have a working app, ask the agent about which Azure services would be a good fit for hosting the app and storage for persistent data.
 
 Copy and paste the following prompt:
 
