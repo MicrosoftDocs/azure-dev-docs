@@ -28,43 +28,27 @@ You can configure disk size, storage SKU (for example, `Premium_LRS`, `Standard_
 
 Example prompts include:
 
-- *"Create a 128 GB managed disk named `<disk-name>` in resource group `<resource-group>`."*
+- "Create a 128 GB managed disk named `<disk-name>` in resource group `<resource-group>`."
 
-- *"Create a new `Premium_LRS` disk called `<disk-name>` in resource group `<resource-group>` with 256 GB."*
+- "Create a new `Premium_LRS` disk called `<disk-name>` in resource group `<resource-group>` with 256 GB."
 
-- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` in `eastus`."*
+- "Create a disk from snapshot `<snapshot-resource-id>` in resource group `<resource-group>`."
 
-- *"Create a disk from snapshot `<snapshot-resource-id>` in resource group `<resource-group>`."*
+- "Create a 64-GB `Standard_LRS` Linux disk named `<disk-name>` in resource group `<resource-group>` in zone 1."
 
-- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` from blob `<blob-uri>`."*
+- "Create a managed disk from gallery image version `<image-version-resource-id>` in resource group `<resource-group>`."
 
-- *"Create a 64-GB `Standard_LRS` Linux disk named `<disk-name>` in resource group `<resource-group>` in zone 1."*
+- "Create a data disk from LUN 0 of gallery image version `<image-version-resource-id>` in resource group `<resource-group>`."
 
-- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` with tags env=prod team=infra."*
+- "Create a disk ready for upload named `<disk-name>` in resource group `<resource-group>` with upload size 20,972,032 bytes."
 
-- *"Create a 128-GB `Premium_LRS` disk named `<disk-name>` in resource group `<resource-group>` with performance tier `P30`."*
+- "Create a trusted launch upload disk named `<disk-name>` in resource group `<resource-group>` with `UploadWithSecurityData` type and security type `TrustedLaunch`."
 
-- *"Create a disk `<disk-name>` in resource group `<resource-group>` with customer-managed encryption using disk encryption set `<disk-encryption-set-id>`."*
+- "Create a shared managed disk named `<disk-name>` in resource group `<resource-group>` with 512 GB and max shares set to 3."
 
-- *"Create a managed disk from gallery image version `<image-version-resource-id>` in resource group `<resource-group>`."*
+- "Create a managed disk `<disk-name>` in resource group `<resource-group>` with network access policy `DenyAll` and disk access `<disk-access-resource-id>`."
 
-- *"Create a data disk from LUN 0 of gallery image version `<image-version-resource-id>` in resource group `<resource-group>`."*
-
-- *"Create a disk ready for upload named `<disk-name>` in resource group `<resource-group>` with upload size 20,972,032 bytes."*
-
-- *"Create a trusted launch upload disk named `<disk-name>` in resource group `<resource-group>` with `UploadWithSecurityData` type and security type `TrustedLaunch`."*
-
-- *"Create an `UltraSSD_LRS` disk named `<disk-name>` in resource group `<resource-group>` with 256 GB, 10,000 IOPS, and 500-MBps throughput."*
-
-- *"Create a shared managed disk named `<disk-name>` in resource group `<resource-group>` with 512 GB and max shares set to 3."*
-
-- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` with network access policy `DenyAll` and disk access `<disk-access-resource-id>`."*
-
-- *"Create a 128 GB managed disk named `<disk-name>` in resource group `<resource-group>` with on-demand bursting enabled."*
-
-- *"Create a managed disk `<disk-name>` in resource group `<resource-group>` with encryption type `EncryptionAtRestWithPlatformAndCustomerKeys`."*
-
-- *"Create a V2 hypervisor generation disk named `<disk-name>` in resource group `<resource-group>` with 128 GB."*
+- "Create a V2 hypervisor generation disk named `<disk-name>` in resource group `<resource-group>` with 128 GB."
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -105,9 +89,9 @@ Delete an Azure managed disk from the specified resource group. This operation i
 
 Example prompts include:
 
-- *"Delete the managed disk `temp-data-disk` in resource group `dev-rg`."*
+- "Delete the managed disk `temp-data-disk` in resource group `dev-rg`."
 
-- *"Remove managed disk `old-backup-disk` from resource group `prod-rg`."*
+- "Remove managed disk `old-backup-disk` from resource group `prod-rg`."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -128,17 +112,17 @@ If you provide a disk name without specifying a resource group, the tool searche
 
 Example prompts include:
 
-- *"List all managed disks in my subscription."*
+- "List all managed disks in my subscription."
 
-- *"Show me all disks in resource group `<resource-group>`."*
+- "Show me all disks in resource group `<resource-group>`."
 
-- *"Get details of disk `<disk-name>`."*
+- "Get details of disk `<disk-name>`."
 
-- *"What are the available disk sizes?"*
+- "What are the available disk sizes?"
 
-- *"Show me the disks with name pattern `win_OsDisk*` in resource group `<resource-group>`."*
+- "Show me the disks with name pattern `win_OsDisk*` in resource group `<resource-group>`."
 
-- *"Get information about disk `<disk-name>` in resource group `<resource-group>`."*
+- "Get information about disk `<disk-name>` in resource group `<resource-group>`."
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -160,33 +144,23 @@ You can modify the network access policy to `DenyAll`, `AllowAll`, or `AllowPriv
 
 Example prompts include:
 
-- *"Update disk `<disk-name>` in resource group `<resource-group>` to 1,024 GB."*
+- "Update disk `<disk-name>` in resource group `<resource-group>` to 1,024 GB."
 
-- *"Change the SKU of disk `<disk-name>` to `UltraSSD_LRS`."*
+- "Change the SKU of disk `<disk-name>` to `UltraSSD_LRS`."
 
-- *"Resize disk `<disk-name>` in resource group `<resource-group>` to 2,048 GB."*
+- "Resize disk `<disk-name>` in resource group `<resource-group>` to 2,048 GB."
 
-- *"Update disk `<disk-name>` to disable bursting."*
+- "Set the max shares on disk `<disk-name>` to 3."
 
-- *"Set the max shares on disk `<disk-name>` to 3."*
+- "Change the network access policy of disk `<disk-name>` to `AllowPrivate`."
 
-- *"Change the network access policy of disk `<disk-name>` to `AllowPrivate`."*
+- "Update disk `<disk-name>` in resource group `<resource-group>` with tags `env=production`."
 
-- *"Update disk `<disk-name>` in resource group `<resource-group>` with tags `env=production`."*
+- "Set the IOPS limit on Ultra disk `<disk-name>` in resource group `<resource-group>` to 15,000."
 
-- *"Set the IOPS limit on Ultra disk `<disk-name>` in resource group `<resource-group>` to 15,000."*
+- "Update disk `<disk-name>` in resource group `<resource-group>` to use disk encryption set `<disk-encryption-set-id>`."
 
-- *"Update the throughput of disk `<disk-name>` in resource group `<resource-group>` to 1,000 MBps."*
-
-- *"Change the performance tier of disk `<disk-name>` in resource group `<resource-group>` to `P50`."*
-
-- *"Update disk `<disk-name>` in resource group `<resource-group>` to use disk encryption set `<disk-encryption-set-id>`."*
-
-- *"Change the encryption type of disk `<disk-name>` in resource group `<resource-group>` to `EncryptionAtRestWithCustomerKey`."*
-
-- *"Set disk access on disk `<disk-name>` in resource group `<resource-group>` to `<disk-access-resource-id>` with network access policy `DenyAll`."*
-
-- *"Update disk `<disk-name>` to `PremiumV2_LRS` SKU with 256-GB size and tags `env=test`."*
+- "Set disk access on disk `<disk-name>` in resource group `<resource-group>` to `<disk-access-resource-id>` with network access policy `DenyAll`."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -220,17 +194,17 @@ This command doesn't support creating virtual machine scale sets with multiple i
 
 Example prompts include:
 
-- *"Create a new Linux VM named `<vm-name>` with SSH key in resource group `<resource-group>`."*
+- "Create a new Linux VM named `<vm-name>` with SSH key in resource group `<resource-group>`."
 
-- *"Launch a virtual machine with the Ubuntu2404 image in `<resource-group>`."*
+- "Launch a virtual machine with the Ubuntu2404 image in `<resource-group>`."
 
-- *"Create a Windows VM named `<vm-name>` with an admin password in resource group `<resource-group>`."*
+- "Create a Windows VM named `<vm-name>` with an admin password in resource group `<resource-group>`."
 
-- *"Deploy VM `<vm-name>` in `<location>` with `Standard_DS1_v2` size."*
+- "Deploy VM `<vm-name>` in `<location>` with `Standard_DS1_v2` size."
 
-- *"Spin up a VM with `Standard_B2s` size and no public IP in resource group `<resource-group>`."*
+- "Spin up a VM with `Standard_B2s` size and no public IP in resource group `<resource-group>`."
 
-- *"Create a Linux VM named `<vm-name>` in `<location>` with a custom network security group."*
+- "Create a Linux VM named `<vm-name>` in `<location>` with a custom network security group."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -265,11 +239,11 @@ Delete a virtual machine permanently. This operation is irreversible and the VM 
 
 Example prompts include:
 
-- *"Delete VM `test-vm-01` in resource group `dev-rg`."*
+- "Delete VM `test-vm-01` in resource group `dev-rg`."
 
-- *"Remove virtual machine `staging-web` from resource group `staging-rg`."*
+- "Remove virtual machine `staging-web` from resource group `staging-rg`."
 
-- *"Force delete VM `stuck-vm` in resource group `prod-rg`."*
+- "Force delete VM `stuck-vm` in resource group `prod-rg`."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -289,33 +263,21 @@ List or get virtual machines (VMs) in a subscription or resource group. This com
 
 Example prompts include:
 
-- *"List all virtual machines in my subscription."*
+- "List all virtual machines in my subscription."
 
-- *"Show me all VMs in my subscription."*
+- "Show me all VMs in my subscription."
 
-- *"What virtual machines do I have?"*
+- "List virtual machines in resource group `resource-group-name`."
 
-- *"List virtual machines in resource group `resource-group-name`."*
+- "Get details for virtual machine `vm-name` in resource group `resource-group-name`."
 
-- *"Show me VMs in resource group `resource-group-name`."*
+- "Get virtual machine `vm-name` with instance view in resource group `resource-group-name`."
 
-- *"What VMs are in resource group `resource-group-name`?"*
+- "Show me VM `vm-name` with runtime status in resource group `resource-group-name`."
 
-- *"Get details for virtual machine `vm-name` in resource group `resource-group-name`."*
+- "What is the power state of virtual machine `vm-name` in resource group `resource-group-name`?"
 
-- *"Show me virtual machine `vm-name` in resource group `resource-group-name`"*
-
-- *"What are the details of VM `vm-name` in resource group `resource-group-name`?"*
-
-- *"Get virtual machine `vm-name` with instance view in resource group `resource-group-name`."*
-
-- *"Show me VM `vm-name` with runtime status in resource group `resource-group-name`."*
-
-- *"What is the power state of virtual machine `vm-name` in resource group `resource-group-name`?"*
-
-- *"Get VM `vm-name` status and provisioning state in resource group `resource-group-name`."*
-
-- *"Show me the current status of VM `vm-name`."*
+- "Get VM `vm-name` status and provisioning state in resource group `resource-group-name`."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -334,13 +296,13 @@ Update, modify, or reconfigure an existing virtual machine (VM). You can resize 
 
 Example prompts include:
 
-- *"Add license type `Windows_Server` to VM `<vm-name>` in resource group `<resource-group-name>`."*
+- "Add license type `Windows_Server` to VM `<vm-name>` in resource group `<resource-group-name>`."
 
-- *"Update user data for VM `<vm-name>` in resource group `<resource-group-name>`."*
+- "Update user data for VM `<vm-name>` in resource group `<resource-group-name>`."
 
-- *"Resize VM `<vm-name>` in resource group `<resource-group-name>` to `Standard_B2s`."*
+- "Resize VM `<vm-name>` in resource group `<resource-group-name>` to `Standard_B2s`."
 
-- *"Enable boot diagnostics for VM `<vm-name>` in resource group `<resource-group-name>`."*
+- "Enable boot diagnostics for VM `<vm-name>` in resource group `<resource-group-name>`."
 
 | Parameter            | Required or optional | Description                                                                                                                    |
 |----------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------|
@@ -364,13 +326,13 @@ Create, deploy, or provision a virtual machine scale set to run multiple identic
 
 Create a scale set by specifying the `resource group`, `VMSS name`, and `admin username`, along with other optional settings. Here are some example commands:
 
-- *"Create a virtual machine scale set named `my-vmss` in resource group `my-rg`."*
+- "Create a virtual machine scale set named `my-vmss` in resource group `my-rg`."
 
-- *"Create a virtual machine scale set with four instances in `my-rg`."*
+- "Create a virtual machine scale set with four instances in `my-rg`."
 
-- *"Deploy a scale set with a manual upgrade policy and two instances in `my-rg`."*
+- "Deploy a scale set with a manual upgrade policy and two instances in `my-rg`."
 
-- *"Create a Linux virtual machine scale set with SSH public key from '`~/.ssh/id_rsa.pub`' in `my-rg`."*
+- "Create a Linux virtual machine scale set with SSH public key from '`~/.ssh/id_rsa.pub`' in `my-rg`."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -403,11 +365,11 @@ Delete a virtual machine scale set and all its VM instances permanently. This op
 
 Example prompts include:
 
-- *"Delete scale set `web-frontend-vmss` in resource group `prod-rg`."*
+- "Delete scale set `web-frontend-vmss` in resource group `prod-rg`."
 
-- *"Remove virtual machine scale set `test-scaleset` from resource group `dev-rg`."*
+- "Remove virtual machine scale set `test-scaleset` from resource group `dev-rg`."
 
-- *"Force delete virtual machine scale set `stuck-vmss` in resource group `staging-rg`."*
+- "Force delete virtual machine scale set `stuck-vmss` in resource group `staging-rg`."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -427,19 +389,19 @@ List or get virtual machine scale sets and their instances in a subscription or 
 
 Example prompts include:
 
-- *"List all virtual machine scale sets in my subscription."*
+- "List all virtual machine scale sets in my subscription."
 
-- *"List virtual machine scale sets in resource group `<resource-group-name>`."*
+- "List virtual machine scale sets in resource group `<resource-group-name>`."
 
-- *"What scale sets are in resource group `<resource-group-name>`?"*
+- "What scale sets are in resource group `<resource-group-name>`?"
 
-- *"Get details for virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."*
+- "Get details for virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."
 
-- *"Show me virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."*
+- "Show me virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."
 
-- *"Show me instance `<instance-id>` of virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."*
+- "Show me instance `<instance-id>` of virtual machine scale set `<vmss-name>` in resource group `<resource-group-name>`."
 
-- *"What is the status of instance `<instance-id>` in scale set `<vmss-name>`?"*
+- "What is the status of instance `<instance-id>` in scale set `<vmss-name>`?"
 
 | Parameter                          | Required or optional | Description                                              |
 |------------------------------------|----------------------|----------------------------------------------------------|
@@ -458,13 +420,13 @@ Update, modify, or reconfigure an existing virtual machine scale set. You can sc
 
 Example prompts include:
 
-- *"Update the capacity of virtual machine scale set `myScaleSet` to 15."*
+- "Update the capacity of virtual machine scale set `myScaleSet` to 15."
 
-- *"Enable overprovisioning on the scale set `myScaleSet`."*
+- "Enable overprovisioning on the scale set `myScaleSet`."
 
-- *"Change the VM size to `Standard_D4s_v3` for `myScaleSet`."*
+- "Change the VM size to `Standard_D4s_v3` for `myScaleSet`."
 
-- *"Clear existing tags on scale set `myScaleSet` in resource group `myResourceGroup`."*
+- "Clear existing tags on scale set `myScaleSet` in resource group `myResourceGroup`."
 
 | Parameter                          | Required or optional | Description                                                                                                                         |
 |------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
