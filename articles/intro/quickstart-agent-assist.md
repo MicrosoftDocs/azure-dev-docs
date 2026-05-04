@@ -106,12 +106,10 @@ Azure Skills provide Copilot with curated Azure expertise, workflows, and guardr
 
     Copy and paste the following prompt into the Copilot chat panel:
 
-    ```text
+    ``` Prompt
     /plan Create a React to-do app with the following features:
     Add, complete/incomplete toggle, and remove to-do items.
-    Include an API endpoint with POST, PATCH, and DELETE for to-do operations.
-    Add Swagger UI at /swagger with an OpenAPI spec.
-    Choose free or low-cost Azure resources.
+    Choose low-cost Azure resources.
     Create a deployment template for Azure Developer CLI (azd).
     Create a README file with instructions on how to run and deploy the app.
     ```
@@ -123,15 +121,16 @@ Azure Skills provide Copilot with curated Azure expertise, workflows, and guardr
 1. Review the generated plan. Your plan looks something like this:
 
     ```Output
-    Plan: React Todo App with API, Swagger, and azd
-    Build a single Node/Express deployment that serves both the React app and API, with Swagger UI at /swagger and in-memory todo storage. This keeps Azure cost and complexity low while meeting all requested features.
+    Plan: React Todo App + Low-Cost Azure Deployment
+    Build a TypeScript React single-page todo app with add, complete/incomplete toggle, and remove actions, persist data in localStorage, and deploy as a static site on Azure Static Web Apps (Free tier) using Azure Developer CLI templates. This meets your feature and deployment requirements with the lowest practical Azure cost footprint.
 
     Steps
 
-    1. Phase 1 - Scaffold project and deployment foundation.
-    2. Create root azd setup, service structure, and build/start wiring for one deployable service.
-    3. Scaffold React frontend for add, toggle complete/incomplete, and remove actions.
-    4. Scaffold Express backend with health endpoint and static hosting for built frontend.
+    1. Phase 1 - App scaffold and core behavior
+    2. Initialize a React + TypeScript project (recommended: Vite), set up scripts, and establish a simple component structure for input, list, and item actions.
+    3. Implement todo state model and actions: add item, toggle complete/incomplete, remove item, plus empty-input guard. Depends on step 2.
+    4. Add localStorage persistence: load on startup, save on changes, and handle malformed stored data safely. Depends on step 3.
+    5. Add responsive baseline styling for mobile and desktop. Parallel with step 4 once UI structure exists.
     ...
     ```
 
@@ -213,7 +212,7 @@ Now that you have a working app with API support, ask the agent about which Azur
 
 Copy and paste the following prompt:
 
-```text
+``` Prompt
 I want to change the storage persistence. What are my no-cost or low-cost storage options for this app in Azure?
 ```
 
@@ -261,7 +260,7 @@ Since we're going to use azd to deploy, you need to sign in to Azure in the term
 
 ## Debug deployment
 
-```text
+``` Prompt
 Deploy the app using `azd up`. If deployment is misconfigured, diagnose and fix automatically until the live site serves built production files, not source or default pages.
 Final verification must confirm HTML references production assets and that the main JS/CSS asset URLs return HTTP 200.
 Update the README. Return a concise summary and the app website URL.
