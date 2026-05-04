@@ -38,7 +38,6 @@ Install the following tools locally to get a full development experience.
 - [GitHub Copilot VS Code extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 - [Node.js](https://nodejs.org/)
 - [Azure Developer CLI (azd)](../azure-developer-cli/install-azd.md)
-- [Azure CLI](/cli/azure/install-azure-cli)
 - [Azure Skills](https://aka.ms/azure-skills) for enhanced Azure development experience
 
 You can verify tool installation with the following commands:
@@ -52,8 +51,6 @@ code --list-extensions | grep -i github.copilot
 node --version
 # Azure Developer CLI
 azd version
-# Azure CLI
-az version
 # Azure Skills
 code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 ```
@@ -249,12 +246,12 @@ Since we're going to use azd to deploy, you need to sign in to Azure in the term
 
 1. Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run:
 
-    ``` azdeveloper
+    
     azd auth login` and follow the prompts to authenticate.
     ```
 1. Deploy the application to Azure.
 
-    ``` azdeveloper
+    
     azd up
     ```
 

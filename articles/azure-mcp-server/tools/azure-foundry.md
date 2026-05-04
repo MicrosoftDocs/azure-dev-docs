@@ -9,7 +9,7 @@ content_well_notification:
 ai-usage: ai-assisted
 ---
 
-# Microsoft Foundry tools for the Azure MCP Server overview
+# Microsoft Foundry Tools for the Azure MCP Server overview
 
 The Azure MCP Server enables you to manage Azure resources, including Microsoft Foundry models and deployments, with natural language prompts. This capability helps you quickly manage your AI models without needing to remember complex syntax.
 
@@ -247,7 +247,7 @@ Example prompts include:
 - **Specify deployment name**: "Set up a deployment named text-embedding for the Ada embedding model in my Foundry Tools account in resource group 'my-resource-group' with Standard SKU"
 - **Include model version**: "Deploy version 2 of Llama model from Meta to my Foundry Tools account in resource group 'my-resource-group' with scale capacity of 3"
 - **Deploy to specific resource group**: "Create a deployment named content-generation with GPT-4 model in my ai-central service in resource group 'my-resource-group'"
-- **Configure scaling**: "Deploy Claude model to my Foundry Tool in resource group 'my-resource-group' with autoscaling enabled and maximum capacity of 5"
+- **Configure scaling**: "Deploy Claude model to my Foundry tool in resource group 'my-resource-group' with autoscaling enabled and maximum capacity of 5"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
