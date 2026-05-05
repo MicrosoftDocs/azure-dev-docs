@@ -12,7 +12,7 @@
       href: quickstart-configure.md
     - name: Install the Microsoft Terraform Visual Studio Code extension
       href: configure-vs-code-extension-for-terraform.md
-    - name: Use the Microsoft Terraform VS Code extension
+    - name: Use the Microsoft Terraform Visual Studio Code extension
       href: how-to-use-terraform-vscode-extension.md
     - name: Authenticate Terraform to Azure
       href: authenticate-to-azure.md

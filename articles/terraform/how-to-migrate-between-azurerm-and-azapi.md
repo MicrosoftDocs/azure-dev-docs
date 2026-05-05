@@ -15,6 +15,8 @@ ai-usage: ai-generated
 
 Several tools and workflows exist for moving between Azure infrastructure and Terraform, or between the AzureRM and AzAPI Terraform providers. The right path depends on your starting point and goal.
 
+Key tools include `aztfexport` (exports existing Azure resources into Terraform configuration and state) and `aztfmigrate` (converts Terraform configurations between the AzureRM and AzAPI providers).
+
 Use the following table to identify which section applies to your scenario:
 
 | Starting point | Goal | Recommended path |

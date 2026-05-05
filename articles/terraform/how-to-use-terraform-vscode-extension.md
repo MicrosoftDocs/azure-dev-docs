@@ -24,6 +24,8 @@ This article covers the features most relevant to AzAPI authoring and provider m
 
 ## AzAPI provider language features
 
+**Use this when**: You're authoring or editing `azapi_resource` blocks and want autocomplete, validation, and inline documentation.
+
 The extension provides rich language intelligence for the AzAPI provider in `.tf` files, backed by the [AzAPI Language Server](https://github.com/Azure/azapi-lsp).
 
 ### Resource type and API version completion
@@ -109,6 +111,8 @@ The extension integrates with the `aztfpreflight` tool to validate your Terrafor
 Preflight catches errors such as invalid property values, quota violations, and policy compliance failures before any resources are created or modified. For details on enabling preflight directly in the AzAPI provider configuration, see [Enable preflight validation in the AzAPI Terraform provider](how-to-use-azapi-preflight-validation.md).
 
 ## Generate required permissions
+
+**Use this when**: You need to determine the minimum IAM role assignments required to deploy your Terraform resources.
 
 For `azurerm_*` resource blocks, the extension can generate the minimum IAM role assignments needed to deploy the resources.
 
