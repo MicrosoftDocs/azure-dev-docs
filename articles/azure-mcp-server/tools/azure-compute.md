@@ -14,7 +14,7 @@ mcp-cli.version: 2.0.0-beta.39
 
 The Azure MCP Server tools help you manage virtual machines, virtual machine scale sets, and disks by using natural language prompts. By using key capabilities such as creating, retrieving, and updating resources, you can efficiently control your cloud environment.
 
-Azure compute provides scalable computing resources for applications and workloads. For more information, see [Virtual machines in Azure](/azure/virtual-machines/).
+Azure compute provides scalable computing resources for applications and workloads. For more information, see [Azure Compute documentation](/azure/virtual-machines/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
