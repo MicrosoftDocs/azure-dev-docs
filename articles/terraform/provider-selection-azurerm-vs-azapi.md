@@ -42,7 +42,7 @@ Use AzAPI as your primary provider—or to supplement AzureRM—when:
 
 ## When to use both providers together
 
-AzureRM and AzAPI are designed to work side by side. A common pattern is to use AzureRM for most of your infrastructure while using AzAPI to fill specific gaps:
+AzureRM and AzAPI are designed to work side by side. A common pattern is to use AzureRM for most of your infrastructure while using AzAPI for direct ARM API access where needed:
 
 - Use `azapi_update_resource` to set properties on AzureRM-managed resources that AzureRM doesn't expose.
 - Use `azapi_resource` to manage a new service or preview feature while the rest of your stack uses AzureRM.

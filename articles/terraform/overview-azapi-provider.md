@@ -34,7 +34,7 @@ To allow you to manage all Azure resources and features without requiring update
 
 | Resource Name | Description |
 | ------------- | ----------- |
-| [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
+| [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Any Azure resource accessible through the ARM API |
 | [`azapi_update_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/update_resource) | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update precreated child resource - such as DNS SOA record. |
 | [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
 | [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries|
@@ -51,7 +51,7 @@ Overall, usage should follow these steps:
 
 ## Resource configuration examples
 
-The following code snippet configures a resource that doesn't currently exist in the AzureRM provider:
+The following code snippet configures an Azure resource directly through the ARM API:
 
 ```terraform
 resource "azapi_resource" "publicip" {
@@ -163,7 +163,7 @@ The AzAPI provider supports various useful data sources:
 
 | Data Source Name | Description |
 | ------------- | ----------- |
-| [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource) | Used to read information from any Azure (control plane) resource (API). <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
+| [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource) | Used to read information from any Azure (control plane) resource (API). <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Any Azure resource accessible through the ARM API |
 | [`azapi_client_config`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/client_config) | Access client information such as subscription ID and tenant ID. |
 | [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_action) | Used to perform a single read operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List Keys <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read status of VM |
 | [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/data_plane_resource) | Used to access a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries | 
