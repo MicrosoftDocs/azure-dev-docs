@@ -3,7 +3,7 @@ title: "Quickstart: Build and deploy to Azure with agentic AI"
 description: Use GitHub Copilot Plan mode and agent mode in VS Code to plan, build, configure, and deploy a to-do app to Azure.
 ms.service: azure
 ms.topic: quickstart
-ms.date: 04/20/2026
+ms.date: 05/05/2026
 ms.custom: devx-track-azdevcli
 ai-usage: ai-generated
 ---
@@ -170,8 +170,6 @@ Core Features Implemented
 
 ---
 
-
-
 ## Test the app
 
 Depending on how you answered questions during planning mode, testing your app locally might depend on the implementation. 
@@ -214,28 +212,22 @@ For this to-do app, these are the best no-cost or low-cost Azure persistence opt
 
 ## Deploy to Azure
 
-# [VS Code for the Web](#tab/vscode-web)
-
-With the app built and production-ready, use the final prompt to add table storage support and create an Azure Developer CLI template to deploy to Azure. 
-
-Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run `azd auth login --use-device-code` and follow the prompts to authenticate.
-
-# [Local development environment](#tab/local)
-
 1. Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run:
 
-    
+    ```azdeveloper
     azd auth login` and follow the prompts to authenticate.
     ```
 1. Deploy the application to Azure.
 
-    
+    ```azdeveloper
     azd up
     ```
 
 ## Debug deployment
 
-``` Prompt
+If the deployment fails or the live site does not serve the built production files, use the following prompt to have the agent diagnose and fix the deployment automatically.
+
+```Prompt
 Deploy the app using `azd up`. If deployment is misconfigured, diagnose and fix automatically until the live site serves built production files, not source or default pages.
 Final verification must confirm HTML references production assets and that the main JS/CSS asset URLs return HTTP 200.
 Update the README. Return a concise summary and the app website URL.
@@ -248,8 +240,8 @@ Update the README. Return a concise summary and the app website URL.
 After deployment, you can explore your Azure resources directly in VS Code.
 
 1. Open the Azure view by selecting the Azure icon in the Activity Bar.
-1. Expand **Resources** and find the `rg-firstazureexp` resource group.
-1. Expand the resource group to see the App Service plan and web app.
+1. Expand **Resources** and find the resource group for the deployment created by `azd up`.
+1. Expand the resource group to see the deployed services, such as the App Service hosting your web app and any other resources created by `azd up`.
 1. Right-click the web app and select **Browse Website** to open your deployed to-do app.
 1. Right-click the web app and select **Start Streaming Logs** to see live log output.
 
