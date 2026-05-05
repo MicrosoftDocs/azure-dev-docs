@@ -215,7 +215,7 @@ For this to-do app, these are the best no-cost or low-cost Azure persistence opt
 1. Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run:
 
     ```azdeveloper
-    azd auth login` and follow the prompts to authenticate.
+    azd auth login
     ```
 1. Deploy the application to Azure.
 
