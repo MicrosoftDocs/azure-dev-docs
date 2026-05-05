@@ -1,170 +1,32 @@
 ---
-title: Microsoft Foundry Tools - Azure MCP Server
-description: Learn how to use the Azure MCP Server with Microsoft Foundry to manage your AI models and deployments.
+title: Azure MCP Server tools for Microsoft Foundry Extensions
+description: Use Azure MCP Server tools to manage Microsoft Foundry Extensions resources such as chat completions, text completions, embeddings, and models with natural language prompts from your IDE.
+author: diberry
+ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 12/05/2025
+ms.date: 03/20/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+tool_count: 7
+mcp-cli.version: 2.0.0-beta.31
+ms.reviewer: zhoujay, xiangyan
 ---
 
-# Microsoft Foundry Tools for the Azure MCP Server overview
+# Azure MCP Server tools for Microsoft Foundry Extensions
 
-The Azure MCP Server enables you to manage Azure resources, including Microsoft Foundry models and deployments, with natural language prompts. This capability helps you quickly manage your AI models without needing to remember complex syntax.
+The Azure MCP Server lets you manage Microsoft Foundry Extensions resources, including creating chat and text completions, generating embeddings, listing models, and working with knowledge indexes, with natural language prompts.
 
-[Foundry](/azure/ai-foundry/) is a platform for deploying and managing custom AI models in Azure. It provides tools and services for training, fine-tuning, deploying, and monitoring AI models in production environments. With Foundry, you can more easily incorporate AI capabilities into your applications.
+[Microsoft Foundry](/azure/ai-foundry/) is a platform for deploying and managing custom AI models in Azure. It provides tools and services for training, fine-tuning, deploying, and monitoring AI models in production environments.
 
-When connecting to your Foundry resource, the Azure MCP Server requires either the **endpoint** or the **resource group** of your Foundry resource. For operations that don't require a specific resource, such as listing available models, neither the endpoint or resource group is required.
+When connecting to your Microsoft Foundry resource, the Azure MCP Server requires either the **endpoint** or the **resource group** of your Microsoft Foundry resource. For operations that don't require a specific resource, such as listing available models, neither the endpoint nor the resource group is required.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Agents: Connect and run
-
-<!-- foundry agents connect -->
-
-Connect to a specific Azure AI Agent and run a query. This command returns the agent's response along with thread and run IDs for potential evaluation.
-
-Example prompts include: 
-
-- **Connect to agent**: "Connect to agent 'support-bot' and ask 'What is the status of ticket #12345?' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project'"
-- **Query specific agent**: "Ask agent 'sales-bot' for the latest sales report with query 'Show me this month's revenue' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales'"
-- **Use context**: "Connect to agent 'hr-bot' with query 'What are the benefits options?' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/hr-dept'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Agent** |  Required | The ID of the agent to interact with. |
-| **Query** |  Required | The query sent to the agent. |
-| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Agents: Create a new agent
-
-<!-- foundry agents create -->
-
-Creates a Foundry Agent that processes messages according to a given system instruction using an existing Foundry model deployment.
-
-Example prompts include:
-
-- **Create customer support agent**: "Create an agent named 'customer-support-bot' using deployment 'gpt-4' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project' with system instruction 'You are a helpful customer support agent who assists with product inquiries and troubleshooting'"
-- **Create sales assistant**: "Set up an agent called 'sales-assistant' with model deployment 'gpt-35-turbo' at 'https://my-example-resource.services.ai.azure.com/api/projects/sales' that follows the instruction 'You are a sales assistant who helps customers find products and provides pricing information'"
-- **Create HR chatbot**: "Build an agent named 'hr-onboarding-bot' using deployment 'gpt-4-turbo' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/hr-dept' with instruction 'You are an HR specialist who guides new employees through the onboarding process and answers policy questions'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
-| **Model deployment** |  Required | Name of the model deployment. |
-| **Agent name** |  Required | A human-readable name of the Agent. |
-| **System instruction** |  Required | System instruction for the agent to follow when process messages. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Agents: Evaluate an agent
-
-<!-- foundry agents evaluate -->
-
-Run agent evaluation on agent data. Requires JSON strings for query, response, and tool definitions.
-
-Example prompts include:
-
-- **Evaluate task adherence**: "Evaluate the query 'What are the refund policies?' for task_adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project' using Azure OpenAI deployment 'gpt-4'"
-- **Check intent resolution**: "Evaluate the query 'What pricing plans do you offer?' for intent_resolution at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales' using Azure OpenAI deployment 'gpt-4'"
-- **Verify tool accuracy**: "Analyze tool_call_accuracy for query 'Check inventory for item 5678' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales-bot' using Azure OpenAI deployment 'gpt-35-turbo'"
-- **Assess agent performance**: "Evaluate query 'My app won't start' for task_adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support' using Azure OpenAI deployment 'gpt-4'"
-- **Comprehensive evaluation**: "Run evaluation on query 'What documents do I need for onboarding?' for task_adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/hr-dept' using Azure OpenAI deployment 'gpt-4'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Endpoint** |  Required |  The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
-| **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
-| **Query** |  Required | The query sent to the agent. |
-| **Evaluator** |  Required | The name of the evaluator to use (`intent_resolution`, `tool_call_accuracy`, `task_adherence`). |
-| **Response** |  Optional | The response from the agent. |
-| **Tool Definitions** |  Optional | Optional tool definitions made by the agent in JSON format. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Agents: Get agent sample for language SDK
-
-<!-- foundry agents get-sdk-sample -->
-
-Get code samples to interact with a Foundry Agent using Foundry SDK and programming language of your choice.
-
-Example prompts include: 
-
-- **Get Python sample**: "Show me a Python code sample for interacting with a Foundry Agent"
-- **Get C# sample**: "Generate a csharp code example to work with my Foundry agent"
-- **Get TypeScript sample**: "Provide a typescript sample code for connecting to and using a Foundry Agent"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Programming language** |  Required | The programming language of the sdk for interacting with a Foundry Agent. Supported values are `csharp`, `python` and `typescript`. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Agents: List agents
-
-<!-- foundry agents list -->
-
-
-List all Azure AI Agents in a Foundry project. Shows agents that can be used for AI workflows, evaluations, and interactive tasks. 
-
-Example prompts include:
-
-- **View all agents**: "Show me all agents at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
-- **List by project**: "List all AI agents at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/customer-service'"
-- **Check available agents**: "What agents do I have at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'?"
-- **Agent inventory**: "I need a complete list of agents at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
-- **Find specific agents**: "Show me all chatbot agents at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`.|
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Agents: Query and execute an agent
-
-<!-- foundry agents query-and-evaluate -->
-
-Query an agent and evaluate its response in a single operation. This command returns both the agent response and evaluation results.
-
-Example prompts include:
-
-- **Query and evaluate**: "Query agent 'support-bot' with 'What is ticket 123 status?' and evaluate task adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-4'"
-- **Single operation**: "Ask agent 'sales-bot' query 'Show monthly revenue' and check intent resolution at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-4'"
-- **Combined action**: "Connect to agent 'hr-bot' with query 'What is the onboarding process?' and evaluate tool call accuracy at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/hr-dept' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-35-turbo'"
-- **Full cycle**: "Query agent 'marketing-bot' with 'Suggest campaign ideas' and evaluate task adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/marketing' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-4'"
-- **End-to-end check**: "Ask agent 'devops-bot' query 'What is deployment status?' and evaluate intent resolution at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/devops' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-4'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
-| **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
-| **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
-| **Agent ID** |  Required | The ID of the agent to interact with. |
-| **Query** |  Required | The query sent to the agent. |
-| **Evaluators** |  Optional | The list of evaluators to use for evaluation, separated by commas. If not specified, all evaluators are used. |
-
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
 ## Knowledge: List knowledge indexes
 
-<!-- foundry knowledge index list -->
+<!-- @mcpcli foundryextensions knowledge index list -->
 
 Get a list of knowledge indexes from Foundry:
 
@@ -190,7 +52,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 ## Knowledge: Get index schema
 
-<!-- foundry knowledge index schema -->
+<!-- @mcpcli foundryextensions knowledge index schema -->
 
 Get the detailed schema configuration of a specific knowledge index from Foundry.
 
@@ -209,89 +71,9 @@ Example prompts include:
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Models: List available models
-
-<!-- foundry models list -->
-
-List all available Azure OpenAI models and deployments in a Foundry resource. This tool retrieves information about Azure OpenAI models deployed in your Foundry resource including model names, versions, capabilities, and deployment status.
-
-Example prompts include:
-
-- **View all models**: "Show me all available AI models in Foundry"
-- **Filter by free usage**: "List all free models available for prototyping in Foundry that I can use in the playground"
-- **Filter by free usage**: "List all free models available for prototyping in Foundry"
-- **Filter by publisher**: "Show me models published by Microsoft in Foundry"
-- **Filter by license**: "What models with Apache license are available in Foundry?"
-- **Search by name**: "Find the llama model in Foundry"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Search for free playground** | Optional | If set to true, returns a list of models from Foundry that you can also use with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
-| **Publisher** | Optional | A filter to specify the publisher of the models to retrieve. |
-| **License** | Optional | A filter to specify the license type of the models to retrieve. |
-| **Model** | Optional | The name of the model to search for. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Models: Deploy a model
-
-<!-- foundry models deploy -->
-
-Deploy an AI model to your Azure environment. Use this command to deploy selected models from Foundry and make them available for use in your applications.
-
-Example prompts include:
-
-- **Deploy with required parameters**: "Deploy GPT-4 model in OpenAI format to my ai-services account in resource group 'my-resource-group'"
-- **Specify deployment name**: "Set up a deployment named text-embedding for the Ada embedding model in my Foundry Tools account in resource group 'my-resource-group' with Standard SKU"
-- **Include model version**: "Deploy version 2 of Llama model from Meta to my Foundry Tools account in resource group 'my-resource-group' with scale capacity of 3"
-- **Deploy to specific resource group**: "Create a deployment named content-generation with GPT-4 model in my ai-central service in resource group 'my-resource-group'"
-- **Configure scaling**: "Deploy Claude model to my Foundry tool in resource group 'my-resource-group' with autoscaling enabled and maximum capacity of 5"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Deployment** | Required | The name of the Foundry model deployment. |
-| **Model** | Required | The name of the model to deploy. |
-| **Model format** | Required | The format of the model (for example, `OpenAI`, `Meta`, `Microsoft`). |
-| **Foundry Tools** | Required | The name of the Foundry Tools account to deploy to. |
-| **Model version** | Optional | The version of the model to deploy. |
-| **Model source** | Optional | The source of the model. |
-| **SKU** | Optional | The SKU name for the deployment. |
-| **SKU capacity** | Optional | The SKU capacity for the deployment. |
-| **Scale type** | Optional | The scale type for the deployment. |
-| **Scale capacity** | Optional | The scale capacity for the deployment. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Models: List model deployments
-
-<!-- foundry models deployments list -->
-
-List model deployments in a Foundry (Cognitive Services) project. Shows currently deployed AI models at the project level.
-
-Example prompts include:
-
-- **List deployments on production**: "Show me all model deployments at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/production'"
-- **Check specific endpoint**: "What models are currently deployed to endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'?"
-- **View regional deployments**: "List all deployments at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/west-region'"
-- **Check deployment status**: "Show me the status of all models deployed to endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
-- **See active models**: "What AI models are running at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project' right now?"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Endpoint** | Required |The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
 ## OpenAI: Create chat completions
 
-<!-- foundry openai chat-completions-create -->
+<!-- @mcpcli foundryextensions openai chat-completions-create -->
 
  Create chat completions using Azure OpenAI in Foundry. Send messages to Azure OpenAI chat models deployed in your Foundry resource and receive AI-generated conversational responses. Supports multi-turn conversations with message history, system instructions, and response customization.
 
@@ -322,7 +104,6 @@ Example prompts include:
 | **Stream** |  Optional | Whether to stream back partial progress. Default is `false`. |
 | **Seed** |  Optional | If specified, the system will make a best effort to sample deterministically. |
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
-| **Authentication type** |  Optional | The type of authentication to use. Options are `key` (default) or `aad`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -330,7 +111,7 @@ Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 ## OpenAI: Create embeddings
 
-<!-- foundry openai embeddings-create -->
+<!-- @mcpcli foundryextensions openai embeddings-create -->
 
 Create embeddings using Azure OpenAI in Foundry. Generate vector embeddings from text using Azure OpenAI deployments in your Foundry resource for semantic search, similarity comparisons, clustering, or machine learning.
 
@@ -364,7 +145,7 @@ Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 ## OpenAI: Create completions
 
-<!-- foundry openai create-completion -->
+<!-- @mcpcli foundryextensions openai create-completion -->
 
  Create text completions using Azure OpenAI in Foundry. Send a prompt or question to Azure OpenAI models deployed in your Foundry resource and receive generated text answers. Use this when you need to create completions, get AI-generated content, generate answers to questions, or produce text completions from Azure OpenAI based on any input prompt. Supports customization with temperature and max tokens. 
 
@@ -391,7 +172,7 @@ Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 ## OpenAI: List models and deployments
 
-<!-- foundry openai models-list -->
+<!-- @mcpcli foundryextensions openai models-list -->
 
 List all available OpenAI models and deployments in an Azure resource. This tool retrieves information about 
 deployed models including model names, versions, capabilities, and deployment status. 
@@ -420,7 +201,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 ## Resources: Get Foundry resource
 
-<!-- foundry resource get -->
+<!-- @mcpcli foundryextensions resource get -->
 
 Get detailed information about Foundry resources, including endpoint URL, 
 location, SKU, and all deployed models with their configuration. If a specific resource name is provided, 
@@ -441,72 +222,10 @@ Example prompts include:
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Threads: Create a new thread
-
-<!-- foundry threads create -->
-
-Creates a Foundry agent thread that holds the messages between the Agent and the user.
-
-Example prompts include:
-
-- **Create support thread**: "Create a new thread at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project' with user message 'I need help with my account login'"
-- **Start conversation thread**: "Create a thread at 'https://my-example-resource.services.ai.azure.com/api/projects/customer-service' with message 'What are your business hours?'"
-- **Initialize chat thread**: "Start a new thread at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales-bot' with the user message 'I'm interested in purchasing your premium plan'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
-| **User message** |  Required | The user message to add to the thread. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Threads: Get thread messages
-
-<!-- foundry threads get-messages -->
-
-Get messages in a Foundry agent thread.
-
-Example prompts include:
-
-- **Retrieve conversation history**: "Get all messages from thread 'thread_abc123xyz' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project'"
-- **View thread messages**: "Show me the messages in thread 'thread_456def789' from endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/customer-service'"
-- **Check thread content**: "Retrieve messages for thread ID 'thread_xyz789abc' at 'https://my-example-resource.services.ai.azure.com/api/projects/sales-bot'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
-| **Thread ID** |  Required | The Foundry Agent Thread ID. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Threads: List all threads
-
-<!-- foundry threads list -->
-
-List Foundry agent threads.
-
-Example prompts include:
-
-- **List all threads**: "Show me all agent threads at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project'"
-- **View project threads**: "List all threads from 'https://my-example-resource.services.ai.azure.com/api/projects/customer-service'"
-- **Get thread inventory**: "Retrieve all agent threads at 'https://my-example-resource.services.ai.azure.com/api/projects/sales-bot'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Foundry documentation](/azure/ai-foundry/)
-- [Foundry Tools overview](/azure/ai-services/)
+- [Microsoft Foundry documentation](/azure/ai-foundry/)
+- [Azure AI services overview](/azure/ai-services/)
 - [Deploy and consume models](/azure/ai-foundry/concepts/deployments-overview)
