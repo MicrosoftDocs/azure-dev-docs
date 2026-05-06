@@ -157,7 +157,7 @@ After `terraform apply` completes, the storage account key has been rotated. You
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Run [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) to view the storage account keys.
+Run [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) to view the storage account keys.
 
     ```azurecli
     az storage account keys list \
@@ -169,7 +169,7 @@ After `terraform apply` completes, the storage account key has been rotated. You
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. Run [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to view the storage account keys.
+Run [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to view the storage account keys.
 
     ```powershell
     Get-AzStorageAccountKey `
