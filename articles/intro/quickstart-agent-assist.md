@@ -10,7 +10,7 @@ ai-usage: ai-generated
 
 # Quickstart: Develop Azure applications with agent-assisted AI
 
-In this quickstart, you use GitHub Copilot to build a React to-do application and deploy it to Azure App Service using AI-assisted development. When developing locally, you start with Copilot Plan mode to create a detailed implementation plan, then switch to agent mode to build and deploy. When using VS Code for the Web, you use agent mode throughout. By the end, you have hands-on experience with:
+In this quickstart, use GitHub Copilot to build a React to-do application and deploy it to Azure App Service by using AI-assisted development. When developing locally, start with Copilot Plan mode to create a detailed implementation plan, then switch to agent mode to build and deploy. When using VS Code for the Web, use agent mode throughout. By the end, you have hands-on experience with:
 
 - GitHub Copilot [Plan mode](https://code.visualstudio.com/docs/copilot/agents/planning) to research your project and create implementation plans (local development)
 - GitHub Copilot agent mode to scaffold, configure, and deploy a full application
@@ -19,7 +19,7 @@ In this quickstart, you use GitHub Copilot to build a React to-do application an
 - An API endpoint for your to-do app
 - Azure Developer CLI (azd) to provision and deploy Azure resources from an infrastructure template
 
-Plan mode lets Copilot research your codebase and create a structured implementation plan before any code is written, ensuring your requirements are clear and your approach is sound. Agent mode lets Copilot autonomously run commands, edit files, and iterate on errors. You provide the goal and Copilot determines the steps.
+Plan mode lets Copilot research your codebase and create a structured implementation plan before you write any code, ensuring your requirements are clear and your approach is sound. Agent mode lets Copilot autonomously run commands, edit files, and iterate on errors. You provide the goal and Copilot determines the steps.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 
 1. Open [vscode.dev/azure](https://vscode.dev/azure) in your browser.
 1. Sign in by using your Azure account when prompted.
-1. Create and change into a new directory for your project.
+1. Create a new directory for your project, and change into it.
 
     ```bash
     mkdir todo-app && cd todo-app
@@ -71,7 +71,7 @@ code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 
 # [Local development environment](#tab/local)
 
-1. Create and change into a new directory for your project.
+1. Create a new directory for your project, and change into it.
 
     ```bash
     mkdir todo-app && cd todo-app
@@ -82,17 +82,17 @@ code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
     code .
     ```
 
-    The command opens a new VS Code window with the current directory as the workspace. You can also open the folder manually from VS Code by selecting **File > Open Folder** from the menu.
+    The command opens a new VS Code window with the current directory as the workspace. You can also open the folder manually from VS Code by selecting **File** > **Open Folder** from the menu.
 
 ---
 
 ## Enable Azure Skills
 
-Azure Skills provide Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin repository](https://aka.ms/azure-skills).
+Azure Skills provides Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin repository](https://aka.ms/azure-skills).
 
 1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 1. Select **MCP: List servers**.
-1. If the Azure MCP server is not running, start it by selecting **Azure MCP** > **Start server**.
+1. If the Azure MCP server isn't running, start it by selecting **Azure MCP** > **Start server**.
 
 ## Plan your application
 
@@ -104,31 +104,30 @@ Azure Skills provide Copilot with curated Azure expertise, workflows, and guardr
     Copy and paste the following prompt into the Copilot chat panel:
 
     ``` Prompt
-    /plan Create a React to-do app with the following features:
-    Add, complete/incomplete toggle, and remove to-do items.
-    Choose low-cost Azure resources.
-    Create a deployment template for Azure Developer CLI (azd).
-    Create a README file with instructions on how to run and deploy the app.
+    /plan 
+    Create a Vite + React single-page application (SPA) to-do app
+    with the following features:
+    - Add, remove, and mark complete/incomplete to-do items.
+    - Use localStorage to persist to-do items between sessions.
+    - Choose low-cost Azure resources.
+    - Create a deployment template for Azure Developer CLI (azd).
+    - Create a README file with instructions on how to test, run, and deploy the app.
     ```
 
     > [!NOTE]
-    > If you haven't set up GitHub Copilot yet, you are prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
+    > If you didn't set up GitHub Copilot yet, you're prompted to sign in to your GitHub account and set up Copilot before you can send the prompt. If you don't have a Copilot subscription, you're associated with a free account that gives you a monthly limit of completions and chat interactions.
 
-1. Answer any clarifying questions the Plan agent asks after researching your task. For example, which deployment shape do you prefer for lowest cost with azd?
+1. Answer any clarifying questions the Plan agent asks after researching your task. For example:
+    TypeScript or JavaScript for the React app?
+    What styling approach should be used?
+    Should the azd template include a GitHub Actions CI/CD workflow?
+
 1. Review the generated plan. Your plan looks something like this:
 
     ```Output
-    Plan: React Todo App + Low-Cost Azure Deployment
-    Build a TypeScript React single-page todo app with add, complete/incomplete toggle, and remove actions, persist data in localStorage, and deploy as a static site on Azure Static Web Apps (Free tier) using Azure Developer CLI templates. This meets your feature and deployment requirements with the lowest practical Azure cost footprint.
-
-    Steps
-
-    1. Phase 1 - App scaffold and core behavior
-    2. Initialize a React + TypeScript project (recommended: Vite), set up scripts, and establish a simple component structure for input, list, and item actions.
-    3. Implement todo state model and actions: add item, toggle complete/incomplete, remove item, plus empty-input guard. Depends on step 2.
-    4. Add localStorage persistence: load on startup, save on changes, and handle malformed stored data safely. Depends on step 3.
-    5. Add responsive baseline styling for mobile and desktop. Parallel with step 4 once UI structure exists.
-    ...
+    Plan: Vite + React To-Do App with Azure Static Web Apps
+    A TypeScript + Vite + React SPA with localStorage persistence, deployed to Azure Static Web Apps Free tier via azd (no GitHub Actions — manual deploy).
+   ... 
     ```
 
     The Plan agent produces a high-level summary, implementation steps, and verification steps. You can submit follow-up prompts to iterate on the plan until it meets your requirements.
@@ -137,47 +136,82 @@ Azure Skills provide Copilot with curated Azure expertise, workflows, and guardr
 
 Agent mode gives GitHub Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong. You provide a high-level goal, and the agent decides what steps to take.
 
-1. Select **Agent** mode, **Auto** model, **Autopilot** in the chat panel. Agent mode and autopilot allow Copilot to run terminal commands and make file changes autonomously. Auto model lets Copilot choose the best model for each step. Autopilot mode gives Copilot the ability to self-correct and iterate without needing further input from you. If you prefer more control, you can choose default approvals mode to approve each step before it executes.
+1. Select **Claude Sonnet 4.6** model, **Agent** mode, and  **Autopilot** in the chat panel. 
+    - For this quickstart, use a specific model like Claude Sonnet 4.6 for more deterministic behavior so that the steps Copilot takes to implement your plan are more predictable. The default auto model lets Copilot choose the best model for each step dynamically.
+    - Agent mode and autopilot allow Copilot to run terminal commands and make file changes autonomously. Autopilot mode gives Copilot the ability to self-correct and iterate without needing further input from you. If you prefer more control, choose default approvals mode to approve each step before it executes.
 
-1. In the chat panel, select **Start Implementation** or **Start with Autopilot** to hand off the plan to agent mode for execution. Autopilot mode gives Copilot the ability to iterate without needing further input from you. If you prefer more control, you can choose default approvals mode to approve each step before it executes.
+1. In the chat panel, select **Start Implementation** or **Start with Autopilot** to hand off the plan to agent mode for execution. Autopilot mode gives Copilot the ability to iterate without needing further input from you. If you prefer more control, choose default approvals mode to approve each step before it executes.
 
-When Copilot is finished with the implementation, you should see output in the chat panel similar to this:
+When Copilot finishes the implementation, you see output in the chat panel similar to this:
 
 ```Output
-Implementation Complete
-I've successfully built a full-stack React Todo App with Express API, Swagger UI, and Azure deployment via Azure Developer CLI. Here's what was implemented:
+All done. Here's a summary of what was built:
 
-Project Structure
-- Backend (api): Express.js + TypeScript with API routes, in-memory todo store, and OpenAPI spec
-- Frontend (frontend): React + TypeScript + Vite with responsive UI and error handling
-- Infrastructure (infra): Bicep templates for low-cost Azure deployment (App Service F1 tier)
-- Deployment: Azure Developer CLI config (azure.yaml) with build/deploy hooks
+File layout:
 
-Core Features Implemented
-1. Todo API with POST (create), PATCH (toggle), DELETE, and GET endpoints
-2. Swagger UI at /swagger with full OpenAPI 3.0 documentation
-3. React Frontend with:
-   - Add, toggle completion, and delete todo actions
-   - Error handling and loading states
-   - Optimistic UI updates with rollback on error
-   - Accessibility labels for screen readers
-   - Beautiful gradient UI with responsive design
-4. In-Memory Storage with deterministic todo IDs
-5. Backend Tests (Jest) validating todo CRUD operations (4/4 passing)
-6. Docker Support with multi-stage build for efficient deployment
-...
+- types.ts — TodoItem interface
+- useTodos.ts — CRUD + localStorage persistence
+- AddTodo.tsx, TodoItem.tsx, TodoList.tsx — UI components
+- App.tsx + App.css — composition + styling
+- staticwebapp.config.json — SPA fallback routing
+- main.bicep — Azure Static Web Apps Free SKU via AVM module
+- main.parameters.json — azd parameter bindings
+- azure.yaml — azd service definition
+- README.md — local dev, build, and deploy instructions
+To run locally: npm run dev
+To deploy: azd auth login → azd init → azd provision → azd deploy
 ```
 
 ---
 
 ## Test the app
 
-Depending on how you answered questions during planning mode, testing your app locally might depend on the implementation. 
+Depending on how you answered questions during planning mode, testing your app locally might depend on the implementation. Review the README file for testing locally.
 
-1. Review the README file for testing locally.
-1. Test the to-do app in the browser. Add, remove and change the completion status of tasks to confirm everything works as expected.
+# [VS Code for the Web](#tab/vscode-web)
+
+Assuming the application is a Vite + React SPA as generated in the planning steps, start the development server with the following command:
+
+```bash
+npm run dev
+```
+
+The command starts the Vite development server. The terminal output includes the localhost URL where the app is running.
+
+```Output
+  VITE v5.4.21  ready in 271 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+In the **Ports** tab, open the **Forwarded Address** port URL in your browser to see the to-do app in a browser. 
+
+# [Local development environment](#tab/local)
+
+Assuming the application is a Vite + React SPA as generated in the planning steps, start the development server with the following command:
+
+```bash
+npm run dev
+```
+
+The command starts the Vite development server. The terminal output includes the localhost URL where the app is running.
+
+```Output
+  VITE v5.4.21  ready in 271 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+---
+
+Test the functionality by adding, toggling, and removing tasks to confirm everything works as expected.
 
 When you're done testing, stop the development server by pressing `Ctrl + C` in the terminal.
+
 
 ## Ask about Azure services
 
@@ -212,7 +246,9 @@ For this to-do app, these are the best no-cost or low-cost Azure persistence opt
 
 ## Deploy to Azure
 
-1. Since we're going to use azd to deploy, you need to sign in to Azure in the terminal if you haven't already. Run:
+After testing the app locally and confirming it works as expected, deploy it to Azure so you can see it running in the cloud.
+
+1. Since you're using `azd` to deploy, sign in to Azure in the terminal if you aren't already. Run:
 
     ```azdeveloper
     azd auth login
@@ -223,17 +259,15 @@ For this to-do app, these are the best no-cost or low-cost Azure persistence opt
     azd up
     ```
 
-## Debug deployment
+### Debug deployment
 
-If the deployment fails or the live site does not serve the built production files, use the following prompt to have the agent diagnose and fix the deployment automatically.
+If the deployment fails or the live site doesn't serve the built production files, use the following prompt to have the agent diagnose and fix the deployment automatically.
 
 ```Prompt
 Deploy the app using `azd up`. If deployment is misconfigured, diagnose and fix automatically until the live site serves built production files, not source or default pages.
 Final verification must confirm HTML references production assets and that the main JS/CSS asset URLs return HTTP 200.
 Update the README. Return a concise summary and the app website URL.
 ```
-
----
 
 ## Explore your deployed resources
 
