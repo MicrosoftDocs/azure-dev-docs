@@ -291,7 +291,7 @@ This command deletes all Azure resources created during deployment, including th
 
 ## Next steps
 
-You built and deployed an application using AI-assisted development. Explore more ways to develop with Azure:
+You used GitHub Copilot Plan mode and agent mode to plan, scaffold, and deploy a React to-do app to Azure without writing code manually. Continue building on what you learned:
 
 - [GitHub Copilot Plan mode](https://code.visualstudio.com/docs/copilot/agents/planning) - Learn more about planning tasks before implementing them.
 - [Azure Skills Plugin](https://github.com/microsoft/azure-skills) - Install Azure Skills for enhanced Azure development with Copilot.
