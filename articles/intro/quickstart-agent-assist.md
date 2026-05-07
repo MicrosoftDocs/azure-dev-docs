@@ -136,8 +136,8 @@ Azure Skills provides Copilot with curated Azure expertise, workflows, and guard
 
 Agent mode gives GitHub Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong. You provide a high-level goal, and the agent decides what steps to take.
 
-1. Select **Claude Sonnet 4.6** model, **Agent** mode, and  **Autopilot** in the chat panel. 
-    - For this quickstart, use a specific model like Claude Sonnet 4.6 for more deterministic behavior so that the steps Copilot takes to implement your plan are more predictable. The default auto model lets Copilot choose the best model for each step dynamically.
+1. Select **Claude Sonnet 4.6** model, **Agent** mode, and  **Autopilot (Preview)** in the chat panel. 
+    - The default auto model lets Copilot choose the best model for each step dynamically. For this quickstart, use a specific model like Claude Sonnet 4.6 for more deterministic behavior so that the steps Copilot takes to implement your plan are more predictable. 
     - Agent mode and autopilot allow Copilot to run terminal commands and make file changes autonomously. Autopilot mode gives Copilot the ability to self-correct and iterate without needing further input from you. If you prefer more control, choose default approvals mode to approve each step before it executes.
 
 1. In the chat panel, select **Start Implementation** or **Start with Autopilot** to hand off the plan to agent mode for execution. Autopilot mode gives Copilot the ability to iterate without needing further input from you. If you prefer more control, choose default approvals mode to approve each step before it executes.
@@ -164,6 +164,8 @@ To deploy: azd auth login → azd init → azd provision → azd deploy
 
 ---
 
+The app is now scaffolded with the specified features, and the Azure infrastructure template is ready for deployment. The README file includes instructions on how to test and deploy the app. Before deploying to Azure, test the app locally to confirm it works as expected.
+
 ## Test the app
 
 Depending on how you answered questions during planning mode, testing your app locally might depend on the implementation. Review the README file for testing locally.
@@ -173,6 +175,7 @@ Depending on how you answered questions during planning mode, testing your app l
 Assuming the application is a Vite + React SPA as generated in the planning steps, start the development server with the following command:
 
 ```bash
+npm install
 npm run dev
 ```
 
@@ -193,6 +196,7 @@ In the **Ports** tab, open the **Forwarded Address** port URL in your browser to
 Assuming the application is a Vite + React SPA as generated in the planning steps, start the development server with the following command:
 
 ```bash
+npm install
 npm run dev
 ```
 
