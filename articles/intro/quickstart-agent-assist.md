@@ -63,7 +63,7 @@ code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 
 1. Open [vscode.dev/azure](https://vscode.dev/azure) in your browser.
 1. Sign in by using your Azure account when prompted.
-1. Create a new directory for your project, and change into it.
+1. In the **Terminal** window, create a new directory for your project, and change into it.
 
     ```bash
     mkdir todo-app && cd todo-app
@@ -92,7 +92,7 @@ Azure Skills provides Copilot with curated Azure expertise, workflows, and guard
 
 1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 1. Select **MCP: List servers**.
-1. If the Azure MCP server isn't running, start it by selecting **Azure MCP** > **Start server**.
+1. If the Azure MCP server isn't running, start it by selecting **Azure MCP** > **Start Server**.
 
 ## Plan your application
 
