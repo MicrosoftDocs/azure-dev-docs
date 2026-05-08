@@ -186,7 +186,7 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vm create -->
 
-Create, deploy, or provision a single instance of Azure Virtual Machines. This command launches a new Linux or Windows VM with either SSH key or password authentication. If you don't specify networking resources (such as a virtual network or subnet), this tool automatically creates them. The default VM size is `Standard_DS1_v2`, and the default OS is Ubuntu 24.04 LTS if you don't specify otherwise.
+Create, deploy, or provision a single virtual machine. This command launches a new Linux or Windows VM with either SSH key or password authentication. If you don't specify networking resources (such as a virtual network or subnet), this tool automatically creates them. The default VM size is `Standard_DS1_v2`, and the default OS is Ubuntu 24.04 LTS if you don't specify otherwise.
 
 You can create a Linux VM by using an SSH public key. You provide the key content or the path to the key file. For example, you can specify your public key file at `~/.ssh/id_rsa.pub`.
 
@@ -259,7 +259,7 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vm get -->
 
-List or get virtual machines (VMs) in a subscription or resource group. This command returns VM details, including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state.
+List or get virtual machines in a subscription or resource group. This command returns VM details, including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state.
 
 Example prompts include:
 
@@ -292,7 +292,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli compute vm update -->
 
-Update, modify, or reconfigure an existing virtual machine (VM). You can resize a VM, update tags, configure boot diagnostics, or change user data. You might need to deallocate the VM before resizing it to certain sizes.
+Update, modify, or reconfigure an existing virtual machine. You can resize a VM, update tags, configure boot diagnostics, or change user data. You might need to deallocate the VM before resizing it to certain sizes.
 
 Example prompts include:
 
