@@ -71,7 +71,7 @@ code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 
 # [Local development environment](#tab/local)
 
-1. Create a new directory for your project, and change into it.
+1. In the **Terminal** window, create a new directory for your project, and change into it.
 
     ```bash
     mkdir todo-app && cd todo-app
@@ -88,11 +88,21 @@ code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 
 ## Enable Azure Skills
 
-Azure Skills provides Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin repository](https://aka.ms/azure-skills).
+Azure Skills provides Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. The Azure MCP extension installs a companion extension that brings the Azure skills into VS Code. Together they configure the Azure MCP Server, Foundry MCP, and the full skills layer automatically. For more information, see the [Azure Skills Plugin repository](https://aka.ms/azure-skills).
+
+# [VS Code for the Web](#tab/vscode-web)
 
 1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 1. Select **MCP: List servers**.
 1. If the Azure MCP server isn't running, start it by selecting **Azure MCP** > **Start server**.
+
+# [Local development environment](#tab/local)
+
+1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+1. Select **MCP: List servers**.
+1. If the Azure MCP server isn't running, start it by selecting **Azure MCP** > **Start server**.
+
+---
 
 ## Plan your application
 
@@ -136,7 +146,7 @@ Azure Skills provides Copilot with curated Azure expertise, workflows, and guard
 
 Agent mode gives GitHub Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong. You provide a high-level goal, and the agent decides what steps to take.
 
-1. Select **Claude Sonnet 4.6** model, **Agent** mode, and  **Autopilot (Preview)** in the chat panel. 
+1. Select **Claude Sonnet 4.6** model, **Agent** mode, and **Autopilot (Preview)** in the chat panel. 
     - The default auto model lets Copilot choose the best model for each step dynamically. For this quickstart, use a specific model like Claude Sonnet 4.6 for more deterministic behavior so that the steps Copilot takes to implement your plan are more predictable. 
     - Agent mode and autopilot allow Copilot to run terminal commands and make file changes autonomously. Autopilot mode gives Copilot the ability to self-correct and iterate without needing further input from you. If you prefer more control, choose default approvals mode to approve each step before it executes.
 
@@ -196,8 +206,7 @@ In the **Ports** tab, open the **Forwarded Address** port URL in your browser to
 Assuming the application is a Vite + React SPA as generated in the planning steps, start the development server with the following command:
 
 ```bash
-npm install
-npm run dev
+npm install && npm run dev
 ```
 
 The command starts the Vite development server. The terminal output includes the localhost URL where the app is running.
@@ -263,7 +272,7 @@ After testing the app locally and confirming it works as expected, deploy it to 
     azd up
     ```
 
-### Debug deployment
+## Troubleshooting
 
 If the deployment fails or the live site doesn't serve the built production files, use the following prompt to have the agent diagnose and fix the deployment automatically.
 
@@ -272,6 +281,8 @@ Deploy the app using `azd up`. If deployment is misconfigured, diagnose and fix 
 Final verification must confirm HTML references production assets and that the main JS/CSS asset URLs return HTTP 200.
 Update the README. Return a concise summary and the app website URL.
 ```
+
+Consider asking Copilot to help you debug issues. If you encounter an error, copy and paste the error output in the chat window and ask the agent to help you understand and fix the issue.
 
 ## Explore your deployed resources
 
