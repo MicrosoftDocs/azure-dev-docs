@@ -12,7 +12,7 @@ mcp-cli.version: 2.0.0-beta.39
 
 # Azure MCP Server tools for Azure compute overview
 
-The Azure MCP Server tools help you manage virtual machines, virtual machine scale sets, and disks by using natural language prompts. By using key capabilities such as creating, retrieving, and updating resources, you can efficiently control your cloud environment.
+The Azure MCP Server tools help you manage virtual machines (VMs), virtual machine scale sets, and disks by using natural language prompts. By using key capabilities such as creating, retrieving, and updating resources, you can efficiently control your cloud environment.
 
 Azure compute provides scalable computing resources for applications and workloads. For more information, see [Azure Compute documentation](/azure/virtual-machines/).
 
@@ -62,7 +62,7 @@ Example prompts include:
 | **Encryption type** | Optional | Encryption type of the disk. Accepted values: `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, or `EncryptionAtRestWithPlatformKey`. |
 | **Gallery image reference** | Optional | The resource ID of a shared image gallery image version to use as the source for the disk. Format: /subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Compute/galleries/{gallery}/images/{image}/versions/{version}. |
 | **Gallery image reference lun** | Optional | The LUN (logical unit number) of the data disk in the gallery image version. If you specify this parameter, you create the disk from the data disk at this LUN. If you don't specify this parameter, you create the disk from the OS disk of the image. |
-| **Hyper v generation** | Optional | The hypervisor generation of the virtual machine (VM). Applicable to OS disks only. Accepted values: `V1`, `V2`. |
+| **Hyper v generation** | Optional | The hypervisor generation of the VM. Applicable to OS disks only. Accepted values: `V1`, `V2`. |
 | **Location** | Optional | The Azure region/location. The resource group's location is the default if you don't specify this parameter. |
 | **Max shares** | Optional | The maximum number of VMs that can attach to the disk at the same time. A value greater than one indicates a shared disk. |
 | **Network access policy** | Optional | The policy for accessing the disk via network. Accepted values: `AllowAll`, `AllowPrivate`, or `DenyAll`. |
