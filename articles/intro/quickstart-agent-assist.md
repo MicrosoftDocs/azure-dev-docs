@@ -91,7 +91,7 @@ code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 Azure Skills provides Copilot with curated Azure expertise, workflows, and guardrails so the agent can make informed decisions about Azure services, infrastructure, and deployment. For more information, see the [Azure Skills Plugin repository](https://aka.ms/azure-skills).
 
 1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
-1. Select **MCP: List servers**.
+1. Select **MCP: List Servers**.
 1. If the Azure MCP server isn't running, start it by selecting **Azure MCP** > **Start Server**.
 
 ## Plan your application
@@ -137,7 +137,7 @@ Azure Skills provides Copilot with curated Azure expertise, workflows, and guard
 Agent mode gives GitHub Copilot the ability to run terminal commands, create and edit files, and self-correct when something goes wrong. You provide a high-level goal, and the agent decides what steps to take.
 
 1. Select **Claude Sonnet 4.6** model, **Agent** mode, and  **Autopilot (Preview)** in the chat panel. 
-    - The default auto model lets Copilot choose the best model for each step dynamically. For this quickstart, use a specific model like Claude Sonnet 4.6 for more deterministic behavior so that the steps Copilot takes to implement your plan are more predictable. 
+    - The default **Auto** model lets Copilot choose the best model for each step dynamically. For this quickstart, use a specific model like Claude Sonnet 4.6 for more deterministic behavior so that the steps Copilot takes to implement your plan are more predictable. 
     - Agent mode and autopilot allow Copilot to run terminal commands and make file changes autonomously. Autopilot mode gives Copilot the ability to self-correct and iterate without needing further input from you. If you prefer more control, choose default approvals mode to approve each step before it executes.
 
 1. In the chat panel, select **Start Implementation** or **Start with Autopilot** to hand off the plan to agent mode for execution. Autopilot mode gives Copilot the ability to iterate without needing further input from you. If you prefer more control, choose default approvals mode to approve each step before it executes.
@@ -175,8 +175,7 @@ Depending on how you answered questions during planning mode, testing your app l
 Assuming the application is a Vite + React SPA as generated in the planning steps, start the development server with the following command:
 
 ```bash
-npm install
-npm run dev
+npm install && npm run dev
 ```
 
 The command starts the Vite development server. The terminal output includes the localhost URL where the app is running.
