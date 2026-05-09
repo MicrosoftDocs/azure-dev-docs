@@ -1,210 +1,332 @@
 ---
-title: Azure Storage Tools 
-description: "Learn how to use Azure MCP Server with Azure Storage tools to manage storage accounts, containers, blobs, and tables using natural language prompts."
+
+title: Azure MCP Server tools for Azure Storage
+description: Use Azure MCP Server tools to manage Azure Storage resources such as storage accounts, blob containers, blobs, and tables with natural language prompts from your IDE.
+ms.date: 05/06/2026
+ms.service: azure-mcp-server
+ms.topic: concept-article
+tool_count: 7
+mcp-cli.version: 3.0.0-beta.6+34e8edcfb64a98102a133a7a62216f4d7df9face
 author: diberry
 ms.author: diberry
-ms.date: 01/27/2026
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
-ms.topic: concept-article
+ms.reviewer: mbaldwin
+ai-usage: ai-generated
 ms.custom: build-2025
-reviewers: alzimmermsft, jongio, xiangyan99
---- 
+content_well_notification:
+  - AI-contribution
+---
 
-# Azure Storage tools for the Azure MCP Server overview
+# Azure MCP Server tools for Azure Storage
 
-The Azure MCP Server lets you manage Azure Storage resources, including storage accounts, containers, blobs, and tables with natural language prompts.
+The Azure MCP Server lets you manage Azure Storage resources, including: create, get, list, and upload, with natural language prompts.
 
-[Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios.
+Azure Storage is an Azure service that provides cloud-based capabilities for your applications. For more information, see [Azure Storage documentation](/azure/storage/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Account: Create
 
-<!-- storage account create -->
+## Account
 
-Create a new Azure Storage account.
+### Account: create
 
-**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, resource group). Caller must have Storage Account Contributor role or equivalent permissions on the target subscription.
+<!-- @mcpcli storage account create -->
+
+This tool creates an Azure Storage account in the specified resource group and location. It returns the storage account's details, including name, location, SKU, access tier, access settings, and configuration. This tool runs under the Model Context Protocol (MCP).
 
 Example prompts include:
 
-- **Create storage account**: "Create a storage account named 'mystorageaccount' in resource group 'my-resource-group' in location 'eastus'."
-- **With SKU**: "Create a storage account 'mydata' in resource group 'my-resource-group' in location 'eastus' with Standard_GRS."
-- **Enable Data Lake**: "Create a storage account 'datalakeacct' in resource group 'my-resource-group' in location 'westeurope' with hierarchical namespace enabled."
+- "Create a new storage account named 'testaccount123' in location 'eastus' in resource group 'rg-prod'."
+- "Create a storage account 'premiumacct01' with SKU 'Premium_LRS' in location 'westus2' in resource group 'rg-storage'."
+- "Create a new storage account 'datalakeacct01' with hierarchical namespace set to 'true' in location 'eastus2' in resource group 'rg-analytics'."
 
-| Parameter | Required or optional | Description |
-|-----------------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. The resource group is a logical container for Azure resources. |
-| **Storage account** |  Required |The globally unique name of the Azure Storage account (3-24 characters, lowercase letters, and numbers only). |
-| **Location** |  Required | The Azure region where Azure creates the storage account (for example, `eastus`, `westus2`). |
-| **SKU** |  Optional | The storage account SKU. Valid values: `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_ZRS`, `Premium_LRS`, `Premium_ZRS`, `Standard_GZRS`, `Standard_RAGZRS`. |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account name** |  Required | The name of the Azure Storage account to create. Must be globally unique, 3 to 24 characters, and use only lowercase letters and numbers. |
+| **Location** |  Required | The Azure region where the storage account is created, for example `eastus` or `westus2`. |
+| **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Access tier** |  Optional | The default access tier for blob storage. Valid values: `Hot`, `Cool`. |
 | **Enable hierarchical namespace** |  Optional | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
-
-**Success verification**: The tool returns the created storage account details.
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
-
-## Account: Get details
-
-<!-- storage account get -->
-
-Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If you don't provide a specific account name, the tool returns details for all accounts in the subscription.
-
-**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Account Reader role or equivalent permissions.
-
-Example prompts include:
-
-- **Get storage account details**: "Show me details for the storage account 'mystorageaccount'."
-- **List all accounts**: "What storage accounts are in my subscription?"
-- **Check properties**: "What are the settings for storage account 'mydata'?"
-
-| Parameter | Required or optional | Description |
-|-----------|----------|-------------|
-| **Storage account** | Optional | The globally unique name of the Azure Storage account (for example, 'mystorageaccount'). |
-
-**Success verification**: Returns JSON with storage account properties or a list of all accounts if you don't specify a name.
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Container: Create container
-
-<!-- storage blob container create -->
-
-Create a blob container with optional blob public access.
-
-**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Blob Data Contributor role or equivalent on the storage account.
-
-Example prompts include:
-
-- **Create container**: "Create a private container named 'mycontainer' in storage account 'mystorageaccount'."
-- **With access level**: "Create a blob container named 'logs' in storage account 'mydata' with access level 'private'."
-
-| Parameter | Required or optional | Description |
-|-----------|----------|-------------|
-| **Storage account** |  Required | The globally unique name of the Azure Storage account (for example, 'mystorageaccount'). |
-| **Container** |  Required | The name of the container to create within the storage account. |
-
-**Success verification**: The tool returns the created container properties.
+| **Learn** |  Optional | Discover available tools and their parameters without making changes in Azure. Use it on a tool group or on a specific tool to list available options. |
+| **SKU** |  Optional | The storage account SKU. Valid values: `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_ZRS`, `Premium_LRS`, `Premium_ZRS`, `Standard_GZRS`, `Standard_RAGZRS`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
+#### CLI
 
-## Container: Get container details
+Creates an Azure Storage account in the specified resource group and location and returns the created storage account information including name, location, SKU, access settings, and configuration details.
 
-<!-- storage blob container get -->
+```bash
+azmcp storage account create --account <unique-account-name> \
+                             --resource-group <resource-group> \
+                             --location <location> \
+                             [--sku <sku>] \
+                             [--access-tier <access-tier>] \
+                             [--enable-hierarchical-namespace <true|false>]
+```
 
-List all blob containers in a storage account or show details for a specific container. Displays container properties including access policies, lease status, and metadata.
+| Switch | Required | Type | Description |
+|--------|----------|------|-------------|
+| `--account` | ✅ | string | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
+| `--resource-group` | ✅ | string | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--location` | ✅ | string | The Azure region where the storage account will be created (e.g., 'eastus', 'westus2'). |
+| `--sku` | ❌ | string | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
+| `--access-tier` | ❌ | string | The default access tier for blob storage. Valid values: Hot, Cool. |
+| `--enable-hierarchical-namespace` | ❌ | string | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
 
-**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Blob Data Reader role or equivalent on the storage account.
+### Account: get
+
+<!-- @mcpcli storage account get -->
+
+This Model Context Protocol (MCP) tool retrieves detailed information about Azure Storage accounts. It returns account name, location, SKU, kind, hierarchical namespace status, secure transfer required (HTTPS-only) setting, and blob public access configuration. The tool returns details for a specific storage account when you provide an account name. If you don't provide an account name, this tool returns details for all storage accounts in the subscription.
 
 Example prompts include:
 
-- **Get container details**: "Show me details about the 'documents' container in storage account 'mystorageaccount'."
-- **List containers**: "What containers are in storage account 'media_files'?"
-- **Check access policy**: "Check access policy for container 'user_data' in storage account 'prodstore'."
+- "Show me the details for storage account 'mystorageaccount'."
+- "Get details about storage account 'prodstorageacct' including location and SKU."
+- "List all storage accounts in my subscription, including their location and SKU."
+- "Show me my storage accounts and whether hierarchical namespace (HNS) is enabled."
+- "Show me storage accounts in my subscription and include HTTPS-only and public blob access settings."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Storage account** | Required | The globally unique name of the Azure Storage account. |
-| **Container** | Optional | The name of the container. If you don't specify a name, the tool lists all containers in the storage account. |
-
-**Success verification**: Returns JSON with container properties or a list of all containers if you don't specify a name.
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account name** |  Optional | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Learn** |  Optional | Discover available sub-tools and their parameters without executing any Azure operation. For example, use azmcp storage --learn to list all tools in the storage group, or use azmcp storage account list --learn to see its options. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Blob: Get blob details
+#### CLI
 
-<!-- storage blob get -->
+Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name is not provided, the command will return details for all accounts in a subscription.
 
-List blobs in a container or get details for a specific blob. Shows blob properties including metadata, size, last modification time, and content properties.
+```bash
+azmcp storage account get [--account <account>]
+```
 
-**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Blob Data Reader role or equivalent on the storage account.
+| Switch | Required | Type | Description |
+|--------|----------|------|-------------|
+| `--account` | ❌ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+
+## Blob container
+
+### Blob container: create
+
+<!-- @mcpcli storage blob container create -->
+
+Create a new Azure Storage blob container in a storage account.
+
+This tool creates a new blob container in an Azure Storage account. Required: account, container, and subscription. Optional: tenant.
+
+Returns: name, lastModified, eTag, leaseStatus, publicAccessLevel, hasImmutabilityPolicy, and hasLegalHold.
+
+This tool creates a logical container to organize blobs within the storage account.
 
 Example prompts include:
 
-- **Get blob details**: "Show me details for 'file.txt' in container 'documents' in storage account 'mystorageaccount'."
-- **List blobs**: "What blobs are in container 'photos' in storage account 'mediafiles'?"
-- **Blob metadata**: "What is the metadata for 'backup.zip' in container 'backups' in storage account 'mydata'?"
+- "Create container 'mycontainer' in storage account 'mystorageaccount'."
 
-| Parameter | Required or optional | Description |
-|-----------------------------|----------------------|-------------|
-| **Storage account** | Required | The globally unique name of the Azure Storage account (for example, 'mystorageaccount'). |
-| **Container** | Required | The name of the container within the storage account. |
-| **Blob** | Optional | The name of the blob within the container, including the full path (for example, `file.txt` or `folder/file.txt`). If you don't specify a name, the tool lists all blobs in the container. |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Container name** |  Required | The name of the container to create within the storage account. |
+| **Learn** |  Optional | Discover available sub-commands and their parameters without executing any Azure operation. Use it on a command group, for example, azmcp storage, to list all commands in that group, or on a specific command, for example, azmcp storage account list, to show its options. |
 
-**Success verification**: Returns JSON with blob properties or a list of all blobs if you don't specify a name.
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
+
+#### CLI
+
+Create/provision a new Azure Storage blob container in a storage account. Required: --account, --container, --subscription. Optional: --tenant. Returns: container name, lastModified, eTag, leaseStatus, publicAccessLevel, hasImmutabilityPolicy, hasLegalHold. Creates a logical container for organizing blobs within a storage account.
+
+```bash
+azmcp storage blob container create --account <account> \
+                                    --container <container>
+```
+
+| Switch | Required | Type | Description |
+|--------|----------|------|-------------|
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--container` | ✅ | string | The name of the container to access within the storage account. |
+
+### Blob container: get
+
+<!-- @mcpcli storage blob container get -->
+
+Show or list blob containers in an Azure Storage account. This tool lists all blob containers in the specified Azure Storage account, or shows details for a specific container. If you don't specify a container, the tool lists all containers, and you can filter the results by prefix. The prefix is ignored when you specify a container. Example: Get containers in storage account 'mystorageacct' with prefix 'prod-'.
+
+Required: account, subscription  
+Optional: container, tenant, prefix
+
+Returns: container name, last modified time, lease status, public access level, metadata, and container properties.
+
+Example prompts include:
+
+- "Show me the properties of the storage container 'images' in the storage account 'mystorageaccount'."
+- "List all blob containers in the storage account 'companydata2024'."
+- "Show me the containers in the storage account 'archiveacct'."
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Container name** |  Optional | The name of the container within the Azure Storage account. |
+| **Learn** |  Optional | Discover available sub-commands and their parameters without executing any Azure operation. For example, run `azmcp storage --learn` on a command group to list its commands, or run `azmcp storage account list --learn` on a specific tool to see its options. |
+| **Prefix** |  Optional | Filter listed containers by name prefix. Only containers whose names start with the specified prefix are returned. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Blob: Upload
+#### CLI
 
-<!-- storage blob upload -->
+Show/list containers in a storage account. Use this tool to list all blob containers in the storage account or show details for a specific Storage container. If no container specified, shows all containers in the storage account, optionally filtering on a prefix. The prefix is ignored if a container is specified.
 
-Uploads a local file to a blob in Azure Storage if the blob doesn't exist.
+```bash
+azmcp storage blob container get --account <account> \
+                                 [--container <container>] \
+                                 [--prefix <prefix>]
+```
 
-**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Blob Data Contributor role or equivalent on the storage account. Local file must exist and be accessible.
+| Switch | Required | Type | Description |
+|--------|----------|------|-------------|
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--container` | ❌ | string | The name of the container to access within the storage account. |
+| `--prefix` | ❌ | string | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix will be listed. |
+
+## Blob
+
+### Blob: get
+
+<!-- @mcpcli storage blob get -->
+
+The Model Context Protocol (MCP) storage blob get tool lists blobs in a container or returns properties for a specific blob in an Azure Storage account. If you specify a blob name, this tool returns details for that blob. If you don't specify a blob name, this tool lists all blobs in the container, optionally filtering by prefix.
+
+Required: account, container, subscription  
+Optional: blob, tenant, prefix
+
+Returns: blob name, size, lastModified, content type, content hash, metadata, and other blob properties.
 
 Example prompts include:
 
-- **Upload file**: "Upload local file 'report.pdf' to blob 'documents/report.pdf' in container 'documents' in storage account 'mystorageaccount'."
-- **Upload and overwrite**: "Upload local file 'data.csv' to blob 'archive/data.csv' in container 'archive' in storage account 'mydata', overwriting if it exists'."
+- "Show me the properties for blob 'photos/2024/image1.jpg' in container 'images' in storage account 'mystorageaccount'."
+- "Get the details about blob 'reports/summary.pdf' in container 'documents' in storage account 'companydata2024'."
+- "List all blobs in the blob container 'backups' in storage account 'backupstore'."
+- "Show me the blobs in the blob container 'logs' in storage account 'prodstorage'."
 
-| Parameter |  Required or optional| Description |
-|-----------|----------|-------------|
-| **Storage account** |  Required | The globally unique name of the Azure Storage account (for example, `mystorageaccount`). |
-| **Container** |  Required | The name of the container within the storage account. |
-| **Blob** | Required | The name of the blob within the container, including the full path (for example, `file.txt` or `folder/file.txt`). |
-| **Local file path** | Required | The full path to the local file on your system. |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Container name** |  Required | The name of the container to access within the storage account. |
+| **Blob name** |  Optional | The name of the blob to access within the container. Include the path in the container (for example, `file.txt` or `folder/file.txt`). |
+| **Learn** |  Optional | Show available tool groups and options without making Azure calls. Use on a tool group or on an individual tool to list available actions and parameters. |
+| **Prefix** |  Optional | Filter listed blobs to those whose names start with the specified prefix. |
 
-**Success verification**: The tool returns the last modified time, ETag, and content hash of the uploaded blob.
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+Examples
+
+- List all blobs in account 'mystorageaccount', container 'web-logs'.  
+- Get properties for blob 'backups/2026-05-01.bak' in account 'mystorageaccount', container 'database-backups'.
+
+#### CLI
+
+List/get/show blobs in a blob container in Storage account. Use this tool to list the blobs in a container or get details for a specific blob. If no blob specified, lists all blobs present in the container, optionally filtering on a prefix. The prefix is ignored if a blob is specified.
+
+```bash
+azmcp storage blob get --account <account> \
+                       --container <container> \
+                       [--blob <blob>] \
+                       [--prefix <prefix>]
+```
+
+| Switch | Required | Type | Description |
+|--------|----------|------|-------------|
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--container` | ✅ | string | The name of the container to access within the storage account. |
+| `--blob` | ❌ | string | The name of the blob to access within the container. This should be the full path within the container (e.g., 'file.txt' or 'folder/file.txt'). |
+| `--prefix` | ❌ | string | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix will be listed. |
+
+### Blob: upload
+
+<!-- @mcpcli storage blob upload -->
+
+This Model Context Protocol (MCP) tool uploads a local file to an Azure Storage blob if the blob doesn't exist. This tool returns the blob's last modified time, ETag, and content hash. For example, upload 'C:\data\invoice.pdf' to account 'mystorageaccount', container 'invoices', blob '2026/invoice.pdf'.
+
+Example prompts include:
+
+- "Upload local file path '/home/alice/report.pdf' to blob 'reports/2026/report.pdf' in container 'documents' in storage account 'mystorageacct'."
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Blob name** |  Required | The name of the blob within the container. Provide the full path within the container (for example, `file.txt` or `folder/file.txt`). |
+| **Container name** |  Required | The name of the container within the storage account. |
+| **Local file path** |  Required | The local file path to upload from. Provide the full path on your local system. |
+| **Learn** |  Optional | Discover available sub-commands and their parameters without executing any Azure operation. Use the learn option on a command group, for example 'azmcp storage', to list all commands in that group. Use it on a specific command, for example 'azmcp storage account list', to see its options. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ✅
 
-## Table: List
+#### CLI
 
-<!-- storage table list -->
+Uploads a local file to an Azure Storage blob, only if the blob does not exist, returning the last modified time, ETag, and content hash of the uploaded blob.
 
-List all tables in an Azure Storage account. 
+```bash
+azmcp storage blob upload --account <account> \
+                          --container <container> \
+                          --blob <blob> \
+                          --local-file-path <path-to-local-file>
+```
 
-**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Account Reader role or equivalent permissions.
+| Switch | Required | Type | Description |
+|--------|----------|------|-------------|
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--container` | ✅ | string | The name of the container to access within the storage account. |
+| `--blob` | ✅ | string | The name of the blob to access within the container. This should be the full path within the container (e.g., 'file.txt' or 'folder/file.txt'). |
+| `--local-file-path` | ✅ | string | The local file path to read content from or to write content to. This should be the full path to the file on your local system. |
+
+## Table
+
+### Table: list
+
+<!-- @mcpcli storage table list -->
+
+Model Context Protocol (MCP) tools use a consistent interface. This tool lists all tables in an Azure Storage account and returns their names. It doesn't list tables in Azure Cosmos DB or Azure Data Explorer.
 
 Example prompts include:
 
-- "Show me all tables in storage account 'dataarchives'"
-- "List every table in storage account 'storagesample01'"
-- "Get details for table 'UserLogs' in storage account 'appstorage01'"
-- "I need to see the table named 'InventoryRecords' in storage account 'warehouseacct'"
-- "Can you provide the tables inside storage account 'mystorageaccount'"
+- "List all tables in storage account 'mystorageacct'."
+- "Show me the tables in storage account 'companydata2024'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Storage account** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
-
-**Success verification**: The tool returns the list of tables in the specified storage account.
+| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Learn** |  Optional | Discover available sub-commands and their parameters without executing any Azure operation. Use it on a command group, for example `azmcp storage --learn`, to list all commands in that group, or on a specific command, for example `azmcp storage account list --learn`, to see its options. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
----
+#### CLI
+
+List all tables in an Azure Storage account. Shows table names for the specified storage account. Required: --account, --subscription. Optional: --tenant. Returns: table names. Do not use this tool for Cosmos DB tables or Kusto/Data Explorer tables.
+
+```bash
+azmcp storage table list --account <account>
+```
+
+| Switch | Required | Type | Description |
+|--------|----------|------|-------------|
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
 
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure Storage](/azure/storage/common/storage-introduction)
+- [Azure Storage documentation](/azure/storage/)
