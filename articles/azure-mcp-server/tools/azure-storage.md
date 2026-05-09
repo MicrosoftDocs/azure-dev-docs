@@ -57,36 +57,20 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 Creates a new Azure Storage account with custom configuration in the specified resource group and location.
 
-**Example CLI commands**
-
-Basic usage:
+**Example CLI command**
 
 ```azurecli
-azmcp storage account create
+azmcp storage account create --resource-group <resource-group> --account <account> --location <location>
 ```
 
-With parameters:
-
-```azurecli
-azmcp storage account create --resource-group <resource-group> --account <account> --location <location> --sku <sku> --access-tier <access-tier> --enable-hierarchical-namespace <enable-hierarchical-namespace>
-```
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
-| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
-| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
-| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
-| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
-| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
-| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
-| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
-| `--resource-group` | string | The name of the Azure resource group. This value is a logical container for Azure resources. |
-| `--account` | string | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
-| `--location` | string | The Azure region where the storage account is created (for example, 'eastus', 'westus2'). |
-| `--sku` | string | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
-| `--access-tier` | string | The default access tier for blob storage. Valid values: Hot, Cool. |
-| `--enable-hierarchical-namespace` | string | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--resource-group` | string | Yes | The name of the Azure resource group. This value is a logical container for Azure resources. |
+| `--account` | string | Yes | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
+| `--location` | string | Yes | The Azure region where the storage account is created (for example, 'eastus', 'westus2'). |
+| `--sku` | string | No | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
+| `--access-tier` | string | No | The default access tier for blob storage. Valid values: Hot, Cool. |
+| `--enable-hierarchical-namespace` | string | No | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
 
 ---
 
@@ -118,33 +102,17 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Retrieves detailed information about Azure Storage accounts. Returns the account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, the command returns details for all accounts in a subscription.
+Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, the command returns details for all accounts in a subscription.
 
-**Example CLI commands**
-
-Basic usage:
+**Example CLI command**
 
 ```azurecli
 azmcp storage account get
 ```
 
-With parameters:
-
-```azurecli
-azmcp storage account get --account <account>
-```
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
-| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
-| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
-| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
-| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
-| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
-| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
-| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
-| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--account` | string | No | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 
 ---
 
@@ -173,34 +141,18 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Creates a blob container with optional public access in the specified storage account.
+Creates a new Azure Storage blob container in an Azure Storage account.
 
-**Example CLI commands**
-
-Basic usage:
-
-```azurecli
-azmcp storage blob container create
-```
-
-With parameters:
+**Example CLI command**
 
 ```azurecli
 azmcp storage blob container create --account <account> --container <container>
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
-| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
-| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
-| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
-| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
-| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
-| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
-| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
-| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
-| `--container` | string | The name of the container to access within the storage account. |
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--account` | string | Yes | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `--container` | string | Yes | The name of the container to access within the storage account. |
 
 ---
 
@@ -232,35 +184,19 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Shows or lists containers in a storage account. Use this command to list all blob containers in the storage account or show details for a specific container. If no container is specified, the command shows all containers in the storage account, optionally filtering on a prefix. The prefix is ignored if a container is specified. Don't use this command to list blobs in a container.
+Lists and retrieves details about blob containers in an Azure Storage account. Returns container name, last modified, eTag, lease status, public access level, immutability policy, and legal hold status.
 
-**Example CLI commands**
-
-Basic usage:
+**Example CLI command**
 
 ```azurecli
-azmcp storage blob container get
+azmcp storage blob container get --account <account>
 ```
 
-With parameters:
-
-```azurecli
-azmcp storage blob container get --account <account> --container <container> --prefix <prefix>
-```
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
-| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
-| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
-| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
-| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
-| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
-| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
-| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
-| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
-| `--container` | string | The name of the container to access within the storage account. |
-| `--prefix` | string | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix are listed. |
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--account` | string | Yes | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `--container` | string | No | The name of the container to access within the storage account. |
+| `--prefix` | string | No | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix are listed. |
 
 ---
 
@@ -294,36 +230,20 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Gets detailed properties of Azure Storage blobs. Lists blobs in a container or retrieves details for a specific blob. Returns blob name, size, lastModified, contentType, contentHash, metadata, and blob properties.
+Lists and retrieves details about blobs in an Azure Storage blob container. Returns blob name, type, size, content type, and last modified time.
 
-**Example CLI commands**
-
-Basic usage:
+**Example CLI command**
 
 ```azurecli
-azmcp storage blob get
+azmcp storage blob get --account <account> --container <container>
 ```
 
-With parameters:
-
-```azurecli
-azmcp storage blob get --account <account> --container <container> --blob <blob> --prefix <prefix>
-```
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
-| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
-| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
-| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
-| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
-| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
-| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
-| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
-| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
-| `--container` | string | The name of the container to access within the storage account. |
-| `--blob` | string | The name of the blob to access within the container. This value should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
-| `--prefix` | string | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix are listed. |
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--account` | string | Yes | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `--container` | string | Yes | The name of the container to access within the storage account. |
+| `--blob` | string | No | The name of the blob to access within the container. This value should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
+| `--prefix` | string | No | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix are listed. |
 
 ---
 
@@ -354,36 +274,20 @@ Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Uploads a local file to an Azure Storage blob, only if the blob doesn't exist. Returns the last modified time, ETag, and content hash of the uploaded blob.
+Uploads a local file to an Azure Storage blob, only if the blob doesn't exist, returning the last modified time, ETag, and content hash of the uploaded blob.
 
-**Example CLI commands**
-
-Basic usage:
-
-```azurecli
-azmcp storage blob upload
-```
-
-With parameters:
+**Example CLI command**
 
 ```azurecli
 azmcp storage blob upload --account <account> --container <container> --blob <blob> --local-file-path <local-file-path>
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
-| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
-| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
-| `--retry-max-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
-| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
-| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
-| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
-| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
-| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
-| `--container` | string | The name of the container to access within the storage account. |
-| `--blob` | string | The name of the blob to access within the container. This value should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
-| `--local-file-path` | string | The local file path to read content from or to write content to. This value should be the full path to the file on your local system. |
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--account` | string | Yes | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `--container` | string | Yes | The name of the container to access within the storage account. |
+| `--blob` | string | Yes | The name of the blob to access within the container. This value should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
+| `--local-file-path` | string | Yes | The local file path to read content from or to write content to. This value should be the full path to the file on your local system. |
 
 ---
 
@@ -412,33 +316,17 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Lists all tables in an Azure Storage account. Shows table names for the specified storage account. Don't use this command for Azure Cosmos DB tables or Azure Data Explorer tables.
+List all tables in an Azure Storage account. Shows table names for the specified storage account. Don't use this tool for Cosmos DB tables or Kusto/Data Explorer tables.
 
-**Example CLI commands**
-
-Basic usage:
-
-```azurecli
-azmcp storage table list
-```
-
-With parameters:
+**Example CLI command**
 
 ```azurecli
 azmcp storage table list --account <account>
 ```
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
-| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
-| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
-| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
-| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
-| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
-| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
-| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
-| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `--account` | string | Yes | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 
 ---
 
