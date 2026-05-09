@@ -70,7 +70,7 @@ azmcp storage account create --account <unique-account-name> \
 |--------|----------|------|-------------|
 | `--account` | ✅ | string | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
 | `--resource-group` | ✅ | string | The name of the Azure resource group. This is a logical container for Azure resources. |
-| `--location` | ✅ | string | The Azure region where the storage account will be created (e.g., 'eastus', 'westus2'). |
+| `--location` | ✅ | string | The Azure region where the storage account is created (for example, 'eastus', 'westus2'). |
 | `--sku` | ❌ | string | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
 | `--access-tier` | ❌ | string | The default access tier for blob storage. Valid values: Hot, Cool. |
 | `--enable-hierarchical-namespace` | ❌ | string | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
@@ -100,7 +100,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### CLI
 
-Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name is not provided, the command will return details for all accounts in a subscription.
+Retrieves detailed information about Azure Storage accounts. Returns the account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, the command returns details for all accounts in a subscription.
 
 ```bash
 azmcp storage account get [--account <account>]
@@ -108,7 +108,7 @@ azmcp storage account get [--account <account>]
 
 | Switch | Required | Type | Description |
 |--------|----------|------|-------------|
-| `--account` | ❌ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | ❌ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 
 ## Blob container
 
@@ -149,7 +149,7 @@ azmcp storage blob container create --account <account> \
 
 | Switch | Required | Type | Description |
 |--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | `--container` | ✅ | string | The name of the container to access within the storage account. |
 
 ### Blob container: get
@@ -192,9 +192,9 @@ azmcp storage blob container get --account <account> \
 
 | Switch | Required | Type | Description |
 |--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | `--container` | ❌ | string | The name of the container to access within the storage account. |
-| `--prefix` | ❌ | string | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix will be listed. |
+| `--prefix` | ❌ | string | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix are listed. |
 
 ## Blob
 
@@ -246,10 +246,10 @@ azmcp storage blob get --account <account> \
 
 | Switch | Required | Type | Description |
 |--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | `--container` | ✅ | string | The name of the container to access within the storage account. |
-| `--blob` | ❌ | string | The name of the blob to access within the container. This should be the full path within the container (e.g., 'file.txt' or 'folder/file.txt'). |
-| `--prefix` | ❌ | string | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix will be listed. |
+| `--blob` | ❌ | string | The name of the blob to access within the container. This should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
+| `--prefix` | ❌ | string | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix are listed. |
 
 ### Blob: upload
 
@@ -286,9 +286,9 @@ azmcp storage blob upload --account <account> \
 
 | Switch | Required | Type | Description |
 |--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | `--container` | ✅ | string | The name of the container to access within the storage account. |
-| `--blob` | ✅ | string | The name of the blob to access within the container. This should be the full path within the container (e.g., 'file.txt' or 'folder/file.txt'). |
+| `--blob` | ✅ | string | The name of the blob to access within the container. This should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
 | `--local-file-path` | ✅ | string | The local file path to read content from or to write content to. This should be the full path to the file on your local system. |
 
 ## Table
