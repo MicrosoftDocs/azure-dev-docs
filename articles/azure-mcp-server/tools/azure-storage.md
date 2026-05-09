@@ -55,7 +55,7 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Creates a new Azure Storage account with custom configuration in the specified resource group and location.
+Creates an Azure Storage account in the specified resource group and location. You specify the account name, location, and resource group, and the tool returns the created storage account details, including name, location, SKU, access tier, and configuration settings. Use the examples to build realistic requests.
 
 **Example CLI command**
 
@@ -108,7 +108,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, the command returns details for all accounts in a subscription.
+Retrieves detailed information about Azure Storage accounts. Returns the account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If you don't specify an account name, returns details for all storage accounts in the subscription.
 
 **Example CLI command**
 
@@ -148,7 +148,7 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Creates a new Azure Storage blob container in an Azure Storage account.
+Creates a new Azure Storage blob container in a storage account. A blob container organizes blobs within the storage account. Returns container name, lastModified, eTag, leaseStatus, publicAccessLevel, hasImmutabilityPolicy, and hasLegalHold.
 
 **Example CLI command**
 
@@ -193,7 +193,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Lists and retrieves details about blob containers in an Azure Storage account. Returns container name, last modified, eTag, lease status, public access level, immutability policy, and legal hold status.
+Lists blob containers in an Azure Storage account and shows details for a specific container. If you don't specify a container, lists all containers and optionally filters them by prefix. If you specify a container, the prefix is ignored. Returns container name, lastModified, leaseStatus, publicAccess, metadata, and container properties.
 
 **Example CLI command**
 
@@ -242,7 +242,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Lists and retrieves details about blobs in an Azure Storage blob container. Returns blob name, type, size, content type, and last modified time.
+Lists blobs in an Azure Storage account container or gets details for a specific blob. When you don't specify a blob, lists all blobs in the container. When you specify a blob, returns only that blob's details. You can filter listings by prefix; the prefix is ignored when you specify a blob. Returns blob name, size, lastModified, contentType, contentHash, metadata, and blob properties.
 
 **Example CLI command**
 
@@ -290,7 +290,7 @@ Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Uploads a local file to an Azure Storage blob, only if the blob doesn't exist, returning the last modified time, ETag, and content hash of the uploaded blob.
+Uploads a local file to an Azure Storage blob only if the blob doesn't exist. Returns the blob's last modified time, ETag, and content hash.
 
 **Example CLI command**
 
@@ -336,7 +336,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-List all tables in an Azure Storage account. Shows table names for the specified storage account. Don't use this tool for Cosmos DB tables or Kusto/Data Explorer tables.
+Lists all tables in an Azure Storage account, and returns the table names. The output includes only Azure Storage tables; it doesn't include Azure Cosmos DB or Azure Data Explorer tables.
 
 **Example CLI command**
 
