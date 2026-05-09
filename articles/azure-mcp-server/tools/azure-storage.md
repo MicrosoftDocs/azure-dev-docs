@@ -31,22 +31,22 @@ Azure Storage is an Azure service that provides cloud-based capabilities for you
 
 #### [MCP tool](#tab/mcp-tool)
 
-This tool creates an Azure Storage accountin the specified resource group and location. It returns the storage account's details, including name, location, SKU, access tier, access settings, and configuration. This tool runs under the Model Context Protocol (MCP).
+
+This tool creates an Azure Storage account in the specified resource group and location. You specify the account name, location, and resource group, and the tool returns the created storage account details, including name, location, SKU, access tier, and configuration settings. Use the examples to build realistic requests.
 
 Example prompts include:
 
-- "Create a new storage account named 'testaccount123' in location 'eastus' in resource group 'rg-prod'."
-- "Create a storage account 'premiumacct01' with SKU 'Premium_LRS' in location 'westus2' in resource group 'rg-storage'."
-- "Create a new storage account 'datalakeacct01' with hierarchical namespace set to 'true' in location 'eastus2' in resource group 'rg-analytics'."
+- "Create a new storage account 'testaccount123' in location 'eastus' within resource group 'rg-prod'."
+- "Create a storage account 'premiumacct01' in location 'westus2' within resource group 'rg-staging' with SKU 'Premium_LRS'."
+- "Create a new storage account 'datalakeacct' in location 'eastus' within resource group 'rg-datalake' and enable hierarchical namespace 'true'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account name** |  Required | The name of the Azure Storage account to create. Must be globally unique, 3 to 24 characters, and use only lowercase letters and numbers. |
-| **Location** |  Required | The Azure region where the storage account is created, for example `eastus` or `westus2`. |
-| **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
+| **Account name** |  Required | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
+| **Location** |  Required | The Azure region where the storage account is created, for example, `eastus`, `westus2`. |
+| **Resource group** |  Required | The name of the Azure resource group that contains the storage account. |
 | **Access tier** |  Optional | The default access tier for blob storage. Valid values: `Hot`, `Cool`. |
-| **Enable hierarchical namespace** |  Optional | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
-| **Learn** |  Optional | Discover available tools and their parameters without making changes in Azure. Use it on a tool group or on a specific tool to list available options. |
+| **Enable hierarchical namespace** |  Optional | Specify whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
 | **SKU** |  Optional | The storage account SKU. Valid values: `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_ZRS`, `Premium_LRS`, `Premium_ZRS`, `Standard_GZRS`, `Standard_RAGZRS`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -55,27 +55,41 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Creates an Azure Storage account in the specified resource groupand location and returns the created storage account information including name, location, SKU, access settings, and configuration details.
+Creates a new Azure Storage account with custom configuration in the specified resource group and location.
 
-```bash
-azmcp storage account create --account <unique-account-name> \
-                             --resource-group <resource-group> \
-                             --location <location> \
-                             [--sku <sku>] \
-                             [--access-tier <access-tier>] \
-                             [--enable-hierarchical-namespace <true|false>]
+**Example CLI commands**
+
+Basic usage:
+
+```azurecli
+azmcp storage account create
 ```
 
-| Switch | Required | Type | Description |
-|--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
-| `--resource-group` | ✅ | string | The name of the Azure resource group. This is a logical container for Azure resources. |
-| `--location` | ✅ | string | The Azure region where the storage account is created (for example, 'eastus', 'westus2'). |
-| `--sku` | ❌ | string | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
-| `--access-tier` | ❌ | string | The default access tier for blob storage. Valid values: Hot, Cool. |
-| `--enable-hierarchical-namespace` | ❌ | string | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
+With parameters:
+
+```azurecli
+azmcp storage account create --resource-group <resource-group> --account <account> --location <location> --sku <sku> --access-tier <access-tier> --enable-hierarchical-namespace <enable-hierarchical-namespace>
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
+| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
+| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
+| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
+| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
+| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
+| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
+| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
+| `--resource-group` | string | The name of the Azure resource group. This value is a logical container for Azure resources. |
+| `--account` | string | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
+| `--location` | string | The Azure region where the storage account is created (for example, 'eastus', 'westus2'). |
+| `--sku` | string | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
+| `--access-tier` | string | The default access tier for blob storage. Valid values: Hot, Cool. |
+| `--enable-hierarchical-namespace` | string | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
 
 ---
+
 
 ## Account: Get details
 
@@ -83,20 +97,20 @@ azmcp storage account create --account <unique-account-name> \
 
 #### [MCP tool](#tab/mcp-tool)
 
-This Model Context Protocol (MCP) tool retrievesdetailed information about Azure Storage accounts. It returns account name, location, SKU, kind, hierarchical namespace status, secure transfer required (HTTPS-only) setting, and blob public access configuration. The tool returns details for a specific storage account when you provide an account name. If you don't provide an account name, this tool returns details for all storage accounts in the subscription.
+
+This tool retrieves detailed information about Azure Storage accounts. Returns the account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If you don't specify an account name, this tool returns details for all storage accounts in the subscription.
 
 Example prompts include:
 
 - "Show me the details for storage account 'mystorageaccount'."
-- "Get details about storage account 'prodstorageacct' including location and SKU."
-- "List all storage accounts in my subscription, including their location and SKU."
-- "Show me my storage accounts and whether hierarchical namespace (HNS) is enabled."
-- "Show me storage accounts in my subscription and include HTTPS-only and public blob access settings."
+- "Get details about storage account 'companydata2024'."
+- "List all storage accounts in my subscription including their location and SKU."
+- "Show my storage accounts with whether hierarchical namespace (HNS) is enabled."
+- "Show the storage accounts in my subscription and include HTTPS-only and public blob access settings."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account name** |  Optional | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
-| **Learn** |  Optional | Discover available sub-tools and their parameters without executing any Azure operation. For example, use azmcp storage --learn to list all tools in the storage group, or use azmcp storage account list --learn to see its options. |
+| **Account name** |  Optional | The name of the Azure Storage account. Use the unique account name, for example, `mystorageaccount`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -104,17 +118,36 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Retrieves detailed information about Azure Storage accounts.Returns the account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, the command returns details for all accounts in a subscription.
+Retrieves detailed information about Azure Storage accounts. Returns the account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, the command returns details for all accounts in a subscription.
 
-```bash
-azmcp storage account get [--account <account>]
+**Example CLI commands**
+
+Basic usage:
+
+```azurecli
+azmcp storage account get
 ```
 
-| Switch | Required | Type | Description |
-|--------|----------|------|-------------|
-| `--account` | ❌ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+With parameters:
+
+```azurecli
+azmcp storage account get --account <account>
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
+| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
+| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
+| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
+| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
+| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
+| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
+| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
+| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 
 ---
+
 
 ## Container: Create container
 
@@ -122,23 +155,17 @@ azmcp storage account get [--account <account>]
 
 #### [MCP tool](#tab/mcp-tool)
 
-Create a new Azure Storage blob containerin a storage account.
 
-This tool creates a new blob container in an Azure Storage account. Required: account, container, and subscription. Optional: tenant.
-
-Returns: name, lastModified, eTag, leaseStatus, publicAccessLevel, hasImmutabilityPolicy, and hasLegalHold.
-
-This tool creates a logical container to organize blobs within the storage account.
+This tool creates a new Azure Storage blob container in a storage account. A blob container organizes blobs within the storage account. Returns container name, lastModified, eTag, leaseStatus, publicAccessLevel, hasImmutabilityPolicy, and hasLegalHold.
 
 Example prompts include:
 
-- "Create container 'mycontainer' in storage account 'mystorageaccount'."
+- "Create the storage container 'mycontainer' in storage account 'mystorageaccount'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Account name** |  Required | The name of the Azure Storage account. This value is the unique name you chose for the account (for example, `mystorageaccount`). |
 | **Container name** |  Required | The name of the container to create within the storage account. |
-| **Learn** |  Optional | Discover available sub-commands and their parameters without executing any Azure operation. Use it on a command group, for example, azmcp storage, to list all commands in that group, or on a specific command, for example, azmcp storage account list, to show its options. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -146,19 +173,37 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Create/provision a new Azure Storage blob containerin a storage account. Required: --account, --container, --subscription. Optional: --tenant. Returns: container name, lastModified, eTag, leaseStatus, publicAccessLevel, hasImmutabilityPolicy, hasLegalHold. Creates a logical container for organizing blobs within a storage account.
+Creates a blob container with optional public access in the specified storage account.
 
-```bash
-azmcp storage blob container create --account <account> \
-                                    --container <container>
+**Example CLI commands**
+
+Basic usage:
+
+```azurecli
+azmcp storage blob container create
 ```
 
-| Switch | Required | Type | Description |
-|--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
-| `--container` | ✅ | string | The name of the container to access within the storage account. |
+With parameters:
+
+```azurecli
+azmcp storage blob container create --account <account> --container <container>
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
+| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
+| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
+| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
+| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
+| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
+| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
+| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
+| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `--container` | string | The name of the container to access within the storage account. |
 
 ---
+
 
 ## Container: Get container details
 
@@ -166,25 +211,20 @@ azmcp storage blob container create --account <account> \
 
 #### [MCP tool](#tab/mcp-tool)
 
-Show or list blob containersin an Azure Storage account. This tool lists all blob containers in the specified Azure Storage account, or shows details for a specific container. If you don't specify a container, the tool lists all containers, and you can filter the results by prefix. The prefix is ignored when you specify a container. Example: Get containers in storage account 'mystorageacct' with prefix 'prod-'.
 
-Required: account, subscription  
-Optional: container, tenant, prefix
-
-Returns: container name, last modified time, lease status, public access level, metadata, and container properties.
+This tool lists blob containers in an Azure Storage account and shows details for a specific container. If you don't specify a container, the tool lists all containers and optionally filters them by prefix. If you specify a container, the tool ignores the prefix. Returns container name, lastModified, leaseStatus, publicAccess, metadata, and container properties.
 
 Example prompts include:
 
-- "Show me the properties of the storage container 'images' in the storage account 'mystorageaccount'."
-- "List all blob containers in the storage account 'companydata2024'."
-- "Show me the containers in the storage account 'archiveacct'."
+- "Show properties of storage container 'images' in storage account 'mystorageacct'."
+- "List all blob containers in storage account 'companydata2024'."
+- "Show the containers in storage account 'prodstorage'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
-| **Container name** |  Optional | The name of the container within the Azure Storage account. |
-| **Learn** |  Optional | Discover available sub-commands and their parameters without executing any Azure operation. For example, run `azmcp storage --learn` on a command group to list its commands, or run `azmcp storage account list --learn` on a specific tool to see its options. |
-| **Prefix** |  Optional | Filter listed containers by name prefix. Only containers whose names start with the specified prefix are returned. |
+| **Account name** |  Required | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Container name** |  Optional | The name of the container to access within the storage account. |
+| **Prefix** |  Optional | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix are listed. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -192,21 +232,38 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Show/list containers in a storage account.Use this tool to list all blob containers in the storage account or show details for a specific Storage container. If no container specified, shows all containers in the storage account, optionally filtering on a prefix. The prefix is ignored if a container is specified.
+Shows or lists containers in a storage account. Use this command to list all blob containers in the storage account or show details for a specific container. If no container is specified, the command shows all containers in the storage account, optionally filtering on a prefix. The prefix is ignored if a container is specified. Don't use this command to list blobs in a container.
 
-```bash
-azmcp storage blob container get --account <account> \
-                                 [--container <container>] \
-                                 [--prefix <prefix>]
+**Example CLI commands**
+
+Basic usage:
+
+```azurecli
+azmcp storage blob container get
 ```
 
-| Switch | Required | Type | Description |
-|--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
-| `--container` | ❌ | string | The name of the container to access within the storage account. |
-| `--prefix` | ❌ | string | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix are listed. |
+With parameters:
+
+```azurecli
+azmcp storage blob container get --account <account> --container <container> --prefix <prefix>
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
+| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
+| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
+| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
+| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
+| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
+| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
+| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
+| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `--container` | string | The name of the container to access within the storage account. |
+| `--prefix` | string | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix are listed. |
 
 ---
+
 
 ## Blob: Get blob details
 
@@ -214,56 +271,62 @@ azmcp storage blob container get --account <account> \
 
 #### [MCP tool](#tab/mcp-tool)
 
-The Model Context Protocol (MCP) storage blob get tool lists blobsin a container or returns properties for a specific blob in an Azure Storage account. If you specify a blob name, this tool returns details for that blob. If you don't specify a blob name, this tool lists all blobs in the container, optionally filtering by prefix.
 
-Required: account, container, subscription  
-Optional: blob, tenant, prefix
-
-Returns: blob name, size, lastModified, content type, content hash, metadata, and other blob properties.
+This tool lists blobs in an Azure Storage account container or gets details for a specific blob. When you don't specify a blob, the tool lists all blobs in the container. When you specify a blob, the tool returns only that blob's details. You can filter listings by prefix; the prefix is ignored when you specify a blob. Returns blob name, size, lastModified, contentType, contentHash, metadata, and blob properties.
 
 Example prompts include:
 
-- "Show me the properties for blob 'photos/2024/image1.jpg' in container 'images' in storage account 'mystorageaccount'."
-- "Get the details about blob 'reports/summary.pdf' in container 'documents' in storage account 'companydata2024'."
-- "List all blobs in the blob container 'backups' in storage account 'backupstore'."
-- "Show me the blobs in the blob container 'logs' in storage account 'prodstorage'."
+- "Show properties for blob 'folder/file.txt' in container 'images' in storage account 'mystorageaccount'."
+- "Get details for blob 'report.pdf' in container 'documents' in storage account 'companydata2024'."
+- "List all blobs in container 'backups' in storage account 'mystorageacct'."
+- "Show blobs in container 'logs' in storage account 'projstorage' with prefix '2024/'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Account name** |  Required | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, `mystorageaccount`). |
 | **Container name** |  Required | The name of the container to access within the storage account. |
-| **Blob name** |  Optional | The name of the blob to access within the container. Include the path in the container (for example, `file.txt` or `folder/file.txt`). |
-| **Learn** |  Optional | Show available tool groups and options without making Azure calls. Use on a tool group or on an individual tool to list available actions and parameters. |
-| **Prefix** |  Optional | Filter listed blobs to those whose names start with the specified prefix. |
+| **Blob name** |  Optional | The name of the blob to access within the container. This value should be the full path within the container (for example, `file.txt` or `folder/file.txt`). |
+| **Prefix** |  Optional | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix are listed. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-Examples
-
-- List all blobs in account 'mystorageaccount', container 'web-logs'.  
-- Get properties for blob 'backups/2026-05-01.bak' in account 'mystorageaccount', container 'database-backups'.
-
 #### [CLI](#tab/cli)
 
-List/get/show blobs in a blob containerin Storage account. Use this tool to list the blobs in a container or get details for a specific blob. If no blob specified, lists all blobs present in the container, optionally filtering on a prefix. The prefix is ignored if a blob is specified.
+Gets detailed properties of Azure Storage blobs. Lists blobs in a container or retrieves details for a specific blob. Returns blob name, size, lastModified, contentType, contentHash, metadata, and blob properties.
 
-```bash
-azmcp storage blob get --account <account> \
-                       --container <container> \
-                       [--blob <blob>] \
-                       [--prefix <prefix>]
+**Example CLI commands**
+
+Basic usage:
+
+```azurecli
+azmcp storage blob get
 ```
 
-| Switch | Required | Type | Description |
-|--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
-| `--container` | ✅ | string | The name of the container to access within the storage account. |
-| `--blob` | ❌ | string | The name of the blob to access within the container. This should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
-| `--prefix` | ❌ | string | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix are listed. |
+With parameters:
+
+```azurecli
+azmcp storage blob get --account <account> --container <container> --blob <blob> --prefix <prefix>
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
+| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
+| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
+| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
+| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
+| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
+| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
+| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
+| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `--container` | string | The name of the container to access within the storage account. |
+| `--blob` | string | The name of the blob to access within the container. This value should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
+| `--prefix` | string | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix are listed. |
 
 ---
+
 
 ## Blob: Upload
 
@@ -271,19 +334,19 @@ azmcp storage blob get --account <account> \
 
 #### [MCP tool](#tab/mcp-tool)
 
-This Model Context Protocol (MCP) tool uploadsa local file to an Azure Storage blob if the blob doesn't exist. This tool returns the blob's last modified time, ETag, and content hash. For example, upload 'C:\data\invoice.pdf' to account 'mystorageaccount', container 'invoices', blob '2026/invoice.pdf'.
+
+This tool uploads a local file to an Azure Storage blob only if the blob doesn't exist. It returns the blob's last modified time, ETag, and content hash.
 
 Example prompts include:
 
-- "Upload local file path '/home/alice/report.pdf' to blob 'reports/2026/report.pdf' in container 'documents' in storage account 'mystorageacct'."
+- "Upload file at local file path '/home/user/data/report.pdf' to storage blob 'archive/report.pdf' in container 'backup' in storage account 'mystorageaccount'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
-| **Blob name** |  Required | The name of the blob within the container. Provide the full path within the container (for example, `file.txt` or `folder/file.txt`). |
-| **Container name** |  Required | The name of the container within the storage account. |
-| **Local file path** |  Required | The local file path to upload from. Provide the full path on your local system. |
-| **Learn** |  Optional | Discover available sub-commands and their parameters without executing any Azure operation. Use the learn option on a command group, for example 'azmcp storage', to list all commands in that group. Use it on a specific command, for example 'azmcp storage account list', to see its options. |
+| **Account name** |  Required | The name of the Azure Storage account. This value is the unique name you chose for your storage account, for example, `mystorageaccount`. |
+| **Blob name** |  Required | The name of the blob to access within the container. Use the full path within the container, for example, `file.txt` or `folder/file.txt`. |
+| **Container name** |  Required | The name of the container to access within the storage account. |
+| **Local file path** |  Required | The local file path to read content from. Use the full path to the file on your system, for example, `C:\Users\alice\Documents\file.txt` or `/home/alice/file.txt`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -291,23 +354,39 @@ Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [CLI](#tab/cli)
 
-Uploads a local file to an Azure Storage blob, only if the blob does not exist, returning the last modified time, ETag, and content hash of the uploaded blob.
+Uploads a local file to an Azure Storage blob, only if the blob doesn't exist. Returns the last modified time, ETag, and content hash of the uploaded blob.
 
-```bash
-azmcp storage blob upload --account <account> \
-                          --container <container> \
-                          --blob <blob> \
-                          --local-file-path <path-to-local-file>
+**Example CLI commands**
+
+Basic usage:
+
+```azurecli
+azmcp storage blob upload
 ```
 
-| Switch | Required | Type | Description |
-|--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
-| `--container` | ✅ | string | The name of the container to access within the storage account. |
-| `--blob` | ✅ | string | The name of the blob to access within the container. This should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
-| `--local-file-path` | ✅ | string | The local file path to read content from or to write content to. This should be the full path to the file on your local system. |
+With parameters:
+
+```azurecli
+azmcp storage blob upload --account <account> --container <container> --blob <blob> --local-file-path <local-file-path>
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
+| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
+| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
+| `--retry-max-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
+| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
+| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
+| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
+| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
+| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `--container` | string | The name of the container to access within the storage account. |
+| `--blob` | string | The name of the blob to access within the container. This value should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
+| `--local-file-path` | string | The local file path to read content from or to write content to. This value should be the full path to the file on your local system. |
 
 ---
+
 
 ## Table: List
 
@@ -315,17 +394,17 @@ azmcp storage blob upload --account <account> \
 
 #### [MCP tool](#tab/mcp-tool)
 
-Model Context Protocol (MCP) tools use a consistent interface.This tool lists all tables in an Azure Storage account and returns their names. It doesn't list tables in Azure Cosmos DB or Azure Data Explorer.
+
+This tool lists all tables in an Azure Storage account, and returns the table names. The output includes only Azure Storage tables; it doesn't include Azure Cosmos DB or Azure Data Explorer tables.
 
 Example prompts include:
 
-- "List all tables in storage account 'mystorageacct'."
-- "Show me the tables in storage account 'companydata2024'."
+- "List all tables in the storage account 'mystorageaccount'."
+- "What tables are in storage account 'datahubstore'?"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account name** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
-| **Learn** |  Optional | Discover available sub-commands and their parameters without executing any Azure operation. Use it on a command group, for example `azmcp storage --learn`, to list all commands in that group, or on a specific command, for example `azmcp storage account list --learn`, to see its options. |
+| **Account name** |  Required | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, `mystorageaccount`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -333,17 +412,36 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [CLI](#tab/cli)
 
-List all tables in an Azure Storage account.Shows table names for the specified storage account. Required: --account, --subscription. Optional: --tenant. Returns: table names. Do not use this tool for Cosmos DB tables or Kusto/Data Explorer tables.
+Lists all tables in an Azure Storage account. Shows table names for the specified storage account. Don't use this command for Azure Cosmos DB tables or Azure Data Explorer tables.
 
-```bash
+**Example CLI commands**
+
+Basic usage:
+
+```azurecli
+azmcp storage table list
+```
+
+With parameters:
+
+```azurecli
 azmcp storage table list --account <account>
 ```
 
-| Switch | Required | Type | Description |
-|--------|----------|------|-------------|
-| `--account` | ✅ | string | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `--tenant` | string | The Microsoft Entra ID tenant ID or name. This value can be either the GUID identifier or the display name of your Entra ID tenant. |
+| `--auth-method` | string | Authentication method to use. Options: 'credential' (Azure CLI/managed identity), 'key' (access key), or 'connectionString'. |
+| `--retry-delay` | string | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base. |
+| `--retry-max-delay` | string | Maximum delay in seconds between retries, regardless of the retry strategy. |
+| `--retry-max-retries` | string | Maximum number of retry attempts for failed operations before giving up. |
+| `--retry-mode` | string | Retry strategy to use. 'fixed' uses consistent delays, 'exponential' increases delay between attempts. |
+| `--retry-network-timeout` | string | Network operation timeout in seconds. Operations taking longer than this value are cancelled. |
+| `--subscription` | string | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the AZURE_SUBSCRIPTION_ID environment variable is used instead. |
+| `--account` | string | The name of the Azure Storage account. This value is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 
 ---
+
 
 ## Related content
 
