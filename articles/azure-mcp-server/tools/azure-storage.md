@@ -60,7 +60,13 @@ Creates a new Azure Storage account with custom configuration in the specified r
 **Example CLI command**
 
 ```azurecli
-azmcp storage account create --resource-group <resource-group> --account <account> --location <location>
+azmcp storage account create \
+  --resource-group <resource-group> \
+  --account <account> \
+  --location <location> \
+  [--sku <sku>] \
+  [--access-tier <access-tier>] \
+  [--enable-hierarchical-namespace <enable-hierarchical-namespace>]
 ```
 
 | Parameter | Type | Required | Description |
@@ -107,7 +113,8 @@ Retrieves detailed information about Azure Storage accounts, including account n
 **Example CLI command**
 
 ```azurecli
-azmcp storage account get
+azmcp storage account get \
+  [--account <account>]
 ```
 
 | Parameter | Type | Required | Description |
@@ -146,7 +153,9 @@ Creates a new Azure Storage blob container in an Azure Storage account.
 **Example CLI command**
 
 ```azurecli
-azmcp storage blob container create --account <account> --container <container>
+azmcp storage blob container create \
+  --account <account> \
+  --container <container>
 ```
 
 | Parameter | Type | Required | Description |
@@ -189,7 +198,10 @@ Lists and retrieves details about blob containers in an Azure Storage account. R
 **Example CLI command**
 
 ```azurecli
-azmcp storage blob container get --account <account>
+azmcp storage blob container get \
+  --account <account> \
+  [--container <container>] \
+  [--prefix <prefix>]
 ```
 
 | Parameter | Type | Required | Description |
@@ -235,7 +247,11 @@ Lists and retrieves details about blobs in an Azure Storage blob container. Retu
 **Example CLI command**
 
 ```azurecli
-azmcp storage blob get --account <account> --container <container>
+azmcp storage blob get \
+  --account <account> \
+  --container <container> \
+  [--blob <blob>] \
+  [--prefix <prefix>]
 ```
 
 | Parameter | Type | Required | Description |
@@ -279,7 +295,11 @@ Uploads a local file to an Azure Storage blob, only if the blob doesn't exist, r
 **Example CLI command**
 
 ```azurecli
-azmcp storage blob upload --account <account> --container <container> --blob <blob> --local-file-path <local-file-path>
+azmcp storage blob upload \
+  --account <account> \
+  --container <container> \
+  --blob <blob> \
+  --local-file-path <local-file-path>
 ```
 
 | Parameter | Type | Required | Description |
@@ -321,7 +341,8 @@ List all tables in an Azure Storage account. Shows table names for the specified
 **Example CLI command**
 
 ```azurecli
-azmcp storage table list --account <account>
+azmcp storage table list \
+  --account <account>
 ```
 
 | Parameter | Type | Required | Description |
