@@ -109,6 +109,7 @@ Azure Skills provides Copilot with curated Azure expertise, workflows, and guard
 [Plan mode](https://code.visualstudio.com/docs/copilot/agents/planning) lets Copilot research your project and generate a detailed implementation plan before writing any code. You review and refine the plan, then hand it off to agent mode for execution.
 
 1. Open the [Copilot Chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) view by selecting the chat icon in the Activity Bar.
+1. Sign in to GitHub Copilot if you haven't already. Select the GitHub Copilot logo **Sign-in** button in the Visual Studio Code status bar and follow the prompts to authenticate with your GitHub account.
 1. Select **Plan** from the agents dropdown in the chat panel, or type `/plan` followed by your task description.
 
     Copy and paste the following prompt into the Copilot chat panel:
