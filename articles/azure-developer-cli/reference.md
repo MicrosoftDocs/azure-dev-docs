@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/25/2026
+ms.date: 05/09/2026
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -800,10 +800,10 @@ levels and scopes for the rules.
 
 Examples:
 **Grant always permission to all tools globally**
-azd copilot consent grant --global --permission always
+  azd copilot consent grant --global --permission always
 
 **Grant project permission to a specific tool with read-only scope**
-azd copilot consent grant --server my-server --tool my-tool --permission project --scope read-only
+  azd copilot consent grant --server my-server --tool my-tool --permission project --scope read-only
 
 ```azdeveloper
 azd copilot consent grant [flags]
@@ -1459,7 +1459,7 @@ Manage azd extensions.
 * [azd extension show](#azd-extension-show): Show details for a specific extension.
 * [azd extension source](#azd-extension-source): View and manage extension sources
 * [azd extension uninstall](#azd-extension-uninstall): Uninstall specified extensions.
-* [azd extension upgrade](#azd-extension-upgrade): Upgrade specified extensions.
+* [azd extension upgrade](#azd-extension-upgrade): Upgrade installed extensions to the latest version.
 * [Back to top](#azd)
 
 ## azd extension install
@@ -1745,7 +1745,22 @@ azd extension uninstall [extension-id] [flags]
 
 ## azd extension upgrade
 
-Upgrade specified extensions.
+Upgrade installed extensions to the latest version.
+
+### Synopsis
+
+Upgrade one or more installed extensions.
+
+By default, uses the stored registry source for each extension. If the stored
+source is unavailable, falls back to the main (azd) registry. Extensions that
+were installed from a non-main registry (e.g., dev) are automatically promoted
+to the main registry when a newer version is available there.
+
+Use --source to explicitly override the registry source for the upgrade. Use
+--all to upgrade all installed extensions in a single batch; failures in one
+extension do not prevent the remaining extensions from being upgraded.
+
+Use --output json for a structured report of all upgrade results.
 
 ```azdeveloper
 azd extension upgrade [extension-id] [flags]
