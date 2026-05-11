@@ -1,7 +1,7 @@
 ---
 title: Prepare Infrastructure and Deploy Applications
 titleSuffix: GitHub Copilot Modernization Agent
-description: Learn how to use the GitHub Copilot modernization agent to prepare Azure infrastructure and containerize and deploy your application.
+description: Learn how to use the GitHub Copilot modernization agent to prepare Azure infrastructure, containerize, and deploy your application. Get started now.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: honc
@@ -48,7 +48,7 @@ Use `modernize plan create` with a prompt describing your infrastructure needs:
 modernize plan create "help create azure infrastructure for my app" --plan-name infra-setup
 ```
 
-The agent generates a plan that includes a proposed Azure architecture and a detailed resource list to be provisioned. By default, the plan covers both IaC file generation and resource provisioning. You can request only IaC file generation through your prompt.
+The agent generates a plan that includes a proposed Azure architecture and a detailed resource list to provision. By default, the plan covers both IaC file generation and resource provisioning. You can request only IaC file generation through your prompt.
 
 > [!TIP]
 > Combine different inputs and preferences in your prompt. For example:
@@ -78,7 +78,7 @@ modernize plan execute --plan-name infra-setup
 
 ### Verify infrastructure
 
-Review the generated infrastructure code and confirm the Azure resources through the Azure portal or Azure CLI:
+Review the generated infrastructure code and confirm the Azure resources through the Azure portal or Azure CLI.
 
 ```bash
 git status
