@@ -3,7 +3,7 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/20/2026
+ms.date: 05/05/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -106,6 +106,7 @@ _(array of objects)_ Defines provisioning layers for Azure infrastructure. Each 
 | `name` | Y | string | The name of the provisioning layer. |
 | `path` | Y | string | The relative folder path to the Azure provisioning templates for the specified provider. |
 | `module` | N | string | The name of the Azure provisioning module used when provisioning resources. Default: `main`. |
+| `dependsOn` | N | array of strings | Names of other layers this layer depends on. Use to declare hook-mediated dependencies (for example, when a `postprovision` hook in another layer writes an env var that this layer's bicepparam reads at provision time) that `azd`'s static analyzer can't infer from `.bicep` / `.bicepparam` / `.parameters.json` contents. |
 | `hooks` | N | object | Provisioning layer hooks. Supports `preprovision` and `postprovision` hooks. When specifying paths, they should be relative to the layer path. See [Hook definition](#hook-definition). |
 
 ```yaml
@@ -116,6 +117,8 @@ infra:
       path: ./infra/core
     - name: services
       path: ./infra/services
+      dependsOn:
+        - core
       hooks:
         postprovision:
           shell: sh

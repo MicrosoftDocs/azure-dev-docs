@@ -159,4 +159,7 @@ Get-AzResourceGroup -Name <resource_group_name>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Read more about the [Microsoft Terraform Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform)
+> [Use the Microsoft Terraform VS Code extension](how-to-use-terraform-vscode-extension.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft Terraform Visual Studio Code extension on the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform)

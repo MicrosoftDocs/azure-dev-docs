@@ -48,8 +48,6 @@ Follow these steps to install Rust:
     cargo --version
     ```
 
-The Rust toolchain includes:
-
 For detailed installation guidance and troubleshooting, see the [Installation chapter][The Rust Book installation chapter] in The Rust Programming Language book. For development environment setup tips, including editor configuration, see the [Development Environment chapter][The Rust Book development environment chapter] and the [official Rust development tools guide][official Rust development tools guide].
 
 ## Create an Azure resource group for your project

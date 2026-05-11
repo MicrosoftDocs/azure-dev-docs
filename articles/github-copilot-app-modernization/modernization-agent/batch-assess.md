@@ -1,5 +1,5 @@
 ---
-title: Batch Assessment with the GitHub Copilot Modernization Agent
+title: Batch Assessment with GitHub Copilot Modernization Agent
 description: Learn how to use the GitHub Copilot modernization agent to assess multiple applications simultaneously and generate aggregated report.
 author: KarlErickson
 ms.author: karler
@@ -377,7 +377,7 @@ The aggregated report provides a comprehensive view across assessed applications
 - Upgrade Path: identifies which apps need framework upgrades as a prerequisite, separating upgrade work from migration work.
 - Migration Waves: sequences apps by readiness and risk into phases. This approach enables early wins while harder apps are prepared in parallel.
 
-### Application Assessment Matrix
+### Application assessment matrix
 
 - Quick overview for each application on aspects of framework, target platform, upgrade recommendation, issue breakdown (Mandatory, Potential, Optional), effort sizing, and more. 
 - Links to individual app reports for drill-down when needed.
@@ -425,4 +425,4 @@ After completing batch assessment, you can:
 
 ## Provide feedback
 
-We value your input! If you have any feedback about batch assessment or the Modernization agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+Your input is important! If you have any feedback about batch assessment or the Modernization agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).

@@ -80,7 +80,7 @@ additionalContent:
         url: /azure/developer/terraform/overview
       - title: Chef
         summary: Use Chef Automate to collaborate on application and infrastructure changes with speed and at scale.
-        url: https://docs.chef.io/azure_marketplace/
+        url: https://docs.chef.io/automate/
       - title: Jenkins
         summary: Use Jenkins to set up continuous integration and delivery (CI/CD) for software projects.
         url: https://www.jenkins.io/

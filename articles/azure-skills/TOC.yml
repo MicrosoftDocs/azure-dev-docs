@@ -9,6 +9,8 @@
   href: quickstart.md
 - name: Skills reference
   items:
+  - name: AI Runway AKS Setup
+    href: skills/ai-runway-aks-setup.md
   - name: App Insights Instrumentation
     href: skills/app-insights-instrumentation.md
   - name: Azure AI Gateway
@@ -53,6 +55,8 @@
     href: skills/azure-upgrade.md
   - name: Azure Validate
     href: skills/azure-validate.md
+  - name: Entra Agent ID
+    href: skills/entra-agent-id.md
   - name: Entra App Registration
     href: skills/entra-app-registration.md
   - name: Microsoft Foundry
