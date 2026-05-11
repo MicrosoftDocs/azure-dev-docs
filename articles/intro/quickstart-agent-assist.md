@@ -136,8 +136,10 @@ Azure Skills provides Copilot with curated Azure expertise, workflows, and guard
 1. Review the generated plan. Your plan looks something like this:
 
     ```Output
-    Plan: Vite + React To-Do App with Azure Static Web Apps
-    A TypeScript + Vite + React SPA with localStorage persistence, deployed to Azure Static Web Apps Free tier via azd (no GitHub Actions — manual deploy).
+    Plan: Vite + React To-Do SPA with Azure Deployment
+    A Vite + React + TypeScript SPA scaffolded inside todo-app, with localStorage persistence,
+    and deployed to Azure Static Web Apps (Free tier) via azd. 
+    No backend required — all state is client-side.
    ... 
     ```
 
@@ -158,19 +160,22 @@ When Copilot finishes the implementation, you see output in the chat panel simil
 ```Output
 All done. Here's a summary of what was built:
 
-File layout:
+App (src/)
 
-- types.ts — TodoItem interface
-- useTodos.ts — CRUD + localStorage persistence
-- AddTodo.tsx, TodoItem.tsx, TodoList.tsx — UI components
-- App.tsx + App.css — composition + styling
-- staticwebapp.config.json — SPA fallback routing
-- main.bicep — Azure Static Web Apps Free SKU via AVM module
-- main.parameters.json — azd parameter bindings
-- azure.yaml — azd service definition
-- README.md — local dev, build, and deploy instructions
-To run locally: npm run dev
-To deploy: azd auth login → azd init → azd provision → azd deploy
+src/types.ts — Todo interface
+src/hooks/useTodos.ts — addTodo, removeTodo, toggleTodo with localStorage persistence
+src/components/TodoForm.tsx, TodoItem.tsx, TodoList.tsx — UI components
+src/App.tsx — wired together with task remaining counter
+src/App.css / src/index.css — vanilla CSS, light/dark mode
+Azure / azd
+
+azure.yaml — host: staticwebapp, dist: dist
+infra/main.bicep — subscription-scoped resource group + Static Web App (Free tier)
+infra/staticwebapp.bicep, main.parameters.json, abbreviations.json
+Docs — README.md with local dev, build, azd up deploy, and azd down teardown instructions.
+
+Build passes with no errors (tsc + Vite). Run npm run dev to start locally, 
+or azd up to provision and deploy to Azure.
 ```
 
 ---
@@ -201,6 +206,9 @@ The command starts the Vite development server. The terminal output includes the
 
 In the **Ports** tab, open the **Forwarded Address** port URL in your browser to see the to-do app in a browser. 
 
+
+:::image type="content" source="media/quickstart-agent-assist/test-app-web.png" alt-text="Screenshot of VS Code Ports tab with the Forwarded Address URL highlighted for port 5173." lightbox="media/quickstart-agent-assist/test-app-web.png":::
+
 # [Local development environment](#tab/local)
 
 Assuming the application is a Vite + React SPA as generated in the planning steps, start the development server with the following command:
@@ -222,6 +230,9 @@ The command starts the Vite development server. The terminal output includes the
 ---
 
 Test the functionality by adding, toggling, and removing tasks to confirm everything works as expected.
+
+
+:::image type="content" source="media/quickstart-agent-assist/test-todo.png" alt-text="Screenshot of To-Do app showing 2 of 3 tasks remaining with one completed task and an input field to add new tasks.":::
 
 When you're done testing, stop the development server by pressing `Ctrl + C` in the terminal.
 
@@ -282,7 +293,7 @@ Final verification must confirm HTML references production assets and that the m
 Update the README. Return a concise summary and the app website URL.
 ```
 
-Consider asking Copilot to help you debug issues. If you encounter an error, copy and paste the error output in the chat window and ask the agent to help you understand and fix the issue.
+During development, you can use GitHub Copilot to help you debug issues. If you encounter an error, copy and paste the error output in the chat window and ask the agent to help you understand and fix the issue.
 
 ## Explore your deployed resources
 
@@ -308,10 +319,7 @@ This command deletes all Azure resources created during deployment, including th
 
 You used GitHub Copilot Plan mode and agent mode to plan, scaffold, and deploy a React to-do app to Azure without writing code manually. Continue building on what you learned:
 
-- [GitHub Copilot Plan mode](https://code.visualstudio.com/docs/copilot/agents/planning) - Learn more about planning tasks before implementing them.
-- [Azure Skills Plugin](https://github.com/microsoft/azure-skills) - Install Azure Skills for enhanced Azure development with Copilot.
-- [Azure Skills Plugin blog series](https://devblogs.microsoft.com/all-things-azure/announcing-the-azure-skills-plugin/) - Learn how Azure Skills, MCP servers, and plugins work together.
-- [Azure Developer CLI templates](../azure-developer-cli/azd-templates.md) - Find templates for different languages and architectures.
 - [GitHub Copilot for Azure documentation](../github-copilot-azure/introduction.md) - Learn more about AI-assisted Azure development.
-- [Azure App Service documentation](/azure/app-service/) - Learn about hosting web applications on Azure.
 - [VS Code for the Web for Azure development](https://code.visualstudio.com/docs/azure/vscodeforweb) - Learn more about the browser-based development environment.
+- [Azure Skills Plugin](https://github.com/microsoft/azure-skills) - Install Azure Skills for enhanced Azure development with Copilot.
+- [Azure Developer CLI templates](../azure-developer-cli/azd-templates.md) - Find templates for different languages and architectures.
