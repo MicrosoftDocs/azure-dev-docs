@@ -45,12 +45,16 @@ You can verify tool installation with the following commands:
 ```bash
 # Visual Studio Code
 code --version
+
 # GitHub Copilot
 code --list-extensions | grep -i github.copilot
+
 # Node.js
 node --version
+
 # Azure Developer CLI
 azd version
+
 # Azure Skills
 code --list-extensions | grep -i ms-azuretools.vscode-azure-mcp-server
 ```
@@ -206,8 +210,11 @@ The command starts the Vite development server. The terminal output includes the
 
 In the **Ports** tab, open the **Forwarded Address** port URL in your browser to see the to-do app in a browser. 
 
-
 :::image type="content" source="media/quickstart-agent-assist/test-app-web.png" alt-text="Screenshot of VS Code Ports tab with the Forwarded Address URL highlighted for port 5173." lightbox="media/quickstart-agent-assist/test-app-web.png":::
+
+Test the functionality by adding, toggling, and removing tasks to confirm everything works as expected.
+
+:::image type="content" source="media/quickstart-agent-assist/test-todo.png" alt-text="Screenshot of To-Do app showing 2 of 3 tasks remaining with one completed task and an input field to add new tasks.":::
 
 # [Local development environment](#tab/local)
 
@@ -227,15 +234,13 @@ The command starts the Vite development server. The terminal output includes the
   ➜  press h + enter to show help
 ```
 
----
+:::image type="content" source="media/quickstart-agent-assist/test-app-local.png" alt-text="Screenshot of the To-Do app running locally in a browser at localhost:5173 with tasks listed and an Add input field." lightbox="media/quickstart-agent-assist/test-app-local.png":::
 
 Test the functionality by adding, toggling, and removing tasks to confirm everything works as expected.
 
-
-:::image type="content" source="media/quickstart-agent-assist/test-todo.png" alt-text="Screenshot of To-Do app showing 2 of 3 tasks remaining with one completed task and an input field to add new tasks.":::
+---
 
 When you're done testing, stop the development server by pressing `Ctrl + C` in the terminal.
-
 
 ## Ask about Azure services
 
@@ -283,6 +288,12 @@ After testing the app locally and confirming it works as expected, deploy it to 
     azd up
     ```
 
+    Choose A unique environment name for the deployment when prompted. This name is used to create a resource group in Azure and must be globally unique.
+
+    Select the Azure subscription you want to deploy to when prompted.
+
+The `azd up` command provisions the Azure resources defined in the `infra/` folder, builds the application, and deploys it to Azure. The terminal output includes the URL of your deployed app.
+
 ## Troubleshooting
 
 If the deployment fails or the live site doesn't serve the built production files, use the following prompt to have the agent diagnose and fix the deployment automatically.
@@ -300,10 +311,10 @@ During development, you can use GitHub Copilot to help you debug issues. If you 
 After deployment, you can explore your Azure resources directly in VS Code.
 
 1. Open the Azure view by selecting the Azure icon in the Activity Bar.
+1. On Resources node, select the **Group by** icon and choose **Group by Resource Group** to organize resources by their resource groups.
 1. Expand **Resources** and find the resource group for the deployment created by `azd up`.
 1. Expand the resource group to see the deployed services, such as the App Service hosting your web app and any other resources created by `azd up`.
-1. Right-click the web app and select **Browse Website** to open your deployed to-do app.
-1. Right-click the web app and select **Start Streaming Logs** to see live log output.
+1. Right-click the web app and select **Browse Website** to open your deployed to-do app or select **View in Portal** to see the resource in the Azure Portal.
 
 ## Clean up resources
 
