@@ -308,16 +308,17 @@ During development, you can use GitHub Copilot to help you debug issues. If you 
 
 ## Explore your deployed resources
 
-After deployment, you can explore your Azure resources directly in VS Code.
+Use the deployed app URL from the terminal output or GitHub Copilot chat to access it in a browser. Go to your app and test that it's working as expected in the cloud. Add, toggle, and remove tasks to confirm everything works.
+
+:::image type="content" source="media/quickstart-agent-assist/azure-todo.png" alt-text="Screenshot of deployed To-Do web app on Azure Static Web Apps with two completed tasks and one remaining.":::
+
+You can explore your Azure resources directly in VS Code.
 
 1. Open the Azure view by selecting the Azure icon in the Activity Bar.
 1. On Resources node, select the **Group by** icon and choose **Group by Resource Group** to organize resources by their resource groups.
 1. Expand **Resources** and find the resource group for the deployment created by `azd up`.
 1. Expand the resource group to see the deployed services, such as the App Service hosting your web app and any other resources created by `azd up`.
 1. Right-click the web app and select **Browse Website** to open your deployed to-do app or select **View in Portal** to see the resource in the Azure Portal and the deployment URL.
-1. Go to your app and test that it's working as expected in the cloud. Add, toggle, and remove tasks to confirm everything works.
-
-    :::image type="content" source="media/quickstart-agent-assist/azure-todo.png" alt-text="Screenshot of deployed To-Do web app on Azure Static Web Apps with two completed tasks and one remaining.":::
 
 ## Clean up resources
 
