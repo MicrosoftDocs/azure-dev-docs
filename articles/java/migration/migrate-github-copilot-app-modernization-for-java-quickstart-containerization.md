@@ -58,7 +58,7 @@ Use the following steps to start the containerization process:
    - Checks that the application code is ready to run in a container.
    - Creates a Dockerfile for each project.
    - Builds Docker images for each project.
-   - Scans the built Docker images for CVEs.
+   - Scans the built Docker images for known vulnerabilities (CVEs).
    - Creates a summary of the containerization results.
 
 > [!NOTE]
