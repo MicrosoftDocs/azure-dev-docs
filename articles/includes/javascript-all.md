@@ -189,7 +189,7 @@
 | Resource Management - Change Analysis | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-changeanalysis/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-changeanalysis-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changeanalysis_2.1.0/sdk/changeanalysis/arm-changeanalysis/) |
 | Resource Management - Changes | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-changes/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-changes-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changes_1.1.0/sdk/changes/arm-changes/) |
 | Resource Management - Chaos | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-chaos/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-chaos-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-chaos_2.0.0/sdk/chaos/arm-chaos/) |
-| Resource Management - Cognitive Services | npm [8.1.0](https://www.npmjs.com/package/@azure/arm-cognitiveservices/v/8.1.0) | [docs](/javascript/api/overview/azure/arm-cognitiveservices-readme) | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices) |
+| Resource Management - Cognitive Services | npm [8.1.0](https://www.npmjs.com/package/@azure/arm-cognitiveservices/v/8.1.0)<br>npm [9.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cognitiveservices/v/9.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cognitiveservices-readme) | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices) |
 | Resource Management - Commerce | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-commerce/v/3.0.0)<br>npm [4.0.0-beta.4](https://www.npmjs.com/package/@azure/arm-commerce/v/4.0.0-beta.4) | [docs](/javascript/api/overview/azure/arm-commerce-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/commerce/arm-commerce) |
 | Resource Management - Commitment Plans | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/1.3.1)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-commitmentplans-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-commitmentplans) |
 | Resource Management - Communication | npm [4.2.0](https://www.npmjs.com/package/@azure/arm-communication/v/4.2.0)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-communication/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-communication-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.2.0/sdk/communication/arm-communication/)<br>GitHub [5.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_5.0.0-beta.1/sdk/communication/arm-communication/) |
@@ -462,7 +462,7 @@
 | Bicep Deploy Common | npm [0.0.6](https://www.npmjs.com/package/@azure/bicep-deploy-common/v/0.0.6) |  |  |
 | Face UI | npm [1.4.8](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.8) |  |  |
 | Functions Extensions Base | npm [0.3.0](https://www.npmjs.com/package/@azure/functions-extensions-base/v/0.3.0) |  |  |
-| Functions Extensions Service Bus | npm [0.5.0](https://www.npmjs.com/package/@azure/functions-extensions-servicebus/v/0.5.0) |  |  |
+| Functions Extensions Service Bus | npm [0.5.1](https://www.npmjs.com/package/@azure/functions-extensions-servicebus/v/0.5.1) |  |  |
 | MCP Server TypeSpec | npm [0.0.0-104](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-104) |  |  |
 | MCP Template | npm [0.0.12-alpha.6251995](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.6251995) |  |  |
 | MCP Template | npm [0.0.12-alpha.6251995](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.6251995) |  |  |
@@ -480,7 +480,7 @@
 | TypeSpec HTTP Client | npm [0.15.1](https://www.npmjs.com/package/@typespec/http-client/v/0.15.1) |  |  |
 | TypeSpec HTTP Client Java | npm [0.8.1](https://www.npmjs.com/package/@typespec/http-client-java/v/0.8.1) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.14.1](https://www.npmjs.com/package/@typespec/http-client-js/v/0.14.1) |  |  |
-| TypeSpec HTTP Client Python | npm [0.28.3](https://www.npmjs.com/package/@typespec/http-client-python/v/0.28.3) |  |  |
+| TypeSpec HTTP Client Python | npm [0.29.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.29.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.36](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.36) |  |  |
 | TypeSpec MCP | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
 | TypeSpec MCP HTTP Server C# | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
