@@ -16,6 +16,7 @@ items:
             href: modernization-agent/quickstart.md
           - name: CLI commands
             href: modernization-agent/cli-commands.md
+
           - name: Batch modernization
             expanded: false
             items:
@@ -23,12 +24,14 @@ items:
                 href: modernization-agent/batch-assess.md
               - name: Batch upgrade
                 href: modernization-agent/batch-upgrade.md
+
           - name: Customization
             href: modernization-agent/customization.md
           - name: CI/CD integration
             href: modernization-agent/cicd-integration.md
           - name: Infrastructure and deployment
             href: modernization-agent/infra-deployment.md
+
       - name: Developer environment
         expanded: true
         items:
@@ -37,7 +40,8 @@ items:
           items:
             - name: Overview
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java.md?context=/azure/developer/github-copilot-app-modernization/context/context
-            - name: Install and configuration
+
+            - name: Install and configure
               expanded: false
               items:
               - name: Copilot CLI
@@ -50,13 +54,12 @@ items:
             - name: Assess Java applications
               expanded: false
               items:
-              - name: "Overview"
+              - name: Overview
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-working-with-assessment.md?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: "Assessment rules and reports"
+              - name: Assessment rules and reports
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-assess-rules.md?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: "Assessment at scale"
+              - name: Assessment at scale
                 href: modernization-agent/batch-assess.md
-
 
             - name: Modernize Java applications
               expanded: false
@@ -67,9 +70,8 @@ items:
                 - name: Upgrade a framework or third-party dependency
                   href: framework-upgrade.md
                 - name: Batch upgrade
-                href: modernization-agent/batch-upgrade.md
+                  href: modernization-agent/batch-upgrade.md
   
-
             - name: Migrate Java projects to Azure
               expanded: false
               items:
@@ -86,20 +88,18 @@ items:
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Migration via custom agent
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-custom-agent.md?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: "Prepare infrastructure"
+              - name: Prepare infrastructure
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-infrastructure.md?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: "Containerize your project"
+              - name: Containerize your project
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: "Deploy your project"
+              - name: Deploy your project
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md?context=/azure/developer/github-copilot-app-modernization/context/context
-            
-
               
             - name: Rearchitect Java applications (preview)
               expanded: false
               items: 
               - name: Overview 
-              href: ../java/migration/github-copilot-app-modernization-for-java-rearchitecture.md?context=/azure/developer/github-copilot-app-modernization/context/context
+                href: ../java/migration/github-copilot-app-modernization-for-java-rearchitecture.md?context=/azure/developer/github-copilot-app-modernization/context/context
 
             - name: Secure Java applications
               expanded: false
@@ -112,11 +112,11 @@ items:
               items:
               - name: Customize the upgrade plan
                 href: customize-upgrade-plan.md
-               - name: "Customize with your own skills"
+              - name: Customize with your own skills
                 href: modernization-agent/customization.md
                 
             - name: FAQ
-                href: customize-upgrade-plan.md
+              href: customize-upgrade-plan.md
             
         - name: .NET
           expanded: false
@@ -127,6 +127,7 @@ items:
               href: /dotnet/core/porting/github-copilot-app-modernization/install?context=/azure/developer/github-copilot-app-modernization/context/context
             - name: FAQ
               href: /dotnet/core/porting/github-copilot-app-modernization/faq?context=/azure/developer/github-copilot-app-modernization/context/context
+
             - name: Upgrade .NET projects
               expanded: false
               items:
@@ -134,6 +135,7 @@ items:
                 href: /dotnet/core/porting/github-copilot-app-modernization/how-to-upgrade-with-github-copilot?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: How to apply custom upgrade instructions
                 href: /dotnet/core/porting/github-copilot-app-modernization/how-to-custom-upgrade-instructions?context=/azure/developer/github-copilot-app-modernization/context/context
+
             - name: Migrate .NET projects to Azure
               expanded: false
               items:
@@ -154,8 +156,6 @@ items:
               - name: Migration sample
                 href: /dotnet/azure/migration/appmod/sample?context=/azure/developer/github-copilot-app-modernization/context/context
               
-      
-      
       - name: Portfolio assessment integration
         href: ../java/migration/github-copilot-app-modernization-for-java-portfolio-assessment-integration.md?context=/azure/developer/github-copilot-app-modernization/context/context
 
