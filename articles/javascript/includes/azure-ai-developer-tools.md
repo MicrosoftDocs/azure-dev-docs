@@ -8,7 +8,7 @@ AI-powered tools enhance your JavaScript development workflow on Azure by provid
 |------|-------------|
 | [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) | AI-assisted coding with Azure-specific context. Ask questions about Azure services, generate infrastructure code, and get help with Azure SDK usage directly in VS Code. |
 | [Azure MCP Server](/azure/developer/azure-mcp-server/overview) | Model Context Protocol tools that connect your IDE to Azure resources. Query resource configurations, manage deployments, and validate settings without leaving your editor. |
-| [Azure Skills](/azure/developer/azure-skills/overview) | Composable AI capabilities for Azure workflows including diagnostics, compliance scanning, deployment validation, and resource provisioning — usable from GitHub Copilot or any MCP-compatible client. |
+| [Azure Skills](/azure/developer/azure-skills) | Composable AI capabilities for Azure workflows including diagnostics, compliance scanning, deployment validation, and resource provisioning — usable from GitHub Copilot or any MCP-compatible client. |
 | [Playwright MCP](https://github.com/microsoft/playwright-mcp) | Browser automation tools exposed via MCP for end-to-end testing. Run Playwright tests, capture screenshots, and validate web UI interactions with AI assistance. |
 | [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview) | Streamline your entire development-to-deployment workflow. Initialize projects from templates, provision infrastructure, and deploy code with a single tool. |
 
