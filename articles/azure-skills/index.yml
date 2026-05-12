@@ -1,0 +1,49 @@
+### YamlMime:Landing
+
+title: Azure Skills documentation
+summary: Azure Skills are agent skills that extend your AI coding assistant with Azure-specific domain knowledge and specialized workflows. Manage resources, deploy applications, and monitor services directly from your development environment.
+
+metadata:
+  title: Azure Skills documentation
+  description: Learn about Azure Skills, agent skills that extend your AI assistant with Azure-specific workflows for managing resources, deploying apps, and monitoring services.
+  ms.service: azure-mcp-server
+  ms.topic: landing-page
+  ms.date: 04/20/2026
+
+landingContent:
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Skills?
+            url: overview.md
+      - linkListType: get-started
+        links:
+          - text: Install and configure
+            url: install.md
+          - text: Quickstart
+            url: quickstart.md
+  - title: Skills reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Prepare
+            url: skills/azure-prepare.md
+          - text: Azure Validate
+            url: skills/azure-validate.md
+          - text: Azure Deploy
+            url: skills/azure-deploy.md
+          - text: Azure Diagnostics
+            url: skills/azure-diagnostics.md
+          - text: Azure Cost Optimization
+            url: skills/azure-cost.md
+          - text: Azure Kubernetes
+            url: skills/azure-kubernetes.md
+  - title: Related tools
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure MCP Server
+            url: ../azure-mcp-server/overview.md
+          - text: GitHub Copilot for Azure
+            url: ../github-copilot-azure/introduction.md

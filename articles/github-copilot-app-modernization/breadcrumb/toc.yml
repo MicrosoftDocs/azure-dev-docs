@@ -7,12 +7,12 @@ items:
     tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
-    - name: Migrate
+    - name: GitHub Copilot modernization
       tocHref: /azure
       topicHref: /azure/developer/github-copilot-app-modernization/index
-    - name: Migrate
+    - name: GitHub Copilot modernization
       tocHref: /java
       topicHref: /azure/developer/github-copilot-app-modernization/index
-    - name: Migrate
+    - name: GitHub Copilot modernization
       tocHref: /dotnet
       topicHref: /azure/developer/github-copilot-app-modernization/index

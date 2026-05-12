@@ -12,14 +12,14 @@ ms.topic: concept-article
 ms.custom: build-2025
 tool_count for monitor: 16
 tool_count for workbooks: 5
-ms.reviewer: jong
+ms.reviewer: diberry, jong
 reviewer: jongio
 mcp-cli.version: 2.0.0-beta.39
 ---
 # Azure MCP Server tools for Azure Monitor and Workbooks
 
 
-The Azure Model Context Protocol (MCP) Server lets you manage Azure Monitor and Workbooks resources with natural language prompts. You can query Log Analytics workspaces, analyze operational data, monitor resource health, retrieve performance metrics, and manage Azure Monitor workbooks.
+The Azure Model Context Protocol (MCP) Server lets you manage Azure Monitor and Workbooks resources with natural language prompts. You can query Log Analytics workspaces, analyze operational data, monitor resource health, retrieve performance metrics, manage availability web tests, orchestrate instrumentation workflows, and manage Azure Monitor workbooks.
 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It provides a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. 
 

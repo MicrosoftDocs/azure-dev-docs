@@ -19,10 +19,11 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage a new feature of an Azure service that isn't currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_update_resource` will be used to manage an [Azure EventHub](/azure/event-hubs/) network rule set.
+Use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage new features of Azure services not yet supported by [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). In this example, you use `azapi_update_resource` to configure Azure Event Hubs network rules.
 
 > [!div class="checklist"]
-> * Define and configure the AzureRM and AzAPI providers
+> * Create an Event Hubs namespace and rule with AzureRM
+> * Use AzAPI to update the namespace with network rules
 > * Generate a random name for the Event Hubs namespace
 > * Use the AzureRM provider to create an Azure resource group and the required networking and Event Hubs resources
 > * Use the AzAPI provider to add a network rule set to the `azurerm_eventhub_namespace` resources
@@ -35,6 +36,8 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+[!INCLUDE [confirm-default-azure-subscription-or-authenticate.md](includes/confirm-default-azure-subscription-or-authenticate.md)]
 
 ## Implement the Terraform code
 

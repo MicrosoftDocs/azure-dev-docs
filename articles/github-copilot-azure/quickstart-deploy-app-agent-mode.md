@@ -71,4 +71,4 @@ If any errors were encountered during the deployment process, Copilot agent mode
 
 - [What is GitHub Copilot for Azure?](introduction.md)
 - [Get started with GitHub Copilot for Azure](get-started.md)
-- [Video - GitHub Copilot App Modernization for Java - Automated Deployment to Azure](https://www.youtube.com/watch?v=469QHVDJiIk)
+- [Video - GitHub Copilot Modernization for Java - Automated Deployment to Azure](https://www.youtube.com/watch?v=469QHVDJiIk)

@@ -2,7 +2,7 @@
 title: GraphQL on Azure for JavaScript developers
 description: Learn how to build and deploy GraphQL applications on Azure using JavaScript, and discover the Azure services that make your GraphQL implementation easier.
 ms.topic: concept-article
-ms.date: 04/22/2025
+ms.date: 04/27/2026
 ms.custom: devx-graphql
 #CustomerIntent: As a developer new to Azure, I want to understand how to find the right services and tools to bring or build GraphQL applications with Azure so that my application runs without any more work than is necessary. 
 ---
@@ -72,6 +72,15 @@ GraphQL needs to connect to your data. Azure offers several ways to do this:
 * **User login and security**: Azure's Identity platform helps you add login features to your application so only the right people can access your GraphQL data.
 * **Role-based access**: Control exactly which users can query or modify what data through your GraphQL endpoints.
 * **API protection**: Add rate limiting and monitoring to prevent abuse of your GraphQL APIs.
+
+## AI-assisted GraphQL development
+
+[GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) can accelerate GraphQL development by generating code from context in your editor:
+
+* Generate GraphQL type definitions from your data models
+* Write resolver functions with Azure SDK integrations (Cosmos DB, SQL Database)
+* Suggest query and mutation patterns based on your schema
+* Create data validation logic for GraphQL inputs
 
 ## Create GraphQL APIs for your existing data
 
