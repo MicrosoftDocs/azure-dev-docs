@@ -398,5 +398,5 @@ If your issue isn't addressed, add your issue to the repository's [Issues](https
 * [Get the source code for the sample used in this article](https://github.com/Azure-Samples/azure-search-openai-demo)
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/access-control-in-generative-ai-applications-with-azure-ai-search/3956408)
-* [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/blog/appsonazureblog/build-an-enterprise-ready-azure-openai-solution-with-azure-api-management/3907562/replies/3935407)
+* [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/blog/appsonazureblog/build-an-enterprise-ready-azure-openai-solution-with-azure-api-management/3907562)
 * [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/azure-ai-search-outperforming-vector-search-with-hybrid-retrieval-and-reranking/3929167)
