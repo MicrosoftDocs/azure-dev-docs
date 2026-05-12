@@ -328,7 +328,7 @@ When you're done exploring, delete the Azure resources to avoid incurring charge
 azd down
 ```
 
-This command deletes all Azure resources created during deployment, including the resource group and App Service.
+This command deletes all Azure resources created during deployment, including the resource group.
 
 ## Next steps
 
