@@ -27,7 +27,7 @@ The following sections describe key parameters in the plan that you can modify.
 
 ### Build tool command option
 
-This option is located under **Project Information**, and enables you to define custom command-line parameters for build tool execution. For valid options, see the [Maven CLI](https://maven.apache.org/ref/current/maven-embedder/cli.html) or [Gradle CLI](https://docs.gradle.org/current/userguide/command_line_interface.html) documentation, depending on your project.
+This option is under **Project Information**. Use it to define custom command-line parameters for build tool execution. For valid options, see the [Maven CLI](https://maven.apache.org/ref/current/maven-embedder/cli.html) or [Gradle CLI](https://docs.gradle.org/current/userguide/command_line_interface.html) documentation, depending on your project.
 
 Examples:
 
@@ -36,7 +36,7 @@ Examples:
 - **For Gradle**: `Build tool command options: --info -Penv=production`
 
 > [!NOTE]
-> Replace the path with your actual `settings` file location as needed. This path shown is just an example.
+> Replace the path with your actual `settings` file location as needed. The path shown is just an example.
 
 :::image type="content" source="media/customize-upgrade-plan/upgrade-plan.png" alt-text="Screenshot of Visual Studio Code that shows an example upgrade plan with upgrade targets highlighted." lightbox="media/customize-upgrade-plan/upgrade-plan.png":::
 
@@ -57,7 +57,7 @@ In Java upgrade scenarios, you often need customization beyond standard JDK or f
 
 ### The Upgrade Goals section
 
-In the **Upgrade Goals** section, you can now specify more upgrade targets along with the objectives in your initial prompt. For example, if the primary task is to upgrade the project from Java 17 to Java 21, but the project also requires upgrading Log4j from 1.x to 2.x, you can list that as an additional goal, as shown in the following example prompt:
+In the **Upgrade Goals** section, specify more upgrade targets along with the objectives in your initial prompt. For example, if the primary task is to upgrade the project from Java 17 to Java 21, but the project also requires upgrading Log4j from 1.x to 2.x, list that requirement as an additional goal, as shown in the following example prompt:
 
 ```prompt
 ## Upgrade Goals
@@ -70,7 +70,7 @@ In the **Upgrade Goals** section, you can now specify more upgrade targets along
 
 The **Guidelines** section defines how Copilot should perform the upgrade. While the **Upgrade Goals** section focuses on what needs to be upgraded, the **Guidelines** section captures the methodology, conventions, tooling, and rules that guide Copilot's behavior during code transformation.
 
-You can include any instructions that help steer how Copilot modifies code, such as the following instructions:
+Include any instructions that help steer how Copilot modifies code, such as the following instructions:
 
 - Guidance on which tools, recipes, or frameworks to use for code changes.
 - Constraints or prohibitions on certain upgrade approaches.
