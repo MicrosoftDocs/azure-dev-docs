@@ -76,7 +76,7 @@ items:
               expanded: false
               items:
               - name: Overview
-                href: ../java/migration/migrate-github-copilot-app-modernization-for-java-overview.md?context=/azure/developer/github-copilot-app-modernization/context/context
+                href: ../java/migration/migrate-github-copilot-app-modernization-for-java.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Optimize chat results with the AppModernization agent
               - name: Predefined tasks
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-tasks.md?context=/azure/developer/github-copilot-app-modernization/context/context
