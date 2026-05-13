@@ -3,7 +3,7 @@ title: Azure Key Vault Tools
 description: Learn how to use the Azure MCP Server with Azure Key Vault keys.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 05/06/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -29,6 +29,7 @@ The tools reference articles document the parameters specific to each tool. All 
 | **Retry delay maximum** | Maximum delay in seconds between retries, regardless of the retry strategy. This parameter caps the delay time to prevent excessively long waits. Default is 10 seconds. |
 | **Retry mode** | Retry strategy to use when operations fail. `fixed` uses consistent delays between retries, while `exponential` increases the delay between each attempt. Default is `exponential` for better handling of temporary issues. |
 | **Retry network timeout** | Network operation timeout in seconds. When operations take longer than this timeout, they are canceled and might be retried if retries are enabled. Default is 100 seconds. |
+| **Learn mode** | Enables command and parameter discovery without executing Azure operations. AI agents can use learn mode to surface available tool capabilities and parameter requirements in a read-only mode. When enabled, tools return metadata about their commands and parameters instead of performing actions. Default is disabled. |
 
 Example prompts include:
 
@@ -39,3 +40,5 @@ Example prompts include:
 - **Set retry mode**: "Use 'fixed' retry mode with a maximum delay of 5 seconds"
 - **Set network timeout**: "Set network timeout to 120 seconds for all operations"
 - **Configure retry parameters**: "Use exponential retry mode with a maximum of 4 retries and a delay of 2 seconds"
+- **Enable learn mode**: "Use learn mode to discover available parameters for this tool"
+- **Discover commands**: "Show me what commands are available for storage using learn mode"
