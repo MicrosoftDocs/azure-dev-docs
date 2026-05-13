@@ -174,17 +174,17 @@ For foundational concepts about how the data plane framework works and `parent_i
 
 Run [az keyvault certificate contact list](/cli/azure/keyvault/certificate/contact#az-keyvault-certificate-contact-list) to retrieve the certificate contacts.
 
-    ```azurecli
-    az keyvault certificate contact list --vault-name <key_vault_name>
-    ```
+```azurecli
+az keyvault certificate contact list --vault-name <key_vault_name>
+```
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
 Run [Get-AzKeyVaultCertificateContact](/powershell/module/az.keyvault/get-azkeyvaultcertificatecontact) to retrieve the certificate contacts.
 
-    ```powershell
-    Get-AzKeyVaultCertificateContact -VaultName <key_vault_name>
-    ```
+```powershell
+Get-AzKeyVaultCertificateContact -VaultName <key_vault_name>
+```
 
 ---
 
