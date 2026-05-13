@@ -3,14 +3,16 @@ title: Azure MCP Server tools for Azure App Service
 description: Use Azure MCP Server tools to manage Azure App Service resources, including web apps and APIs, with natural language prompts from your IDE.
 author: diberry
 ms.author: diberry
+ms.reviewer: arthurma, kaghiya, weidxu
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 05/13/2026
+ms.custom: build-2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
-tool_count: 7
-mcp-cli.version: 2.0.0-beta.29+a69a87b82c6e5ae613659f0dfa7dda63fa2c15fa
+tool_count: 8
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ---
 
 # Azure MCP Server tools for Azure App Service
@@ -52,6 +54,39 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
+
+## Change web app state
+
+<!-- @mcpcli appservice webapp change-state -->
+
+This tool updates the running state of an Azure App Service web app by using one of the following states:
+
+- `start`: Starts a stopped web app.
+- `stop`: Stops a running web app.
+- `restart`: Restarts a running web app.
+
+When you use `restart`, this tool can perform a soft restart and wait synchronously for the operation to complete before returning.
+
+This tool returns a message that indicates the operation result.
+
+Example prompts include:
+
+- "Start the web app with app name 'api-staging' in resource group 'rg-staging' and state change 'start'."
+- "Stop App Service app name 'webapp-prod' in resource group 'rg-prod' with state change 'stop'."
+- "Restart app name 'shop-api' in resource group 'rg-ecommerce' with state change 'restart' and soft restart 'true'."
+- "Restart app name 'my-webapp' in resource group 'rg-dev' with state change 'restart', soft restart 'false', and wait for completion 'true'."
+
+| Parameter |Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
+| **State change** |  Required | The state change action to perform. Valid values are: `start`, `stop`, `restart`. |
+| **Soft restart** |Optional | When State change is `restart`, indicates whether to perform a soft restart. |
+| **Wait for completion** |  Optional | When State change is `restart`, indicates whether to synchronously wait for the state change operation to complete before returning. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Diagnose web app
 
