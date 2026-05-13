@@ -2,13 +2,17 @@
 title: Marketplace Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Marketplace to discover and manage marketplace products and offers.
 ms.service: azure-mcp-server
-ms.date: 12/05/2025
+ms.date: 05/13/2026
+ms.custom: build-2025
 ms.topic: concept-article
 author: diberry
+ms.reviewer: meirloichter
 ms.author: diberry
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+tool_count: 2
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ---
 
 # Marketplace tools for the Azure MCP Server overview
@@ -35,12 +39,10 @@ Example prompts include:
 | **Product ID** | Required | The unique identifier for the marketplace product you want to retrieve information about. |
 | **Include stop sold plans** | Optional | Whether to include plans that are no longer available for purchase in the results. |
 | **Language** | Optional | The language code for localized product information (for example, `en-us`, `fr-fr`). |
-| **Market** | Optional | The market or region code to get region-specific pricing and availability (for example, `US`, `FR`). |
 | **Lookup offer in tenant level** | Optional | Whether to look up the offer at the tenant level for organization-specific information. |
 | **Plan ID** | Optional | The specific plan identifier within the product to get detailed plan information. |
 | **SKU ID** | Optional | The specific pricing SKU identifier for a specific product variant or configuration. |
 | **Include service instruction templates** | Optional | Whether to include service instruction templates in the response for deployment guidance. |
-| **Pricing audience** | Optional | The target audience for pricing information (for example, `public`, `private`, `government`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
