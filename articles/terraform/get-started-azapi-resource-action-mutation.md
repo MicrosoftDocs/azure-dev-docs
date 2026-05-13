@@ -165,7 +165,7 @@ az storage account keys list \
   --account-name <storage_account_name>
 ```
 
-    The `value` field shows the current key.
+The `value` field shows the current key.
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -177,7 +177,7 @@ Get-AzStorageAccountKey `
   -Name <storage_account_name>
 ```
 
-    The `Value` property shows the current key.
+The `Value` property shows the current key.
 
 ---
 
