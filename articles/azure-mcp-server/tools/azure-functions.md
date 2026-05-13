@@ -4,14 +4,14 @@ description: Use Azure MCP Server tools to manage Azure Functions app resources 
 keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
-ms.date: 04/06/2026
+ms.date: 05/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-generated
 ms.topic: concept-article
 ms.custom: build-2025
 tool_count: 4
-mcp-cli.version: 2.0.0-beta.39+0410ff6ade5c70a207a8e7c7a7c78be69f7f1d76
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 reviewer: manvkaur
 ms.reviewer: manvkaur
 ---
