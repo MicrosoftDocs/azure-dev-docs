@@ -2,12 +2,12 @@
 title: Azure MCP Server Tools for Azure Compute
 description: Discover compute tools for managing virtual machines, virtual machine scale sets, and disks in Azure MCP Server. Explore features and start optimizing your resources.
 #customer intent: As a system admin, I want to list all virtual machine scale sets in a subscription so I can manage their capacity and upgrade policies.
-ms.date: 04/07/2026
+ms.date: 05/13/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 reviewer: audreytoney
 tool_count: 12
-mcp-cli.version: 2.0.0-beta.39
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ---
 
 # Azure MCP Server tools for Azure compute overview
@@ -213,7 +213,7 @@ Example prompts include:
 | **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **VM name** |  Required | The name of the virtual machine. |
 | **Admin password** |  Optional | The admin password for Windows VMs or when the SSH key isn't provided for Linux VMs. |
-| **Image** |  Optional | The OS image to use. Can be a URN (publisher:offer:SKU:version), or an alias like `Ubuntu2404` or `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
+| **Image** |  Required | The OS image to use. Can be a URN (publisher:offer:SKU:version), or an alias like `Ubuntu2404` or `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
 | **Network security group** |  Optional | The name of the network security group to use or create. |
 | **No public IP** |  Optional | The instruction not to create or assign a public IP address. |
 | **OS disk size GB** |  Optional | The OS disk size in GB. Defaults are based on image requirements. |
@@ -341,7 +341,7 @@ Create a scale set by specifying the `resource group`, `VMSS name`, and `admin u
 | **Resource group** | Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **VMSS name** | Required | The name of the virtual machine scale set. |
 | **Admin password** | Optional | The admin password for Windows VMs or when an SSH key isn't provided for Linux VMs. |
-| **Image** | Optional | The OS image to use. Can be a URN (publisher:offer:SKU:version) or alias like `Ubuntu2404`, `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
+| **Image** | Required | The OS image to use. Can be a URN (publisher:offer:SKU:version) or alias like `Ubuntu2404`, `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
 | **Instance count** | Optional | The number of VM instances in the scale set. Default is 2. |
 | **OS disk size gb** | Optional | OS disk size in GB. Defaults based on image requirements. |
 | **OS disk type** | Optional | OS disk type: `Premium_LRS`, `StandardSSD_LRS`, or `Standard_LRS`. Defaults based on VM size. |
