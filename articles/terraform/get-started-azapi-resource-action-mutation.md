@@ -159,11 +159,11 @@ After `terraform apply` completes, the storage account key has been rotated. You
 
 Run [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) to view the storage account keys.
 
-    ```azurecli
-    az storage account keys list \
-      --resource-group <resource_group_name> \
-      --account-name <storage_account_name>
-    ```
+```azurecli
+az storage account keys list \
+  --resource-group <resource_group_name> \
+  --account-name <storage_account_name>
+```
 
     The `value` field shows the current key.
 
@@ -171,11 +171,11 @@ Run [az storage account keys list](/cli/azure/storage/account/keys#az-storage-ac
 
 Run [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to view the storage account keys.
 
-    ```powershell
-    Get-AzStorageAccountKey `
-      -ResourceGroupName <resource_group_name> `
-      -Name <storage_account_name>
-    ```
+```powershell
+Get-AzStorageAccountKey `
+  -ResourceGroupName <resource_group_name> `
+  -Name <storage_account_name>
+```
 
     The `Value` property shows the current key.
 
