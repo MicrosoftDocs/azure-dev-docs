@@ -137,5 +137,9 @@ Hosting options allow you to quickly use Azure for your application. The followi
 
 ## Next steps
 
-* [Learn recommended tools for Azure JavaScript developers](node-azure-tools.md)
+- [Set up your JavaScript developer tools for Azure](node-azure-tools.md)
+- [Browse the Azure SDK for JavaScript package index](azure-sdk-library-package-index.md)
+- [Deploy a JavaScript app to Azure Static Web Apps](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
+- [Create a serverless function with Azure Functions](/azure/azure-functions/create-first-function-vs-code-node)
+
 [!INCLUDE [javascript-new-releases](includes/javascript-at-microsoft/bullet.md)]
