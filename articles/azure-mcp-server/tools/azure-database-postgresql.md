@@ -64,6 +64,8 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Query** | Required | Query to be executed against a PostgreSQL database. |
+| **Auth type** | Optional | Authentication type to use for the connection. |
+| **Password** | Optional | Password for database authentication. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -90,6 +92,8 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Table** | Required | The PostgreSQL table to be accessed. |
+| **Auth type** | Optional | Authentication type to use for the connection. |
+| **Password** | Optional | Password for database authentication. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
