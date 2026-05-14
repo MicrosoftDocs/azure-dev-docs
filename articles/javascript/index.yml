@@ -92,7 +92,7 @@ conceptualContent:
             url: /azure/cosmos-db/nosql/quickstart-nodejs
           - itemType: tutorial
             text: Azure Cosmos DB for MongoDB
-            url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
+            url: /azure/documentdb/tutorial-nodejs-web-app
           - itemType: tutorial
             text: Azure Cosmos DB for PostgreSQL
             url: /azure/cosmos-db/postgresql/quickstart-app-stacks-nodejs
@@ -197,7 +197,7 @@ conceptualContent:
             url: /azure/app-service/tutorial-nodejs-mongodb-app
           - itemType: tutorial
             text: Express.js with MERN
-            url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
+            url: /azure/documentdb/tutorial-nodejs-web-app
 # --------------------------------------------------------------
 additionalContent:
   sections:

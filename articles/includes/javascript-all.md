@@ -16,7 +16,7 @@
 | Artifacts | npm [1.0.0-beta.16](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.16) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.16](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.16/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure AI Search | npm [13.0.0](https://www.npmjs.com/package/@azure/search-documents/v/13.0.0) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [13.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_13.0.0/sdk/search/search-documents/) |
-| Azure AI Transcription | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-speech-transcription/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/ai-speech-transcription-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-speech-transcription_1.0.0-beta.1/sdk/transcription/ai-speech-transcription/) |
+| Azure AI Transcription | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-speech-transcription/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/ai-speech-transcription-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-speech-transcription_1.0.0-beta.2/sdk/transcription/ai-speech-transcription/) |
 | Azure Blob Storage Checkpoint Store | npm [2.0.0](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/2.0.0) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_2.0.0/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | Azure Monitor OpenTelemetry | npm [1.18.0](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.18.0) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.18.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.18.0/sdk/monitor/monitor-opentelemetry/) |
 | Batch | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure-rest/batch/v/1.0.0-beta.4) |  | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.4/sdk/batch/batch-rest/) |
@@ -581,7 +581,7 @@
 | @autorest/system-requirements | npm [1.1.1](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.1) |  |  |
 | @autorest/test-utils | npm [0.6.1](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.1) |  |  |
 | @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2)<br>npm [2.6.4-ci.254802bfc.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.4-ci.254802bfc.0) |  |  |
-| @autorest/typescript | npm [6.0.69](https://www.npmjs.com/package/@autorest/typescript/v/6.0.69) |  |  |
+| @autorest/typescript | npm [6.0.71](https://www.npmjs.com/package/@autorest/typescript/v/6.0.71) |  |  |
 | @azure/static-web-apps-cli | npm [2.0.9](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.9) |  |  |
 | @cadl-lang/compiler | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.40.0) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.5.0) |  |  |
@@ -607,7 +607,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.77](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.77) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.78](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.78) |  |  |
 | AutoRest - Modeler Four | npm [4.27.3](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.3) |  | GitHub [4.27.3](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.50.3](https://www.npmjs.com/package/@autorest/python/v/6.50.3) |  | GitHub [6.50.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
