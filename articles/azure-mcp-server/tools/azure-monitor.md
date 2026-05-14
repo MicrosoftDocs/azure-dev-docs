@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to query Azure Monitor logs and metrics,
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.date: 04/07/2026
+ms.date: 05/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-generated
@@ -83,6 +83,7 @@ Example prompts include:
 | **Timeout** | Optional | Request timeout in seconds. Supported values: 30, 60, 90, 120. |
 | **Web test name** | Optional | The name of the test within the web test resource. |
 | **Webtest locations** | Optional | Comma-separated list of locations to run the test from. Location refers to the geo-location population tag for Availability Tests. |
+| **Webtest** | Optional | Web test configuration. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -138,6 +139,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Workspace name** | Optional | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
+| **Resource group** | Optional | Name of the resource group. |
+| **Table type** | Optional | Type of table to filter by. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
