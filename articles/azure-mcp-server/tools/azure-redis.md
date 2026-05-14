@@ -36,9 +36,9 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource** |  Required | The name of the Redis resource (for example, `my-redis`). |
+| **Resource name** |  Required | The name of the Redis resource (for example, `my-redis`). |
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **SKU** |  Optional | The SKU for the Redis resource. (Default: `Balanced_B0`). |
+| **SKU** |  Required | The SKU for the Redis resource. (Default: `Balanced_B0`). |
 | **Location** |  Required | The location for the Redis resource (for example `eastus`). |
 | **Access keys authentication** |  Optional | Whether to enable access keys for authentication for the Redis resource. (Default: `false`). |
 | **Modules** |  Optional | A list of modules to enable on the Azure Managed Redis resource (for example, `RedisBloom`, `RedisJSON`). |
