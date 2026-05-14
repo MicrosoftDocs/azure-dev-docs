@@ -12,7 +12,6 @@ ms.topic: concept-article
 ms.custom: build-2025
 tool_count: 4
 mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
-reviewer: manvkaur
 ms.reviewer: manvkaur
 ---
 
