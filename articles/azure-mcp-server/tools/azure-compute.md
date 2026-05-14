@@ -5,7 +5,8 @@ description: Discover compute tools for managing virtual machines, virtual machi
 ms.date: 05/13/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-reviewer: audreytoney
+ms.custom: build-2025
+ms.reviewer: audreytoney
 tool_count: 12
 mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ---
