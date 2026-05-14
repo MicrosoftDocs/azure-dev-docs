@@ -13,30 +13,41 @@ metadata:
   ms.service: github-copilot-for-azure
 
 landingContent:
-  - title: Get Started
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
-          - text: Overview
+          - text: What is GitHub Copilot for Azure?
             url: introduction.md
-          - text: Get Started with GitHub Copilot for Azure
+          - text: Set up GitHub Copilot for Azure
             url: get-started.md
-          - text: Get Support
-            url: support.md
-          - text: Quickstart - Building, Deploying and Improving your application with GitHub Copilot for Azure
+      - linkListType: quickstart
+        links:
+          - text: Deploy your app with agent mode
             url: quickstart-deploy-app-agent-mode.md
-          - text: Generate and deploy a Django / PostgreSQL app
+          - text: Create and deploy with Azure Cache for Redis
+            url: quickstart-create-redis.md
+          - text: Generate and deploy a Django and PostgreSQL app
             url: generate-deploy-django-postgresql.md
 
-  - title: Prompts for Azure
+  - title: Prompt examples
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
-          - text: Learn about Azure and your application
+          - text: Learn about Azure services
             url: learn-examples.md
           - text: Design and develop your app
             url: design-develop-examples.md
-          - text: Deploy your app
+          - text: Deploy your app to Azure
             url: deploy-examples.md
-          - text: Troubleshoot your app
+          - text: Troubleshoot your Azure resources
             url: troubleshoot-examples.md
+
+  - title: Tools and support
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Generate and edit Bicep files
+            url: bicep-generate-edit.md
+          - text: Get support
+            url: support.md
