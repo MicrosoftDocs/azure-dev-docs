@@ -71,9 +71,10 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Cluster name** |  Required | AKS cluster name. |
-| **Node pool** |  Required | AKS node pool (agent pool) name. |
 | **Resource group** |  Required | Name of the resource group. |
+| **Cluster name** |  Required | AKS cluster name. |
+| **Node pool** |  Optional | AKS node pool (agent pool) name. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
