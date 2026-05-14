@@ -3,6 +3,7 @@ title: Azure Event Grid
 description: Learn how to use the Azure MCP Server with Azure Event Grid.
 author: diberry
 ms.author: diberry
+ms.reviewer: anannyapatra  
 ms.date: 05/13/2026
 content_well_notification: 
   - AI-contribution
