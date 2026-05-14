@@ -272,7 +272,7 @@ This error occurs when running `azd up` on an existing deployment that was origi
 ```
 
 > [!NOTE]
-> For a list of other known issues, see [KnownIssues.md](https://github.com/Azure-Samples/azmcp-obo-aca/blob/main/KnownIssues.md) in the template repository.
+> For a list of other known issues, see [KnownIssues.md](https://github.com/Azure-Samples/azmcp-obo-template/blob/main/KnownIssues.md) in the template repository.
 
 ## Related content
 

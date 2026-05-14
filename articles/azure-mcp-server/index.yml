@@ -19,6 +19,8 @@ landingContent:
             url: overview.md
       - linkListType: how-to-guide
         links:
+          - text: Install with the Azure Skills Plugin
+            url: https://github.com/microsoft/azure-skills
           - text: Install in an IDE
             url: get-started.md#use-a-code-editor
           - text: Install with a package manager

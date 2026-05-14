@@ -15,7 +15,7 @@ This article shows you how to use GitHub Copilot modernization to upgrade a Java
 
 ## Initiate a framework upgrade
 
-To initiate this type of upgrade, you can start a prompt in agent mode. For example:
+To initiate this type of upgrade, start a prompt in agent mode. For example:
 
 ```prompt
 upgrade this Java project to Spring Boot 3.2
@@ -27,7 +27,7 @@ upgrade this Java project to Spring Boot 3.2
 
 If your current JDK version is compatible with the specified Spring Boot version - for example, JDK 17+ for Spring Boot 3.2 - the tool performs a framework-only upgrade. Both the source and target JDK versions remain the same and the target Spring Boot version is set according to your initial prompt.
 
-If your current JDK version isn't compatible with the target framework version - for example, when upgrading from JDK 8 to Spring Boot 3.2 - the tool automatically upgrades the JDK to the minimum supported version required by the framework - in this case, JDK 17 - in addition to performing the framework upgrade.
+If your current JDK version isn't compatible with the target Spring Boot version - for example, when upgrading from JDK 8 to Spring Boot 3.2 - the tool automatically upgrades the JDK to the minimum supported version required by the framework - in this case, JDK 17 - in addition to performing the framework upgrade.
 
 ## Upgrade third-party libraries
 

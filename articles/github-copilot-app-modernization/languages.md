@@ -1,6 +1,6 @@
 ---
 title: Languages and Frameworks Supported by GitHub Copilot Modernization
-description: Introduces the support scope of GitHub Copilot modernization for languages and frameworks.
+description: Learn which languages and frameworks GitHub Copilot modernization supports. Start modernizing your apps today.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: yangtony
@@ -38,13 +38,13 @@ The following sections describe the .NET support.
 
 ### Upgrade the .NET version
 
-GitHub Copilot modernization can help you [upgrade the .NET version](/dotnet/core/porting/how-to-upgrade-with-github-copilot?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your application, from an older .NET version or from .NET Framework. You can customize the upgrade plan with your requirements and preferences. Code changes are validated with compilation and CVE fixes.
+GitHub Copilot modernization can help you [upgrade the .NET version](/dotnet/core/porting/how-to-upgrade-with-github-copilot?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your application, from an older .NET version or from .NET Framework. You can customize the upgrade plan with your requirements and preferences. The tool validates code changes by checking compilation and CVE fixes.
 
 ### Migrate .NET apps to Azure
 
 GitHub Copilot modernization can help you [migrate your .NET application to Azure](/dotnet/azure/migration/appmod/quickstart?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) by assessing its cloud readiness and updating the code for dependency services.
 
-The tool supports [common scenarios](/dotnet/azure/migration/appmod/predefined-tasks?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) with AI-assisted code changes out of the box. It validates code changes with compilation and CVE fixes.
+The tool supports [common scenarios](/dotnet/azure/migration/appmod/predefined-tasks?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) with AI-assisted code changes. It validates code changes by checking compilation and CVE fixes.
 
 ## Python
 

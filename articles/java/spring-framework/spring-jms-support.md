@@ -11,7 +11,7 @@ appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
 - ✅ Version 6.2.0
-- ✅ Version 7.1.0
+- ✅ Version 7.2.0
 ---
 
 # Use Azure Service Bus with JMS
@@ -147,7 +147,7 @@ Spring Cloud Azure provides the following three Connection Factory options for c
 
 - `ServiceBusJmsConnectionFactory`: In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
 
-When all the three classes exist in the classpath, which one is used? The following table describes which is used based on configuration properties (since Spring Cloud Azure **7.1.0** and **6.2.0**):
+When all the three classes exist in the classpath, which one is used? The following table describes which is used based on configuration properties (since Spring Cloud Azure **7.2.0** and **6.2.0**):
 
 > [!div class="mx-tdBreakAll"]
 > | `spring.jms.servicebus.pool.enabled` | `spring.jms.cache.enabled` | Sender `ConnectionFactory`       | Listener Container `ConnectionFactory` |
@@ -168,7 +168,7 @@ When all the three classes exist in the classpath, which one is used? The follow
 > [!div class="mx-tdBreakAll"]
 > | Spring Cloud Azure version | Sender `ConnectionFactory`         | Listener container `ConnectionFactory` |
 > |----------------------------|------------------------------------|----------------------------------------|
-> | >= 6.2.0 or >= 7.1.0       | `CachingConnectionFactory`         | `ServiceBusJmsConnectionFactory`       |
+> | >= 6.2.0 or >= 7.2.0       | `CachingConnectionFactory`         | `ServiceBusJmsConnectionFactory`       |
 > | 6.1.0 and 7.0.0            | `ServiceBusJmsConnectionFactory`   | `ServiceBusJmsConnectionFactory`       |
 > | <= 6.1.0                   | `JmsPoolConnectionFactory`         | `JmsPoolConnectionFactory`             |
 

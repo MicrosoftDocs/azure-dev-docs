@@ -2,7 +2,7 @@
 title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 04/27/2026
 ms.custom: devx-track-js, devx-track-ts
 ---
 
@@ -53,6 +53,10 @@ Top service categories for JavaScript developers include:
 * **Developer Tools**
   * [GitHub Actions with Azure](/azure/developer/github/github-actions) - CI/CD integration
   * [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) - Streamlined developer experience
+* **AI and Developer Tools**
+  * [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) - AI-assisted development with Azure context
+  * [Azure MCP Server](/azure/developer/azure-mcp-server/overview) - IDE-integrated Azure resource management via Model Context Protocol
+  * [Azure Skills](/azure/developer/azure-skills) - Pre-built AI skills for common Azure development tasks
 
 ## Create Azure services in the Quickstart Center
 
@@ -136,4 +140,8 @@ Hosting options allow you to quickly use Azure for your application. The followi
 * [Learn recommended tools for Azure JavaScript developers](./node-azure-tools.md)
 * [Learn Azure JavaScript development on Microsoft Learn](./learn-azure-javascript.md)
 * [Explore JavaScript on Azure code samples](./samples.md)
+- [Browse the Azure SDK for JavaScript package index](azure-sdk-library-package-index.md)
+- [Deploy a JavaScript app to Azure Static Web Apps](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
+- [Create a serverless function with Azure Functions](/azure/azure-functions/create-first-function-vs-code-node)
+
 [!INCLUDE [javascript-new-releases](includes/javascript-at-microsoft/bullet.md)]
