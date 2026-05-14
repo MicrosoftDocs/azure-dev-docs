@@ -84,6 +84,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Developer CLI](../../tools/azure-cli.md) | `extension` | Get installation instructions for Azure Developer CLI (azd), learn usage for deployment scenarios, and access azd MCP tools when azd is installed locally |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | `grafana` | List Azure Managed Grafana workspaces. |
 | [Azure Monitor](../../tools/azure-monitor.md) | `monitor` | Query Azure Monitor logs and metrics. |
+| [Azure Terraform](../../tools/azure-terraform.md) | `azureterraform` | Retrieve Terraform provider documentation, discover Azure Verified Modules, export Azure resources to Terraform, and validate configurations against Azure policies. |
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
 
 
