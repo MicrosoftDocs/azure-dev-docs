@@ -111,8 +111,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Test resource** | Required | A name for the new test resource. |
-| **Resource group** | Optional | Name of the resource group. |
+| **Resource group** | Required | Name of the resource group. |
+| **Test resource name** | Optional | A name for the new test resource. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
