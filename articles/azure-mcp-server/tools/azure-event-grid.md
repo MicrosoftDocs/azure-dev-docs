@@ -3,7 +3,7 @@ title: Azure Event Grid
 description: Learn how to use the Azure MCP Server with Azure Event Grid.
 author: diberry
 ms.author: diberry
-ms.date: 12/05/2025
+ms.date: 05/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -63,6 +63,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Topic** |  Optional | The name of the Event Grid topic. |
 | **Region** |  Optional | The Azure region to filter resources by (for example, `eastus`, `westus2`). |
+| **Location** |  Optional | Azure region to filter subscriptions. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
