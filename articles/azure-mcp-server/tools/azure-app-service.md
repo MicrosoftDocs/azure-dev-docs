@@ -78,7 +78,7 @@ Example prompts include:
 
 | Parameter |Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 | **State change** |  Required | The state change action to perform. Valid values are: `start`, `stop`, `restart`. |
 | **Soft restart** |Optional | When State change is `restart`, indicates whether to perform a soft restart. |
