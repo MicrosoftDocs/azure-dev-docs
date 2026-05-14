@@ -8,7 +8,8 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.reviewer: nishtha
-ms.date: 02/18/2026
+ms.date: 05/13/2026
+ms.custom: build-2025
 ms.topic: concept-article
 ---
 
@@ -111,6 +112,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Test resource** | Required | A name for the new test resource. |
+| **Resource group** | Optional | Name of the resource group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
