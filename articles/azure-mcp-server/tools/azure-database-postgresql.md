@@ -34,8 +34,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** | Optional | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **User** | Optional | The user name to access PostgreSQL server. |
+| **Resource group** | Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Optional | The PostgreSQL server to be accessed. When not specified, lists all servers in the resource group. Specify this parameter to list databases, or combine with `Database` to list tables. |
 | **Database** | Optional | The PostgreSQL database to be accessed. Requires `Server` to be specified. When provided, lists tables within this database. |
 
