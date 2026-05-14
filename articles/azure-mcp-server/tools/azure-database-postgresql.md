@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL Tools 
+title: Azure Database for PostgreSQL Tools
 description: Learn how to use the Azure MCP Server to manage Azure Database for PostgreSQL resources with natural language prompts. Query databases, list tables, and retrieve schemas easily.
 author: diberry
 ms.author: diberry
@@ -9,8 +9,9 @@ content_well_notification:
 ai-usage: ai-assisted
 ms.topic: concept-article
 ms.custom: build-2025
+ms.reviewer: diberry
 mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
---- 
+---
 # Azure Database for PostgreSQL tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure Database for PostgreSQL resources using natural language prompts. You can query databases, list tables, retrieve schemas, and more without remembering complex query syntax.
@@ -33,8 +34,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** | Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **User** | Required | The user name to access PostgreSQL server. |
+| **Resource group** | Optional | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **User** | Optional | The user name to access PostgreSQL server. |
 | **Server** | Optional | The PostgreSQL server to be accessed. When not specified, lists all servers in the resource group. Specify this parameter to list databases, or combine with `Database` to list tables. |
 | **Database** | Optional | The PostgreSQL database to be accessed. Requires `Server` to be specified. When provided, lists tables within this database. |
 
