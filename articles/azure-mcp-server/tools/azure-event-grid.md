@@ -62,7 +62,6 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Topic** |  Optional | The name of the Event Grid topic. |
-| **Region** |  Optional | The Azure region to filter resources by (for example, `eastus`, `westus2`). |
 | **Location** |  Optional | Azure region to filter subscriptions. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
