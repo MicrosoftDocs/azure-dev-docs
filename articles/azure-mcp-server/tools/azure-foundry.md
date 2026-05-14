@@ -5,7 +5,8 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 03/20/2026
+ms.date: 05/13/2026
+ms.custom: build-2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -104,6 +105,7 @@ Example prompts include:
 | **Stream** |  Optional | Whether to stream back partial progress. Default is `false`. |
 | **Seed** |  Optional | If specified, the system will make a best effort to sample deterministically. |
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
+| **Resource group** |  Optional | Name of the resource group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
