@@ -285,12 +285,12 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Name** |  Required | The name of the storage sync service. |
+| **Service name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
 | **Directory path** |  Required | Relative path to a directory on the Azure File share for which change detection is to be performed. |
 | **Change detection mode** |  Optional | Change detection mode: `Default` (directory only) or `Recursive` (directory and subdirectories). Applies to the directory specified in directory path. |
-| **Paths** |  Optional | Array of relative paths on the Azure File share to be included in change detection. Can be files and directories. |
+| **Paths** |  Optional | List of relative paths on the Azure File share to be included in change detection. Can be files and directories. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
