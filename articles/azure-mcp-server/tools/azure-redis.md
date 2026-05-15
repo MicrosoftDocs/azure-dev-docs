@@ -3,7 +3,7 @@ title: Azure Redis Tools for Azure MCP Server
 description: Learn how to manage Azure Redis instances using the Azure MCP Server with natural language prompts. Discover tools for creating and listing Redis resources.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 05/13/2026
 ms.topic: concept-article
 ms.service: azure
 ai-usage: ai-assisted
@@ -36,12 +36,13 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource** |  Required | The name of the Redis resource (for example, `my-redis`). |
+| **Resource name** |  Required | The name of the Redis resource (for example, `my-redis`). |
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **SKU** |  Optional | The SKU for the Redis resource. (Default: `Balanced_B0`). |
+| **SKU** |  Required | The SKU for the Redis resource. (Default: `Balanced_B0`). |
 | **Location** |  Required | The location for the Redis resource (for example `eastus`). |
 | **Access keys authentication** |  Optional | Whether to enable access keys for authentication for the Redis resource. (Default: `false`). |
 | **Modules** |  Optional | A list of modules to enable on the Azure Managed Redis resource (for example, `RedisBloom`, `RedisJSON`). |
+| **Public network access** |  Optional | Whether public network access is allowed. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

@@ -11,11 +11,11 @@ ms.custom: devx-track-java
 
 # Quickstart: generate Java unit tests with GitHub Copilot modernization
 
-This quickstart shows you how to generate Java unit tests using GitHub Copilot modernization.
+This quickstart shows you how to generate Java unit tests by using GitHub Copilot modernization.
 
 ## Prerequisites
 
-- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
+- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. You need a Pro, Pro+, Business, or Enterprise plan.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). For setup instructions, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup). Be sure to sign in to your GitHub account within VS Code.
 - [GitHub Copilot modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart VS Code after installation.
@@ -23,7 +23,7 @@ This quickstart shows you how to generate Java unit tests using GitHub Copilot m
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 - A Git-managed Java project using Maven or Gradle.
 - For Maven-based projects: access to the public Maven Central repository.
-- In the Visual Studio Code settings, make sure `chat.extensionTools.enabled` is set to `true`. This setting might be controlled by your organization.
+- In the Visual Studio Code settings, make sure `chat.extensionTools.enabled` is set to `true`. Your organization might control this setting.
 
 > [!NOTE]
 > [!INCLUDE [Azure account note](../includes/github-copilot-modernization-azure-note.md)]
@@ -42,7 +42,7 @@ Then, use the following steps to install the extension in Visual Studio Code:
 1. On the extension page, select **Install**.
 1. Restart Visual Studio Code.
 
-After installation completes, you should see a notification in the corner of Visual Studio Code confirming success.
+After installation completes, you see a notification in the corner of Visual Studio Code confirming success.
 
 For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
 
@@ -60,7 +60,7 @@ Use the following steps to launch GitHub Copilot Agent Mode and generate unit te
 
 ## Wait for the test generation to complete
 
-GitHub Copilot modernization analyzes the Java project within the current workspace. This includes evaluating the project's JDK version, build tools, and any existing unit tests.
+GitHub Copilot modernization analyzes the Java project within the current workspace. This analysis includes evaluating the project's JDK version, build tools, and any existing unit tests.
 
 As part of the process, the tool generates a **TestReport.md** file that tracks test generation progress and provides a summary of test results both before and after test generation. The report includes the following details:
 
@@ -75,7 +75,7 @@ During test generation, the output displays progress messages - for example, "Ge
 
 ## Review the generated tests
 
-After test generation is complete, GitHub Copilot displays a detailed report summarizing the post-generation test results. This report includes the same metrics captured before test generation - such as the total number of tests, successes, failures, and errors - enabling you to easily compare and evaluate the changes introduced during the process.
+After test generation is complete, GitHub Copilot displays a detailed report summarizing the post-generation test results. This report includes the same metrics captured before test generation - such as the total number of tests, successes, failures, and errors - so you can easily compare and evaluate the changes introduced during the process.
 
 :::image type="content" source="media/quickstart-unit-tests/after-generation.png" alt-text="Screenshot of Visual Studio Code that shows the unit test generation report." lightbox="media/quickstart-unit-tests/after-generation.png":::
 
