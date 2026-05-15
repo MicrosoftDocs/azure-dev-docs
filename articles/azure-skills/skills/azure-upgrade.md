@@ -18,7 +18,7 @@ Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize A
 
 ## What it provides
 
-The Azure Upgrade skill gives GitHub Copilot specialized knowledge about Azure upgrade scenarios. Use this skill to get Azure best practices for the target service, look up Azure documentation for upgrade scenarios, query app service and functions plan details, and verify monitoring configuration.
+The Azure Upgrade skill gives GitHub Copilot specialized knowledge about Azure upgrade scenarios. Use this skill to get Azure best practices for the target service, look up Azure documentation for upgrade scenarios, query App Service and Functions hosting plan details, and verify monitoring configuration.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Use the **Azure Upgrade** skill when you need to:
 
 - Upgrade Consumption to Flex Consumption
 - Upgrade Azure Functions plan
-- Manage and configure change hosting plan and function app SKU in Azure
+- Change hosting plans and configure function app SKUs
 - Migrate App Service to Container Apps
 - Modernize legacy Azure Java SDKs (com.microsoft.azure to com.azure)
 - Migrate Azure Cache for Redis (ACR/ACRE) to Azure Managed Redis (AMR)

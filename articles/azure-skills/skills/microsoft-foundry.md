@@ -18,7 +18,7 @@ Deploy, evaluate, and manage Foundry agents end-to-end: Docker build, ACR push, 
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge for the complete Microsoft Foundry agent lifecycle — covering model discovery and deployment, complete dev lifecycle of AI agents, evaluation workflows, and troubleshooting.
+This skill provides GitHub Copilot with specialized knowledge for the complete Microsoft Foundry agent lifecycle — covering model discovery and deployment, complete development lifecycle of AI agents, evaluation workflows, and troubleshooting.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Use this skill when you need to:
 - Invoke and test agents (single or multi-turn conversations).
 - Evaluate agent performance (batch eval, continuous eval, prompt optimization).
 - Convert existing agents to optimization-ready versions for the Foundry Agent Optimization Service (FAOS).
-- Create and manage evaluation datasets from production traces, including dataset versioning and eval trending.
+- Create and manage evaluation datasets from production traces, including dataset versioning and evaluation trending.
 - Deploy models from the Foundry catalog with capacity discovery across regions.
 - Set up Foundry infrastructure (projects, resources, VNet isolation, AI Services provisioning).
 - Manage RBAC permissions, quotas, and capacity for Foundry resources.

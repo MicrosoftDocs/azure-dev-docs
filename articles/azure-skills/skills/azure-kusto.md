@@ -18,7 +18,7 @@ Execute KQL queries and manage Azure Data Explorer resources for fast, scalable 
 
 ## What it provides
 
-This skill provides GitHub Copilot with the ability to query and manage Azure Data Explorer (Kusto) resources. Key capabilities include:
+This skill lets GitHub Copilot query and manage Azure Data Explorer (Kusto) resources. Key capabilities include:
 
 - **Query execution**: Run KQL queries against massive datasets.
 - **Schema exploration**: Discover tables, columns, and data types.
