@@ -2,7 +2,6 @@
 title: Azure Migrate tools for the Azure MCP Server overview
 description: Learn about the tools available in Azure Migrate for managing migration planning and request handling as part of the Azure MCP Server.
 ms.date: 05/13/2026
-ms.custom: build-2025
 ms.reviewer: akrohill
 ms.service: azure-mcp-server
 ms.topic: concept-article
