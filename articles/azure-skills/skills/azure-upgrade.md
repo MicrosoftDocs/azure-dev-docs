@@ -1,23 +1,24 @@
 ---
-title: Azure skill for upgrade
-description: Assess and upgrade Azure workloads between plans, tiers, or SKUs within Azure. Generates assessment reports and automates upgrade steps.
+title: Azure skill for Azure Upgrade
+description: Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK dependencies in source code.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 5/12/2026
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.0
+ms.custom: skill-version-1.1.3
+ai-usage: ai-assisted
 ---
 
-# Azure skill for upgrade
+# Azure skill for Azure Upgrade
 
-Assess and upgrade Azure workloads between plans, tiers, or SKUs within Azure. Generates assessment reports and automates upgrade steps.
+Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK dependencies in source code.
 
-**Skill:** `azure-upgrade` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-upgrade/SKILL.md)
+**Skill** `azure-upgrade` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-upgrade/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Assess and upgrade Azure workloads between plans, tiers, or SKUs within Azure. Generates assessment reports and automates upgrade steps.
+The Azure Upgrade skill gives GitHub Copilot specialized knowledge about Azure upgrade scenarios. Use this skill to get Azure best practices for the target service, look up Azure documentation for upgrade scenarios, query app service and functions plan details, and verify monitoring configuration.
 
 ## Prerequisites
 
@@ -27,17 +28,14 @@ This skill provides GitHub Copilot with specialized knowledge. Assess and upgrad
 
 ## When to use this skill
 
-Use this skill when you need to:
+Use the **Azure Upgrade** skill when you need to:
 
 - Upgrade Consumption to Flex Consumption
 - Upgrade Azure Functions plan
-- Migrate hosting plan in Azure
-- Upgrade Functions SKU in Azure
-- Move to Flex Consumption
-- Upgrade Azure service tier
-- Work with change hosting plan
-- Upgrade function app plan
+- Manage and configure change hosting plan and function app SKU in Azure
 - Migrate App Service to Container Apps
+- Modernize legacy Azure Java SDKs (com.microsoft.azure to com.azure)
+- Migrate Azure Cache for Redis (ACR/ACRE) to Azure Managed Redis (AMR)
 
 ## Example prompts
 
@@ -54,6 +52,9 @@ Try these prompts to activate this skill:
 
 ## Related content
 
-- [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
+- [Azure Functions hosting options](/azure/azure-functions/functions-scale)
+- [Migrate to Flex Consumption plan](/azure/azure-functions/flex-consumption-plan)
+- [Azure Cache for Redis migration guide](/azure/azure-cache-for-redis/cache-overview)
+- [Azure MCP Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-upgrade/SKILL.md)
 

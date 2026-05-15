@@ -1,41 +1,41 @@
 ---
-title: Azure skill for compute
-description: Azure VM and Virtual machine scale set (VMSS) router for recommendations, pricing, autoscale, orchestration, and connectivity troubleshooting. Answers questions but doesn't execute infrastructure changes.
+title: Azure skill for Azure Compute
+description: Azure VM and Virtual Machine Scale Set (VMSS) router for recommendations, pricing, autoscale, orchestration, connectivity troubleshooting, capacity reservations, and Essential Machine Management.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 5/12/2026
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.custom: skill-version-2.1.0
+ms.custom: skill-version-2.4.2
+ai-usage: ai-assisted
 ---
 
-# Azure skill for compute
+# Azure skill for Azure Compute
 
-Azure virtual machine (VM) and Virtual machine scale set (VMSS) router for recommendations, pricing, autoscale, orchestration, and connectivity troubleshooting. This skill can answer questions about autoscaling and orchestration but isn't meant to help execute those tasks.
+Azure virtual machine (VM) and Virtual Machine Scale Set (VMSS) router for recommendations, pricing, autoscale, orchestration, connectivity troubleshooting, capacity reservations, and Essential Machine Management.
 
-**Skill:** `azure-compute` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compute/SKILL.md)
+**Skill** `azure-compute` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compute/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Azure VM and Virtual machine scale set (VMSS) router for recommendations, pricing, autoscale, orchestration, and connectivity troubleshooting.
+This skill helps with Azure VM and VMSS questions — including VM recommendations, connectivity troubleshooting, capacity reservations, and Essential Machine Management. It answers questions and provides guidance but doesn't execute infrastructure changes.
 
 ## Prerequisites
 
-- **Azure subscription** (required for troubleshooting actual VMs/VMSS): [Create a free account](https://azure.microsoft.com/free/) if you don't have one. Not required for general questions, recommendations, or pricing information.
+- **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one. Not required for general questions, recommendations, or pricing information.
 - **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
-- **Azure CLI** (v2.60.0+) (required for pulling diagnostics from actual VMs/VMSS): [Install](/cli/azure/install-azure-cli) and sign in with `az login`. Not required for general questions, recommendations, or pricing information.
+- **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`. Not required for general questions, recommendations, or pricing information.
 
 ## When to use this skill
 
-Use this skill when you need to:
+Use the **Azure Compute** skill when you need to:
 
-- Create and manage Azure virtual machines (VMs) and virtual machine scale sets (VMSS).
-- Configure autoscaling for virtual machine scale sets.
-- Select appropriate VM SKUs for your workload (server, web hosting, burstable compute, or lightweight).
-- Optimize VM selection for different workloads, including development/test scenarios and back-end services.
-- Work with autoscale, load balancer, Flexible orchestration, and Uniform orchestration
-- Work with cost estimate, Linux, black screen, and reset password
-- Troubleshoot virtual machine connectivity issues.
+- Select an appropriate VM SKU for your workload (server, web hosting, burstable, dev/test, or back-end)
+- Configure autoscaling for virtual machine scale sets (Flexible or Uniform orchestration)
+- Troubleshoot VM connectivity issues (RDP, SSH, port access)
+- Get cost estimates for Azure VM configurations
+- Work with capacity reservations (create, associate, or disassociate CRGs)
+- Enroll VMs in Essential Machine Management
 
 ## Example prompts
 
@@ -46,12 +46,16 @@ Try these prompts to activate this skill:
 - "Compare Azure VM families for machine learning workloads"
 - "How much will a Standard D4s v3 VM cost?"
 - "Help me set up autoscale for my VM scale set"
-- "I can't connect to my VM via RDP, help me troubleshoot"
+- "I can't connect to my VM through RDP, help me troubleshoot"
 - "How do I reset the password on my Azure VM?"
 - "What's the difference between Flexible and Uniform orchestration?"
 
 ## Related content
 
+- [Virtual Machines overview](/azure/virtual-machines/)
+- [VM quickstart](/azure/virtual-machines/windows/quick-create-portal)
+- [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
+- [VM sizing and performance](/azure/virtual-machines/sizes)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compute/SKILL.md)
 
