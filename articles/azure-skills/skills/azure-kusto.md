@@ -41,17 +41,6 @@ Use this skill when you need to:
 - Analyze logs, telemetry, time series data, or IoT data.
 - Perform aggregations, anomaly detection, or security analytics.
 
-## MCP tools
-
-This skill uses the following MCP tools:
-
-| Tool | Purpose |
-|------|---------|
-| `kusto_cluster_list` | List all Azure Data Explorer clusters in a subscription. |
-| `kusto_database_list` | List all databases in a specific Kusto cluster. |
-| `kusto_query` | Execute KQL queries against a Kusto database. |
-| `kusto_table_schema_get` | Retrieve schema information for a specific table. |
-
 ## Example prompts
 
 Try these prompts to activate this skill:
