@@ -1,6 +1,6 @@
 ---
 title: Azure skill for Azure Compute
-description: Azure VM and Virtual Machine Scale Set (VMSS) router for recommendations, pricing, autoscale, orchestration, connectivity troubleshooting, capacity reservations, and Essential Machine Management.
+description: Azure VM and Virtual Machine Scale Set router for recommendations, pricing, autoscale, orchestration, connectivity troubleshooting, capacity reservations, and Essential Machine Management.
 ms.topic: reference
 ms.date: 5/12/2026
 author: diberry
@@ -12,13 +12,13 @@ ai-usage: ai-assisted
 
 # Azure skill for Azure Compute
 
-Azure virtual machine (VM) and Virtual Machine Scale Set (VMSS) router for recommendations, pricing, autoscale, orchestration, connectivity troubleshooting, capacity reservations, and Essential Machine Management.
+Azure virtual machine (VM) and Virtual Machine Scale Set router for recommendations, pricing, autoscale, orchestration, connectivity troubleshooting, capacity reservations, and Essential Machine Management.
 
 **Skill** `azure-compute` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compute/SKILL.md)
 
 ## What it provides
 
-This skill helps with Azure VM and VMSS questions — including VM recommendations, connectivity troubleshooting, capacity reservations, and Essential Machine Management. It answers questions and provides guidance but doesn't execute infrastructure changes.
+This skill helps with Azure VM and Virtual Machine Scale Set questions — including VM recommendations, connectivity troubleshooting, capacity reservations, and Essential Machine Management. It answers questions and provides guidance but doesn't execute infrastructure changes.
 
 ## Prerequisites
 
