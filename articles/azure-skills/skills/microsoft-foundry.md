@@ -18,13 +18,12 @@ Deploy, evaluate, and manage Foundry agents end-to-end: Docker build, ACR push, 
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge for the complete Microsoft Foundry agent lifecycle — covering model discovery and deployment, complete dev lifecycle of AI agents, evaluation workflows, and troubleshooting. The skill requires the Azure MCP `foundry` tool as its entry point for all Foundry-related MCP operations.
+This skill provides GitHub Copilot with specialized knowledge for the complete Microsoft Foundry agent lifecycle — covering model discovery and deployment, complete dev lifecycle of AI agents, evaluation workflows, and troubleshooting.
 
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
 - **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
-- **Azure MCP `foundry` tool**: Required entry point for Foundry-related MCP operations.
 
 ## When to use this skill
 
