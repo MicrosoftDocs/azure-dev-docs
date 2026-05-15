@@ -9,7 +9,6 @@ content_well_notification:
   - AI-contribution
 ai-usage: ai-generated
 ms.topic: concept-article
-ms.custom: build-2025
 mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ---
 # Azure File Sync Tools
