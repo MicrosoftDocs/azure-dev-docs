@@ -132,11 +132,17 @@ GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](.
 
 ---
 
+## Next steps
+
+Pick a path based on what you want to do:
+
+- **Start using it** - [Install and set up GitHub Copilot for Azure](get-started.md).
+- **Deploy an app** - [Follow the quickstart to deploy, monitor, and troubleshoot your application](quickstart-deploy-app-agent-mode.md).
+- **Generate infrastructure** - [Use natural language to create Bicep files](bicep-generate-edit.md).
+
 ## Related content
 
-- [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
-- Follow the [quickstart](quickstart-deploy-app-agent-mode.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
-- See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
-- See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
-- See example prompts for [deploying your application to Azure](deploy-examples.md).
-- See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
+- [Prompt examples for learning about Azure](learn-examples.md)
+- [Prompt examples for designing and developing applications](design-develop-examples.md)
+- [Prompt examples for deploying your application](deploy-examples.md)
+- [Prompt examples for troubleshooting your Azure resources](troubleshoot-examples.md)

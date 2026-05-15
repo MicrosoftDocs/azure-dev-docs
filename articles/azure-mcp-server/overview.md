@@ -2,7 +2,7 @@
 title: What is the Azure MCP Server?
 description: Learn about the Azure MCP Server, its features, and how it helps developers build and deploy apps to Azure. Discover benefits and get started today.
 #customer intent: As a developer, I want to understand what the Azure MCP Server is so that I can determine if it fits my app development needs.
-ms.date: 02/09/2026
+ms.date: 05/12/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: sandeepsen
@@ -24,7 +24,7 @@ It implements the [Model Context Protocol (MCP)](https://modelcontextprotocol.io
 - **MCP support**: The Azure MCP Server implements the Model Context Protocol, making it compatible with MCP clients such as GitHub Copilot agent mode, the OpenAI Agents SDK, and Semantic Kernel.
 - **Entra ID authentication**: The server uses Entra ID through the Azure Identity library, following Azure authentication best practices.
 - **Service and tool integration**: The server supports Azure services and tools, including the Azure CLI, Azure Developer CLI (azd), and a broad set of Azure resources.
-- **Azure Skills Plugin**: The [Azure Skills Plugin](https://github.com/microsoft/azure-skills) packages 19+ reusable Azure skills (such as azure-prepare, azure-validate, azure-deploy, azure-diagnostics, and azure-cost) designed to work with the Azure MCP Server and the Foundry MCP Server. Skills enable structured workflows and guardrails for real Azure operations, are version-controlled, and load on demand.
+- **Azure Skills Plugin**: The [Azure Skills Plugin](https://github.com/microsoft/azure-skills) packages 26+ reusable Azure skills (such as azure-prepare, azure-validate, azure-deploy, azure-diagnostics, and azure-cost) designed to work with the Azure MCP Server and the Foundry MCP Server. Skills enable structured workflows and guardrails for real Azure operations, are version-controlled, and load on demand.
 
 ## Supported code editors and tools
 
