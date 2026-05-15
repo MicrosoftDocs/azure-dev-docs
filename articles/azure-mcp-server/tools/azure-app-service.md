@@ -7,7 +7,6 @@ ms.reviewer: arthurma, kaghiya, weidxu
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.date: 05/13/2026
-ms.custom: build-2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
