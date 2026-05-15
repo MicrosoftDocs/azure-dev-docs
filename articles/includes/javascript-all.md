@@ -492,8 +492,9 @@
 | TypeSpec Streams | npm [0.82.0](https://www.npmjs.com/package/@typespec/streams/v/0.82.0) |  |  |
 | Unknown Display Name | npm [0.1.0-beta.1](https://www.npmjs.com/package/@azure-tools/dataflow-dev/v/0.1.0-beta.1) |  |  |
 | Unknown Display Name | npm [0.1.0-preview](https://www.npmjs.com/package/@azure/azure-connectors/v/0.1.0-preview) |  |  |
-| Unknown Display Name | npm [0.1.1-preview](https://www.npmjs.com/package/@azure/connectors/v/0.1.1-preview) |  |  |
+| Unknown Display Name | npm [0.1.2-preview](https://www.npmjs.com/package/@azure/connectors/v/0.1.2-preview) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/functions-extensions-blob/v/0.3.0) |  |  |
+| Unknown Display Name | npm [0.0.1-preview](https://www.npmjs.com/package/@azure/functions-extensions-connectors/v/0.0.1-preview) |  |  |
 | Unknown Display Name | npm [0.1.1-preview](https://www.npmjs.com/package/@azure/functions-extensions-express/v/0.1.1-preview) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.12](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.12) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
@@ -607,7 +608,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.78](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.78) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.79](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.79) |  |  |
 | AutoRest - Modeler Four | npm [4.27.3](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.3) |  | GitHub [4.27.3](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.50.3](https://www.npmjs.com/package/@autorest/python/v/6.50.3) |  | GitHub [6.50.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
