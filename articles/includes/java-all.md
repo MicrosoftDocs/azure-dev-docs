@@ -343,7 +343,7 @@
 | Resource Management - Resources-Bicep | Maven [1.0.0-beta.1](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-resources-bicep/1.0.0-beta.1) | [docs](/java/api/overview/azure/resourcemanager-resources-bicep-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resources-bicep_1.0.0-beta.1/sdk/resources/azure-resourcemanager-resources-bicep/) |
 | Resource Management - Resources-Deploymentstacks | Maven [1.1.0](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-resources-deploymentstacks/1.1.0) | [docs](/java/api/overview/azure/resourcemanager-resources-deploymentstacks-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-java/tree/item.GroupId+azure-resourcemanager-resources-deploymentstacks_1.1.0/sdk/resources/azure-resourcemanager-resources-deploymentstacks/) |
 | Resource Management - Secretsstoreextension | Maven [1.0.0-beta.1](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-secretsstoreextension/1.0.0-beta.1) | [docs](/java/api/overview/azure/resourcemanager-secretsstoreextension-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-secretsstoreextension_1.0.0-beta.1/sdk/secretsstoreextension/azure-resourcemanager-secretsstoreextension/) |
-| Resource Management - Security | Maven [1.0.0](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-security/1.0.0) | [docs](/java/api/overview/azure/resourcemanager-security-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-security_1.0.0/sdk/security/azure-resourcemanager-security/) |
+| Resource Management - Security | Maven [1.0.0](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-security/1.0.0)<br>Maven [1.1.0-beta.1](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-security/1.1.0-beta.1) | [docs](/java/api/overview/azure/resourcemanager-security-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/item.GroupId+azure-resourcemanager-security_1.0.0/sdk/security/azure-resourcemanager-security/)<br>GitHub [1.1.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/item.GroupId+azure-resourcemanager-security_1.1.0-beta.1/sdk/security/azure-resourcemanager-security/) |
 | Resource Management - Security DevOps | Maven [1.0.0-beta.1](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-securitydevops/1.0.0-beta.1) | [docs](/java/api/overview/azure/resourcemanager-securitydevops-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-securitydevops_1.0.0-beta.1/sdk/securitydevops/azure-resourcemanager-securitydevops/) |
 | Resource Management - Security Insights | Maven [1.0.0](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-securityinsights/1.0.0) | [docs](/java/api/overview/azure/resourcemanager-securityinsights-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-securityinsights_1.0.0/sdk/securityinsights/azure-resourcemanager-securityinsights/) |
 | Resource Management - Self Help | Maven [1.0.0](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-selfhelp/1.0.0)<br>Maven [1.1.0-beta.6](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-selfhelp/1.1.0-beta.6) | [docs](/java/api/overview/azure/resourcemanager-selfhelp-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/item.GroupId+azure-resourcemanager-selfhelp_1.0.0/sdk/selfhelp/azure-resourcemanager-selfhelp/)<br>GitHub [1.1.0-beta.6](https://github.com/Azure/azure-sdk-for-java/tree/item.GroupId+azure-resourcemanager-selfhelp_1.1.0-beta.6/sdk/selfhelp/azure-resourcemanager-selfhelp/) |
@@ -495,8 +495,8 @@
 | azure-microprofile-parent | Maven [1.0.0-beta.3](https://central.sonatype.com/artifact/com.azure.microprofile/azure-microprofile-parent/1.0.0-beta.3) |  |  |
 | azure-sdk-build-tool-maven-plugin | Maven [1.0.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-sdk-build-tool-maven-plugin/1.0.0) |  |  |
 | azure-spring-apps-maven-plugin | Maven [1.19.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-spring-apps-maven-plugin/1.19.0) |  |  |
-| azure-toolkit-identity-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-identity-lib/0.55.0) |  |  |
-| azure-toolkit-keyvault-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-keyvault-lib/0.55.0) |  |  |
+| azure-toolkit-identity-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-identity-lib/0.56.0) |  |  |
+| azure-toolkit-keyvault-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-keyvault-lib/0.56.0) |  |  |
 | azureml-fs-scala-impl | Maven [1.0.4](https://central.sonatype.com/artifact/com.microsoft.azure/azureml-fs-scala-impl/1.0.4) |  |  |
 | Client Core Parent | Maven [1.0.0-beta.3](https://central.sonatype.com/artifact/io.clientcore/clientcore-parent/1.0.0-beta.3) |  |  |
 | Container Apps Maven Plugin | Maven [0.2.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-container-apps-maven-plugin/0.2.0) |  |  |
@@ -514,11 +514,11 @@
 | JSON - JSON Reflect | Maven [1.0.0-beta.2](https://central.sonatype.com/artifact/com.azure/azure-json-reflect/1.0.0-beta.2) |  |  |
 | Kusto Spark | Maven [5.0.0](https://central.sonatype.com/artifact/com.microsoft.azure.kusto/kusto-spark_2.4_2.12/5.0.0) |  |  |
 | ONNX Protobuf | Maven [0.9.24](https://central.sonatype.com/artifact/com.microsoft.azure/onnx-protobuf_2.13/0.9.24) |  |  |
-| Postgre Single Library | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-postgre-single-lib/0.55.0) |  |  |
+| Postgre Single Library | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-postgre-single-lib/0.56.0) |  |  |
 | Schema Registry - JSON | Maven [1.0.0-beta.5](https://central.sonatype.com/artifact/com.microsoft.azure/azure-schemaregistry-kafka-json/1.0.0-beta.5) |  |  |
 | Service Bus -JMS | Maven [2.1.0](https://central.sonatype.com/artifact/com.azure/azure-servicebus-jms/2.1.0) |  |  |
-| Service Bus Library | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-servicebus-lib/0.55.0) |  |  |
-| Service Linker Library | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-servicelinker-lib/0.55.0) |  |  |
+| Service Bus Library | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-servicebus-lib/0.56.0) |  |  |
+| Service Linker Library | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-servicelinker-lib/0.56.0) |  |  |
 | Spring Cloud Azure Native Reachability | Maven [5.0.0-beta.1](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-native-reachability/5.0.0-beta.1) |  |  |
 | Spring Cloud Azure Starter - OpenAI | Maven [4.9.0-beta.1](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-openai/4.9.0-beta.1) |  |  |
 | Spring Cloud Azure Stream Binder Test | Maven [4.0.0-beta.2](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-stream-binder-test/4.0.0-beta.2) |  |  |
@@ -546,7 +546,7 @@
 | azure-communication-administration | Maven [1.0.0-beta.4](https://central.sonatype.com/artifact/com.azure/azure-communication-administration/1.0.0-beta.4) |  |  |
 | azure-schemaregistry-spark-avro | Maven [1.0.1](https://central.sonatype.com/artifact/com.microsoft.azure/azure-schemaregistry-spark-avro/1.0.1) |  |  |
 | azure-storage-fastpath | Maven [1.0.0-beta.6](https://central.sonatype.com/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6) |  |  |
-| azure-toolkit-applicationinsights-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.55.0) |  |  |
+| azure-toolkit-applicationinsights-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.56.0) |  |  |
 | Batch | Maven [11.2.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-batch/11.2.0) | [docs](/java/api/overview/azure/batch) | GitHub [11.2.0](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/batch/microsoft-azure-batch) |
 | Client Authentication | Maven [1.7.14](https://central.sonatype.com/artifact/com.microsoft.azure/azure-client-authentication/1.7.14) |  |  |
 | Client Runtime | Maven [1.7.14](https://central.sonatype.com/artifact/com.microsoft.azure/azure-client-runtime/1.7.14) |  |  |
@@ -643,15 +643,15 @@
 | azure-functions-java-core-library | Maven [1.3.0](https://central.sonatype.com/artifact/com.microsoft.azure.functions/azure-functions-java-core-library/1.3.0) |  |  |
 | azure-functions-java-library-sql | Maven [2.1.0-preview](https://central.sonatype.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-sql/2.1.0-preview) |  |  |
 | azure-functions-java-spi | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure.functions/azure-functions-java-spi/1.1.0) |  |  |
-| azure-toolkit-compute-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-compute-lib/0.55.0) |  |  |
-| azure-toolkit-containerapps-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-containerapps-lib/0.55.0) |  |  |
-| azure-toolkit-cosmos-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-cosmos-lib/0.55.0) |  |  |
-| azure-toolkit-database-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-database-lib/0.55.0) |  |  |
-| azure-toolkit-libs | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-libs/0.55.0) |  |  |
-| azure-toolkit-monitor-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-monitor-lib/0.55.0) |  |  |
-| azure-toolkit-postgre-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-postgre-lib/0.55.0) |  |  |
+| azure-toolkit-compute-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-compute-lib/0.56.0) |  |  |
+| azure-toolkit-containerapps-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-containerapps-lib/0.56.0) |  |  |
+| azure-toolkit-cosmos-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-cosmos-lib/0.56.0) |  |  |
+| azure-toolkit-database-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-database-lib/0.56.0) |  |  |
+| azure-toolkit-libs | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-libs/0.56.0) |  |  |
+| azure-toolkit-monitor-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-monitor-lib/0.56.0) |  |  |
+| azure-toolkit-postgre-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-postgre-lib/0.56.0) |  |  |
 | azure-toolkit-resource-lib | Maven [0.19.2](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-resource-lib/0.19.2) |  |  |
-| azure-toolkit-sqlserver-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.55.0) |  |  |
+| azure-toolkit-sqlserver-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.56.0) |  |  |
 | Bill of Materials | Maven [1.0.0.M1](https://central.sonatype.com/artifact/com.microsoft.azure/azure-bom/1.0.0.M1) |  |  |
 | Bill of Materials | Maven [2.3.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-dependencies-bom/2.3.0) |  |  |
 | Cosmos DB - Cassandra Extensions | Maven [0.14.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-cosmos-cassandra-extensions/0.14.0) |  |  |
@@ -670,7 +670,7 @@
 | Document DB - Hadoop | Maven [1.2.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-documentdb-hadoop/1.2.0) |  |  |
 | Document DB - Reactive Extension | Maven [0.9.0-rc2](https://central.sonatype.com/artifact/com.microsoft.azure/azure-documentdb-rx/0.9.0-rc2) |  |  |
 | Elastic Database Tools | Maven [1.0.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-elasticdb-tools/1.0.0) |  |  |
-| Event Hubs Library | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-eventhubs-lib/0.55.0) |  |  |
+| Event Hubs Library | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-eventhubs-lib/0.56.0) |  |  |
 | kusto-log4j-appender | Maven [2.0.3](https://central.sonatype.com/artifact/com.microsoft.azure.kusto/kusto-log4j-appender/2.0.3) |  |  |
 | Schema Registry - Kafka Avro | Maven [1.1.4](https://central.sonatype.com/artifact/com.microsoft.azure/azure-schemaregistry-kafka-avro/1.1.4) |  |  |
 | Service Bus - JMS | Maven [1.0.2](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.2) |  |  |
@@ -692,29 +692,29 @@
 | Resource Management - Client Runtime | Maven [1.7.14](https://central.sonatype.com/artifact/com.microsoft.azure/azure-arm-client-runtime/1.7.14) |  | GitHub [1.7.14](https://github.com/Azure/autorest-clientruntime-for-java/tree/master/azure-arm-client-runtime) |
 | Resource Management - Parent | Maven [1.3.2](https://central.sonatype.com/artifact/com.microsoft.azure/azure-arm-parent/1.3.2) |  | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-java/tree/mgmt-release-v2/sdk/parents/azure-arm-parent) |
 | Auth Helper  Plugin | Maven [0.7.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-auth-helper/0.7.0) |  |  |
-| azure-appservice-maven-plugin-lib | Maven [1.44.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-appservice-maven-plugin-lib/1.44.0) |  |  |
+| azure-appservice-maven-plugin-lib | Maven [1.45.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-appservice-maven-plugin-lib/1.45.0) |  |  |
 | azure-autorest-customization | Maven [1.0.0-beta.11](https://central.sonatype.com/artifact/com.azure.tools/azure-autorest-customization/1.0.0-beta.11) |  |  |
 | azure-autorest-extension | Maven [1.0.0-beta.5](https://central.sonatype.com/artifact/com.azure.tools/azure-autorest-extension/1.0.0-beta.5) |  |  |
 | azure-autorest-parent | Maven [1.0.0-beta.5](https://central.sonatype.com/artifact/com.azure.tools/azure-autorest-parent/1.0.0-beta.5) |  |  |
-| azure-maven-plugins | Maven [1.44.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugins/1.44.0) |  |  |
-| azure-toolkit-appservice-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.55.0) |  |  |
-| azure-toolkit-auth-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.55.0) |  |  |
-| azure-toolkit-cognitiveservices-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-cognitiveservices-lib/0.55.0) |  |  |
-| azure-toolkit-common-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.55.0) |  |  |
-| azure-toolkit-containerregistry-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-containerregistry-lib/0.55.0) |  |  |
-| azure-toolkit-containerservice-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-containerservice-lib/0.55.0) |  |  |
-| azure-toolkit-mysql-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-mysql-lib/0.55.0) |  |  |
-| azure-toolkit-mysql-single-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-mysql-single-lib/0.55.0) |  |  |
-| azure-toolkit-redis-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-redis-lib/0.55.0) |  |  |
-| azure-toolkit-springcloud-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-springcloud-lib/0.55.0) |  |  |
-| azure-toolkit-storage-lib | Maven [0.55.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.55.0) |  |  |
+| azure-maven-plugins | Maven [1.45.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugins/1.45.0) |  |  |
+| azure-toolkit-appservice-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.56.0) |  |  |
+| azure-toolkit-auth-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.56.0) |  |  |
+| azure-toolkit-cognitiveservices-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-cognitiveservices-lib/0.56.0) |  |  |
+| azure-toolkit-common-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.56.0) |  |  |
+| azure-toolkit-containerregistry-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-containerregistry-lib/0.56.0) |  |  |
+| azure-toolkit-containerservice-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-containerservice-lib/0.56.0) |  |  |
+| azure-toolkit-mysql-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-mysql-lib/0.56.0) |  |  |
+| azure-toolkit-mysql-single-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-mysql-single-lib/0.56.0) |  |  |
+| azure-toolkit-redis-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-redis-lib/0.56.0) |  |  |
+| azure-toolkit-springcloud-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-springcloud-lib/0.56.0) |  |  |
+| azure-toolkit-storage-lib | Maven [0.56.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.56.0) |  |  |
 | Bundler Maven Plugin | Maven [0.0.5](https://central.sonatype.com/artifact/com.microsoft.azure/bundler-maven-plugin/0.0.5) |  |  |
 | codesnippet-maven-plugin | Maven [1.0.0-beta.10](https://central.sonatype.com/artifact/com.azure.tools/codesnippet-maven-plugin/1.0.0-beta.10) |  |  |
-| Functions - Maven Plugin | Maven [1.41.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.41.0) |  |  |
+| Functions - Maven Plugin | Maven [1.42.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.42.0) |  |  |
 | Maven - Plugin | Maven [0.2.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugin/0.2.0) |  |  |
 | Maven - Plugin Common | Maven [0.2.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugin-common/0.2.0) |  |  |
 | Maven - Plugin Lib | Maven [0.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/maven-plugin-lib/0.1.1) |  |  |
-| Maven - Plugin Library | Maven [1.44.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugin-lib/1.44.0) |  |  |
+| Maven - Plugin Library | Maven [1.45.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugin-lib/1.45.0) |  |  |
 | Maven - Plugins Pom | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-maven-plugins-pom/1.1.0) |  |  |
 | onnx-protobuf_2.12 | Maven [0.9.22](https://central.sonatype.com/artifact/com.microsoft.azure/onnx-protobuf_2.12/0.9.22) |  |  |
 | Session Management | Maven [1.0.0-beta.1](https://central.sonatype.com/artifact/com.microsoft.azure.sessionmanager/sessionmanager/1.0.0-beta.1) |  |  |
