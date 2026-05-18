@@ -101,7 +101,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
-| **Detector name** |  Required | The name of the diagnostic detector to run (for example, `Availability`, `CpuAnalysis`, `MemoryAnalysis`). |
+| **Detector ID** |  Required | The ID of the diagnostic detector to run. Use the `id` field from the `appservice webapp diagnostic list` tool. |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 | **End time** |  Optional | The end time in ISO format (for example, `2023-01-01T00:00:00Z`). |
 | **Interval** |  Optional | The time interval (for example, `PT1H` for 1 hour, `PT5M` for 5 minutes). |
