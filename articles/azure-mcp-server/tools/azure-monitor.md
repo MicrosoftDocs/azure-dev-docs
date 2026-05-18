@@ -139,8 +139,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Resource group** | Required | The name of the Azure resource group. |
-| **Workspace name** | Optional | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
-| **Table type** | Optional | Type of table to filter by. |
+| **Workspace name** | Required | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
+| **Table type** | Required | Type of table to filter by. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
