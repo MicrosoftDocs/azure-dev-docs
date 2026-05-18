@@ -6,6 +6,7 @@ ms.service: github-copilot-for-azure
 ms.topic: quickstart
 ms.date: 12/19/2025
 ms.collection: ce-skilling-ai-copilot
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure
