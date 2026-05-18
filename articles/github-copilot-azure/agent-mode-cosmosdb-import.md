@@ -6,7 +6,7 @@ ms.author: rotabor
 keywords: github, copilot, ai, azure, cosmos db
 ms.service: github-copilot-for-azure
 ms.topic: quickstart
-ms.date: 05/04/2026
+ms.date: 05/18/2026
 ms.collection: ce-skilling-ai-copilot
 ms.custom: msecd-doc-authoring-108
 
@@ -101,26 +101,7 @@ Use the plan to formulate the prompts needed to create Azure resources and write
 
 ### Sign in to your tenant and choose your subscription
 
-If you work with multiple tenants and subscriptions, make sure you're signed in to the correct one:
-
-```text
-How do I log into my Azure tenant and choose an Azure subscription I want to work with?
-```
-
-GitHub Copilot responds with steps similar to:
-
-1. Open a terminal.
-1. Sign in to Azure: `az login`
-1. List available subscriptions: `az account list --output table`
-1. Set the subscription: `az account set --subscription "SUBSCRIPTION_NAME_OR_ID"`
-
-Follow these instructions. If you're ever unsure about which tenant and subscription you're working with, you can ask:
-
-```text
-Which tenant and subscription am I working with?
-```
-
-When agent mode asks to execute a terminal command, select **Continue** or **Always allow** to let it proceed.
+[!INCLUDE [sign-in-azure-subscription](./includes/sign-in-azure-subscription.md)]
 
 :::image type="content" source="media/agent-mode-cosmosdb-import/github-copilot-continue-always-allow.png" alt-text="Screenshot that shows response to a prompt with an option highlighted to always allow.":::
 
@@ -147,7 +128,7 @@ Use the Azure CLI to create a new database named `<cosmos-db-database-name>` in 
 ```
 
 ```text
-Use the Azure CLI to create a new container named `<container-name>` with partition key `/id` in the `<cosmos-db-database-name>` database
+Use the Azure CLI to create a new container named `<container-name>` with partition key `/categoryId` in the `<cosmos-db-database-name>` database
 ```
 
 ### Generate Python code to upload the JSON items to the container
@@ -198,4 +179,3 @@ az group delete --name <resource-group-name> --yes --no-wait
 - [Get started with GitHub Copilot for Azure](get-started.md)
 - [Deploy an app with agent mode](quickstart-deploy-app-agent-mode.md)
 - [Azure Cosmos DB documentation](/azure/cosmos-db/)
-
