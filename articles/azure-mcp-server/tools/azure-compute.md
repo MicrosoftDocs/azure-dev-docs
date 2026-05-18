@@ -209,7 +209,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Admin username** |  Required | The admin username for the VM. Required for VM creation. |
-| **Location** |  Required | The Azure region or location. Defaults to the resource group's location if you don't specify it. |
+| **Location** |  Required | The Azure region or location. |
 | **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **VM name** |  Required | The name of the virtual machine. |
 | **Admin password** |  Optional | The admin password for Windows VMs or when the SSH key isn't provided for Linux VMs. |
@@ -337,7 +337,7 @@ Create a scale set by specifying the `resource group`, `VMSS name`, and `admin u
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Admin username** | Required | The admin username for the VM. Required for VM creation. |
-| **Location** | Required | The Azure region or location. Defaults to the resource group's location if you don't specify it. |
+| **Location** | Required | The Azure region or location. |
 | **Resource group** | Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **VMSS name** | Required | The name of the virtual machine scale set. |
 | **Admin password** | Optional | The admin password for Windows VMs or when an SSH key isn't provided for Linux VMs. |
