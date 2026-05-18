@@ -43,7 +43,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Database** |  Required | The name of the database to connect to (for example, mydb). |
 | **Database server** |  Required | The server name or endpoint for the database (for example, contoso-server.database.windows.net). |
 | **Database type** |  Required | The type of database:`SqlServer`, `MySQL`, `PostgreSQL`, and `Cosmos DB`. |
@@ -100,7 +100,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Detector name** |  Required | The name of the diagnostic detector to run (for example, `Availability`, `CpuAnalysis`, `MemoryAnalysis`). |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 | **End time** |  Optional | The end time in ISO format (for example, `2023-01-01T00:00:00Z`). |
@@ -124,7 +124,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 | **Deployment ID** |  Optional | The ID of the deployment. |
 
@@ -146,7 +146,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Optional | The name of the Azure App Service web app (for example, `contoso-webapp`). This tool returns details for a specific web app when you provide the `App` name; if you don't provide an `App`, it returns information for all web apps in the subscription or for the specified `resource group` and `subscription`. |
+| **App name** |  Optional | The name of the Azure App Service web app (for example, `contoso-webapp`). This tool returns details for a specific web app when you provide the `App name`; if you don't provide an `App name`, it returns information for all web apps in the subscription or for the specified `resource group` and `subscription`. |
 | **Resource group** |  Optional | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -166,7 +166,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service web app (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service web app (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group that contains the web app (for example, prod-rg). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -185,7 +185,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -212,7 +212,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group that contains the web app. |
 | **Setting name** |  Required | The name of the application setting. |
 | **Setting update type** |  Required | The type of update to perform on the application setting. Valid values: `add`, `set`, `delete`. |
@@ -227,3 +227,4 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure App Service documentation](/azure/app-service/)
+
