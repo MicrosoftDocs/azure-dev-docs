@@ -213,7 +213,7 @@ Example prompts include:
 | **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **VM name** |  Required | The name of the virtual machine. |
 | **Admin password** |  Optional | The admin password for Windows VMs or when the SSH key isn't provided for Linux VMs. |
-| **Image** |  Required | The OS image to use. Can be a URN (publisher:offer:SKU:version), or an alias like `Ubuntu2404` or `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
+| **Image** |  Required | The OS image to use. Can be a URN (publisher:offer:SKU:version), or an alias like `Ubuntu2404` or `Win2022Datacenter`. |
 | **Network security group** |  Optional | The name of the network security group to use or create. |
 | **No public IP** |  Optional | The instruction not to create or assign a public IP address. |
 | **OS disk size GB** |  Optional | The OS disk size in GB. Defaults are based on image requirements. |
