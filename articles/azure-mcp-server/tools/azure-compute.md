@@ -127,7 +127,6 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Disk name** | Optional | The name of the disk. |
-| **Resource group** | Optional | The name of the Azure resource group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -166,7 +165,6 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Disk name** |  Required | The name of the disk. |
-| **Resource group** |  Optional | The name of the Azure resource group. |
 | **Disk access** |  Optional | The resource ID of the disk access resource for using private endpoints on disks. |
 | **Disk encryption set** |  Optional | The resource ID of the disk encryption set to use for enabling encryption at rest. |
 | **Disk iops read write** |  Optional | The number of IOPS allowed for this disk. Only settable for UltraSSD disks. |
@@ -285,7 +283,6 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Instance view** |  Optional | Include instance view details (only available when retrieving a specific VM). |
 | **VM name** |  Optional | The name of the virtual machine. |
-| **Resource group** |  Optional | The name of the Azure resource group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -410,7 +407,6 @@ Example prompts include:
 |------------------------------------|----------------------|----------------------------------------------------------|
 | **Instance ID**                    | Optional             | The instance ID of the virtual machine in the scale set. |
 | **Virtual machine scale set name** | Optional             | The name of the virtual machine scale set.               |
-| **Resource group**            | Optional             | The name of the Azure resource group.                    |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
