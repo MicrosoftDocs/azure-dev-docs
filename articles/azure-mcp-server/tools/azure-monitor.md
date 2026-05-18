@@ -138,7 +138,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** | Required | Name of the resource group. |
+| **Resource group** | Required | The name of the Azure resource group. |
 | **Workspace name** | Optional | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
 | **Table type** | Optional | Type of table to filter by. |
 
@@ -159,7 +159,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** | Required | The name of the Azure resource group that contains the workspace. |
+| **Resource group** | Required | The name of the Azure resource group. |
 | **Workspace name** | Required | The name or ID of the Log Analytics workspace. You can use the workspace GUID or the display name. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -179,7 +179,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Query** | Required | The Kusto Query Language (KQL) query to run against the Log Analytics workspace. You can use predefined queries by name: `recent` shows the most recent logs, ordered by TimeGenerated; `errors` shows error-level logs, ordered by TimeGenerated. Or, provide a custom KQL query. |
-| **Resource group** | Required | The name of the Azure resource group that contains the workspace. |
+| **Resource group** | Required | The name of the Azure resource group. |
 | **Table name** | Required | The name of the table to query within the workspace. |
 | **Workspace name** | Required | The Log Analytics workspace ID or name. You can provide either the globally unique identifier (GUID) or the display name of the workspace. |
 | **Hours** | Optional | The number of hours to query back from now. |
@@ -225,7 +225,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Entity name** | Required | The entity to get health for. |
 | **Health model** | Required | The name of the health model for which to get the health. |
-| **Resource group** | Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
+| **Resource group** | Required | The name of the Azure resource group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -422,7 +422,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** | Optional | The name of the Azure resource group to scope the search. |
+| **Resource group** | Optional | The name of the Azure resource group. |
 | **Category** | Optional | Filter workbooks by category (for example, `workbook`, `sentinel`, `TSG`). If not specified, all categories are returned. |
 | **Include total count** | Optional | Include the total count of all matching workbooks in the response (default: true). |
 | **Kind** | Optional | Filter workbooks by kind (for example, `shared`, `user`). If not specified, all kinds are returned. |
@@ -471,7 +471,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Display name** | Required | The display name of the workbook. |
-| **Resource group** | Required | The name of the Azure resource group containing the workbook. |
+| **Resource group** | Required | The name of the Azure resource group. |
 | **Serialized content** | Required | The serialized JSON content of the workbook. |
 | **Source ID** | Optional | The linked resource ID for the workbook. By default, this is `azure monitor`. |
 
@@ -531,3 +531,5 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 - [Workbooks in Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview)
 - [Metrics in Azure Monitor](/azure/azure-monitor/platform/tutorial-metrics)
+
+
