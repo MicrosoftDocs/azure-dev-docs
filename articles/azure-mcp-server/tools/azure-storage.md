@@ -60,7 +60,7 @@ information including name, location, SKU, access settings, and configuration de
 
 **Example CLI command**
 
-```terminal
+```console
 azmcp storage account create \
   --resource-group <resource-group> \
   --account <account> \
@@ -120,7 +120,7 @@ Creates a logical container for organizing blobs within a storage account.
 
 **Example CLI command**
 
-```terminal
+```console
 azmcp storage blob container create \
   --account <account> \
   --container <container>
@@ -164,7 +164,7 @@ Retrieves detailed information about Azure Storage accounts, including account n
 
 **Example CLI command**
 
-```terminal
+```console
 azmcp storage account get \
   [--account <account>]
 ```
@@ -218,7 +218,7 @@ Do not use this tool to list containers in the storage account.
 
 **Example CLI command**
 
-```terminal
+```console
 azmcp storage blob get \
   --account <account> \
   --container <container> \
@@ -274,7 +274,7 @@ Do not use this tool to list blobs in a container.
 
 **Example CLI command**
 
-```terminal
+```console
 azmcp storage blob container get \
   --account <account> \
   [--container <container>] \
@@ -317,7 +317,7 @@ List all tables in an Azure Storage account. Shows table names for the specified
 
 **Example CLI command**
 
-```terminal
+```console
 azmcp storage table list \
   --account <account>
 ```
@@ -359,7 +359,7 @@ ETag, and content hash of the uploaded blob.
 
 **Example CLI command**
 
-```terminal
+```console
 azmcp storage blob upload \
   --account <account> \
   --container <container> \
@@ -381,3 +381,4 @@ azmcp storage blob upload \
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Storage documentation](/azure/storage/)
+
