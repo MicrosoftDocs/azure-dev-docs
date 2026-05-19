@@ -17,6 +17,8 @@ ms.custom: msecd-doc-authoring-108
 
 In this quickstart, you use GitHub Copilot for Azure agent mode to create Azure Cosmos DB resources and import sample data by using Python. Agent mode takes action in Visual Studio Code - creating files, executing commands in the terminal, and more.
 
+Without GitHub Copilot for Azure agent mode, setting up Cosmos DB and importing data requires writing infrastructure-as-code, a Python script, and managing dependencies manually. With GitHub Copilot for Azure agent mode, you describe the outcome and Copilot handles the rest
+
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
