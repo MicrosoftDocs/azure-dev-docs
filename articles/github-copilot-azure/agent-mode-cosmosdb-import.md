@@ -46,6 +46,10 @@ Download the [CosmicWorks product data](https://raw.githubusercontent.com/AzureC
  
     `Using the products.json file in my workspace, create a Python virtual environment, then set up an Azure Cosmos DB for NoSQL environment in West US (resource group named "<resource-group-name>", account, database, and container with partition key "/categoryId"). Write and run a Python script to import all records into the container. Verify the import by querying the first 5 items. If there are errors, fix them and retry.`
 
+```text
+Using the products.json file in my workspace, create a Python virtual environment, then set up an Azure Cosmos DB for NoSQL environment in West US (resource group named "<resource-group-name>", account, database, and container with partition key "/categoryId"). Write and run a Python script to import all records into the container. Verify the import by querying the first 5 items. If there are errors, fix them and retry.
+```
+
 Replace `<resource-group-name>` with your own unique value.
 
 Agent mode handles the entire workflow: creating the virtual environment, provisioning each Azure resource, generating the Python import script, installing dependencies, executing the import, and verifying the results. Review the generated code before allowing execution.
