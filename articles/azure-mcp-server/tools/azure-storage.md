@@ -74,7 +74,7 @@ azmcp storage account create \
 |-----------|------|----------|-------------|
 | `--resource-group` | string | Yes | The name of the Azure resource group. This is a logical container for Azure resources. |
 | `--account` | string | Yes | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
-| `--location` | string | Yes | The Azure region where the storage account will be created (e.g., 'eastus', 'westus2'). |
+| `--location` | string | Yes | The Azure region where the storage account will be created (for example, 'eastus', 'westus2'). |
 | `--sku` | string | No | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
 | `--access-tier` | string | No | The default access tier for blob storage. Valid values: Hot, Cool. |
 | `--enable-hierarchical-namespace` | string | No | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
@@ -128,7 +128,7 @@ azmcp storage blob container create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | `--container` | string | Yes | The name of the container to access within the storage account. |
 
 ---
@@ -160,7 +160,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name is not provided, the command will return details for all accounts in a subscription.
+Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, the command will return details for all accounts in a subscription.
 
 **Example CLI command**
 
@@ -171,7 +171,7 @@ azmcp storage account get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--account` | string | No | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | string | No | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 
 ---
 
@@ -214,7 +214,7 @@ Required: --account, --container, --subscription
 Optional: --blob, --tenant, --prefix
 
 Returns: blob name, size, lastModified, contentType, contentHash, metadata, and blob properties.
-Do not use this tool to list containers in the storage account.
+Don't use this tool to list containers in the storage account.
 
 **Example CLI command**
 
@@ -228,9 +228,9 @@ azmcp storage blob get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | `--container` | string | Yes | The name of the container to access within the storage account. |
-| `--blob` | string | No | The name of the blob to access within the container. This should be the full path within the container (e.g., 'file.txt' or 'folder/file.txt'). |
+| `--blob` | string | No | The name of the blob to access within the container. This should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
 | `--prefix` | string | No | The prefix to filter blobs when listing blobs in a container. Only blobs whose names start with the specified prefix will be listed. |
 
 ---
@@ -270,7 +270,7 @@ Required: --account, --subscription
 Optional: --container, --tenant, --prefix
 
 Returns: container name, lastModified, leaseStatus, publicAccess, metadata, and container properties.
-Do not use this tool to list blobs in a container.
+Don't use this tool to list blobs in a container.
 
 **Example CLI command**
 
@@ -283,7 +283,7 @@ azmcp storage blob container get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | `--container` | string | No | The name of the container to access within the storage account. |
 | `--prefix` | string | No | The prefix to filter containers when listing containers in a storage account. Only containers whose names start with the specified prefix will be listed. |
 
@@ -313,7 +313,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List all tables in an Azure Storage account. Shows table names for the specified storage account. Required: account, subscription. Optional: tenant. Returns: table names. Do not use this tool for Cosmos DB tables or Kusto/Data Explorer tables.
+List all tables in an Azure Storage account. Shows table names for the specified storage account. Required: account, subscription. Optional: tenant. Returns: table names. Don't use this tool for Cosmos DB tables or Kusto/Data Explorer tables.
 
 **Example CLI command**
 
@@ -324,7 +324,7 @@ azmcp storage table list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 
 ---
 
@@ -354,7 +354,7 @@ Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Uploads a local file to an Azure Storage blob, only if the blob does not exist, returning the last modified time,
+Uploads a local file to an Azure Storage blob, only if the blob doesn't exist, returning the last modified time,
 ETag, and content hash of the uploaded blob.
 
 **Example CLI command**
@@ -369,9 +369,9 @@ azmcp storage blob upload \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (e.g., 'mystorageaccount'). |
+| `--account` | string | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | `--container` | string | Yes | The name of the container to access within the storage account. |
-| `--blob` | string | Yes | The name of the blob to access within the container. This should be the full path within the container (e.g., 'file.txt' or 'folder/file.txt'). |
+| `--blob` | string | Yes | The name of the blob to access within the container. This should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
 | `--local-file-path` | string | Yes | The local file path to read content from or to write content to. This should be the full path to the file on your local system. |
 
 ---
