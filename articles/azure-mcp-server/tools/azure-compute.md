@@ -2,12 +2,12 @@
 title: Azure MCP Server Tools for Azure Compute
 description: Discover compute tools for managing virtual machines, virtual machine scale sets, and disks in Azure MCP Server. Explore features and start optimizing your resources.
 #customer intent: As a system admin, I want to list all virtual machine scale sets in a subscription so I can manage their capacity and upgrade policies.
-ms.date: 04/07/2026
+ms.date: 05/13/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-reviewer: audreytoney
+ms.reviewer: audreytoney
 tool_count: 12
-mcp-cli.version: 2.0.0-beta.39
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ---
 
 # Azure MCP Server tools for Azure compute overview
@@ -186,7 +186,7 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vm create -->
 
-Create, deploy, or provision a single virtual machine. This command launches a new Linux or Windows VM with either SSH key or password authentication. If you don't specify networking resources (such as a virtual network or subnet), this tool automatically creates them. The default VM size is `Standard_DS1_v2`, and the default OS is Ubuntu 24.04 LTS if you don't specify otherwise.
+Create, deploy, or provision a single virtual machine. This command launches a new Linux or Windows VM with either SSH key or password authentication. If you don't specify networking resources (such as a virtual network or subnet), this tool automatically creates them. The default VM size is `Standard_D2s_v5`, and the default OS is Ubuntu 24.04 LTS if you don't specify otherwise.
 
 You can create a Linux VM by using an SSH public key. You provide the key content or the path to the key file. For example, you can specify your public key file at `~/.ssh/id_rsa.pub`.
 
@@ -200,7 +200,7 @@ Example prompts include:
 
 - "Create a Windows VM named `<vm-name>` with an admin password in resource group `<resource-group>`."
 
-- "Deploy VM `<vm-name>` in `<location>` with `Standard_DS1_v2` size."
+- "Deploy VM `<vm-name>` in `<location>` with `Standard_D2s_v5` size."
 
 - "Spin up a VM with `Standard_B2s` size and no public IP in resource group `<resource-group>`."
 
@@ -209,11 +209,11 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Admin username** |  Required | The admin username for the VM. Required for VM creation. |
-| **Location** |  Required | The Azure region or location. Defaults to the resource group's location if you don't specify it. |
+| **Location** |  Required | The Azure region or location. |
 | **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **VM name** |  Required | The name of the virtual machine. |
 | **Admin password** |  Optional | The admin password for Windows VMs or when the SSH key isn't provided for Linux VMs. |
-| **Image** |  Optional | The OS image to use. Can be a URN (publisher:offer:SKU:version), or an alias like `Ubuntu2404` or `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
+| **Image** |  Required | The OS image to use. Can be a URN (publisher:offer:SKU:version), or an alias like `Ubuntu2404` or `Win2022Datacenter`. |
 | **Network security group** |  Optional | The name of the network security group to use or create. |
 | **No public IP** |  Optional | The instruction not to create or assign a public IP address. |
 | **OS disk size GB** |  Optional | The OS disk size in GB. Defaults are based on image requirements. |
@@ -224,7 +224,7 @@ Example prompts include:
 | **SSH public key** |  Optional | The SSH public key for Linux VMs. Can be the key content or path to a file. |
 | **Subnet** |  Optional | The name of the subnet within the virtual network. |
 | **Virtual network** |  Optional | The name of an existing virtual network to use. If you don't specify it, the command creates a new one. |
-| **VM size** |  Optional | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if you don't specify it. |
+| **VM size** |  Optional | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_D2s_v5` if you don't specify it. |
 | **Zone** |  Optional | The availability zone into which to provision the resource. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -312,7 +312,7 @@ Example prompts include:
 | **License type**     | Optional             | The license type for Azure hybrid benefit: `Windows_Server`, `Windows_Client`, `RHEL_BYOS`, `SLES_BYOS`, or `None` to disable. |
 | **Tags**             | Optional             | The space-separated tags in `key=value` format. Use `''` to clear existing tags.                                               |
 | **User data**        | Optional             | The base64-encoded user data for the VM. Use to update custom data scripts.                                                    |
-| **VM size**          | Optional             | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified.                |
+| **VM size**          | Optional             | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_D2s_v5` if not specified.                |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -322,7 +322,7 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli compute vmss create -->
 
-Create, deploy, or provision a virtual machine scale set to run multiple identical VM instances. This tool helps you deploy workloads that require horizontal scaling, load balancing, or high availability across instances. The default configuration creates two instances of size Standard_DS1_v2, running Ubuntu 24.04 LTS.
+Create, deploy, or provision a virtual machine scale set to run multiple identical VM instances. This tool helps you deploy workloads that require horizontal scaling, load balancing, or high availability across instances. The default configuration creates two instances of size Standard_D2s_v5, running Ubuntu 24.04 LTS.
 
 Create a scale set by specifying the `resource group`, `VMSS name`, and `admin username`, along with other optional settings. Here are some example commands:
 
@@ -337,11 +337,11 @@ Create a scale set by specifying the `resource group`, `VMSS name`, and `admin u
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Admin username** | Required | The admin username for the VM. Required for VM creation. |
-| **Location** | Required | The Azure region or location. Defaults to the resource group's location if you don't specify it. |
+| **Location** | Required | The Azure region or location. |
 | **Resource group** | Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **VMSS name** | Required | The name of the virtual machine scale set. |
 | **Admin password** | Optional | The admin password for Windows VMs or when an SSH key isn't provided for Linux VMs. |
-| **Image** | Optional | The OS image to use. Can be a URN (publisher:offer:SKU:version) or alias like `Ubuntu2404`, `Win2022Datacenter`. Defaults to Ubuntu 24.04 LTS. |
+| **Image** | Required | The OS image to use. Can be a URN (publisher:offer:SKU:version) or alias like `Ubuntu2404`, `Win2022Datacenter`. |
 | **Instance count** | Optional | The number of VM instances in the scale set. Default is 2. |
 | **OS disk size gb** | Optional | OS disk size in GB. Defaults based on image requirements. |
 | **OS disk type** | Optional | OS disk type: `Premium_LRS`, `StandardSSD_LRS`, or `Standard_LRS`. Defaults based on VM size. |
@@ -350,7 +350,7 @@ Create a scale set by specifying the `resource group`, `VMSS name`, and `admin u
 | **Subnet** | Optional | The name of the subnet within the virtual network. |
 | **Upgrade policy** | Optional | The upgrade policy mode: `Automatic`, `Manual`, or `Rolling`. Default is `Manual`. |
 | **Virtual network** | Optional | The name of an existing virtual network to use. If you don't specify it, the tool creates a new one. |
-| **VM size** | Optional | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified. |
+| **VM size** | Optional | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_D2s_v5` if not specified. |
 | **Zone** | Optional | The availability zone into which to provision the resource. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -438,7 +438,7 @@ Example prompts include:
 | **Scale in policy**        | Optional             | The scale-in policy to determine which VMs to remove: `Default`, `NewestVM`, or `OldestVM`.                                         |
 | **Tags**                   | Optional             | The space-separated tags in `key=value` format. Use `''` to clear existing tags.                                                    |
 | **Upgrade policy**         | Optional             | The upgrade policy mode: `Automatic`, `Manual`, or `Rolling`. Default is `Manual`.                                                  |
-| **VM size**                | Optional             | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_DS1_v2` if not specified.                     |
+| **VM size**                | Optional             | The VM size (for example, `Standard_D2s_v3` or `Standard_B2s`). Defaults to `Standard_D2s_v5` if not specified.                     |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -449,3 +449,4 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Virtual Machines documentation](/azure/virtual-machines/)
+

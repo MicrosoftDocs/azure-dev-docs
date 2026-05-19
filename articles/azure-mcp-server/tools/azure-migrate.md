@@ -1,7 +1,7 @@
 ---
 title: Azure Migrate tools for the Azure MCP Server overview
 description: Learn about the tools available in Azure Migrate for managing migration planning and request handling as part of the Azure MCP Server.
-ms.date: 02/25/2026
+ms.date: 05/13/2026
 ms.reviewer: akrohill
 ms.service: azure-mcp-server
 ms.topic: concept-article
@@ -72,6 +72,8 @@ Example prompts include:
 | **Version control system**     | Optional             | The version control system for the Platform Landing Zone. Allowed values: `local`, `github`, `azuredevops`. |
 | **Organization name**         | Optional             | The organization name for the Platform Landing Zone. |
 | **Migrate project resource ID** | Optional           | The full resource ID of the Azure Migrate project for the Platform Landing Zone (alternative to `subscription/resourceGroup/migrateProjectName`).  |
+| **Security subscription ID** | Optional             | Subscription ID for security resources. |
+| **Location** | Optional             | Azure region for the landing zone. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ✅
