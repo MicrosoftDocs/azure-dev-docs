@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Use Azure Service Bus with JMS
@@ -53,30 +53,30 @@ The following table describes the configurable properties when using the Spring 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                         | Description                                                                                                                                                                       |
 > |------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | **spring.jms.servicebus**.connection-string                      | The Azure Service Bus connection string, for when you want to provide the connection string directly.                                                                             |
-> | **spring.jms.servicebus**.topic-client-id                        | The JMS client ID. Only works for the `topicJmsListenerContainerFactory` bean.                                                                                                    |
-> | **spring.jms.servicebus**.enabled                                | A value that indicates whether to enable Service Bus JMS autoconfiguration. The default value is `true`.                                                                          |
-> | **spring.jms.servicebus**.idle-timeout                           | The connection idle timeout duration that indicates how long the client expects Service Bus to keep a connection alive when no messages are delivered. The default value is `2m`. |
-> | **spring.jms.servicebus**.passwordless-enabled                   | Whether to enable passwordless for Azure Service Bus JMS. The default value is `false`. |
-> | **spring.jms.servicebus**.pricing-tier                           | The Azure Service Bus Price Tier. Supported values are `premium` and `standard`. Premium tier uses Java Message Service (JMS) 2.0, while standard tier use JMS 1.1 to interact with Azure Service Bus. |
-> | **spring.jms.servicebus**.listener.reply-pub-sub-domain          | A value that indicates whether the reply destination type is a topic. Only works for the `topicJmsListenerContainerFactory` bean.                                                 |
-> | **spring.jms.servicebus**.listener.phase                         | The phase in which this container should be started and stopped.                                                                                                                  |
-> | **spring.jms.servicebus**.listener.reply-qos-settings            | Configures the `QosSettings` to use when sending a reply.                                                                                                                         |
-> | **spring.jms.servicebus**.listener.subscription-durable          | A value that indicates whether to make the subscription durable. Only works for the `topicJmsListenerContainerFactory` bean. The default value is `true`.                         |
-> | **spring.jms.servicebus**.listener.subscription-shared           | A value that indicates whether to make the subscription shared. Only works for the `topicJmsListenerContainerFactory` bean.                                                       |
-> | **spring.jms.servicebus**.pool.block-if-full                     | A value that indicates whether to block when a connection is requested and the pool is full. Set it to false to throw a `JMSException` instead.                                   |
-> | **spring.jms.servicebus**.pool.block-if-full-timeout             | The blocking period before throwing an exception if the pool is still full.                                                                                                       |
-> | **spring.jms.servicebus**.pool.enabled                           | A value that indicates whether a `JmsPoolConnectionFactory` should be created, instead of a regular `ConnectionFactory`.                                                          |
-> | **spring.jms.servicebus**.pool.idle-timeout                      | The connection pool idle timeout.                                                                                                                                                 |
-> | **spring.jms.servicebus**.pool.max-connections                   | The maximum number of pooled connections.                                                                                                                                         |
-> | **spring.jms.servicebus**.pool.max-sessions-per-connection       | The maximum number of pooled sessions per connection in the pool.                                                                                                                 |
-> | **spring.jms.servicebus**.pool.time-between-expiration-check     | The time to sleep between runs of the idle connection eviction thread. When negative, no idle connection eviction thread runs.                                                    |
-> | **spring.jms.servicebus**.pool.use-anonymous-producers           | A value that indicates whether to use only one anonymous `MessageProducer` instance. Set it to `false` to create one `MessageProducer` every time one is required.                |
-> | **spring.jms.servicebus**.prefetch-policy.all                    | The fallback value for the prefetch option in this Service Bus namespace. The default value is `0`.                                                                               |
-> | **spring.jms.servicebus**.prefetch-policy.durable-topic-prefetch | The number of prefetch for durable topic. The default value is `0`.                                                                                                               |
-> | **spring.jms.servicebus**.prefetch-policy.queue-browser-prefetch | The number of prefetch for queue browser. The default value is `0`.                                                                                                               |
-> | **spring.jms.servicebus**.prefetch-policy.queue-prefetch         | The number of prefetch for queue. The default value is `0`.                                                                                                                       |
-> | **spring.jms.servicebus**.prefetch-policy.topic-prefetch         | The number of prefetch for topic. The default value is `0`.                                                                                                                       |
+> | `spring.jms.servicebus.connection-string`                      | The Azure Service Bus connection string, for when you want to provide the connection string directly.                                                                             |
+> | `spring.jms.servicebus.topic-client-id`                        | The JMS client ID. Only works for the `topicJmsListenerContainerFactory` bean.                                                                                                    |
+> | `spring.jms.servicebus.enabled`                                | A value that indicates whether to enable Service Bus JMS autoconfiguration. The default value is `true`.                                                                          |
+> | `spring.jms.servicebus.idle-timeout`                           | The connection idle timeout duration that indicates how long the client expects Service Bus to keep a connection alive when no messages are delivered. The default value is `2m`. |
+> | `spring.jms.servicebus.passwordless-enabled`                   | Whether to enable passwordless for Azure Service Bus JMS. The default value is `false`. |
+> | `spring.jms.servicebus.pricing-tier`                           | The Azure Service Bus Price Tier. Supported values are `premium` and `standard`. Premium tier uses Java Message Service (JMS) 2.0, while standard tier use JMS 1.1 to interact with Azure Service Bus. |
+> | `spring.jms.servicebus.listener.reply-pub-sub-domain`          | A value that indicates whether the reply destination type is a topic. Only works for the `topicJmsListenerContainerFactory` bean.                                                 |
+> | `spring.jms.servicebus.listener.phase`                         | The phase in which this container should be started and stopped.                                                                                                                  |
+> | `spring.jms.servicebus.listener.reply-qos-settings`            | Configures the `QosSettings` to use when sending a reply.                                                                                                                         |
+> | `spring.jms.servicebus.listener.subscription-durable`          | A value that indicates whether to make the subscription durable. Only works for the `topicJmsListenerContainerFactory` bean. The default value is `true`.                         |
+> | `spring.jms.servicebus.listener.subscription-shared`           | A value that indicates whether to make the subscription shared. Only works for the `topicJmsListenerContainerFactory` bean.                                                       |
+> | `spring.jms.servicebus.pool.block-if-full`                     | A value that indicates whether to block when a connection is requested and the pool is full. Set it to false to throw a `JMSException` instead.                                   |
+> | `spring.jms.servicebus.pool.block-if-full-timeout`             | The blocking period before throwing an exception if the pool is still full.                                                                                                       |
+> | `spring.jms.servicebus.pool.enabled`                           | A value that indicates whether a `JmsPoolConnectionFactory` should be created, instead of a regular `ConnectionFactory`.                                                          |
+> | `spring.jms.servicebus.pool.idle-timeout`                      | The connection pool idle timeout.                                                                                                                                                 |
+> | `spring.jms.servicebus.pool.max-connections`                   | The maximum number of pooled connections.                                                                                                                                         |
+> | `spring.jms.servicebus.pool.max-sessions-per-connection`       | The maximum number of pooled sessions per connection in the pool.                                                                                                                 |
+> | `spring.jms.servicebus.pool.time-between-expiration-check`     | The time to sleep between runs of the idle connection eviction thread. When negative, no idle connection eviction thread runs.                                                    |
+> | `spring.jms.servicebus.pool.use-anonymous-producers`           | A value that indicates whether to use only one anonymous `MessageProducer` instance. Set it to `false` to create one `MessageProducer` every time one is required.                |
+> | `spring.jms.servicebus.prefetch-policy.all`                    | The fallback value for the prefetch option in this Service Bus namespace. The default value is `0`.                                                                               |
+> | `spring.jms.servicebus.prefetch-policy.durable-topic-prefetch` | The number of prefetch for durable topic. The default value is `0`.                                                                                                               |
+> | `spring.jms.servicebus.prefetch-policy.queue-browser-prefetch` | The number of prefetch for queue browser. The default value is `0`.                                                                                                               |
+> | `spring.jms.servicebus.prefetch-policy.queue-prefetch`         | The number of prefetch for queue. The default value is `0`.                                                                                                                       |
+> | `spring.jms.servicebus.prefetch-policy.topic-prefetch`         | The number of prefetch for topic. The default value is `0`.                                                                                                                       |
 
 > [!NOTE]
 > Spring JMS general configuration is omitted for short.
@@ -141,15 +141,38 @@ spring:
 
 Spring Cloud Azure provides the following three Connection Factory options for connecting to Azure Service Bus JMS:
 
-- `JmsPoolConnectionFactory`: Set `spring.jms.servicebus.pool.enabled=true`. This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. Additional pool configuration settings - prefixed with `spring.jms.servicebus.pool.` - are detailed in the [Configuration](#configuration) section. This setup enhances performance by leveraging Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
+- `JmsPoolConnectionFactory`: This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. More pool configuration settings - prefixed with `spring.jms.servicebus.pool.` - are detailed in the [Configuration](#configuration) section. This setup enhances performance by using Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
 
-- `CachingConnectionFactory`: Set `spring.jms.cache.enabled=true`. This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode does not leverage Azure Service Bus's load-balancing capability.
+- `CachingConnectionFactory`: This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode doesn't use Azure Service Bus's load-balancing capability.
 
-- `ServiceBusJmsConnectionFactory`: Set `spring.jms.servicebus.pool.enabled=false` and `spring.jms.cache.enabled=false` or leave both pool and cache settings unset to use the default value, with no pooling or caching. In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
+- `ServiceBusJmsConnectionFactory`: In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
+
+When all the three classes exist in the classpath, which one is used? The following table describes which is used based on configuration properties (since Spring Cloud Azure **7.2.0** and **6.2.0**):
+
+> [!div class="mx-tdBreakAll"]
+> | `spring.jms.servicebus.pool.enabled` | `spring.jms.cache.enabled` | Sender `ConnectionFactory`       | Listener Container `ConnectionFactory` |
+> |--------------------------------------|----------------------------|----------------------------------|----------------------------------------|
+> | not set                              | not set                    | `CachingConnectionFactory`       | `ServiceBusJmsConnectionFactory`       |
+> | not set                              | `true`                     | `CachingConnectionFactory`       | `CachingConnectionFactory`             |
+> | not set                              | `false`                    | `ServiceBusJmsConnectionFactory` | `ServiceBusJmsConnectionFactory`       |
+> | `true`                               | not set                    | `JmsPoolConnectionFactory`       | `JmsPoolConnectionFactory`             |
+> | `true`                               | `true`                     | `CachingConnectionFactory`       | `CachingConnectionFactory`             |
+> | `true`                               | `false`                    | `JmsPoolConnectionFactory`       | `JmsPoolConnectionFactory`             |
+> | `false`                              | not set                    | `CachingConnectionFactory`       | `ServiceBusJmsConnectionFactory`       |
+> | `false`                              | `true`                     | `CachingConnectionFactory`       | `CachingConnectionFactory`             |
+> | `false`                              | `false`                    | `ServiceBusJmsConnectionFactory` | `ServiceBusJmsConnectionFactory`       |
 
 > [!NOTE]
-> Starting with Spring Cloud Azure 6.1.0, the default `ConnectionFactory` has been switched to `ServiceBusJmsConnectionFactory`.
+> The following table shows the default `ConnectionFactory` when both `spring.jms.servicebus.pool.enabled` and `spring.jms.cache.enabled` aren't set for different Spring Cloud Azure versions:
+>
+> [!div class="mx-tdBreakAll"]
+> | Spring Cloud Azure version | Sender `ConnectionFactory`         | Listener container `ConnectionFactory` |
+> |----------------------------|------------------------------------|----------------------------------------|
+> | >= 6.2.0 or >= 7.2.0       | `CachingConnectionFactory`         | `ServiceBusJmsConnectionFactory`       |
+> | 6.1.0 and 7.0.0            | `ServiceBusJmsConnectionFactory`   | `ServiceBusJmsConnectionFactory`       |
+> | <= 6.1.0                   | `JmsPoolConnectionFactory`         | `JmsPoolConnectionFactory`             |
+
 
 ## Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.

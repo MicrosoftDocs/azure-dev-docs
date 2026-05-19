@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure MySQL support
@@ -59,17 +59,17 @@ The following table shows the Spring Cloud Azure for MySQL common configuration 
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                  | Description                                                                                                                                                                                            |
 > |-----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | spring.datasource.azure.passwordless-enabled                          | Whether to enable passwordless connections to Azure databases by using OAuth2 Microsoft Entra token credentials.                                                                                |
-> | spring.datasource.azure.credential.client-certificate-password        | Password of the certificate file.                                                                                                                                                                      |
-> | spring.datasource.azure.credential.client-certificate-path            | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
-> | spring.datasource.azure.credential.client-id                          | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
-> | spring.datasource.azure.credential.client-secret                      | Client secret to use when performing service principal authentication with Azure. This is a legacy property.                                                                                            |
-> | spring.datasource.azure.credential.managed-identity-enabled           | Whether to enable managed identity to authenticate with Azure. If `true` and the `client-id` is set, will use the client ID as user assigned managed identity client ID. The default value is `false`. |
-> | spring.datasource.azure.credential.password                           | Password to use when performing username/password authentication with Azure.                                                                                                                           |
-> | spring.datasource.azure.credential.username                           | Username to use when performing username/password authentication with Azure.                                                                                                                           |
-> | spring.datasource.azure.profile.cloud-type                            | Name of the Azure cloud to connect to.                                                                                                                                                                 |
-> | spring.datasource.azure.profile.environment.active-directory-endpoint | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
-> | spring.datasource.azure.profile.tenant-id                             | Tenant ID for Azure resources. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                             |
+> | `spring.datasource.azure.passwordless-enabled`                          | Whether to enable passwordless connections to Azure databases by using OAuth2 Microsoft Entra token credentials.                                                                                |
+> | `spring.datasource.azure.credential.client-certificate-password`        | Password of the certificate file.                                                                                                                                                                      |
+> | `spring.datasource.azure.credential.client-certificate-path`            | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
+> | `spring.datasource.azure.credential.client-id`                          | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
+> | `spring.datasource.azure.credential.client-secret`                      | Client secret to use when performing service principal authentication with Azure. This is a legacy property.                                                                                            |
+> | `spring.datasource.azure.credential.managed-identity-enabled`           | Whether to enable managed identity to authenticate with Azure. If `true` and the `client-id` is set, will use the client ID as user assigned managed identity client ID. The default value is `false`. |
+> | `spring.datasource.azure.credential.password`                           | Password to use when performing username/password authentication with Azure.                                                                                                                           |
+> | `spring.datasource.azure.credential.username`                           | Username to use when performing username/password authentication with Azure.                                                                                                                           |
+> | `spring.datasource.azure.profile.cloud-type`                            | Name of the Azure cloud to connect to.                                                                                                                                                                 |
+> | `spring.datasource.azure.profile.environment.active-directory-endpoint` | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
+> | `spring.datasource.azure.profile.tenant-id`                             | Tenant ID for Azure resources. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                             |
 
 ## Dependency setup
 
@@ -191,4 +191,4 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 ### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.
+See the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.

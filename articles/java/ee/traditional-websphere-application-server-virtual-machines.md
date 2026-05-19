@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
-ms.date: 10/29/2024
+ms.date: 03/26/2026
 ms.custom:
   - devx-track-extended-java
   - devx-track-java

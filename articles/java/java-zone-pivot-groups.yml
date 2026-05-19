@@ -17,3 +17,11 @@ groups:
     title: Flexible Server
   - id: postgresql-passwordless-single-server
     title: Single Server
+- id: ide-set-one
+  title: IDE
+  prompt: Choose an IDE
+  pivots:
+  - id: vscode
+    title: Visual Studio Code
+  - id: intellij
+    title: IntelliJ IDEA

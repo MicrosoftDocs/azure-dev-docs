@@ -1,13 +1,12 @@
 ---
 title: Terraform best practices for Azure - Azure MCP Server
 description: Use the Azure Terraform best practices tool in Azure MCP Server to get guidance on implementing Terraform for Azure resources.
-keywords: azure mcp server, azmcp, terraform, best practices
 ms.service: azure-mcp-server
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 author: diberry
 ms.author: diberry
 ---
@@ -34,7 +33,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [azureterraformbestpractices get](../includes/tools/annotations/azure-terraform-best-practices-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related resources
 

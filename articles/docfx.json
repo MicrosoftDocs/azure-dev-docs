@@ -50,6 +50,14 @@
       "feedback_help_link_url": "https://learn.microsoft.com/answers/questions/"      
     },
     "fileMetadata": {
+      "breadcrumb_path": {
+        "github-copilot-azure/**/*.md": "/azure/developer/ai-developer-tools/breadcrumb/toc.json",
+        "github-copilot-azure/**/*.yml": "/azure/developer/ai-developer-tools/breadcrumb/toc.json",
+        "azure-mcp-server/**/*.md": "/azure/developer/ai-developer-tools/breadcrumb/toc.json",
+        "azure-mcp-server/**/*.yml": "/azure/developer/ai-developer-tools/breadcrumb/toc.json",
+        "azure-skills/**/*.md": "/azure/developer/ai-developer-tools/breadcrumb/toc.json",
+        "azure-skills/**/*.yml": "/azure/developer/ai-developer-tools/breadcrumb/toc.json"
+      },
       "feedback_help_link_url": {
         "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure"
       },
@@ -89,8 +97,8 @@
         }
       },
       "author": {
-        "**/*.md": "mcleanbyron",
-        "**/*.yml": "mcleanbyron",
+        "**/*.md": "Susan-Potter",
+        "**/*.yml": "Susan-Potter",
         "ansible/**/*.md": "TomArcherMsft",
         "ansible/**/*.yml": "TomArcherMsft",
         "azure-developer-cli/**/*.md": "alexwolfmsft",
@@ -109,8 +117,8 @@
         "jenkins/**/*.yml": "TomArcherMsft",
         "github-copilot-app-modernization/**/*.md": "KarlErickson",
         "github-copilot-app-modernization/**/*.yml": "KarlErickson",
-        "python/**/*.md": "bobtabor-msft",
-        "python/**/*.yml": "bobtabor-msft",
+        "python/**/*.md": "PatAltimore",
+        "python/**/*.yml": "PatAltimore",
         "terraform/**/*.md": "TomArcherMsft",
         "terraform/**/*.yml": "TomArcherMsft",
         "typespec/**/*.md": "diberry",
@@ -119,26 +127,28 @@
         "rust/**/*.yml": "diberry",
         "intro/**/*.md": "PatAltimore",
         "intro/**/*.yml": "PatAltimore",
-        "ai/**/*.md": "ms-johnalex",
-        "ai/**/*.yml": "ms-johnalex",
-        "github-copilot-azure/**/*.md": "bobtabor-msft",
-        "github-copilot-azure/**/*.yml": "bobtabor-msft",
-        "javascript/ai/**/*.md": "ms-johnalex",
-        "javascript/ai/**/*.yml": "ms-johnalex",
-        "python/ai/**/*.md": "ms-johnalex",
-        "python/ai/**/*.yml": "ms-johnalex",
+        "ai/**/*.md": "bobtabor-msft",
+        "ai/**/*.yml": "bobtabor-msft",
+        "github-copilot-azure/**/*.md": "diberry",
+        "github-copilot-azure/**/*.yml": "diberry",
+        "javascript/ai/**/*.md": "bobtabor-msft",
+        "javascript/ai/**/*.yml": "bobtabor-msft",
+        "python/ai/**/*.md": "bobtabor-msft",
+        "python/ai/**/*.yml": "bobtabor-msft",
         "azure-mcp-server/**/*.md": "diberry",
-        "azure-mcp-server/**/*.yml": "diberry"
+        "azure-mcp-server/**/*.yml": "diberry",
+        "ai-developer-tools/**/*.md": "diberry",
+        "ai-developer-tools/**/*.yml": "diberry"
       },
-      "manager": {
-        "**/*.md": "mcleans",
-        "**/*.yml": "mcleans",
+      "manager":{
+        "**/*.md": "susanpotter",
+        "**/*.yml": "susanpotter",
         "terraform/**/*.md": "jasongroce",
         "terraform/**/*.yml": "jasongroce"
       },
       "ms.author": {
-        "**/*.md": "mcleans",
-        "**/*.yml": "mcleans",
+        "**/*.md": "susanpotter",
+        "**/*.yml": "susanpotter",
         "ansible/**/*.md": "tarcher",
         "ansible/**/*.yml": "tarcher",
         "azure-developer-cli/**/*.md": "alexwolf",
@@ -157,8 +167,8 @@
         "jenkins/**/*.yml": "tarcher",
         "github-copilot-app-modernization/**/*.md": "karler",
         "github-copilot-app-modernization/**/*.yml": "karler",
-        "python/**/*.md": "rotabor",
-        "python/**/*.yml": "rotabor",
+        "python/**/*.md": "patricka",
+        "python/**/*.yml": "patricka",
         "terraform/**/*.md": "tarcher",
         "terraform/**/*.yml": "tarcher",
         "typespec/**/*.md": "diberry",
@@ -167,18 +177,20 @@
         "rust/**/*.yml": "diberry",
         "intro/**/*.md": "patricka",
         "intro/**/*.yml": "patricka",
-        "ai/**/*.md": "johalexander",
-        "ai/**/*.yml": "johalexander",
-        "github-copilot-azure/**/*.md": "rotabor",
-        "github-copilot-azure/**/*.yml": "rotabor",
-        "javascript/ai/**/*.md": "johalexander",
-        "javascript/ai/**/*.yml": "johalexander",
-        "python/ai/**/*.md": "johalexander",
-        "python/ai/**/*.yml": "johalexander",
+        "ai/**/*.md": "rotabor",
+        "ai/**/*.yml": "rotabor",
+        "github-copilot-azure/**/*.md": "diberry",
+        "github-copilot-azure/**/*.yml": "diberry",
+        "javascript/ai/**/*.md": "rotabor",
+        "javascript/ai/**/*.yml": "rotabor",
+        "python/ai/**/*.md": "rotabor",
+        "python/ai/**/*.yml": "rotabor",
         "azure-mcp-server/**/*.md": "diberry",
-        "azure-mcp-server/**/*.yml": "diberry"
+        "azure-mcp-server/**/*.yml": "diberry",
+        "ai-developer-tools/**/*.md": "diberry",
+        "ai-developer-tools/**/*.yml": "diberry"
       },
-      "ms.devlang": {
+      "ms.devlang":{
         "cpp/**/*.md": "cpp",
         "cpp/**/*.yml": "cpp",
         "java/**/*.md": "java",
@@ -227,7 +239,9 @@
         "typespec/**/*.md": "typespec",
         "typespec/**/*.yml": "typespec",
         "rust/**/*.md": "azure-rust",
-        "rust/**/*.yml": "azure-rust"
+        "rust/**/*.yml": "azure-rust",
+        "ai-developer-tools/**/*.md": "azure-mcp-server",
+        "ai-developer-tools/**/*.yml": "azure-mcp-server"
       },
       "ms.subservice": {
         "ai/**/*.md": "intelligent-apps",
@@ -284,10 +298,12 @@
         "github-copilot-azure/**/*.yml": "GitHub Copilot for Azure",
         "typespec/**/*.md": "TypeSpec",
         "typespec/**/*.md": "TypeSpec",
-        "rust/**/*.yml": "Rust on Azure",
+        "rust/**/*.md": "Rust on Azure",
         "rust/**/*.yml": "Rust on Azure",
         "azure-mcp-server/**/*.md": "Azure MCP Server",
-        "azure-mcp-server/**/*.yml": "Azure MCP Server"
+        "azure-mcp-server/**/*.yml": "Azure MCP Server",
+        "ai-developer-tools/**/*.md": "AI Developer Tools",
+        "ai-developer-tools/**/*.yml": "AI Developer Tools"
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [
@@ -312,7 +328,9 @@
         "**/javascript/ai/**/*.md": "ce-skilling-ai-copilot",
         "**/javascript/ai/**/*.yml": "ce-skilling-ai-copilot",
         "**/github-copilot-app-modernization/**/*.md": "ce-skilling-ai-copilot",
-        "**/github-copilot-app-modernization/**/*.yml": "ce-skilling-ai-copilot"
+        "**/github-copilot-app-modernization/**/*.yml": "ce-skilling-ai-copilot",
+        "**/ai-developer-tools/**/*.md": "ce-skilling-ai-copilot",
+        "**/ai-developer-tools/**/*.yml": "ce-skilling-ai-copilot"
       },
       "ms.update-cycle": {
         "**/ai/**/*.md": "180-days",
@@ -325,12 +343,16 @@
         "**/java/ai/**/*.yml": "180-days",
         "**/java/migration/**/*.md": "365-days",
         "**/java/migration/**/*.yml": "365-days",
+        "**/java/ee/**/*.md": "365-days",
+        "**/java/ee/**/*.yml": "365-days",
         "**/java/spring-framework/**/*.md": "365-days",
         "**/java/spring-framework/**/*.yml": "365-days",
         "**/javascript/ai/**/*.md": "180-days",
         "**/javascript/ai/**/*.yml": "180-days",
         "**/github-copilot-app-modernization/**/*.md": "180-days",
-        "**/github-copilot-app-modernization/**/*.yml": "180-days"
+        "**/github-copilot-app-modernization/**/*.yml": "180-days",
+        "**/ai-developer-tools/**/*.md": "180-days",
+        "**/ai-developer-tools/**/*.yml": "180-days"
       },
       "ROBOTS": {
         "ux-beta/**/*.md": "NOINDEX"

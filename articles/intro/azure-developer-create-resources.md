@@ -4,7 +4,7 @@ description: An overview of techniques that developers use to provision resource
 keywords: azure portal, azure cli, azure powershell, azure sdk, azure rest apis
 ms.service: azure
 ms.topic: overview
-ms.date: 09/29/2025
+ms.date: 03/25/2026
 ms.custom: overview
 ---
 
@@ -28,11 +28,19 @@ Azure offers various tools to create and manage the resources your application u
 
 Different tools support various use cases, and most Azure developers use a combination of tools depending on the job. For example, you might:
 
-* **Use a GUI tool like the Azure portal or the Azure Tools extension for VS Code** when prototyping Azure resources for a new application. GUI tools guide you through the process of creating new services and let you review and select the options for a service using drop-down menus and other graphical elements.
+* **Use a GUI tool like the [Azure portal](https://portal.azure.com) or the [Azure Tools extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)** when prototyping Azure resources for a new application. GUI tools guide you through the process of creating new services and let you review and select the options for a service using drop-down menus and other graphical elements.
 
-* **Write a script using the Azure CLI or Azure PowerShell** to automate a common task. For example, you might create a script that creates a basic dev environment for a new web application consisting of an Azure App Service, a database, and blob storage. Writing a script ensures consistent resource creation and is faster than using a UI.
+* **Use the [Azure Developer CLI (`azd`)](../azure-developer-cli/overview.md) to provision and deploy full-stack applications** from [starter templates](../azure-developer-cli/azd-templates.md). With a single `azd up` command, you can create all necessary Azure resources and deploy your code without manually configuring each service.
 
-* **Use Infrastructure as code (IaC) tools to declaratively deploy and manage Azure resources**. Tools like Terraform, Ansible, and Bicep let you codify Azure resources in declarative syntax, ensuring consistent deployment across environments and preventing environmental drift.
+* **Use [GitHub Copilot for Azure](../github-copilot-azure/introduction.md) to get AI-assisted guidance** when you're unsure which resources to create or how to configure them. GitHub Copilot for Azure can help you learn about services, generate deployment scripts, and troubleshoot issues using natural language.
+
+* **Write a script using the [Azure CLI](/cli/azure/what-is-azure-cli) or [Azure PowerShell](/powershell/azure/what-is-azure-powershell)** to automate a common task. For example, you might create a script that creates a basic dev environment for a new web application consisting of an Azure App Service, a database, and blob storage. Writing a script ensures consistent resource creation and is faster than using a UI.
+
+* **Use [Infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) tools to declaratively deploy and manage Azure resources**. Tools like [Terraform](../terraform/index.yml), [Ansible](../ansible/index.yml), and [Bicep](/azure/azure-resource-manager/bicep/) let you codify Azure resources in declarative syntax, ensuring consistent deployment across environments and preventing environmental drift.
+
+* **Use AI app templates to bootstrap AI projects quickly.** Azure provides [AI app templates](../ai/intelligent-app-templates.md) that include infrastructure definitions, application code, and deployment configuration for common AI scenarios like chat-with-your-data and document processing.
+
+To get started with Azure developer tools, see the [Quickstart: Azure developer tools](quickstart-developer-tools.md).
 
 ## Azure portal
 
@@ -59,6 +67,42 @@ For the full list of features, see the extension's download page.
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 :::image type="content" source="./media/visual-studio-code-azure-tools-extension.png" alt-text="A screenshot showing Visual Studio Code with the Azure Tools extension pack installed.":::
+
+## Azure development in Visual Studio
+
+Developers using [Visual Studio](https://visualstudio.microsoft.com/) access Azure tools through the Azure development workload. Visual Studio's Azure integration includes:
+
+* Create and deploy to Azure App Service, Azure Functions, and Azure Container Apps
+* Add Azure service dependencies through Connected Services
+* Browse and manage Azure resources with Cloud Explorer
+* Debug cloud services locally and remotely
+
+To learn more about Azure development with Visual Studio, see [Azure development with Visual Studio](/visualstudio/azure/overview-azure-integration).
+
+## Azure Developer CLI
+
+The [Azure Developer CLI (`azd`)](../azure-developer-cli/overview.md) is a developer-focused command-line tool for creating Azure applications. The Azure Developer CLI:
+
+* Provisions and deploys full-stack applications from [starter templates](../azure-developer-cli/azd-templates.md)
+* Reduces the time from code to cloud with a single `azd up` command
+* Supports CI/CD pipeline configuration with `azd pipeline config`
+* Works with infrastructure definitions in Bicep or Terraform
+
+
+To get started, see the [Azure Developer CLI quickstart](../azure-developer-cli/get-started.md).
+
+## GitHub Copilot for Azure
+
+[GitHub Copilot for Azure](../github-copilot-azure/introduction.md) is an AI-powered chat extension that helps you work with Azure using natural language. Use it to:
+
+* Learn about Azure services and best practices
+* Deploy Azure resources through conversation
+* Troubleshoot application and resource issues
+* Get guidance on designing cloud-native applications
+
+GitHub Copilot for Azure works in VS Code alongside the Azure Tools extension pack, providing AI-assisted guidance as you build and manage your applications.
+
+To learn more, see [Get started with GitHub Copilot for Azure](../github-copilot-azure/get-started.md).
 
 ## Command line tools
 
@@ -234,24 +278,12 @@ resource "azurerm_app_service" "main" {
 
 Azure resources can be created programmatically from code. This lets you write applications that dynamically provision Azure resources in response to user requests. The Azure SDK provides resource management packages in .NET, Go, Java, JavaScript, and Python that let you create and manage Azure resources directly in code. Alternatively, the Azure REST API lets you manage Azure resources through HTTP requests to a RESTful endpoint.
 
-> [!div class="nextstepaction"]
-> [Using the Azure SDK for .NET](/dotnet/azure/sdk/resource-management)
-
-> [!div class="nextstepaction"]
-> [Using the Azure SDK for Go](../go/management-libraries.md)
-
-> [!div class="nextstepaction"]
-> [Using the Azure SDK for Java](../java/sdk/overview.md)
-
-> [!div class="nextstepaction"]
-> [Using the Azure SDK for JavaScript](../javascript/core/use-azure-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Using the Azure SDK for Python](../python/sdk/azure-sdk-overview.md)
-
-> [!div class="nextstepaction"]
-> [Using the Azure REST APIs](/rest/api/azure/)
-
+- [Using the Azure SDK for .NET](/dotnet/azure/sdk/resource-management)
+- [Using the Azure SDK for Go](../go/management-libraries.md)
+- [Using the Azure SDK for Java](../java/sdk/overview.md)
+- [Using the Azure SDK for JavaScript](../javascript/core/use-azure-sdk.md)
+- [Using the Azure SDK for Python](../python/sdk/azure-sdk-overview.md)
+- [Using the Azure REST APIs](/rest/api/azure/)
 
 > [!div class="nextstepaction"]
 > [Continue to part 6: Key concepts for building Azure apps](azure-developer-key-concepts.md)

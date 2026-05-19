@@ -16,10 +16,10 @@ This guide explains how to configure the Azure Developer CLI to provision resour
 The Azure Developer CLI supports the following clouds:
 
 * Azure Public (`AzureCloud`) default
-* Azure China Cloud (`AzureChinaCloud`)
+* Azure operated by 21Vianet Cloud (`AzureChinaCloud`)
 * Azure US Government (`AzureUSGovernment`)
 
-The Azure Public cloud is the default and will be used if no cloud is specified.
+The Azure Public cloud is the default and is used if no cloud is specified.
 
 ## Authentication
 
@@ -37,9 +37,9 @@ azd auth login
 Clouds can be configured at the user, project, or environment level. The order of configuration precedence is:
 
 1. **Environment configuration** is selected first
-1. If no cloud is confiugred in the environment, the **project configuration** (azure.yaml) is used
+1. If no cloud is configured in the environment, the **project configuration** (azure.yaml) is used
 1. If no cloud is set in the project configuration, the **user configuration** (`azd config set`) is used
-1. If no cloud is set in the user configuration azd uses the public `AzureCloud`
+1. If no cloud is set in the user configuration, azd uses the public `AzureCloud`
 
 ### Configure clouds with user settings (azd config set)
 
@@ -65,21 +65,18 @@ Use the `cloud` object to set the name of the cloud in the project's azure.yaml 
 name: project-name
 cloud:
   name: AzureCloud
-# ...
 ```
 
 ```yaml
 name: project-name
 cloud:
   name: AzureChinaCloud
-# ...
 ```
 
 ```yaml
 name: project-name
 cloud:
   name: AzureUSGovernment
-# ...
 ```
 
 ### Configure clouds in an environment's config.json file
@@ -124,13 +121,13 @@ Supported commands include
 * monitor
 * show
 
-`azd pipeline` is not supported in Sovereign Clouds.
+`azd pipeline` isn't supported in Sovereign Clouds.
 
-`devcenter` platform is not supported in Sovereign Clouds.
+`devcenter` platform isn't supported in Sovereign Clouds.
 
 ## Deploying with Terraform
 
-When deploying to a sovereign cloud using `azd` and Terraform, the `az` CLI must also be configured to use the desired cloud. See Terraform's [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli) documentation.
+When you deploy to a sovereign cloud using `azd` and Terraform, the `az` CLI must also be configured to use the desired cloud. See Terraform's [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli) documentation.
 
 Set the environment variable `ARM_ENVIRONMENT` to the desired environment. Common values include:
 

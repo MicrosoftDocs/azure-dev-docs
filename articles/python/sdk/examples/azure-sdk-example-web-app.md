@@ -129,7 +129,7 @@ You do not need to change resource group name (`--resource-group` option) unless
 
 If you no longer need the resource group created in this example, you can delete it by running the [az group delete](/cli/azure/group#az-group-delete) command. While resource groups don’t incur ongoing charges, it’s a good practice to clean up any unused resources. Use the `--no-wait` argument to immediately return control to the command line without waiting for the deletion to complete.
 
-You can also delete a resource group programmatically using the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2021_04_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2021-04-01-operations-resourcegroupsoperations-begin-delete) method.
+You can also delete a resource group programmatically using the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-begin-delete) method.
 
 ## See also
 

@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure support for Spring Messaging Azure Storage Queue
@@ -44,11 +44,11 @@ The library provides the following configuration options for `StorageQueueTempla
 > [!div class="mx-tdBreakAll"]
 > | Property                                                         | Type      | Description                                                                                             |
 > |------------------------------------------------------------------|-----------|---------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure**.message-converter.isolated-object-mapper  | boolean   | Whether an isolated ObjectMapper bean is used for Storage Queue message converter. Enabled by default.  |
-> | **spring.cloud.azure.storage.queue**.enabled                     | boolean   | Whether an Azure Storage Queue is enabled.                                                              |
-> | **spring.cloud.azure.storage.queue**.connection-string           | String    | Storage Queue Namespace connection string value.                                                        |
-> | **spring.cloud.azure.storage.queue**.accountName                 | String    | Storage Queue account name.                                                                             |
-> | **spring.cloud.azure.storage.queue**.accountKey                  | String    | Storage Queue account key.                                                                              |
+> | `spring.cloud.azure.message-converter.isolated-object-mapper`  | boolean   | Whether an isolated ObjectMapper bean is used for Storage Queue message converter. Enabled by default.  |
+> | `spring.cloud.azure.storage.queue.enabled`                     | boolean   | Whether an Azure Storage Queue is enabled.                                                              |
+> | `spring.cloud.azure.storage.queue.connection-string`           | String    | Storage Queue Namespace connection string value.                                                        |
+> | `spring.cloud.azure.storage.queue.accountName`                 | String    | Storage Queue account name.                                                                             |
+> | `spring.cloud.azure.storage.queue.accountKey`                  | String    | Storage Queue account key.                                                                              |
 
 ### Basic usage
 
@@ -168,4 +168,4 @@ Use the following steps to send and receive messages:
 
 ### Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-messaging-azure-storage-queue/storage-queue-spring-messaging) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-messaging-azure-storage-queue/storage-queue-spring-messaging) repository on GitHub.

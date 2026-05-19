@@ -4,7 +4,7 @@ description: An overview of Azure from a developer's perspective.
 keywords: azure billing, azure portal
 ms.service: azure
 ms.topic: overview
-ms.date: 09/22/2025
+ms.date: 03/25/2026
 ms.custom: overview
 ---
 
@@ -22,7 +22,9 @@ If you're new to developing applications for the cloud, start with this seven-ar
 
 Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.
 
-Azure supports the most popular programming languages in use today, including Python, JavaScript, Java, .NET, and Go. With a comprehensive SDK library and extensive support in tools you already use like VS Code, Visual Studio, IntelliJ, and Eclipse. Azure builds on the skills you already have and helps you be productive right away.
+Azure supports the most popular programming languages in use today, including .NET, C++, Go, Java, JavaScript, Python, and Rust. With a comprehensive SDK and extensive support in tools you already use like VS Code, Visual Studio, IntelliJ, and Eclipse, Azure builds on the skills you already have and helps you be productive right away.
+
+Azure also provides a suite of developer tools that streamline how you build, deploy, and manage cloud applications.
 
 ## Application development scenarios on Azure
 
@@ -32,7 +34,7 @@ Incorporate Azure into your application in different ways depending on your need
 > [!VIDEO e882f09e-efff-465d-a72e-1b430631e6bf]
 
 
-Common software development and deployment scenarios on Azure:
+Common software development and deployment scenarios on Azure include the following options:
 
 - **Application hosting on Azure -** Host your entire application stack: web applications, APIs, databases, and storage services. Azure supports various hosting models from fully managed services to containers to virtual machines. When you use fully managed Azure services, your applications take advantage of the scalability, high availability, and security built into Azure.
 
@@ -40,10 +42,11 @@ Common software development and deployment scenarios on Azure:
 
 - **Container based architectures -** Use container-based services to modernize your apps. Whether you need a private registry for container images, you're containerizing an existing app for easier deployment, deploying microservices-based applications, or managing containers at scale, Azure has solutions that support your needs.
 
-- **AI driven applications -** Build AI-powered applications on your terms, in your preferred programming language, in the cloud, on-premises, or at the edge. Get tools, services, and guidelines to help you apply AI responsibly in your applications while preserving data privacy, transparency, and trust. Use Azure AI to add speech, vision, language, and decision capabilities to your applications, create chatbots, and uncover insights with AI-powered search.
+- **AI driven applications -** Build AI-powered applications on your terms, in your preferred programming language, in the cloud, on-premises, or at the edge. Azure provides access to powerful foundation models through Azure OpenAI, prebuilt AI services for speech, vision, and language, and tools for building intelligent agents using the Model Context Protocol (MCP). Get started with [AI app development on Azure](../ai/azure-ai-for-developers.md) or explore [AI resources by programming language](../ai/resources-overview.md).
 
-- **Modern serverless architectures -** Use Azure Functions to simplify building event-driven solutions, whether responding to HTTP requests, handling file uploads in Blob storage, or processing queue events. You write only the code necessary to handle your event without worrying about servers or framework code. Use over 250 connectors to Azure and other services to tackle integration problems.
+- **Modern serverless architectures -** Use Azure Functions to simplify building event-driven solutions, whether responding to HTTP requests, handling file uploads in Blob storage, or processing queue events. You write only the code necessary to handle your event without worrying about servers or framework code. Use more than 250 connectors to Azure and other services to tackle integration problems.
 
+- **Developer tools -** Azure provides tools for every stage of the development lifecycle, including the [Azure Developer CLI (`azd`)](../azure-developer-cli/overview.md), [GitHub Copilot for Azure](../github-copilot-azure/introduction.md), [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), and [Azure development with Visual Studio](/visualstudio/azure/overview-azure-integration). For a hands-on walkthrough, see [Quickstart: Azure developer tools](quickstart-developer-tools.md).
 
 How do you implement those scenarios? The next article, "Key Azure services for developers", gives several Azure service options to implement each scenario.
 

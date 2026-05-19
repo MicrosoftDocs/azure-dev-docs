@@ -50,7 +50,7 @@ The following prerequisites are required to complete the steps in this article:
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>7.0.0</version>
+         <version>7.2.0</version>
          <type>pom</type>
          <scope>import</scope>
        </dependency>
@@ -163,7 +163,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
    | Parameter | Description |
    |---|---|
-   | `spring.cloud.azure.active-directory.enabled` | Enable the features provided by spring-cloud-azure-starter-active-directory |
+   | `spring.cloud.azure.active-directory.enabled` | Enable the features provided by `spring-cloud-azure-starter-active-directory` |
    | `spring.cloud.azure.active-directory.profile.tenant-id` | Contains your Microsoft Entra ID tenant's **Tenant ID** from earlier. |
    | `spring.cloud.azure.active-directory.credential.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
    | `spring.cloud.azure.active-directory.credential.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |

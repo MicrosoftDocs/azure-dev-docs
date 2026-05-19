@@ -19,7 +19,7 @@ By following the instructions in this article, you will:
 
 - Deploy an Azure Container chat app that uses managed identity for authentication.
 - Upload images to be used as part of the chat stream.
-- Chat with an Azure OpenAI multimodal Large Language Model (LLM) using the OpenAI library.
+- Chat with an Azure OpenAI multimodal Large Language Model (LLM) using the OpenAI library's Responses API.
 
 Once you complete this article, you can start modifying the new project with your custom code.
 
@@ -31,7 +31,7 @@ Once you complete this article, you can start modifying the new project with you
 A simple architecture of the chat app is shown in the following diagram:
 :::image type="content" source="./media/get-started-app-chat-vision/simple-architecture-diagram.png" lightbox="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI in production, instead of an API key. During development, the app supports multiple authentication methods including Azure Developer CLI credentials, API keys, and GitHub models for testing without Azure resources.
+The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI in production, instead of an API key. During development, the app supports multiple authentication methods including Azure Developer CLI credentials and API keys.
 
 The application architecture relies on the following services and components:
 
@@ -39,8 +39,7 @@ The application architecture relies on the following services and components:
 - [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
 - [Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and role-based access control (RBAC) roles.
-- [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol.
-- A Python [Quart](https://quart.palletsprojects.com) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages with uploaded image files.
+- A Python [Quart](https://quart.palletsprojects.com) app that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages with uploaded image files.
 - A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 
 ## Cost
@@ -192,7 +191,7 @@ The sample repository contains all the code and configuration files for the chat
 
 ## Exploring the sample code
 
- While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints. This sample uses an Azure OpenAI multimodal model to generate responses to user messages and uploaded images.
+This sample uses an Azure OpenAI multimodal model to generate responses to user messages and uploaded images.
 
 ### Base64 Encoding the uploaded image in the frontend
 
@@ -213,13 +212,12 @@ The `toBase64` function is called by a listener on the form's `submit` event.
 
 The `submit` event listener handles the complete chat interaction flow. When the user submits a message, the following flow occurs:
 
-1. Hides the "no-messages-heading" element to show the conversation started
-1. Gets and Base64 encodes the uploaded image file (if present)
+1. Gets the uploaded image file (if present) and encodes as Base64
 1. Creates and displays the user's message in the chat, including the uploaded image
 1. Prepares an assistant message container with a "Typing..." indicator
-1. Adds the user's message to the message history array
-1. Calls the AI Chat Protocol Client's `getStreamedCompletion()` method with the message history and context (including the Base64 encoded image and filename)
-1. Processes the streamed response chunks and converts Markdown to HTML using Showdown.js
+1. Adds the user's message to the message history array in Responses API format
+1. Sends a `fetch` POST request to the `/chat/stream` endpoint with the message history and context (including the Base64 encoded image and filename)
+1. Processes the streamed [JSON-lines response](https://jsonlines.org/) to display each text delta incrementally
 1. Handles any errors during streaming
 1. Adds a speech output button after receiving the complete response so users can hear the response
 1. Clears the input field and returns focus for the next message
@@ -251,39 +249,47 @@ form.addEventListener("submit", async function(e) {
 
     messages.push({
         "role": "user",
-        "content": message
+        "content": [{"type": "input_text", "text": message}]
     });
 
     try {
         messageDiv.scrollIntoView();
-        const result = await client.getStreamedCompletion(messages, {
-            context: {
-                file: fileData,
-                file_name: file ? file.name : null
-            }
+        const response = await fetch("/chat/stream", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                messages: messages,
+                context: {
+                    file: fileData,
+                    file_name: file ? file.name : null
+                }
+            })
         });
 
+        if (!response.ok || !response.body) {
+            throw new Error(`Request failed (${response.status})`);
+        }
+
         let answer = "";
-        for await (const response of result) {
-            if (!response.delta) {
-                continue;
+        for await (const chunk of readNDJSONStream(response.body)) {
+            if (chunk.type === "error" || chunk.type === "response.failed") {
+                messageDiv.innerHTML = "Error: " + (chunk.error || "Unknown error");
+                break;
             }
-            if (response.delta.content) {
+            if (chunk.type === "response.output_text.delta") {
                 // Clear out the DIV if its the first answer chunk we've received
                 if (answer == "") {
                     messageDiv.innerHTML = "";
                 }
-                answer += response.delta.content;
+                answer += chunk.delta;
                 messageDiv.innerHTML = converter.makeHtml(answer);
                 messageDiv.scrollIntoView();
             }
-            if (response.error) {
-                messageDiv.innerHTML = "Error: " + response.error;
-            }
         }
+
         messages.push({
             "role": "assistant",
-            "content": answer
+            "content": [{"type": "output_text", "text": answer}]
         });
 
         messageInput.value = "";
@@ -312,7 +318,6 @@ The `configure_openai()` function sets up the OpenAI client before the app start
 ##### Authentication modes explained
 
 - **Local development** (`OPENAI_HOST=local`): Connects to a local OpenAI-compatible API service (like Ollama or LocalAI) without authentication. Use this mode for testing without internet or API costs.
-- **GitHub Models** (`OPENAI_HOST=github`): Uses GitHub's AI model marketplace with a `GITHUB_TOKEN` for authentication. When using GitHub models, prefix the model name with `openai/` (for example, `openai/gpt-4o`). This mode lets developers try models before provisioning Azure resources.
 - **Azure OpenAI with API key** (`AZURE_OPENAI_KEY_FOR_CHATVISION` environment variable): Uses an API key for authentication. Avoid this mode in production because API keys require manual rotation and pose security risks if exposed. Use it for local testing inside a Docker container without Azure CLI credentials.
 - **Production with Managed Identity** (`RUNNING_IN_PRODUCTION=true`): Uses `ManagedIdentityCredential` to authenticate with Azure OpenAI through the container app's managed identity. This method is recommended for production because it removes the need to manage secrets. Azure Container Apps automatically provide the managed identity and grant permissions during deployment via Bicep.
 - **Development with Azure CLI** (default mode): Uses `AzureDeveloperCliCredential` to authenticate with Azure OpenAI using locally signed-in Azure CLI credentials. This mode simplifies local development without managing API keys.
@@ -320,9 +325,8 @@ The `configure_openai()` function sets up the OpenAI client before the app start
 ##### Key implementation details
 
 - The `get_bearer_token_provider()` function refreshes Azure credentials and uses them as bearer tokens.
-- The Azure OpenAI endpoint path includes `/openai/v1/` to match the OpenAI client library's requirements.
-- Logging shows which authentication mode is active.
-- The function is async to support Azure credential operations.
+- The Azure OpenAI endpoint path ends with `/openai/v1/`, the generally available OpenAI-compatible endpoint for Microsoft Foundry Models.
+- The function is async, since Quart is an asynchronous web app framework. Quart lets request handlers be async, so while the app is awaiting slow LLM API responses, the server can keep handling other requests.
 
 Here's the complete authentication setup code from `chat.py`:
 
@@ -330,21 +334,14 @@ Here's the complete authentication setup code from `chat.py`:
 @bp.before_app_serving
 async def configure_openai():
     bp.model_name = os.getenv("OPENAI_MODEL", "gpt-4o")
-    openai_host = os.getenv("OPENAI_HOST", "github")
+    openai_host = os.getenv("OPENAI_HOST", "azure")
 
     if openai_host == "local":
         bp.openai_client = AsyncOpenAI(api_key="no-key-required", base_url=os.getenv("LOCAL_OPENAI_ENDPOINT"))
         current_app.logger.info("Using local OpenAI-compatible API service with no key")
-    elif openai_host == "github":
-        bp.model_name = f"openai/{bp.model_name}"
-        bp.openai_client = AsyncOpenAI(
-            api_key=os.environ["GITHUB_TOKEN"],
-            base_url="https://models.github.ai/inference",
-        )
-        current_app.logger.info("Using GitHub models with GITHUB_TOKEN as key")
     elif os.getenv("AZURE_OPENAI_KEY_FOR_CHATVISION"):
         bp.openai_client = AsyncOpenAI(
-            base_url=os.environ["AZURE_OPENAI_ENDPOINT"],
+            base_url=os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/") + "/openai/v1",
             api_key=os.getenv("AZURE_OPENAI_KEY_FOR_CHATVISION"),
         )
         current_app.logger.info("Using Azure OpenAI with key")
@@ -353,7 +350,7 @@ async def configure_openai():
         azure_credential = ManagedIdentityCredential(client_id=client_id)
         token_provider = get_bearer_token_provider(azure_credential, "https://cognitiveservices.azure.com/.default")
         bp.openai_client = AsyncOpenAI(
-            base_url=os.environ["AZURE_OPENAI_ENDPOINT"] + "/openai/v1/",
+            base_url=os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/") + "/openai/v1",
             api_key=token_provider,
         )
         current_app.logger.info("Using Azure OpenAI with managed identity credential for client ID %s", client_id)
@@ -362,7 +359,7 @@ async def configure_openai():
         azure_credential = AzureDeveloperCliCredential(tenant_id=tenant_id)
         token_provider = get_bearer_token_provider(azure_credential, "https://cognitiveservices.azure.com/.default")
         bp.openai_client = AsyncOpenAI(
-            base_url=os.environ["AZURE_OPENAI_ENDPOINT"] + "/openai/v1/",
+            base_url=os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/") + "/openai/v1",
             api_key=token_provider,
         )
         current_app.logger.info("Using Azure OpenAI with az CLI credential for tenant ID: %s", tenant_id)
@@ -370,14 +367,13 @@ async def configure_openai():
 
 #### Chat handler function
 
-The `chat_handler()` function processes chat requests sent to the `/chat/stream` endpoint. It receives a POST request with a JSON payload that follows the Microsoft AI Chat Protocol.
+The `chat_handler()` function processes chat requests sent to the `/chat/stream` endpoint. It receives a POST request with a JSON payload.
 
 The JSON payload includes:
-- **messages**: A list of conversation history. Each message has a `role` ("user" or "assistant") and `content` (the message text).
+- **messages**: A list of conversation history. Each message has a `role` ("user" or "assistant") and `content` (an array of content parts using the [Responses API input format](https://platform.openai.com/docs/api-reference/responses)).
 - **context**: Extra data for processing, including:
   - **file**: Base64-encoded image data (for example, `data:image/png;base64,...`).
   - **file_name**: The uploaded image's original filename (useful for logging or identifying the image type).
-- **temperature** (optional): A float that controls response randomness (default is 0.5).
 
 The handler extracts the message history and image data. If no image is uploaded, the image value is `null`, and the code handles this case.
 
@@ -389,64 +385,57 @@ async def chat_handler():
     # Get the base64 encoded image from the request context
     # This will be None if no image was uploaded
     image = request_json["context"]["file"]
-    # The context also includes the filename for reference
-    # file_name = request_json["context"]["file_name"]
 ```
 
-### Building the message array for vision requests
+### Building the input array for vision requests
 
-The `response_stream()` function prepares the message array that is sent to the Azure OpenAI API. The `@stream_with_context` decorator keeps the request context while streaming the response.
+The `response_stream()` function prepares the input array that is sent to the Azure OpenAI Responses API. The `@stream_with_context` decorator keeps the request context while streaming the response.
 
-#### Message preparation logic
+#### Input preparation logic
 
-1. **Start with conversation history**: The function begins with `all_messages`, which includes a system message and all previous messages except the most recent one (`request_messages[0:-1]`).
+1. **Start with conversation history**: The function begins with `all_input`, which includes all previous messages except the most recent one (`request_messages[0:-1]`). Messages are already in Responses API format from the frontend.
 1. **Handle the current user message based on image presence**:
-   - **With image**: Format the user's message as a multi-part content array with text and image_url objects. The `image_url` object contains the Base64-encoded image data and a `detail` parameter.
-   - **Without image**: Append the user's message as plain text.
-1. **The `detail` parameter**: Set to "auto" to let the model choose between "low" and "high" detail based on the image size. Low detail is faster and cheaper, while high detail provides more accurate analysis for complex images.
+   - **With image**: Append an `input_image` content part to the user's existing content array.
+   - **Without image**: Append the user's message as-is.
 
 ```python
     @stream_with_context
     async def response_stream():
         # This sends all messages, so API request may exceed token limits
-        all_messages = [
-            {"role": "system", "content": "You are a helpful assistant."},
-        ] + request_messages[0:-1]
-        all_messages = request_messages[0:-1]
+        all_input = list(request_messages[0:-1])
+
+        # Add the current user message, appending image if provided
         if image:
-            user_content = []
-            user_content.append({"text": request_messages[-1]["content"], "type": "text"})
-            user_content.append({"image_url": {"url": image, "detail": "auto"}, "type": "image_url"})
-            all_messages.append({"role": "user", "content": user_content})
+            user_content = request_messages[-1]["content"] + [{"type": "input_image", "image_url": image}]
+            all_input.append({"role": "user", "content": user_content})
         else:
-            all_messages.append(request_messages[-1])
+            all_input.append(request_messages[-1])
 ```
 
-> [!NOTE]
-> For more information on the image `detail` parameter and related settings, check out the [Detail parameter settings](/azure/ai-foundry/openai/how-to/gpt-with-vision?tabs=python#detail-parameter-settings) section in the "Use vision-enabled chat models" Microsoft Learn article.
-
-Next, `bp.openai_client.chat.completions` gets chat completions via an Azure OpenAI API call and streams the response.
+Next, `bp.openai_client.responses.create` calls the Azure OpenAI Responses API and streams the response. The `store=False` parameter instructs the API to not store responses on the server, making the call stateless.
 
 ```python
-        chat_coroutine = bp.openai_client.chat.completions.create(
-            # Azure OpenAI takes the deployment name as the model name
+        openai_stream = await bp.openai_client.responses.create(
             model=bp.model_name,
-            messages=all_messages,
+            input=all_input,
             stream=True,
-            temperature=request_json.get("temperature", 0.5),
+            temperature=0.3,
+            store=False,
         )
 ```
 
-Finally, the response is streamed back to the client, with error handling for any exceptions.
+Finally, the response is streamed back to the client. The Responses API emits [many event types](https://platform.openai.com/docs/api-reference/responses-streaming), but only the `response.output_text.delta` event is needed for streaming generated text. Error events are logged and forwarded to the frontend.
 
 ```python
         try:
-            async for event in await chat_coroutine:
-                event_dict = event.model_dump()
-                if event_dict["choices"]:
-                    yield json.dumps(event_dict["choices"][0], ensure_ascii=False) + "\n"
+            async for event in openai_stream:
+                if event.type == "response.output_text.delta":
+                    yield json.dumps({"type": event.type, "delta": event.delta}, ensure_ascii=False) + "\n"
+                elif event.type in ("response.failed", "error"):
+                    current_app.logger.error("Responses API error: %s", event)
+                    yield json.dumps({"type": event.type}, ensure_ascii=False) + "\n"
         except Exception as e:
-            current_app.logger.error(e)
+            current_app.logger.exception("Error in response stream")
             yield json.dumps({"error": str(e)}, ensure_ascii=False) + "\n"
 
     return Response(response_stream())

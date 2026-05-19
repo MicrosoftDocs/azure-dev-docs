@@ -3,8 +3,8 @@ title: "Evaluating chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your RAG-based chat app by using Azure OpenAI Service. Generate sample prompts, run evaluations, and analyze results."
 ms.date: 01/30/2026
 ms.update-cycle: 180-days
-ms.author: johalexander
-author: ms-johnalex
+ms.author: rotabor
+author: bobtabor-msft
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps

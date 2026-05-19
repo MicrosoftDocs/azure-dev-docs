@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Data support
@@ -41,19 +41,19 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 > [!div class="mx-tdBreakAll"]
 > | Property                                                           | Description                                                                                                     |
 > |--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-> | *spring.cloud.azure.cosmos*.enabled                                | A value that indicates whether Azure Cosmos DB Service is enabled. The default value is `true`.                    |
-> | *spring.cloud.azure.cosmos*.database                               | The Azure Cosmos DB database ID.                                                                                      |
-> | *spring.cloud.azure.cosmos*.endpoint                               | The URI to connect Azure Cosmos DB.                                                                                   |
-> | *spring.cloud.azure.cosmos*.key                                    | The PrivateKey to connect Azure Cosmos DB.                                                                            |
-> | *spring.cloud.azure.cosmos*.credential.client-certificate-password | The password of the certificate file.                                                                           |
-> | *spring.cloud.azure.cosmos*.credential.client-certificate-path     | The path of a PEM certificate file to use when performing service principal authentication with Azure.          |
-> | *spring.cloud.azure.cosmos*.credential.client-id                   | The client ID to use when performing service principal authentication with Azure.                               |
-> | *spring.cloud.azure.cosmos*.credential.client-secret               | The client secret to use when performing service principal authentication with Azure.                           |
-> | *spring.cloud.azure.cosmos*.credential.managed-identity-enabled    | Whether to enable managed identity. The default value is `false`.                                                                             |
-> | *spring.cloud.azure.cosmos*.credential.password                    | The password to use when performing username/password authentication with Azure.                                |
-> | *spring.cloud.azure.cosmos*.credential.username                    | The username to use when performing username/password authentication with Azure.                                |
-> | *spring.cloud.azure.cosmos*.populate-query-metrics                 | A value that indicates whether to populate diagnostics strings and query metrics. The default value is `false`. |
-> | *spring.cloud.azure.cosmos*.consistency-level                      | A [consistency level](/azure/cosmos-db/consistency-levels) for Azure Cosmos DB.                                 |
+> | `spring.cloud.azure.cosmos.enabled`                                | A value that indicates whether Azure Cosmos DB Service is enabled. The default value is `true`.                    |
+> | `spring.cloud.azure.cosmos.database`                               | The Azure Cosmos DB database ID.                                                                                      |
+> | `spring.cloud.azure.cosmos.endpoint`                               | The URI to connect Azure Cosmos DB.                                                                                   |
+> | `spring.cloud.azure.cosmos.key`                                    | The PrivateKey to connect Azure Cosmos DB.                                                                            |
+> | `spring.cloud.azure.cosmos.credential.client-certificate-password` | The password of the certificate file.                                                                           |
+> | `spring.cloud.azure.cosmos.credential.client-certificate-path`     | The path of a PEM certificate file to use when performing service principal authentication with Azure.          |
+> | `spring.cloud.azure.cosmos.credential.client-id`                   | The client ID to use when performing service principal authentication with Azure.                               |
+> | `spring.cloud.azure.cosmos.credential.client-secret`               | The client secret to use when performing service principal authentication with Azure.                           |
+> | `spring.cloud.azure.cosmos.credential.managed-identity-enabled`    | Whether to enable managed identity. The default value is `false`.                                                                             |
+> | `spring.cloud.azure.cosmos.credential.password`                    | The password to use when performing username/password authentication with Azure.                                |
+> | `spring.cloud.azure.cosmos.credential.username`                    | The username to use when performing username/password authentication with Azure.                                |
+> | `spring.cloud.azure.cosmos.populate-query-metrics`                 | A value that indicates whether to populate diagnostics strings and query metrics. The default value is `false`. |
+> | `spring.cloud.azure.cosmos.consistency-level`                      | A [consistency level](/azure/cosmos-db/consistency-levels) for Azure Cosmos DB.                                 |
 
 ### Key concepts
 
@@ -82,7 +82,7 @@ The following list shows the key concepts of the Spring Data support:
 
 * Supports [Spring Data custom query](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details) find operation.
 
-* Supports [spring-boot-starter-data-rest](https://spring.io/projects/spring-data-rest).
+* Supports [`spring-boot-starter-data-rest`](https://spring.io/projects/spring-data-rest).
 
 * Supports List and nested types in domain classes.
 
@@ -248,6 +248,6 @@ This example includes an autowired `UserRepository` interface to support save, d
 
 ### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos) on GitHub.
+See the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos) on GitHub.
 
 Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB client library](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-data-cosmos).

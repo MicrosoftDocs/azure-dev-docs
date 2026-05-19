@@ -2,8 +2,9 @@
 title: "Quickstart: Create a new API project with TypeSpec and TypeScript"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.topic: quickstart
-ms.date: 07/24/2025
+ms.date: 03/10/2026
 ms.custom: devx-track-typespec, devx-track-js, devx-track-ts
+ai-usage: ai-assisted
 #zone_pivot_groups: typespec-quickstart-on-azure-languages
 #zone_pivot_group_filename: developer/typespec/zone-pivot-groups.json
 #customer intent: As a developer or API designer, I want to create an TypeSpec API and deploy it to Azure so that I can learn the entire end to end development and deployment cycle.
@@ -12,6 +13,12 @@ ms.custom: devx-track-typespec, devx-track-js, devx-track-ts
 # Quickstart: Create a new API project with TypeSpec and TypeScript
 
 In this quickstart: learn how to use TypeSpec to design, generate, and implement a RESTful TypeScript API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
+
+You'll use TypeSpec's code generator to scaffold an Express.js server with routing and Swagger UI, connect it to Azure Cosmos DB for persistence, and deploy to Azure Container Apps.
+
+For context on TypeSpec's role in API development, see [Overview of TypeSpec](overview.md).
+
+**Time to complete:** 15–20 minutes
 
 In this quickstart, you:
 
@@ -96,19 +103,22 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
     ```console
     tsp compile .
     ```
-    
+
+    > [!TIP]
+    > For iterative development, use watch mode to automatically recompile on file changes: `tsp compile . --watch`. This keeps your generated server and schema up to date as you modify `main.tsp`.
+
 1. TypeSpec generates the default project in `./tsp-output`, creating two separate folders:
 
     * **schema** is the OpenApi 3 specification. Notice that the few lines in `./main.tsp` generated over 200 lines of OpenApi specification for you.
     * **server** is the generated middleware. This middleware can be incorporated into a Node.js server project.
-        * `./tsp-output/js/src/generated/models/all/demo-service.ts` defines the interfaces for the Widgets API.
-        * `./tsp-output/js/src/generated/http/openapi3.ts` defines the Open API spec as a TypeScript file and is regenerated every time you compile your TypeSpec project.
+        * `./tsp-output/server/js/src/generated/models/all/demo-service.ts` defines the interfaces for the Widgets API.
+        * `./tsp-output/server/js/src/generated/http/openapi3.ts` defines the Open API spec as a TypeScript file and is regenerated every time you compile your TypeSpec project.
     
 ## Configure TypeSpec emitters
 
 Use the TypeSpec files to configure the API server generation to scaffold the entire Express.js server.
 
-1. Open the `./tsconfig.yaml` and replace the existing configuration with the following YAML:
+1. Open the `./tspconfig.yaml` and replace the existing configuration with the following YAML:
 
     ```yml
     emit:
@@ -528,7 +538,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
     const azureCosmosEndpoint = process.env.AZURE_COSMOS_ENDPOINT!;
     const azureCosmosDatabase = "WidgetDb";
     const azureCosmosContainer = "Widgets";
-    const azureCosmosPartitionKey = "/Id";
+    const azureCosmosPartitionKey = "/id";
     
     const router = createDemoServiceRouter(
       new WidgetsCosmosController(
@@ -955,9 +965,58 @@ azd down
 
 Or delete the resource group directly from the Azure portal.
 
+## Troubleshooting
+
+### Port 3000 is already in use
+
+**Error:** `listen EADDRINUSE: address already in use :::3000`
+
+**Solution:**
+
+1. Identify the process using port 3000: `netstat -tulpn | grep 3000` (macOS/Linux) or `netstat -ano | findstr :3000` (Windows).
+1. Stop that process, or change the PORT environment variable: `PORT=3001 npm start`.
+
+### Node.js version mismatch
+
+**Error:** `tsp: command not found` or `npm ERR! The engine "node" is incompatible`
+
+**Solution:**
+
+1. Verify your Node.js version: `node --version`.
+1. Ensure it's an LTS version. Update from [nodejs.org](https://nodejs.org/) or your package manager.
+1. Clear npm cache: `npm cache clean --force`, then reinstall: `npm install -g @typespec/compiler`.
+
+### @typespec/http-server-js emitter not found
+
+**Error:** `Error: Cannot find module '@typespec/http-server-js'`
+
+**Solution:**
+
+1. Ensure the emitter is listed in `tspconfig.yaml` under `emit:`.
+1. Recompile: `tsp compile .`.
+1. If the error persists, reinstall dependencies: `cd ./tsp-output/server && npm install`.
+
+### TypeScript compilation error in generated server
+
+**Error:** `error TS2322: Type 'X' is not assignable to type 'Y'` in generated files
+
+**Solution:**
+
+1. Regenerate the server after modifying `main.tsp`: `tsp compile .`, then `cd ./tsp-output/server && tsc`.
+1. Ensure your custom controller code is **outside** the `./generated` directory. Don't edit generated files directly.
+
+### Express.js server crashes on startup
+
+**Error:** `listen EADDRINUSE` or `Error: Cannot find module '@azure/cosmos'`
+
+**Solution:**
+
+1. Install missing dependencies: `cd ./tsp-output/server && npm install @azure/cosmos @azure/identity`.
+1. For port conflicts, change PORT in `index.ts` or use `PORT=3001 npm start`.
+
 ## Next steps
 
-- [TypeSpec documentation](https://microsoft.github.io/typespec/)
+- [TypeSpec documentation](https://typespec.io/docs/)
 - [Azure Cosmos DB documentation](/azure/cosmos-db/)
 - [Deploy Node.js apps to Azure](/azure/app-service/quickstart-nodejs)
 - [Azure Container Apps documentation](/azure/container-apps/)

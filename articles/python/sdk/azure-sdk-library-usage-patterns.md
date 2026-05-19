@@ -138,7 +138,7 @@ Individual libraries aren't obligated to support any of these arguments, so alwa
 
 Many operations within the Azure libraries allow you to express object arguments either as discrete objects or as inline JSON.
 
-For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.resourcemanagementclient) object through which you create a resource group with its [`create_or_update`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.resourcegroupsoperations#create-or-update-resource-group-name--parameters--custom-headers-none--raw-false----operation-config-) method. The second argument to this method is of type [`ResourceGroup`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.models.resourcegroup).
+For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.resourcemanagementclient) object through which you create a resource group with its [`create_or_update`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-create-or-update) method. The second argument to this method is of type [`ResourceGroup`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.models.resourcegroup).
 
 To call the `create_or_update` method, you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
 

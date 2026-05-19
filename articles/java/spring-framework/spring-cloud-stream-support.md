@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure support for Spring Cloud Stream
@@ -86,16 +86,16 @@ This section contains the configuration options used for connecting to Azure Eve
 > [!NOTE]
 > If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
-Connection configurable properties of spring-cloud-azure-stream-binder-eventhubs:
+Connection configurable properties of `spring-cloud-azure-stream-binder-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                 | Type    | Description                                                                                                                |
 > |----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.eventhubs**.enabled                 | boolean | Whether an Azure Event Hubs is enabled.                                                                                    |
-> | **spring.cloud.azure.eventhubs**.connection-string       | String  | Event Hubs Namespace connection string value.                                                                              |
-> | **spring.cloud.azure.eventhubs**.namespace               | String  | Event Hubs Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
-> | **spring.cloud.azure.eventhubs**.domain-name             | String  | Domain name of an Azure Event Hubs Namespace value.                                                                        |
-> | **spring.cloud.azure.eventhubs**.custom-endpoint-address | String  | Custom Endpoint address.                                                                                                   |
+> | `spring.cloud.azure.eventhubs.enabled`                 | boolean | Whether an Azure Event Hubs is enabled.                                                                                    |
+> | `spring.cloud.azure.eventhubs.connection-string`       | String  | Event Hubs Namespace connection string value.                                                                              |
+> | `spring.cloud.azure.eventhubs.namespace`               | String  | Event Hubs Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
+> | `spring.cloud.azure.eventhubs.domain-name`             | String  | Domain name of an Azure Event Hubs Namespace value.                                                                        |
+> | `spring.cloud.azure.eventhubs.custom-endpoint-address` | String  | Custom Endpoint address.                                                                                                   |
 
 > [!TIP]
 > Common Azure Service SDK configuration options are configurable for the Spring Cloud Azure Stream Event Hubs binder as well. The supported configuration options are introduced in [Spring Cloud Azure configuration](configuration.md), and could be configured with either the unified prefix `spring.cloud.azure.` or the prefix of `spring.cloud.azure.eventhubs.`.
@@ -107,17 +107,17 @@ The binder also supports [Spring Could Azure Resource Manager](resource-manager.
 This section contains the configuration options for the Storage Blobs service, which is used for persisting partition ownership and checkpoint information.
 
 > [!NOTE]
-> From version 4.0.0, when the property of **spring.cloud.azure.eventhubs.processor.checkpoint-store.create-container-if-not-exists** isn't enabled manually, no Storage container will be created automatically with the name from **spring.cloud.stream.bindings.binding-name.destination**.
+> From version 4.0.0, when the property of `spring.cloud.azure.eventhubs.processor.checkpoint-store.create-container-if-not-exists` isn't enabled manually, no Storage container will be created automatically with the name from `spring.cloud.stream.bindings.binding-name.destination`.
 
-Checkpointing configurable properties of spring-cloud-azure-stream-binder-eventhubs:
+Checkpointing configurable properties of `spring-cloud-azure-stream-binder-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                   | Type    | Description                                         |
 > |--------------------------------------------------------------------------------------------|---------|-----------------------------------------------------|
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.create-container-if-not-exists | Boolean | Whether to allow creating containers if not exists. |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.account-name                   | String  | Name for the storage account.                       |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.account-key                    | String  | Storage account access key.                         |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.container-name                 | String  | Storage container name.                             |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.create-container-if-not-exists` | Boolean | Whether to allow creating containers if not exists. |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`                   | String  | Name for the storage account.                       |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`                    | String  | Storage account access key.                         |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`                 | String  | Storage container name.                             |
 
 > [!TIP]
 > Common Azure Service SDK configuration options are configurable for Storage Blob checkpoint store as well. The supported configuration options are introduced in [Spring Cloud Azure configuration](configuration.md), and could be configured with either the unified prefix `spring.cloud.azure.` or the prefix of `spring.cloud.azure.eventhubs.processor.checkpoint-store`.
@@ -133,22 +133,22 @@ These properties are exposed via `EventHubsConsumerProperties`.
 > [!NOTE]
 > To avoid repetition, since version 4.17.0 and 5.11.0, Spring Cloud Azure Stream Binder Event Hubs supports setting values for all channels, in the format of `spring.cloud.stream.eventhubs.default.consumer.<property>=<value>`.
 
-Consumer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
+Consumer configurable properties of `spring-cloud-azure-stream-binder-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                                                    | Type                                                                          | Description                                                                                                                                                                      |
 > |-----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.checkpoint.mode                                        | CheckpointMode                                                                | Checkpoint mode used when consumer decide how to checkpoint message                                                                                                              |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.checkpoint.count                                       | Integer                                                                       | Decides the amount of message for each partition to do one checkpoint. Will take effect only when `PARTITION_COUNT` checkpoint mode is used.                                     |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.checkpoint.interval                                    | Duration                                                                      | Decides the time interval to do one checkpoint. Will take effect only when `TIME` checkpoint mode is used.                                                                       |
-> | **spring.cloud.stream.eventhubs.bindings.<binding-name.consumer**.batch.max-size                                         | Integer                                                                       | The maximum number of events in a batch. Required for the batch-consumer mode.                                                                                                   |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.batch.max-wait-time                                    | Duration                                                                      | The maximum time duration for batch consuming. Will take effect only when the batch-consumer mode is enabled and is optional.                                                    |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.load-balancing.update-interval                         | Duration                                                                      | The interval time duration for updating.                                                                                                                                         |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.load-balancing.strategy                                | LoadBalancingStrategy                                                         | The load balancing strategy.                                                                                                                                                     |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.load-balancing.partition-ownership-expiration-interval | Duration                                                                      | The time duration after which the ownership of partition expires.                                                                                                                |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.track-last-enqueued-event-properties                   | Boolean                                                                       | Whether the event processor should request information on the last enqueued event on its associated partition, and track that information as events are received.                |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.prefetch-count                                         | Integer                                                                       | The count used by the consumer to control the number of events the Event Hub consumer will actively receive and queue locally.                                                   |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.initial-partition-event-position                       | Map with the key as the partition ID, and values of `StartPositionProperties` | The map containing the event position to use for each partition if a checkpoint for the partition does not exist in checkpoint store. This map is keyed off of the partition ID. |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.checkpoint.mode`                                        | CheckpointMode                                                                | Checkpoint mode used when consumer decide how to checkpoint message                                                                                                              |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.checkpoint.count`                                       | Integer                                                                       | Decides the amount of message for each partition to do one checkpoint. Will take effect only when `PARTITION_COUNT` checkpoint mode is used.                                     |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.checkpoint.interval`                                    | Duration                                                                      | Decides the time interval to do one checkpoint. Will take effect only when `TIME` checkpoint mode is used.                                                                       |
+> | `spring.cloud.stream.eventhubs.bindings.<binding-name>.consumer.batch.max-size`                                         | Integer                                                                       | The maximum number of events in a batch. Required for the batch-consumer mode.                                                                                                   |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.batch.max-wait-time`                                    | Duration                                                                      | The maximum time duration for batch consuming. Will take effect only when the batch-consumer mode is enabled and is optional.                                                    |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.load-balancing.update-interval`                         | Duration                                                                      | The interval time duration for updating.                                                                                                                                         |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.load-balancing.strategy`                                | LoadBalancingStrategy                                                         | The load balancing strategy.                                                                                                                                                     |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.load-balancing.partition-ownership-expiration-interval` | Duration                                                                      | The time duration after which the ownership of partition expires.                                                                                                                |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.track-last-enqueued-event-properties`                   | Boolean                                                                       | Whether the event processor should request information on the last enqueued event on its associated partition, and track that information as events are received.                |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.prefetch-count`                                         | Integer                                                                       | The count used by the consumer to control the number of events the Event Hub consumer will actively receive and queue locally.                                                   |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.initial-partition-event-position`                       | Map with the key as the partition ID, and values of `StartPositionProperties` | The map containing the event position to use for each partition if a checkpoint for the partition does not exist in checkpoint store. This map is keyed off of the partition ID. |
 
 > [!NOTE]
 > The `initial-partition-event-position` configuration accepts a `map` to specify the initial position for each event hub. Thus, its key is the partition ID, and the value is of `StartPositionProperties`, which includes properties of offset, sequence number, enqueued date time and whether inclusive. For example, you can set it as
@@ -183,13 +183,13 @@ These properties are exposed via `EventHubsProducerProperties`.
 > [!NOTE]
 > To avoid repetition, since version 4.17.0 and 5.11.0, Spring Cloud Azure Stream Binder Event Hubs supports setting values for all channels, in the format of `spring.cloud.stream.eventhubs.default.producer.<property>=<value>`.
 
-Producer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
+Producer configurable properties of `spring-cloud-azure-stream-binder-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                          | Type    | Description                                                                                                              |
 > |-----------------------------------------------------------------------------------|---------|--------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.producer**.sync         | boolean | The switch flag for sync of producer. If true, the producer will wait for a response after a send operation.             |
-> | **spring.cloud.stream.eventhubs.bindings.binding-name.producer**.send-timeout | long    | The amount of time to wait for a response after a send operation. Will take effect only when a sync producer is enabled. |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.producer.sync`         | boolean | The switch flag for sync of producer. If true, the producer will wait for a response after a send operation.             |
+> | `spring.cloud.stream.eventhubs.bindings.binding-name.producer.send-timeout` | long    | The amount of time to wait for a response after a send operation. Will take effect only when a sync producer is enabled. |
 
 ##### Advanced producer configuration
 
@@ -757,7 +757,7 @@ spring:
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       eventhubs:
         resource:
-          resource-group: ${AZURE_EVENTHUBS_RESOURECE_GROUP}
+          resource-group: ${AZURE_EVENTHUBS_RESOURCE_GROUP}
 ```
 
 > [!NOTE]
@@ -765,7 +765,7 @@ spring:
 
 ### Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-stream-binder-eventhubs) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-stream-binder-eventhubs) repository on GitHub.
 
 ## Spring Cloud Stream Binder for Azure Service Bus
 
@@ -813,16 +813,16 @@ This section contains the configuration options used for connecting to Azure Ser
 > [!NOTE]
 > If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
-Connection configurable properties of spring-cloud-azure-stream-binder-servicebus:
+Connection configurable properties of `spring-cloud-azure-stream-binder-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                            | Type    | Description                                                                                                                 |
 > |-----------------------------------------------------|---------|-----------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.servicebus**.enabled           | boolean | Whether an Azure Service Bus is enabled.                                                                                    |
-> | **spring.cloud.azure.servicebus**.connection-string | String  | Service Bus Namespace connection string value.                                                                              |
-> | **spring.cloud.azure.servicebus**.custom-endpoint-address | String  | The custom endpoint address to use when connecting to Service Bus.                                                                              |
-> | **spring.cloud.azure.servicebus**.namespace         | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
-> | **spring.cloud.azure.servicebus**.domain-name       | String  | Domain name of an Azure Service Bus Namespace value.                                                                        |
+> | `spring.cloud.azure.servicebus.enabled`           | boolean | Whether an Azure Service Bus is enabled.                                                                                    |
+> | `spring.cloud.azure.servicebus.connection-string` | String  | Service Bus Namespace connection string value.                                                                              |
+> | `spring.cloud.azure.servicebus.custom-endpoint-address` | String  | The custom endpoint address to use when connecting to Service Bus.                                                                              |
+> | `spring.cloud.azure.servicebus.namespace`         | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
+> | `spring.cloud.azure.servicebus.domain-name`       | String  | Domain name of an Azure Service Bus Namespace value.                                                                        |
 
 > [!NOTE]
 > Common Azure Service SDK configuration options are configurable for the Spring Cloud Azure Stream Service Bus binder as well. The supported configuration options are introduced in [Spring Cloud Azure configuration](configuration.md), and could be configured with either the unified prefix `spring.cloud.azure.` or the prefix of `spring.cloud.azure.servicebus.`.
@@ -841,26 +841,26 @@ These properties are exposed via `ServiceBusConsumerProperties`.
 > [!NOTE]
 > To avoid repetition, since version 4.17.0 and 5.11.0, Spring Cloud Azure Stream Binder Service Bus supports setting values for all channels, in the format of `spring.cloud.stream.servicebus.default.consumer.<property>=<value>`.
 
-Consumer configurable properties of spring-cloud-azure-stream-binder-servicebus:
+Consumer configurable properties of `spring-cloud-azure-stream-binder-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                       | Type                  | Default                                                                                           | Description                                                                                                                                                   |
 > |------------------------------------------------------------------------------------------------|-----------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.requeue-rejected             | boolean               | false                                                                                             | If the failed messages are routed to the DLQ.                                                                                                                 |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.max-concurrent-calls         | Integer               | 1                                                                                                 | Max concurrent messages that the Service Bus processor client should process. When session enabled, it applies to each session.                               |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.max-concurrent-sessions      | Integer               | null                                                                                              | Maximum number of concurrent sessions to process at any given time.                                                                                           |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.session-enabled              | Boolean               | null                                                                                              | Whether session is enabled.                                                                                                                                   |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.session-idle-timeout         | Duration              | null                                                                                              | Sets the maximum amount of time (Duration) to wait for a message to be received for the currently active session.                                             |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.prefetch-count               | Integer               | 0                                                                                                 | The prefetch count of the Service Bus processor client.                                                                                                       |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.sub-queue                    | SubQueue              | none                                                                                              | The type of the sub queue to connect to.                                                                                                                      |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.max-auto-lock-renew-duration | Duration              | 5m                                                                                                | The amount of time to continue auto-renewing the lock.                                                                                                        |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.receive-mode                 | ServiceBusReceiveMode | peek_lock                                                                                         | The receive mode of the Service Bus processor client.                                                                                                         |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.auto-complete                | Boolean               | true                                                                                              | Whether to settle messages automatically. If set as false, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.max-size-in-megabytes        | Long                  | 1024                                                                                              | The maximum size of the queue/topic in megabytes, which is the size of memory allocated for the queue/topic.                                                  |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.default-message-time-to-live | Duration              | P10675199DT2H48M5.4775807S. (10675199 days, 2 hours, 48 minutes, 5 seconds, and 477 milliseconds) | The duration after which the message expires, starting from when the message is sent to Service Bus.                                                          |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.requeue-rejected`             | boolean               | false                                                                                             | If the failed messages are routed to the DLQ.                                                                                                                 |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.max-concurrent-calls`         | Integer               | 1                                                                                                 | Max concurrent messages that the Service Bus processor client should process. When session enabled, it applies to each session.                               |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.max-concurrent-sessions`      | Integer               | null                                                                                              | Maximum number of concurrent sessions to process at any given time.                                                                                           |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.session-enabled`              | Boolean               | null                                                                                              | Whether session is enabled.                                                                                                                                   |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.session-idle-timeout`         | Duration              | null                                                                                              | Sets the maximum amount of time (Duration) to wait for a message to be received for the currently active session.                                             |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.prefetch-count`               | Integer               | 0                                                                                                 | The prefetch count of the Service Bus processor client.                                                                                                       |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.sub-queue`                    | SubQueue              | none                                                                                              | The type of the sub queue to connect to.                                                                                                                      |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.max-auto-lock-renew-duration` | Duration              | 5m                                                                                                | The amount of time to continue auto-renewing the lock.                                                                                                        |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.receive-mode`                 | ServiceBusReceiveMode | peek_lock                                                                                         | The receive mode of the Service Bus processor client.                                                                                                         |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.auto-complete`                | Boolean               | true                                                                                              | Whether to settle messages automatically. If set as false, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.max-size-in-megabytes`        | Long                  | 1024                                                                                              | The maximum size of the queue/topic in megabytes, which is the size of memory allocated for the queue/topic.                                                  |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.default-message-time-to-live` | Duration              | P10675199DT2H48M5.4775807S. (10675199 days, 2 hours, 48 minutes, 5 seconds, and 477 milliseconds) | The duration after which the message expires, starting from when the message is sent to Service Bus.                                                          |
 
 > [!IMPORTANT]
-> When you use the [Azure Resource Manager](resource-manager.md) (ARM), you must configure the `spring.cloud.stream.servicebus.bindings.<binding-name>.consume.entity-type` property. For more information, see the [servicebus-queue-binder-arm](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder-arm) sample on GitHub.
+> When you use the [Azure Resource Manager](resource-manager.md) (ARM), you must configure the `spring.cloud.stream.servicebus.bindings.<binding-name>.consume.entity-type` property. For more information, see the [`servicebus-queue-binder-arm`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder-arm) sample on GitHub.
 
 ##### Advanced consumer configuration
 
@@ -873,16 +873,16 @@ These properties are exposed via `ServiceBusProducerProperties`.
 > [!NOTE]
 > To avoid repetition, since version 4.17.0 and 5.11.0, Spring Cloud Azure Stream Binder Service Bus supports setting values for all channels, in the format of `spring.cloud.stream.servicebus.default.producer.<property>=<value>`.
 
-Producer configurable properties of spring-cloud-azure-stream-binder-servicebus:
+Producer configurable properties of `spring-cloud-azure-stream-binder-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                       | Type                 | Default                                                                                           | Description                                                                                                  |
 > |------------------------------------------------------------------------------------------------|----------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.sync                         | boolean              | false                                                                                             | Switch flag for sync of producer.                                                                            |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.send-timeout                 | long                 | 10000                                                                                             | Timeout value for sending of producer.                                                                       |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.entity-type                  | ServiceBusEntityType | null                                                                                              | Service Bus entity type of the producer, required for the binding producer.                                  |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.max-size-in-megabytes        | Long                 | 1024                                                                                              | The maximum size of the queue/topic in megabytes, which is the size of memory allocated for the queue/topic. |
-> | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.default-message-time-to-live | Duration             | P10675199DT2H48M5.4775807S. (10675199 days, 2 hours, 48 minutes, 5 seconds, and 477 milliseconds) | The duration after which the message expires, starting from when the message is sent to Service Bus.         |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.producer.sync`                         | boolean              | false                                                                                             | Switch flag for sync of producer.                                                                            |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.producer.send-timeout`                 | long                 | 10000                                                                                             | Timeout value for sending of producer.                                                                       |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.producer.entity-type`                  | ServiceBusEntityType | null                                                                                              | Service Bus entity type of the producer, required for the binding producer.                                  |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.producer.max-size-in-megabytes`        | Long                 | 1024                                                                                              | The maximum size of the queue/topic in megabytes, which is the size of memory allocated for the queue/topic. |
+> | `spring.cloud.stream.servicebus.bindings.binding-name.producer.default-message-time-to-live` | Duration             | P10675199DT2H48M5.4775807S. (10675199 days, 2 hours, 48 minutes, 5 seconds, and 477 milliseconds) | The duration after which the message expires, starting from when the message is sent to Service Bus.         |
 
 > [!IMPORTANT]
 > When using the binding producer, property of `spring.cloud.stream.servicebus.bindings.<binding-name>.producer.entity-type` is required to be configured.
@@ -899,65 +899,65 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 
    * For credentials as connection string, configure the following properties in your **application.yml** file:
 
-     ```yaml
-         spring:
-           cloud:
-             azure:
-               servicebus:
-                 connection-string: ${SERVICEBUS_NAMESPACE_CONNECTION_STRING}
-             function:
-               definition: consume;supply
-             stream:
-               bindings:
-                 consume-in-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME}
-                   # If you use Service Bus Topic, add the following configuration
-                   # group: ${SUBSCRIPTION_NAME}
-                 supply-out-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
-               servicebus:
-                 bindings:
-                   consume-in-0:
-                     consumer:
-                       auto-complete: false
-                   supply-out-0:
-                     producer:
-                       entity-type: queue # set as "topic" if you use Service Bus Topic
+      ```yaml
+      spring:
+        cloud:
+          azure:
+            servicebus:
+              connection-string: ${SERVICEBUS_NAMESPACE_CONNECTION_STRING}
+          function:
+            definition: consume;supply
+          stream:
+            bindings:
+              consume-in-0:
+                destination: ${SERVICEBUS_ENTITY_NAME}
+                # If you use Service Bus Topic, add the following configuration
+                # group: ${SUBSCRIPTION_NAME}
+              supply-out-0:
+                destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
+            servicebus:
+              bindings:
+                consume-in-0:
+                  consumer:
+                    auto-complete: false
+                supply-out-0:
+                  producer:
+                    entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
 
      [!INCLUDE [security-note](../includes/security-note.md)]
 
    * For credentials as service principal, configure the following properties in your **application.yml** file:
 
-     ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 client-id: ${AZURE_CLIENT_ID}
-                 client-secret: ${AZURE_CLIENT_SECRET}
-               profile:
-                 tenant-id: <tenant>
-               servicebus:
-                 namespace: ${SERVICEBUS_NAMESPACE}
-             function:
-               definition: consume;supply
-             stream:
-               bindings:
-                 consume-in-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME}
-                   # If you use Service Bus Topic, add the following configuration
-                   # group: ${SUBSCRIPTION_NAME}
-                 supply-out-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
-               servicebus:
-                 bindings:
-                   consume-in-0:
-                     consumer:
-                       auto-complete: false
-                   supply-out-0:
-                     producer:
-                       entity-type: queue # set as "topic" if you use Service Bus Topic
+      ```yaml
+      spring:
+        cloud:
+          azure:
+            credential:
+              client-id: ${AZURE_CLIENT_ID}
+              client-secret: ${AZURE_CLIENT_SECRET}
+            profile:
+              tenant-id: <tenant>
+            servicebus:
+              namespace: ${SERVICEBUS_NAMESPACE}
+          function:
+            definition: consume;supply
+          stream:
+            bindings:
+              consume-in-0:
+                destination: ${SERVICEBUS_ENTITY_NAME}
+                # If you use Service Bus Topic, add the following configuration
+                # group: ${SUBSCRIPTION_NAME}
+              supply-out-0:
+                destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
+            servicebus:
+              bindings:
+                consume-in-0:
+                  consumer:
+                    auto-complete: false
+                supply-out-0:
+                  producer:
+                    entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
 
 > [!NOTE]
@@ -965,33 +965,33 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 
    * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
-     ```yaml
-         spring:
-           cloud:
-             azure:
-               credential:
-                 managed-identity-enabled: true
-                 client-id: ${MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
-               servicebus:
-                 namespace: ${SERVICEBUS_NAMESPACE}
-             function:
-               definition: consume;supply
-             stream:
-               bindings:
-                 consume-in-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME}
-                   # If you use Service Bus Topic, add the following configuration
-                   # group: ${SUBSCRIPTION_NAME}
-                 supply-out-0:
-                   destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
-               servicebus:
-                 bindings:
-                   consume-in-0:
-                     consumer:
-                       auto-complete: false
-                   supply-out-0:
-                     producer:
-                       entity-type: queue # set as "topic" if you use Service Bus Topic
+      ```yaml
+      spring:
+        cloud:
+          azure:
+            credential:
+              managed-identity-enabled: true
+              client-id: ${MANAGED_IDENTITY_CLIENT_ID} # Only needed when using a user-assigned managed identity
+            servicebus:
+              namespace: ${SERVICEBUS_NAMESPACE}
+          function:
+            definition: consume;supply
+          stream:
+            bindings:
+              consume-in-0:
+                destination: ${SERVICEBUS_ENTITY_NAME}
+                # If you use Service Bus Topic, add the following configuration
+                # group: ${SUBSCRIPTION_NAME}
+              supply-out-0:
+                destination: ${SERVICEBUS_ENTITY_NAME_SAME_AS_ABOVE}
+            servicebus:
+              bindings:
+                consume-in-0:
+                  consumer:
+                    auto-complete: false
+                supply-out-0:
+                  producer:
+                    entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
 
 1. Define supplier and consumer.
@@ -1392,7 +1392,7 @@ spring:
         subscription-id: ${AZURE_SUBSCRIPTION_ID}
       servicebus:
         resource:
-          resource-group: ${AZURE_SERVICEBUS_RESOURECE_GROUP}
+          resource-group: ${AZURE_SERVICEBUS_RESOURCE_GROUP}
     stream:
       servicebus:
         bindings:
@@ -1417,4 +1417,4 @@ public AzureServiceClientBuilderCustomizer<ServiceBusClientBuilder.ServiceBusSes
 
 ### Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus) repository on GitHub.

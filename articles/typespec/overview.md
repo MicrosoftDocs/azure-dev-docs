@@ -2,8 +2,9 @@
 title: Overview of TypeSpec - What is TypeSpec?
 description: Discover how TypeSpec enhances API design with reusable elements, seamless toolchain integration, and a great developer experience.
 ms.topic: overview
-ms.date: 05/27/2025
+ms.date: 03/10/2026
 ms.custom: devx-track-typespec
+ai-usage: ai-assisted
 #customer intent: As a developer or API designer, I want to use TypeSpec to create consistent, high-quality APIs efficiently and integrate them seamlessly with existing toolchains.
 ---
 
@@ -17,6 +18,23 @@ TypeSpec enables you to create modular, reusable components which are concise an
 
 As an open source language, TypeSpec can describe any API, not just Azure APIs. This versatility makes it a valuable tool for API developers, architects, and managers who need to deliver high-quality APIs in a complex and evolving environment.
 
+## Who should read this?
+
+This article is for you if you:
+
+- Build or maintain APIs — whether you're writing them, reviewing them, or managing the process
+- Need to create new APIs, maintain multiple API versions, or ensure consistency across API protocols
+- Want to automate code generation or work with specifications like OpenAPI
+- Use any language — TypeSpec works with .NET, JavaScript, Java, Python, and more. No prior TypeSpec experience needed.
+
+> [!NOTE]
+> **Getting started**
+> - No prior TypeSpec knowledge is required.
+> - Familiarity with OpenAPI or API specification concepts is helpful but not required.
+> - See the quickstart prerequisites for tool requirements.
+
+TypeSpec 1.0 is generally available (GA) with stable core components (`@typespec/compiler`, `@typespec/http`, `@typespec/openapi`) and production-ready emitters (`@typespec/openapi3`, `@typespec/json-schema`). Client and server code generation for .NET, JavaScript, Java, and Python is available in preview, with active development toward full release.
+
 ## Benefits of TypeSpec
 
 * **Simplifies API Development**: Provides a clear and concise way to define APIs, allowing developers to focus on logic and functionality.
@@ -27,6 +45,18 @@ As an open source language, TypeSpec can describe any API, not just Azure APIs. 
 * **Accelerates Migration**: [OpenApiMigration tool](https://typespec.io/docs/emitters/openapi3/cli/#converting-openapi-3-into-typespec) eases transition to TypeSpec for faster adoption.
 
 As an [open-source project](https://github.com/microsoft/typespec/), TypeSpec benefits from community contributions and feedback, ensuring continuous improvement based on real-world use cases.
+
+## What you can do with TypeSpec
+
+You can use TypeSpec to:
+
+1. Design a new OpenAPI 3.0–compliant API from scratch
+1. Migrate an existing OpenAPI spec into TypeSpec for easier maintenance
+1. Generate client libraries for .NET, JavaScript, Java, or Python automatically
+1. Create server stubs for .NET or JavaScript to jumpstart implementation
+1. Reuse API components across multiple API versions to stay consistent
+1. Emit OpenAPI specs that work with Swagger, Postman, Azure API Management, and other industry tools
+1. Extend TypeSpec with custom emitters for your own toolchains
 
 ## API design is challenging
 
@@ -105,6 +135,8 @@ TypeSpec seamlessly integrates with existing industry toolchains, ensuring inter
 
 Developer integrations include a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode) and [Visual Studio](https://marketplace.visualstudio.com/items?itemName=typespec.typespecvs). These integrations provide efficient and error-free coding with features like autocompletion, syntax highlighting, build-time error identification, symbol renaming, and document formatting. For example, when writing TypeSpec definitions in Visual Studio Code, the extension provides real-time autocompletion and syntax highlighting, making it easier to write correct and consistent API definitions.
 
+The VS Code extension also includes quick commands to streamline common tasks: **Create TypeSpec Project**, **Emit from TypeSpec**, **Preview API Documentation**, and **Import TypeSpec from OpenAPI 3**.
+
 :::image type="content" source="media/visual-studio-code-extension.gif" alt-text="Screenshot animation of Visual Studio Code extension for TypeSpec providing autocompletion and syntax highlighting.":::
 
 Additionally, the [TypeSpec Playground](https://typespec.io/playground/) offers an interactive environment where developers can [experiment with TypeSpec syntax and features in real-time](https://typespec.io/playground/?options=%7B%22linterRuleSet%22%3A%7B%22extends%22%3A%5B%22%40typespec%2Fhttp%2Fall%22%5D%7D%7D&sample=HTTP+service). This web-based tool provides immediate feedback and validation, making it easier to learn and adopt TypeSpec. The interactive, hands-on experience provided by the TypeSpec Playground deepens developers' understanding and proficiency, ultimately resulting in more consistent, higher-quality API designs. These tools collectively improve the developer experience by streamlining the development process, reducing the likelihood of errors, and accelerating the learning curve for new team members.
@@ -125,9 +157,12 @@ TypeSpec has been successfully used in various industries to streamline API desi
 - **Finance**: A financial services company adopted TypeSpec to ensure consistency and compliance across their APIs, reducing the time and effort required for API governance.
 - **Healthcare**: A healthcare provider used TypeSpec to design APIs for patient data management, ensuring data consistency and security across their systems.
 
-## Get started
+## Next steps
 
-- [Quickstart: Create a new API project with TypeSpec & .NET](quickstart-scaffold-dotnet.md)
+1. [Quickstart: TypeSpec & .NET](quickstart-scaffold-dotnet.md) — Create an API and generate .NET client and server code
+1. [Quickstart: TypeSpec & TypeScript](quickstart-scaffold-typescript.md) — Set up a TypeSpec project with TypeScript
+1. [TypeSpec Documentation Hub](resources.md) — Explore full docs, examples, and troubleshooting
+1. [TypeSpec for OpenAPI developers](https://typespec.io/docs/getting-started/typespec-for-openapi-dev/) — Migrate existing OpenAPI specs to TypeSpec
 
 ## Open source support
 

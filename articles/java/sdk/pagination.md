@@ -74,7 +74,7 @@ Iterable<PagedResponse<Secret>> secretPages = client.listSecrets().iterableByPag
 for (PagedResponse<Secret> page : secretPages) {
    System.out.println("Response code: " + page.getStatusCode());
    System.out.println("Continuation Token: " + page.getContinuationToken());
-   page.getElements().forEach(secret -> System.out.println("Secret value: " + secret))
+   page.getElements().forEach(secret -> System.out.println("Secret value: " + secret));
 }
 ```
 
@@ -90,7 +90,7 @@ client.listSecrets()
       .forEach(page -> {
           System.out.println("Response code: " + page.getStatusCode());
           System.out.println("Continuation Token: " + page.getContinuationToken());
-          page.getElements().forEach(secret -> System.out.println("Secret value: " + secret))
+          page.getElements().forEach(secret -> System.out.println("Secret value: " + secret));
       });
 ```
 
@@ -118,7 +118,7 @@ asyncClient.listSecrets().byPage()
     .subscribe(page -> {
             System.out.println("Response code: " + page.getStatusCode());
             System.out.println("Continuation Token: " + page.getContinuationToken());
-            page.getElements().forEach(secret -> System.out.println("Secret value: " + secret))
+            page.getElements().forEach(secret -> System.out.println("Secret value: " + secret));
         },
         ex -> System.out.println("Error listing pages with secret: " + ex.getMessage()),
         () -> System.out.println("Successfully listed all pages with secret"));

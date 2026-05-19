@@ -196,7 +196,7 @@ az group delete -n $env:AZURE_RESOURCE_GROUP_NAME --no-wait
 
 ---
 
-You can also use the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code. The commented code at the bottom of the script in this article demonstrates the usage.
+You can also use the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code. The commented code at the bottom of the script in this article demonstrates the usage.
 
 ### For reference: equivalent Azure CLI command
 

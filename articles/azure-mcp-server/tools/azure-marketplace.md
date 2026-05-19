@@ -1,7 +1,6 @@
 ---
 title: Marketplace Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Marketplace to discover and manage marketplace products and offers.
-keywords: azure mcp server, azmcp, marketplace, products, offers, solutions
 ms.service: azure-mcp-server
 ms.date: 12/05/2025
 ms.topic: concept-article
@@ -45,7 +44,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [marketplace product get](../includes/tools/annotations/azure-marketplace-product-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## List Marketplace information
 
@@ -71,7 +70,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [marketplace product list](../includes/tools/annotations/azure-marketplace-product-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 

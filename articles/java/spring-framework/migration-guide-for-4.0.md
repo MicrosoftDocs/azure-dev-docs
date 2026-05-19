@@ -64,7 +64,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>7.0.0</version>
+      <version>7.2.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -83,50 +83,50 @@ In the process of developing Spring Cloud Azure 4.0, we renamed some artifacts t
 The following table shows the mappings between legacy artifact ID and modern artifact ID:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy Artifact ID                                | Modern Artifact ID                                                                         | Description                                                                                                                                                                                                                                                                                                  |
-> |---------------------------------------------------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | azure-spring-boot-starter                         | spring-cloud-azure-starter                                                                 | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-starter` artifact.                                                                                                                                                                                          |
-> | azure-spring-boot-starter-active-directory        | spring-cloud-azure-starter-active-directory                                                | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
-> | azure-spring-boot-starter-active-directory-b2c    | spring-cloud-azure-starter-active-directory-b2c                                            | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
-> | azure-spring-boot-starter-cosmos                  | spring-cloud-azure-starter-data-cosmos                                                     | Renamed the artifact to add `data`, indicating using Spring Data Azure Cosmos DB.                                                                                                                                                                                                                                  |
-> | azure-spring-boot-starter-keyvault-certificates   | not applicable                                                                             | Not included in this release, but will be supported in later version.                                                                                                                                                                                                                                        |
-> | azure-spring-boot-starter-keyvault-secrets        | spring-cloud-azure-starter-keyvault-secrets                                                | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
-> | azure-spring-boot-starter-servicebus-jms          | spring-cloud-azure-starter-servicebus-jms                                                  | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
-> | azure-spring-boot-starter-storage                 | spring-cloud-azure-starter-storage-blob <br/>spring-cloud-azure-starter-storage-file-share | The legacy artifact contains the functionality of both Storage Blob and File Share, it's been spliced into two separate artifacts in 4.0, spring-cloud-azure-starter-storage-blob and spring-cloud-azure-starter-storage-file-share.                                                                         |
-> | azure-spring-boot                                 | not applicable                                                                             | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-autoconfigure` artifact.                                                                                                                                                                                    |
-> | azure-spring-cloud-autoconfigure                  | not applicable                                                                             | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-autoconfigure` artifact.                                                                                                                                                                                    |
-> | azure-spring-cloud-context                        | not applicable                                                                             | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-autoconfigure` and `spring-cloud-azure-resourcemanager` artifacts.                                                                                                                                          |
-> | azure-spring-cloud-messaging                      | spring-messaging-azure                                                                     | The messaging listener annotation has been dropped.                                                                                                                                                                                                                                                          |
-> | azure-spring-cloud-starter-cache                  | not applicable                                                                             | This artifact has been deleted, for using redis, just add spring-boot-starter-data-redis, spring-boot-starter-cache, spring-cloud-azure-resourcemanager and spring-cloud-azure-starter. For more information about usage, see [Spring Cloud Azure Redis support](redis-support.md). |
-> | azure-spring-cloud-starter-eventhubs-kafka        | not applicable                                                                             | This artifact has been deleted, for using kafka, just add spring kafka, spring-cloud-azure-resourcemanager and spring-cloud-azure-starter. For more information about usage, see [Spring Cloud Azure Kafka support](kafka-support.md).                                              |
-> | azure-spring-cloud-starter-eventhubs              | spring-cloud-azure-starter-integration-eventhubs                                           | Renamed the artifact to add `integration`, indicating using Spring Integration with Event Hubs.                                                                                                                                                                                                              |
-> | azure-spring-cloud-starter-servicebus             | spring-cloud-azure-starter-integration-servicebus                                          | Renamed the artifact to add `integration`, indicating using Spring Integration with Service Bus.                                                                                                                                                                                                             |
-> | azure-spring-cloud-starter-storage-queue          | spring-cloud-azure-starter-integration-storage-queue                                       | Renamed the artifact to add `integration`, indicating using Spring Integration with Storage Queue.                                                                                                                                                                                                           |
-> | azure-spring-cloud-storage                        | not applicable                                                                             | This artifact has been deleted with all functionalities merged into the new `spring-cloud-azure-autoconfigure` artifact.                                                                                                                                                                                     |
-> | azure-spring-cloud-stream-binder-eventhubs        | spring-cloud-azure-stream-binder-eventhubs                                                 | This artifact has been refactored using a new design, mainly `spring-cloud-azure-stream-binder-eventhubs` and `spring-cloud-azure-stream-binder-eventhubs-core`.                                                                                                                                             |
-> | azure-spring-cloud-stream-binder-service-core     | spring-cloud-azure-stream-binder-servicebus-core                                           | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
-> | azure-spring-cloud-stream-binder-servicebus-queue | spring-cloud-azure-stream-binder-servicebus                                                | This artifact has been deleted with all functionality be merged into the `spring-cloud-azure-stream-binder-servicebus` artifact.                                                                                                                                                                             |
-> | azure-spring-cloud-stream-binder-servicebus-topic | spring-cloud-azure-stream-binder-servicebus                                                | This artifact has been deleted with all functionality be merged into the `spring-cloud-azure-stream-binder-servicebus` artifact.                                                                                                                                                                             |
-> | azure-spring-integration-core                     | spring-integration-azure-core                                                              | Renamed the artifact.                                                                                                                                                                                                                                                                                        |
-> | azure-spring-integration-eventhubs                | spring-integration-azure-eventhubs                                                         | Rename the artifact.                                                                                                                                                                                                                                                                                         |
-> | azure-spring-integration-servicebus               | spring-integration-azure-servicebus                                                        | Rename the artifact.                                                                                                                                                                                                                                                                                         |
-> | azure-spring-integration-storage-queue            | spring-integration-azure-storage-queue                                                     | Rename the artifact.                                                                                                                                                                                                                                                                                         |
-> | not applicable                                    | spring-cloud-azure-actuator                                                                | The newly added Spring Cloud Azure Actuator artifact.                                                                                                                                                                                                                                                        |
-> | not applicable                                    | spring-cloud-azure-actuator-autoconfigure                                                  | The newly added Spring Cloud Azure Actuator AutoConfigure artifact, including autoconfiguration for actuator.                                                                                                                                                                                                |
-> | not applicable                                    | spring-cloud-azure-autoconfigure                                                           | Newly added Spring Cloud Azure AutoConfigure artifact, including all auto-configuration for SDK clients, Spring Security support, Spring Data support and Spring Integration support.                                                                                                                        |
-> | not applicable                                    | spring-cloud-azure-core                                                                    | Newly added Spring Cloud Azure Core artifact, including all core functionality.                                                                                                                                                                                                                              |
-> | not applicable                                    | spring-cloud-azure-resourcemanager                                                         | Newly added Resource Manager artifact. It's the Core library using Azure Resource Manager to read metadata and create resources.                                                                                                                                                                             |
-> | not applicable                                    | spring-cloud-azure-service                                                                 | Newly added Spring Cloud Azure Service artifact, including abstractions for Azure services.                                                                                                                                                                                                                  |
-> | not applicable                                    | spring-cloud-azure-starter-appconfiguration                                                | Newly added starter for using Azure App Configuration SDK client.                                                                                                                                                                                                                                            |
-> | not applicable                                    | spring-cloud-azure-starter-cosmos                                                          | Newly added starter for using Azure Cosmos DB SDK client.                                                                                                                                                                                                                                                    |
-> | not applicable                                    | spring-cloud-azure-starter-eventhubs                                                       | Newly added starter for using Azure Event Hubs SDK client.                                                                                                                                                                                                                                                   |
-> | not applicable                                    | spring-cloud-azure-starter-servicebus                                                      | Newly added starter for using Azure Service Bus SDK client.                                                                                                                                                                                                                                                  |
-> | not applicable                                    | spring-cloud-azure-starter-storage-blob                                                    | Newly added starter for using Azure Storage Blob SDK client.                                                                                                                                                                                                                                                 |
-> | not applicable                                    | spring-cloud-azure-starter-storage-file-share                                              | Newly added starter for using Azure Storage File Share SDK client.                                                                                                                                                                                                                                           |
-> | not applicable                                    | spring-cloud-azure-starter-storage-queue                                                   | Newly added starter for using Azure Storage Queue SDK client.                                                                                                                                                                                                                                                |
-> | not applicable                                    | spring-cloud-azure-starter-stream-eventhubs                                                | Newly added starter for using Azure Event Hubs Spring Cloud Stream Binder.                                                                                                                                                                                                                                   |
-> | not applicable                                    | spring-cloud-azure-starter-stream-servicebus                                               | Newly added starter for using Azure Service Bus Spring Cloud Stream Binder                                                                                                                                                                                                                                   |
-> | not applicable                                    | spring-cloud-azure-stream-binder-eventhubs-core                                            | Newly added Spring Cloud Stream core artifact for Azure Event Hubs.                                                                                                                                                                                                                                          |
+> | Legacy Artifact ID                                  | Modern Artifact ID                                                                             | Description                                                                                                                                                                                                                                                                         |
+> |-----------------------------------------------------|------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `azure-spring-boot-starter`                         | `spring-cloud-azure-starter`                                                                   | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-starter` artifact.                                                                                                                                                                 |
+> | `azure-spring-boot-starter-active-directory`        | `spring-cloud-azure-starter-active-directory`                                                  | Renamed the artifact.                                                                                                                                                                                                                                                               |
+> | `azure-spring-boot-starter-active-directory-b2c`    | `spring-cloud-azure-starter-active-directory-b2c`                                              | Renamed the artifact.                                                                                                                                                                                                                                                               |
+> | `azure-spring-boot-starter-cosmos`                  | `spring-cloud-azure-starter-data-cosmos`                                                       | Renamed the artifact to add `data`, indicating using Spring Data Azure Cosmos DB.                                                                                                                                                                                                   |
+> | `azure-spring-boot-starter-keyvault-certificates`   | not applicable                                                                                 | Not included in this release, but will be supported in later version.                                                                                                                                                                                                               |
+> | `azure-spring-boot-starter-keyvault-secrets`        | `spring-cloud-azure-starter-keyvault-secrets`                                                  | Renamed the artifact.                                                                                                                                                                                                                                                               |
+> | `azure-spring-boot-starter-servicebus-jms`          | `spring-cloud-azure-starter-servicebus-jms`                                                    | Renamed the artifact.                                                                                                                                                                                                                                                               |
+> | `azure-spring-boot-starter-storage`                 | `spring-cloud-azure-starter-storage-blob` <br/>`spring-cloud-azure-starter-storage-file-share` | The legacy artifact contains the functionality of both Storage Blob and File Share, it's been spliced into two separate artifacts in 4.0, `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-storage-file-share`.                                            |
+> | `azure-spring-boot`                                 | not applicable                                                                                 | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-autoconfigure` artifact.                                                                                                                                                           |
+> | `azure-spring-cloud-autoconfigure`                  | not applicable                                                                                 | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-autoconfigure` artifact.                                                                                                                                                           |
+> | `azure-spring-cloud-context`                        | not applicable                                                                                 | This artifact has been deleted with all functionality be merged into the new `spring-cloud-azure-autoconfigure` and `spring-cloud-azure-resourcemanager` artifacts.                                                                                                                 |
+> | `azure-spring-cloud-messaging`                      | `spring-messaging-azure`                                                                       | The messaging listener annotation has been dropped.                                                                                                                                                                                                                                 |
+> | `azure-spring-cloud-starter-cache`                  | not applicable                                                                                 | This artifact has been deleted, for using redis, just add `spring-boot-starter-data-redis`, `spring-boot-starter-cache`, `spring-cloud-azure-resourcemanager`, and `spring-cloud-azure-starter`. For more information about usage, see [Spring Cloud Azure Redis support](redis-support.md). |
+> | `azure-spring-cloud-starter-eventhubs-kafka`        | not applicable                                                                                 | This artifact has been deleted, for using kafka, just add spring kafka, `spring-cloud-azure-resourcemanager`, and `spring-cloud-azure-starter`. For more information about usage, see [Spring Cloud Azure Kafka support](kafka-support.md).                                              |
+> | `azure-spring-cloud-starter-eventhubs`              | `spring-cloud-azure-starter-integration-eventhubs`                                             | Renamed the artifact to add `integration`, indicating using Spring Integration with Event Hubs.                                                                                                                                                                                     |
+> | `azure-spring-cloud-starter-servicebus`             | `spring-cloud-azure-starter-integration-servicebus`                                            | Renamed the artifact to add `integration`, indicating using Spring Integration with Service Bus.                                                                                                                                                                                    |
+> | `azure-spring-cloud-starter-storage-queue`          | `spring-cloud-azure-starter-integration-storage-queue`                                         | Renamed the artifact to add `integration`, indicating using Spring Integration with Storage Queue.                                                                                                                                                                                  |
+> | `azure-spring-cloud-storage`                        | not applicable                                                                                 | This artifact has been deleted with all functionalities merged into the new `spring-cloud-azure-autoconfigure` artifact.                                                                                                                                                            |
+> | `azure-spring-cloud-stream-binder-eventhubs`        | `spring-cloud-azure-stream-binder-eventhubs`                                                   | This artifact has been refactored using a new design, mainly `spring-cloud-azure-stream-binder-eventhubs` and `spring-cloud-azure-stream-binder-eventhubs-core`.                                                                                                                    |
+> | `azure-spring-cloud-stream-binder-service-core`     | `spring-cloud-azure-stream-binder-servicebus-core`                                             | Renamed the artifact.                                                                                                                                                                                                                                                               |
+> | `azure-spring-cloud-stream-binder-servicebus-queue` | `spring-cloud-azure-stream-binder-servicebus`                                                  | This artifact has been deleted with all functionality be merged into the `spring-cloud-azure-stream-binder-servicebus` artifact.                                                                                                                                                    |
+> | `azure-spring-cloud-stream-binder-servicebus-topic` | `spring-cloud-azure-stream-binder-servicebus`                                                  | This artifact has been deleted with all functionality be merged into the `spring-cloud-azure-stream-binder-servicebus` artifact.                                                                                                                                                    |
+> | `azure-spring-integration-core`                     | `spring-integration-azure-core`                                                                | Renamed the artifact.                                                                                                                                                                                                                                                               |
+> | `azure-spring-integration-eventhubs`                | `spring-integration-azure-eventhubs`                                                           | Rename the artifact.                                                                                                                                                                                                                                                                |
+> | `azure-spring-integration-servicebus`               | `spring-integration-azure-servicebus`                                                          | Rename the artifact.                                                                                                                                                                                                                                                                |
+> | `azure-spring-integration-storage-queue`            | `spring-integration-azure-storage-queue`                                                       | Rename the artifact.                                                                                                                                                                                                                                                                |
+> | not applicable                                      | `spring-cloud-azure-actuator`                                                                  | The newly added Spring Cloud Azure Actuator artifact.                                                                                                                                                                                                                               |
+> | not applicable                                      | `spring-cloud-azure-actuator-autoconfigure`                                                    | The newly added Spring Cloud Azure Actuator AutoConfigure artifact, including autoconfiguration for actuator.                                                                                                                                                                       |
+> | not applicable                                      | `spring-cloud-azure-autoconfigure`                                                             | Newly added Spring Cloud Azure AutoConfigure artifact, including all auto-configuration for SDK clients, Spring Security support, Spring Data support and Spring Integration support.                                                                                               |
+> | not applicable                                      | `spring-cloud-azure-core`                                                                      | Newly added Spring Cloud Azure Core artifact, including all core functionality.                                                                                                                                                                                                     |
+> | not applicable                                      | `spring-cloud-azure-resourcemanager`                                                           | Newly added Resource Manager artifact. It's the Core library using Azure Resource Manager to read metadata and create resources.                                                                                                                                                    |
+> | not applicable                                      | `spring-cloud-azure-service`                                                                   | Newly added Spring Cloud Azure Service artifact, including abstractions for Azure services.                                                                                                                                                                                         |
+> | not applicable                                      | `spring-cloud-azure-starter-appconfiguration`                                                  | Newly added starter for using Azure App Configuration SDK client.                                                                                                                                                                                                                   |
+> | not applicable                                      | `spring-cloud-azure-starter-cosmos`                                                            | Newly added starter for using Azure Cosmos DB SDK client.                                                                                                                                                                                                                           |
+> | not applicable                                      | `spring-cloud-azure-starter-eventhubs`                                                         | Newly added starter for using Azure Event Hubs SDK client.                                                                                                                                                                                                                          |
+> | not applicable                                      | `spring-cloud-azure-starter-servicebus`                                                        | Newly added starter for using Azure Service Bus SDK client.                                                                                                                                                                                                                         |
+> | not applicable                                      | `spring-cloud-azure-starter-storage-blob`                                                      | Newly added starter for using Azure Storage Blob SDK client.                                                                                                                                                                                                                        |
+> | not applicable                                      | `spring-cloud-azure-starter-storage-file-share`                                                | Newly added starter for using Azure Storage File Share SDK client.                                                                                                                                                                                                                  |
+> | not applicable                                      | `spring-cloud-azure-starter-storage-queue`                                                     | Newly added starter for using Azure Storage Queue SDK client.                                                                                                                                                                                                                       |
+> | not applicable                                      | `spring-cloud-azure-starter-stream-eventhubs`                                                  | Newly added starter for using Azure Event Hubs Spring Cloud Stream Binder.                                                                                                                                                                                                          |
+> | not applicable                                      | `spring-cloud-azure-starter-stream-servicebus`                                                 | Newly added starter for using Azure Service Bus Spring Cloud Stream Binder                                                                                                                                                                                                          |
+> | not applicable                                      | `spring-cloud-azure-stream-binder-eventhubs-core`                                              | Newly added Spring Cloud Stream core artifact for Azure Event Hubs.                                                                                                                                                                                                                 |
 
 ## Dependencies changes
 
@@ -134,9 +134,9 @@ Some unnecessary dependencies were included in the legacy artifacts, which we've
 
 Libraries that have dependency changes include:
 
-* [spring-cloud-azure-starter](#dependency-changes)
-* [spring-cloud-azure-starter-active-directory](#dependency-changes-1)
-* [spring-cloud-azure-starter-active-directory-b2c](#dependency-changes-2)
+* [`spring-cloud-azure-starter`](#dependency-changes)
+* [`spring-cloud-azure-starter-active-directory`](#dependency-changes-1)
+* [`spring-cloud-azure-starter-active-directory-b2c`](#dependency-changes-2)
 
 ## Authentication changes
 
@@ -151,7 +151,7 @@ A chained credential, the `DefaultAzureCredential` bean is auto-configured by de
 
 ### Properties migration
 
-We've created an **additional-spring-configuration-metadata.json** file to smooth the property migration when using with `spring-boot-properties-migrator`. First, add the following property migrator to your application:
+We've created an `additional-spring-configuration-metadata.json` file to smooth the property migration when using with `spring-boot-properties-migrator`. First, add the following property migrator to your application:
 
 ```xml
 <dependency>
@@ -178,13 +178,14 @@ Before you move on, it's a good idea to use the search feature of your IDE to do
 
 The modern `spring-cloud-azure-starter` enables you to define properties that apply to all Azure SDKs in the namespace `spring.cloud.azure`. This feature wasn't supported in the legacy `azure-spring-boot-starter`. The global configurations can be divided into five categories, shown in the following table:
 
-| Prefix                          | Description                                                   |
-|---------------------------------|---------------------------------------------------------------|
-| *spring.cloud.azure*.client     | Configures the transport clients underneath each Azure SDK.   |
-| *spring.cloud.azure*.credential | Configures how to authenticate with Microsoft Entra ID.   |
-| *spring.cloud.azure*.profile    | Configures the Azure cloud environment.                       |
-| *spring.cloud.azure*.proxy      | Configures the proxy options, apply to all Azure SDK clients. |
-| *spring.cloud.azure*.retry      | Configures the retry options, apply to all Azure SDK clients. The retry options have supported part of the SDKs, there's no `spring.cloud.azure.cosmos.retry`. |
+> [!div class="mx-tdBreakAll"]
+> | Prefix                          | Description                                                   |
+> |---------------------------------|---------------------------------------------------------------|
+> | `spring.cloud.azure.client`     | Configures the transport clients underneath each Azure SDK.   |
+> | `spring.cloud.azure.credential` | Configures how to authenticate with Microsoft Entra ID.       |
+> | `spring.cloud.azure.profile`    | Configures the Azure cloud environment.                       |
+> | `spring.cloud.azure.proxy`      | Configures the proxy options, apply to all Azure SDK clients. |
+> | `spring.cloud.azure.retry`      | Configures the retry options, apply to all Azure SDK clients. The retry options have supported part of the SDKs, there's no `spring.cloud.azure.cosmos.retry`. |
 
 For a full list of configurations, see [Spring Cloud Azure configuration properties](./configuration-properties-all.md).
 
@@ -192,42 +193,42 @@ For a full list of configurations, see [Spring Cloud Azure configuration propert
 
 For details about the configuration options at the SDK level, use the following links:
 
-* [From azure-spring-boot-starter-active-directory to spring-cloud-azure-starter-active-directory](#sdk-configuration-changes)
-* [From azure-spring-boot-starter-active-directory-b2c to spring-cloud-azure-starter-active-directory-b2c](#sdk-configuration-changes-1)
-* [From azure-spring-boot-starter-cosmos to spring-cloud-azure-starter-data-cosmos](#sdk-configuration-changes-2)
-* [From azure-spring-boot-starter-keyvault-secrets to spring-cloud-azure-starter-keyvault-secrets](#sdk-configuration-changes-3)
-* [From azure-spring-boot-starter-servicebus-jms to spring-cloud-azure-starter-servicebus-jms](#sdk-configuration-changes-4)
-* [From azure-spring-boot-starter-storage to spring-cloud-azure-starter-storage-blob](#sdk-configuration-changes-5)
-* [From azure-spring-boot-starter-storage to spring-cloud-azure-starter-storage-file-share](#sdk-configuration-changes-6)
-* [From azure-spring-cloud-starter-eventhubs to spring-cloud-azure-starter-integration-eventhubs](#sdk-configuration-changes-7)
-* [From azure-spring-cloud-starter-servicebus to spring-cloud-azure-starter-integration-servicebus](#sdk-configuration-changes-8)
-* [From azure-spring-cloud-starter-storage-queue to spring-cloud-azure-starter-integration-storage-queue](#sdk-configuration-changes-9)
-* [From azure-spring-cloud-stream-binder-eventhubs to spring-cloud-azure-stream-binder-eventhubs](#sdk-configuration-changes-10)
-* [From azure-spring-cloud-stream-binder-servicebus-* to spring-cloud-azure-stream-binder-servicebus](#sdk-configuration-changes-11)
+* [From `azure-spring-boot-starter-active-directory` to `spring-cloud-azure-starter-active-directory`](#sdk-configuration-changes)
+* [From `azure-spring-boot-starter-active-directory-b2c` to `spring-cloud-azure-starter-active-directory-b2c`](#sdk-configuration-changes-1)
+* [From `azure-spring-boot-starter-cosmos` to `spring-cloud-azure-starter-data-cosmos`](#sdk-configuration-changes-2)
+* [From `azure-spring-boot-starter-keyvault-secrets` to `spring-cloud-azure-starter-keyvault-secrets`](#sdk-configuration-changes-3)
+* [From `azure-spring-boot-starter-servicebus-jms` to `spring-cloud-azure-starter-servicebus-jms`](#sdk-configuration-changes-4)
+* [From `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-blob`](#sdk-configuration-changes-5)
+* [From `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-file-share`](#sdk-configuration-changes-6)
+* [From `azure-spring-cloud-starter-eventhubs` to `spring-cloud-azure-starter-integration-eventhubs`](#sdk-configuration-changes-7)
+* [From `azure-spring-cloud-starter-servicebus` to `spring-cloud-azure-starter-integration-servicebus`](#sdk-configuration-changes-8)
+* [From `azure-spring-cloud-starter-storage-queue` to `spring-cloud-azure-starter-integration-storage-queue`](#sdk-configuration-changes-9)
+* [From `azure-spring-cloud-stream-binder-eventhubs` to `spring-cloud-azure-stream-binder-eventhubs`](#sdk-configuration-changes-10)
+* [From `azure-spring-cloud-stream-binder-servicebus-*` to `spring-cloud-azure-stream-binder-servicebus`](#sdk-configuration-changes-11)
 
 ## API breaking changes
 
 For details about API breaking changes in each library, use the following links:
 
-* [From azure-spring-boot-starter-active-directory to spring-cloud-azure-starter-active-directory](#api-changes)
-* [From azure-spring-boot-starter-active-directory-b2c to spring-cloud-azure-starter-active-directory-b2c](#api-changes-1)
-* [From azure-spring-boot-starter-storage to spring-cloud-azure-starter-storage-blob](#api-changes-2)
-* [From azure-spring-boot-starter-storage to spring-cloud-azure-starter-storage-file-share](#api-changes-3)
-* [From azure-spring-cloud-starter-eventhubs to spring-cloud-azure-starter-integration-eventhubs](#api-changes-4)
-* [From azure-spring-integration-eventhubs to spring-integration-azure-eventhubs](#api-changes-5)
-* [From azure-spring-cloud-starter-servicebus to spring-cloud-azure-starter-integration-servicebus](#api-changes-6)
-* [From azure-spring-integration-servicebus to spring-integration-azure-servicebus](#api-changes-7)
-* [From azure-spring-cloud-starter-storage-queue to spring-cloud-azure-starter-integration-storage-queue](#api-changes-8)
-* [From azure-spring-integration-storage-queue to spring-integration-azure-storage-queue](#api-changes-9)
-* [From azure-spring-cloud-stream-binder-eventhubs to spring-cloud-azure-stream-binder-eventhubs](#api-changes-10)
-* [From azure-spring-cloud-stream-binder-servicebus-* to spring-cloud-azure-stream-binder-servicebus](#api-changes-11)
+* [From `azure-spring-boot-starter-active-directory` to `spring-cloud-azure-starter-active-directory`](#api-changes)
+* [From `azure-spring-boot-starter-active-directory-b2c` to `spring-cloud-azure-starter-active-directory-b2c`](#api-changes-1)
+* [From `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-blob`](#api-changes-2)
+* [From `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-file-share`](#api-changes-3)
+* [From `azure-spring-cloud-starter-eventhubs` to `spring-cloud-azure-starter-integration-eventhubs`](#api-changes-4)
+* [From `azure-spring-integration-eventhubs` to `spring-integration-azure-eventhubs`](#api-changes-5)
+* [From `azure-spring-cloud-starter-servicebus` to `spring-cloud-azure-starter-integration-servicebus`](#api-changes-6)
+* [From `azure-spring-integration-servicebus` to `spring-integration-azure-servicebus`](#api-changes-7)
+* [From `azure-spring-cloud-starter-storage-queue` to `spring-cloud-azure-starter-integration-storage-queue`](#api-changes-8)
+* [From `azure-spring-integration-storage-queue` to `spring-integration-azure-storage-queue`](#api-changes-9)
+* [From `azure-spring-cloud-stream-binder-eventhubs` to `spring-cloud-azure-stream-binder-eventhubs`](#api-changes-10)
+* [From `azure-spring-cloud-stream-binder-servicebus-*` to `spring-cloud-azure-stream-binder-servicebus`](#api-changes-11)
 
 ## Library changes
 Breaking changes in each library are introduced as follows.
 
-### From azure-spring-boot-starter to spring-cloud-azure-starter
-This guide is intended to assist in the migration to [spring-cloud-azure-starter](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter) from
-version 3 of [azure-spring-boot-starter](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter).
+### From `azure-spring-boot-starter` to `spring-cloud-azure-starter`
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter) from
+version 3 of [`azure-spring-boot-starter`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter).
 
 For general information, use the following links:
 
@@ -245,14 +246,14 @@ Some unnecessary dependencies were included in the legacy artifacts, which we ha
 The following table shows the Removed dependencies:
 
 > [!div class="mx-tdBreakAll"]
-> | Removed dependencies                                    | Description                                                                   |
-> |---------------------------------------------------------|-------------------------------------------------------------------------------|
-> | org.springframework.boot:spring-boot-starter-validation | Include the validation starter if you want to use Hibernate Validator. |
+> | Removed dependencies                                      | Description                                                            |
+> |-----------------------------------------------------------|------------------------------------------------------------------------|
+> | `org.springframework.boot:spring-boot-starter-validation` | Include the validation starter if you want to use Hibernate Validator. |
 
-### From azure-spring-boot-starter-active-directory to spring-cloud-azure-starter-active-directory
+### From `azure-spring-boot-starter-active-directory` to `spring-cloud-azure-starter-active-directory`
 
-This guide is intended to assist the migration to [spring-cloud-azure-starter-active-directory](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory) from
-version 3 of [azure-spring-boot-starter-active-directory](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory).
+This guide is intended to assist the migration to [`spring-cloud-azure-starter-active-directory`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory) from
+version 3 of [`azure-spring-boot-starter-active-directory`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory).
 
 For general information, use the following links:
 
@@ -270,12 +271,12 @@ Some unnecessary dependencies in the legacy artifact have been removed since the
 The following table shows the Removed dependencies:
 
 > [!div class="mx-tdBreakAll"]
-> | Removed dependencies                                    | Description                                    |
-> |---------------------------------------------------------|------------------------------------------------|
-> | com.fasterxml.jackson.core:jackson-databind             | Add this dependency to your project if needed. |
-> | io.projectreactor.netty:reactor-netty                   | Add this dependency to your project if needed. |
-> | org.springframework.boot:spring-boot-starter-validation | Add this dependency to your project if needed. |
-> | org.springframework.boot:spring-boot-starter-webflux    | Add this dependency to your project if needed. |
+> | Removed dependencies                                      | Description                                    |
+> |-----------------------------------------------------------|------------------------------------------------|
+> | `com.fasterxml.jackson.core:jackson-databind`             | Add this dependency to your project if needed. |
+> | `io.projectreactor.netty:reactor-netty`                   | Add this dependency to your project if needed. |
+> | `org.springframework.boot:spring-boot-starter-validation` | Add this dependency to your project if needed. |
+> | `org.springframework.boot:spring-boot-starter-webflux`    | Add this dependency to your project if needed. |
 
 #### SDK configuration changes
 
@@ -288,33 +289,33 @@ This section includes the changes about the properties added, removed and change
 The following table shows the property mappings between `azure-spring-boot-starter-active-directory` and `spring-cloud-azure-starter-active-directory`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy properties                                                                      | Modern properties                                                                                    |
-> |----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-> | azure.activedirectory.app-id-uri                                                       | spring.cloud.azure.active-directory.app-id-uri                                                       |
-> | azure.activedirectory.application-type                                                 | spring.cloud.azure.active-directory.application-type                                                 |
-> | azure.activedirectory.authorization-clients                                            | spring.cloud.azure.active-directory.authorization-clients                                            |
-> | azure.activedirectory.authorization-clients.AZURE_CLIENT_NAME.authorization-grant-type | spring.cloud.azure.active-directory.authorization-clients.AZURE_CLIENT_NAME.authorization-grant-type |
-> | azure.activedirectory.authorization-clients.AZURE_CLIENT_NAME.on-demand                | spring.cloud.azure.active-directory.authorization-clients.AZURE_CLIENT_NAME.on-demand                |
-> | azure.activedirectory.authorization-clients.AZURE_CLIENT_NAME.scopes                   | spring.cloud.azure.active-directory.authorization-clients.AZURE_CLIENT_NAME.scopes                   |
-> | azure.activedirectory.authenticate-additional-parameters                               | spring.cloud.azure.active-directory.authenticate-additional-parameters                               |
-> | azure.activedirectory.base-uri                                                         | spring.cloud.azure.active-directory.profile.environment.active-directory-endpoint                    |
-> | azure.activedirectory.client-id                                                        | spring.cloud.azure.active-directory.credential.client-id                                             |
-> | azure.activedirectory.client-secret                                                    | spring.cloud.azure.active-directory.credential.client-secret                                         |
-> | azure.activedirectory.graph-membership-uri                                             | Check the following table for more information.                                                      |
-> | azure.activedirectory.jwt-connect-timeout                                              | spring.cloud.azure.active-directory.jwt-connect-timeout.                                             |
-> | azure.activedirectory.jwt-read-timeout                                                 | spring.cloud.azure.active-directory.jwt-read-timeout.                                                |
-> | azure.activedirectory.jwt-size-limit                                                   | spring.cloud.azure.active-directory.jwt-size-limit.                                                  |
-> | azure.activedirectory.jwk-set-cache-lifespan                                           | spring.cloud.azure.active-directory.jwk-set-cache-lifespan.                                          |
-> | azure.activedirectory.jwk-set-cache-refresh-time                                       | spring.cloud.azure.active-directory.jwk-set-cache-refresh-time                                       |
-> | azure.activedirectory.post-logout-redirect-uri                                         | spring.cloud.azure.active-directory.post-logout-redirect-uri                                         |
-> | azure.activedirectory.session-stateless                                                | spring.cloud.azure.active-directory.session-stateless                                                |
-> | azure.activedirectory.redirect-uri-template                                            | spring.cloud.azure.active-directory.redirect-uri-template                                            |
-> | azure.activedirectory.resource-server.claim-to-authority-prefix-map                    | spring.cloud.azure.active-directory.resource-server.claim-to-authority-prefix-map                    |
-> | azure.activedirectory.resource-server.principal-claim-name                             | spring.cloud.azure.active-directory.resource-server.principal-claim-name                             |
-> | azure.activedirectory.tenant-id                                                        | spring.cloud.azure.active-directory.profile.tenant-id                                                |
-> | azure.activedirectory.user-group.allowed-group-ids                                     | spring.cloud.azure.active-directory.user-group.allowed-group-ids                                     |
-> | azure.activedirectory.user-group.allowed-group-names                                   | spring.cloud.azure.active-directory.user-group.allowed-group-names                                   |
-> | azure.activedirectory.user-name-attribute                                              | spring.cloud.azure.active-directory.user-name-attribute                                              |
+> | Legacy properties                                                                        | Modern properties                                                                                      |
+> |------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+> | `azure.activedirectory.app-id-uri`                                                       | `spring.cloud.azure.active-directory.app-id-uri`                                                       |
+> | `azure.activedirectory.application-type`                                                 | `spring.cloud.azure.active-directory.application-type`                                                 |
+> | `azure.activedirectory.authorization-clients`                                            | `spring.cloud.azure.active-directory.authorization-clients`                                            |
+> | `azure.activedirectory.authorization-clients.AZURE_CLIENT_NAME.authorization-grant-type` | `spring.cloud.azure.active-directory.authorization-clients.AZURE_CLIENT_NAME.authorization-grant-type` |
+> | `azure.activedirectory.authorization-clients.AZURE_CLIENT_NAME.on-demand`                | `spring.cloud.azure.active-directory.authorization-clients.AZURE_CLIENT_NAME.on-demand`                |
+> | `azure.activedirectory.authorization-clients.AZURE_CLIENT_NAME.scopes`                   | `spring.cloud.azure.active-directory.authorization-clients.AZURE_CLIENT_NAME.scopes`                   |
+> | `azure.activedirectory.authenticate-additional-parameters`                               | `spring.cloud.azure.active-directory.authenticate-additional-parameters`                               |
+> | `azure.activedirectory.base-uri`                                                         | `spring.cloud.azure.active-directory.profile.environment.active-directory-endpoint`                    |
+> | `azure.activedirectory.client-id`                                                        | `spring.cloud.azure.active-directory.credential.client-id`                                             |
+> | `azure.activedirectory.client-secret`                                                    | `spring.cloud.azure.active-directory.credential.client-secret`                                         |
+> | `azure.activedirectory.graph-membership-uri`                                             | Check the following table for more information.                                                        |
+> | `azure.activedirectory.jwt-connect-timeout`                                              | `spring.cloud.azure.active-directory.jwt-connect-timeout`                                              |
+> | `azure.activedirectory.jwt-read-timeout`                                                 | `spring.cloud.azure.active-directory.jwt-read-timeout`                                                 |
+> | `azure.activedirectory.jwt-size-limit`                                                   | `spring.cloud.azure.active-directory.jwt-size-limit`                                                   |
+> | `azure.activedirectory.jwk-set-cache-lifespan`                                           | `spring.cloud.azure.active-directory.jwk-set-cache-lifespan`                                           |
+> | `azure.activedirectory.jwk-set-cache-refresh-time`                                       | `spring.cloud.azure.active-directory.jwk-set-cache-refresh-time`                                       |
+> | `azure.activedirectory.post-logout-redirect-uri`                                         | `spring.cloud.azure.active-directory.post-logout-redirect-uri`                                         |
+> | `azure.activedirectory.session-stateless`                                                | `spring.cloud.azure.active-directory.session-stateless`                                                |
+> | `azure.activedirectory.redirect-uri-template`                                            | `spring.cloud.azure.active-directory.redirect-uri-template`                                            |
+> | `azure.activedirectory.resource-server.claim-to-authority-prefix-map`                    | `spring.cloud.azure.active-directory.resource-server.claim-to-authority-prefix-map`                    |
+> | `azure.activedirectory.resource-server.principal-claim-name`                             | `spring.cloud.azure.active-directory.resource-server.principal-claim-name`                             |
+> | `azure.activedirectory.tenant-id`                                                        | `spring.cloud.azure.active-directory.profile.tenant-id`                                                |
+> | `azure.activedirectory.user-group.allowed-group-ids`                                     | `spring.cloud.azure.active-directory.user-group.allowed-group-ids`                                     |
+> | `azure.activedirectory.user-group.allowed-group-names`                                   | `spring.cloud.azure.active-directory.user-group.allowed-group-names`                                   |
+> | `azure.activedirectory.user-name-attribute`                                              | `spring.cloud.azure.active-directory.user-name-attribute`                                              |
 
 * The value type of the following properties is changed from `long` to `Duration`:
 
@@ -325,16 +326,16 @@ The following table shows the property mappings between `azure-spring-boot-start
 
 * The following properties are removed:
 
-    * azure.activedirectory.allow-telemetry
-    * azure.activedirectory.user-group.enable-full-list
-    * azure.activedirectory.graph-base-uri
-    * azure.activedirectory.graph-membership-uri
+    * `azure.activedirectory.allow-telemetry`
+    * `azure.activedirectory.user-group.enable-full-list`
+    * `azure.activedirectory.graph-base-uri`
+    * `azure.activedirectory.graph-membership-uri`
 
 * The following properties are added:
 
-    * spring.cloud.azure.active-directory.enabled
-    * spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint
-    * spring.cloud.azure.active-directory.user-group.use-transitive-members
+    * `spring.cloud.azure.active-directory.enabled`
+    * `spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint`
+    * `spring.cloud.azure.active-directory.user-group.use-transitive-members`
 
 > [!NOTE]
 > The function of `azure.activedirectory.graph-membership-uri` has been replaced by 2 properties: `spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint` and `spring.cloud.azure.active-directory.user-group.use-transitive-members`. The first property is used to specify the host name, and the second a flag for using the URL path: `v1.0/me/memberOf` or `v1.0/me/transitiveMemberOf`.
@@ -347,8 +348,8 @@ Here are some examples of migration:
     azure.activedirectory.graph-membership-uri=https://graph.microsoft.com/v1.0/me/memberOf
 
   * For modern:
-    spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=`https://graph.microsoft.com/` +
-    spring.cloud.azure.active-directory.user-group.use-transitive-members=`false`
+    `spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=https://graph.microsoft.com/` +
+    `spring.cloud.azure.active-directory.user-group.use-transitive-members=false`
 
 * Example 2. Case 2
 
@@ -356,43 +357,43 @@ Here are some examples of migration:
     azure.activedirectory.graph-membership-uri=https://graph.microsoft.com/v1.0/me/transitiveMemberOf
 
   * For modern:
-    spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=`https://graph.microsoft.com/` +
-      spring.cloud.azure.active-directory.user-group.use-transitive-members=`true`
+    `spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=https://graph.microsoft.com/` +
+      `spring.cloud.azure.active-directory.user-group.use-transitive-members=true`
 
 #### API changes
 
 The following table shows the class mappings from `azure-spring-boot-starter-active-directory` to `spring-cloud-azure-starter-active-directory`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                               | Modern class                                                                                  |
-> |----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-> | com.azure.spring.aad.webapi.AADJwtBearerTokenAuthenticationConverter       | com.azure.spring.cloud.autoconfigure.aad.AadJwtBearerTokenAuthenticationConverter             |
-> | com.azure.spring.aad.webapi.AADResourceServerProperties                    | com.azure.spring.cloud.autoconfigure.aad.properties.AadResourceServerProperties               |
-> | com.azure.spring.aad.webapi.AADResourceServerWebSecurityConfigurerAdapter  | com.azure.spring.cloud.autoconfigure.aad.AadResourceServerWebSecurityConfigurerAdapter |
-> | com.azure.spring.aad.webapp.AADWebSecurityConfigurerAdapter                | com.azure.spring.cloud.autoconfigure.aad.AadWebSecurityConfigurerAdapter               |
-> | com.azure.spring.aad.webapp.AuthorizationClientProperties                  | com.azure.spring.cloud.autoconfigure.aad.properties.AuthorizationClientProperties             |
-> | com.azure.spring.aad.AADApplicationType                                    | com.azure.spring.cloud.autoconfigure.aad.properties.AadApplicationType                        |
-> | com.azure.spring.aad.AADAuthorizationGrantType                             | com.azure.spring.cloud.autoconfigure.aad.properties.AadAuthorizationGrantType                 |
-> | com.azure.spring.aad.AADAuthorizationServerEndpoints                       | com.azure.spring.cloud.autoconfigure.aad.properties.AadAuthorizationServerEndpoints           |
-> | com.azure.spring.aad.AADClientRegistrationRepository                       | com.azure.spring.cloud.autoconfigure.aad.AadClientRegistrationRepository                      |
-> | com.azure.spring.aad.AADTrustedIssuerRepository                            | com.azure.spring.cloud.autoconfigure.aad.AadTrustedIssuerRepository                           |
-> | com.azure.spring.autoconfigure.aad.AADAppRoleStatelessAuthenticationFilter | com.azure.spring.cloud.autoconfigure.aad.filter.AadAppRoleStatelessAuthenticationFilter       |
-> | com.azure.spring.autoconfigure.aad.AADAuthenticationFilter                 | com.azure.spring.cloud.autoconfigure.aad.filter.AadAuthenticationFilter                       |
-> | com.azure.spring.autoconfigure.aad.AADAuthenticationProperties             | com.azure.spring.cloud.autoconfigure.aad.properties.AadAuthenticationProperties               |
-> | com.azure.spring.autoconfigure.aad.UserPrincipal                           | com.azure.spring.cloud.autoconfigure.aad.filter.UserPrincipal                                 |
-> | com.azure.spring.autoconfigure.aad.UserPrincipalManager                    | com.azure.spring.cloud.autoconfigure.aad.filter.UserPrincipalManager                          |
+> | Legacy class                                                                 | Modern class                                                                              |
+> |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+> | `com.azure.spring.aad.webapi.AADJwtBearerTokenAuthenticationConverter`       | `com.azure.spring.cloud.autoconfigure.aad.AadJwtBearerTokenAuthenticationConverter`       |
+> | `com.azure.spring.aad.webapi.AADResourceServerProperties`                    | `com.azure.spring.cloud.autoconfigure.aad.properties.AadResourceServerProperties`         |
+> | `com.azure.spring.aad.webapi.AADResourceServerWebSecurityConfigurerAdapter`  | `com.azure.spring.cloud.autoconfigure.aad.AadResourceServerWebSecurityConfigurerAdapter`  |
+> | `com.azure.spring.aad.webapp.AADWebSecurityConfigurerAdapter`                | `com.azure.spring.cloud.autoconfigure.aad.AadWebSecurityConfigurerAdapter`                |
+> | `com.azure.spring.aad.webapp.AuthorizationClientProperties`                  | `com.azure.spring.cloud.autoconfigure.aad.properties.AuthorizationClientProperties`       |
+> | `com.azure.spring.aad.AADApplicationType`                                    | `com.azure.spring.cloud.autoconfigure.aad.properties.AadApplicationType`                  |
+> | `com.azure.spring.aad.AADAuthorizationGrantType`                             | `com.azure.spring.cloud.autoconfigure.aad.properties.AadAuthorizationGrantType`           |
+> | `com.azure.spring.aad.AADAuthorizationServerEndpoints`                       | `com.azure.spring.cloud.autoconfigure.aad.properties.AadAuthorizationServerEndpoints`     |
+> | `com.azure.spring.aad.AADClientRegistrationRepository`                       | `com.azure.spring.cloud.autoconfigure.aad.AadClientRegistrationRepository`                |
+> | `com.azure.spring.aad.AADTrustedIssuerRepository`                            | `com.azure.spring.cloud.autoconfigure.aad.AadTrustedIssuerRepository`                     |
+> | `com.azure.spring.autoconfigure.aad.AADAppRoleStatelessAuthenticationFilter` | `com.azure.spring.cloud.autoconfigure.aad.filter.AadAppRoleStatelessAuthenticationFilter` |
+> | `com.azure.spring.autoconfigure.aad.AADAuthenticationFilter`                 | `com.azure.spring.cloud.autoconfigure.aad.filter.AadAuthenticationFilter`                 |
+> | `com.azure.spring.autoconfigure.aad.AADAuthenticationProperties`             | `com.azure.spring.cloud.autoconfigure.aad.properties.AadAuthenticationProperties`         |
+> | `com.azure.spring.autoconfigure.aad.UserPrincipal`                           | `com.azure.spring.cloud.autoconfigure.aad.filter.UserPrincipal`                           |
+> | `com.azure.spring.autoconfigure.aad.UserPrincipalManager`                    | `com.azure.spring.cloud.autoconfigure.aad.filter.UserPrincipalManager`                    |
 
-This section lists the removed classes from azure-spring-boot-starter-active-directory.
+This section lists the removed classes from `azure-spring-boot-starter-active-directory`.
 
 * Removed legacy class
 
-  * com.azure.spring.aad.webapp.AADHandleConditionalAccessFilter
-  * com.azure.spring.aad.webapi.validator.AADJwtAudienceValidator
-  * com.azure.spring.aad.webapi.validator.AADJwtClaimValidator
+  * `com.azure.spring.aad.webapp.AADHandleConditionalAccessFilter`
+  * `com.azure.spring.aad.webapi.validator.AADJwtAudienceValidator`
+  * `com.azure.spring.aad.webapi.validator.AADJwtClaimValidator`
 
-### From azure-spring-boot-starter-active-directory-b2c to spring-cloud-azure-starter-active-directory-b2c
+### From `azure-spring-boot-starter-active-directory-b2c` to `spring-cloud-azure-starter-active-directory-b2c`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-active-directory-b2c](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory-b2c) from version 3 of [azure-spring-boot-starter-active-directory-b2c](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory-b2c).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-active-directory-b2c`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory-b2c) from version 3 of [`azure-spring-boot-starter-active-directory-b2c`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory-b2c).
 
 For general information, use the following links:
 
@@ -410,9 +411,9 @@ Some unnecessary dependencies were included in the legacy artifacts, which we ha
 The following table shows the Removed dependencies:
 
 > [!div class="mx-tdBreakAll"]
-> | Removed dependencies                                    | Description                                                                   |
-> |---------------------------------------------------------|-------------------------------------------------------------------------------|
-> | org.springframework.boot:spring-boot-starter-validation | Include the validation starter if you want to use Hibernate Validator. |
+> | Removed dependencies                                      | Description                                                            |
+> |-----------------------------------------------------------|------------------------------------------------------------------------|
+> | `org.springframework.boot:spring-boot-starter-validation` | Include the validation starter if you want to use Hibernate Validator. |
 
 #### SDK configuration changes
 
@@ -426,54 +427,54 @@ This section includes the changes about the properties added, removed and change
 The following table shows the property mappings from `azure-spring-boot-starter-active-directory-b2c` to `spring-cloud-azure-starter-active-directory-b2c`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy properties                                                                             | Modern properties                                                                                            |
-> |-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-> | *azure.activedirectory.b2c*.authenticate-additional-parameters                                | *spring.cloud.azure.active-directory.b2c*.authenticate-additional-parameters                                 |
-> | *azure.activedirectory.b2c*.authorization-clients                                             | *spring.cloud.azure.active-directory.b2c*.authorization-clients                                              |
-> | *azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type | *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type |
-> | *azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.scopes                  | *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.scopes                   |
-> | *azure.activedirectory.b2c*.app-id-uri                                                        | *spring.cloud.azure.active-directory.b2c*.app-id-uri                                                         |
-> | *azure.activedirectory.b2c*.base-uri                                                          | *spring.cloud.azure.active-directory.b2c*.base-uri                                                           |
-> | *azure.activedirectory.b2c*.client-id                                                         | *spring.cloud.azure.active-directory.b2c*.credential.client-id                                               |
-> | *azure.activedirectory.b2c*.client-secret                                                     | *spring.cloud.azure.active-directory.b2c*.credential.client-secret                                           |
-> | *azure.activedirectory.b2c*.jwt-connect-timeout                                               | *spring.cloud.azure.active-directory.b2c*.jwt-connect-timeout                                                |
-> | *azure.activedirectory.b2c*.jwt-read-timeout                                                  | *spring.cloud.azure.active-directory.b2c*.jwt-read-timeout                                                   |
-> | *azure.activedirectory.b2c*.jwt-size-limit                                                    | *spring.cloud.azure.active-directory.b2c*.jwt-size-limit                                                     |
-> | *azure.activedirectory.b2c*.login-flow                                                        | *spring.cloud.azure.active-directory.b2c*.login-flow                                                         |
-> | *azure.activedirectory.b2c*.logout-success-url                                                | *spring.cloud.azure.active-directory.b2c*.logout-success-url                                                 |
-> | *azure.activedirectory.b2c*.reply-url                                                         | *spring.cloud.azure.active-directory.b2c*.reply-url                                                          |
-> | *azure.activedirectory.b2c*.tenant-id                                                         | *spring.cloud.azure.active-directory.b2c*.profile.tenant-id                                                  |
-> | *azure.activedirectory.b2c*.user-flows                                                        | *spring.cloud.azure.active-directory.b2c*.user-flows                                                         |
-> | *azure.activedirectory.b2c*.user-name-attribute-name                                          | *spring.cloud.azure.active-directory.b2c*.user-name-attribute-name                                           |
+> | Legacy properties                                                                              | Modern properties                                                                                            |
+> |------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+> | `azure.activedirectory.b2c.authenticate-additional-parameters`                                 | `spring.cloud.azure.active-directory.b2c.authenticate-additional-parameters`                                 |
+> | `azure.activedirectory.b2c.authorization-clients`                                              | `spring.cloud.azure.active-directory.b2c.authorization-clients`                                              |
+> | `azure.activedirectory.b2c.authorization-clients.<AZURE-CLIENT-NAME>.authorization-grant-type` | `spring.cloud.azure.active-directory.b2c.authorization-clients.<AZURE-CLIENT-NAME>.authorization-grant-type` |
+> | `azure.activedirectory.b2c.authorization-clients.<AZURE-CLIENT-NAME>.scopes`                   | `spring.cloud.azure.active-directory.b2c.authorization-clients.<AZURE-CLIENT-NAME>.scopes`                   |
+> | `azure.activedirectory.b2c.app-id-uri`                                                         | `spring.cloud.azure.active-directory.b2c.app-id-uri`                                                         |
+> | `azure.activedirectory.b2c.base-uri`                                                           | `spring.cloud.azure.active-directory.b2c.base-uri`                                                           |
+> | `azure.activedirectory.b2c.client-id`                                                          | `spring.cloud.azure.active-directory.b2c.credential.client-id`                                               |
+> | `azure.activedirectory.b2c.client-secret`                                                      | `spring.cloud.azure.active-directory.b2c.credential.client-secret`                                           |
+> | `azure.activedirectory.b2c.jwt-connect-timeout`                                                | `spring.cloud.azure.active-directory.b2c.jwt-connect-timeout`                                                |
+> | `azure.activedirectory.b2c.jwt-read-timeout`                                                   | `spring.cloud.azure.active-directory.b2c.jwt-read-timeout`                                                   |
+> | `azure.activedirectory.b2c.jwt-size-limit`                                                     | `spring.cloud.azure.active-directory.b2c.jwt-size-limit`                                                     |
+> | `azure.activedirectory.b2c.login-flow`                                                         | `spring.cloud.azure.active-directory.b2c.login-flow`                                                         |
+> | `azure.activedirectory.b2c.logout-success-url`                                                 | `spring.cloud.azure.active-directory.b2c.logout-success-url`                                                 |
+> | `azure.activedirectory.b2c.reply-url`                                                          | `spring.cloud.azure.active-directory.b2c.reply-url`                                                          |
+> | `azure.activedirectory.b2c.tenant-id`                                                          | `spring.cloud.azure.active-directory.b2c.profile.tenant-id`                                                  |
+> | `azure.activedirectory.b2c.user-flows`                                                         | `spring.cloud.azure.active-directory.b2c.user-flows`                                                         |
+> | `azure.activedirectory.b2c.user-name-attribute-name`                                           | `spring.cloud.azure.active-directory.b2c.user-name-attribute-name`                                           |
 
-* Removed properties from azure-spring-boot-starter-active-directory-b2c:
+* Removed properties from `azure-spring-boot-starter-active-directory-b2c`:
 
-  * azure.activedirectory.b2c.allow-telemetry
-  * azure.activedirectory.b2c.tenant
+  * `azure.activedirectory.b2c.allow-telemetry`
+  * `azure.activedirectory.b2c.tenant`
 
 * The value type of the following properties is changed from `long` to `Duration`:
 
-  * jwt-connect-timeout
-  * jwt-read-timeout
+  * `jwt-connect-timeout`
+  * `jwt-read-timeout`
 
 #### API changes
 
 The following table shows the class mappings from `azure-spring-boot-starter-active-directory-b2c` to `spring-cloud-azure-starter-active-directory-b2c`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                                   | Modern class                                                                             |
-> |--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
-> | com.azure.spring.autoconfigure.b2c.AADB2CAuthorizationRequestResolver          | com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cAuthorizationRequestResolver           |
-> | com.azure.spring.autoconfigure.b2c.AADB2CJwtBearerTokenAuthenticationConverter | com.azure.spring.cloud.autoconfigure.aad.AadJwtBearerTokenAuthenticationConverter |
-> | com.azure.spring.autoconfigure.b2c.AADB2CLogoutSuccessHandler                  | com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cLogoutSuccessHandler                   |
-> | com.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer                   | com.azure.spring.cloud.autoconfigure.aadb2c.AadB2COidcLoginConfigurer                   |
-> | com.azure.spring.autoconfigure.b2c.AADB2CProperties                            | com.azure.spring.cloud.autoconfigure.aadb2c.properties.AadB2cProperties                  |
-> | com.azure.spring.autoconfigure.b2c.AADB2CTrustedIssuerRepository               | com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cTrustedIssuerRepository                |
-> | com.azure.spring.autoconfigure.b2c.AuthorizationClientProperties               | com.azure.spring.cloud.autoconfigure.aad.properties.AuthorizationClientProperties        |
+> | Legacy class                                                                     | Modern class                                                                        |
+> |----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+> | `com.azure.spring.autoconfigure.b2c.AADB2CAuthorizationRequestResolver`          | `com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cAuthorizationRequestResolver`    |
+> | `com.azure.spring.autoconfigure.b2c.AADB2CJwtBearerTokenAuthenticationConverter` | `com.azure.spring.cloud.autoconfigure.aad.AadJwtBearerTokenAuthenticationConverter` |
+> | `com.azure.spring.autoconfigure.b2c.AADB2CLogoutSuccessHandler`                  | `com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cLogoutSuccessHandler`            |
+> | `com.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer`                   | `com.azure.spring.cloud.autoconfigure.aadb2c.AadB2COidcLoginConfigurer`             |
+> | `com.azure.spring.autoconfigure.b2c.AADB2CProperties`                            | `com.azure.spring.cloud.autoconfigure.aadb2c.properties.AadB2cProperties`           |
+> | `com.azure.spring.autoconfigure.b2c.AADB2CTrustedIssuerRepository`               | `com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cTrustedIssuerRepository`         |
+> | `com.azure.spring.autoconfigure.b2c.AuthorizationClientProperties`               | `com.azure.spring.cloud.autoconfigure.aad.properties.AuthorizationClientProperties` |
 
-### From azure-spring-boot-starter-cosmos to spring-cloud-azure-starter-data-cosmos
+### From `azure-spring-boot-starter-cosmos` to `spring-cloud-azure-starter-data-cosmos`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-data-cosmos](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-data-cosmos) from version 3 of [azure-spring-boot-starter-cosmos](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-cosmos).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-data-cosmos`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-data-cosmos) from version 3 of [`azure-spring-boot-starter-cosmos`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-cosmos).
 
 For general information, use the following links:
 
@@ -491,18 +492,18 @@ All configuration property names changed the prefix from `azure.cosmos` to `spri
 The following table shows the class mappings from `azure-spring-boot-starter-cosmos` to `spring-cloud-azure-starter-data-cosmos`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy properties                    | Modern properties                                 |
-> |--------------------------------------|---------------------------------------------------|
-> | *azure.cosmos*.connection-mode        | *spring.cloud.azure.cosmos*.connection-mode        |
-> | *azure.cosmos*.consistency-level      | *spring.cloud.azure.cosmos*.consistency-level      |
-> | *azure.cosmos*.database               | *spring.cloud.azure.cosmos*.database               |
-> | *azure.cosmos*.key                    | *spring.cloud.azure.cosmos*.key                    |
-> | *azure.cosmos*.populate-query-metrics | *spring.cloud.azure.cosmos*.populate-query-metrics |
-> | *azure.cosmos*.uri                    | *spring.cloud.azure.cosmos*.endpoint               |
+> | Legacy properties                     | Modern properties                                  |
+> |---------------------------------------|----------------------------------------------------|
+> | `azure.cosmos.connection-mode`        | `spring.cloud.azure.cosmos.connection-mode`        |
+> | `azure.cosmos.consistency-level`      | `spring.cloud.azure.cosmos.consistency-level`      |
+> | `azure.cosmos.database`               | `spring.cloud.azure.cosmos.database`               |
+> | `azure.cosmos.key`                    | `spring.cloud.azure.cosmos.key`                    |
+> | `azure.cosmos.populate-query-metrics` | `spring.cloud.azure.cosmos.populate-query-metrics` |
+> | `azure.cosmos.uri`                    | `spring.cloud.azure.cosmos.endpoint`               |
 
-### From azure-spring-boot-starter-keyvault-secrets to spring-cloud-azure-starter-keyvault-secrets
+### From `azure-spring-boot-starter-keyvault-secrets` to `spring-cloud-azure-starter-keyvault-secrets`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-keyvault-secrets](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-keyvault-secrets) from version 3 of [azure-spring-boot-starter-keyvault-secrets](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-keyvault-secrets).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-keyvault-secrets`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-keyvault-secrets) from version 3 of [`azure-spring-boot-starter-keyvault-secrets`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-keyvault-secrets).
 
 For general information, use the following links:
 
@@ -522,22 +523,22 @@ The following table shows the property mappings from `azure-spring-boot-starter-
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                     | Modern properties                                                                                                             |
 > |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-> | *azure.keyvault*.case-sensitive-keys  | *spring.cloud.azure.keyvault.secret*.property-source[n].case-sensitive                                                        |
-> | *azure.keyvault*.certificate-password | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-certificate-password                                |
-> | *azure.keyvault*.certificate-path     | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-certificate-path                                    |
-> | *azure.keyvault*.client-id            | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-id                                                  |
-> | *azure.keyvault*.client-key           | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-secret                                              |
-> | *azure.keyvault*.enabled              | *spring.cloud.azure.keyvault.secret*.property-source-enabled and  *spring.cloud.azure.keyvault.secret*.property-source-enabled |
-> | *azure.keyvault*.order                | No longer supported. Use the order in property-source[n] instead.                                                             |
-> | *azure.keyvault*.refresh-interval     | *spring.cloud.azure.keyvault.secret*.property-source[n].refresh-interval                                                      |
-> | *azure.keyvault*.secret-keys          | *spring.cloud.azure.keyvault.secret*.property-source[n].secret-keys                                                           |
-> | *azure.keyvault*.tenant-id            | *spring.cloud.azure.keyvault.secret*.property-source[n].profile.tenant-id                                                     |
-> | *azure.keyvault*.uri                  | *spring.cloud.azure.keyvault.secret*.property-source[n].endpoint                                                              |
+> | `azure.keyvault.case-sensitive-keys`  | `spring.cloud.azure.keyvault.secret.property-source[n].case-sensitive`                                                        |
+> | `azure.keyvault.certificate-password` | `spring.cloud.azure.keyvault.secret.property-source[n].credential.client-certificate-password`                                |
+> | `azure.keyvault.certificate-path`     | `spring.cloud.azure.keyvault.secret.property-source[n].credential.client-certificate-path`                                    |
+> | `azure.keyvault.client-id`            | `spring.cloud.azure.keyvault.secret.property-source[n].credential.client-id`                                                  |
+> | `azure.keyvault.client-key`           | `spring.cloud.azure.keyvault.secret.property-source[n].credential.client-secret`                                              |
+> | `azure.keyvault.enabled`              | `spring.cloud.azure.keyvault.secret.property-source-enabled` and `spring.cloud.azure.keyvault.secret.property-source-enabled` |
+> | `azure.keyvault.order`                | No longer supported. Use the order in `property-source[n]` instead.                                                           |
+> | `azure.keyvault.refresh-interval`     | `spring.cloud.azure.keyvault.secret.property-source[n].refresh-interval`                                                      |
+> | `azure.keyvault.secret-keys`          | `spring.cloud.azure.keyvault.secret.property-source[n].secret-keys`                                                           |
+> | `azure.keyvault.tenant-id`            | `spring.cloud.azure.keyvault.secret.property-source[n].profile.tenant-id`                                                     |
+> | `azure.keyvault.uri`                  | `spring.cloud.azure.keyvault.secret.property-source[n].endpoint`                                                              |
 
-* Removed properties from spring-cloud-azure-starter-keyvault-secrets
+* Removed properties from `spring-cloud-azure-starter-keyvault-secrets`:
 
-azure.keyvault.allow-telemetry
-azure.keyvault.order
+  * `azure.keyvault.allow-telemetry`
+  * `azure.keyvault.order`
 
 The following points you should pay your attention to:
 
@@ -547,9 +548,9 @@ The following points you should pay your attention to:
 1. For Azure common properties(like `client`, `proxy`, `retry`, `credential`, `profile`) and Key Vault properties(like `endpoint`, `service-version`). If `spring.cloud.azure.keyvault.secret.property-sources[n].PROPERTY_NAME` isn't configured, `spring.cloud.azure.keyvault.secret.PROPERTY_NAME` will be used.
 1. `spring.cloud.azure.keyvault.secret.property-sources[n].resource` is specific to a unique Azure resource, so if it's not configured, it won't get value from other places.
 
-### From azure-spring-boot-starter-servicebus-jms to spring-cloud-azure-starter-servicebus-jms
+### From `azure-spring-boot-starter-servicebus-jms` to `spring-cloud-azure-starter-servicebus-jms`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-servicebus-jms](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-servicebus-jms) from version 3 of [azure-spring-boot-starter-servicebus-jms](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-servicebus-jms).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-servicebus-jms`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-servicebus-jms) from version 3 of [`azure-spring-boot-starter-servicebus-jms`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-servicebus-jms).
 
 For general information, use the following links:
 
@@ -562,11 +563,11 @@ For general information, use the following links:
 
 #### SDK configuration changes
 
-Configuration type for `spring.jms.servicebus.idle-timeout` changed from `long`(milliseconds) to `Duration` pattern for readability.
+Configuration type for `spring.jms.servicebus.idle-timeout` changed from `long` (milliseconds) to `Duration` pattern for readability.
 
-### From azure-spring-boot-starter-storage to spring-cloud-azure-starter-storage-blob
+### From `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-blob`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-storage-blob](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-storage-blob) from version 3 of [azure-spring-boot-starter-storage](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-storage).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-storage-blob`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-storage-blob) from version 3 of [`azure-spring-boot-starter-storage`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-storage).
 
 For general information, use the following links:
 
@@ -583,26 +584,27 @@ All configuration property names changed the prefix from `azure.storage` to `spr
 
 The following table shows the property mappings from `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-blob`:
 
-| Legacy properties             | Modern properties                              |
-|-------------------------------|------------------------------------------------|
-| *azure.storage*.account-name  | *spring.cloud.azure.storage.blob*.account-name |
-| *azure.storage*.account-key   | *spring.cloud.azure.storage.blob*.account-key  |
-| *azure.storage*.blob-endpoint | *spring.cloud.azure.storage.blob*.endpoint     |
+> [!div class="mx-tdBreakAll"]
+> | Legacy properties             | Modern properties                              |
+> |-------------------------------|------------------------------------------------|
+> | `azure.storage.account-name`  | `spring.cloud.azure.storage.blob.account-name` |
+> | `azure.storage.account-key`   | `spring.cloud.azure.storage.blob.account-key`  |
+> | `azure.storage.blob-endpoint` | `spring.cloud.azure.storage.blob.endpoint`     |
 
 #### API changes
 
 The following table shows the class mappings from `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-blob`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                                        | Modern class                                                    |
-> |-------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-> | com.azure.spring.autoconfigure.storage.resource.AzureStorageProtocolResolver        | com.azure.spring.core.resource.AzureStorageBlobProtocolResolver |
-> | com.azure.spring.autoconfigure.storage.resource.BlobStorageResource                 | com.azure.spring.core.resource.StorageBlobResource              |
-> | com.azure.spring.autoconfigure.storage.resource.AzureStorageResourcePatternResolver | com.azure.spring.core.resource.AzureStorageBlobProtocolResolver |
+> | Legacy class                                                                          | Modern class                                                      |
+> |---------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+> | `com.azure.spring.autoconfigure.storage.resource.AzureStorageProtocolResolver`        | `com.azure.spring.core.resource.AzureStorageBlobProtocolResolver` |
+> | `com.azure.spring.autoconfigure.storage.resource.BlobStorageResource`                 | `com.azure.spring.core.resource.StorageBlobResource`              |
+> | `com.azure.spring.autoconfigure.storage.resource.AzureStorageResourcePatternResolver` | `com.azure.spring.core.resource.AzureStorageBlobProtocolResolver` |
 
-### From azure-spring-boot-starter-storage to spring-cloud-azure-starter-storage-file-share
+### From `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-file-share`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-storage-file-share](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-storage-file-share) from version 3 of [azure-spring-boot-starter-storage](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-storage).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-storage-file-share`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-storage-file-share) from version 3 of [`azure-spring-boot-starter-storage`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-storage).
 
 For general information, use the following links:
 
@@ -619,26 +621,27 @@ All configuration property names changed the prefix from `azure.storage` to `spr
 
 The following table shows the property mappings from `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-file-share`:
 
-| Legacy properties             | Modern properties                                   |
-|-------------------------------|-----------------------------------------------------|
-| *azure.storage*.account-name  | *spring.cloud.azure.storage.fileshare*.account-name |
-| *azure.storage*.account-key   | *spring.cloud.azure.storage.fileshare*.account-key  |
-| *azure.storage*.file-endpoint | *spring.cloud.azure.storage.fileshare*.endpoint     |
+> [!div class="mx-tdBreakAll"]
+> | Legacy properties             | Modern properties                                   |
+> |-------------------------------|-----------------------------------------------------|
+> | `azure.storage.account-name`  | `spring.cloud.azure.storage.fileshare.account-name` |
+> | `azure.storage.account-key`   | `spring.cloud.azure.storage.fileshare.account-key`  |
+> | `azure.storage.file-endpoint` | `spring.cloud.azure.storage.fileshare.endpoint`     |
 
 #### API changes
 
 The following table shows the class mappings from `azure-spring-boot-starter-storage` to `spring-cloud-azure-starter-storage-file-share`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                                        | Modern class                                                    |
-> |-------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-> | com.azure.spring.autoconfigure.storage.resource.AzureStorageProtocolResolver        | com.azure.spring.core.resource.AzureStorageFileProtocolResolver |
-> | com.azure.spring.autoconfigure.storage.resource.FileStorageResource                 | com.azure.spring.core.resource.StorageFileResource              |
-> | com.azure.spring.autoconfigure.storage.resource.AzureStorageResourcePatternResolver | com.azure.spring.core.resource.AzureStorageFileProtocolResolver |
+> | Legacy class                                                                          | Modern class                                                      |
+> |---------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+> | `com.azure.spring.autoconfigure.storage.resource.AzureStorageProtocolResolver`        | `com.azure.spring.core.resource.AzureStorageFileProtocolResolver` |
+> | `com.azure.spring.autoconfigure.storage.resource.FileStorageResource`                 | `com.azure.spring.core.resource.StorageFileResource`              |
+> | `com.azure.spring.autoconfigure.storage.resource.AzureStorageResourcePatternResolver` | `com.azure.spring.core.resource.AzureStorageFileProtocolResolver` |
 
-### From azure-spring-cloud-starter-eventhubs to spring-cloud-azure-starter-integration-eventhubs
+### From `azure-spring-cloud-starter-eventhubs` to `spring-cloud-azure-starter-integration-eventhubs`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-eventhubs) from version 2 of [azure-spring-cloud-starter-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-eventhubs).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-integration-eventhubs`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-eventhubs) from version 2 of [`azure-spring-cloud-starter-eventhubs`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-eventhubs).
 
 For general information, use the following links:
 
@@ -652,7 +655,7 @@ For general information, use the following links:
 #### SDK configuration changes
 
 > [!IMPORTANT]
-> Configuration prefix has been changed from `spring.cloud.azure.eventhub` to `spring.cloud.azure.eventhubs.`
+> Configuration prefix has been changed from `spring.cloud.azure.eventhub` to `spring.cloud.azure.eventhubs`.
 
 For changes to the child entries for this prefix, see the following tables:
 
@@ -661,12 +664,12 @@ The following table shows property mappings from `azure-spring-cloud-starter-eve
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                                        | Modern properties                                                        |
 > |----------------------------------------------------------|--------------------------------------------------------------------------|
-> | *spring.cloud.azure*.resource-group                      | *spring.cloud.azure.eventhubs*.resource.resource-group                   |
-> | *spring.cloud.azure.eventhub*.namespace                  | *spring.cloud.azure.eventhubs*.namespace                                 |
-> | *spring.cloud.azure.eventhub*.connection-string          | *spring.cloud.azure.eventhubs*.connection-string                         |
-> | *spring.cloud.azure.eventhub*.checkpoint-storage-account | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-name   |
-> | *spring.cloud.azure.eventhub*.checkpoint-access-key      | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-key    |
-> | *spring.cloud.azure.eventhub*.checkpoint-container       | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.container-name |
+> | `spring.cloud.azure.resource-group`                      | `spring.cloud.azure.eventhubs.resource.resource-group`                   |
+> | `spring.cloud.azure.eventhub.namespace`                  | `spring.cloud.azure.eventhubs.namespace`                                 |
+> | `spring.cloud.azure.eventhub.connection-string`          | `spring.cloud.azure.eventhubs.connection-string`                         |
+> | `spring.cloud.azure.eventhub.checkpoint-storage-account` | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`   |
+> | `spring.cloud.azure.eventhub.checkpoint-access-key`      | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`    |
+> | `spring.cloud.azure.eventhub.checkpoint-container`       | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name` |
 
 For example, change from:
 
@@ -725,15 +728,15 @@ spring:
 The following table shows the class mappings from `azure-spring-cloud-starter-eventhubs` to `spring-cloud-azure-starter-integration-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                                | Modern class                                                                 |
-> |-----------------------------------------------------------------------------|------------------------------------------------------------------------------|
-> | com.azure.spring.integration.core.AzureHeaders                              | com.azure.spring.messaging.AzureHeaders                                      |
-> | com.azure.spring.integration.core.EventHubHeaders                           | com.azure.spring.messaging.eventhubs.support.EventHubsHeaders                |
-> | com.azure.spring.integration.core.api.CheckpointConfig                      | com.azure.spring.messaging.eventhubs.core.checkpoint.CheckpointConfig        |
-> | com.azure.spring.integration.core.api.CheckpointMode                        |com.azure.spring.messaging.eventhubs.core.checkpoint.CheckpointMode           |
-> | com.azure.spring.integration.core.api.reactor.Checkpointer                  |com.azure.spring.messaging.checkpoint.Checkpointer                            |
-> | com.azure.spring.integration.core.api.reactor.DefaultMessageHandler         |com.azure.spring.integration.core.handler.DefaultMessageHandler               |
-> | com.azure.spring.integration.eventhub.inbound.EventHubInboundChannelAdapter |com.azure.spring.integration.eventhubs.inbound.EventHubsInboundChannelAdapter |
+> | Legacy class                                                                  | Modern class                                                                    |
+> |-------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+> | `com.azure.spring.integration.core.AzureHeaders`                              | `com.azure.spring.messaging.AzureHeaders`                                       |
+> | `com.azure.spring.integration.core.EventHubHeaders`                           | `com.azure.spring.messaging.eventhubs.support.EventHubsHeaders`                 |
+> | `com.azure.spring.integration.core.api.CheckpointConfig`                      | `com.azure.spring.messaging.eventhubs.core.checkpoint.CheckpointConfig`         |
+> | `com.azure.spring.integration.core.api.CheckpointMode`                        | `com.azure.spring.messaging.eventhubs.core.checkpoint.CheckpointMode`           |
+> | `com.azure.spring.integration.core.api.reactor.Checkpointer`                  | `com.azure.spring.messaging.checkpoint.Checkpointer`                            |
+> | `com.azure.spring.integration.core.api.reactor.DefaultMessageHandler`         | `com.azure.spring.integration.core.handler.DefaultMessageHandler`               |
+> | `com.azure.spring.integration.eventhub.inbound.EventHubInboundChannelAdapter` | `com.azure.spring.integration.eventhubs.inbound.EventHubsInboundChannelAdapter` |
 
 #### Sample code snippet
 
@@ -830,9 +833,9 @@ The following table shows the class mappings from `azure-spring-cloud-starter-ev
   }
   ```
 
-### From azure-spring-integration-eventhubs to spring-integration-azure-eventhubs
+### From `azure-spring-integration-eventhubs` to `spring-integration-azure-eventhubs`
 
-This guide is intended to assist in the migration to [spring-integration-azure-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-eventhubs) from version 2 of [azure-spring-integration-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-eventhubs).
+This guide is intended to assist in the migration to [`spring-integration-azure-eventhubs`](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-eventhubs) from version 2 of [`azure-spring-integration-eventhubs`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-eventhubs).
 
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
@@ -863,19 +866,19 @@ This guide is intended to assist in the migration to [spring-integration-azure-e
 The following table shows the class mappings from `azure-spring-integration-eventhubs ` to `spring-integration-azure-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                               | Modern class                                                                 |
-> |----------------------------------------------------------------------------|------------------------------------------------------------------------------|
-> |com.azure.spring.integration.core.AzureHeaders                              |com.azure.spring.messaging.AzureHeaders                                       |
-> |com.azure.spring.integration.core.EventHubHeaders                           |com.azure.spring.messaging.eventhubs.support.EventHubsHeaders                 |
-> |com.azure.spring.integration.core.api.CheckpointConfig                      |com.azure.spring.messaging.eventhubs.core.checkpoint.CheckpointConfig         |
-> |com.azure.spring.integration.core.api.CheckpointMode                        |com.azure.spring.messaging.eventhubs.core.checkpoint.CheckpointMode           |
-> |com.azure.spring.integration.core.api.reactor.Checkpointer                  |com.azure.spring.messaging.checkpoint.Checkpointer                            |
-> |com.azure.spring.integration.core.api.reactor.DefaultMessageHandler         |com.azure.spring.integration.core.handler.DefaultMessageHandler               |
-> |com.azure.spring.integration.eventhub.inbound.EventHubInboundChannelAdapter |com.azure.spring.integration.eventhubs.inbound.EventHubsInboundChannelAdapter |
+> | Legacy class                                                                  | Modern class                                                                    |
+> |-------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+> | `com.azure.spring.integration.core.AzureHeaders`                              | `com.azure.spring.messaging.AzureHeaders`                                       |
+> | `com.azure.spring.integration.core.EventHubHeaders`                           | `com.azure.spring.messaging.eventhubs.support.EventHubsHeaders`                 |
+> | `com.azure.spring.integration.core.api.CheckpointConfig`                      | `com.azure.spring.messaging.eventhubs.core.checkpoint.CheckpointConfig`         |
+> | `com.azure.spring.integration.core.api.CheckpointMode`                        | `com.azure.spring.messaging.eventhubs.core.checkpoint.CheckpointMode`           |
+> | `com.azure.spring.integration.core.api.reactor.Checkpointer`                  | `com.azure.spring.messaging.checkpoint.Checkpointer`                            |
+> | `com.azure.spring.integration.core.api.reactor.DefaultMessageHandler`         | `com.azure.spring.integration.core.handler.DefaultMessageHandler`               |
+> | `com.azure.spring.integration.eventhub.inbound.EventHubInboundChannelAdapter` | `com.azure.spring.integration.eventhubs.inbound.EventHubsInboundChannelAdapter` |
 
-### From azure-spring-cloud-starter-servicebus to spring-cloud-azure-starter-integration-servicebus
+### From `azure-spring-cloud-starter-servicebus` to `spring-cloud-azure-starter-integration-servicebus`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-servicebus](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-servicebus) from version 2 of [azure-spring-cloud-starter-servicebus](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-servicebus).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-integration-servicebus`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-servicebus) from version 2 of [`azure-spring-cloud-starter-servicebus`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-servicebus).
 
 For general information, use the following links:
 
@@ -893,15 +896,15 @@ For all configuration options supported in `spring-cloud-azure-starter-integrati
 The following table shows the property mappings from `azure-spring-cloud-starter-servicebus` to `spring-cloud-azure-starter-integration-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy properties                                        | Modern properties                                                                                                                                                                                                              |
-> |----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | *spring.cloud.azure*.resource-group                       | *spring.cloud.azure.servicebus*.resource.resource-group                                                                                                                                                                         |
-> | *spring.cloud.azure.servicebus*.transport-type            | *spring.cloud.azure.servicebus*.client.transport-type                                                                                                                                                                           |
-> | *spring.cloud.azure.servicebus*.retry-options.retry-mode  | *spring.cloud.azure.servicebus*.retry.mode                                                                                                                                                                                      |
-> | *spring.cloud.azure.servicebus*.retry-options.max-retries | *spring.cloud.azure.servicebus*.retry.exponential.max-retries or  *spring.cloud.azure.servicebus*.retry.fixed.max-retries, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential* |
-> | *spring.cloud.azure.servicebus*.retry-options.delay       | *spring.cloud.azure.servicebus*.retry.exponential.base-delay or  *spring.cloud.azure.servicebus*.retry.fixed.delay, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential*  |
-> | *spring.cloud.azure.servicebus*.retry-options.max-delay   | *spring.cloud.azure.servicebus*.retry.exponential.max-delay                                                                                                                                                                     |
-> | *spring.cloud.azure.servicebus*.retry-options.try-timeout | *spring.cloud.azure.servicebus*.retry.try-timeout                                                                                                                                                                               |
+> | Legacy properties                                         | Modern properties                                                                                                                                                                                                                 |
+> |-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `spring.cloud.azure.resource-group`                       | `spring.cloud.azure.servicebus.resource.resource-group`                                                                                                                                                                           |
+> | `spring.cloud.azure.servicebus.transport-type`            | `spring.cloud.azure.servicebus.client.transport-type`                                                                                                                                                                             |
+> | `spring.cloud.azure.servicebus.retry-options.retry-mode`  | `spring.cloud.azure.servicebus.retry.mode`                                                                                                                                                                                        |
+> | `spring.cloud.azure.servicebus.retry-options.max-retries` | `spring.cloud.azure.servicebus.retry.exponential.max-retries` or `spring.cloud.azure.servicebus.retry.fixed.max-retries`, should be configured depending on `spring.cloud.azure.servicebus.retry.mode` = `fixed` or `exponential` |
+> | `spring.cloud.azure.servicebus.retry-options.delay`       | `spring.cloud.azure.servicebus.retry.exponential.base-delay` or `spring.cloud.azure.servicebus.retry.fixed.delay`, should be configured depending on `spring.cloud.azure.servicebus.retry.mode` = `fixed` or `exponential`        |
+> | `spring.cloud.azure.servicebus.retry-options.max-delay`   | `spring.cloud.azure.servicebus.retry.exponential.max-delay`                                                                                                                                                                       |
+> | `spring.cloud.azure.servicebus.retry-options.try-timeout` | `spring.cloud.azure.servicebus.retry.try-timeout`                                                                                                                                                                                 |
 
 #### API changes
 
@@ -918,14 +921,14 @@ The following table shows the property mappings from `azure-spring-cloud-starter
 The following table shows the class mappings from `azure-spring-cloud-starter-servicebus` to `spring-cloud-azure-starter-integration-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                                        | Modern class                                                                      |
-> |-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-> |com.azure.spring.integration.core.AzureHeaders                                       |com.azure.spring.messaging.AzureHeaders                                            |
-> |com.azure.spring.integration.servicebus.converter.ServiceBusMessageHeaders           |com.azure.spring.messaging.servicebus.support.ServiceBusMessageHeaders             |
-> |com.azure.spring.integration.servicebus.converter.ServiceBusMessageConverter         |com.azure.spring.messaging.servicebus.support.converter.ServiceBusMessageConverter |
-> |com.azure.spring.integration.core.DefaultMessageHandler                              |com.azure.spring.integration.core.handler.DefaultMessageHandler                    |
-> |com.azure.spring.integration.servicebus.inbound.ServiceBusQueueInboundChannelAdapter |com.azure.spring.integration.servicebus.inbound.ServiceBusInboundChannelAdapter    |
-> |com.azure.spring.integration.servicebus.inbound.ServiceBusTopicInboundChannelAdapter |com.azure.spring.integration.servicebus.inbound.ServiceBusInboundChannelAdapter    |
+> | Legacy class                                                                           | Modern class                                                                         |
+> |----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+> | `com.azure.spring.integration.core.AzureHeaders`                                       | `com.azure.spring.messaging.AzureHeaders`                                            |
+> | `com.azure.spring.integration.servicebus.converter.ServiceBusMessageHeaders`           | `com.azure.spring.messaging.servicebus.support.ServiceBusMessageHeaders`             |
+> | `com.azure.spring.integration.servicebus.converter.ServiceBusMessageConverter`         | `com.azure.spring.messaging.servicebus.support.converter.ServiceBusMessageConverter` |
+> | `com.azure.spring.integration.core.DefaultMessageHandler`                              | `com.azure.spring.integration.core.handler.DefaultMessageHandler`                    |
+> | `com.azure.spring.integration.servicebus.inbound.ServiceBusQueueInboundChannelAdapter` | `com.azure.spring.integration.servicebus.inbound.ServiceBusInboundChannelAdapter`    |
+> | `com.azure.spring.integration.servicebus.inbound.ServiceBusTopicInboundChannelAdapter` | `com.azure.spring.integration.servicebus.inbound.ServiceBusInboundChannelAdapter`    |
 
 #### Sample code snippet
 
@@ -1051,9 +1054,9 @@ The following table shows the class mappings from `azure-spring-cloud-starter-se
   }
   ```
 
-### From azure-spring-integration-servicebus to spring-integration-azure-servicebus
+### From `azure-spring-integration-servicebus` to `spring-integration-azure-servicebus`
 
-This guide is intended to assist in the migration to [spring-integration-azure-servicebus](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-servicebus) from version 2 of [azure-spring-integration-servicebus](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-servicebus).
+This guide is intended to assist in the migration to [`spring-integration-azure-servicebus`](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-servicebus) from version 2 of [`azure-spring-integration-servicebus`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-servicebus).
 
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
@@ -1074,18 +1077,18 @@ This guide is intended to assist in the migration to [spring-integration-azure-s
 The following table shows the class mappings from `azure-spring-integration-servicebus` to `spring-integration-azure-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                                        | Modern class                                                                      |
-> |-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-> |com.azure.spring.integration.core.AzureHeaders                                       |com.azure.spring.messaging.AzureHeaders                                            |
-> |com.azure.spring.integration.servicebus.converter.ServiceBusMessageHeaders           |com.azure.spring.messaging.servicebus.support.ServiceBusMessageHeaders             |
-> |com.azure.spring.integration.servicebus.converter.ServiceBusMessageConverter         |com.azure.spring.messaging.servicebus.support.converter.ServiceBusMessageConverter |
-> |com.azure.spring.integration.core.DefaultMessageHandler                              |com.azure.spring.integration.core.handler.DefaultMessageHandler                    |
-> |com.azure.spring.integration.servicebus.inbound.ServiceBusQueueInboundChannelAdapter |com.azure.spring.integration.servicebus.inbound.ServiceBusInboundChannelAdapter    |
-> |com.azure.spring.integration.servicebus.inbound.ServiceBusTopicInboundChannelAdapter |com.azure.spring.integration.servicebus.inbound.ServiceBusInboundChannelAdapter    |
+> | Legacy class                                                                           | Modern class                                                                         |
+> |----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+> | `com.azure.spring.integration.core.AzureHeaders`                                       | `com.azure.spring.messaging.AzureHeaders`                                            |
+> | `com.azure.spring.integration.servicebus.converter.ServiceBusMessageHeaders`           | `com.azure.spring.messaging.servicebus.support.ServiceBusMessageHeaders`             |
+> | `com.azure.spring.integration.servicebus.converter.ServiceBusMessageConverter`         | `com.azure.spring.messaging.servicebus.support.converter.ServiceBusMessageConverter` |
+> | `com.azure.spring.integration.core.DefaultMessageHandler`                              | `com.azure.spring.integration.core.handler.DefaultMessageHandler`                    |
+> | `com.azure.spring.integration.servicebus.inbound.ServiceBusQueueInboundChannelAdapter` | `com.azure.spring.integration.servicebus.inbound.ServiceBusInboundChannelAdapter`    |
+> | `com.azure.spring.integration.servicebus.inbound.ServiceBusTopicInboundChannelAdapter` | `com.azure.spring.integration.servicebus.inbound.ServiceBusInboundChannelAdapter`    |
 
-### From azure-spring-cloud-starter-storage-queue to spring-cloud-azure-starter-integration-storage-queue
+### From `azure-spring-cloud-starter-storage-queue` to `spring-cloud-azure-starter-integration-storage-queue`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-storage-queue](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-storage-queue) from version 2 of [azure-spring-cloud-starter-storage-queue](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-storage-queue).
+This guide is intended to assist in the migration to [`spring-cloud-azure-starter-integration-storage-queue`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-storage-queue) from version 2 of [`azure-spring-cloud-starter-storage-queue`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-storage-queue).
 
 For general information, use the following links:
 
@@ -1105,9 +1108,9 @@ The following table shows the property mappings from `azure-spring-cloud-starter
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                           | Modern properties                                          |
 > |---------------------------------------------|------------------------------------------------------------|
-> | *spring.cloud.azure.storage*.account        | *spring.cloud.azure.storage.queue*.account-name            |
-> | *spring.cloud.azure.storage*.access-key     | *spring.cloud.azure.storage.queue*.account-key             |
-> | *spring.cloud.azure.storage*.resource-group | *spring.cloud.azure.storage.queue*.resource.resource-group |
+> | `spring.cloud.azure.storage.account`        | `spring.cloud.azure.storage.queue.account-name`            |
+> | `spring.cloud.azure.storage.access-key`     | `spring.cloud.azure.storage.queue.account-key`             |
+> | `spring.cloud.azure.storage.resource-group` | `spring.cloud.azure.storage.queue.resource.resource-group` |
 
 #### API changes
 
@@ -1117,18 +1120,18 @@ The following table shows the property mappings from `azure-spring-cloud-starter
 The following table shows the class mappings from `azure-spring-cloud-starter-storage-queue` to `spring-cloud-azure-starter-integration-storage-queue`.
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                                      | Modern class                                                                           |
-> |-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-> | com.azure.spring.integration.core.AzureHeaders                                    | com.azure.spring.messaging.AzureHeaders                                                |
-> | com.azure.spring.integration.storage.queue.converter.StorageQueueMessageConverter |com.azure.spring.messaging.storage.queue.support.converter.StorageQueueMessageConverter |
-> | com.azure.spring.integration.core.api.reactor.Checkpointer                        | com.azure.spring.messaging.checkpoint.Checkpointer                                     |
-> | com.azure.spring.integration.storage.queue.StorageQueueTemplate                   | com.azure.spring.storage.queue.core.StorageQueueTemplate                               |
-> | com.azure.spring.integration.core.api.reactor.DefaultMessageHandler               | com.azure.spring.integration.core.handler.DefaultMessageHandler                        |
-> | com.azure.spring.integration.storage.queue.inbound.StorageQueueMessageSource      | com.azure.spring.integration.storage.queue.inbound.StorageQueueMessageSource           |
+> | Legacy class                                                                        | Modern class                                                                              |
+> |-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+> | `com.azure.spring.integration.core.AzureHeaders`                                    | `com.azure.spring.messaging.AzureHeaders`                                                 |
+> | `com.azure.spring.integration.storage.queue.converter.StorageQueueMessageConverter` | `com.azure.spring.messaging.storage.queue.support.converter.StorageQueueMessageConverter` |
+> | `com.azure.spring.integration.core.api.reactor.Checkpointer`                        | `com.azure.spring.messaging.checkpoint.Checkpointer`                                      |
+> | `com.azure.spring.integration.storage.queue.StorageQueueTemplate`                   | `com.azure.spring.storage.queue.core.StorageQueueTemplate`                                |
+> | `com.azure.spring.integration.core.api.reactor.DefaultMessageHandler`               | `com.azure.spring.integration.core.handler.DefaultMessageHandler`                         |
+> | `com.azure.spring.integration.storage.queue.inbound.StorageQueueMessageSource`      | `com.azure.spring.integration.storage.queue.inbound.StorageQueueMessageSource`            |
 
-### From azure-spring-integration-storage-queue to spring-integration-azure-storage-queue
+### From `azure-spring-integration-storage-queue` to `spring-integration-azure-storage-queue`
 
-This guide is intended to assist in the migration to [spring-integration-azure-storage-queue](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-storage-queue) from version 2 of [azure-spring-integration-storage-queue](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-storage-queue).
+This guide is intended to assist in the migration to [`spring-integration-azure-storage-queue`](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-storage-queue) from version 2 of [`azure-spring-integration-storage-queue`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-storage-queue).
 
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
@@ -1142,18 +1145,18 @@ This guide is intended to assist in the migration to [spring-integration-azure-s
 The following table shows the class mappings from `azure-spring-integration-storage-queue` to `spring-integration-azure-storage-queue`.
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                                      | Modern class                                                                           |
-> |-----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-> | com.azure.spring.integration.core.AzureHeaders                                    | com.azure.spring.messaging.AzureHeaders                                                |
-> | com.azure.spring.integration.storage.queue.converter.StorageQueueMessageConverter |com.azure.spring.messaging.storage.queue.support.converter.StorageQueueMessageConverter |
-> | com.azure.spring.integration.core.api.reactor.Checkpointer                        | com.azure.spring.messaging.checkpoint.Checkpointer                                     |
-> | com.azure.spring.integration.storage.queue.StorageQueueTemplate                   | com.azure.spring.storage.queue.core.StorageQueueTemplate                               |
-> | com.azure.spring.integration.core.api.reactor.DefaultMessageHandler               | com.azure.spring.integration.core.handler.DefaultMessageHandler                        |
-> | com.azure.spring.integration.storage.queue.inbound.StorageQueueMessageSource      | com.azure.spring.integration.storage.queue.inbound.StorageQueueMessageSource           |
+> | Legacy class                                                                        | Modern class                                                                              |
+> |-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+> | `com.azure.spring.integration.core.AzureHeaders`                                    | `com.azure.spring.messaging.AzureHeaders`                                                 |
+> | `com.azure.spring.integration.storage.queue.converter.StorageQueueMessageConverter` | `com.azure.spring.messaging.storage.queue.support.converter.StorageQueueMessageConverter` |
+> | `com.azure.spring.integration.core.api.reactor.Checkpointer`                        | `com.azure.spring.messaging.checkpoint.Checkpointer`                                      |
+> | `com.azure.spring.integration.storage.queue.StorageQueueTemplate`                   | `com.azure.spring.storage.queue.core.StorageQueueTemplate`                                |
+> | `com.azure.spring.integration.core.api.reactor.DefaultMessageHandler`               | `com.azure.spring.integration.core.handler.DefaultMessageHandler`                         |
+> | `com.azure.spring.integration.storage.queue.inbound.StorageQueueMessageSource`      | `com.azure.spring.integration.storage.queue.inbound.StorageQueueMessageSource`            |
 
-### From azure-spring-cloud-stream-binder-eventhubs to spring-cloud-azure-stream-binder-eventhubs
+### From `azure-spring-cloud-stream-binder-eventhubs` to `spring-cloud-azure-stream-binder-eventhubs`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-stream-binder-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-stream-binder-eventhubs) from version 2 of [azure-spring-cloud-stream-binder-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-eventhubs).
+This guide is intended to assist in the migration to [`spring-cloud-azure-stream-binder-eventhubs`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-stream-binder-eventhubs) from version 2 of [`azure-spring-cloud-stream-binder-eventhubs`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-eventhubs).
 
 For general information, use the following links:
 
@@ -1167,7 +1170,7 @@ For general information, use the following links:
 #### SDK configuration changes
 
 > [!IMPORTANT]
-> Configuration prefix has been changed from `spring.cloud.azure.eventhub` to `spring.cloud.azure.eventhubs.`
+> Configuration prefix has been changed from `spring.cloud.azure.eventhub` to `spring.cloud.azure.eventhubs`.
 
 > [!IMPORTANT]
 > The binder type is renamed from: `eventhub` to `eventhubs`.
@@ -1177,20 +1180,20 @@ For changes to the child entries for the following prefix, see the following tab
 The following table shows property mappings from `azure-spring-cloud-stream-binder-eventhubs` to `spring-cloud-azure-stream-binder-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy properties                                                                   | Modern properties                                                                                 |
-> |-------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-> | *spring.cloud.azure*.resource-group                                                 | *spring.cloud.azure.eventhubs*.resource.resource-group                                            |
-> | *spring.cloud.azure.eventhub*.namespace                                             | *spring.cloud.azure.eventhubs*.namespace                                                          |
-> | *spring.cloud.azure.eventhub*.connection-string                                     | *spring.cloud.azure.eventhubs*.connection-string                                                  |
-> | *spring.cloud.azure.eventhub*.checkpoint-storage-account                            | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-name                            |
-> | *spring.cloud.azure.eventhub*.checkpoint-access-key                                 | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-key                             |
-> | *spring.cloud.azure.eventhub*.checkpoint-container                                  | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.container-name                          |
-> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.max-batch-size      | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.batch.max-size                   |
-> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.max-wait-time       | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.batch.max-wait-time              |
-> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-mode     | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.mode                  |
-> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-count    | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.count                 |
-> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-interval | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.interval              |
-> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.start-position       | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.initial-partition-event-position |
+> | Legacy properties                                                                 | Modern properties                                                                               |
+> |-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+> | `spring.cloud.azure.resource-group`                                               | `spring.cloud.azure.eventhubs.resource.resource-group`                                          |
+> | `spring.cloud.azure.eventhub.namespace`                                           | `spring.cloud.azure.eventhubs.namespace`                                                        |
+> | `spring.cloud.azure.eventhub.connection-string`                                   | `spring.cloud.azure.eventhubs.connection-string`                                                |
+> | `spring.cloud.azure.eventhub.checkpoint-storage-account`                          | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`                          |
+> | `spring.cloud.azure.eventhub.checkpoint-access-key`                               | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`                           |
+> | `spring.cloud.azure.eventhub.checkpoint-container`                                | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`                        |
+> | `spring.cloud.stream.eventhub.bindings.binding-name.consumer.max-batch-size`      | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.batch.max-size`                   |
+> | `spring.cloud.stream.eventhub.bindings.binding-name.consumer.max-wait-time`       | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.batch.max-wait-time`              |
+> | `spring.cloud.stream.eventhub.bindings.binding-name.consumer.checkpoint-mode`     | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.checkpoint.mode`                  |
+> | `spring.cloud.stream.eventhub.bindings.binding-name.consumer.checkpoint-count`    | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.checkpoint.count`                 |
+> | `spring.cloud.stream.eventhub.bindings.binding-name.consumer.checkpoint-interval` | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.checkpoint.interval`              |
+> | `spring.cloud.stream.eventhub.bindings.binding-name.consumer.start-position`      | `spring.cloud.stream.eventhubs.bindings.binding-name.consumer.initial-partition-event-position` |
 
 > [!NOTE]
 > The value type of the `start-position` configuration is also changed from an enum of `com.azure.spring.integration.core.api.StartPosition` to a `map` of `StartPositionProperties` for each partition. Thus, the key is the partition ID, and the value is of `com.azure.spring.cloud.service.eventhubs.properties.StartPositionProperties` which includes properties of offset, sequence number, enqueued date time and whether inclusive.
@@ -1343,15 +1346,15 @@ You can also migrate to authenticate and authorize with Microsoft Entra ID direc
 The following table shows the class mappings from `azure-spring-cloud-stream-binder-eventhubs` to `spring-cloud-azure-stream-binder-eventhubs`.
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                              | Modern class                                                 |
-> |-----------------------------------------------------------|--------------------------------------------------------------|
-> |com.azure.spring.integration.core.api.reactor.Checkpointer |com.azure.spring.messaging.checkpoint.Checkpointer            |
-> |com.azure.spring.integration.core.AzureHeaders             |com.azure.spring.messaging.AzureHeaders                       |
-> |com.azure.spring.integration.core.EventHubHeaders          |com.azure.spring.messaging.eventhubs.support.EventHubsHeaders |
+> | Legacy class                                                 | Modern class                                                    |
+> |--------------------------------------------------------------|-----------------------------------------------------------------|
+> | `com.azure.spring.integration.core.api.reactor.Checkpointer` | `com.azure.spring.messaging.checkpoint.Checkpointer`            |
+> | `com.azure.spring.integration.core.AzureHeaders`             | `com.azure.spring.messaging.AzureHeaders`                       |
+> | `com.azure.spring.integration.core.EventHubHeaders`          | `com.azure.spring.messaging.eventhubs.support.EventHubsHeaders` |
 
-### From azure-spring-cloud-stream-binder-servicebus-* to spring-cloud-azure-stream-binder-servicebus
+### From `azure-spring-cloud-stream-binder-servicebus-*` to `spring-cloud-azure-stream-binder-servicebus`
 
-This guide is intended to assist in the migration to [spring-cloud-azure-stream-binder-servicebus](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-stream-binder-servicebus) from version 2 of [azure-spring-cloud-stream-binder-servicebus-queue](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-servicebus-queue) or [azure-spring-cloud-stream-binder-servicebus-topic](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-servicebus-topic).
+This guide is intended to assist in the migration to [`spring-cloud-azure-stream-binder-servicebus`](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-stream-binder-servicebus) from version 2 of [`azure-spring-cloud-stream-binder-servicebus-queue`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-servicebus-queue) or [`azure-spring-cloud-stream-binder-servicebus-topic`](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-servicebus-topic).
 
 For general information, use the following links:
 
@@ -1373,28 +1376,28 @@ For general information, use the following links:
 The following table lists the new configuration properties of `spring-cloud-azure-stream-binder-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
-> | Modern properties                                                             | Description                                                                                            |
-> |-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-> | *spring.cloud.stream.servicebus*.bindings.binding-name.producer.entity-type | If you use the sending function, you need to set the entity-type, which you can set to topic or queue. |
+> | Modern properties                                                           | Description                                                                                            |
+> |-----------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+> | `spring.cloud.stream.servicebus.bindings.binding-name.producer.entity-type` | If you use the sending function, you need to set the entity-type, which you can set to topic or queue. |
 
 The following table shows the property mappings from `azure-spring-cloud-stream-binder-servicebus-*` to `spring-cloud-azure-stream-binder-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy properties                                 | Modern properties                                                                                                                                                                                                                                                      |
-> |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | *spring.cloud.azure*.resource-group                                                       | *spring.cloud.azure.servicebus*.resource.resource-group                                                                                                                                                                          |
-> | *spring.cloud.azure.servicebus*.transport-type                                            | *spring.cloud.azure.servicebus*.client.transport-type                                                                                                                                                                            |
-> | *spring.cloud.azure.servicebus*.retry-options.retry-mode                                  | *spring.cloud.azure.servicebus*.retry.mode                                                                                                                                                                                       |
-> | *spring.cloud.azure.servicebus*.retry-options.max-retries                                 | *spring.cloud.azure.servicebus*.retry.exponential.max-retries or  *spring.cloud.azure.servicebus*.retry.fixed.max-retries, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential* |
-> | *spring.cloud.azure.servicebus*.retry-options.delay                                       | *spring.cloud.azure.servicebus*.retry.exponential.base-delay or  *spring.cloud.azure.servicebus*.retry.fixed.delay, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential*        |
-> | *spring.cloud.azure.servicebus*.retry-options.max-delay                                   | *spring.cloud.azure.servicebus*.retry.exponential.max-delay                                                                                                                                                                      |
-> | *spring.cloud.azure.servicebus*.retry-options.try-timeout                                 | *spring.cloud.azure.servicebus*.retry.try-timeout                                                                                                                                                                                |
-> | *spring.cloud.stream.servicebus*.queue.bindings.*                                        | *spring.cloud.stream.servicebus.bindings*.*                                                                                                                                                                                     |
-> | *spring.cloud.stream.servicebus.queue*.bindings.binding-name.consumer.*concurrency*     | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.max-concurrent-sessions/max-concurrent-calls                                                                                                                   |
-> | *spring.cloud.stream.servicebus.queue*.bindings.binding-name.consumer.*checkpoint-mode* | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.*auto-complete*                                                                                                                                                |
-> | *spring.cloud.stream.servicebus*.topic.bindings.*                                        | *spring.cloud.stream.servicebus.bindings*.*                                                                                                                                                                                     |
-> | *spring.cloud.stream.servicebus.topic*.bindings.binding-name.consumer.*concurrency*     | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.max-concurrent-sessions/max-concurrent-calls                                                                                                                   |
-> | *spring.cloud.stream.servicebus.topic*.bindings.binding-name.consumer.*checkpoint-mode* | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.*auto-complete*                                                                                                                                                |
+> | Legacy properties                                                                     | Modern properties                                                                                                                                                                                                                 |
+> |---------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `spring.cloud.azure.resource-group`                                                   | `spring.cloud.azure.servicebus.resource.resource-group`                                                                                                                                                                           |
+> | `spring.cloud.azure.servicebus.transport-type`                                        | `spring.cloud.azure.servicebus.client.transport-type`                                                                                                                                                                             |
+> | `spring.cloud.azure.servicebus.retry-options.retry-mode`                              | `spring.cloud.azure.servicebus.retry.mode`                                                                                                                                                                                        |
+> | `spring.cloud.azure.servicebus.retry-options.max-retries`                             | `spring.cloud.azure.servicebus.retry.exponential.max-retries` or `spring.cloud.azure.servicebus.retry.fixed.max-retries`, should be configured depending on `spring.cloud.azure.servicebus.retry.mode` = `fixed` or `exponential` |
+> | `spring.cloud.azure.servicebus.retry-options.delay`                                   | `spring.cloud.azure.servicebus.retry.exponential.base-delay` or `spring.cloud.azure.servicebus.retry.fixed.delay`, should be configured depending on `spring.cloud.azure.servicebus.retry.mode` = `fixed` or `exponential`        |
+> | `spring.cloud.azure.servicebus.retry-options.max-delay`                               | `spring.cloud.azure.servicebus.retry.exponential.max-delay`                                                                                                                                                                       |
+> | `spring.cloud.azure.servicebus.retry-options.try-timeout`                             | `spring.cloud.azure.servicebus.retry.try-timeout`                                                                                                                                                                                 |
+> | `spring.cloud.stream.servicebus.queue.bindings.*`                                     | `spring.cloud.stream.servicebus.bindings.*`                                                                                                                                                                                       |
+> | `spring.cloud.stream.servicebus.queue.bindings.binding-name.consumer.concurrency`     | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.max-concurrent-sessions` / `max-concurrent-calls`                                                                                                                  |
+> | `spring.cloud.stream.servicebus.queue.bindings.binding-name.consumer.checkpoint-mode` | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.auto-complete`                                                                                                                                                     |
+> | `spring.cloud.stream.servicebus.topic.bindings.*`                                     | `spring.cloud.stream.servicebus.bindings.*`                                                                                                                                                                                       |
+> | `spring.cloud.stream.servicebus.topic.bindings.binding-name.consumer.concurrency`     | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.max-concurrent-sessions` / `max-concurrent-calls`                                                                                                                  |
+> | `spring.cloud.stream.servicebus.topic.bindings.binding-name.consumer.checkpoint-mode` | `spring.cloud.stream.servicebus.bindings.binding-name.consumer.auto-complete`                                                                                                                                                     |
 
 > [!NOTE]
 > The concurrency property will be replaced by the maxConcurrentSessions when sessionsEnabled is `true` and the maxConcurrentCalls when sessionsEnabled is `false`.
@@ -1540,12 +1543,12 @@ You can also migrate to authenticate and authorize with Microsoft Entra ID direc
 The following table shows the class mappings from `azure-spring-cloud-stream-binder-eventhubs` to `spring-cloud-azure-stream-binder-eventhubs`.
 
 > [!div class="mx-tdBreakAll"]
-> | Legacy class                                                              | Modern class                                                          |
-> |---------------------------------------------------------------------------|-----------------------------------------------------------------------|
-> |com.azure.spring.integration.core.AzureHeaders                             |com.azure.spring.messaging.AzureHeaders                                |
-> |com.azure.spring.integration.servicebus.converter.ServiceBusMessageHeaders |com.azure.spring.messaging.servicebus.support.ServiceBusMessageHeaders |
-> |com.azure.spring.integration.core.api.Checkpointer                         |com.azure.spring.messaging.checkpoint.Checkpointer                     |
+> | Legacy class                                                                 | Modern class                                                             |
+> |------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+> | `com.azure.spring.integration.core.AzureHeaders`                             | `com.azure.spring.messaging.AzureHeaders`                                |
+> | `com.azure.spring.integration.servicebus.converter.ServiceBusMessageHeaders` | `com.azure.spring.messaging.servicebus.support.ServiceBusMessageHeaders` |
+> | `com.azure.spring.integration.core.api.Checkpointer`                         | `com.azure.spring.messaging.checkpoint.Checkpointer`                     |
 
-### azure-spring-cloud-messaging
+### `azure-spring-cloud-messaging`
 
 The `com.azure.spring:azure-spring-cloud-messaging` library isn't ready for 4.0. The function of listener annotations is under redesign, so the `@AzureMessageListener`, `@AzureMessageListeners`, and `@EnableAzureMessaging` annotations aren't currently supported.

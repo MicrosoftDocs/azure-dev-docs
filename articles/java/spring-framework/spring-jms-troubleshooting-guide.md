@@ -54,7 +54,7 @@ spring:
         max-connections: ${your-expected-max-connection-value}
 ```
 
-### Usage of spring.jms.servicebus.idle-timeout
+### Usage of `spring.jms.servicebus.idle-timeout`
 
 The idle-timeout properties configure the [idle timeout](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-doc-idle-time-out) of an AMQP connection. The AMQP spec provides the following description:
 
@@ -98,7 +98,7 @@ The following sections describe two solutions for dealing with this issue
 
 ##### Solution 1. Change to push consumer and local-check only
 
-By changing the mode to `push`, the consumer becomes an [Asynchronous Notification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-idp424576) consumer that doesn't pull messages from the broker, but maintains a target amount of link credit. The amount is decided by a prefetch property. As the Service Bus (sender) pushes messages, the sender’s link-credit decreases, and when the sender’s link-credit falls below a threshold, the client (receiver) sends a request to the server to increase the sender’s link-credit back to the desired target amount.
+By changing the mode to `push`, the consumer becomes an [Asynchronous Notification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-transport-v1.0-os.html#doc-idp424576) consumer that doesn't pull messages from the broker, but maintains a target amount of link credit. The amount is decided by a prefetch property. As the Service Bus (sender) pushes messages, the sender's link-credit decreases, and when the sender's link-credit falls below a threshold, the client (receiver) sends a request to the server to increase the sender's link-credit back to the desired target amount.
 
 To accomplish this solution, add the following configuration:
 
@@ -162,7 +162,7 @@ An unsuitable prefetch policy can cause the following problems:
 
 #### Cause analysis
 
-This issue usually happens when the [prefetch](/azure/service-bus-messaging/service-bus-prefetch?tabs=java) value is higher than the actual consuming capacity, with the effect that too many messages are prefetched to the local buffer waiting to be consumed. However, the prefetched messages are viewed as dispatched in a [peek-lock](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock) mode from the Service Bus side. Each dispatched message has a [max-delivery-count](/azure/service-bus-messaging/service-bus-dead-letter-queues#maximum-delivery-count) and lock-duration attributes. In the peek-lock receive mode, messages fetched into the prefetch buffer are acquired into the buffer in a locked state, with the timeout clock for the lock ticking. If the prefetch buffer is large, and processing takes so long that message locks expire while staying in the prefetch buffer, the message is treated as abandoned and is again made available for retrieval from the queue.
+This issue usually happens when the [`prefetch`](/azure/service-bus-messaging/service-bus-prefetch?tabs=java) value is higher than the actual consuming capacity, with the effect that too many messages are prefetched to the local buffer waiting to be consumed. However, the prefetched messages are viewed as dispatched in a [`peek-lock`](/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock) mode from the Service Bus side. Each dispatched message has a [`max-delivery-count`](/azure/service-bus-messaging/service-bus-dead-letter-queues#maximum-delivery-count) and `lock-duration` attributes. In the `peek-lock` receive mode, messages fetched into the prefetch buffer are acquired into the buffer in a locked state, with the timeout clock for the lock ticking. If the prefetch buffer is large, and processing takes so long that message locks expire while staying in the prefetch buffer, the message is treated as abandoned and is again made available for retrieval from the queue.
 
 This issue might cause the message to be fetched into the prefetch buffer and placed at the end. If the prefetch buffer isn't processed before message expiration, messages are repeatedly prefetched but never effectively delivered in a usable (validly locked) state. Then, when those outdated copies are dequeued, the application then consumes the same message repeatedly and isn't able to complete them. In another case, repeated messages are all expired in the buffer before being consumed. In this case, the message in the Service Bus will eventually be moved to the dead-letter queue after the maximum delivery count is exceeded.
 

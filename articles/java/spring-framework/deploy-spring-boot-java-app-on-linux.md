@@ -102,7 +102,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Navigate to the completed project directory for your Spring Boot application - for example, **C:\SpringBoot\gs-spring-boot-docker\complete** or **/users/robert/SpringBoot/gs-spring-boot-docker/complete** - and open the **pom.xml** file with a text editor.
 
-1. Update the `<properties>` collection in the **pom.xml** file with the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), login server value, and access settings for your Azure Container Registry from the previous section of this tutorial. For example:
+1. Update the `<properties>` collection in the **pom.xml** file with the latest version of [`jib-maven-plugin`](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), login server value, and access settings for your Azure Container Registry from the previous section of this tutorial. For example:
 
    ```xml
    <properties>
@@ -112,7 +112,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
    </properties>
    ```
 
-1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the **pom.xml** file.  This example uses version 3.2.0.
+1. Add [`jib-maven-plugin`](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the **pom.xml** file.  This example uses version 3.2.0.
 
    Specify the base image at `<from>/<image>`, here `mcr.microsoft.com/openjdk/jdk:11-ubuntu`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 

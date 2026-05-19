@@ -1,12 +1,13 @@
 ---
 title: 'Credential chains in the Azure Identity library for Java'
 description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.'
-ms.date: 10/02/2025
+ms.date: 02/24/2026
 ms.topic: concept-article
 author: bmitchell287
 ms.author: brendm
 ms.reviewer: scaddie
 ms.custom: devx-track-java
+ai-usage: ai-assisted
 ---
 
 # Credential chains in the Azure Identity library for Java
@@ -52,7 +53,7 @@ A chained credential can offer the following benefits:
 
 ## How to choose a chained credential
 
-There are two disparate philosophies to credential chaining:
+There are two different approaches to credential chaining:
 
 - **Use a preconfigured chain**: Start with an opinionated, preconstructed chain that accommodates the most common authentication scenarios. For this approach, see the [DefaultAzureCredential overview](#defaultazurecredential-overview) section.
 - **"Build up" a chain**: Start with an empty chain and include only what you need. For this approach, see the [ChainedTokenCredential overview](#chainedtokencredential-overview) section.
@@ -67,7 +68,7 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 
 | Order | Credential                      | Description                                                                                                                                                                                                                                                                                                                        |
 |-------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | [Environment][env-cred]         | Reads a collection of [environment variables][env-vars] to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally. |
+| 1     | [Environment][env-cred]         | Reads a collection of [environment variables][env-vars] to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method can be used when developing locally, but is most often used in server environments. |
 | 2     | [Workload Identity][wi-cred]    | If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.                                                                                                                                                                                                                                 |
 | 3     | [Managed Identity][mi-cred]     | If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.                                                                                                                                                                                                  |
 | 4     | [IntelliJ][ij-cred]             | If the developer authenticated via Azure Toolkit for IntelliJ, authenticate that account.                                                                                                                                                                                                                                          |
@@ -126,6 +127,20 @@ DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
     .build();
 ```
 
+> [!IMPORTANT]
+> The `requireEnvVars` method is available in `azure-identity` package versions 1.18.0 and later.
+
+To use a custom environment variable name instead of the default `AZURE_TOKEN_CREDENTIALS`, use `AzureIdentityEnvVars.fromString()` to create a reference to your custom variable:
+
+```java
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+    .requireEnvVars(AzureIdentityEnvVars.fromString("MY_CUSTOM_TOKEN_CREDENTIALS"))
+    .build();
+```
+
+> [!NOTE]
+> The `requireEnvVars` method throws an `IllegalStateException` if the specified environment variables aren't set or are empty.
+
 #### Use a specific credential
 
 To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCliCredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCliCredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
@@ -175,7 +190,7 @@ ChainedTokenCredential credential = new ChainedTokenCredentialBuilder()
     .build();
 ```
 
-The preceding code sample creates a tailored credential chain comprised of two development-time credentials. `AzureCliCredential` is attempted first, followed by `IntelliJCredential`, if necessary. In graphical form, the chain looks like this:
+The preceding code example creates a tailored credential chain comprised of two development-time credentials. `AzureCliCredential` is attempted first, followed by `IntelliJCredential`, if necessary. In graphical form, the chain looks like this:
 
 :::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of the Azure CLI and IntelliJ credentials.":::
 
@@ -184,13 +199,14 @@ The preceding code sample creates a tailored credential chain comprised of two d
 
 ## Usage guidance for DefaultAzureCredential
 
-`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`.
+`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity library, but with that convenience comes tradeoffs. After you deploy your app to Azure, you should understand the app's authentication requirements and consider whether `DefaultAzureCredential` is appropriate for your scenario.
 
-Here's why:
+`DefaultAzureCredential` offers a key benefit: it decouples your application code from specific authentication mechanisms, enabling you to change your authentication configuration without modifying code. For experienced developers who consciously configure their production authentication, this flexibility can be valuable. However, this flexibility comes with potential drawbacks:
 
 - **Debugging challenges**: When authentication fails, it can be challenging to debug and identify the offending credential. You must enable logging to see the progression from one credential to the next and the success/failure status of each. For more information, see [Debug a chained credential](#debug-a-chained-credential).
 - **Performance overhead**: The process of sequentially trying multiple credentials can introduce performance overhead. For example, when running on a local development machine, managed identity is unavailable. Consequently, `ManagedIdentityCredential` always fails in the local development environment.
 - **Unpredictable behavior**: `DefaultAzureCredential` checks for the presence of certain [environment variables][env-vars]. It's possible that someone could add or modify these environment variables at the system level on the host machine. Those changes apply globally and therefore alter the behavior of `DefaultAzureCredential` at runtime in any app running on that machine.
+- **Permission mismatches**: `DefaultAzureCredential` stops at the first credential that successfully acquires a token, regardless of whether that credential has the correct permissions. For example, a local development credential might have broader permissions than the production managed identity, causing the app to work locally but fail authorization checks after deployment.
 
 ## Debug a chained credential
 

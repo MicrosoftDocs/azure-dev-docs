@@ -1,7 +1,6 @@
 ---
 title: Deploy the Azure MCP Server as a remote MCP server and connect using Copilot Studio
 description: Learn how to deploy the Azure MCP Server as a remote MCP server and connect using Copilot Studio
-keywords: azure mcp server, azmcp
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 12/11/2025

@@ -1,7 +1,6 @@
 ---
 title: Azure Event Grid
 description: Learn how to use the Azure MCP Server with Azure Event Grid.
-keywords: azure mcp server, azmcp, kusto, azure event grid
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025
@@ -41,7 +40,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventgrid events publish](../includes/tools/annotations/azure-event-grid-events-publish-annotations.md)]
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Subscription: List
 
@@ -67,7 +66,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventgrid subscription list](../includes/tools/annotations/azure-event-grid-subscription-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Topic: List
 
@@ -87,7 +86,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventgrid topic list](../includes/tools/annotations/azure-event-grid-topic-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 

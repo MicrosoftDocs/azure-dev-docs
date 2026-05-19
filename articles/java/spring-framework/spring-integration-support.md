@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure support for Spring Integration
@@ -77,36 +77,36 @@ This section contains the configuration options used for connecting to Azure Eve
 > [!NOTE]
 > If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
-Connection configurable properties of spring-cloud-azure-starter-integration-eventhubs:
+Connection configurable properties of `spring-cloud-azure-starter-integration-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                 | Type    | Description                                                                                                                |
 > |----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.eventhubs**.enabled                 | boolean | Whether an Azure Event Hubs is enabled.                                                                                    |
-> | **spring.cloud.azure.eventhubs**.connection-string       | String  | Event Hubs Namespace connection string value.                                                                              |
-> | **spring.cloud.azure.eventhubs**.namespace               | String  | Event Hubs Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
-> | **spring.cloud.azure.eventhubs**.domain-name             | String  | Domain name of an Azure Event Hubs Namespace value.                                                                        |
-> | **spring.cloud.azure.eventhubs**.custom-endpoint-address | String  | Custom Endpoint address.                                                                                                   |
-> | **spring.cloud.azure.eventhubs**.shared-connection       | Boolean | Whether the underlying EventProcessorClient and EventHubProducerAsyncClient use the same connection. By default, a new connection is constructed and used created for each Event Hub client created. |
+> | `spring.cloud.azure.eventhubs.enabled`                 | boolean | Whether an Azure Event Hubs is enabled.                                                                                    |
+> | `spring.cloud.azure.eventhubs.connection-string`       | String  | Event Hubs Namespace connection string value.                                                                              |
+> | `spring.cloud.azure.eventhubs.namespace`               | String  | Event Hubs Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
+> | `spring.cloud.azure.eventhubs.domain-name`             | String  | Domain name of an Azure Event Hubs Namespace value.                                                                        |
+> | `spring.cloud.azure.eventhubs.custom-endpoint-address` | String  | Custom Endpoint address.                                                                                                   |
+> | `spring.cloud.azure.eventhubs.shared-connection`       | Boolean | Whether the underlying EventProcessorClient and EventHubProducerAsyncClient use the same connection. By default, a new connection is constructed and used created for each Event Hub client created. |
 
 #### Checkpoint Configuration Properties
 
 This section contains the configuration options for the Storage Blobs service, which is used for persisting partition ownership and checkpoint information.
 
 > [!NOTE]
-> From version 4.0.0, when the property of **spring.cloud.azure.eventhubs.processor.checkpoint-store.create-container-if-not-exists** isn't enabled manually, no Storage container will be created automatically.
+> From version 4.0.0, when the property of `spring.cloud.azure.eventhubs.processor.checkpoint-store.create-container-if-not-exists` isn't enabled manually, no Storage container will be created automatically.
 
-Checkpointing configurable properties of spring-cloud-azure-starter-integration-eventhubs:
+Checkpointing configurable properties of `spring-cloud-azure-starter-integration-eventhubs`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                                   | Type    | Description                                         |
 > |--------------------------------------------------------------------------------------------|---------|-----------------------------------------------------|
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.create-container-if-not-exists | Boolean | Whether to allow creating containers if not exists. |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.account-name                   | String  | Name for the storage account.                       |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.account-key                    | String  | Storage account access key.                         |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.container-name                 | String  | Storage container name.                             |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.create-container-if-not-exists` | Boolean | Whether to allow creating containers if not exists. |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`                   | String  | Name for the storage account.                       |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`                    | String  | Storage account access key.                         |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`                 | String  | Storage container name.                             |
 
-Common Azure Service SDK configuration options are configurable for Storage Blob checkpoint store as well. The supported configuration options are introduced in [Spring Cloud Azure configuration](configuration.md), and could be configured with either the unified prefix `spring.cloud.azure.` or the prefix of `spring.cloud.azure.eventhubs.processor.checkpoint-store`.
+Common Azure Service SDK configuration options are configurable for Storage Blob checkpoint store as well. The supported configuration options are introduced in [Spring Cloud Azure configuration](configuration.md), and could be configured with either the unified prefix `spring.cloud.azure.` or the prefix of `spring.cloud.azure.eventhubs.processor.checkpoint-store.`.
 
 #### Event Hub processor configuration properties
 
@@ -254,7 +254,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
        public EventHubsInboundChannelAdapter messageChannelAdapter(
                @Qualifier(INPUT_CHANNEL) MessageChannel inputChannel,
                EventHubsMessageListenerContainer listenerContainer) {
-           EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(processorContainer);
+           EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(listenerContainer);
            adapter.setOutputChannel(inputChannel);
            return adapter;
        }
@@ -307,7 +307,7 @@ class Demo {
     public EventHubsInboundChannelAdapter messageChannelAdapter(
             @Qualifier(INPUT_CHANNEL) MessageChannel inputChannel,
             EventHubsMessageListenerContainer listenerContainer) {
-        EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(processorContainer, ListenerMode.BATCH);
+        EventHubsInboundChannelAdapter adapter = new EventHubsInboundChannelAdapter(listenerContainer, ListenerMode.BATCH);
         adapter.setOutputChannel(inputChannel);
         return adapter;
     }
@@ -365,7 +365,7 @@ Mapping between Event Hubs Message / Event Properties and Spring Message Headers
 
 ### Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration) repository on GitHub.
 
 ## Spring Integration with Azure Service Bus
 
@@ -399,16 +399,16 @@ This section contains the configuration options used for connecting to Azure Ser
 > [!NOTE]
 > If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
-Connection configurable properties of spring-cloud-azure-starter-integration-servicebus:
+Connection configurable properties of `spring-cloud-azure-starter-integration-servicebus`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                            | Type    | Description                                                                                                                 |
 > |-----------------------------------------------------|---------|-----------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.servicebus**.enabled           | boolean | Whether an Azure Service Bus is enabled.                                                                                    |
-> | **spring.cloud.azure.servicebus**.connection-string | String  | Service Bus Namespace connection string value.                                                                              |
-> | **spring.cloud.azure.servicebus**.custom-endpoint-address | String  | The custom endpoint address to use when connecting to Service Bus.                                                                              |
-> | **spring.cloud.azure.servicebus**.namespace         | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
-> | **spring.cloud.azure.servicebus**.domain-name       | String  | Domain name of an Azure Service Bus Namespace value.                                                                        |
+> | `spring.cloud.azure.servicebus.enabled`           | boolean | Whether an Azure Service Bus is enabled.                                                                                    |
+> | `spring.cloud.azure.servicebus.connection-string` | String  | Service Bus Namespace connection string value.                                                                              |
+> | `spring.cloud.azure.servicebus.custom-endpoint-address` | String  | The custom endpoint address to use when connecting to Service Bus.                                                                              |
+> | `spring.cloud.azure.servicebus.namespace`         | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
+> | `spring.cloud.azure.servicebus.domain-name`       | String  | Domain name of an Azure Service Bus Namespace value.                                                                        |
 
 #### Service Bus processor configuration properties
 
@@ -488,7 +488,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
                @Override
                public void onFailure(Throwable ex) {
-                   LOGGER.info("There was an error sending the message.");
+                   LOGGER.error("There was an error sending the message.", ex);
                }
            });
 
@@ -690,7 +690,7 @@ public AzureServiceClientBuilderCustomizer<ServiceBusClientBuilder.ServiceBusSes
 
 ### Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-starter-integration-servicebus) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-starter-integration-servicebus) repository on GitHub.
 
 ## Spring Integration with Azure Storage Queue
 
@@ -718,19 +718,19 @@ This section contains the configuration options used for connecting to Azure Sto
 > [!NOTE]
 > If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
-Connection configurable properties of spring-cloud-azure-starter-integration-storage-queue:
+Connection configurable properties of `spring-cloud-azure-starter-integration-storage-queue`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                               | Type                | Description                                                |
 > |--------------------------------------------------------|---------------------|------------------------------------------------------------|
-> | **spring.cloud.azure.storage.queue**.enabled           | boolean             | Whether an Azure Storage Queue is enabled.                 |
-> | **spring.cloud.azure.storage.queue**.connection-string | String              | Storage Queue Namespace connection string value.           |
-> | **spring.cloud.azure.storage.queue**.accountName       | String              | Storage Queue account name.                                |
-> | **spring.cloud.azure.storage.queue**.accountKey        | String              | Storage Queue account key.                                 |
-> | **spring.cloud.azure.storage.queue**.endpoint          | String              | Storage Queue service endpoint.                            |
-> | **spring.cloud.azure.storage.queue**.sasToken          | String              | Sas token credential                                       |
-> | **spring.cloud.azure.storage.queue**.serviceVersion    | QueueServiceVersion | QueueServiceVersion that is used when making API requests. |
-> | **spring.cloud.azure.storage.queue**.messageEncoding   | String              | Queue message encoding.                                    |
+> | `spring.cloud.azure.storage.queue.enabled`           | boolean             | Whether an Azure Storage Queue is enabled.                 |
+> | `spring.cloud.azure.storage.queue.connection-string` | String              | Storage Queue Namespace connection string value.           |
+> | `spring.cloud.azure.storage.queue.accountName`       | String              | Storage Queue account name.                                |
+> | `spring.cloud.azure.storage.queue.accountKey`        | String              | Storage Queue account key.                                 |
+> | `spring.cloud.azure.storage.queue.endpoint`          | String              | Storage Queue service endpoint.                            |
+> | `spring.cloud.azure.storage.queue.sasToken`          | String              | Sas token credential                                       |
+> | `spring.cloud.azure.storage.queue.serviceVersion`    | QueueServiceVersion | QueueServiceVersion that is used when making API requests. |
+> | `spring.cloud.azure.storage.queue.messageEncoding`   | String              | Queue message encoding.                                    |
 
 ### Basic usage
 
@@ -808,7 +808,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
                @Override
                public void onFailure(Throwable ex) {
-                   LOGGER.info("There was an error sending the message.");
+                   LOGGER.error("There was an error sending the message.", ex);
                }
            });
            return handler;
@@ -889,4 +889,4 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 ### Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-integration-storage-queue) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-integration-storage-queue) repository on GitHub.

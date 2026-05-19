@@ -3,7 +3,7 @@ title: Connect your app to Azure Services
 description: An overview of how to connect your applications to Azure.
 ms.service: azure
 ms.topic: overview
-ms.date: 09/24/2025
+ms.date: 03/25/2026
 ---
 
 # Connect your app to Azure services
@@ -24,15 +24,17 @@ Azure offers many services that applications can use whether they're hosted in A
 - Add full-text search to your application with Azure AI Search.
 - Use Azure Service Bus to handle messaging between different components of a microservices architecture.
 - Use Text Analytics to identify and redact sensitive data in a document.
+- Call Azure OpenAI models to add generative AI capabilities like chat, summarization, and code generation.
 
 Azure services offer the benefit that they're fully managed by Azure.
 
 ## Access Azure services from application code
 
-Use either the Azure SDK or the Azure REST API to access Azure services from your application code.
+Use the Azure SDK, the Azure REST API, or the Azure AI Foundry SDK to access Azure services from your application code.
 
-- **Azure SDK** - Available for .NET, Java, JavaScript, Python, and Go.
+- **Azure SDK** - Available for .NET, C++, Go, Java, JavaScript, Python, and Rust.
 - **Azure REST API** - Available for all languages.
+- **Azure AI Foundry SDK** - Available for Python, .NET, Java, and JavaScript for AI-specific workloads.
 
 When possible, use the Azure SDK to access Azure services from application code. Advantages include:
 
@@ -61,6 +63,10 @@ For more information about the Azure SDK, see the documentation in each language
 ## Azure REST API
 
 Use the Azure REST API when the Azure SDK doesn't support your programming language. For details and the full list of operations, see the [Azure REST API overview](/rest/api/azure/).
+
+## Azure AI Foundry SDK
+
+When building AI applications, you can also use the [Azure AI Foundry SDK](/azure/foundry/how-to/develop/sdk-overview) (available for Python, .NET, Java, and JavaScript) to interact with Azure OpenAI models, manage prompts, and orchestrate AI workflows. For keyless authentication to AI services, see [Use Azure OpenAI without keys](../ai/keyless-connections.md).
 
 > [!div class="nextstepaction"]
 > [Continue to part 5: How do I create and manage resources in Azure?](azure-developer-create-resources.md)

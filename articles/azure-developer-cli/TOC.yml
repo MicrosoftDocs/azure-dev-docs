@@ -25,6 +25,8 @@
       href: azure-developer-cli-vs-azure-cli.md
     - name: Explore the azd init workflow
       href: azd-init-workflow.md
+    - name: Use GitHub Copilot with azd
+      href: azd-copilot-integration.md
     - name: Explore the azd up workflow
       href: azd-up-workflow.md
     - name: Commands overview
@@ -91,6 +93,8 @@
           href: remote-builds.md
         - name: Publishing workflows
           href: publishing-workflows.md
+        - name: Azure App Service deployment slots
+          href: app-service-slots.md
         - name: Docker support as a language
           href: docker-language-support.md
         - name: Metadata configuration
@@ -101,7 +105,7 @@
           href: use-external-registry.md
         - name: Azure deployment stacks integration
           href: azure-deployment-stacks-integration.md
-        - name: Deploy to Azure AI/ML online endpoints
+        - name: Deploy to Microsoft Foundry online endpoints
           href: azure-ai-ml-endpoints.md
         - name: Configure service packaging ignore files
           href: service-packaging-ignore-files.md
@@ -119,6 +123,8 @@
           href: work-with-environments.md
         - name: Manage environment variables
           href: manage-environment-variables.md
+        - name: Use environment secrets
+          href: environment-secrets.md
         - name: Environment variables FAQ
           href: environment-variables-faq.md
       - name: Full stack
@@ -127,7 +133,7 @@
           href: full-stack-deployment.md
         - name: Full-stack deployment templates
           href: full-stack-templates.md
-      - name: Deploy to Azure Container Apps
+      - name: Deploy to Azure Container Apps and Jobs
         href: container-apps-workflows.md
       - name: Use Terraform for infrastructure as code
         href: use-terraform-for-azd.md
@@ -143,6 +149,10 @@
       href: azd-config.md
     - name: Customize workflows using command and event hooks
       href: azd-extensibility.md
+    - name: Write hooks using programming languages
+      href: hooks-multi-language.md
+    - name: Custom prompts and parameters
+      href: custom-prompts.md
     - name: Enable demo mode
       href: demo-mode.md
     - name: Configure template sources
@@ -151,16 +161,18 @@
       href: sovereign-clouds.md
     - name: Configure a proxy
       href: configure-proxy.md
-  - name: Troubleshoot
+  - name: Errors, troubleshooting, and FAQs
     items:
-    - name: Troubleshoot
-      href: troubleshoot.md
-    - name: Troubleshoot PowerShell errors
+    - name: Provisioning and deployment errors FAQ
+      href: provisioning-deployment-faq.md
+    - name: Tooling and environment FAQ
+      href: tooling-environment-faq.md
+    - name: PowerShell guidance
       href: powershell-guidance.md
   - name: Reference and resources
     items:
     - name: Frequently asked questions (FAQ)
-      href: faq.yml
+      href: tooling-environment-faq.md
     - name: azure.yaml schema
       href: azd-schema.md
     - name: Commands reference
@@ -171,6 +183,20 @@
     items:
     - name: All release notes and blog posts
       href: https://devblogs.microsoft.com/azure-sdk/tag/azure-developer-cli/
+    - name: March 2026
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-march-2026/
+    - name: February 2026
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-february-2026/
+    - name: January 2026
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-january-2026/
+    - name: December 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-december-2025/
+    - name: November 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-november-2025/
+    - name: October 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-october-2025/
+    - name: August 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-august-2025/
     - name: July 2025
       href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-july-2025/
     - name: June 2025
@@ -179,16 +205,4 @@
       href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-may-2025/
     - name: April 2025
       href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-april-2025/
-    - name: March 2025
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-march-2025/
-    - name: February 2025
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-february-2025/
-    - name: November 2024
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-november-2024/
-    - name: October 2024
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-october-2024/
-    - name: September 2024
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-september-2024/
-    - name: August 2024
-      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-august-2024/
     

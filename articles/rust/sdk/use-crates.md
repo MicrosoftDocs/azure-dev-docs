@@ -70,7 +70,7 @@ The code shown in this article is available on <https://github.com/azure-samples
 
 [Azure SDK main Cargo.toml]: https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml
 
-[Ref doc - secret - SecretClient]: https://docs.rs/azure_security_keyvault_secrets/latest/azure_security_keyvault_secrets/struct.SecretClient.html
+[Ref doc - secret - SecretClient]: https://docs.rs/azure_security_keyvault_secrets/latest/azure_security_keyvault_secrets/
 [Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
 [Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/response/struct.Response.html
 [Ref doc - core - http status code]: https://docs.rs/azure_core/latest/azure_core/http/enum.StatusCode.html

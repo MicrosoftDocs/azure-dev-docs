@@ -39,7 +39,7 @@ The following procedure creates and configures an Azure Cosmos DB account in the
 
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this name will be used to create a fully qualified domain name like **wingtiptoyscassandra.documents.azure.com**.
+   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this name will be used to create a fully qualified domain name like `wingtiptoyscassandra.documents.azure.com`.
    - **API**: Specify **Cassandra** for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
 

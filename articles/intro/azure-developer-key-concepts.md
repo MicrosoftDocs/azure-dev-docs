@@ -4,7 +4,7 @@ description: Understand the factors that affect your overall strategy for design
 keywords: azure account, azure subscription, billing, region, resource groups
 ms.service: azure
 ms.topic: overview
-ms.date: 09/29/2025
+ms.date: 03/25/2026
 ms.custom: overview
 ---
 
@@ -59,6 +59,16 @@ Because it's important that each environment is an exact copy, use [scripting to
 > [!VIDEO 11847e6e-3424-4284-ba49-f7358fc8c8c9]
 
 
+## AI development considerations
+
+When building AI applications on Azure, consider these additional factors:
+
+- **Model selection** - Choose between Azure OpenAI models and open-source models available through the model catalog in Microsoft Foundry. Each model has different capabilities, latency characteristics, and cost profiles.
+- **Responsible AI** - Azure provides built-in content filtering and safety features. Design your AI applications with [responsible AI practices](/azure/ai-services/responsible-use-of-ai-overview) in mind, including fairness, transparency, and accountability.
+- **Token-based pricing** - Many AI services use token-based billing rather than traditional compute-based pricing. Understand your expected usage patterns to estimate costs accurately.
+
+To learn more, see [Overview of AI app development](../ai/azure-ai-for-developers.md).
+
 ## DevOps Support
 
 Whether you're publishing apps to Azure with continuous integration or provisioning resources for a new environment, Azure integrates with popular DevOps tools. You can work with your existing tools and maximize your experience with support for tools like:
@@ -69,7 +79,7 @@ Whether you're publishing apps to Azure with continuous integration or provision
 - [Jenkins](../jenkins/index.yml)
 - [Terraform](../terraform/index.yml)
 - [Ansible](../ansible/index.yml)
-- [Chef](https://docs.chef.io/azure_chef_cli/)
+- [Chef](https://docs.chef.io/client/19/integrations/azure_chef_cli/)
 
 
 > [!div class="nextstepaction"]

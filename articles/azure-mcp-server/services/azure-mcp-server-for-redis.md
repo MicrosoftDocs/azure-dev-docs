@@ -40,7 +40,7 @@ To use the Azure MCP Server with Azure Redis, you need:
 
 ### Azure requirements
 
-- **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
+- **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Azure Redis resources**: At least one Azure Managed Redis cache in your subscription, or permissions to create them.
 - **Azure permissions**: Appropriate roles like Contributor or Redis Cache Contributor to perform the operations you want. See [Use Microsoft Entra ID for cache authentication with Azure Managed Redis](/azure/redis/entra-for-authentication).
 

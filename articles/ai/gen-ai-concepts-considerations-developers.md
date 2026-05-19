@@ -21,7 +21,7 @@ Here are the most significant challenges and limitations to keep in mind when yo
 
 - **Knowledge cutoff**: LLMs only know what they were trained on up to a certain date. Without external data connections, they can’t access real-time or private information.
 
-- **Hallucination**: LLMs might generate inaccurate or misleading information. The Groundedness detection feature in Azure AI Foundry helps you determine whether an LLM’s responses are based on the source materials you provide. Ungrounded responses  include information not supported by your data. Learn how to use groundedness detection in this [quickstart](/azure/ai-services/content-safety/quickstart-groundedness?tabs=python&pivots=programming-language-rest).
+- **Hallucination**: LLMs might generate inaccurate or misleading information. The Groundedness detection feature in Microsoft Foundry helps you determine whether an LLM’s responses are based on the source materials you provide. Ungrounded responses  include information not supported by your data. Learn how to use groundedness detection in this [quickstart](/azure/ai-services/content-safety/quickstart-groundedness?tabs=python&pivots=programming-language-rest).
 
 - **Transparency**: You can’t always trace the source or accuracy of generated content, and there’s no built-in verification step.
 
@@ -60,7 +60,6 @@ In typical English text, one token is about four characters. On average, 100 tok
 For developers, the following libraries help estimate token counts for prompts and completions, which is useful for managing context window limits and costs:
 - the [tiktoken](https://github.com/openai/tiktoken) library (Python and JavaScript)
 - the [Microsoft.ML.Tokenizers](https://www.nuget.org/packages/Microsoft.ML.Tokenizers/2.0.0-preview.1.25127.4#readme-body-tab) library (.NET)
-- the [Hugging Face Tokenizers](https://huggingface.co/docs/tokenizers/python/latest/index) library (JavaScript, Python, and Java)
 
 ### Token usage affects billing
 

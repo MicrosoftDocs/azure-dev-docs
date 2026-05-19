@@ -36,12 +36,16 @@ landingContent:
             url: ./azure-developer-key-concepts.md
           - text: Azure billing
             url: ./azure-developer-billing.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with Azure dev tools
+            url: ./quickstart-developer-tools.md
   # Card
   - title: Key developer scenarios
     linkLists:
       - linkListType: concept
         links:
-          - text: Develop apps that use Foundry Tools
+          - text: AI development on Azure
             url: /azure/developer/ai/azure-ai-for-developers
           - text: Passwordless connections for Azure Services
             url: ./passwordless-overview.md

@@ -23,7 +23,7 @@ This project supports multiple Spring Boot versions. For more information, see [
 
 ### Spring Data version support
 
-This project supports different spring-data-commons versions. For more information, see [Spring Data Version Support][spring-data-version-support].
+This project supports different `spring-data-commons` versions. For more information, see [Spring Data Version Support][spring-data-version-support].
 
 ### Which version of Azure Spring Data Azure Cosmos DB to use
 

@@ -3,7 +3,7 @@ author: alexwolfmsft
 ms.service: azure
 ms.topic: include
 ms.author: alexwolf
-ms.date: 08/11/2025
+ms.date: 02/27/2026
 ---
 
 ## Authenticate to Azure

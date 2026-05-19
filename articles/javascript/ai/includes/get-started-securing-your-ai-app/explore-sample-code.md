@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js, devx-track-ts, 
 ms.topic: include
-ms.date: 11/08/2024
+ms.date: 03/13/2026
 # Used as part of /developer/ai/get-started-securing-your-ai-app
 ---
 
@@ -29,7 +29,7 @@ function getChainedCredential() {
 }
 ```
 * [ManagedIdentityCredential](/javascript/api/@azure/identity/managedidentitycredential) is attempted first. It's set up with the AZURE_CLIENT_ID environment variable in the production runtime and is capable of authenticating via user-assigned managed identity.
-* [AzureDeveloperCliCredential](/javascript/api/@azure/identity/azuredeveloperclicredential) is attempted second. It's set up when a develop signs in with Azure CLI `az login`.
+* [AzureDeveloperCliCredential](/javascript/api/@azure/identity/azuredeveloperclicredential) is attempted second. It's set up when a developer signs in with the Azure Developer CLI by using `azd auth login`.
 
 >[!TIP]
 >The order of the credentials is important, as the first valid Microsoft Entra access token is used. For more information, check out the [ChainedTokenCredential Overview](/javascript/api/@azure/identity/tokencredential) article.

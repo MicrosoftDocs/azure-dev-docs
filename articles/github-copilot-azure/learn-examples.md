@@ -81,7 +81,7 @@ You can follow up by asking more detailed questions based on GitHub Copilot for 
 |Azure Functions|<ul><li>"How do I create a new Azure Function?"</li><li>"What is the difference between Azure Functions and Azure Logic Apps?"</li><li>"Create a guide for integrating Azure Logic Apps with Azure Functions."</li><li>"I want to create an Azure Function in Node.js."</li></ul>|
 |Azure Key Vault|<ul><li>"Explain how and why I should use Azure Key Vault."</li></ul>|
 |Azure Kubernetes Service (AKS)|<ul><li>"How do I get the status of all nodes in my AKS cluster?"</li><li>"What's the command to set a context for my AKS cluster?"</li></ul>|
-|Azure Machine Learning|<ul><li>"Generate a PowerShell script to create a new Azure Machine Learning workspace."</li><li>"What is the difference between Azure AI services and Azure Machine Learning?"</li></ul>|
+|Azure Machine Learning|<ul><li>"Generate a PowerShell script to create a new Azure Machine Learning workspace."</li><li>"What is the difference between Foundry Tools and Azure Machine Learning?"</li></ul>|
 |Azure Monitor|<ul><li>"Create a guide for using Azure Logic Apps to automate responses to Azure Monitor alerts."</li></ul>|
 |Azure Virtual Network|<ul><li>"How do I balance inbound network traffic to my Azure application?"</li></ul>|
 |Azure OpenAI Service|<ul><li>"What services does Azure OpenAI provide?"</li><li>"Where is GPT-4o mini available in Azure?"</li><li>"What are the prerequisites for integrating Azure OpenAI?"</li><li>"Create a guide for creating and using Azure OpenAI resources."</li><li>"What are the available Azure OpenAI model types?"</li></ul>|

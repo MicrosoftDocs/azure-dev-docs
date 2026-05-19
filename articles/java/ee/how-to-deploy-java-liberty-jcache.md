@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: how-to
-ms.date: 03/04/2025
+ms.date: 03/26/2026
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to build an application that uses Azure Redis as the HTTP session cache for WebSphere Liberty or Open Liberty.
 ---

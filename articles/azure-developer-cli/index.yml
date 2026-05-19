@@ -93,7 +93,7 @@ landingContent:
           - text: Troubleshoot & Get help
             url: troubleshoot.md   
           - text: Frequently asked questions (FAQ)
-            url: faq.yml   
+            url: tooling-environment-faq.md   
       - linkListType: reference
         links:
           - text: Azure Developer CLI Reference

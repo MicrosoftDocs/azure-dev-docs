@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 02/11/2026
+ms.date: 03/11/2026
 author: KarlErickson
 ms.author: karler
 ms.topic: whats-new
@@ -10,6 +10,46 @@ ms.topic: whats-new
 # Azure developer documentation: What's new
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
+
+## What's new for February 2026
+
+### Azure Developer CLI (azd)
+
+New articles:
+
+- [Layered provisioning](../azure-developer-cli/layered-provisioning.md)
+
+### Azure for JavaScript
+
+New articles:
+
+- [Azure JavaScript samples catalog](../javascript/samples.md)
+
+Updated articles:
+
+- [How to authenticate JavaScript apps with Azure services](../javascript/sdk/authentication/overview.md) - Update SDK Auth to use shared includes
+
+### Azure MCP Server
+
+New articles:
+
+- [Azure Advisor tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-advisor.md)
+- [Azure Files tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-file-shares.md)
+- [Azure Migrate tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-migrate.md)
+- [Azure pricing tools for the Azure MCP Server](../azure-mcp-server/tools/azure-pricing.md)
+- [Azure Service Fabric tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-service-fabric.md)
+- [Azure Virtual Machines tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-virtual-machines.md)
+- [Quickstart: Integrate Azure MCP Server with GitHub Copilot CLI](../azure-mcp-server/how-to/github-copilot-cli.md)
+- [Quickstart: Integrate Azure MCP Server with GitHub Copilot SDK](../azure-mcp-server/how-to/github-copilot-sdk.md)
+
+Updated articles:
+
+- [Azure Managed Lustre tools for Azure MCP Server overview](../azure-mcp-server/tools/azure-managed-lustre.md) - Update Managed Lustre for file system blob operations
+- [Azure Monitor tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-monitor.md) - updated MCP tools for Azure Monitor for tool consolidation
+- [What is the Azure MCP Server?](../azure-mcp-server/overview.md) - Update MCP Overview & Landing
+- [Get started using the Azure MCP Server with Visual Studio Code](../azure-mcp-server/get-started/tools/visual-studio-code.md) - Add note about install version
+- [Azure Load Testing Tools - Azure MCP Server](../azure-mcp-server/tools/azure-load-testing.md) - Update Load Testing for tool consolidation
+- [Azure Storage Tools](../azure-mcp-server/tools/azure-storage.md) - Update Storage with new table tool
 
 ## What's new for January 2026
 
@@ -26,7 +66,7 @@ New articles:
 
 New articles:
 
-- [Migrate Java apps to Azure by using GitHub Copilot app modernization via custom agent](../java/migration/migrate-github-copilot-app-modernization-for-java-custom-agent.md)
+- [Migrate Java apps to Azure by using GitHub Copilot modernization via custom agent](../java/migration/migrate-github-copilot-app-modernization-for-java-custom-agent.md)
 - [Optimize chat results for migrating Java apps to Azure](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md)
 - [Passwordless authentication with Spring Cloud Azure](../java/spring-framework/passwordless-authentication.md)
 
@@ -106,103 +146,19 @@ Updated articles:
 
 - [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md?tabs=manual&pivots=visual-studio-2026) - Update for Visual Studio 2026 release
 
-### GitHub Copilot app modernization
+### GitHub Copilot modernization
 
 New articles:
 
-- [Configure settings for GitHub Copilot app modernization to optimize the experience for IntelliJ](../github-copilot-app-modernization/configure-settings-intellij.md)
-- [Customize the Java project upgrade plan when using GitHub Copilot app modernization](../github-copilot-app-modernization/customize-upgrade-plan.md)
-- [GitHub Copilot app modernization Java utilities](../github-copilot-app-modernization/tools.md)
-- [Quickstart: generate Java unit tests with GitHub Copilot app modernization](../github-copilot-app-modernization/quickstart-unit-tests.md)
-- [Quickstart: upgrade a Java project with GitHub Copilot app modernization](../github-copilot-app-modernization/quickstart-upgrade.md)
-- [Upgrade a Java framework or third-party dependency by using GitHub Copilot app modernization](../github-copilot-app-modernization/framework-upgrade.md)
+- [Configure settings for GitHub Copilot modernization to optimize the experience for IntelliJ](../github-copilot-app-modernization/configure-settings-intellij.md)
+- [Customize the Java project upgrade plan when using GitHub Copilot modernization](../github-copilot-app-modernization/customize-upgrade-plan.md)
+- [GitHub Copilot modernization Java utilities](../github-copilot-app-modernization/tools.md)
+- [Quickstart: generate Java unit tests with GitHub Copilot modernization](../github-copilot-app-modernization/quickstart-unit-tests.md)
+- [Quickstart: upgrade a Java project with GitHub Copilot modernization](../github-copilot-app-modernization/quickstart-upgrade.md)
+- [Upgrade a Java framework or third-party dependency by using GitHub Copilot modernization](../github-copilot-app-modernization/framework-upgrade.md)
 
 ## TypeSpec on Azure
 
 Updated articles:
 
 - [Resources for developing TypeSpec apps](../typespec/resources.md) updated to include latest information
-
-## What's new for November 2025
-
-### AI apps using Azure services
-
-Updated articles:
-
-- [Get started with multimodal vision chat apps using Azure OpenAI](../ai/get-started-app-chat-vision.md) - code changes
-
-### Azure Developer CLI (azd)
-
-New articles:
-
-- [Deploy an agent to Microsoft Foundry with the Azure Developer CLI AI agent extension](../azure-developer-cli/extensions/azure-ai-foundry-extension.md)
-
-Updated articles:
-
-- [Deploy to Azure Container Apps using the Azure Developer CLI](../azure-developer-cli/container-apps-workflows.md) - rewrite docs to reference new revision-based deployment
-
-### Azure for Go
-
-New articles:
-
-- [Authenticate Azure-hosted Go apps to Azure resources using a system-assigned managed identity](../go/sdk/authentication/system-assigned-managed-identity.md)
-- [Authenticate Azure-hosted Go apps to Azure resources using a user-assigned managed identity](../go/sdk/authentication/user-assigned-managed-identity.md)
-
-Updated articles:
-
-- [Deploy a Go web app to Azure Container Apps](../go/deploy-container-apps.md) - Simplify steps by using environment variables
-
-### Azure for Java
-
-New articles:
-
-- [Integrate portfolio assessment with GitHub Copilot app modernization](../java/migration/github-copilot-app-modernization-for-java-portfolio-assessment-integration.md)
-- [Migrate from Oracle to PostgreSQL by using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md)
-- [Modernize Java apps by using GitHub Copilot app modernization in coding agent](../java/migration/github-copilot-app-modernization-for-java-coding-agent.md)
-- [Modernize Java apps by using GitHub Copilot app modernization in the Copilot CLI](../java/migration/github-copilot-app-modernization-for-java-copilot-cli.md)
-- [Working with assessment: Comprehensive guide to application assessment with GitHub Copilot App Modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java-working-with-assessment.md)
-
-Updated articles:
-
-- [Quickstart: create and apply your own tasks for GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md) - updates for Ignite
-
-### Azure for JavaScript
-
-New articles:
-
-- [Authenticate JavaScript apps to Azure services during local development using brokered authentication](../javascript/sdk/authentication/local-development-broker.md)
-
-### Azure for Rust
-
-New articles:
-
-- [Use the `azure-core` crate for advanced scenarios in Rust applications](../rust/sdk/azure-core-types.md)
-
-### Azure MCP Server
-
-New articles:
-
-- [Azure AI best practices tools for the Azure MCP Server](../azure-mcp-server/tools/azure-ai-best-practices.md)
-- [Deploy a self-hosted remote Azure MCP Server and connect to it using Copilot Studio](../azure-mcp-server/how-to/deploy-remote-mcp-server-copilot-studio.md)
-- [Deploy a self-hosted remote Azure MCP Server and connect to it using Microsoft Foundry](../azure-mcp-server/how-to/deploy-remote-mcp-server-microsoft-foundry.md)
-- [Get started with the Azure MCP Server in Eclipse](../azure-mcp-server/get-started/tools/eclipse.md)
-
-Updated articles:
-
-- [Microsoft Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - MCP update Foundry tools
-- [Azure Database for MySQL tools for Azure MCP Server](../azure-mcp-server/tools/azure-mysql.md) - MCP - mysql - required resource name parameter
-- [Azure Database for PostgreSQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-database-postgresql.md) - MCP -postgres - required params in example prompts
-- [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md) - MCP - azure SQL - required resource group param
-
-### GitHub Copilot App Modernization
-
-New articles:
-
-- [Languages and frameworks supported by GitHub Copilot app modernization](../github-copilot-app-modernization/languages.md)
-
-### GitHub Copilot for Azure
-
-Updated articles:
-
-- [Example prompts for deploying your application with GitHub Copilot for Azure](../github-copilot-azure/deploy-examples.md) - Remove ask mode from all GHCPA articles
-- [Example prompts for learning about Azure and your application with GitHub Copilot for Azure](../github-copilot-azure/learn-examples.md) - Remove ask mode from all GHCPA articles

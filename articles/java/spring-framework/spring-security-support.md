@@ -8,9 +8,9 @@ ms.reviewer: seal
 ms.topic: reference
 appliesto:
   - ✅ Version 4.20.0
-  - ✅ Version 5.24.1
-  - ✅ Version 6.1.0
-  - ✅ Version 7.0.0
+  - ✅ Version 5.25.0
+  - ✅ Version 6.3.0
+  - ✅ Version 7.2.0
 ms.custom:
   - devx-track-java
   - devx-track-extended-java
@@ -379,7 +379,7 @@ class DemoConfiguration {
 
 #### Samples
 
-Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+Sample project: [`aad-web-application`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 ### Web application accessing resource servers
 
@@ -507,14 +507,14 @@ Then you can use `OAuth2AuthorizedClient` in application like this
 public class Demo {
     @GetMapping("/resource-server-1")
     @ResponseBody
-    public String graph(
+    public String graph1(
     @RegisteredOAuth2AuthorizedClient("resource-server-1") OAuth2AuthorizedClient client) {
         return callResourceServer1(client);
     }
 
     @GetMapping("/resource-server-2")
     @ResponseBody
-    public String graph(
+    public String graph2(
     @RegisteredOAuth2AuthorizedClient("resource-server-2") OAuth2AuthorizedClient client) {
         return callResourceServer2(client);
     }
@@ -523,7 +523,7 @@ public class Demo {
 
 #### Samples
 
-Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+Sample project: [`aad-web-application`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 ### Accessing a resource server
 
@@ -813,7 +813,7 @@ To connect Microsoft Entra ID via proxy, provide a `RestTemplateCustomizer` bean
 
 #### Samples
 
-Sample project: [aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
+Sample project: [`aad-resource-server`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
 
 ### Resource server visiting other resource servers
 
@@ -881,7 +881,7 @@ public class SampleController {
 
 #### Samples
 
-Sample project: [aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
+Sample project: [`aad-resource-server-obo`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
 
 ### Web application and resource server in one application
 
@@ -1043,34 +1043,34 @@ public class AadWebApplicationAndResourceServerConfig {
 
 ### Configuration
 
-Configurable properties of spring-cloud-azure-starter-active-directory:
+Configurable properties of `spring-cloud-azure-starter-active-directory`:
 
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                                  | Description                                                                                                                                                                                                           |
 > |---------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.active-directory**.app-id-uri                                    | App ID URI that might be used in the "aud" claim of an id_token.                                                                                                                                                     |
-> | **spring.cloud.azure.active-directory**.application-type                              | Type of the Microsoft Entra application.                                                                                                                                                                                          |
-> | **spring.cloud.azure.active-directory**.authenticate-additional-parameters            | Add additional parameters to the Authorization URL.                                                                                                                                                                   |
-> | **spring.cloud.azure.active-directory**.authorization-clients                         | The OAuth2 authorization clients.                                                                                                                                                                                     |
-> | **spring.cloud.azure.active-directory**.credential.client-id                          | Client Id to use when performing service principal authentication with Azure.                                                                                                                                         |
-> | **spring.cloud.azure.active-directory**.credential.client-secret                      | Client secret to use when performing service principal authentication with Azure.                                                                                                                                     |
-> | **spring.cloud.azure.active-directory**.jwk-set-cache-lifespan                        | The lifespan of the cached JWK set before it expires, default is 5 minutes.                                                                                                                                           |
-> | **spring.cloud.azure.active-directory**.jwk-set-cache-refresh-time                    | The refresh time of the cached JWK set before it expires, default is 5 minutes.                                                                                                                                       |
-> | **spring.cloud.azure.active-directory**.jwt-connect-timeout                           | Connection Timeout for the JWKSet Remote URL call.                                                                                                                                                                    |
-> | **spring.cloud.azure.active-directory**.jwt-read-timeout                              | Read Timeout for the JWKSet Remote URL call.                                                                                                                                                                          |
-> | **spring.cloud.azure.active-directory**.jwt-size-limit                                | Size limit in Bytes of the JWKSet Remote URL call.                                                                                                                                                                    |
-> | **spring.cloud.azure.active-directory**.post-logout-redirect-uri                      | The redirect uri after logout.                                                                                                                                                                                        |
-> | **spring.cloud.azure.active-directory**.profile.cloud-type                            | Name of the Azure cloud to connect to. Supported types are: AZURE, AZURE_CHINA, AZURE_GERMANY, AZURE_US_GOVERNMENT, OTHER.                                                                                            |
-> | **spring.cloud.azure.active-directory**.profile.environment                           | Properties to Microsoft Entra endpoints.                                                                                                                                                                       |
-> | **spring.cloud.azure.active-directory**.profile.tenant-id                             | Azure Tenant ID. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                                                          |
-> | **spring.cloud.azure.active-directory**.redirect-uri-template                         | Redirection Endpoint: Used by the authorization server to return responses containing authorization credentials to the client via the resource owner user-agent. The default value is `{baseUrl}/login/oauth2/code/`. |
-> | **spring.cloud.azure.active-directory**.resource-server.claim-to-authority-prefix-map | Configure which claim will be used to build GrantedAuthority, and prefix of the GrantedAuthority's string value. Default value is: "scp" -> "SCOPE_", "roles" -> "APPROLE_".                                      |
-> | **spring.cloud.azure.active-directory**.resource-server.principal-claim-name          | Configure which claim in access token be returned in AuthenticatedPrincipal#getName. Default value is "sub".                                                                                                          |
-> | **spring.cloud.azure.active-directory**.session-stateless                             | If true activates the stateless auth filter AadAppRoleStatelessAuthenticationFilter. The default is false which activates AadAuthenticationFilter.                                                                 |
-> | **spring.cloud.azure.active-directory**.user-group.allowed-group-ids                  | The group ids can be used to construct GrantedAuthority.                                                                                                                                                              |
-> | **spring.cloud.azure.active-directory**.user-group.allowed-group-names                | The group names can be used to construct GrantedAuthority.                                                                                                                                                            |
-> | **spring.cloud.azure.active-directory**.user-group.use-transitive-members             | If "true", use "v1.0/me/transitiveMemberOf" to get members. Otherwise, use "v1.0/me/memberOf". The default value is `false`.                                                                                          |
-> | **spring.cloud.azure.active-directory**.user-name-attribute                           |   Decide which claim to be principal's name.                                                                                                                                                                          |
+> | `spring.cloud.azure.active-directory.app-id-uri`                                    | App ID URI that might be used in the "aud" claim of an id_token.                                                                                                                                                     |
+> | `spring.cloud.azure.active-directory.application-type`                              | Type of the Microsoft Entra application.                                                                                                                                                                                          |
+> | `spring.cloud.azure.active-directory.authenticate-additional-parameters`            | Add additional parameters to the Authorization URL.                                                                                                                                                                   |
+> | `spring.cloud.azure.active-directory.authorization-clients`                         | The OAuth2 authorization clients.                                                                                                                                                                                     |
+> | `spring.cloud.azure.active-directory.credential.client-id`                          | Client Id to use when performing service principal authentication with Azure.                                                                                                                                         |
+> | `spring.cloud.azure.active-directory.credential.client-secret`                      | Client secret to use when performing service principal authentication with Azure.                                                                                                                                     |
+> | `spring.cloud.azure.active-directory.jwk-set-cache-lifespan`                        | The lifespan of the cached JWK set before it expires, default is 5 minutes.                                                                                                                                           |
+> | `spring.cloud.azure.active-directory.jwk-set-cache-refresh-time`                    | The refresh time of the cached JWK set before it expires, default is 5 minutes.                                                                                                                                       |
+> | `spring.cloud.azure.active-directory.jwt-connect-timeout`                           | Connection Timeout for the JWKSet Remote URL call.                                                                                                                                                                    |
+> | `spring.cloud.azure.active-directory.jwt-read-timeout`                              | Read Timeout for the JWKSet Remote URL call.                                                                                                                                                                          |
+> | `spring.cloud.azure.active-directory.jwt-size-limit`                                | Size limit in Bytes of the JWKSet Remote URL call.                                                                                                                                                                    |
+> | `spring.cloud.azure.active-directory.post-logout-redirect-uri`                      | The redirect uri after logout.                                                                                                                                                                                        |
+> | `spring.cloud.azure.active-directory.profile.cloud-type`                            | Name of the Azure cloud to connect to. Supported types are: AZURE, AZURE_CHINA, AZURE_GERMANY, AZURE_US_GOVERNMENT, OTHER.                                                                                            |
+> | `spring.cloud.azure.active-directory.profile.environment`                           | Properties to Microsoft Entra endpoints.                                                                                                                                                                       |
+> | `spring.cloud.azure.active-directory.profile.tenant-id`                             | Azure Tenant ID. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                                                          |
+> | `spring.cloud.azure.active-directory.redirect-uri-template`                         | Redirection Endpoint: Used by the authorization server to return responses containing authorization credentials to the client via the resource owner user-agent. The default value is `{baseUrl}/login/oauth2/code/`. |
+> | `spring.cloud.azure.active-directory.resource-server.claim-to-authority-prefix-map` | Configure which claim will be used to build GrantedAuthority, and prefix of the GrantedAuthority's string value. Default value is: "scp" -> "SCOPE_", "roles" -> "APPROLE_".                                      |
+> | `spring.cloud.azure.active-directory.resource-server.principal-claim-name`          | Configure which claim in access token be returned in AuthenticatedPrincipal#getName. Default value is "sub".                                                                                                          |
+> | `spring.cloud.azure.active-directory.session-stateless`                             | If true activates the stateless auth filter AadAppRoleStatelessAuthenticationFilter. The default is false which activates AadAuthenticationFilter.                                                                 |
+> | `spring.cloud.azure.active-directory.user-group.allowed-group-ids`                  | The group ids can be used to construct GrantedAuthority.                                                                                                                                                              |
+> | `spring.cloud.azure.active-directory.user-group.allowed-group-names`                | The group names can be used to construct GrantedAuthority.                                                                                                                                                            |
+> | `spring.cloud.azure.active-directory.user-group.use-transitive-members`             | If "true", use "v1.0/me/transitiveMemberOf" to get members. Otherwise, use "v1.0/me/memberOf". The default value is `false`.                                                                                          |
+> | `spring.cloud.azure.active-directory.user-name-attribute`                           |   Decide which claim to be principal's name.                                                                                                                                                                          |
 
 Here are some examples about how to use these properties:
 
@@ -1103,25 +1103,25 @@ Azure Active Directory (Azure AD) B2C is an identity management service that ena
 
 ### Configuration
 
-Configurable properties of spring-cloud-azure-starter-active-directory-b2c:
+Configurable properties of `spring-cloud-azure-starter-active-directory-b2c`:
 
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                           | Description                                                                                  |
 > |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.active-directory.b2c**.app-id-uri                         | App ID URI that might be used in the "aud" claim of a token.                                |
-> | **spring.cloud.azure.active-directory.b2c**.authenticate-additional-parameters | Additional parameters for authentication.                                                    |
-> | **spring.cloud.azure.active-directory.b2c**.authorization-clients              | Specify client configuration.                                                                |
-> | **spring.cloud.azure.active-directory.b2c**.base-uri                           | Azure AD B2C endpoint base uri.                                                              |
-> | **spring.cloud.azure.active-directory.b2c**.credential                         | Azure AD B2C credential information.                                                         |
-> | **spring.cloud.azure.active-directory.b2c**.jwt-connect-timeout                | Connection Timeout for the JWKSet Remote URL call.                                           |
-> | **spring.cloud.azure.active-directory.b2c**.jwt-read-timeout                   | Read Timeout for the JWKSet Remote URL call.                                                 |
-> | **spring.cloud.azure.active-directory.b2c**.jwt-size-limit                     | Size limit in Bytes of the JWKSet Remote URL call.                                           |
-> | **spring.cloud.azure.active-directory.b2c**.login-flow                         | Specify the primary sign-in flow key. The default value is `sign-up-or-sign-in`.             |
-> | **spring.cloud.azure.active-directory.b2c**.logout-success-url                 | Redirect URL after logout. The default value is `http://localhost:8080/login`.               |
-> | **spring.cloud.azure.active-directory.b2c**.profile                            | Azure AD B2C profile information.                                                            |
-> | **spring.cloud.azure.active-directory.b2c**.reply-url                          | Reply URL after get authorization code. The default value is `{baseUrl}/login/oauth2/code/`. |
-> | **spring.cloud.azure.active-directory.b2c**.user-flows                         | User flows.                                                                                  |
-> | **spring.cloud.azure.active-directory.b2c**.user-name-attribute-name           | User name attribute name.                                                                    |
+> | `spring.cloud.azure.active-directory.b2c.app-id-uri`                         | App ID URI that might be used in the "aud" claim of a token.                                |
+> | `spring.cloud.azure.active-directory.b2c.authenticate-additional-parameters` | Additional parameters for authentication.                                                    |
+> | `spring.cloud.azure.active-directory.b2c.authorization-clients`              | Specify client configuration.                                                                |
+> | `spring.cloud.azure.active-directory.b2c.base-uri`                           | Azure AD B2C endpoint base uri.                                                              |
+> | `spring.cloud.azure.active-directory.b2c.credential`                         | Azure AD B2C credential information.                                                         |
+> | `spring.cloud.azure.active-directory.b2c.jwt-connect-timeout`                | Connection Timeout for the JWKSet Remote URL call.                                           |
+> | `spring.cloud.azure.active-directory.b2c.jwt-read-timeout`                   | Read Timeout for the JWKSet Remote URL call.                                                 |
+> | `spring.cloud.azure.active-directory.b2c.jwt-size-limit`                     | Size limit in Bytes of the JWKSet Remote URL call.                                           |
+> | `spring.cloud.azure.active-directory.b2c.login-flow`                         | Specify the primary sign-in flow key. The default value is `sign-up-or-sign-in`.             |
+> | `spring.cloud.azure.active-directory.b2c.logout-success-url`                 | Redirect URL after logout. The default value is `http://localhost:8080/login`.               |
+> | `spring.cloud.azure.active-directory.b2c.profile`                            | Azure AD B2C profile information.                                                            |
+> | `spring.cloud.azure.active-directory.b2c.reply-url`                          | Reply URL after get authorization code. The default value is `{baseUrl}/login/oauth2/code/`. |
+> | `spring.cloud.azure.active-directory.b2c.user-flows`                         | User flows.                                                                                  |
+> | `spring.cloud.azure.active-directory.b2c.user-name-attribute-name`           | User name attribute name.                                                                    |
 
 For full configurations, check [Spring Cloud Azure configuration properties](configuration-properties-all.md).
 
@@ -1352,7 +1352,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
    private final AadB2cOidcLoginConfigurer configurer;
 
    public WebSecurityConfiguration(AadB2cOidcLoginConfigurer configurer) {
-       this.configurer == configurer;
+       this.configurer = configurer;
    }
 
    @Override
@@ -1362,7 +1362,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                .anyRequest().authenticated()
                .and()
            .apply(configurer);
-       // @formatter:off
+       // @formatter:on
    }
 }
 ```
@@ -1740,4 +1740,4 @@ Build and test your app. Let `WebApiA` and `WebApiB` run on port `8081` and `808
 
 ### Samples
 
-For more information, see the [spring-cloud-azure-starter-active-directory-b2c samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c).
+For more information, see the [`spring-cloud-azure-starter-active-directory-b2c` samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c).

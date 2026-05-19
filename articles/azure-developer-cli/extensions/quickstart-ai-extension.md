@@ -122,4 +122,4 @@ Once installed, the demo extension adds new commands to `azd` you can use to exp
 ## Related content
 
 - [Extensions overview](overview.md)
-- [Extension framework readme](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extension-framework.md)
+- [Extension framework readme](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extensions/extension-framework.md)

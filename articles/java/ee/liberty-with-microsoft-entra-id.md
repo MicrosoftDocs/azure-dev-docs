@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
-ms.date: 10/07/2024
+ms.date: 03/26/2026
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-entra-id, devx-track-extended-java, devx-track-azurecli
 ---
 

@@ -129,7 +129,7 @@ The following steps walk you through building a Spring Boot web application and 
    code pom.xml
    ```
 
-1. Update the `<properties>` collection in the **pom.xml** file with the registry name for your Azure Container Registry and the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Update the `<properties>` collection in the **pom.xml** file with the registry name for your Azure Container Registry and the latest version of [`jib-maven-plugin`](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>

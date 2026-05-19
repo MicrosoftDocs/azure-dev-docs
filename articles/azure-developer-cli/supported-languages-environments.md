@@ -29,13 +29,13 @@ You can run any `azd` template, in one of the following supported development en
 
 For more information about each feature stage, see [feature versioning and release strategy](./feature-versioning.md). For a list of all features and their stages, see [Alpha, Beta, and Stable Feature Stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md).
 
-| Azure compute service    | Feature Stage  |
-| ------------------------ | -------------- |
-| Azure App Service        | Stable         |
-| Azure Static Web Apps    | Stable         |
-| Azure Container Apps     | Stable         |
-| Azure Functions          | Stable         |
-| Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`)    |
+| Azure compute service | Feature Stage |
+| --- | --- |
+| Azure App Service | Stable |
+| Azure Static Web Apps | Stable |
+| Azure Container Apps (including Container App Jobs) | Stable |
+| Azure Functions | Stable |
+| Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`) |
 
 ## Supported languages and frameworks
 

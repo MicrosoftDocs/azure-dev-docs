@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure Kafka support
@@ -127,15 +127,15 @@ The following table shows the Spring Boot Kafka common configuration options:
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                                                         | Description                                                                                                                                                                                            |
 > |--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | spring.kafka.properties.azure.credential.client-certificate-password                                         | Password of the certificate file.                                                                                                                                                                      |
-> | spring.kafka.properties.azure.credential.client-certificate-path                                             | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
-> | spring.kafka.properties.azure.credential.client-id                                                           | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
-> | spring.kafka.properties.azure.credential.client-secret                                                       | Client secret to use when performing service principal authentication with Azure. This is a legacy property.                                                                                           |
-> | spring.kafka.properties.azure.credential.managed-identity-enabled                                            | Whether to enable managed identity to authenticate with Azure. If `true` and the `client-id` is set, will use the client ID as user assigned managed identity client ID. The default value is `false`. |
-> | spring.kafka.properties.azure.credential.password                                                            | Password to use when performing username/password authentication with Azure.                                                                                                                           |
-> | spring.kafka.properties.azure.credential.username                                                            | Username to use when performing username/password authentication with Azure.                                                                                                                           |
-> | spring.kafka.properties.azure.profile.environment.active-directory-endpoint                                  | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
-> | spring.kafka.properties.azure.profile.tenant-id                                                              | Tenant ID for Azure resources. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                              |
+> | `spring.kafka.properties.azure.credential.client-certificate-password`                                         | Password of the certificate file.                                                                                                                                                                      |
+> | `spring.kafka.properties.azure.credential.client-certificate-path`                                             | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
+> | `spring.kafka.properties.azure.credential.client-id`                                                           | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
+> | `spring.kafka.properties.azure.credential.client-secret`                                                       | Client secret to use when performing service principal authentication with Azure. This is a legacy property.                                                                                           |
+> | `spring.kafka.properties.azure.credential.managed-identity-enabled`                                            | Whether to enable managed identity to authenticate with Azure. If `true` and the `client-id` is set, will use the client ID as user assigned managed identity client ID. The default value is `false`. |
+> | `spring.kafka.properties.azure.credential.password`                                                            | Password to use when performing username/password authentication with Azure.                                                                                                                           |
+> | `spring.kafka.properties.azure.credential.username`                                                            | Username to use when performing username/password authentication with Azure.                                                                                                                           |
+> | `spring.kafka.properties.azure.profile.environment.active-directory-endpoint`                                  | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
+> | `spring.kafka.properties.azure.profile.tenant-id`                                                              | Tenant ID for Azure resources. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                              |
 
 > [!NOTE]
 > The configuration options in different levels apply the following rules. The more specific configuration options have higher priority than the common ones. For example:
@@ -153,11 +153,11 @@ The following table shows the Spring Boot Event Hubs for Kafka common configurat
 > [!div class="mx-tdBreakAll"]
 > | Property                                                 | Description                                                                                                                                               |
 > |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.eventhubs**.kafka.enabled           | Whether to enable the Azure Event Hubs Kafka support. The default value is `true`.                                                                        |
-> | **spring.cloud.azure.eventhubs**.connection-string       | Azure Event Hubs connection string. Provide this value when you want to provide the connection string directly.                                           |
-> | **spring.cloud.azure.eventhubs**.namespace               | Azure Event Hubs namespace. Provide this value when you want to retrieve the connection information through Azure Resource Manager.                       |
-> | **spring.cloud.azure.eventhubs**.resource.resource-group | The resource group of Azure Event Hubs namespace. Provide this value when you want to retrieve the connection information through Azure Resource Manager. |
-> | **spring.cloud.azure**.profile.subscription-id           | The subscription ID. Provide this value when you want to retrieve the connection information through Azure Resource Manager.                              |
+> | `spring.cloud.azure.eventhubs.kafka.enabled`           | Whether to enable the Azure Event Hubs Kafka support. The default value is `true`.                                                                        |
+> | `spring.cloud.azure.eventhubs.connection-string`       | Azure Event Hubs connection string. Provide this value when you want to provide the connection string directly.                                           |
+> | `spring.cloud.azure.eventhubs.namespace`               | Azure Event Hubs namespace. Provide this value when you want to retrieve the connection information through Azure Resource Manager.                       |
+> | `spring.cloud.azure.eventhubs.resource.resource-group` | The resource group of Azure Event Hubs namespace. Provide this value when you want to retrieve the connection information through Azure Resource Manager. |
+> | `spring.cloud.azure.profile.subscription-id`           | The subscription ID. Provide this value when you want to retrieve the connection information through Azure Resource Manager.                              |
 
 ## Dependency setup
 
@@ -270,7 +270,7 @@ spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:
 
 ##### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-starter/spring-cloud-azure-sample-eventhubs-kafka) repository on GitHub.
+See the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-cloud-azure-starter/spring-cloud-azure-sample-eventhubs-kafka) repository on GitHub.
 
 <a name="basic-usage-connection-string"></a>
 ### Use connection string authentication
@@ -346,4 +346,4 @@ spring:
 
 ## Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.
+See the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repository on GitHub.

@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure resource handling
@@ -20,10 +20,10 @@ The Spring project provides a [Spring Resources](https://docs.spring.io/spring-f
 
 The following table lists Azure Storage related libraries:
 
-| Starter                                       | Service                  | Description                                                                                                                             |
-|-----------------------------------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| spring-cloud-azure-starter-storage-blob       | Azure Storage Blob       | Allows unstructured data to be stored and accessed at a massive scale in block blobs.                                                   |
-| spring-cloud-azure-starter-storage-file-share | Azure Storage File Share | Offers fully managed cloud file shares that you can access from anywhere via the industry standard Server Message Block (SMB) protocol. |
+| Starter                                         | Service                  | Description                                                                                                                             |
+|-------------------------------------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `spring-cloud-azure-starter-storage-blob`       | Azure Storage Blob       | Allows unstructured data to be stored and accessed at a massive scale in block blobs.                                                   |
+| `spring-cloud-azure-starter-storage-file-share` | Azure Storage File Share | Offers fully managed cloud file shares that you can access from anywhere via the industry standard Server Message Block (SMB) protocol. |
 
 ## Dependency setup
 
@@ -57,20 +57,20 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 > [!div class="mx-tdBreakAll"]
 > | Property                                       | Default | Description                                                              |
 > |------------------------------------------------|---------|--------------------------------------------------------------------------|
-> | *spring.cloud.azure.storage.blob*.enabled      | true    | A value that indicates whether an Azure Blob Storage service is enabled. |
-> | *spring.cloud.azure.storage.blob*.endpoint     |         | The URI to connect to Azure Blob Storage.                                |
-> | *spring.cloud.azure.storage.blob*.account-key  |         | The private key to connect to Azure Blob Storage.                        |
-> | *spring.cloud.azure.storage.blob*.account-name |         | The Azure Storage Blob account name.
+> | `spring.cloud.azure.storage.blob.enabled`      | true    | A value that indicates whether an Azure Blob Storage service is enabled. |
+> | `spring.cloud.azure.storage.blob.endpoint`     |         | The URI to connect to Azure Blob Storage.                                |
+> | `spring.cloud.azure.storage.blob.account-key`  |         | The private key to connect to Azure Blob Storage.                        |
+> | `spring.cloud.azure.storage.blob.account-name` |         | The Azure Storage Blob account name.
 
 The following table lists the configurable properties of `spring-cloud-azure-starter-storage-file-share`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                            | Default | Description                                                           |
 > |-----------------------------------------------------|---------|-----------------------------------------------------------------------|
-> | *spring.cloud.azure.storage.fileshare*.enabled      | true    | A value that indicates whether Azure File Storage service is enabled. |
-> | *spring.cloud.azure.storage.fileshare*.endpoint     |         | The URI to connect to Azure File Storage.                             |
-> | *spring.cloud.azure.storage.fileshare*.account-key  |         | The private key to connect to Azure File Storage.                     |
-> | *spring.cloud.azure.storage.fileshare*.account-name |         | The Azure Storage File Share account name.                                       |
+> | `spring.cloud.azure.storage.fileshare.enabled`      | true    | A value that indicates whether Azure File Storage service is enabled. |
+> | `spring.cloud.azure.storage.fileshare.endpoint`     |         | The URI to connect to Azure File Storage.                             |
+> | `spring.cloud.azure.storage.fileshare.account-key`  |         | The private key to connect to Azure File Storage.                     |
+> | `spring.cloud.azure.storage.fileshare.account-name` |         | The Azure Storage File Share account name.                                       |
 
 ## Basic usage
 
@@ -196,4 +196,4 @@ Files larger than 4 MiB will be uploaded to Azure Storage in parallel.
 
 ## Samples
 
-See the [storage-blob-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-blob/storage-blob-sample) and [storage-file-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-file-share/storage-file-sample) repositories on GitHub.
+See the [`storage-blob-sample`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-blob/storage-blob-sample) and [`storage-file-sample`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-file-share/storage-file-sample) repositories on GitHub.

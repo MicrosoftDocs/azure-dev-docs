@@ -1,10 +1,9 @@
 ---
 title: Azure Container Registry Tools 
 description: Learn how to use the Azure MCP Server with Azure Container Registry.
-keywords: azure mcp server, azmcp, container registry
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -39,7 +38,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [acr registry list](../includes/tools/annotations/azure-container-registry-registry-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Registry: List repositories in registry
 
@@ -62,7 +61,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [acr registry repository list](../includes/tools/annotations/azure-container-registry-registry-repository-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 

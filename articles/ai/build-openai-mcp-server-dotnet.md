@@ -49,26 +49,26 @@ To keep costs low, this sample uses basic or consumption pricing tiers for most 
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 - [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) Visual Studio Code extension
 - [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-- [The AI Foundry Extension](https://marketplace.visualstudio.com/items?itemName=ms-ai-foundry) Visual Studio Code extension
-- A deployed AI Foundry gpt-5-mini model
+- [Microsoft Foundry for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.vscode-ai-foundry) extension
+- A deployed Foundry gpt-5-mini model
 
 A [development container](https://containers.dev/) includes all the dependencies you need for this article. You can run it in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
 To follow this article, make sure you meet these prerequisites:
 
-### Deploy an AI Foundry gpt-5-mini model using the AI Foundry VS Code Extension
+### Deploy a Foundry gpt-5-mini model using the Foundry VS Code Extension
 
-Deploy a `gpt-5-mini` model using the AI Foundry Extension in Visual Studio Code using the following steps:
+Deploy a `gpt-5-mini` model using the Foundry Extension in Visual Studio Code using the following steps:
 
-#### Create an AI Foundry project and deploy the model
+#### Create a Foundry project and deploy the model
 
-- To create an AI Foundry project and deploy a `gpt-5-mini` model, follow the **Get Started** instructions in the [Work with the Azure AI Foundry for Visual Studio Code extension (Preview)](/azure/ai-foundry/how-to/develop/get-started-projects-vs-code#get-started) article.
+- To create a Foundry project and deploy a `gpt-5-mini` model, follow the **Get Started** instructions in the [Work with the Microsoft Foundry for Visual Studio Code extension (Preview)](/azure/ai-foundry/how-to/develop/get-started-projects-vs-code#get-started) article.
 
 #### Create the OpenAI Model connection string
 
-1. Once the `gpt-5-mini` model is deployed, right-click the model in the AI Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. 
+1. Once the `gpt-5-mini` model is deployed, right-click the model in the Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. 
 
-1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard, as shown in the following screenshot:
+1. Next, right-click the deployed `gpt-5-mini` model in the Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard, as shown in the following screenshot:
 
     :::image type="content" source="./media/build-openai-mcp-server-dotnet/copy-api-key-endpoint.png" lightbox="./media/build-openai-mcp-server-dotnet/copy-api-key-endpoint.png" alt-text="Screenshot showing the context menu for the deployed model with the Copy endpoint and Copy API key options highlighted.":::
 

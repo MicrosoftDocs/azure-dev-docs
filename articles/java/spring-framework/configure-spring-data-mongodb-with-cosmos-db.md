@@ -35,7 +35,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this will be used to create a fully-qualified domain name like **wingtiptoysmongodb.documents.azure.com**.
+   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this will be used to create a fully-qualified domain name like `wingtiptoysmongodb.documents.azure.com`.
    - **API**: Specify `Azure Cosmos DB for MongoDB API` for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
 

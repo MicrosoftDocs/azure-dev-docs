@@ -33,7 +33,7 @@ If you can't configure the device code flow option on your Active Directory, you
 
 ### Example using InteractiveBrowserCredential
 
-The following example demonstrates using an [`InteractiveBrowserCredential`](/python/api/azure-identity/azure.identity.interactivebrowsercredential) to authenticate with the [`SubscriptionClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.subscriptions.v2019_06_01.subscriptionclient):
+The following example demonstrates using an [`InteractiveBrowserCredential`](/python/api/azure-identity/azure.identity.interactivebrowsercredential) to authenticate with the [`SubscriptionClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.subscriptions.subscriptionclient):
 
 :::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_interactive_browser.py":::
 

@@ -18,8 +18,8 @@ Spring Cloud Azure is an open source project that helps make it easier to use [A
 
 Spring Cloud Azure is an open source project, with all resources available to the public. The following list provides links to these resources:
 
-- Source code: [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring).
-- Samples: [Azure-Samples/azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples).
+- Source code: [`Azure/azure-sdk-for-java`](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring).
+- Samples: [`Azure-Samples/azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples).
 - Documentation: [Spring Cloud Azure](./index.yml).
 
 ## What is Spring Cloud Azure used for?
@@ -189,7 +189,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>7.0.0</version>
+         <version>7.2.0</version>
          <type>pom</type>
          <scope>import</scope>
        </dependency>
@@ -284,7 +284,7 @@ Provides Spring Boot support for Azure Storage services. For more information, s
 If you need support for Spring Cloud Azure, you can ask for help in the following ways:
 
 - Create Azure support tickets. Customers with an [Azure support plan](https://azure.microsoft.com/support/options/) can open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). We recommend this option if your problem requires immediate attention.
-- File GitHub issues in the [Azure/azure-sdk-for-java repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub issues to track bugs, questions, and feature requests. GitHub issues are free, but the response time isn't guaranteed. For more information, see [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/).
+- File GitHub issues in the [`Azure/azure-sdk-for-java` repository](https://github.com/Azure/azure-sdk-for-java). We use GitHub issues to track bugs, questions, and feature requests. GitHub issues are free, but the response time isn't guaranteed. For more information, see [GitHub issues support process](https://devblogs.microsoft.com/azure-sdk/github-issue-support-process/).
 
 ## Next steps
 

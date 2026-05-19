@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure Redis support
@@ -50,11 +50,11 @@ Configurable properties when using Redis support:
 > [!div class="mx-tdBreakAll"]
 > | Property                                             | Description                                               | Default Value | Required |
 > |------------------------------------------------------|-----------------------------------------------------------|---------------|----------|
-> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
-> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.                      |               | Yes      |
-> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis.              |               | Yes      |
-> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                                      |               | Yes      |
-> | **spring.data.redis.azure**.passwordless-enabled     | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
+> | `spring.cloud.azure.redis.enabled`                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
+> | `spring.cloud.azure.redis.name`                    | Azure Cache for Redis instance name.                      |               | Yes      |
+> | `spring.cloud.azure.redis.resource.resource-group` | The resource group of Azure Cache for Redis.              |               | Yes      |
+> | `spring.cloud.azure.profile.subscription-id`       | The subscription ID.                                      |               | Yes      |
+> | `spring.data.redis.azure.passwordless-enabled`     | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -63,11 +63,11 @@ Configurable properties when using Redis support:
 > [!div class="mx-tdBreakAll"]
 > | Property                                             | Description                                               | Default Value | Required |
 > |------------------------------------------------------|-----------------------------------------------------------|---------------|----------|
-> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
-> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.                      |               | Yes      |
-> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis.              |               | Yes      |
-> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                                      |               | Yes      |
-> | **spring.data.redis.azure**.passwordless-enabled     | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
+> | `spring.cloud.azure.redis.enabled`                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
+> | `spring.cloud.azure.redis.name`                    | Azure Cache for Redis instance name.                      |               | Yes      |
+> | `spring.cloud.azure.redis.resource.resource-group` | The resource group of Azure Cache for Redis.              |               | Yes      |
+> | `spring.cloud.azure.profile.subscription-id`       | The subscription ID.                                      |               | Yes      |
+> | `spring.data.redis.azure.passwordless-enabled`     | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
 
 #### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
@@ -76,11 +76,11 @@ Configurable properties when using Redis support:
 > [!div class="mx-tdBreakAll"]
 > | Property                                             | Description                                               | Default Value | Required |
 > |------------------------------------------------------|-----------------------------------------------------------|---------------|----------|
-> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
-> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.                      |               | Yes      |
-> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis.              |               | Yes      |
-> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                                      |               | Yes      |
-> | **spring.redis.azure**.passwordless-enabled          | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
+> | `spring.cloud.azure.redis.enabled`                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
+> | `spring.cloud.azure.redis.name`                    | Azure Cache for Redis instance name.                      |               | Yes      |
+> | `spring.cloud.azure.redis.resource.resource-group` | The resource group of Azure Cache for Redis.              |               | Yes      |
+> | `spring.cloud.azure.profile.subscription-id`       | The subscription ID.                                      |               | Yes      |
+> | `spring.redis.azure.passwordless-enabled`          | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
 
 ---
 
@@ -311,4 +311,4 @@ Use the following steps to connect to Azure Cache for Redis:
 
 ### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples) repository on GitHub.
+See the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples) repository on GitHub.

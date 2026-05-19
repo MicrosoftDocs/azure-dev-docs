@@ -1,7 +1,6 @@
 ---
 title: Azure App Configuration Tools 
 description: "Learn how to use Azure MCP Server tools to manage Azure App Configuration stores, key-value settings, and feature flags with natural language prompts."
-keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025
@@ -35,7 +34,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [appconfig account list](../includes/tools/annotations/azure-app-configuration-account-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Key-value: Delete setting
 
@@ -60,7 +59,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [appconfig kv delete](../includes/tools/annotations/azure-app-configuration-key-value-delete-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Key-value: Get key-values
 
@@ -96,7 +95,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [appconfig kv get](../includes/tools/annotations/azure-app-configuration-key-value-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Key-value: Set lock on key-value
 
@@ -121,7 +120,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [appconfig kv lock set](../includes/tools/annotations/azure-app-configuration-key-value-lock-set-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Key-value: Set key-value setting
 
@@ -148,7 +147,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [appconfig kv set](../includes/tools/annotations/azure-app-configuration-key-value-set-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 

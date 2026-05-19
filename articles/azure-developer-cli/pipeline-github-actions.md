@@ -75,7 +75,7 @@ Follow these steps to create and configure a pipeline:
    >
    > OIDC/federated credentials are **not** supported for Terraform.
    >
-   > [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported)
+   > [Learn more about OIDC support in `azd`.](./tooling-environment-faq.md#what-is-openid-connect-oidc-and-is-it-supported)
 
 1. In your browser, open the GitHub repository for your project.
 

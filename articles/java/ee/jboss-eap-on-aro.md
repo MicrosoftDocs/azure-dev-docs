@@ -4,7 +4,7 @@ description: Deploy a Java application with Red Hat JBoss Enterprise Application
 author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
-ms.date: 05/29/2024
+ms.date: 03/26/2026
 ms.topic: how-to
 ms.custom:
   - devx-track-java

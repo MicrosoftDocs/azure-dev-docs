@@ -237,7 +237,7 @@ The following steps show you how to assign a system-assigned managed identity fo
 
 ##### [Service Connector](#tab/service-connector)
 
-When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you need to use Azure CLI to assign the identity.
+When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn't support configuring Azure Database this way, so you need to use Azure CLI to assign the identity.
 
 ##### [Container Apps](#tab/container-apps)
 

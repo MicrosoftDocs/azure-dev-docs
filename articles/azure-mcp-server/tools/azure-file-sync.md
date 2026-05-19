@@ -1,15 +1,16 @@
 ---
 title: Azure File Sync Tools
 description: "Learn how to use Azure MCP Server with Azure File Sync tools to manage storage sync services, sync groups, cloud endpoints, and server endpoints using natural language prompts."
-keywords: azure mcp server, azmcp, file sync, storage sync, sync group, cloud endpoint, server endpoint
 author: diberry
 ms.author: diberry
-ms.date: 01/22/2026
+ms.reviewer: ankushb
+ms.date: 05/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-generated
 ms.topic: concept-article
---- 
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
+---
 # Azure File Sync Tools
 
 Azure File Sync tools in Azure MCP Server help you manage Azure File Sync services through natural language prompts. You can manage Storage Sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints to synchronize files between on-premises servers and Azure File Shares. These tools simplify storage sync management and reduce configuration complexity.
@@ -42,7 +43,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync service create](../includes/tools/annotations/azure-file-sync-service-create-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Storage Sync service: Delete service
 
@@ -65,7 +66,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync service delete](../includes/tools/annotations/azure-file-sync-service-delete-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Storage Sync service: Get service
 
@@ -88,7 +89,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync service get](../includes/tools/annotations/azure-file-sync-service-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Storage Sync service: Update service
 
@@ -115,7 +116,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync service update](../includes/tools/annotations/azure-file-sync-service-update-annotations.md)]
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 
 ## Registered server: Get registered server
@@ -141,7 +142,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync registeredserver get](../includes/tools/annotations/azure-file-sync-registeredserver-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Registered server: Unregister registered server
 
@@ -167,7 +168,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync registeredserver unregister](../includes/tools/annotations/azure-file-sync-registeredserver-unregister-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Registered server: Update registered server
 
@@ -191,7 +192,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync registeredserver update](../includes/tools/annotations/azure-file-sync-registeredserver-update-annotations.md)]
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Sync group: Create sync group
 
@@ -215,7 +216,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync syncgroup create](../includes/tools/annotations/azure-file-sync-syncgroup-create-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Sync group: Delete sync group
 
@@ -239,7 +240,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync syncgroup delete](../includes/tools/annotations/azure-file-sync-syncgroup-delete-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Sync group: Get sync group
 
@@ -263,8 +264,37 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync syncgroup get](../includes/tools/annotations/azure-file-sync-syncgroup-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
+
+
+## Cloud endpoint: Change detection
+
+<!-- @mcpcli storagesync cloudendpoint changedetection -->
+
+Trigger change detection on a cloud endpoint to sync file changes. Specify a directory path and optionally a change detection mode to control whether the detection runs on a single directory or recursively through subdirectories.
+
+Example prompts include:
+
+- "Run change detection on cloud endpoint 'filesEndpoint' for directory '/data/reports' in sync group 'SyncGroupA' of storage sync service 'SyncService01' within resource group 'rg-storage-sync'"
+- "Trigger recursive change detection on the '/shared/documents' directory for cloud endpoint 'docsEndpoint' in sync group 'DocSync' under storage sync service 'FileSyncService' in resource group 'rg-prod'"
+- "Detect changes on cloud endpoint 'backupEndpoint' at path '/backups/daily' in sync group 'BackupGroup' of storage sync service 'BackupSync' within resource group 'rg-backup-data'"
+- "Start change detection for the directory '/uploads' on cloud endpoint 'uploadEndpoint' in sync group 'UploadSync' under storage sync service 'UploadService' in resource group 'rg-uploads'"
+- "Run change detection in recursive mode on '/project/assets' for cloud endpoint 'projectEndpoint' in sync group 'ProjectSync' of storage sync service 'ProjectSyncService' within resource group 'rg-projects'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Service name** |  Required | The name of the storage sync service. |
+| **Sync group name** |  Required | The name of the sync group. |
+| **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
+| **Directory path** |  Required | Relative path to a directory on the Azure File share for which change detection is to be performed. |
+| **Change detection mode** |  Optional | Change detection mode: `Default` (directory only) or `Recursive` (directory and subdirectories). Applies to the directory specified in directory path. |
+| **Paths** |  Optional | List of relative paths on the Azure File share to be included in change detection. Can be files and directories. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 
 ## Cloud endpoint: Create cloud endpoint 
@@ -295,7 +325,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint create](./../includes/tools/annotations/azure-file-sync-cloudendpoint-create-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Cloud endpoint: Delete cloud endpoint
 
@@ -322,7 +352,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint delete](../includes/tools/annotations/azure-file-sync-cloudendpoint-delete-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Cloud endpoint: Get cloud endpoint
 
@@ -348,7 +378,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint get](../includes/tools/annotations/azure-file-sync-cloudendpoint-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Cloud endpoint: Trigger change detection
 
@@ -376,7 +406,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint changedetection](../includes/tools/annotations/azure-file-sync-cloudendpoint-changedetection-annotations.md)]
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 
 ## Server endpoint: Create server endpoint
@@ -410,7 +440,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync serverendpoint create](../includes/tools/annotations/azure-file-sync-serverendpoint-create-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Server endpoint: Delete server endpoint
 
@@ -437,7 +467,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync serverendpoint delete](../includes/tools/annotations/azure-file-sync-serverendpoint-delete-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Server endpoint: Get server endpoint
 
@@ -463,7 +493,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync serverendpoint get](../includes/tools/annotations/azure-file-sync-serverendpoint-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Server endpoint: Update server endpoint
 
@@ -493,7 +523,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync serverendpoint update](../includes/tools/annotations/azure-file-sync-serverendpoint-update-annotations.md)]
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 
 ## Related content

@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
-ms.date: 10/07/2024
+ms.date: 03/26/2026
 ---
 
 This article doesn't direct you to deploy your app on Azure. There are no Azure resources to clean up for the app, although there **are** Microsoft Entra ID resources. To deploy an app on Azure, you can follow the guidance referenced in the next section.

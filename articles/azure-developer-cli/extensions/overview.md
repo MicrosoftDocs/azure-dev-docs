@@ -72,7 +72,7 @@ Once extensions are enabled and your extension sources are configured, you can i
 **List extensions**
 
 ```azdeveloper
-`azd extension list [flags]
+azd extension list [flags]
 ```
 
 - `--installed` Displays a list of installed extensions.
@@ -108,7 +108,11 @@ azd extension uninstall <extension-name>
 
 - `--all` Removes all installed extensions when specified.
 
+## Use azd extensions in dev containers
+
+[!INCLUDE [extensions-dev-container](../includes/extensions-dev-container.md)]
+
 ## Next steps
 
 - [Quickstart - use the AI extension](quickstart-ai-extension.md)
-- [Extension framework readme](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extension-framework.md)
+- [Extension framework readme](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extensions/extension-framework.md)

@@ -1,7 +1,6 @@
 ---
 title: Azure Storage Tools 
 description: "Learn how to use Azure MCP Server with Azure Storage tools to manage storage accounts, containers, blobs, and tables using natural language prompts."
-keywords: azure mcp server, azmcp, storage account, blob storage, table storage
 author: diberry
 ms.author: diberry
 ms.date: 01/27/2026
@@ -48,7 +47,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storage account create](../includes/tools/annotations/azure-storage-account-create-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Account: Get details
 
@@ -72,7 +71,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storage account get](../includes/tools/annotations/azure-storage-account-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Container: Create container
 
@@ -96,7 +95,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storage blob container create](../includes/tools/annotations/azure-storage-blob-container-create-annotations.md)]
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 
 ## Container: Get container details
@@ -122,7 +121,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storage blob container get](../includes/tools/annotations/azure-storage-blob-container-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Blob: Get blob details
 
@@ -148,7 +147,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storage blob get](../includes/tools/annotations/azure-storage-blob-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Blob: Upload
 
@@ -174,7 +173,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storage blob upload](../includes/tools/annotations/azure-storage-blob-upload-annotations.md)]
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ✅
 
 ## Table: List
 
@@ -200,7 +199,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storage table list](../includes/tools/annotations/azure-storage-table-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ---
 

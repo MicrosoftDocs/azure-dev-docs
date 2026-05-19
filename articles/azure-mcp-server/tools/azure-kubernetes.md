@@ -1,7 +1,6 @@
 ---
 title: Azure Kubernetes Service Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Kubernetes Service (AKS) to manage your Kubernetes clusters and containers.
-keywords: azure mcp server, azmcp, azure kubernetes service, aks, kubernetes, containers
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
@@ -46,7 +45,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [aks cluster get](../includes/tools/annotations/azure-kubernetes-service-cluster-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Node pool: Get details for a specific node pool
 
@@ -76,7 +75,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [aks nodepool get](../includes/tools/annotations/azure-kubernetes-service-node-pool-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 

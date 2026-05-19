@@ -1,6 +1,6 @@
 ---
 title: "Optimize Chat Results for Migrating Java Apps to Azure"
-titleSuffix: GitHub Copilot app modernization - Azure
+titleSuffix: GitHub Copilot Modernization - Azure
 description: Shows you how to optimize chat results by using the AppModernization custom agent for migrating Java applications to Azure.
 author: KarlErickson
 ms.author: karler
@@ -26,7 +26,7 @@ This quickstart shows you how to optimize chat results by using the AppModerniza
 
 The AppModernization custom agent provides the best experience for Java application migration and modernization tasks. Use the following steps to select it:
 
-1. Open Visual Studio Code and ensure you have the GitHub Copilot app modernization extension installed.
+1. Open Visual Studio Code and ensure you have the GitHub Copilot modernization extension installed.
 
 1. Open the Copilot chat window by selecting the chat icon in the **Activity Bar**.
 
@@ -50,7 +50,7 @@ With the AppModernization agent selected, use simple, natural language prompts t
 
 1. In the Copilot chat window with the AppModernization agent selected, enter the following prompt:
 
-   ```
+   ```prompt
    migrate from rabbitmq to Azure service bus
    ```
 
@@ -62,36 +62,36 @@ The AppModernization agent supports various migration scenarios with simple prom
 
 - **Database migration**:
 
-  ```
+  ```prompt
   migrate from Oracle to Azure PostgreSQL
   ```
 
 - **Authentication migration**:
 
-  ```
+  ```prompt
   migrate to Managed Identity for Azure SQL Database
   ```
 
 - **Storage migration**:
 
-  ```
+  ```prompt
   migrate from AWS S3 to Azure Storage Blob
   ```
 
 - **Messaging migration**:
 
-  ```
+  ```prompt
   migrate from ActiveMQ to Azure Service Bus
   ```
 
 - **Secret management**:
 
-  ```
+  ```prompt
   migrate secrets to Azure Key Vault
   ```
 
 ## Next steps
 
 - [Quickstart: assess and migrate a Java project](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
-- [Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
-- [Predefined tasks for GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)
+- [Quickstart: create and apply your own skills](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
+- [Predefined tasks for GitHub Copilot modernization](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)

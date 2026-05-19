@@ -2,8 +2,8 @@
 title: "Get started with chat private endpoints"
 description: "Secure the chat app with a virtual network."
 ms.date: 11/25/2025
-ms.author: johalexander
-author: ms-johnalex
+ms.author: rotabor
+author: bobtabor-msft
 ms.update-cycle: 180-days
 ms.topic: get-started
 ms.subservice: intelligent-apps

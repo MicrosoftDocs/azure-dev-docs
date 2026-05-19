@@ -54,7 +54,7 @@ You can access detailed errors returned by the Azure service. The following exam
 ## Next steps
 
 - [Authenticate with Azure services](./authentication/overview.md)
-- [Handle errors in Azure SDK for Rust crates](./logging.md)
+- [OpenTelemetry in Azure SDK for Rust crates](./logging.md)
 - [Use Azure SDK for Rust crates](./use-crates.md)
 
 [!INCLUDE [common resources](../includes/resources.md)]

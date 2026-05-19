@@ -1,81 +1,84 @@
 ---
-title: Azure AI Search Tools
-description: Learn how to use Azure MCP Server tools to manage Azure AI Search resources, indexes, and queries with natural language prompts.
-keywords: azure mcp server, azmcp, ai search, cognitive search, azure search, rag
+title: Azure MCP Server tools for Azure AI Search
+description: Use Azure MCP Server tools to manage search services, indexes, knowledge sources, and knowledge bases with natural language prompts from your IDE.
 author: diberry
 ms.author: diberry
-ms.date: 12/05/2025
+ms.service: azure-mcp-server
+ms.topic: concept-article
+ms.date: 03/27/2026
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: concept-article
-ms.custom: build-2025
+reviewer: pablocastro
+tool_count: 6
+mcp-cli.version: 2.0.0-beta.33
 ---
-# Azure AI Search tools for the Azure MCP Server overview
 
-<!-- ai-search service list -->
+# Azure MCP Server tools for Azure AI Search
 
-Use the Azure MCP Server to manage Azure AI Search resources, including search services, indexes, and [queries](/azure/search/query-simple-syntax) with natural language prompts. You don't need to remember specific command syntax.
+The Azure Model Context Protocol (MCP) Server lets you manage Azure AI Search resources, including search services, indexes, knowledge sources, and knowledge bases with natural language prompts.
 
-[Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) is a cloud search service that provides APIs and tools for building applications and agents that follow the Retrieval Augmented Generation (RAG) pattern to connect AI models with external data, as well as for more traditional scenarios such as catalog and document search. It can play the role of a vector database or of a comprehensive retrieval system with vector and keyword retrieval, reranking, and most recently agentic retrieval support.
+[Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) is a cloud search service that provides APIs and tools for building applications and agents that follow the Retrieval Augmented Generation (RAG) pattern. It supports vector and keyword retrieval, reranking, and agentic retrieval; for more information, see [Azure AI Search documentation](/azure/search/).
+
+> [!NOTE]
+> Each Azure AI Search knowledge base exposes a native MCP endpoint for direct retrieval. For more information, see [Call the MCP endpoint](/azure/search/agentic-retrieval-how-to-retrieve#call-the-mcp-endpoint).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Index: Get index details
+## Get search index
 
-<!-- ai-search index get -->
+<!-- @mcpcli search index get -->
 
-Use the Azure MCP Server to retrieve detailed information about AI Search [indexes](/azure/search/search-what-is-an-index). You can view the index schema, fields, analyzers, scoring profiles, and other index properties. 
+This tool retrieves detailed information about Azure AI Search indexes, including index schema, fields, analyzers, scoring profiles, and other index properties. When you provide an index name, it returns properties for that index; without an index name, it returns all indexes in the specified service.
 
 Example prompts include:
 
-- **Get index details**: "Show me details of the 'products' index in my 'mysearchservice' service."
-- **View index schema**: "What fields are in the 'users' index in service 'mysearchservice'?"
-- **Index structure**: "Describe the schema for 'documents' index in search service 'mysearchservice'."
+- "Show me the details of index 'products-index' in Azure AI Search service 'my-search-service'."
+- "List all indexes in the Azure AI Search service 'enterprise-search'."
+- "What fields are in the 'users' index in service 'contoso-search'?"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Service** | Required | The name of the Azure AI Search service (for example, `my-search-service`). |
-| **Index** | Optional | The name of the search index within the Azure AI Search service. Will list all indexes if not specified. |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
+| **Index** |  Optional | The name of the search index within the Azure AI Search service. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [search index get](../includes/tools/annotations/azure-ai-search-index-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Index: Query index
+## Query search index
 
-<!-- ai-search index query -->
+<!-- @mcpcli search index query -->
 
-Use the Azure MCP Server to run [search queries](/azure/search/query-simple-syntax) against an AI Search index. This feature helps you find specific content using search terms.
+This tool runs a search query against an Azure AI Search index and returns the matching documents and relevance metadata. Results typically include document fields, a relevance score, and any text highlights that match the query.
 
 Example prompts include:
 
-- **Simple query**: "Search for 'machine learning' in the 'documents' index of my 'my-search-service' service."
-- **Sampling query**: "Sample data talking about 'ML' or 'AI' or 'data science' in index 'documents' and tell me what they talk about."
-- **Text search**: "Search my 'content' index in 'my-search-service' for anything mentioning 'climate change'."
+- "Search for 'machine learning' in the 'documents' index of my 'contoso-search' service."
+- "Query index 'products' for 'noise-canceling headphones' in Azure AI Search service 'fabrikam-search'."
+- "Search my 'content' index in 'my-search-service' for anything mentioning 'climate change'."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Service** | Required | The name of the Azure AI Search service (for example, `my-search-service`). |
-| **Index** | Required | The name of the search index within the Azure AI Search service. |
-| **Query** | Required | The search query to execute against the Azure AI Search index. |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
+| **Index** |  Required | The name of the search index within the Azure AI Search service. |
+| **Query** |  Required | The search query to execute against the Azure AI Search index. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [search index query](../includes/tools/annotations/azure-ai-search-index-query-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Knowledge: Get knowledge base
+## Get knowledge base
 
-<!-- search knowledge base get -->
+<!-- @mcpcli search knowledge base get -->
 
-Gets the details of Azure AI Search knowledge bases. Knowledge bases encapsulate retrieval and reasoning capabilities over one or more knowledge sources or indexes. If a specific knowledge base name isn't provided, the command returns details for all knowledge bases within the specified service.
+This tool gets details for Azure AI Search knowledge bases. Knowledge bases encapsulate retrieval and reasoning capabilities over one or more knowledge sources or indexes. If you don't provide a knowledge base name, it returns details for all knowledge bases within the specified service.
 
 Example prompts include:
 
-- **Get knowledge base details**: "Show me details of the 'support' knowledge base in search service 'mysearchservice'."
-- **View all knowledge bases**: "List all knowledge bases in AI Search service 'mysearchservice'."
-- **Knowledge base info**: "What knowledge bases are available in 'my-search-service'?"
-
+- "List all knowledge bases in the Azure AI Search service 'my-search-service'."
+- "Show me the knowledge bases in service 'contoso-search'."
+- "Get the details of knowledge base 'support-agent' in Azure AI Search service 'enterprise-search'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -84,42 +87,42 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [search knowledge base get](../includes/tools/annotations/azure-ai-search-knowledge-base-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Knowledge: Retrieve from a knowledge base
+## Retrieve from knowledge base
 
-<!-- search knowledge base retrieve -->
+<!-- @mcpcli search knowledge base retrieve -->
 
-Execute a retrieval operation using a specific Azure AI Search knowledge base, effectively searching and querying the underlying data sources as needed to find relevant information. Provide either a query for single-turn retrieval or one or more conversational messages. Specifying both query and messages isn't allowed.
+This tool executes a retrieval operation against an Azure AI Search knowledge base to find relevant information from its data sources. Provide either a single-turn query for retrieval or one or more conversational messages in `role:content` format. Specifying both query and messages isn't allowed.
 
 Example prompts include:
 
-- **Retrieve with query**: "Search the 'support' knowledge base in service 'my-search-service' for information about troubleshooting."
-- **Conversational retrieval**: "Ask the 'docs' knowledge base in 'help-search-service': How do I configure authentication?"
-- **Knowledge base search**: "Query the 'products' knowledge base in 'retail-search-service' for pricing information."
+- "Run a retrieval with knowledge base 'support-agent' in Azure AI Search service 'my-search-service' for the query 'password reset steps'."
+- "Ask knowledge base 'product-docs' in search service 'contoso-search' to retrieve information about 'API rate limits'."
+- "Query knowledge base 'hr-policies' in search service 'hr-search' about 'vacation accrual policy'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Knowledge base** |  Required | The name of the knowledge base within the Azure AI Search service. |
 | **Query** |  Optional | Natural language query for retrieval when a conversational message history isn't provided. |
-| **Messages** |  Optional | Conversation history messages passed to the knowledge base. Able to specify multiple messages entries. Each entry formatted as `role:content`, where role is `user` or `assistant` (for example, `user:How many docs?`). |
+| **Messages** |  Optional | Conversation history messages passed to the knowledge base. Each entry formatted as `role:content`, where role is `user` or `assistant` (for example, `user:What policies apply to archived invoices?`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [search knowledge base retrieve](../includes/tools/annotations/azure-ai-search-knowledge-base-retrieve-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ✅ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Knowledge: Get source
+## Get knowledge source
 
-<!-- search knowledge source get -->
+<!-- @mcpcli search knowledge source get -->
 
-Gets the details of Azure AI Search knowledge sources. A knowledge source can point directly at an existing Azure AI Search index, or can represent external data (for example, a blob storage container) that Azure AI Search has indexed internally. These knowledge sources are used by knowledge bases during retrieval. If a specific knowledge source name isn't provided, the command returns details for all knowledge sources within the specified service.
+This tool gets details of Azure AI Search knowledge sources. A knowledge source can point at an existing Azure AI Search index or represent external data (for example, a blob storage container) that Azure AI Search has indexed. Knowledge sources are used by knowledge bases during retrieval. If you don't provide a knowledge source name, it returns details for all knowledge sources in the specified service.
 
 Example prompts include:
 
-- **Get source details**: "Show me details of the 'documents' knowledge source in search service 'mysearchservice'."
-- **View all sources**: "List all knowledge sources in AI Search service 'mysearchservice'."
-- **Source information**: "What knowledge sources are configured in 'my-search-service'?"
+- "List all knowledge sources in the Azure AI Search service 'my-search-service'."
+- "Show me the knowledge sources in the Azure AI Search service 'contoso-search'."
+- "Get the details of knowledge source 'product-index' in search service 'enterprise-search'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -128,26 +131,26 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [search knowledge source get](../includes/tools/annotations/azure-ai-search-knowledge-source-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Service: List services
+## List search services
 
-<!-- search service list -->
+<!-- @mcpcli search service list -->
 
-Use the Azure MCP Server to list all AI Search services in a subscription. This command gives you a quick overview of your search services.
+This tool lists Azure AI Search services in a subscription and returns details for each service, including name, location, SKU, provisioning state, and endpoint.
 
 Example prompts include:
 
-- **List services**: "List all my AI Search services in my subscription."
-- **Show services**: "What AI Search services do I have?"
-- **Find services**: "I need to see my Azure AI Search resources"
+- "List Azure AI Search services in my subscription."
+- "What AI Search services do I have?"
+- "Show me my Azure AI Search resources."
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [search service list](../includes/tools/annotations/azure-ai-search-service-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure AI Search](/azure/search/) 
+- [Azure AI Search documentation](/azure/search/)

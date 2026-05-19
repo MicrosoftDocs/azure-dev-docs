@@ -1,50 +1,57 @@
 ---
 title: Generative AI for JavaScript developers
-description: Discover generative AI in JavaScript with our essential guide. Build AI-powered web, mobile, and desktop apps using prompt engineering, RAG, and secure AI Chat Protocol streaming. Access demos and courses featuring tools like LangChain.js, Ollama, and Azure Cosmos DB for scalable, innovative solutions.
+description: Learn how to build generative AI apps with JavaScript by using prompt engineering, RAG, LangChain.js, Ollama, Microsoft Foundry, Azure Cosmos DB, and the AI Chat Protocol.
+ms.date: 03/13/2026
+ms.author: diberry
+author: diberry
+ms.service: azure-javascript
+ms.subservice: intelligent-apps
 ms.topic: concept-article
-ms.date: 08/05/2025
-#customer intent: As a JavaScript developer, I want understand generative AI so that build AI applications.
+ms.custom: devx-track-js, devx-track-js-ai
+ms.collection: ce-skilling-ai-copilot
+ai-usage: ai-generated
+#customer intent: As a JavaScript developer, I want to understand generative AI so that I can build AI applications.
 ---
 
-# Generative AI for JavaScript overview
+# Generative AI for JavaScript developers
 
-Discover the power of Generative AI with JavaScript. Learn how to seamlessly integrate AI into your web, mobile, or desktop applications. 
+Use JavaScript to build generative AI features into your web, mobile, and desktop apps. This overview highlights core concepts, tools, and learning resources to help you get started.
 
-## JavaScript with AI?
+## Why use JavaScript for AI?
 
-While it's true that Python is great for creating and training AI models, building apps with those models is different. Most AI models work through web APIs, so any language that can make HTTP calls can use AI. JavaScript is cross-platform and connects browsers and servers easily, making it a strong choice for AI apps.
+Python is a common choice for training AI models, but most app developers use models through web APIs. Because JavaScript runs across browsers and servers and handles HTTP calls well, it's a practical choice for building AI apps.
 
-## Fun and interactive course
+## Take the companion course
 
-Join us for an immersive learning experience including videos, code projects, and a full implementation to both use and learn about generative AI.
+Use the companion course to learn through videos, code projects, and a full end-to-end sample.
 
 * [Course](https://github.com/microsoft/generative-ai-with-javascript)
 * [Video series](https://aka.ms/genai-js)
 
-This course is a great way for students and new developers to learn about AI in a fun, interactive way. For career developers, dive deeper for your upscaling to AI.
+If you're a student or new developer, this course gives you a practical way to learn AI. If you already build apps professionally, it helps you deepen your AI skills.
 
-In this course:
+In this course, you:
 
-* Learn AI while you bring historical figures to life with generative AI
-* Apply accessibility with the built- browser APIs
-* Use text and image generation to integrate AI into the app experience
-* Learn architectural patterns for AI applications
+* Learn AI while you bring historical figures to life with generative AI.
+* Apply accessibility by using built-in browser APIs.
+* Use text and image generation to integrate AI into the app experience.
+* Learn architectural patterns for AI applications.
 
 :::image type="content" source="media/generative-ai-for-javascript-developers/leonardo-talk.png" alt-text="An AI-generated image of Leonardo Da Vinci used in the companion app to talk to historical characters.":::
 
 [Use the companion application to talk to historical characters](https://github.com/microsoft/generative-ai-with-javascript/blob/main/README.md)
 
-## What you need to know about LLMs?
+## What to know about LLMs
 
-Large Language Models (LLMs) are deep neural networks trained on lots of data to understand and create text. Training starts with large, diverse datasets to build a base model, then uses special data to fine-tune for better results. LLMs work like smart autocompletion tools in code editors or chat apps. Models have limits, like context windows (usually a few thousand tokens, though newer models support more) and can show biases from their training data. That’s why responsible AI matters—focus on fairness, reliability, privacy, and accountability, as Microsoft recommends.
+Large language models (LLMs) are neural networks trained on large datasets to understand and generate text. Training usually starts with a broad base model and then adds fine-tuning for specific tasks. LLMs can help with scenarios such as code completion and chat, but they also have limits, including context windows and possible bias in training data. That's why responsible AI practices such as fairness, reliability, privacy, and accountability matter.
 
 Learn more in the [LLM session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/01-llms.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/01-llms/readme.md)
 * [Video](https://www.youtube.com/watch?v=GQ_2OjNZ9aA&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=2)
 
-## Essential prompt engineering techniques
+## Use prompt engineering techniques
 
-Prompt engineering means designing prompts to get better AI results. You can use zero-shot learning (no examples) or few-shot learning (with examples) to guide the model. Adding cues like step-by-step instructions, clear context, and output formats helps the model give better answers. You can also adjust tone and personalize responses. These basics set you up for advanced techniques like RAG.
+Prompt engineering is the practice of writing prompts that guide the model toward better results. Use zero-shot prompts when you don't need examples, or few-shot prompts when examples help. Clear instructions, relevant context, and explicit output formats often improve responses and prepare you for more advanced patterns such as RAG.
 
 Learn more in the [prompt engineering session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/02-prompt-engineering.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/02-prompt-engineering/readme.md)
@@ -52,7 +59,7 @@ Learn more in the [prompt engineering session of the course](https://github.com/
 
 ## Improve AI accuracy and reliability with RAG
 
-Use Retrieval Augmented Generation (RAG) to make AI more accurate and reliable. RAG combines a retriever that finds up-to-date documents with a generator that uses those documents to answer questions. This approach gives clear, factual answers based on trusted sources, making results easy to check and cost-effective. For example, Contoso real estate support uses RAG to give detailed answers backed by company documents.
+Use retrieval-augmented generation (RAG) to ground model responses in current, trusted data. RAG combines a retriever that finds relevant content with a generator that uses that content to answer questions. This approach can improve accuracy, make responses easier to verify, and control costs. For example, a real estate support app can use company documents to answer detailed customer questions.
 
 Learn more in the [RAG session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/03-rag.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/03-rag/readme.md)
@@ -60,7 +67,7 @@ Learn more in the [RAG session of the course](https://github.com/microsoft/gener
 
 ## Speed up your AI development with LangChain.js
 
-Speed up your AI projects with LangChain.js. This JavaScript library makes it easy to work with large language models. Use LangChain.js to build prompt templates, connect models and vector databases, and create complex workflows. Quickly prototype apps, like an API that pulls and answers questions from YouTube transcripts. When you’re ready for production, swap local models and vector stores for Azure services without changing your code.
+Speed up your AI projects with LangChain.js. This JavaScript library helps you build prompt templates, connect models and vector stores, and compose complex workflows. It works well for rapid prototyping, such as an API that answers questions from YouTube transcripts. When you're ready for production, you can swap local models and vector stores for Azure services without rewriting your app.
 
 Learn more in the [LangChain.js session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/04-langchainjs.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/04-langchainjs/readme.md)
@@ -68,15 +75,17 @@ Learn more in the [LangChain.js session of the course](https://github.com/micros
 
 ## Run AI models on your local machine with Ollama
 
-Download and use local AI models with Ollama—an open-source tool based on llama.cpp—to efficiently run small language models like Phi-3. Local models eliminate reliance on cloud infrastructure, enable rapid development with offline capabilities, and offer cost-effective testing through a fast inner development loop. Phi-3, noted for its high performance and responsible AI safety, can run even on moderate-spec devices and is accessible via an OpenAI-compatible API, making it easy to integrate with your development workflow.
+Use Ollama to run local AI models, including Phi-3, on your machine. Local models reduce cloud dependencies, support offline development, and shorten your inner loop while you test ideas. Because Ollama exposes an OpenAI-compatible API, you can integrate it into existing JavaScript workflows with minimal changes.
 
 Learn more in the [Ollama session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/05-local-models.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/05-local-models/readme.md)
 * [Video](https://www.youtube.com/watch?v=dLfNnoPv4AQ&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=6)
 
-## Get started with AI for free using Phi-3
+## Get started with AI for free
 
-Try AI models with the Ollama tool and Phi-3 model in your browser using an online playground. Create a GitHub Codespace to use VS Code in your browser, run commands like "Ollama run phi3" to chat with the model, and use a Jupyter notebook to test prompt engineering, few-shot learning, and RAG. You can build and explore AI projects online—no need for a fast GPU or local setup.
+You can run AI for free by using [Foundry Local](/azure/foundry-local/get-started), which lets you download AI models and interact with them locally. There's also [AI Toolkit for Visual Studio Code](/windows/ai/toolkit/), an extension that supports model download, fine-tuning, and more. [Ollama](https://ollama.com/) is another popular choice for running local models.
+
+You can also try models without any local setup by creating a GitHub Codespace and using a Jupyter notebook to test prompt engineering, few-shot learning, and RAG.
 
 Learn more in the [Phi-3 session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/06-playground.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/06-playground/readme.md)
@@ -84,28 +93,28 @@ Learn more in the [Phi-3 session of the course](https://github.com/microsoft/gen
 
 ## Introduction to Microsoft Foundry
 
-Use Foundry to start building generative AI apps with JavaScript. Organize resources with hubs and projects, browse thousands of models, and deploy a model to test in a playground. Whether you pick managed compute or serverless APIs, follow the same steps to select, deploy, and use your model in your workflow.
+Use Microsoft Foundry to start building generative AI apps with JavaScript. Organize resources with hubs and projects, browse models, and deploy a model to test in a playground. Whether you use managed compute or serverless APIs, the workflow stays the same: choose a model, deploy it, and integrate it into your app.
 
 Learn more in the [Foundry session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/07-ai-foundry.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/07-ai-foundry/readme.md)
 * [Video](https://www.youtube.com/watch?v=9Mo-VOGk8ng&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=8)
 
-## Building Generative AI Apps with Azure Cosmos DB
+## Build generative AI apps with Azure Cosmos DB
 
 Learn more in the [Azure Cosmos DB session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/08-cosmos-db.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/08-cosmos-db/readme.md)
 * [Video](https://www.youtube.com/watch?v=-GQyaLbeqxQ&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=9)
 
-## Azure tools & services for hosting and storing AI apps
+## Azure tools and services for hosting and storing AI apps
 
-Discover key Azure tools and services for hosting and storing your AI apps. Build different types of AI apps, like chat apps, RAG, and autonomous agents. Use the Azure Developer CLI (AZD) to deploy easily. Compare serverless and container-based options, and learn how to keep your APIs secure, scalable, and monitored for real-world use.
+Learn which Azure tools and services fit common AI app architectures, including chat apps, RAG apps, and autonomous agents. This session also shows how to use Azure Developer CLI (AZD) to deploy apps and compare serverless and container-based hosting options.
 
 Learn more in the [Azure tools and services session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/09-azure-tools.md):
 * [Video](https://www.youtube.com/watch?v=WB6Fpzhwyug&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=10)
 
-## Streaming Generative AI output with the AI Chat Protocol
+## Stream generative AI output with the AI Chat Protocol
 
-Stream generative AI output with the AI Chat Protocol. This tool makes real-time communication easy between your AI service and client apps. Try two streaming methods: run inference in the browser or use an AI inference server. Watch out for API key exposure, data safety, and choosing the right protocol. The AI Chat Protocol’s simple client lets you add secure and efficient streaming to your app using getCompletion and getStreamedCompletion methods, as shown in our serverless RAG with LangChain.js example.
+Use the AI Chat Protocol to support real-time communication between your AI service and client apps. You can stream responses from the browser or from an AI inference server, depending on your architecture. As you implement streaming, plan for API key protection, data safety, and protocol choice. The protocol client supports methods such as `getCompletion` and `getStreamedCompletion`, as shown in the serverless RAG with LangChain.js example.
 
 Learn more in the [Streaming session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/10-chat-protocol.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/10-chat-protocol/readme.md)

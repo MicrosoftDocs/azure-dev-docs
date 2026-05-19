@@ -4,7 +4,7 @@ description: An overview of important services that developers use when building
 keywords: azure services
 ms.service: azure
 ms.topic: overview
-ms.date: 09/25/2025
+ms.date: 03/25/2026
 ms.custom: overview
 #CustomerIntent: As an experienced developer, I want an overview of Azure services since there are so many new terms and ideas. I want to see the products organized into large categories so I can make sense of them and start building a mental model.
 ---
@@ -53,6 +53,8 @@ You might wonder, "Why are there so many different ways to host an application?"
 | :::image type="icon" source="media/computer-vision.png"::: | [Azure Vision in Foundry Tools](/azure/ai-services/computer-vision/) | Analyze content in images and video. |
 | :::image type="icon" source="media/search.png"::: | [Azure AI Search](/azure/search) | Information retrieval at scale for traditional and conversational search applications, with security and options for AI enrichment and vectorization. |
 | :::image type="icon" source="media/document-intelligence.png"::: | [Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence) | Document extraction service that understands your forms, allowing you to quickly extract text and structure from documents. |
+
+To get started building AI apps, see the [overview of AI app development](../ai/azure-ai-for-developers.md). For ready-to-deploy reference samples, browse the [AI app templates](../ai/intelligent-app-templates.md). If you're interested in building intelligent agents, see [Build agents using Model Context Protocol on Azure](../ai/intro-agents-mcp.md).
 
 ## Data
 

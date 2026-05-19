@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 09/02/2025
+ms.date: 03/20/2026
 ---
 ### Implement the code
 
@@ -44,7 +44,7 @@ The client ID is used to identify a managed identity when configuring applicatio
         if (process.env.NODE_ENV === "production") {
             const clientId = process.env.AZURE_CLIENT_ID;
             if (!clientId) throw Error('AZURE_CLIENT_ID not found for Managed Identity');
-            return new BlobServiceClient(url, new ManagedIdentityCredential(clientId));
+            return new BlobServiceClient(url, new ManagedIdentityCredential({clientId}));
         } else {
             return new BlobServiceClient(url, new DefaultAzureCredential());
         }
@@ -100,7 +100,7 @@ Resource IDs can be built by convention, which makes them more convenient when w
         if (process.env.NODE_ENV === "production") {
             const resourceId = process.env.AZURE_RESOURCE_ID;
             if (!resourceId) throw Error('AZURE_RESOURCE_ID not found for Managed Identity');
-            return new BlobServiceClient(url, new ManagedIdentityCredential(resourceId));
+            return new BlobServiceClient(url, new ManagedIdentityCredential({resourceId}));
         } else {
             return new BlobServiceClient(url, new DefaultAzureCredential());
         }
@@ -152,7 +152,7 @@ A principal ID is another name for an object ID.
         if (process.env.NODE_ENV === "production") {
             const objectId = process.env.AZURE_OBJECT_ID;
             if (!objectId) throw Error('AZURE_OBJECT_ID not found for Managed Identity');
-            return new BlobServiceClient(url, new ManagedIdentityCredential(objectId));
+            return new BlobServiceClient(url, new ManagedIdentityCredential({objectId}));
         } else {
             return new BlobServiceClient(url, new DefaultAzureCredential());
         }

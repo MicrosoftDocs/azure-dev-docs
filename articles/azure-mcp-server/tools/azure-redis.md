@@ -1,10 +1,9 @@
 ---
 title: Azure Redis Tools for Azure MCP Server
 description: Learn how to manage Azure Redis instances using the Azure MCP Server with natural language prompts. Discover tools for creating and listing Redis resources.
-keywords: azure mcp server, azmcp, managed redis, cache for redis, redis cache, redis cluster, redis enterprise
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 05/13/2026
 ms.topic: concept-article
 ms.service: azure
 ai-usage: ai-assisted
@@ -37,14 +36,17 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource** |  Required | The name of the Redis resource (for example, `my-redis`). |
+| **Resource name** |  Required | The name of the Redis resource (for example, `my-redis`). |
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **SKU** |  Optional | The SKU for the Redis resource. (Default: `Balanced_B0`). |
+| **SKU** |  Required | The SKU for the Redis resource. (Default: `Balanced_B0`). |
 | **Location** |  Required | The location for the Redis resource (for example `eastus`). |
 | **Access keys authentication** |  Optional | Whether to enable access keys for authentication for the Redis resource. (Default: `false`). |
 | **Modules** |  Optional | A list of modules to enable on the Azure Managed Redis resource (for example, `RedisBloom`, `RedisJSON`). |
+| **Public network access** |  Optional | Whether public network access is allowed. |
 
-[!INCLUDE [redis create](../includes/tools/annotations/azure-managed-redis-create-annotations.md)]
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## List Redis resources
 
@@ -62,7 +64,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [redis list](../includes/tools/annotations/azure-managed-redis-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 

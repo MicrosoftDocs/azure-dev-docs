@@ -49,7 +49,7 @@ In this tutorial, you learn how to:
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
    > [!NOTE]
-   > Spring Security 5.5.1, 5.4.7, 5.3.10 and 5.2.11 have been released to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it.
+   > Spring Security 5.5.1, 5.4.7, 5.3.10 and 5.2.11 have been released to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with `spring-security-oauth2-client`](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it.
 
 1. Select **Generate Project**, then download the project to a path on your local computer. Move the downloaded file to a directory named after your project and unzip the file. The file layout should look something like the following, with the value you entered for **Group** in place of `yourProject`.
 
@@ -240,7 +240,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    >           user-name-attribute-name:
    > ```
    >
-   > The **application.yml** file is available in [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
+   > The **application.yml** file is available in [`spring-cloud-azure-starter-active-directory-b2c` sample: `aad-b2c-web-application`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
 
 1. Save and close the **application.yml** file.
 
@@ -332,7 +332,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    }
    ```
 
-1. Copy the **home.html** file from [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to **src/main/resources/templates**, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
+1. Copy the **home.html** file from [`spring-cloud-azure-starter-active-directory-b2c` sample: `aad-b2c-web-application`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to **src/main/resources/templates**, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
 
 ## Build and test your app
 

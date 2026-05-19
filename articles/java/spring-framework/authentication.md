@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure authentication
@@ -93,16 +93,16 @@ To connect applications to resources that support Microsoft Entra authentication
 
 The following table lists authentication properties:
 
-| Property                    | Description                                                                                        |
-|-----------------------------|----------------------------------------------------------------------------------------------------|
-| client-id                   | The client ID to use when performing service principal authentication with Azure.                  |
-| client-secret               | The client secret to use when performing service principal authentication with Azure.              |
-| client-certificate-path     | Path of a PEM certificate file to use when performing service principal authentication with Azure. |
-| client-certificate-password | The password of the certificate file.                                                              |
-| username                    | The username to use when performing username/password authentication with Azure.                   |
-| password                    | The password to use when performing username/password authentication with Azure.                   |
-| managed-identity-enabled    | Whether to enable managed identity.                                                                |
-| token-credential-bean-name  | The bean name of type `TokenCredential` to use when performing authentication with Azure.          |
+| Property                      | Description                                                                                        |
+|-------------------------------|----------------------------------------------------------------------------------------------------|
+| `client-id`                   | The client ID to use when performing service principal authentication with Azure.                  |
+| `client-secret`               | The client secret to use when performing service principal authentication with Azure.              |
+| `client-certificate-path`     | Path of a PEM certificate file to use when performing service principal authentication with Azure. |
+| `client-certificate-password` | The password of the certificate file.                                                              |
+| `username`                    | The username to use when performing username/password authentication with Azure.                   |
+| `password`                    | The password to use when performing username/password authentication with Azure.                   |
+| `managed-identity-enabled`    | Whether to enable managed identity.                                                                |
+| `token-credential-bean-name`  | The bean name of type `TokenCredential` to use when performing authentication with Azure.          |
 
 > [!TIP]
 > For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](configuration-properties-all.md).

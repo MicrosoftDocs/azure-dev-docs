@@ -35,7 +35,7 @@ We're going to build a classical "Hello, World" function that runs on Azure Func
 
 The function receives a `User` JSON object, which contains a user name, and sends back a `Greeting` object, which contains the welcome message to that user.
 
-The project is available in the [Spring Cloud Function in Azure](https://github.com/Azure/azure-functions-java-worker/tree/dev/samples/spring-cloud-example) sample of the [azure-function-java-worker](https://github.com/Azure/azure-functions-java-worker) repository on GitHub. You can use that sample directly if you want to see the final work described in this quickstart.
+The project is available in the [Spring Cloud Function in Azure](https://github.com/Azure/azure-functions-java-worker/tree/dev/samples/spring-cloud-example) sample of the [`azure-function-java-worker`](https://github.com/Azure/azure-functions-java-worker) repository on GitHub. You can use that sample directly if you want to see the final work described in this quickstart.
 
 ## Create a new Maven project
 
@@ -405,7 +405,7 @@ Now, you're going to publish the Azure Function to production. Remember that the
 > [!NOTE]
 > The Maven plugin needs to authenticate with Azure. If you have Azure CLI installed, use `az login` before continuing.
 >
-> For more authentication options, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) in the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) repository.
+> For more authentication options, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) in the [`azure-maven-plugins`](https://github.com/microsoft/azure-maven-plugins) repository.
 
 Run Maven to deploy your function automatically:
 

@@ -2,7 +2,7 @@
 title: Use keyless connections with Azure OpenAI
 description: Use keyless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 03/19/2026
 ms.reviewer: scaddie
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use keyless connections so that I don't leak secrets.
@@ -161,7 +161,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
     For use in Azure, specify a user-assigned managed identity as part of the Bicep deployment process. Create a user-assigned managed identity separate from the identity running the process.
 
     ```bicep
-    resource userAssignedManagedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
+    resource userAssignedManagedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
       name: managedIdentityName
       location: location
     }
@@ -294,7 +294,7 @@ Install the Java [Azure Identity client library](https://mvnrepository.com/artif
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-identity</artifactId>
-            <version>1.10.0</version>
+            <version>1.18.2</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -451,7 +451,7 @@ Take one of the following approaches to set the user-assigned managed identity's
     
     const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
     const deployment = "<your Azure OpenAI deployment name>";
-    const apiVersion = "2024-05-01-preview";
+    const apiVersion = "2024-10-21";
     const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
     
     const client = new AzureOpenAI(options);
@@ -473,7 +473,7 @@ Take one of the following approaches to set the user-assigned managed identity's
     
     const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
     const deployment = "<your Azure OpenAI deployment name>";
-    const apiVersion = "2024-05-01-preview";
+    const apiVersion = "2024-10-21";
     const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
     
     const client = new AzureOpenAI(options);

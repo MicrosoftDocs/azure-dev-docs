@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure support for Spring Messaging Azure Event Hubs
@@ -48,13 +48,13 @@ The library provides the following configuration options for `EventHubsTemplate`
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                   | Type    | Description                                                                                                        |
 > |----------------------------------------------------------------------------|---------|--------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure**.message-converter.isolated-object-mapper            | boolean | Whether an isolated ObjectMapper bean is used for Event Hubs message converter. Enabled by default.                |
-> | **spring.cloud.azure.eventhubs**.enabled                                   | boolean | Whether an Azure Event Hubs is enabled.                                                                            |
-> | **spring.cloud.azure.eventhubs**.connection-string                         | String  | Event Hubs Namespace connection string value.                                                                      |
-> | **spring.cloud.azure.eventhubs**.namespace                                 | String  | Event Hubs Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.account-name   | String  | Name for the storage account.                                                                                      |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.account-key    | String  | Storage account access key.                                                                                        |
-> | **spring.cloud.azure.eventhubs.processor.checkpoint-store**.container-name | String  | Storage container name.                                                                                            |
+> | `spring.cloud.azure.message-converter.isolated-object-mapper`            | boolean | Whether an isolated ObjectMapper bean is used for Event Hubs message converter. Enabled by default.                |
+> | `spring.cloud.azure.eventhubs.enabled`                                   | boolean | Whether an Azure Event Hubs is enabled.                                                                            |
+> | `spring.cloud.azure.eventhubs.connection-string`                         | String  | Event Hubs Namespace connection string value.                                                                      |
+> | `spring.cloud.azure.eventhubs.namespace`                                 | String  | Event Hubs Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`   | String  | Name for the storage account.                                                                                      |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-key`    | String  | Storage account access key.                                                                                        |
+> | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name` | String  | Storage container name.                                                                                            |
 
 ### Basic usage
 
@@ -212,4 +212,4 @@ Use the following steps to receive messages:
 
 ### Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-messaging-azure-eventhubs/eventhubs-spring-messaging) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/eventhubs/spring-messaging-azure-eventhubs/eventhubs-spring-messaging) repository on GitHub.

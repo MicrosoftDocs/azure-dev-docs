@@ -3,8 +3,8 @@ title: Get started load testing Python enterprise chat sample using RAG
 description: Get started load testing your Python chat app. 
 ms.date: 12/18/2025
 ms.update-cycle: 180-days
-ms.author: johalexander
-author: ms-johnalex
+ms.author: rotabor
+author: bobtabor-msft
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps

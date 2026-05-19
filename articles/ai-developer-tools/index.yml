@@ -1,0 +1,54 @@
+### YamlMime:Landing
+
+title: AI developer tools for Azure documentation
+summary: Explore AI-powered developer tools for Azure including the Azure MCP Server, GitHub Copilot MCP servers, and Azure Skills. Build intelligent workflows that connect AI agents to Azure services.
+
+metadata:
+  title: AI developer tools for Azure documentation
+  description: Learn about AI-powered developer tools for Azure, including MCP servers, GitHub Copilot integrations, and Azure Skills for building agentic workflows.
+  ms.topic: landing-page
+  ms.date: 07/11/2025
+
+landingContent:
+  - title: Azure Skills
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: ../azure-skills/overview.md
+      - linkListType: get-started
+        links:
+          - text: Install and configure
+            url: ../azure-skills/install.md
+          - text: Quickstart
+            url: ../azure-skills/quickstart.md
+  - title: Azure MCP Server
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: ../azure-mcp-server/overview.md
+      - linkListType: get-started
+        links:
+          - text: Get started with Azure MCP Server
+            url: ../azure-mcp-server/get-started.md
+      - linkListType: reference
+        links:
+          - text: Tools reference
+            url: ../azure-mcp-server/tools/index.md
+  - title: GitHub Copilot for Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: ../github-copilot-azure/introduction.md
+      - linkListType: get-started
+        links:
+          - text: Get started
+            url: ../github-copilot-azure/get-started.md
+          - text: Deploy with agent mode
+            url: ../github-copilot-azure/quickstart-deploy-app-agent-mode.md
+      - linkListType: learn
+        links:
+          - text: Learn about Azure and your app
+            url: ../github-copilot-azure/learn-examples.md

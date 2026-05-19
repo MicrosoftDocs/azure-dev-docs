@@ -1,10 +1,9 @@
 ---
 title: Azure Event Hubs Tools
 description: Learn to use Azure MCP Server tools to manage Event Hubs resources with natural language prompts. Create, update, and delete namespaces and consumer groups.
-keywords: azure mcp server, azmcp, event hubs, azure services
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 02/27/2026
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -41,7 +40,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs eventhub consumergroup delete](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-delete-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Event Hub: Get consumer group
 
@@ -69,7 +68,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs eventhub consumergroup get](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Event Hub: Create or update consumer group
 
@@ -94,7 +93,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs eventhub consumergroup update](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-update-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Event Hub: Delete Event Hub    
 
@@ -116,7 +115,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs eventhub delete](../includes/tools/annotations/azure-event-hubs-event-hub-delete-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Event Hub: Get Event Hub
 
@@ -143,7 +142,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs eventhub get](../includes/tools/annotations/azure-event-hubs-event-hub-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Event Hub: Create or update Event Hub
 
@@ -176,7 +175,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs eventhub update](../includes/tools/annotations/azure-event-hubs-event-hub-update-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Namespace: Delete namespace
 
@@ -197,7 +196,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs namespace delete](../includes/tools/annotations/azure-event-hubs-namespace-delete-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Namespace: Get namespace
 
@@ -218,7 +217,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs namespace get](../includes/tools/annotations/azure-event-hubs-namespace-get-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Namespace: Create or update namespace
 
@@ -259,7 +258,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [eventhubs namespace update](../includes/tools/annotations/azure-event-hubs-namespace-update-annotations.md)]
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 

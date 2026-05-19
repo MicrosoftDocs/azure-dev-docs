@@ -1,10 +1,9 @@
 ---
 title: Connect GitHub Copilot coding agent to the Azure MCP Server
 description: Learn how to use the Azure MCP Server with the GitHub Copilot coding agent.
-keywords: azure mcp server, azmcp
 author: rotabor
 ms.author: rotabor
-ms.date: 10/27/2025
+ms.date: 02/27/2026
 ms.topic: how-to
 
 ---

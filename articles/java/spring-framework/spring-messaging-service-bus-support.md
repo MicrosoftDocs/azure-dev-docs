@@ -9,9 +9,9 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.24.1
-- ✅ Version 6.1.0
-- ✅ Version 7.0.0
+- ✅ Version 5.25.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Spring Cloud Azure support for Spring Messaging Azure Service Bus
@@ -44,12 +44,12 @@ The library provides the following configuration options for `ServiceBusTemplate
 > [!div class="mx-tdBreakAll"]
 > | Property                                                         | Type    | Description                                                                                                         |
 > |------------------------------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure**.message-converter.isolated-object-mapper  | boolean | Whether an isolated ObjectMapper bean is used for Service Bus message converter. Enabled by default.                |
-> | **spring.cloud.azure.servicebus**.enabled                        | boolean | Whether an Azure Service Bus is enabled.                                                                            |
-> | **spring.cloud.azure.servicebus**.connection-string              | String  | Service Bus Namespace connection string value.                                                                      |
-> | **spring.cloud.azure.servicebus**.custom-endpoint-address        | String  | The custom endpoint address to use when connecting to Service Bus.                                                  |
-> | **spring.cloud.azure.servicebus**.namespace                      | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
-> | **spring.cloud.azure.servicebus**.entity-type                    | String  | Entity type of an Azure Service Bus.                                                                                |
+> | `spring.cloud.azure.message-converter.isolated-object-mapper`  | boolean | Whether an isolated ObjectMapper bean is used for Service Bus message converter. Enabled by default.                |
+> | `spring.cloud.azure.servicebus.enabled`                        | boolean | Whether an Azure Service Bus is enabled.                                                                            |
+> | `spring.cloud.azure.servicebus.connection-string`              | String  | Service Bus Namespace connection string value.                                                                      |
+> | `spring.cloud.azure.servicebus.custom-endpoint-address`        | String  | The custom endpoint address to use when connecting to Service Bus.                                                  |
+> | `spring.cloud.azure.servicebus.namespace`                      | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
+> | `spring.cloud.azure.servicebus.entity-type`                    | String  | Entity type of an Azure Service Bus.                                                                                |
 
 ### Basic usage
 
@@ -210,4 +210,4 @@ public AzureServiceClientBuilderCustomizer<ServiceBusClientBuilder.ServiceBusSes
 
 ### Samples
 
-For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-messaging-azure-servicebus/servicebus-spring-messaging) repository on GitHub.
+For more information, see the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-messaging-azure-servicebus/servicebus-spring-messaging) repository on GitHub.
