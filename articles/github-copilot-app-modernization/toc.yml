@@ -129,8 +129,6 @@ items:
               href: /dotnet/core/porting/github-copilot-app-modernization/scenarios-and-skills?context=/azure/developer/github-copilot-app-modernization/context/context
             - name: Customization
               href: /dotnet/core/porting/github-copilot-app-modernization/customization?context=/azure/developer/github-copilot-app-modernization/context/context
-            - name: FAQ
-              href: /dotnet/core/porting/github-copilot-app-modernization/faq?context=/azure/developer/github-copilot-app-modernization/context/context
 
             - name: Upgrade .NET apps
               expanded: false
@@ -143,6 +141,8 @@ items:
                 href: /dotnet/core/porting/github-copilot-app-modernization/best-practices?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Troubleshooting
                 href: /dotnet/core/porting/github-copilot-app-modernization/troubleshooting?context=/azure/developer/github-copilot-app-modernization/context/context
+              - name: FAQ
+                href: /dotnet/core/porting/github-copilot-app-modernization/faq?context=/azure/developer/github-copilot-app-modernization/context/context
 
             - name: Migrate .NET projects to Azure
               expanded: false
