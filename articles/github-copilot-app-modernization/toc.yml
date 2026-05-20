@@ -61,7 +61,6 @@ items:
               - name: Assessment at scale
                 href: modernization-agent/batch-assess.md
 
-
             - name: Upgrade Java projects
               expanded: false
               items:
