@@ -121,4 +121,3 @@ If you want to remove the codespace, go to https://github.com/codespaces to mana
 [10]: ./containers-in-azure-overview-python.md
 [11]: ./sdk/azure-sdk-overview.md
 [12]: https://swagger.io/tools/swagger-ui/
-[12]: https://swagger.io/tools/swagger-ui/
