@@ -1,7 +1,7 @@
 ---
 title: Create a dev environment in GitHub Codespaces with FastAPI and Postgres.
 description: How to set up a Python development environment in GitHub Codespaces with FastAPI and Postgres.
-ms.date: 06/18/2025
+ms.date: 05/20/2026
 ms.topic: how-to
 ms.custom:
   - devx-track-python
@@ -10,13 +10,13 @@ ms.custom:
 
 # Create a GitHub Codespaces dev environment with FastAPI and Postgres
 
-This article shows you how to run FastAPI and Postgres together in a [GitHub Codespaces][1] environment. Codespaces is a cloud-hosted development environment that allows you to create configurable and repeatable development environments.
+This article shows you how to run FastAPI and Postgres together in a [GitHub Codespaces][1] environment. Codespaces is a cloud-hosted development environment that you can use to create configurable and repeatable development environments.
 
-You can open the sample repo in a [browser][4] or in an integrated development environment (IDE) like [Visual Studio Code][6] with the [GitHub Codespaces extension][5].
+You can open the sample repo in an integrated development environment (IDE) like [Visual Studio Code][6] with the [GitHub Codespaces extension][5].
 
-Alternatively, you can clone the sample repository locally. When you open the project in Visual Studio Code, you can use Dev Containers to run it using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] to be installed locally. If Docker isn’t installed, you can run the project using GitHub Codespaces as the development environment.
+Alternatively, you can clone the sample repository locally. When you open the project in Visual Studio Code, you can use Dev Containers to run it by using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] is installed locally. If Docker isn't installed, you can run the project by using GitHub Codespaces as the development environment.
 
-When using GitHub Codespaces, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
+When you use GitHub Codespaces, you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
 
 You can also use this setup as a starting point and modify the sample to run other Python web frameworks such as Django or Flask.
 
@@ -39,9 +39,12 @@ This tutorial introduces one of many possible ways to create and work with GitHu
     > [!TIP]
     > You can also run the codespace in Visual Studio Code. Select **Codespaces** in lower left corner of the browser or (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`) and type "Codespaces". Then select **Open in VS Code**. Also, if you stop the codespace and go back to the repo and open it again in GitHub Codespaces, you have the option to open it in VS Code or a browser.
 
+    > [!NOTE]
+    > If PostgreSQL fails to start (container crashes), it might be due to an incompatibility between PostgreSQL 18+ and the existing data directory volume. Edit `.devcontainer/docker-compose.yaml` and change `postgres:latest` to `postgres:17`, then rebuild the container. PostgreSQL 18 changed the data directory layout, making the volume mount at `/var/lib/postgresql/data` incompatible with previous versions.
+
 1. Select the *.env.devcontainer* file and create a copy called *.env* with the same contents.
 
-    The *.env* contains environment variables that are used in the code to connect to the database.
+    The *.env* file contains environment variables that the code uses to connect to the database.
 
 1. If a terminal window isn't already open, open one by opening the Command Palette (`Ctrl` + `Shift` + `P` / `Ctrl` + `Command` + `P`), typing "Terminal: Create New Terminal", and selecting it to create a new terminal.
 
@@ -57,7 +60,7 @@ This tutorial introduces one of many possible ways to create and work with GitHu
 
     If you don't see or missed the notification, go to **PORTS** and find the **Local Address** for port 8000. Use the URL listed there.
 
-1. Add */docs* on the end of the preview URL to see the [Swagger UI][12], which allows you to test the API methods.
+1. Add */docs* on the end of the preview URL to see the [Swagger UI][12], which you can use to test the API methods.
 
     The API methods are generated from the OpenAPI interface that FastAPI creates from the code.
 
@@ -78,17 +81,17 @@ This tutorial introduces one of many possible ways to create and work with GitHu
         }
         ```
 
-    1. Select **Execute** to commit the change
+    1. Select **Execute** to commit the change.
 
 ## Connect to the database and view the data
 
 1. Go back to the GitHub Codespace for the project, select the SQLTools extension, and then select **Local database** to connect.
 
-    The SQLTools extension should be installed when the container is created. If the SQLTools extension doesn't appear in the Activity Bar, close the codespace and reopen.
+    The SQLTools extension is installed when the container is created. If the SQLTools extension doesn't appear in the Activity Bar, close the codespace and reopen it.
 
 1. Expand the **Local database** node until you find the *restaurants* table, right select **Show Table Records**.
 
-    You should see the restaurant you added.
+    You see the restaurant you added.
 
     :::image type="content" source="./media/codespaces-tutorial/codespaces-show-table-records-small.png" alt-text="Screenshot showing how touUse SQLTools extension in Visual Studio Code to connect to Postgres local database and show table records." lightbox="./media/codespaces-tutorial/codespaces-show-table-records.png":::
 
@@ -110,7 +113,6 @@ If you want to remove the codespace, go to https://github.com/codespaces to mana
 [1]: https://docs.github.com/codespaces
 [2]: https://code.visualstudio.com/docs/devcontainers/containers
 [3]: https://www.docker.com/products/docker-desktop/
-[4]: https://docs.github.com/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
 [5]: https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces
 [6]: https://code.visualstudio.com/docs/remote/codespaces
 [7]: https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
@@ -118,4 +120,5 @@ If you want to remove the codespace, go to https://github.com/codespaces to mana
 [9]: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
 [10]: ./containers-in-azure-overview-python.md
 [11]: ./sdk/azure-sdk-overview.md
+[12]: https://swagger.io/tools/swagger-ui/
 [12]: https://swagger.io/tools/swagger-ui/
