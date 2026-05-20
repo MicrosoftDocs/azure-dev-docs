@@ -2,7 +2,7 @@
 author: rotabor
 ms.service: github-copilot-for-azure
 ms.topic: include
-ms.date: 03/02/2026
+ms.date: 05/18/2026
 ---
 
 ## Prerequisites
@@ -17,7 +17,10 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 
 1. In Visual Studio Code, select the **Extensions** icon.
 1. In the Extensions Marketplace, search for **GitHub Copilot for Azure**. When the GitHub Copilot for Azure extension appears, select **Install**.
-1. If you're prompted, sign in to your Azure account.
+
+## Sign in to Azure and choose your subscription
+
+[!INCLUDE [sign-in-azure-subscription](./sign-in-azure-subscription.md)]
 
 ## Write your first prompt
 
