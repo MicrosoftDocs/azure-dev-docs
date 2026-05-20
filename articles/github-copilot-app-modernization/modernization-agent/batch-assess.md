@@ -198,14 +198,14 @@ Two execution modes are available:
     <!-- TODO(snapshot): retake assess-repo-list.png to match current UI -->
     :::image type="content" source="../media/modernization-agent/assess-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the repository list in the terminal." lightbox="../media/modernization-agent/assess-repo-list.png":::
 
-1. Select the assessment domains to analyze. Choose from **Java upgrade**, **Cloud Readiness**, and **Security**, and then press <kbd>Enter</kbd>. **Security** is unchecked by default; select it to scan for CVE vulnerabilities and ISO 5055-guided CWE issues.
+1. Select the assessment domains to analyze. **Security** is unchecked by default; select it to scan for CVE vulnerabilities and ISO 5055-guided CWE issues.
 
     <!-- TODO(snapshot): retake assess-domain-selection.png to include Security domain checkbox -->
     :::image type="content" source="../media/modernization-agent/assess-domain-selection.png" alt-text="Screenshot of Modernize CLI that shows the assessment domain selection in the terminal." lightbox="../media/modernization-agent/assess-domain-selection.png":::
 
 1. Review and configure the assessment options. The configuration page shows options grouped by language and domain:
 
-    - **Java / GENERAL**: **Analysis Coverage**:
+    - **General / Analysis Coverage**:
        - **Issue only** (default): Detects modernization and security issues in your source code. Fastest option.
        - **Full analysis**: Detects issues and additionally generates insights across six aspects of your application — **Architecture**, **API Contracts**, **Configuration**, **Business Workflows**, **Dependencies**, and **Data Model**. Takes longer to run than issue-only analysis.
     - **Java / JAVA UPGRADE**: Target Runtime (OpenJDK 11, 17, or 21).
@@ -372,21 +372,15 @@ The end-to-end flow:
 1. **Download a starter `repos.json` from Azure Migrate.** Azure Migrate generates a JSON file scoped to the applications you've selected for modernization assessment. The file already contains the `apps[]` entries and the `output` block that points back to your Azure Migrate project.
 
    <!-- TODO(link): replace with the published Azure Migrate documentation URL -->
-   For details on initiating the flow from the Azure Migrate side, see the [Azure Migrate documentation](TODO).
+   For details on initiating the flow from the Azure Migrate side, see the [TODO - Azure Migrate documentation](TODO).
 
 1. **Fill in repository URLs.** Edit each `repos[]` entry in the downloaded file to add the GitHub repository URL for the application. Keep the `apps[]` and `output` blocks as Azure Migrate generated them — those drive the upload.
 
-1. **Run batch assessment.** Run the assessment locally or by delegating to Cloud Agents:
-
-    ```bash
-    modernize assess --source <path-to-repos.json>
-    ```
-
-    Both execution modes honor the Azure Migrate output configuration.
+1. **Run batch assessment.** Run the assessment locally or by delegating to Cloud Agents following above steps. Both execution modes honor the Azure Migrate output configuration.
 
 1. **Reports upload automatically.** When the assessment completes, the modernization agent uploads each application's report back to your Azure Migrate project. No additional CLI flag is required — the upload is driven entirely by the `output.type` setting in the `repos.json` file.
 
-For more details on viewing and acting on the uploaded reports inside Azure Migrate, see the [Azure Migrate documentation](TODO).
+For more details on viewing and acting on the uploaded reports inside Azure Migrate, see the [TODO - Azure Migrate documentation](TODO).
 
 ## Understanding the aggregated report
 
