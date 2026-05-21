@@ -25,13 +25,6 @@ The following sections describe a sample **plan.md** file structure in order to 
 
 The following sections describe key parameters in the plan that you can modify.
 
-### Options
-
-The **Options** section controls execution behavior:
-
-- **Working branch**: The Git branch where all upgrade changes are committed.
-- **Run tests before and after the upgrade**: Set to `true` to enable test validation during the upgrade, or `false` to skip it. When enabled, the agent runs the full test suite to verify functional correctness at each step.
-
 ### Build tool command options
 
 In the **Available Tools** section, the agent detects your build tools (Maven or Gradle) and JDK paths. If you need custom command-line parameters for build execution, you can add them to the **Guidelines** section.
@@ -44,6 +37,8 @@ Examples:
 
 > [!NOTE]
 > Replace the path with your actual `settings` file location as needed. The path shown is just an example.
+
+:::image type="content" source="media/customize-upgrade-plan/guidelines.png" alt-text="Screenshot of the Java upgrade plan that shows the Available Tools, Guidelines, Options, and Upgrade Goals sections." lightbox="media/customize-upgrade-plan/guidelines.png":::
 
 ## Customize upgrade goals and provide guidelines
 
@@ -88,8 +83,6 @@ Examples:
 - After the upgrade, please remove any temporary files created during the process, such as code modification scripts.
 
 ```
-
-:::image type="content" source="media/customize-upgrade-plan/guidelines.png" alt-text="Screenshot of the Java upgrade plan that shows the Upgrade Goals and Guidelines sections." lightbox="media/customize-upgrade-plan/guidelines.png":::
 
 ## See also
 
