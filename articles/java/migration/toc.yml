@@ -23,6 +23,8 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
         - name: Working with assessment
           href: migrate-github-copilot-app-modernization-for-java-working-with-assessment.md
+        - name: Secure your Java applications
+          href: migrate-github-copilot-app-modernization-for-java-secure-your-application.md
         - name: Understand assessment rules
           href: migrate-github-copilot-app-modernization-for-java-assess-rules.md
         - name: Optimize chat results with the AppModernization agent

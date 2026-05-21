@@ -105,9 +105,11 @@ items:
 
             - name: Secure Java applications
               expanded: false
-              items: 
+              items:
               - name: Fix vulnerabilities
                 href: tools.md
+              - name: Secure your Java applications
+                href: ../java/migration/migrate-github-copilot-app-modernization-for-java-secure-your-application.md?context=/azure/developer/github-copilot-app-modernization/context/context
 
             - name: Customization
               expanded: false

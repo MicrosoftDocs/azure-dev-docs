@@ -80,6 +80,8 @@ landingContent:
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-tasks.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Working with assessment
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-working-with-assessment.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: Secure your Java applications
+            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-secure-your-application.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Understand assessment rules
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-assess-rules.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: quickstart

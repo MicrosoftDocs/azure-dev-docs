@@ -36,6 +36,8 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
           - text: Working with assessment
             url: migrate-github-copilot-app-modernization-for-java-working-with-assessment.md
+          - text: Secure your Java applications
+            url: migrate-github-copilot-app-modernization-for-java-secure-your-application.md
           - text: Understand assessment rules
             url: migrate-github-copilot-app-modernization-for-java-assess-rules.md
       - linkListType: quickstart
