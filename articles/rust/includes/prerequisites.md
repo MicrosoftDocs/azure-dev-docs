@@ -2,7 +2,7 @@
 ms.service: azure-rust
 ms.custom: devx-track-rust
 ms.topic: include
-ms.date: 09/02/2025
+ms.date: 05/18/2026
 ---
 ## Prerequisites to develop with crates
 

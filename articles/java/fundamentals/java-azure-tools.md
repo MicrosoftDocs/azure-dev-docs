@@ -1,6 +1,6 @@
 ---
 title: Azure Tools for Java Developers
-description: IDE integrations, emulators, resource explorers, and command-line interfaces for Java developers working on Azure.
+description: Discover Azure tools for Java developers, including IDE integrations, plugins, CLIs, and GitHub Copilot. Start building on Azure today.
 author: KarlErickson
 ms.author: karler
 ms.topic: concept-article
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # Azure tools for Java developers
 
-This article describes common tools available for developers using Azure for Java.
+This article describes the common Azure tools for Java developers, including IDE extensions, plugins, and command-line interfaces that help you build, deploy, and manage Java applications on Azure.
 
 ## Visual Studio Code
 
@@ -25,7 +25,7 @@ For more information, see [Get Started with Visual Studio Code and Java](https:/
 
 ## Eclipse and IntelliJ plugins
 
-Manage Azure resources and deploy apps from your IDE with The Azure toolkits for [Eclipse](../toolkit-for-eclipse/index.yml) and [IntelliJ](../toolkit-for-intellij/index.yml).
+Manage Azure resources and deploy apps from your IDE with the Azure toolkits for [Eclipse](../toolkit-for-eclipse/index.yml) and [IntelliJ](../toolkit-for-intellij/index.yml).
 
 ![IntelliJ toolkit showing the Azure Explorer](media/intelliJ-azure-explorer.png)
 
@@ -41,7 +41,7 @@ If you're modernizing legacy Java applications for Azure, the [GitHub Copilot mo
 
 ## Apache Maven and Gradle plugins
 
-Deploy Java applications to Azure with ease by configuring Azure plugins as part of your Maven or Gradle builds. Currently, the plugins support Azure App Service, Azure Functions, Azure Container Apps, and Azure Spring Apps.
+Deploy Java applications to Azure by configuring Azure plugins as part of your Maven or Gradle builds. Currently, the plugins support Azure App Service, Azure Functions, Azure Container Apps, and Azure Spring Apps.
 
 - [Azure Plugins for Gradle](https://github.com/microsoft/azure-gradle-plugins)
 - [Azure Plugins for Apache Maven](https://github.com/microsoft/azure-maven-plugins)
@@ -49,7 +49,7 @@ Deploy Java applications to Azure with ease by configuring Azure plugins as part
 
 ## Supported Java runtimes
 
-Java developers are free to use the distribution and version of Java of their choice for most Microsoft Azure and Azure Stack services. For more information, see [Java support on Azure and Azure Stack](java-support-on-azure.md).
+Java developers can use the distribution and version of Java they choose for most Microsoft Azure and Azure Stack services. For more information, see [Java support on Azure and Azure Stack](java-support-on-azure.md).
 
 ## Azure CLI
 
@@ -59,6 +59,6 @@ The Azure CLI provides a command-line experience to manage Azure resources. You 
 
 ## Azure Developer CLI
 
-The [Azure Developer CLI (azd)](../../azure-developer-cli/overview.md) is a developer-centric command-line tool that accelerates the process of building and deploying applications to Azure. With `azd`, you can initialize, provision, and deploy Java applications using a single workflow, reducing the complexity of managing multiple Azure services and configurations.
+The [Azure Developer CLI (azd)](../../azure-developer-cli/overview.md) is a developer-centric command-line tool that accelerates the process of building and deploying applications to Azure. By using `azd`, you can initialize, provision, and deploy Java applications by using a single workflow, reducing the complexity of managing multiple Azure services and configurations.
 
 The `azd` tool provides templates for common Java application scenarios, including Spring Boot applications, and handles the end-to-end deployment process including infrastructure provisioning, code deployment, and environment configuration. For more information, see [Get started with Azure Developer CLI](../../azure-developer-cli/get-started.md).
