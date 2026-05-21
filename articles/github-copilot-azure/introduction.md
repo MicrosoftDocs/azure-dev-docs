@@ -29,7 +29,7 @@ GitHub Copilot is designed to help developers, including developers new to Azure
 
 GitHub Copilot for Azure supplements the general knowledge of the latest foundational large language models (LLMs) with tool calling using the **Azure Model Context Protocol (MCP) Server** that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf. Over [50 Azure services](../azure-mcp-server/tools/index.md) are already available and more services and capabilities are being added regularly. Learn more about the capabilities of [Azure MCP Server](../azure-mcp-server/overview.md).
 
-Azure Skills — including `azure-prepare`, `azure-validate`, and `azure-deploy` — are also included and install automatically with the extension, enabling structured multi-step workflows for common Azure tasks.
+[Azure Skills](../azure-skills/index.md) — including `azure-prepare`, `azure-validate`, and `azure-deploy` — are also included and install automatically with the extension, enabling structured multi-step workflows for common Azure tasks.
 
 ## Supported development environments
 
