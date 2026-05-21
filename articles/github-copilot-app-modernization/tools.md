@@ -11,45 +11,33 @@ ms.custom: devx-track-java
 
 # GitHub Copilot modernization Java utilities
 
-This article describes several Java-focused tools that are now available through GitHub Copilot modernization. These tools provide more flexibility for day-to-day development and code maintenance.
+This article describes several Java-focused tools that are available through GitHub Copilot modernization. These tools provide more flexibility for day-to-day development and code maintenance. You can invoke them directly in Copilot Chat using the `#` prefix.
 
 ## Validation
 
-- `validate_cves_for_java`
+- `#appmod-validate-cves-for-java`
 
   Scans your project for known Java-related Common Vulnerabilities and Exposures (CVEs) and validates that critical vulnerabilities are addressed.
 
   **Sample prompt:**
 
   ```prompt
-  Check if there's any CVE issues in this Java project using #validate_cves_for_java
+  Check if there's any CVE issues in this Java project using #appmod-validate-cves-for-java
   ```
 
   :::image type="content" source="media/general/common-vulnerabilities-exposures.png" alt-text="Screenshot of Visual Studio Code that shows Copilot checking for CVE issues." lightbox="media/general/common-vulnerabilities-exposures.png":::
 
 ## Unit testing
 
-- `run_tests_for_java`
-
-  Runs your project's unit test suite and shows the results.
-
-  **Sample prompt:**
-
-  ```prompt
-  Run unit tests for this Java project using #run_tests_for_java
-  ```
-
-- `generate_tests_for_java`
+- `#appmod-generate-tests-for-java`
 
   Uses AI-based code understanding to automatically create unit tests for your Java code.
 
   **Sample prompt:**
 
   ```prompt
-  Generate unit test for this Java project using #generate_tests_for_java
+  Generate unit tests for this Java project using #appmod-generate-tests-for-java
   ```
-
-For more information on test generation, see the relevant documentation or article.
 
 These tools help streamline the Java development lifecycle. They make it easier to adopt best practices for upgrades, testing, and security validation, regardless of whether you're in an upgrade session.
 

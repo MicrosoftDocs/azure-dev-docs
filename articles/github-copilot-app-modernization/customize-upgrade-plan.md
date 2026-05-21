@@ -25,31 +25,25 @@ The following sections describe a sample **plan.md** file structure in order to 
 
 The following sections describe key parameters in the plan that you can modify.
 
-### Build tool command option
+### Options
 
-This option is under **Project Information**. Use it to define custom command-line parameters for build tool execution. For valid options, see the [Maven CLI](https://maven.apache.org/ref/current/maven-embedder/cli.html) or [Gradle CLI](https://docs.gradle.org/current/userguide/command_line_interface.html) documentation, depending on your project.
+The **Options** section controls execution behavior:
+
+- **Working branch**: The Git branch where all upgrade changes are committed.
+- **Run tests before and after the upgrade**: Set to `true` to enable test validation during the upgrade, or `false` to skip it. When enabled, the agent runs the full test suite to verify functional correctness at each step.
+
+### Build tool command options
+
+In the **Available Tools** section, the agent detects your build tools (Maven or Gradle) and JDK paths. If you need custom command-line parameters for build execution, you can add them to the **Guidelines** section.
 
 Examples:
 
-- **For Maven**: `Build tool command options: -Dmaven.javadoc.skip=true -s "/path/to/custom/settings.xml"`
+- **For Maven**: `Use build options: -Dmaven.javadoc.skip=true -s "/path/to/custom/settings.xml"`
 
-- **For Gradle**: `Build tool command options: --info -Penv=production`
+- **For Gradle**: `Use build options: --info -Penv=production`
 
 > [!NOTE]
 > Replace the path with your actual `settings` file location as needed. The path shown is just an example.
-
-:::image type="content" source="media/customize-upgrade-plan/upgrade-plan.png" alt-text="Screenshot of Visual Studio Code that shows an example upgrade plan with upgrade targets highlighted." lightbox="media/customize-upgrade-plan/upgrade-plan.png":::
-
-### Test validation
-
-Located under the **Additional Tasks** section, you can enable or disable test execution by modifying the `run tests before and after the upgrade` flag.
-
-- Set to `true` to enable unit tests before and after upgrade.
-- Set to `false` to skip test validation.
-
-This setting controls whether the tool runs unit tests to verify functional correctness during the upgrade.
-
-By adjusting these settings, you can fine-tune the upgrade process to better suit your project's requirements.
 
 ## Customize upgrade goals and provide guidelines
 
