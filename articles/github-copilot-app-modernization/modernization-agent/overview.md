@@ -12,7 +12,7 @@ keywords: modernize cli, modernization agent
 
 # GitHub Copilot modernization agent overview
 
-This overview describes the GitHub Copilot modernization agent, which is currently in public preview.
+This overview describes the GitHub Copilot modernization agent.
 
 > [!TIP]
 > **Want to try it now?** To install the CLI and modernize your first application, see the [quickstart guide](quickstart.md).
