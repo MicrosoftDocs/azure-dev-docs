@@ -6,13 +6,13 @@ brand: azure
 
 metadata:
   title: Azure for JavaScript and Node.js developers
-  description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
+  description: Build JavaScript and TypeScript apps on Azure with the Azure SDK, AI services, hosting platforms, and developer tools. Tutorials, quickstarts, and API reference.
   author: diberry
   ms.author: diberry
-  ms.date: 03/10/2025
+  ms.date: 05/20/2026
   ms.topic: landing-page
   ms.service: azure-javascript
-  ms.custom: 2020Aug21Redesign, devx-track-js, engagement-fy23
+  ms.custom: devx-track-js, engagement-fy23
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -20,15 +20,15 @@ highlightedContent:
     - itemType: overview
       title: Azure for JavaScript developers
       url: ./what-is-azure-for-javascript-development.md
-    - itemType: how-to-guide
-      title: Set up development environment
-      url: ./core/configure-local-development-environment.md
+    - itemType: get-started
+      title: Build AI apps with JavaScript
+      url: ./ai/azure-ai-for-javascript-developers.md
     - itemType: get-started
       title: Azure SDK for JavaScript
       url: ./sdk/use-azure-sdk.md
-    - itemType: quickstart
-      title: Authenticate to Azure SDK
-      url: ./sdk/authentication/local-development-environment-service-principal.md
+    - itemType: how-to-guide
+      title: Set up development environment
+      url: ./core/configure-local-development-environment.md
 
 conceptualContent:
   sections: 
@@ -174,7 +174,7 @@ conceptualContent:
             url: ./graphql-developer-guide.md
           - itemType: concept
             url: ./ai/get-started-app-chat-template.md
-            text: Serverless on Azure
+            text: Enterprise chat with RAG
           - itemType: concept
             text: Storage
             url: /azure/storage/blobs/storage-blob-javascript-get-started
@@ -215,8 +215,8 @@ additionalContent:
               url: https://developer.microsoft.com/code-to-cloud
         - title: Webcasts and shows
           links:
-            - text: Azure JavaScript Developer Days 2024
-              url: https://www.youtube.com/playlist?list=PLI7iePan8aH7FRDmefj-NAnoxM9V0USZm
+            - text: "JavaScript on Azure: Developer resources and community"
+              url: https://developer.microsoft.com/javascript/
             - text: Web Rush with John Papa and Craig Shoemaker
               url: https://webrush.io/
         - title: Open source
