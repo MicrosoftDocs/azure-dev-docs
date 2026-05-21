@@ -1,10 +1,10 @@
 ---
 title: Get started with GitHub Copilot for Azure
-description: This article describes the requirements and installation procedure for the GitHub Copilot for Azure Visual Studio Code extension.
+description: Install GitHub Copilot for Azure and write your first prompt in Visual Studio Code, Visual Studio 2022, or Visual Studio 2026.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: get-started
-ms.date: 05/18/2026
+ms.date: 05/20/2026
 ms.collection: ce-skilling-ai-copilot
 ms.custom: sfi-image-nochange
 zone_pivot_group_filename: developer/github-copilot-azure/github-copilot-azure-zone-pivot-groups.json
@@ -13,7 +13,7 @@ zone_pivot_groups: ide-options
 
 # Get started with GitHub Copilot for Azure
 
-Get started with GitHub Copilot for Azure to streamline your development workflow and enhance your productivity on the Azure platform. This guide walks you through the prerequisites and installation of the GitHub Copilot for Azure in Visual Studio, so you can write your first prompt.
+Get started with GitHub Copilot for Azure to streamline your development workflow and enhance your productivity on the Azure platform. This guide walks you through prerequisites, installation, and writing your first prompt in Visual Studio Code, Visual Studio 2022, or Visual Studio 2026. After setup, you can use Agent mode to query Azure resources, generate infrastructure code, and troubleshoot applications directly from your IDE.
 
 ::: zone pivot="visual-studio-code"
 [!INCLUDE [get-started-vscode](./includes/get-started-vscode.md)]
