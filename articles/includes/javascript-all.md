@@ -493,7 +493,7 @@
 | TypeSpec Streams | npm [0.82.0](https://www.npmjs.com/package/@typespec/streams/v/0.82.0) |  |  |
 | Unknown Display Name | npm [0.1.0-beta.1](https://www.npmjs.com/package/@azure-tools/dataflow-dev/v/0.1.0-beta.1) |  |  |
 | Unknown Display Name | npm [0.1.0-preview](https://www.npmjs.com/package/@azure/azure-connectors/v/0.1.0-preview) |  |  |
-| Unknown Display Name | npm [0.1.2-preview](https://www.npmjs.com/package/@azure/connectors/v/0.1.2-preview) |  |  |
+| Unknown Display Name | npm [0.2.0-preview](https://www.npmjs.com/package/@azure/connectors/v/0.2.0-preview) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/functions-extensions-blob/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.0.1-preview](https://www.npmjs.com/package/@azure/functions-extensions-connectors/v/0.0.1-preview) |  |  |
 | Unknown Display Name | npm [0.1.1-preview](https://www.npmjs.com/package/@azure/functions-extensions-express/v/0.1.1-preview) |  |  |
@@ -504,7 +504,7 @@
 | @azure/video-indexer-widgets | npm [1.0.5](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.5) |  |  |
 | Auto Suggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  |  |
 | AutoRest | npm [3.8.0](https://www.npmjs.com/package/autorest/v/3.8.0) |  |  |
-| Azure Functions | npm [4.15.0](https://www.npmjs.com/package/@azure/functions/v/4.15.0) |  | GitHub [4.15.0](https://github.com/Azure/azure-functions-nodejs-library) |
+| Azure Functions | npm [4.16.0](https://www.npmjs.com/package/@azure/functions/v/4.16.0) |  | GitHub [4.16.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.43.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.43.1) |  | GitHub [1.43.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.34](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.34) |  | GitHub [1.0.0-beta.34](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
