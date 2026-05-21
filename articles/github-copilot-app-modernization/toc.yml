@@ -121,16 +121,28 @@ items:
               href: /dotnet/core/porting/github-copilot-app-modernization/overview?context=/azure/developer/github-copilot-app-modernization/context/context
             - name: Install
               href: /dotnet/core/porting/github-copilot-app-modernization/install?context=/azure/developer/github-copilot-app-modernization/context/context
-            - name: FAQ
-              href: /dotnet/core/porting/github-copilot-app-modernization/faq?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: Core concepts
+              href: /dotnet/core/porting/github-copilot-app-modernization/concepts?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: Working with the agent
+              href: /dotnet/core/porting/github-copilot-app-modernization/working-with-agent?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: Scenarios and skills reference
+              href: /dotnet/core/porting/github-copilot-app-modernization/scenarios-and-skills?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: Customization
+              href: /dotnet/core/porting/github-copilot-app-modernization/customization?context=/azure/developer/github-copilot-app-modernization/context/context
 
-            - name: Upgrade .NET projects
+            - name: Upgrade .NET apps
               expanded: false
               items:
-              - name: How to upgrade
+              - name: How to upgrade with GitHub Copilot
                 href: /dotnet/core/porting/github-copilot-app-modernization/how-to-upgrade-with-github-copilot?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: How to apply custom upgrade instructions
                 href: /dotnet/core/porting/github-copilot-app-modernization/how-to-custom-upgrade-instructions?context=/azure/developer/github-copilot-app-modernization/context/context
+              - name: Best practices
+                href: /dotnet/core/porting/github-copilot-app-modernization/best-practices?context=/azure/developer/github-copilot-app-modernization/context/context
+              - name: Troubleshooting
+                href: /dotnet/core/porting/github-copilot-app-modernization/troubleshooting?context=/azure/developer/github-copilot-app-modernization/context/context
+              - name: FAQ
+                href: /dotnet/core/porting/github-copilot-app-modernization/faq?context=/azure/developer/github-copilot-app-modernization/context/context
 
             - name: Migrate .NET projects to Azure
               expanded: false

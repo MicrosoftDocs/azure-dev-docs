@@ -27,9 +27,13 @@ The re-architecture feature enables you to transform an entire project from a le
 Common re-architecture scenarios include:
 
 - Struts to Spring MVC
+- Struts to Spring Boot
 - JSP to Thymeleaf
 - EJB to Spring Boot
+- WebSphere applications to Spring Boot
 - Legacy servlet-based applications to modern Spring-based architectures
+- Windows Forms (WinForms) desktop applications to Angular web applications
+- ASP.NET MVC frontend applications to Angular web applications
 
 ## Prerequisites
 

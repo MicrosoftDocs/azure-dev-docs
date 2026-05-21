@@ -2,23 +2,23 @@
 title: "Configure a custom startup file for Python apps on Azure App Service on Linux"
 description: Discusses how to start a Python web app running on App Service, including specific instructions for Django, Flask, and other frameworks.
 ms.topic: how-to
-ms.date: 04/21/2025
+ms.date: 05/20/2026
 ms.custom: devx-track-python, linux-related-content
 ---
 
 # Configure a custom startup file for Python apps on Azure App Service
 
-In this article, you learn when and how to configure a custom startup file for a Python web app hosted on Azure App Service. While a startup file isn't required for local development, Azure App Service runs your deployed web app within a Docker container that can utilize startup commands if provided.
+In this article, you learn when and how to configure a custom startup file for a Python web app hosted on Azure App Service. While a startup file isn't required for local development, Azure App Service runs your deployed web app within a Docker container that can use startup commands if you provide them.
 
 You need a custom startup file in the following situations:
 
 * **Custom Gunicorn Arguments**: You want to start the [Gunicorn](https://gunicorn.org/) default web server with extra arguments beyond its defaults, which are `--bind=0.0.0.0 --timeout 600`.
 
-* **Alternative Frameworks or Servers**: Your app is built with a framework other than Flask or Django, or you want to use a different web server besides Gunicorn.
+* **Alternative Frameworks or Servers**: Your app is built with a framework other than Flask or Django, or you want to use a different web server instead of Gunicorn.
 
-* **Non-Standard Flask Application Structure**: You have a Flask app whose main code file is named something **other** than *app.py* or *application.py**, or the app object is named something **other** than `app`.
+* **Non-Standard Flask Application Structure**: You have a Flask app whose main code file is named something **other** than *app.py* or *application.py*, or the app object is named something **other** than `app`.
 
-In other words, a custom startup command is required unless your project has an *app.py* or *application.py* file in the root folder with a Flask app object named `app`.
+In other words, you need a custom startup command unless your project has an *app.py* or *application.py* file in the root folder with a Flask app object named `app`.
 
 For more information, see [Configure Python Apps - Container startup process](/azure/app-service/configure-language-python#container-startup-process).
 
@@ -53,17 +53,17 @@ By default, Azure App Service locates the folder containing your wsgi.py file an
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-If you want to modify any Gunicorn arguments, such as increasing the timeout value to 1,200 seconds(`--timeout 1200`), create a custom startup command file. This allows you to override the default settings with your specific requirements. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
+If you want to modify any Gunicorn arguments, such as increasing the timeout value to 1,200 seconds(`--timeout 1200`), create a custom startup command file. This method overrides the default settings with your specific requirements. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
 
 ## Flask startup commands
 
-By default, App Service on Linux assumes that your Flask application meets the following critear:
+By default, App Service on Linux assumes that your Flask application meets the following criteria:
 
 * The WSGI callable is named `app`.
 * The application code is contained in a file named *application.py* or *app.py*.
 * The application file is located in the app's root folder.
 
-If your project differs from this structure, then your custom startup command must identify the app object's location in the format *file:app_object*:
+If your project differs from this structure, your custom startup command must identify the app object's location in the format *file:app_object*:
 
 * **Different file name and/or app object name**: If the app's main code file is *hello.py* and the app object is named `myapp`, the startup command is as follows:
 
@@ -71,13 +71,13 @@ If your project differs from this structure, then your custom startup command mu
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
     ```
 
-* **Startup file is in a subfolder**: If the startup file is *myapp/website.py* and the app object is `app`, then use Gunicorn's `--chdir` argument to specify the folder and then name the startup file and app object as usual:
+* **Startup file is in a subfolder**: If the startup file is *myapp/website.py* and the app object is `app`, use Gunicorn's `--chdir` argument to specify the folder and then name the startup file and app object as usual:
 
     ```text
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir myapp website:app
     ```
 
-* **Startup file is within a module**: In the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, the *webapp.py* startup file is contained within the folder *hello_app*, which is itself a module with an *\_\_init\_\_.py* file. The app object is named `app` and is defined in *\_\_init\_\_.py* and *webapp.py* uses a relative import.
+* **Startup file is within a module**: In the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, the *webapp.py* startup file is contained within the folder *hello_app*, which is itself a module with an *\_\_init\_\_.py* file. The app object is named `app` and is defined in *\_\_init\_\_.py*. *webapp.py* uses a relative import.
 
     Because of this arrangement, pointing Gunicorn to `webapp:app` produces the error, "Attempted relative import in non-package," and the app fails to start.
 
@@ -95,7 +95,7 @@ For more information, see [Container startup process - Flask app](/azure/app-ser
 
 The App Service container that runs Python apps has Django and Flask installed by default, along with the Gunicorn web server.
 
-To use a framework other than Django or Flask (such as [Falcon](https://falconframework.org/), [FastAPI](https://fastapi.tiangolo.com/), etc.), or to use a different web server:
+To use a framework other than Django or Flask (such as [Falcon](https://falconframework.org/), [FastAPI](https://fastapi.tiangolo.com/), and others), or to use a different web server:
 
 - Include the framework and/or web server in your *requirements.txt* file.
 
@@ -107,4 +107,4 @@ To use a framework other than Django or Flask (such as [Falcon](https://falconfr
     python -m uvicorn application:app --host 0.0.0.0
     ```
 
-    You use `python -m` because web servers installed via *requirements.txt* aren't added to the Python global environment and therefore can't be invoked directly. The `python -m` command invokes the server from within the current virtual environment.
+    You use `python -m` because web servers installed through *requirements.txt* aren't added to the Python global environment and therefore can't be invoked directly. The `python -m` command invokes the server from within the current virtual environment.
