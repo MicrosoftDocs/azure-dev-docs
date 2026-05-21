@@ -4,7 +4,7 @@ description: This article describes the purpose and capabilities of the GitHub C
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
-ms.date: 05/18/2026
+ms.date: 05/21/2026
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -27,7 +27,9 @@ GitHub Copilot is designed to help developers, including developers new to Azure
 
 ## How it works
 
-GitHub Copilot for Azure supplements the general knowledge of a foundational large language model (LLM) like GPT-5 and Claude Sonnet 4 with tool calling using the **Azure Model Context Protocol (MCP) Server** that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf. Over [50 Azure services](../azure-mcp-server/tools/index.md) are already available and more services and capabilities are being added regularly. Learn more about the capabilities of [Azure MCP Server](../azure-mcp-server/overview.md).
+GitHub Copilot for Azure supplements the general knowledge of the latest foundational large language models (LLMs) with tool calling using the **Azure Model Context Protocol (MCP) Server** that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf. Over [50 Azure services](../azure-mcp-server/tools/index.md) are already available and more services and capabilities are being added regularly. Learn more about the capabilities of [Azure MCP Server](../azure-mcp-server/overview.md).
+
+Azure Skills — including `azure-prepare`, `azure-validate`, and `azure-deploy` — are also included and install automatically with the extension, enabling structured multi-step workflows for common Azure tasks.
 
 ## Supported development environments
 
@@ -38,6 +40,9 @@ You can use GitHub Copilot for Azure in the following supported development envi
 |Visual Studio Code|Surfaces GitHub Copilot for Azure via the GitHub Copilot user interface. It also surfaces the Azure MCP Server tools. Provides IDE-specific tools and custom modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
 |Visual Studio 2022|Surfaces built-in Azure MCP Server tools via the GitHub Copilot user interface.|Public preview|The tools are available upon installation of the [Azure development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
 |Visual Studio 2026|Surfaces built-in GitHub Copilot for Azure and Azure MCP Server tools via GitHub Copilot user interface.|General availability|The tools are available upon installation of the [Azure and AI development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
+|Claude Code|Surfaces GitHub Copilot for Azure via the Claude Code AI assistant. Provides Azure skills and Azure MCP Server tools.|General availability|Run `/plugin install azure@claude-plugins-official` in Claude Code, or run `/plugin` and search for "azure" in the marketplace.|
+|GitHub Copilot CLI|Surfaces GitHub Copilot for Azure from the command line. Enables Azure skills and Azure MCP Server tools in terminal workflows.|General availability|Install the [GitHub Copilot CLI](https://docs.github.com/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli) and authenticate with your GitHub account.|
+|IntelliJ (JetBrains)|Surfaces GitHub Copilot for Azure in JetBrains IDEs via the GitHub Copilot plugin. Provides Azure MCP Server tools and Azure skills.|General availability|Install the [GitHub Copilot plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) from the JetBrains Marketplace.|
 
 ## Primary scenarios
 
@@ -58,7 +63,7 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## Best practices
 
-First, use "Agent" mode for the best experience. Avoid "Ask" mode.
+First, use **Agent** mode for the best experience when completing multi-step tasks. Use **Ask** mode (`@azure`) for quick questions about Azure services.
 
 Second, include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
