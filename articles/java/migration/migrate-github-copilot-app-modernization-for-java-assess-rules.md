@@ -20,7 +20,7 @@ This article describes what the app assessment feature of GitHub Copilot moderni
 - **Issue detection** across three domains critical to your modernization journey:
   - **Cloud readiness**: Identifies 16 categories of concerns, including file system usage, credential management, messaging services, database connections, containerization gaps, session handling, remote communication patterns, and more.
   - **Java upgrade**: Flags outdated Java versions, end-of-OSS-support frameworks (Spring Boot, Spring Cloud, Jakarta EE), hundreds of removed or deprecated APIs, and legacy build tools such as Ant.
-  - **Security**: Detects 42 security weaknesses drawn from the ISO/IEC 5055 standard, covering injection vulnerabilities (SQL, LDAP, XPath, OS command), hard-coded credentials and cryptographic keys, synchronization problems, resource-lifecycle problems, and other high-impact CWEs.
+  - **Security**: Detects security issues in two complementary ways: ISO/IEC 5055-guided **CWE findings** in your source code (injection vulnerabilities, hard-coded credentials and cryptographic keys, synchronization problems, resource-lifecycle problems, and other high-impact CWEs) and **CVE vulnerabilities** in your direct and transitive third-party dependencies, sourced from the GitHub Security Advisories database.
 
 - **Application understanding**: for legacy codebases, the assessment surfaces dependencies and technologies in use, so you get a clear picture of what your application relies on before you begin migrating.
 
@@ -57,6 +57,13 @@ The following sections describe the issue coverage for each domain in detail.
 | `java-upgrade` | `build-tool`           | Identifies legacy build systems like Ant (`build.xml`) or Eclipse-specific project configurations (WTP/JEM natures).                                                                       | **Automation:** Legacy tools lack the standard conventions and dependency management needed for efficient integration into modern CI/CD pipelines.                                                                    |
 
 ## Domain: Security (ISO 5055 guided)
+
+The security domain covers two complementary issue types:
+
+- **CWE findings** in your source code, guided by ISO/IEC 5055.
+- **CVE findings** in your third-party dependencies, including transitive dependencies.
+
+### CWE coverage (ISO/IEC 5055 guided)
 
 [ISO/IEC 5055](https://www.it-cisq.org/standards/code-quality-standards/) is an ISO standard for measuring the internal structure of a software product on four business-critical factors: Security, Reliability, Performance Efficiency, and Maintainability. These factors determine how trustworthy, dependable, and resilient a software system is. In essence, ISO 5055 is meant to **"find and prevent the 8% of flaws that cause 90% of production issues"**. ISO 5055 identifies the most critical and impactful CWEs under each quality characteristic: Reliability, Performance Efficiency, Security, and Maintainability. For GitHub Copilot modernization, you detect against the curated CWEs on security defined in ISO 5055, as the following table reveals.
 
@@ -107,6 +114,12 @@ The following sections describe the issue coverage for each domain in detail.
 | `CWE-835`  | Loop with Unreachable Exit Condition ('Infinite Loop')                                     | The product contains an iteration or loop with an exit condition that can't be reached.                                                                                                                                                                                  |
 | `CWE-611`  | Improper Restriction of XML External Entity Reference                                      | The product processes XML documents containing entities with URIs that resolve outside the intended sphere of control.                                                                                                                                                   |
 | `CWE-1057` | Data Access Operations Outside of Expected Data Manager Component                          | The product performs data-access operations that bypass a dedicated, central data manager component required by design.                                                                                                                                                  |
+
+### CVE coverage (third-party dependencies)
+
+GitHub Copilot modernization scans your project's **direct and transitive Java dependencies** for known vulnerabilities published in the [GitHub Security Advisories](https://github.com/advisories) database. Transitive scanning is enabled by default — vulnerabilities in indirect dependencies (for example, a CVE in `netty` pulled in by your HTTP client) are surfaced alongside CVEs in the libraries you depend on directly.
+
+Each CVE finding includes the published CVE identifier, the affected dependency coordinate, the vulnerable version range, the fixed version (when available), and the advisory's severity. You can configure the **minimum CVE severity** to surface — `critical`, `high`, `medium`, or `low` — through the assessment configuration. The default is `high`, so by default only `high` and `critical` CVEs appear in the report.
 
 ## Next steps
 

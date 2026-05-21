@@ -43,6 +43,8 @@ Copilot runs a security-domain assessment over your project. The scan covers:
 - A curated set of **CWE rules aligned with ISO/IEC 5055**, grouped into six categories: **File & Path Security**, **Injection Attacks**, **Memory Safety**, **Code Quality**, **Credentials & Secrets**, and **Concurrency & Synchronization**.
 - **CVE findings** in your **direct and transitive** dependencies, sourced from the **GitHub Security Advisories** database.
 
+For the full catalog of CWE rules and the details of CVE coverage, see [Understand assessment coverage](migrate-github-copilot-app-modernization-for-java-assess-rules.md#domain-security-iso-5055-guided).
+
 > [!NOTE]
 > CVE checks work without GitHub authentication, but anonymous calls are rate-limited. For large projects, sign in with `gh auth login` to avoid throttling.
 
@@ -79,5 +81,6 @@ Security debt reappears as new CVEs are published and as your application change
 
 ## Next step
 
+- [Understand assessment coverage](migrate-github-copilot-app-modernization-for-java-assess-rules.md) — full catalog of CWE rules and CVE coverage details.
 - [Working with assessment](migrate-github-copilot-app-modernization-for-java-working-with-assessment.md)
 - [Batch assessment with the GitHub Copilot modernization agent](../../github-copilot-app-modernization/modernization-agent/batch-assess.md)
