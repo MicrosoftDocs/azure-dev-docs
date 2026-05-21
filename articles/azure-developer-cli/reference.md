@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/09/2026
+ms.date: 05/15/2026
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -38,6 +38,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd deploy](#azd-deploy): Deploy your project code to Azure.
 * [azd down](#azd-down): Delete your project's Azure resources.
 * [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
+* [azd exec](#azd-exec): Execute commands and scripts with azd environment context.
 * [azd extension](#azd-extension): Manage azd extensions.
 * [azd hooks](#azd-hooks): Develop, test and run hooks for a project.
 * [azd infra](#azd-infra): Manage your Infrastructure as Code (IaC).
@@ -1430,6 +1431,54 @@ azd env set-secret <name> [flags]
 ### See also
 
 * [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
+* [Back to top](#azd)
+
+## azd exec
+
+Execute commands and scripts with azd environment context.
+
+### Synopsis
+
+Execute commands and scripts with full access to azd environment variables.
+
+Commands are run with the azd environment loaded into the child process.
+Multiple arguments use direct process execution (no shell wrapping).
+A single quoted argument uses shell inline execution.
+
+Examples:
+  azd exec python script.py                     # Direct exec (exact argv)
+  azd exec npm run dev                           # Direct exec (no shell)
+  azd exec -- python app.py --port 8000          # Direct exec with flags
+  azd exec 'echo $AZURE_ENV_NAME'                # Inline via shell
+  azd exec ./setup.sh                            # Execute script file
+  azd exec --shell pwsh "Write-Host 'Hello'"     # Inline PowerShell
+  azd exec ./build.sh -- --verbose               # Script with args
+  azd exec -i ./init.sh                          # Interactive mode
+
+```azdeveloper
+azd exec [command] [args...] [-- script-args...] [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd exec in your web browser.
+  -e, --environment string   The name of the environment to use.
+  -h, --help                 Gets help for exec.
+  -i, --interactive          Run in interactive mode (connect stdin)
+  -s, --shell string         Shell to use (bash, sh, zsh, pwsh, powershell, cmd). Auto-detected if not specified.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
 * [Back to top](#azd)
 
 ## azd extension
