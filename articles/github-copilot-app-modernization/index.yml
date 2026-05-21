@@ -70,8 +70,6 @@ landingContent:
             url: configure-settings-intellij.md
           - text: Customize the upgrade plan
             url: customize-upgrade-plan.md
-          - text: Upgrade a framework or third-party dependency
-            url: framework-upgrade.md
   - title: Migrate Java projects to Azure
     linkLists:
       - linkListType: reference
