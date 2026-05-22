@@ -17,9 +17,6 @@ ai-usage: ai-generated
 
 This article describes how to use the re-architecture feature in GitHub Copilot modernization to rewrite projects from legacy frameworks to modern architectures, such as from Struts to Spring MVC.
 
-> [!IMPORTANT]
-> The re-architecture feature is currently in preview. Preview features might have limited capabilities and aren't recommended for production use.
-
 ## Overview
 
 The re-architecture feature enables you to transform an entire project from a legacy framework to a modern architecture by using an AI-powered multi-agent workflow. Instead of manual, file-by-file migration, you can describe the desired transformation in natural language, and the modernization agents handle analysis, planning, and code generation.
@@ -45,29 +42,9 @@ Common re-architecture scenarios include:
 - (Optional) [Node.js](https://nodejs.org/) 18 or later for running Playwright tests as part of runtime validation. If Node.js isn't available, the Playwright test step is skipped.
 - (Optional) [Docker Desktop](https://www.docker.com/products/docker-desktop/) for runtime validation. If Docker isn't available, the runtime validation step is skipped.
 
-## Enable the re-architecture feature
-
-The re-architecture feature is in preview, so you need to activate it manually in Visual Studio Code.
-
-Use the following steps to enable the feature:
-
-1. In Visual Studio Code, open the **Settings** editor by selecting **File** > **Preferences** > **Settings** (or **Code** > **Preferences** > **Settings** on macOS).
-
-1. Search for `appmod.experimental.task.rearchitecture`.
-
-1. Select the checkbox to enable the re-architecture feature.
-
-Alternatively, add the following entry to your `settings.json` file:
-
-```json
-{
-  "appmod.experimental.task.rearchitecture": true
-}
-```
-
 ## Use the re-architecture agent
 
-After you enable the feature, use the re-architecture agent in the GitHub Copilot Chat panel.
+Use the modernize agent in the GitHub Copilot Chat panel.
 
 Use the following steps to re-architect a project:
 
@@ -75,12 +52,12 @@ Use the following steps to re-architect a project:
 
 1. Open the **GitHub Copilot Chat** panel.
 
-1. Select the **modernize-rearchitecture** agent from the agent list.
+1. Select the **modernize** agent from the agent list.
 
 1. Describe the transformation you want to perform. For example:
 
    ```prompt
-   Rewrite the entire project from Struts to Spring MVC
+   Rewrite the entire project from Struts to Spring MVC using rearchitecture agent
    ```
 
 The agent coordinates a multi-agent team that performs the following steps:
@@ -115,7 +92,7 @@ During the re-architecture process, the agent generates artifacts in the `.githu
 
 ### Review generated artifacts
 
-The `.github/modernize/` directory contains the following key resources:
+The `.github/modernize/rearchitecture` directory contains the following key resources:
 
 - `board.md` - The task board that tracks every phase and its status. Check this file to see which tasks passed, failed, or required iterations.
 - `artifacts/` - Detailed reports from each task. Files follow a naming convention such as `t21-tester-report.md` for the initial test report, or `t21.2-tester-report.md` for a retry iteration.
@@ -187,7 +164,7 @@ The agent performs optional runtime validation steps that depend on external too
 
 ## Limitations
 
-Because this feature is in preview, the following limitations apply:
+Keep the following limitations in mind:
 
 - Complex projects with deeply coupled legacy frameworks might require multiple iterations.
 - You should review generated code carefully before committing changes.

@@ -45,7 +45,7 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md
         - name: Migration via custom agent
           href: migrate-github-copilot-app-modernization-for-java-custom-agent.md
-        - name: Re-architect (preview)
+        - name: Re-architect
           href: github-copilot-app-modernization-for-java-rearchitecture.md
     - name: Spring to Azure
       expanded: true
