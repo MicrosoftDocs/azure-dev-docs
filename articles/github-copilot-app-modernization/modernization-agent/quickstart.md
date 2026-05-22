@@ -235,4 +235,15 @@ After execution finishes, you can review all changes that the agent made before 
 
 ## Provide feedback
 
-Your input is important! If you have any feedback about the Modernization agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+Your feedback helps improve the modernization agent. To send feedback from the Modernize TUI, press **F**.
+
+```Modernize CLI
+GitHub Copilot modernization v1.0.0
+GitHub Copilot modernization is AI-powered and may not always be accurate.
+
+GitHub account: <username>
+Copilot CLI version: 1.0.0
+Model: Claude Sonnet 4.5 (1x) · M Select model · F Feedback
+```
+
+You can also [create an issue in the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).

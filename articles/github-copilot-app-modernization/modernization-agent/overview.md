@@ -121,6 +121,7 @@ Use the modernization agent when you need:
 - [CLI command reference](cli-commands.md)
 - [Batch assessment: Assess multiple applications](batch-assess.md)
 - [Batch upgrade: Upgrade multiple applications](batch-upgrade.md)
+- [Batch plan: Generate modernization plan for multiple applications](batch-plan.md)
 - [Customization with skills](customization.md)
 
 ## Provide feedback
