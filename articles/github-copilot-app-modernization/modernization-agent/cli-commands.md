@@ -69,17 +69,17 @@ modernize assess [options]
 
 #### Options
 
-| Option                   | Description                                                                                                                                                 | Default                         |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
-| `--source <source>`      | Source to assess (repeatable). Accepts local paths, Git URLs, or a JSON config file path. Use multiple `--source` flags to specify several repositories.    | `.` (current directory)         |
-| `--output-path <path>`   | A custom output path for assessment results.                                                                                                                | `.github/modernize/assessment/` |
-| `--issue-url <url>`      | A GitHub issue URL to update with the assessment summary.                                                                                                   | None                            |
-| `--format <format>`      | Output format for assessment reports: `html` or `markdown`.                                                                                                 | `html`                          |
-| `--assess-config <path>` | Path to an assessment configuration YAML file that overrides default assessment parameters such as target runtime, compute services, and analysis coverage. | Auto-discovered or defaults     |
-| `--model <model>`        | The LLM model to use.                                                                                                                                       | `claude-sonnet-4.6`             |
-| `--delegate <delegate>`  | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent).                                                                                 | `local`                         |
-| `--wait`                 | Waits for the delegated tasks to complete and generate results (only valid with `--delegate cloud`).                                                        | Disabled                        |
-| `--force`                | Forces restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`).                                                                     | Disabled                        |
+| Option                   | Description                                                                                                                                                                                                                 | Default                         |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
+| `--source <source>`      | Source to assess (repeatable). Accepts local paths, Git URLs, or a JSON config file path. Use multiple `--source` flags to specify several repositories.                                                                    | `.` (current directory)         |
+| `--output-path <path>`   | A custom output path for assessment results.                                                                                                                                                                                | `.github/modernize/assessment/` |
+| `--issue-url <url>`      | A GitHub issue URL to update with the assessment summary.                                                                                                                                                                   | None                            |
+| `--format <format>`      | Output format for assessment reports: `html` or `markdown`.                                                                                                                                                                 | `html`                          |
+| `--assess-config <path>` | Path to assessment configuration YAML file. Overrides default assessment parameters such as target JDK version, compute services, and migration preferences. For more information, see [Batch assessment](batch-assess.md). | None                            |
+| `--model <model>`        | The LLM model to use.                                                                                                                                                                                                       | `claude-sonnet-4.6`             |
+| `--delegate <delegate>`  | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent).                                                                                                                                                 | `local`                         |
+| `--wait`                 | Waits for the delegated tasks to complete and generate results (only valid with `--delegate cloud`).                                                                                                                        | Disabled                        |
+| `--force`                | Forces restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`).                                                                                                                                     | Disabled                        |
 
 #### Examples
 
@@ -105,6 +105,12 @@ Assess specific project directory:
 
 ```bash
 modernize assess --source /path/to/project
+```
+
+Assess with custom configuration:
+
+```bash
+modernize assess --assess-config ./my-assessment-config.yml
 ```
 
 Assess multiple repositories by using a config file:
@@ -156,6 +162,7 @@ modernize plan create <prompt> [options]
 | `--source <path>`    | The path to the application source code.                  | Current directory    |
 | `--plan-name <name>` | The name for the modernization plan.                      | `modernization-plan` |
 | `--language <lang>`  | The programming language (`java`, `dotnet`, or `python`). | Auto-detected        |
+| `--assess-file-path <path>` | Path to an existing assessment report file to use as context for plan generation. Allows the plan to be based on assessment findings. | None |
 | `--overwrite`        | Overwrites an existing plan with the same name.           | Disabled             |
 | `--model <model>`    | The LLM model to use.                                     | `claude-sonnet-4.6`  |
 
@@ -187,6 +194,14 @@ modernize plan create "upgrade to .NET 8" \
     --plan-name dotnet8-upgrade \
     --language dotnet \
     --issue-url https://github.com/org/repo/issues/456
+```
+
+Generate plan based on assessment report:
+
+```bash
+modernize plan create "migrate to Azure PostgreSQL" \
+    --assess-file-path .github/modernize/assessment/assessment-report.json \
+    --plan-name postgres-migration
 ```
 
 #### Prompt examples
@@ -247,7 +262,7 @@ modernize plan execute [prompt] [options]
 
 | Argument   | Description                                                                           |
 |------------|---------------------------------------------------------------------------------------|
-| `[prompt]` | The optional natural language instructions for execution (for example, "skip tests"). |
+| `[prompt]` | Optional natural language instructions for execution (for example, "skip tests"). Defaults to "execute the plan" if not specified. |
 
 #### Options
 
@@ -258,7 +273,7 @@ modernize plan execute [prompt] [options]
 | `--language <lang>`     | The programming language (`java` or `dotnet`).                              | Auto-detected        |
 | `--model <model>`       | The LLM model to use.                                                       | `claude-sonnet-4.6`  |
 | `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent). | `local`              |
-| `--force`               | Forces execution even when a CCA job is in progress.                        | Disabled             |
+| `--force`               | Forces execution even when a Cloud Coding Agent job is in progress. Only valid with `--delegate cloud`. | Disabled             |
 
 #### Examples
 
@@ -279,6 +294,15 @@ Execute with extra instructions:
 ```bash
 modernize plan execute "skip the test" --plan-name spring-boot-upgrade
 ```
+
+Force execution on Cloud Coding Agent even if job is running:
+
+```bash
+modernize plan execute --delegate cloud --force --plan-name spring-boot-upgrade
+```
+
+> [!NOTE]
+> The `--force` option can only be used with Cloud Coding Agent delegation (`--delegate cloud`).
 
 Execute in headless mode for CI/CD:
 
@@ -322,7 +346,7 @@ modernize upgrade [prompt] [options]
 
 | Argument   | Description                                                                                      |
 |------------|--------------------------------------------------------------------------------------------------|
-| `[prompt]` | The target version, such as `Java 17`, `Spring Boot 3.2`, `.NET 10`. Defaults to the latest LTS. |
+| `[prompt]` | Target version (for example, `Java 17`, `Spring Boot 3.2`, `.NET 10`). Optional - defaults to latest LTS if not specified. |
 
 #### Options
 
@@ -391,6 +415,19 @@ List available models:
 ```bash
 modernize help models
 ```
+
+## Experimental and preview features
+
+Some commands and options are marked as experimental or in preview. These features:
+
+- Are subject to breaking changes in future releases.
+- May have limited documentation.
+- Should be used with caution in production environments.
+
+Experimental options are typically hidden from help output unless explicitly documented.
+
+> [!TIP]
+> When using experimental features, check the [release notes](https://github.com/microsoft/modernize-cli/releases) for any breaking changes before upgrading to new versions.
 
 ## Configure the CLI
 
