@@ -102,7 +102,7 @@ To verify which skills are detected:
 
 1. Create a plan with your prompt.
 
-1. Review `.github/modernization/{plan-name}/tasks.json`.
+1. Review `.github/modernization/{plan-name}/.metadata/tasks.json`.
 
 1. Look for references to your custom skills.
 

@@ -122,13 +122,19 @@ modernize
 The main menu appears:
 
 ```Modernize CLI
-○ What would you like to do?
+○ How would you like to modernize your app?
 
-  > Assess        Analyze your source application and generate an assessment report
-    Plan          Create a modernization plan based on assessment findings
-    Execute       Run tasks defined in your modernization plan
-  ──────────────
-    Upgrade       Upgrade your runtime and frameworks to the latest versions
+  > Assess
+    Analyze modernization readiness across one or multiple applications
+    Plan
+    Generate a structured plan to guide the agent
+    Execute
+    Run the tasks defined in the modernization plan
+
+  Or select a quick-start scenario:
+
+    Upgrade
+    Upgrade runtimes and frameworks across one or multiple applications
 ```
 
 ### Step 1: Assess the application
@@ -161,20 +167,22 @@ After the assessment finishes, the agent prompts you to create a modernization p
 ```
 
 1. Select **1. Create modernization plan**.
+1. Select **1. Keep the plan local** to generate the plan on your machine, or choose **2. Submit to Cloud Coding Agent** to have a cloud coding agent generate it. Option 2 is experimental.
+1. The newly created assessment report is selected by default to generate the plan. Select **1. No report** if you want to describe your specific requirements instead.
 1. Enter a plan name or press Enter to use the default name.
-1. Enter your modernization goal as a prompt. By default, the prompt is `References the assessment summary and creates plan` to create a plan based on the assessment findings. You can replace it with any other migration request, for example:
+1. Enter your modernization goal as a prompt. By default, the prompt is `Based on the assessment report, upgrade the project and migrate to Azure` to create a plan based on the assessment findings. You can replace it with any other migration request, for example:
    - `migrate the database to Azure PostgreSQL`
    - `upgrade to Spring Boot 3`
    - `deploy to Azure Container Apps`
 1. Press Enter to generate the plan.
+1. The agent analyzes your codebase and asks you to clarify the request. You can select a suggested answer or type your own.
 
-The agent analyzes your codebase and generates:
+The agent aggregates all the information and generates:
 
 - **Plan file** (`.github/modernize/{plan-name}/plan.md`): Detailed strategy and approach.
-- **Task list** (`.github/modernize/{plan-name}/tasks.json`): Breakdown of executable steps.
 
 > [!TIP]
-> You can manually edit `plan.md` to add clarifications or adjust details. You can also update `tasks.json` to modify, reorder, add, or remove tasks before executing the plan.
+> You can manually edit `plan.md` to add clarifications or adjust details.
 
 ### Step 3: Execute the modernization plan
 

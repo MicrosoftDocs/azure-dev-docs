@@ -178,11 +178,34 @@ After you configure your repositories and choose an execution mode, start the ba
 
 1. Select **Upgrade** from the main menu.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI that shows the main menu with the Upgrade option in the terminal." lightbox="../media/modernization-agent/upgrade-menu.png":::
+```Modernize CLI
+○ How would you like to modernize your app?
+
+    Assess
+    Analyze modernization readiness across one or multiple applications
+    Plan
+    Generate a structured plan to guide the agent
+    Execute
+    Run the tasks defined in the modernization plan
+
+  Or select a quick-start scenario:
+
+  > Upgrade
+    Upgrade runtimes and frameworks across one or multiple applications
+```
 
 1. Choose how to specify your target repositories. Select **From a config file** to use a `repos.json` file.
 
-    :::image type="content" source="../media/modernization-agent/source-type-selection.png" alt-text="Screenshot of Modernize CLI that shows the source type selection in the terminal." lightbox="../media/modernization-agent/source-type-selection.png":::
+```Modernize CLI
+○ Choose target repositories
+
+    1. Current folder
+       /Users/username/project
+    2. Manual input
+       Enter local path or remote URL
+  > 3. From a config file
+       /path/to/.github/modernize/repos.json
+```
 
     > [!TIP]
     > You can also select **Manual input** to enter local paths or remote Git URLs directly, or **Current folder** to upgrade the project in your current directory.
@@ -248,11 +271,34 @@ Before running the upgrade, configure the GitHub Copilot Modernization MCP Serve
 
 1. Select **Upgrade** from the main menu.
 
-    :::image type="content" source="../media/modernization-agent/upgrade-menu.png" alt-text="Screenshot of Modernize CLI that shows the main menu with the Upgrade option in the terminal." lightbox="../media/modernization-agent/upgrade-menu.png":::
+    ```Modernize CLI
+    ○ How would you like to modernize your app?
+
+        Assess
+        Analyze modernization readiness across one or multiple applications
+        Plan
+        Generate a structured plan to guide the agent
+        Execute
+        Run the tasks defined in the modernization plan
+
+      Or select a quick-start scenario:
+
+      > Upgrade
+        Upgrade runtimes and frameworks across one or multiple applications
+    ```
 
 1. Choose how to specify your target repositories. Select **From a config file**.
 
-    :::image type="content" source="../media/modernization-agent/source-type-selection.png" alt-text="Screenshot of Modernize CLI that shows the source type selection in the terminal." lightbox="../media/modernization-agent/source-type-selection.png":::
+    ```Modernize CLI
+    ○ Choose target repositories
+
+        1. Current folder
+          /Users/username/project
+        2. Manual input
+          Enter local path or remote URL
+      > 3. From a config file
+          /path/to/.github/modernize/repos.json
+    ```
 
 1. If the `repos.json` file is detected at the default location, the agent automatically fills it in. Otherwise, enter the path to your config file and press <kbd>Enter</kbd>.
 
