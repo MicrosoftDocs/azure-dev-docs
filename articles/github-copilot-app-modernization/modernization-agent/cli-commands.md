@@ -416,19 +416,6 @@ List available models:
 modernize help models
 ```
 
-## Experimental and preview features
-
-Some commands and options are marked as experimental or in preview. These features:
-
-- Are subject to breaking changes in future releases.
-- May have limited documentation.
-- Should be used with caution in production environments.
-
-Experimental options are typically hidden from help output unless explicitly documented.
-
-> [!TIP]
-> When using experimental features, check the [release notes](https://github.com/microsoft/modernize-cli/releases) for any breaking changes before upgrading to new versions.
-
 ## Configure the CLI
 
 By using the modernization agent, you can customize application behavior through JSON files and environment variables.
