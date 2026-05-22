@@ -1,6 +1,6 @@
 ---
 title: Get Started with the Java Diagnostic Agent
-description: Describes how to get started using the Java Diagnostic Agent.
+description: Learn how to get started with the Java Diagnostic Agent to troubleshoot Java applications running on AKS without rebuilding or restarting.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: fenzho
@@ -36,33 +36,33 @@ kubectl port-forward svc/diag4j-agent-service -n <namespace> <port>:8080
 
 ## Use the Java Diagnostic Tool on AKS plugin for IntelliJ IDEA
 
-You can use the Java Diagnostic Tool on AKS plugin to attach the Java Diagnostic Agent to the Java application running in a pod container on an Azure Kubernetes Service (AKS) cluster.
+Use the Java Diagnostic Tool on AKS plugin to attach the Java Diagnostic Agent to the Java application running in a pod container on an Azure Kubernetes Service (AKS) cluster.
 
-After you attach the agent, it enables you to perform troubleshooting tasks such as adding logs around a class function. You can use this log to test whether the function is executed and to calculate the total time spent in the function. This analysis can help you locate performance bottlenecks in your application.
+After you attach the agent, you can troubleshoot by adding logs around a class function. Use this log to test whether the function is executed and to calculate the total time spent in the function. This analysis can help you locate performance bottlenecks in your application.
 
-The plugin configuration is shown on the **Diagnostic** tab. Here, you can do the following tasks:
+The **Diagnostic** tab shows the plugin configuration. Here, you can:
 
 - Configure the local port that forwards to the agent service.
 - View the pods listed with `kubeconfig` in your local environment.
-- Select **Refresh** to refresh the pod table. After you switch clusters, you should refresh the table to load the pods in new cluster.
+- Select **Refresh** to refresh the pod table. After you switch clusters, refresh the table to load the pods in new cluster.
 
 :::image type="content" source="media/java-diagnostic-tool/overview.png" alt-text="Screenshot of the IntelliJ IDEA Diagnostic tab." lightbox="media/java-diagnostic-tool/overview.png":::
 
 ## Attach the agent
 
-The pod container should have a **/tmp** folder, and it should have write permission to the **/tmp** folder.
+The pod container must have a **/tmp** folder, and it must have write permission to the **/tmp** folder.
 
-To enable attaching the agent in the JVM, be sure not to add `-XX:+DisableAttachMechanism` to the JVM options.
+To enable attaching the agent in the JVM, don't add `-XX:+DisableAttachMechanism` to the JVM options.
 
-The backend diagnostic server is closed after 6 hours.
+The backend diagnostic server closes after 6 hours.
 
-To attach the agent, click the pod you want to attach the agent to, and then select the container. You can only attach the agent to one container in the pod. Then, wait for the attachment process to complete.
+To attach the agent, select the pod you want to attach the agent to, and then select the container. You can only attach the agent to one container in the pod. Then, wait for the attachment process to complete.
 
 :::image type="content" source="media/java-diagnostic-tool/attach.png" alt-text="Screenshot of IntelliJ IDEA that shows the Diagnostic tab with the Container Selection dialog box open." lightbox="media/java-diagnostic-tool/attach.png":::
 
 ## Set the active pod container
 
-After you attach the agent successfully, you can use it for troubleshooting.
+After you attach the agent successfully, use it for troubleshooting.
 
 Multiple pods might have injected the agent, so you must set an active pod. In IntelliJ IDEA, on the **Diagnostic** tab, right-click a pod and then select **Select as the active one**.
 
@@ -74,7 +74,7 @@ The configured log is automatically removed after 30 minutes.
 
 You can use the tool to add logging around class functions, but not interfaces, constructors, and so on.
 
-To add logging to a function, right-click it in the editor, then select **Java Diagnostic** > **Add AroundLog**, as shown in the following screenshot.
+To add logging to a function, right-click it in the editor, and then select **Java Diagnostic** > **Add AroundLog**, as shown in the following screenshot.
 
 :::image type="content" source="media/java-diagnostic-tool/add-log.png" alt-text="Screenshot of IntelliJ IDEA that shows the context menu opened for a function with the Add AroundLog menu option highlighted." lightbox="media/java-diagnostic-tool/add-log.png":::
 
@@ -90,16 +90,16 @@ Done with the data filtering
 
 ## Remove all configured logs
 
-To remove all the logs added by the agent, select **Remove All AroundLogs**.
+To remove all the logs that the agent adds, select **Remove All AroundLogs**.
 
 > [!NOTE]
-> The backend Java agent is used by an ephemeral container in the pod. After the pod restarts, the agent is removed.
+> An ephemeral container in the pod uses the backend Java agent. After the pod restarts, the agent is removed.
 
 ## Troubleshooting
 
-A timeout can occur when you attempt to attach the agent to a pod running on a node that hasn't already enabled the feature. The timeout can occur because the node must first retrieve the agent image, which causes a delay. When this occurs, you can select **Refresh** to check whether the agent has attached, or you can try attaching the agent again. 
+A timeout can occur when you attempt to attach the agent to a pod running on a node that isn't already enabled for the feature. The timeout happens because the node first needs to retrieve the agent image, which causes a delay. When this delay occurs, select **Refresh** to check whether the agent is attached, or try attaching the agent again. 
 
-If the attachment fails, you can check the log named `diagnostic-container-<hashcode>` in the ephemeral container.
+If the attachment fails, check the log named `diagnostic-container-<hashcode>` in the ephemeral container.
 
 You can find information about the operations of the plugin in the logs under the pod container named `diag4j-agent-service-<hashcode>`.
 
