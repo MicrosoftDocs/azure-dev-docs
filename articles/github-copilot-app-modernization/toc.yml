@@ -116,6 +116,8 @@ items:
               items:
               - name: Customize the upgrade plan
                 href: customize-upgrade-plan.md
+              - name: Customize the modernization plan
+                href: customize-modernization-plan.md
               - name: Customize with your own skills
                 href: modernization-agent/customization.md
                 
