@@ -13,16 +13,33 @@ ms.date: 04/17/2026
 
 Batch assessment enables you to analyze a portfolio of **Java, .NET, and JavaScript/TypeScript** applications in a single run, providing a comprehensive view of the modernization landscape across your applications. This article guides you through the process of assessing multiple repositories efficiently. Both single-language repositories and **mono-repos** that contain a mix of Java, .NET, and JavaScript/TypeScript projects are supported.
 
-Each application is analyzed across three assessment domains:
+Each application is analyzed along two complementary tracks. **Issue scanning** finds problems you need to fix; **codebase insights** document how the application is built so you can plan around it.
 
-- **Java upgrade** — runtime and framework version analysis for Java projects.
-- **Cloud Readiness** — Azure target platform fit and migration issues.
-- **Security** — CVE scanning across direct and transitive dependencies, plus **ISO 5055-guided CWE** security issues. Enable this domain to surface vulnerabilities and receive remediation guidance.
+### Issue scanning
+
+Issue scanning detects modernization and security issues across three domains. Language coverage differs by domain:
+
+- **Upgrade** — runtime and framework version analysis. Covers **Java** and **.NET**.
+- **Cloud Readiness** — Azure target platform fit and migration issues. Covers **Java** and **.NET**.
+- **Security** — CVE scanning across direct and transitive dependencies, plus **ISO 5055-guided CWE** security issues. **Java only** at this time; .NET and JavaScript/TypeScript support is on the roadmap.
+
+### Codebase insights
+
+Codebase insights document how each application is built. They are produced for **Java**, **.NET**, and **JavaScript/TypeScript** projects, and are surfaced when you select **Full analysis** in the Analysis Coverage setting.
+
+- **Architecture** — high-level architecture diagram with layering, module boundaries, runtime topology, and entry points. 
+- **API Contracts** — REST, gRPC, message-queue, and webhook surfaces the app exposes or consumes. Sizes integration blast radius before migration.
+- **Configuration** — config files, environment variables, feature flags, connection strings, and secrets. Drives the secrets-and-config migration to Azure Key Vault and App Configuration.
+- **Business Workflows** — end-to-end functional flows reconstructed from code (e.g., *order → reserve → pay → fulfill*). Anchors regression scope and stakeholder communication.
+- **Dependencies** — direct and transitive libraries, SDKs, and drivers with pinned versions. Feeds Azure-service mapping and surfaces EOL or beta pins.
+- **Data Model** — databases, schemas, key entities, and relationships from ORM mappings and DDL. Drives data-tier migration planning.
+
+### Reports
 
 Batch assessment is especially valuable for migration planning because it enables you to efficiently assess the readiness and requirements of various applications at once. By using batch assessment, you can evaluate different repositories at the same time and obtain detailed assessment reports for each application. It produces two kinds of reports to support your migration planning:
 
-- **Per app report**: Provides detailed insights into all modernization problems identified at the individual repository level.
-- **Aggregated report**: Presents an overall perspective of all assessed applications, offering summary insights, recommendations on Azure services, target platforms, and upgrade paths. Additionally, the aggregated report includes shortcuts for easy access to each per app report.
+- **Per repository report**: Provides detailed insights on above two aspects identified at the individual repository level.
+- **Aggregated report**: Presents an overall perspective of all assessed applications, offering summary insights, recommendations on Azure services, target platforms, upgrade paths, migration strategies and migration waves. Additionally, the aggregated report includes shortcuts for easy access to each per repository report.
 
 Batch assessment provides the following benefits:
 
@@ -198,7 +215,7 @@ Two execution modes are available:
     <!-- TODO(snapshot): retake assess-repo-list.png to match current UI -->
     :::image type="content" source="../media/modernization-agent/assess-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the repository list in the terminal." lightbox="../media/modernization-agent/assess-repo-list.png":::
 
-1. Select the assessment domains to analyze. **Security** is unchecked by default; select it to scan for CVE vulnerabilities and ISO 5055-guided CWE issues.
+1. Select the assessment domains to analyze. **Upgrade** and **Cloud Readiness** run on Java and .NET projects in the repository. **Security** is unchecked by default and runs on Java projects only; select it to scan for CVE vulnerabilities and ISO 5055-guided CWE issues.
 
     <!-- TODO(snapshot): retake assess-domain-selection.png to include Security domain checkbox -->
     :::image type="content" source="../media/modernization-agent/assess-domain-selection.png" alt-text="Screenshot of Modernize CLI that shows the assessment domain selection in the terminal." lightbox="../media/modernization-agent/assess-domain-selection.png":::
@@ -207,10 +224,11 @@ Two execution modes are available:
 
     - **General / Analysis Coverage**:
        - **Issue only** (default): Detects modernization and security issues in your source code. Fastest option.
-       - **Full analysis**: Detects issues and additionally generates insights across six aspects of your application — **Architecture**, **API Contracts**, **Configuration**, **Business Workflows**, **Dependencies**, and **Data Model**. Takes longer to run than issue-only analysis.
-    - **Java / JAVA UPGRADE**: Target Runtime (OpenJDK 11, 17, or 21).
+       - **Full analysis**: Detects issues and additionally generates **codebase insights** across six aspects of your application — **Architecture**, **API Contracts**, **Configuration**, **Business Workflows**, **Dependencies**, and **Data Model**. Takes longer to run than issue-only analysis.
+    - **Java / UPGRADE**: Target Runtime (OpenJDK 11, 17, 21 or 25).
     - **Java / CLOUD READINESS**: Target Compute Services, Target Operating System, and Containerization.
-    - **Java / SECURITY**: Minimum CVE severity (`low`, `medium`, `high`, `critical`; default `high`). Lower severity values include more findings.
+    - **Java / SECURITY**: Minimum CVE severity (`low`, `medium`, `high`, `critical`; default `high`). Lower severity values include more findings. *(Security domain is Java-only today.)*
+    - **.NET / UPGRADE**: Target Framework (.NET 8, 9, or 10).
     - **.NET / CLOUD READINESS**: Target Compute Services.
 
     Use the arrow keys to navigate, press <kbd>Enter</kbd> to change a value, or select **Continue** to proceed with the current settings.
@@ -403,7 +421,7 @@ The aggregated report provides a comprehensive view across assessed applications
 
 ### Security findings
 
-When the **Security** domain is enabled, each per-app report includes a dedicated security panel:
+When the **Security** domain is enabled, each per-app report for a **Java** application includes a dedicated security panel.
 
 - **CVE findings** for direct and transitive dependencies, grouped by severity (Critical, High, Medium, Low). Configure the minimum severity in the assessment configuration step.
 - **CWE findings** identified through ISO 5055-guided checks, with remediation guidance.
