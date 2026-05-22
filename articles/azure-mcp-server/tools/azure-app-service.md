@@ -3,14 +3,15 @@ title: Azure MCP Server tools for Azure App Service
 description: Use Azure MCP Server tools to manage Azure App Service resources, including web apps and APIs, with natural language prompts from your IDE.
 author: diberry
 ms.author: diberry
+ms.reviewer: arthurma, kaghiya, weidxu
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 05/13/2026
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
-tool_count: 7
-mcp-cli.version: 2.0.0-beta.29+a69a87b82c6e5ae613659f0dfa7dda63fa2c15fa
+tool_count: 8
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ---
 
 # Azure MCP Server tools for Azure App Service
@@ -42,7 +43,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Database** |  Required | The name of the database to connect to (for example, mydb). |
 | **Database server** |  Required | The server name or endpoint for the database (for example, contoso-server.database.windows.net). |
 | **Database type** |  Required | The type of database:`SqlServer`, `MySQL`, `PostgreSQL`, and `Cosmos DB`. |
@@ -52,6 +53,39 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
+
+## Change web app state
+
+<!-- @mcpcli appservice webapp change-state -->
+
+This tool updates the running state of an Azure App Service web app by using one of the following states:
+
+- `start`: Starts a stopped web app.
+- `stop`: Stops a running web app.
+- `restart`: Restarts a running web app.
+
+When you use `restart`, this tool can perform a soft restart and wait synchronously for the operation to complete before returning.
+
+This tool returns a message that indicates the operation result.
+
+Example prompts include:
+
+- "Start the web app with app name 'api-staging' in resource group 'rg-staging' and state change 'start'."
+- "Stop App Service app name 'webapp-prod' in resource group 'rg-prod' with state change 'stop'."
+- "Restart app name 'shop-api' in resource group 'rg-ecommerce' with state change 'restart' and soft restart 'true'."
+- "Restart app name 'my-webapp' in resource group 'rg-dev' with state change 'restart', soft restart 'false', and wait for completion 'true'."
+
+| Parameter |Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
+| **State change** |  Required | The state change action to perform. Valid values are: `start`, `stop`, `restart`. |
+| **Soft restart** |  Optional | When State change is `restart`, indicates whether to perform a soft restart. |
+| **Wait for completion** |  Optional | When State change is `restart`, indicates whether to synchronously wait for the state change operation to complete before returning. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Diagnose web app
 
@@ -66,8 +100,8 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
-| **Detector name** |  Required | The name of the diagnostic detector to run (for example, `Availability`, `CpuAnalysis`, `MemoryAnalysis`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **Detector ID** |  Required | The ID of the diagnostic detector to run. Use the `id` field from the `appservice webapp diagnostic list` tool. |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 | **End time** |  Optional | The end time in ISO format (for example, `2023-01-01T00:00:00Z`). |
 | **Interval** |  Optional | The time interval (for example, `PT1H` for 1 hour, `PT5M` for 5 minutes). |
@@ -90,7 +124,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 | **Deployment ID** |  Optional | The ID of the deployment. |
 
@@ -112,7 +146,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Optional | The name of the Azure App Service web app (for example, `contoso-webapp`). This tool returns details for a specific web app when you provide the `App` name; if you don't provide an `App`, it returns information for all web apps in the subscription or for the specified `resource group` and `subscription`. |
+| **App name** |  Optional | The name of the Azure App Service web app (for example, `contoso-webapp`). This tool returns details for a specific web app when you provide the `App name`; if you don't provide an `App name`, it returns information for all web apps in the subscription or for the specified `resource group` and `subscription`. |
 | **Resource group** |  Optional | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -132,7 +166,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service web app (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service web app (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group that contains the web app (for example, prod-rg). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -151,7 +185,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -178,7 +212,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **App** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
+| **App name** |  Required | The name of the Azure App Service (for example, `my-webapp`). |
 | **Resource group** |  Required | The name of the Azure resource group that contains the web app. |
 | **Setting name** |  Required | The name of the application setting. |
 | **Setting update type** |  Required | The type of update to perform on the application setting. Valid values: `add`, `set`, `delete`. |
@@ -193,3 +227,4 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure App Service documentation](/azure/app-service/)
+
