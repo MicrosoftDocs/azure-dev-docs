@@ -64,6 +64,8 @@ items:
             - name: Upgrade Java projects
               expanded: false
               items:
+              - name: Quickstart: Upgrade a Java Project
+                href: quickstart-upgrade.md
               - name: Upgrade a framework or third-party dependency
                 href: framework-upgrade.md
               - name: Batch upgrade
@@ -74,6 +76,8 @@ items:
               items:
               - name: Overview
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java.md?context=/azure/developer/github-copilot-app-modernization/context/context
+              - name: "Quickstart: Assess and migrate a Java project"
+                href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Optimize chat results with the AppModernization agent
                 href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Predefined tasks
