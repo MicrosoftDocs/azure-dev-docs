@@ -55,7 +55,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 - **IBM DB2 to Azure PostgreSQL** When transitioning from IBM DB2, this task converts your database schemas, queries, and data access code to work with Azure Database for PostgreSQL, handling dialect differences and compatibility issues.
 - **IBM DB2 to Azure SQL** This task transforms IBM DB2-specific SQL, stored procedures, and data structures to Azure SQL Database equivalents, ensuring smooth migration and optimal performance.
 - **Informix to PostgreSQL** This task helps convert Informix databases and application code to PostgreSQL, addressing SQL dialect differences and ensuring compatibility with Azure Database for PostgreSQL.
-- **SQL Dialect: Oracle to PostgreSQL** When you transition from Oracle to PostgreSQL, differences in SQL dialects can pose significant challenges. This task converts Oracle-specific SQL queries, data types, and proprietary functions in your Java code to their PostgreSQL equivalents, ensuring a seamless integration with Azure Database for PostgreSQL.
+- **SQL Dialect: Oracle to PostgreSQL** When you transition from Oracle to PostgreSQL, SQL dialect differences can be challenging. This task converts Oracle-specific SQL and data types in your Java code to PostgreSQL equivalents. It also updates proprietary Oracle functions and helps ensure smooth integration with Azure Database for PostgreSQL.
 - **Sybase ASE to Azure SQL Database** This task transforms Sybase ASE-specific SQL queries, stored procedures, and schema definitions to Azure SQL Database, handling compatibility issues and optimizing performance.
 
 ### Email
@@ -69,7 +69,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 ### Managed Identities
 
 - **Managed Identity for Azure Cache for Redis (Micronaut)** This task helps [Micronaut](https://micronaut.io/) applications adopt Managed Identity authentication for Azure Cache for Redis, improving security and eliminating the need for connection string management.
-- **Managed Identity for Azure Event Hub** This task helps you migrate Event Hub authentication in your Java applications from connection strings to Managed Identity, improving security posture.
+- **Managed Identity for Azure Event Hubs** This task helps you migrate Event Hubs authentication in your Java applications from connection strings to Managed Identity, improving security posture.
 - **Managed Identity for Azure Service Bus** This task converts your Java applications from connection string-based authentication to use Managed Identity for Azure Service Bus, enhancing security and reducing credential management complexity.
 - **Managed Identity for Azure SQL** This task helps migrate your Java applications from SQL authentication using connection strings to Managed Identity authentication, enhancing security, and reducing credential management complexity.
 - **Managed Identity for Cassandra** This task converts your Java applications to use Managed Identity authentication for Azure Cosmos DB Cassandra API, eliminating the need for connection string-based authentication.
@@ -98,7 +98,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 ### Storage
 
 - **Amazon Web Services (AWS) S3 to Azure Storage Blob** When you migrate your service from AWS to Azure, you can transition from AWS S3 to Azure Storage Blob. This task helps you convert the code logic that interacts with AWS S3 into code logic that operates with Azure Storage Blob, while maintaining the same semantics.
-- **Local files to mounted Azure Storage** Azure hosting services offer flexibility in provisioning, scaling, failover, and more. At the same time, the file system for a given application runtime is transient. If your application reads from or writes to a local file, this task helps you identify such cases and convert them into unified mount path access. By doing so, you can mount an Azure Storage File share to the specified path, enabling your application to share and persist data across different replicas without concerns about relocation, failover, or similar issues.
+- **Local files to mounted Azure Storage** Azure hosting services offer flexibility in provisioning, scaling, failover, and more. At the same time, the file system for a given application runtime is transient. If your application reads from or writes to a local file, this task helps you identify those cases. It then converts them to a mounted path approach. By doing so, you can mount an Azure Storage File share to the specified path, enabling your application to share and persist data across different replicas without concerns about relocation, failover, or similar issues.
 - **Log to console** Azure hosting services integrate with Azure Monitor by default, collecting log output to the console and enabling you to query and monitor them. At the same time, logging to files in a cloud environment isn't recommended because it requires extra log rotation and transfer. This task helps you convert file-based logging in your application to console-based logging, making it ready for integration with Azure Monitor.
 
 ## See also
