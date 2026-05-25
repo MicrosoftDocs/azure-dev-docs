@@ -212,12 +212,10 @@ Two execution modes are available:
 
     - **Use arrow keys** to navigate and press <kbd>Space</kbd> to toggle individual repositories.
 
-    <!-- TODO(snapshot): retake assess-repo-list.png to match current UI -->
     :::image type="content" source="../media/modernization-agent/assess-repo-list.png" alt-text="Screenshot of Modernize CLI that shows the repository list in the terminal." lightbox="../media/modernization-agent/assess-repo-list.png":::
 
 1. Select the assessment domains to analyze. **Upgrade** and **Cloud Readiness** run on Java and .NET projects in the repository. **Security** is unchecked by default and runs on Java projects only; select it to scan for CVE vulnerabilities and ISO 5055-guided CWE issues.
 
-    <!-- TODO(snapshot): retake assess-domain-selection.png to include Security domain checkbox -->
     :::image type="content" source="../media/modernization-agent/assess-domain-selection.png" alt-text="Screenshot of Modernize CLI that shows the assessment domain selection in the terminal." lightbox="../media/modernization-agent/assess-domain-selection.png":::
 
 1. Review and configure the assessment options. The configuration page shows options grouped by language and domain:
@@ -233,7 +231,6 @@ Two execution modes are available:
 
     Use the arrow keys to navigate, press <kbd>Enter</kbd> to change a value, or select **Continue** to proceed with the current settings.
 
-    <!-- TODO(snapshot): retake assess-configuration.png to show updated Analysis Coverage (two modes) and new Security row -->
     :::image type="content" source="../media/modernization-agent/assess-configuration.png" alt-text="Screenshot of Modernize CLI that shows the assessment configuration page in the terminal." lightbox="../media/modernization-agent/assess-configuration.png":::
 
     > [!TIP]
@@ -241,7 +238,6 @@ Two execution modes are available:
 
 1. Choose the execution mode. Select **Assess locally**.
 
-    <!-- TODO(snapshot): retake assess-locally-option.png — execution-mode step now appears after domain/config selection -->
     :::image type="content" source="../media/modernization-agent/assess-locally-option.png" alt-text="Screenshot of Modernize CLI that shows the assess mode menu in the terminal." lightbox="../media/modernization-agent/assess-locally-option.png":::
 
 1. Enter the output path for assessment results or press <kbd>Enter</kbd> to accept the default.
@@ -252,17 +248,14 @@ Two execution modes are available:
     - Runs assessment on each repository one by one.
     - Generates individual assessment reports.
 
-        <!-- TODO(snapshot): retake assess-individual-report-output.png — per-app report now includes Security panel and interactive target filter -->
         :::image type="content" source="../media/modernization-agent/assess-individual-report-output.png" alt-text="Screenshot of Modernize CLI that shows the output of individual assessment report generation in the terminal." lightbox="../media/modernization-agent/assess-individual-report-output.png":::
 
     - Creates an aggregated report.
 
-        <!-- TODO(snapshot): retake assess-aggregated-report-output.png — aggregated report layout updated (Migration Wave Plan, Migration Strategy, Cost Estimate) -->
         :::image type="content" source="../media/modernization-agent/assess-aggregated-report-output.png" alt-text="Screenshot of Modernize CLI that shows the output of the aggregated report generation in the terminal." lightbox="../media/modernization-agent/assess-aggregated-report-output.png":::
 
 1. When the assessment finishes, the agent automatically opens the aggregated report.
 
-    <!-- TODO(snapshot): retake assess-repo-list-report.png — aggregated report content redesigned -->
     :::image type="content" source="../media/modernization-agent/assess-repo-list-report.png" alt-text="Screenshot of Modernize CLI that shows the content of the aggregated report." lightbox="../media/modernization-agent/assess-repo-list-report.png":::
 
 ### Interactive mode (delegating to Cloud Agents)
@@ -341,14 +334,12 @@ The interactive flow for cloud delegation is identical to **Assess locally** thr
 
 1. Choose the execution mode. Select **Delegate to Cloud Agents**.
 
-    <!-- TODO(snapshot): retake assess-delegate-cloud-coding-agents-option.png to match current UI ordering -->
     :::image type="content" source="../media/modernization-agent/assess-delegate-cloud-coding-agents-option.png" alt-text="Screenshot of Modernize CLI that shows the assess menu with the Delegate to Cloud Agents option selected." lightbox="../media/modernization-agent/assess-delegate-cloud-coding-agents-option.png":::
 
 1. Enter the output path for assessment results or press <kbd>Enter</kbd> to accept the default.
 
 1. The agent automatically delegates assessment tasks for each repository to Cloud Agents and executes them in the cloud in parallel.
 
-    <!-- TODO(snapshot): retake assess-delegate-cloud-coding-agents-progress.png -->
     :::image type="content" source="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png" alt-text="Screenshot of Modernize CLI that shows the output of the progress of delegating assessment to Cloud Agents in the terminal." lightbox="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png":::
 
     The agent pulls the per-app assessment results back to local and generates the aggregated report locally.
@@ -389,16 +380,12 @@ The end-to-end flow:
 
 1. **Download a starter `repos.json` from Azure Migrate.** Azure Migrate generates a JSON file scoped to the applications you've selected for modernization assessment. The file already contains the `apps[]` entries and the `output` block that points back to your Azure Migrate project.
 
-   <!-- TODO(link): replace with the published Azure Migrate documentation URL -->
-   For details on initiating the flow from the Azure Migrate side, see the [TODO - Azure Migrate documentation](TODO).
 
 1. **Fill in repository URLs.** Edit each `repos[]` entry in the downloaded file to add the GitHub repository URL for the application. Keep the `apps[]` and `output` blocks as Azure Migrate generated them — those drive the upload.
 
 1. **Run batch assessment.** Run the assessment locally or by delegating to Cloud Agents following above steps. Both execution modes honor the Azure Migrate output configuration.
 
 1. **Reports upload automatically.** When the assessment completes, the modernization agent uploads each application's report back to your Azure Migrate project. No additional CLI flag is required — the upload is driven entirely by the `output.type` setting in the `repos.json` file.
-
-For more details on viewing and acting on the uploaded reports inside Azure Migrate, see the [TODO - Azure Migrate documentation](TODO).
 
 ## Understanding the aggregated report
 
@@ -415,7 +402,7 @@ The aggregated report provides a comprehensive view across assessed applications
 - **Azure Services**: maps current dependencies to recommended Azure equivalents. Shared dependencies across apps are decided once, so you avoid per-app rework.
 - **Target Platform**: guides hosting choice, such as Azure Container Apps versus AKS, and surfaces consolidation opportunities.
 - **Upgrade Path**: identifies which apps need framework upgrades as a prerequisite, separating upgrade work from migration work.
-- **Cost Estimate**: estimates the Azure cost of running each application on its recommended target, so you can factor spend into prioritization. <!-- TODO(verify): confirm exact section heading once the cost estimate ships in the aggregated report -->
+- **Cost Estimate**: estimates the Azure cost of running each application on its recommended target, so you can factor spend into prioritization.
 - **Migration Strategies**: recommends a migration approach per application — for example, **Replatform** for lift-and-reshape moves or **Rearchitect** for deeper refactoring — so each app gets a strategy matched to its readiness.
 - **Migration Waves**: sequences apps by readiness and risk into phases (for example, Wave 1 quick wins, Wave 2 core cloud, Wave 3 long-term bets). This approach enables early wins while harder apps are prepared in parallel.
 
