@@ -5,7 +5,7 @@ author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 05/15/2026
 ms.service: azure-dev-cli
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-azdevcli
 ---
 
