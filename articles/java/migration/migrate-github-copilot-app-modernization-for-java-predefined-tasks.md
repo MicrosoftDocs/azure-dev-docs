@@ -25,7 +25,7 @@ Predefined tasks capture industry best practices for using Azure services. Curre
 - Identity management
 
 > [!NOTE]
-> This list will grow based on customer feedback and evolving cloud needs.
+> This list grows based on customer feedback and evolving cloud needs.
 
 The following video demonstrates using GitHub Copilot modernization to apply a predefined task to migrate a Java project to Azure:
 
@@ -62,18 +62,16 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - **javax.email send to Azure Communication Service Email** Migrating applications with SMTP dependencies can be challenging because not all Azure environments support outgoing requests on port 25. This task helps convert an application that uses javax.mail to send emails to use Azure Communication Services, which is fully compatible with Azure hosting environments.
 
-### JAX
+### Java API for XML (JAX)
 
 - **JAX-RPC to JAX-WS** This task helps you modernize legacy JAX-RPC-based web services by converting them to the newer JAX-WS standard, improving interoperability and security.
 
 ### Managed Identities
 
-- **Auth by MI for Azure Redis in Micronaut project** This task helps Micronaut applications adopt Managed Identity authentication for Azure Cache for Redis, improving security and eliminating the need for connection string management.
-- **Managed Identities for Credential Migration on Azure** Authentication using connection strings introduces security vulnerabilities and maintenance overhead. This task transforms your Java applications to use Azure's Managed Identity authentication for messaging services like Azure Event Hubs and Azure Service Bus. When you integrate with Microsoft Identity client libraries, your code no longer needs to store sensitive connection strings or shared access signatures in configuration files.
-- **Managed Identities for Database migration to Azure** The Azure database offerings - Azure SQL Server, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Cosmos DB for Cassandra API, and Azure Cosmos DB for MongoDB - support secure sign-in using Managed Identity. When you migrate an application from a local database to a managed Azure cloud database, this task helps you prepare your codebase for Managed Identity authentication to the database.
+- **Managed Identity for Azure Cache for Redis (Micronaut)** This task helps [Micronaut](https://micronaut.io/) applications adopt Managed Identity authentication for Azure Cache for Redis, improving security and eliminating the need for connection string management.
 - **Managed Identity for Azure Event Hub** This task helps you migrate Event Hub authentication in your Java applications from connection strings to Managed Identity, improving security posture.
 - **Managed Identity for Azure Service Bus** This task converts your Java applications from connection string-based authentication to use Managed Identity for Azure Service Bus, enhancing security and reducing credential management complexity.
-- **Managed Identity for Azure SQL** This task helps migrate your Java applications from SQL authentication using connection strings to Managed Identity authentication, enhancing security and reducing credential management complexity.
+- **Managed Identity for Azure SQL** This task helps migrate your Java applications from SQL authentication using connection strings to Managed Identity authentication, enhancing security, and reducing credential management complexity.
 - **Managed Identity for Cassandra** This task converts your Java applications to use Managed Identity authentication for Azure Cosmos DB Cassandra API, eliminating the need for connection string-based authentication.
 - **Managed Identity for MariaDB** This task helps you transition your Java applications to use Managed Identity authentication for Azure Database for MariaDB, improving security and credential handling.
 - **Managed Identity for MongoDB** This task enables your Java applications to authenticate with Azure Cosmos DB for MongoDB using Managed Identity, replacing connection string-based authentication.
@@ -82,7 +80,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 ### Message Queue
 
-- **ActiveMQ to Azure Service Bus** Applications built on Apache ActiveMQ can be modernized to use Azure's managed messaging service. This task converts your ActiveMQ message producers, consumers, connection factories, and queue/topic interactions to their Azure Service Bus equivalents, implementing best practices for reliability and authentication in cloud environments.
+- **ActiveMQ to Azure Service Bus** Applications built on Apache ActiveMQ can be modernized to use Azure's managed messaging service. This task converts your ActiveMQ message producers, consumers, connection factories, and queue/topic interactions to Azure Service Bus. It follows best practices for cloud reliability and secure authentication.
 - **Amazon Web Services (AWS) Simple Queue Service (SQS) to Azure Service Bus** Transitioning from AWS SQS to Azure Service Bus involves reimplementing queue operations and message handling patterns. This task translates SQS-specific code constructs to their Azure Service Bus counterparts, preserving critical messaging semantics like at-least-once delivery, message batching, and visibility timeout behaviors while introducing Azure's enhanced security features.
 - **Confluent Cloud Kafka** This task helps migrate applications using Confluent Cloud Kafka to Azure Event Hubs, handling configuration and client code conversion.
 - **Java EE AMQP RabbitMQ to Service Bus** This task helps Java EE applications using AMQP with RabbitMQ migrate to Azure Service Bus, ensuring compatibility with enterprise messaging patterns.
