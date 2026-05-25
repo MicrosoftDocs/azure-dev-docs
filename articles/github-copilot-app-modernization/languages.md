@@ -22,7 +22,7 @@ GitHub Copilot modernization can help you [upgrade the Java version](/java/upgra
 
 ### Upgrade the Java framework version
 
-GitHub Copilot modernization can help you [upgrade the framework version](/java/upgrade/framework-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your Java application, whether it's Spring, Spring Boot, or Java EE/Jakarta EE. The tool makes sure the JDK version is also upgraded to be compatible with the framework version, and verifies the changes with build fixes and CVE checks.
+GitHub Copilot modernization can help you [upgrade the framework version](/java/upgrade/quickstart-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your Java application, whether it's Spring, Spring Boot, or Java EE/Jakarta EE. The tool makes sure the JDK version is also upgraded to be compatible with the framework version, and verifies the changes with build fixes and CVE checks.
 
 ### Migrate Java apps to Azure
 

@@ -68,11 +68,12 @@ items:
               items:
               - name: "Quickstart: Upgrade a Java project"
                 href: quickstart-upgrade.md
-              - name: Upgrade a framework or third-party dependency
-                href: framework-upgrade.md
+              - name: "Quickstart: Generate unit tests"
+                href: quickstart-unit-tests.md
+              - name: Customize the upgrade plan
+                href: customize-upgrade-plan.md
               - name: Batch upgrade
                 href: modernization-agent/batch-upgrade.md
-  
             - name: Migrate Java projects to Azure
               expanded: false
               items:
