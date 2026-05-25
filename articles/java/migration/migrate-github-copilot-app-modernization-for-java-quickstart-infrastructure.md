@@ -34,15 +34,15 @@ Before deploying an application to Azure, you need the right cloud infrastructur
 
 Use the following steps to generate IaC files and provision Azure resources:
 
-1. In Visual Studio Code, open your project.
+1. Open your project in your IDE.
 
 1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane.
 
-1. In the **Tasks** section, select **Generate Infrastructure as Code and Provision**.
+1. In the **Tasks** section, Select **Generate Infrastructure as Code and Provision** and click **Run** button
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra.png" alt-text="Screenshot of Visual Studio Code that shows the Generate Infrastructure as Code and Provision task with the Run Task button highlighted.":::
 
-1. After you select the task, the Copilot chat window with Agent Mode opens automatically.
+1. After you click the button, the Copilot chat window with Agent Mode opens automatically.
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate infrastructure preparation. Each tool's usage requires confirmation by selecting **Continue**. Provide Copilot with the necessary information, such as subscription and resource group, as it prompts you.
 
@@ -55,7 +55,7 @@ Use the following steps to generate IaC files and provision Azure resources:
    - Creates a summary of the infrastructure provisioning results.
 
 > [!NOTE]
-> For the best results, use Claude Sonnet 4 or later models.
+> For the best results, use Claude Opus 4.5 or later models.
 >
 > The agent can also reference assessment reports, architecture diagrams, landing zone guidelines, or compliance and security requirement documents in the repository to inform infrastructure decisions.
 
