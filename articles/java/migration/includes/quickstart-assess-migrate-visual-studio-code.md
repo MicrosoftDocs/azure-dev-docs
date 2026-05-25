@@ -7,7 +7,7 @@ ms.collection: ce-skilling-ai-copilot
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account with an active [GitHub Copilot](https://github.com/features/copilot) subscription under any plan.
-- The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.106 or later.
+- The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.113 or later.
   - [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). For setup instructions, see [Set up GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup). Be sure to sign in to your GitHub account within Visual Studio Code.
   - [GitHub Copilot modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart Visual Studio Code after installation.
 - [Java 21](/java/openjdk/download) or later.

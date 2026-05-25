@@ -70,7 +70,8 @@ The form displays this setting when you select the **Java Upgrade** domain. Sele
 
 | Value              | Description                                               |
 |--------------------|-----------------------------------------------------------|
-| **OpenJDK 21**     | Best practices for migrating to OpenJDK 21. (Recommended) |
+| **OpenJDK 25**     | Best practices for migrating to OpenJDK 25. (Recommended) |
+| **OpenJDK 21**     | Best practices for migrating to OpenJDK 21.               |
 | **OpenJDK 17**     | Best practices for migrating to OpenJDK 17.               |
 | **OpenJDK 11**     | Best practices for migrating to OpenJDK 11.               |
 
@@ -120,11 +121,11 @@ The following examples describe some common configuration scenarios:
   - **Target Compute Services**: Select **Azure App Service**
   - **Target Operating System**: Select **Linux**
 
-- Example three: You want to modernize your apps to JDK 21 and want to understand what issues need to be fixed. Use the following configuration:
+- Example three: You want to modernize your apps to JDK 25 and want to understand what issues need to be fixed. Use the following configuration:
 
   - **Assessment Domains**: Select **Java Upgrade**
   - **Analysis Coverage**: Select **Issue only**
-  - **Target Runtime**: Select **OpenJDK 21**
+  - **Target Runtime**: Select **OpenJDK 25**
 
 After the tool completes the assessment, it generates a new report and adds it to the report list. The interactive dashboard opens automatically, providing comprehensive analysis results. After you configure multiple Azure service targets, you can easily switch between them to compare migration approaches and view service-specific recommendations.
 

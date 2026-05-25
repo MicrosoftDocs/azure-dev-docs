@@ -40,7 +40,7 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java-assess-rules.md
       - linkListType: quickstart
         links:
-          - text: Optimize chat results with the AppModernization agent
+          - text: Optimize chat results with the modernize agent
             url: migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md
           - text: Assess and migrate a Java project
             url: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md

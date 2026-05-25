@@ -32,7 +32,7 @@ Built on **GitHub Copilot agent mode**, GitHub Copilot modernization offers pred
 - **Build, patching, and tests**: Verifies that the project builds successfully after remediation, and applies fixes when needed. Performs Common Vulnerabilities and Exposures (CVE) checks to reduce exposure to security vulnerabilities. Migrates existing and generates new unit tests to validate modernization outcomes and improve test coverage.
 - **Containerization and deployment**: Generates Dockerfiles for app containerization and other artifacts to automate deployment to Azure.
 
-GitHub Copilot modernization integrates GitHub Copilot's AI-powered capabilities with open-source tools like `OpenRewrite` to automate complex upgrade steps. It supports both Maven and Gradle projects and targets upgrades between Java versions 8, 11, 17, and 21. The tool has a particular focus on modernizing applications that use the Spring Boot framework. The upgrade process keeps you in control and ensures transparency by displaying all logs and outputs.
+GitHub Copilot modernization integrates GitHub Copilot's AI-powered capabilities to automate complex upgrade steps. It supports both Maven and Gradle projects and targets upgrades between Java versions 8, 11, 17, 21, and 25. The tool has a particular focus on modernizing applications that use the Spring Boot framework. The upgrade process keeps you in control and ensures transparency by displaying all logs and outputs.
 
 Start your migration journey with **App Assessments** to get an overview of cloud readiness migration issues, including:
 

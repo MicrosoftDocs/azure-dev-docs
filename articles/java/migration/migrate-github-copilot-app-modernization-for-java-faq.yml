@@ -69,7 +69,7 @@ sections:
           - JDK 21
           - JDK 25
 
-          The minimum required JDK version for a project is JDK 8, and you can upgrade the project to use any version up to JDK 21.
+          The minimum required JDK version for a project is JDK 8, and you can upgrade the project to use any version up to JDK 25.
 
       - question: What types of Java projects are supported?
         answer: |
@@ -99,11 +99,11 @@ sections:
         answer: You can use the [AppCAT CLI](/azure/migrate/appcat/appcat-7-cli-guide?view=migrate-classic) to scan multiple projects at the same time by using the `-bulk` flag. However, we recommend that you only modernize one project or app at a time. You can create your own migration task based on code changes from one project and apply them to other projects, reducing repetitive work.
 
       - question: Which model should I use?
-        answer: As a general rule of thumb, newer models outperform previous models. For coding tasks, we recommend Claud Sonnet models for better accuracy. However to reduce cost, consider starting your exploration from models with a [lower multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers).
+        answer: As a general rule of thumb, newer models outperform previous models. For coding tasks, we recommend Claude Sonnet models for better accuracy. However to reduce cost, consider starting your exploration from models with a [lower multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers).
 
-      - question: How do I change the model used by the AppModernization custom agent?
+      - question: How do I change the model used by the `modernize` custom agent?
         answer: |
-          In Visual Studio Code, GitHub Copilot modernization uses the `AppModernization` custom agent with Claude Sonnet 4.5 by default for best results when updating Java code to migrate to Azure. It falls back to the 'auto' model if Sonnet 4.5 is not available to you. You can configure the custom agent to [modify the 'model' setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
+          In Visual Studio Code, GitHub Copilot modernization uses the `modernize` custom agent with Claude Sonnet 4.6 by default for best results when updating Java code to migrate to Azure. It falls back to the 'auto' model if Sonnet 4.6 is not available to you. You can configure the custom agent to [modify the 'model' setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
 
           :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/configure-custom-agents.png" alt-text="Screenshot of the GitHub Copilot chat pane in Visual Studio Code that shows the Configure Custom Agents option." lightbox="media/migrate-github-copilot-app-modernization-for-java/configure-custom-agents.png":::
 
@@ -129,7 +129,7 @@ sections:
 
           If you notice a special refresh button in the bottom-right corner of the GitHub Copilot Chat panel, it might indicate that tool updates are available. Select the button to automatically load the latest versions of the tools.
 
-          The GitHub Copilot modernization MCP server also maintains logs. To troubleshoot, check the log files located at: `%USERPROFILE%/.ghcp-appmod-java/logs`
+          The GitHub Copilot modernization MCP server also maintains logs. To troubleshoot, check the log files located at: `%USERPROFILE%\.ghcp-appmod\logs`
 
       - question: Why does GitHub Copilot modernization stop after listing a plan without making any code changes?
         answer: |
@@ -141,7 +141,7 @@ sections:
         answer: |
           To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation, you can use the following configuration as a workaround.
 
-          - For Visual Studio Code, you can select the dropdown arrow next to the **Continue** button and then select **Always Allow**, or update your Visual Studio Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools. We also recommend configuring `chat.agent.maxRequests` to `128` to reduce the number of steps that require confirmation to continue.
+          - For Visual Studio Code, you can select the dropdown arrow next to the **Continue** button and then select **Always Allow**, or update your Visual Studio Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools. We also recommend configuring `chat.agent.maxRequests` to `300` to reduce the number of steps that require confirmation to continue.
 
             :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png" alt-text="Screenshot of the GitHub Copilot chat pane that shows the Continue button and the drop-down menu with Allow options." lightbox="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png":::
 
@@ -170,7 +170,7 @@ sections:
 
       - question: Where are skills stored on the local machine and how can they be shared?
         answer: |
-          Predefined tasks are in the following location: `%USERPROFILE%.vscode\extensions\microsoft.migrate-java-to-azure-0.1.0\rag`
+          Predefined tasks are in the `kb` folder under the extension's installation directory. You can find it at `%USERPROFILE%\.vscode\extensions\` under a folder named `vscjava.migrate-java-to-azure-<version>`, where `<version>` reflects the installed version and platform, for example `vscjava.migrate-java-to-azure-1.18.0-win32-x64`.
 
           Custom skills are stored in the `.github/skills/` directory within your project. Legacy custom tasks are automatically migrated from `.github/appmod/custom-tasks/` and VS Code user data on first load.
 
