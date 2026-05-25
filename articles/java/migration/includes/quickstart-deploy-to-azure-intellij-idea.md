@@ -13,11 +13,11 @@ Use the following steps to start the deployment process:
 
 1. In the **Tasks** section, open **Java/Deployment Tasks** and select one of the following tasks:
 
-   - If you already have Azure infrastructure provisioned, select **Deploy to Existing Azure Infrastructure**.
+   - If you already have Azure infrastructure provisioned, select task **Deploy to Existing Azure Infrastructure** and click the **Run** button.
 
      :::image type="content" source="../media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure-intellij-idea-provision-only.png" lightbox="../media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure-intellij-idea-provision-only.png" alt-text="Screenshot of Visual Studio Code that shows the Deploy to existing Azure Infrastructure task with the Run Task button highlighted.":::
 
-   - If you don't have infrastructure yet, select **Provision Infrastructure and Deploy to Azure**.
+   - If you don't have infrastructure yet, select task **Provision Infrastructure and Deploy to Azure** and click the **Run** button.
 
      :::image type="content" source="../media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure-intellij-idea-e2e.png" lightbox="../media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure-intellij-idea-e2e.png" alt-text="Screenshot of Visual Studio Code that shows the Provision Infrastructure and Deploy to Azure task with the Run Task button highlighted.":::
 

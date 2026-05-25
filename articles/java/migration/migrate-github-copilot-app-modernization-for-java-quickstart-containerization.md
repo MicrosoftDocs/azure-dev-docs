@@ -40,15 +40,15 @@ Use the following steps to start the containerization process:
 
 1. Make sure you have Docker installed and running.
 
-1. In Visual Studio Code, open your migrated project.
+1. Open your project in IDE.
 
 1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane.
 
-1. In the **Tasks** section, open **Containerize Tasks** and select **Containerize Application**.
+1. In the **Tasks** section, open **Containerize Tasks**, select task **Containerize Application** and click the **Run** button.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the Containerize Application task with the Run Task button highlighted.":::
 
-1. After you select the task, the Copilot chat window with Agent Mode opens automatically.
+1. After you click the button, the Copilot chat window with Agent Mode opens automatically.
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate containerization. Each tool's usage requires confirmation by selecting **Continue**.
 
@@ -62,7 +62,7 @@ Use the following steps to start the containerization process:
    - Creates a summary of the containerization results.
 
 > [!NOTE]
-> We recommend using Claude Sonnet 4 or later models for the best results.
+> We recommend using Claude Opus 4.5 or later models for the best results.
 >
 > It might take Copilot a few iterations to correct containerization errors.
 
