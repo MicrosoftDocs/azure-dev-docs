@@ -10,6 +10,7 @@ ai-usage: ai-assisted
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
+zone_pivot_group_filename: developer/java/java-zone-pivot-groups.json
 zone_pivot_groups: ide-set-one
 ---
 
