@@ -406,15 +406,6 @@ The aggregated report provides a comprehensive view across assessed applications
 - **Migration Strategies**: recommends a migration approach per application — for example, **Replatform** for lift-and-reshape moves or **Rearchitect** for deeper refactoring — so each app gets a strategy matched to its readiness.
 - **Migration Waves**: sequences apps by readiness and risk into phases (for example, Wave 1 quick wins, Wave 2 core cloud, Wave 3 long-term bets). This approach enables early wins while harder apps are prepared in parallel.
 
-### Security findings
-
-When the **Security** domain is enabled, each per-app report for a **Java** application includes a dedicated security panel.
-
-- **CVE findings** for direct and transitive dependencies, grouped by severity (Critical, High, Medium, Low). Configure the minimum severity in the assessment configuration step.
-- **CWE findings** identified through ISO 5055-guided checks, with remediation guidance.
-
-The aggregated report surfaces a portfolio-level summary so you can see which applications carry the heaviest security debt.
-
 ### Application assessment matrix
 
 - Quick overview for each application on aspects of framework, target platform, upgrade recommendation, issue breakdown (Mandatory, Potential, Optional), effort sizing, and more. 
