@@ -178,34 +178,34 @@ After you configure your repositories and choose an execution mode, start the ba
 
 1. Select **Upgrade** from the main menu.
 
-```Modernize CLI
-○ How would you like to modernize your app?
+    ```Modernize CLI
+    ○ How would you like to modernize your app?
 
-    Assess
-    Analyze modernization readiness across one or multiple applications
-    Plan
-    Generate a structured plan to guide the agent
-    Execute
-    Run the tasks defined in the modernization plan
+        Assess
+        Analyze modernization readiness across one or multiple applications
+        Plan
+        Generate a structured plan to guide the agent
+        Execute
+        Run the tasks defined in the modernization plan
 
-  Or select a quick-start scenario:
+      Or select a quick-start scenario:
 
-  > Upgrade
-    Upgrade runtimes and frameworks across one or multiple applications
-```
+      > Upgrade
+        Upgrade runtimes and frameworks across one or multiple applications
+    ```
 
 1. Choose how to specify your target repositories. Select **From a config file** to use a `repos.json` file.
 
-```Modernize CLI
-○ Choose target repositories
+   ```Modernize CLI
+   ○ Choose target repositories
 
-    1. Current folder
-       /Users/username/project
-    2. Manual input
-       Enter local path or remote URL
-  > 3. From a config file
-       /path/to/.github/modernize/repos.json
-```
+      1. Current folder
+        /Users/username/project
+      2. Manual input
+        Enter local path or remote URL
+    > 3. From a config file
+        /path/to/.github/modernize/repos.json
+   ```
 
     > [!TIP]
     > You can also select **Manual input** to enter local paths or remote Git URLs directly, or **Current folder** to upgrade the project in your current directory.

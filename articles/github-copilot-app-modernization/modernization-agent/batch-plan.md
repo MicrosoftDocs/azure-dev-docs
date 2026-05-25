@@ -24,15 +24,15 @@ Batch plan provides the following benefits:
 
 - Consistency and control:
 
-		- **Shared intent**: Start from one modernization prompt across repositories.
-		- **Comparable outputs**: Review plans side by side before you execute them.
-		- **Flexible refinement**: Edit each generated plan to reflect repository-specific needs.
+  - **Shared intent**: Start from one modernization prompt across repositories.
+  - **Comparable outputs**: Review plans side by side before you execute them.
+  - **Flexible refinement**: Edit each generated plan to reflect repository-specific needs.
 
 - Planning at scale:
 
-		- **Portfolio visibility**: Understand how the same request applies across applications.
-		- **Reusable preparation**: Reuse the same repository list and assessment outputs from earlier stages.
-		- **Faster decision-making**: Generate plans first, then execute only the repositories you approve.
+  - **Portfolio visibility**: Understand how the same request applies across applications.
+  - **Reusable preparation**: Reuse the same repository list and assessment outputs from earlier stages.
+  - **Faster decision-making**: Generate plans first, then execute only the repositories you approve.
 
 ## Prerequisites
 
@@ -145,7 +145,7 @@ After you configure your repositories, start the batch planning workflow.
 
 1. All repositories are selected by default. Deselect any repositories you want to skip, and then press <kbd>Enter</kbd> to confirm your selection.
 
-		- **Use arrow keys** to navigate and press <kbd>Space</kbd> to toggle individual repositories.
+    - **Use arrow keys** to navigate and press <kbd>Space</kbd> to toggle individual repositories.
 
 1. Select **1. Keep the plan local** to generate plans on your machine, or choose **2. Submit to Cloud Coding Agent** to have a cloud coding agent generate them. Option 2 is experimental.
 
@@ -153,16 +153,16 @@ After you configure your repositories, start the batch planning workflow.
 
 1. Enter your modernization goal as a prompt. For example:
 
-		- `upgrade to Spring Boot 3 and prepare for Azure deployment`
-		- `migrate the database to Azure PostgreSQL`
-		- `containerize the application and deploy to Azure Container Apps`
+    - `upgrade to Spring Boot 3 and prepare for Azure deployment`
+    - `migrate the database to Azure PostgreSQL`
+    - `containerize the application and deploy to Azure Container Apps`
 
 1. Press <kbd>Enter</kbd> to generate the plans.
 
 1. The agent automatically:
 
-		- Clone each selected repository or submit a job to Cloud Coding Agent for each repo.
-		- Generates a plan for each repository locally or a PR with the plan in each repository.
+    - Clone each selected repository or submit a job to Cloud Coding Agent for each repo.
+    - Generates a plan for each repository locally or a PR with the plan in each repository.
 
 ## Next steps
 
