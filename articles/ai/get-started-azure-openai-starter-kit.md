@@ -1,13 +1,13 @@
 ---
 title: "Get started with Azure OpenAI and the Responses API"
 description: "Use the Azure OpenAI Starter Kit to deploy GPT-5-mini and run a hello world app with Microsoft Entra ID authentication."
-ms.date: 05/20/2026
+ms.date: 05/25/2026
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-python, keyless-python, devx-track-js, keyless-javascript, devx-track-dotnet, keyless-dotnet
+ms.custom: devx-track-python, keyless-python, devx-track-js, keyless-javascript, devx-track-dotnet, keyless-dotnet, devx-track-go, keyless-go, devx-track-extended-java, keyless-java
 ms.collection: ce-skilling-ai-copilot
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
-zone_pivot_groups: intelligent-apps-languages-python-dotnet-typescript
+zone_pivot_groups: intelligent-apps-languages
 # CustomerIntent: As an app developer, I want to deploy Azure OpenAI and call the Responses API from a small app using Microsoft Entra ID so that I can get my first AI app working quickly without API keys.
 ---
 
@@ -50,9 +50,22 @@ To complete this article, you need:
 
 :::zone-end
 
-:::zone pivot="typescript"
+:::zone pivot="javascript"
 
 - Node.js 18 or later.
+
+:::zone-end
+
+:::zone pivot="golang"
+
+- Go 1.25.1 or later.
+
+:::zone-end
+
+:::zone pivot="java"
+
+- Java 21 or later.
+- Maven 3.9 or later.
 
 :::zone-end
 
@@ -107,7 +120,7 @@ The hello world app uses your Azure sign-in to get a Microsoft Entra access toke
 
 ```bash
 export AZURE_OPENAI_ENDPOINT=$(azd env get-value AZURE_OPENAI_ENDPOINT)
-export AZURE_OPENAI_DEPLOYMENT=gpt-5-mini
+export AZURE_OPENAI_DEPLOYMENT=$(azd env get-value AZURE_OPENAI_GPT_DEPLOYMENT_NAME)
 export AZURE_TENANT_ID=$(az account show --query tenantId -o tsv)
 ```
 
@@ -115,14 +128,14 @@ export AZURE_TENANT_ID=$(az account show --query tenantId -o tsv)
 
 ```powershell
 $env:AZURE_OPENAI_ENDPOINT = azd env get-value AZURE_OPENAI_ENDPOINT
-$env:AZURE_OPENAI_DEPLOYMENT = "gpt-5-mini"
+$env:AZURE_OPENAI_DEPLOYMENT = azd env get-value AZURE_OPENAI_GPT_DEPLOYMENT_NAME
 $env:AZURE_TENANT_ID = az account show --query tenantId -o tsv
 ```
 
 ---
 
 > [!TIP]
-> Azure OpenAI uses deployment names in API calls. This starter kit deploys GPT-5-mini with the deployment name `gpt-5-mini`. If you change the deployment name in the template, set `AZURE_OPENAI_DEPLOYMENT` to your deployment name.
+> Azure OpenAI uses deployment names in API calls. The starter kit outputs the GPT-5-mini deployment name as `AZURE_OPENAI_GPT_DEPLOYMENT_NAME`. This article maps that value to `AZURE_OPENAI_DEPLOYMENT` so the code is the same across languages.
 
 ## Create and run the hello world app
 
@@ -218,7 +231,7 @@ dotnet run hello_world_entra.cs
 
 :::zone-end
 
-:::zone pivot="typescript"
+:::zone pivot="javascript"
 
 Create a file named `hello_world_entra.ts` in the `src/typescript` folder.
 
@@ -262,7 +275,172 @@ npx tsx hello_world_entra.ts
 
 :::zone-end
 
-The output should be a short response from the deployed Azure OpenAI model.
+:::zone pivot="golang"
+
+Create a file named `hello_world_entra.go` in the `src/go/responses_example_entra` folder.
+
+```go
+package main
+
+import (
+  "context"
+  "fmt"
+  "log"
+  "net/http"
+  "os"
+  "strings"
+
+  "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+  "github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
+  "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+  "github.com/openai/openai-go/v3"
+  "github.com/openai/openai-go/v3/option"
+  "github.com/openai/openai-go/v3/responses"
+)
+
+type policyAdapter option.MiddlewareNext
+
+func (adapter policyAdapter) Do(req *policy.Request) (*http.Response, error) {
+  return (option.MiddlewareNext)(adapter)(req.Raw())
+}
+
+func newClient(endpoint string) openai.Client {
+  const scope = "https://cognitiveservices.azure.com/.default"
+
+  credential, err := azidentity.NewDefaultAzureCredential(nil)
+  if err != nil {
+    log.Fatalf("Failed to create DefaultAzureCredential: %s", err)
+  }
+
+  bearerTokenPolicy := runtime.NewBearerTokenPolicy(
+    credential,
+    []string{scope},
+    nil,
+  )
+
+  return openai.NewClient(
+    option.WithBaseURL(strings.TrimRight(endpoint, "/")+"/openai/v1/"),
+    option.WithMiddleware(func(req *http.Request, next option.MiddlewareNext) (*http.Response, error) {
+      pipeline := runtime.NewPipeline(
+        "aoai-hello-world",
+        "",
+        runtime.PipelineOptions{},
+        &policy.ClientOptions{
+          PerRetryPolicies: []policy.Policy{
+            bearerTokenPolicy,
+            policyAdapter(next),
+          },
+        },
+      )
+
+      pipelineRequest, err := runtime.NewRequestFromRequest(req)
+      if err != nil {
+        return nil, err
+      }
+
+      return pipeline.Do(pipelineRequest)
+    }),
+  )
+}
+
+func main() {
+  endpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
+  if endpoint == "" {
+    log.Fatal("Set AZURE_OPENAI_ENDPOINT.")
+  }
+
+  deployment := os.Getenv("AZURE_OPENAI_DEPLOYMENT")
+  if deployment == "" {
+    deployment = "gpt-5-mini"
+  }
+
+  client := newClient(endpoint)
+
+  response, err := client.Responses.New(context.Background(), responses.ResponseNewParams{
+    Model: deployment,
+    Input: responses.ResponseNewParamsInputUnion{
+      OfString: openai.String("Say hello from Azure OpenAI in one sentence."),
+    },
+    MaxOutputTokens: openai.Int(300),
+  })
+  if err != nil {
+    log.Fatalf("Failed to create response: %s", err)
+  }
+
+  fmt.Println(response.OutputText())
+}
+```
+
+Run the app.
+
+```bash
+cd src/go/responses_example_entra
+go run hello_world_entra.go
+```
+
+:::zone-end
+
+:::zone pivot="java"
+
+Create a file named `HelloWorldEntra.java` in the `src/java/src/main/java/com/azure/openai/starter` folder.
+
+```java
+package com.azure.openai.starter;
+
+import com.azure.identity.AuthenticationUtil;
+import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.openai.client.OpenAIClient;
+import com.openai.client.okhttp.OpenAIOkHttpClient;
+import com.openai.credential.BearerTokenCredential;
+import com.openai.models.responses.Response;
+import com.openai.models.responses.ResponseCreateParams;
+
+import java.util.function.Supplier;
+
+public class HelloWorldEntra {
+
+    public static void main(String[] args) {
+        String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
+        if (endpoint == null || endpoint.isBlank()) {
+            throw new IllegalStateException("Set AZURE_OPENAI_ENDPOINT.");
+        }
+
+        String deployment = System.getenv().getOrDefault(
+                "AZURE_OPENAI_DEPLOYMENT",
+                "gpt-5-mini");
+
+        Supplier<String> bearerTokenSupplier = AuthenticationUtil.getBearerTokenSupplier(
+                new DefaultAzureCredentialBuilder().build(),
+                "https://cognitiveservices.azure.com/.default");
+
+        OpenAIClient client = OpenAIOkHttpClient.builder()
+                .baseUrl(endpoint.replaceAll("/+$", "") + "/openai/v1/")
+                .credential(BearerTokenCredential.create(bearerTokenSupplier))
+                .build();
+
+        Response response = client.responses().create(
+                ResponseCreateParams.builder()
+                        .model(deployment)
+                        .input(ResponseCreateParams.Input.ofText(
+                                "Say hello from Azure OpenAI in one sentence."))
+                        .maxOutputTokens(300)
+                        .build());
+
+        System.out.println(response.output());
+    }
+}
+```
+
+Run the app.
+
+```bash
+cd src/java
+mvn compile exec:java -Dexec.mainClass="com.azure.openai.starter.HelloWorldEntra"
+```
+
+:::zone-end
+
+The exact output format varies by SDK. You should see output from the deployed Azure OpenAI model that includes a short greeting.
 
 ```output
 Hello from Azure OpenAI! I'm running on your Azure OpenAI deployment and ready to help.
@@ -288,9 +466,21 @@ The C# app uses the `OpenAI` package with `Azure.Identity`. The `BearerTokenPoli
 
 :::zone-end
 
-:::zone pivot="typescript"
+:::zone pivot="javascript"
 
 The TypeScript app uses the `openai` package with `@azure/identity`. The `getBearerTokenProvider` helper creates a token provider that the OpenAI client can use as its credential.
+
+:::zone-end
+
+:::zone pivot="golang"
+
+The Go app uses `azidentity.NewDefaultAzureCredential` with an Azure Core bearer token policy. The policy is added to the OpenAI client as middleware so requests use Microsoft Entra ID tokens.
+
+:::zone-end
+
+:::zone pivot="java"
+
+The Java app uses `DefaultAzureCredentialBuilder` with `AuthenticationUtil.getBearerTokenSupplier`. The token supplier is passed to the OpenAI client by using `BearerTokenCredential`.
 
 :::zone-end
 
@@ -314,10 +504,26 @@ dotnet run responses_example_entra.cs
 
 :::zone-end
 
-:::zone pivot="typescript"
+:::zone pivot="javascript"
 
 ```bash
 npx tsx responses_example_entra.ts
+```
+
+:::zone-end
+
+:::zone pivot="golang"
+
+```bash
+go run main.go
+```
+
+:::zone-end
+
+:::zone pivot="java"
+
+```bash
+mvn compile exec:java -Dexec.mainClass="com.azure.openai.starter.ResponsesExampleEntra"
 ```
 
 :::zone-end
@@ -332,6 +538,8 @@ npx tsx responses_example_entra.ts
 | `DefaultAzureCredential failed to retrieve a token`. | Confirm that Azure CLI is installed and authenticated with `az account show`. If you use multiple tenants, sign in to the correct tenant with `az login --tenant <tenant-id>`. |
 | The app returns `model not found` or `deployment not found`. | Confirm that `AZURE_OPENAI_DEPLOYMENT` matches the Azure OpenAI deployment name. The starter kit default is `gpt-5-mini`. |
 | The .NET app doesn't recognize package directives. | Install the .NET SDK version required by the starter kit. File-based C# apps with `#:package` require a recent .NET SDK. |
+| The Go app can't find the module or dependencies. | Run the Go commands from `src/go/responses_example_entra`. Confirm that Go 1.25.1 or later is installed. |
+| The Java app fails with a source or target version error. | Confirm that Java 21 or later is installed and selected by your terminal. |
 | You need detailed deployment logs. | Run `azd up --debug`. |
 
 You can inspect the current Azure Developer CLI environment values with:
@@ -371,12 +579,12 @@ The following questions are for this first-pass draft and should be removed befo
 
 - What is the preferred setup path for docs readers: `git clone`, `azd init -t azure-openai-starter`, GitHub Codespaces, or another entry point?
 - Which RBAC role does `azd up` assign to the signed-in user: `Cognitive Services OpenAI User`, `Cognitive Services User`, or another role?
-- What deployment-name variable should the docs use: hardcoded `gpt-5-mini`, `AZURE_OPENAI_GPT_DEPLOYMENT_NAME`, `AZURE_OPENAI_CHAT_DEPLOYMENT`, or a new doc-level `AZURE_OPENAI_DEPLOYMENT` variable?
-- Does setting `AZURE_TENANT_ID` affect all three language samples when they use `DefaultAzureCredential`, or should the samples pass tenant options explicitly?
-- Which exact runtime versions should the article list for Python, Node.js, and .NET?
+- Should the article expose the repo's `AZURE_OPENAI_GPT_DEPLOYMENT_NAME` variable directly in each sample, or keep mapping it to the simpler doc-level `AZURE_OPENAI_DEPLOYMENT` variable?
+- Does setting `AZURE_TENANT_ID` affect all five language samples when they use `DefaultAzureCredential`, or should the samples pass tenant options explicitly?
+- Which exact runtime versions should the article list for Python, Node.js, .NET, Go, and Java?
+- Should the TypeScript content use the `javascript` pivot from `intelligent-apps-languages`, or should a new Learn pivot group be created for TypeScript, Java, and Go together?
 - Should the article include API key authentication as an alternative path, or should this getting-started article stay keyless only?
 - If GPT-5-mini isn't available in a selected region, what region should the article recommend first?
 - Should the .NET sample continue to use file-based C# apps with `#:package`, or should docs use a conventional `dotnet new console` flow?
-- Should Go and Java be included in a later version of this article since the starter kit includes those examples?
 - Should cleanup use `azd down --purge` or plain `azd down` for the official guidance?
 - Should the article mention the starter kit's validation scripts, `validate.sh` and `validate.ps1`, in the happy path or only in troubleshooting?
