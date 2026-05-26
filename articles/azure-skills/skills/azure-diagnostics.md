@@ -2,11 +2,11 @@
 title: Azure skill for diagnostics
 description: Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 5/26/2026
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.4
+ms.custom: skill-version-1.1.6
 ---
 
 # Azure skill for diagnostics
