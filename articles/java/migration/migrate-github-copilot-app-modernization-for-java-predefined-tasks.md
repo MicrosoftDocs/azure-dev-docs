@@ -101,7 +101,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   Informix-based Java applications can be modernized by moving to Azure Database for PostgreSQL. This task replaces the Informix JDBC driver and dependencies with PostgreSQL ones, enables passwordless connections through Microsoft Entra ID and managed identity (using `spring-cloud-azure-starter-jdbc-postgresql` for Spring Boot or `azure-identity-extensions` for other Java projects), and converts Informix-specific SQL syntax, data types, and proprietary functions into their PostgreSQL equivalents.
 
-- Sybase ASE to Azure SQL Database
+- Sybase Adaptive Server Enterprise (ASE) to Azure SQL Database
 
   Java applications running on Sybase Adaptive Server Enterprise can be migrated to Azure SQL Database for a fully managed cloud experience. This task replaces Sybase-specific drivers (such as `jconn3.jar` and `jconn4.jar`) and dependencies with the Microsoft JDBC driver, configures passwordless authentication using a user-assigned managed identity, inspects `.sql` files and Java code for Sybase ASE syntax, and updates the code to modern T-SQL idioms - including `TRY`/`CATCH` error handling, `EXEC` for system stored procedures, and `DATETIME2`-style data types.
 
@@ -127,7 +127,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Cache solutions to Azure Managed Redis
 
-  Legacy Java caching libraries - including Apache Commons JCS, DynaCache, JCache, OSCache, ShiftOne, Oracle Coherence, and embedded caches - don't integrate natively with Azure and lack centralized scaling and security. This task replaces the old caching library dependencies and API calls with Redis equivalents, and configures the application to connect to Azure Managed Redis (or the retiring Azure Cache for Redis) using passwordless Microsoft Entra ID authentication. It covers Spring Boot applications through the Spring Cloud Azure starters, and non-Spring applications through Jedis or Lettuce with `DefaultAzureCredential`-based token refresh.
+  Legacy Java caching libraries - including Apache Commons Java Caching System (JCS), DynaCache, JCache, OSCache, ShiftOne, Oracle Coherence, and embedded caches - don't integrate natively with Azure and lack centralized scaling and security. This task replaces the old caching library dependencies and API calls with Redis equivalents, and configures the application to connect to Azure Managed Redis (or the retiring Azure Cache for Redis) using passwordless Microsoft Entra ID authentication. It covers Spring Boot applications through the Spring Cloud Azure starters, and non-Spring applications through Jedis or Lettuce with `DefaultAzureCredential`-based token refresh.
 
 - Apache Kafka to Azure Event Hubs
 
