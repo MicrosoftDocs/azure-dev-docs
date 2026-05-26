@@ -74,7 +74,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
   - Blob version deletion edge cases.
   - SAS token generation with token-based authentication.
 
-  These are areas where S3 and Azure Blob Storage diverge in ways that aren't obvious from API signatures alone.
+  These enhancements address areas where S3 and Azure Blob Storage diverge in ways that aren't obvious from API signatures alone.
 
 - Migrate to Azure Key Vault for managing secrets, certificates, and cryptography operations
 
