@@ -64,7 +64,7 @@ items:
             - name: Upgrade Java projects
               expanded: false
               items:
-              - name: Quickstart: Upgrade a Java Project
+              - name: "Quickstart: Upgrade a Java project"
                 href: quickstart-upgrade.md
               - name: Upgrade a framework or third-party dependency
                 href: framework-upgrade.md
