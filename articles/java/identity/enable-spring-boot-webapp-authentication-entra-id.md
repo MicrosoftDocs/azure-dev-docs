@@ -67,7 +67,7 @@ To register the app, use the following steps:
 1. In the **Register an application page** that appears, enter the following application registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth`.
-   - Under **Supported account types**, select **Single tenant only - TENANT_NAME**.
+   - Under **Supported account types**, select **Single tenant only - TENANT_NAME** (`TENANT_NAME` varies per tenant).
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 
 1. Select **Register** to create the application.
