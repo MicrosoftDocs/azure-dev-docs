@@ -37,9 +37,9 @@ The following video demonstrates using GitHub Copilot modernization to apply a p
 
 GitHub Copilot modernization currently supports the following predefined tasks:
 
-- Spring RabbitMQ to Azure Service Bus
+- RabbitMQ to Azure Service Bus
 
-  This task converts an application that uses Spring messaging frameworks - including Spring Advanced Message Queuing Protocol (AMQP) and Spring Java Message Service (JMS) - with RabbitMQ, changing it to use the managed service Azure Service Bus instead. The same task also covers Java EE and Jakarta EE applications that talk to RabbitMQ over AMQP. The message queue interaction logic is adapted to the Azure Service Bus equivalent, preserving the messaging patterns and semantics while enabling secure authentication mechanisms by default.
+  These tasks converts Java applications that use RabbitMQ - through Spring AMQP, Spring JMS, or Java EE / Jakarta EE over AMQP - to use the managed service Azure Service Bus instead, preserving the messaging patterns and semantics while enabling secure authentication by default.
 
 - Managed Identities for Database migration to Azure
 
@@ -79,9 +79,9 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   Java applications often use LDAP-based authentication solutions that aren't easily migrated to Azure. This task helps you transition your local user authentication mechanism to one that uses Microsoft Entra ID for authentication.
 
-- SQL database migrations to Azure
+- Third-party SQL databases to Azure
 
-  Java applications running on on-premises or third-party SQL databases - including Oracle, IBM Db2, Informix, and Sybase Adaptive Server Enterprise (ASE) - can be migrated to Azure Database for PostgreSQL or Azure SQL Database for a fully managed cloud experience. This task updates the application so it connects to the target Azure database with passwordless Microsoft Entra ID authentication and reconciles source-specific SQL syntax, data types, and functions with the target dialect, so the application keeps the same behavior on Azure.
+  Java applications running on on-premises or third-party SQL databases - including Oracle, IBM Db2, Informix, and Sybase Adaptive Server Enterprise (ASE) - can be migrated to Azure Database for PostgreSQL or Azure SQL Database for a fully managed cloud experience. These tasks update the application so it connects to the target Azure database with passwordless Microsoft Entra ID authentication and reconcile source-specific SQL syntax, data types, and functions with the target dialect, so the application keeps the same behavior on Azure.
 
 - AWS Secret Manager to Azure Key Vault
 
@@ -97,7 +97,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Build system migration to Maven
 
-  Java projects built with Apache Ant or as Eclipse IDE projects depend on imperative scripts or IDE-specific metadata, which complicate dependency management and make automated, headless builds difficult. This task converts your Ant or Eclipse project to a Maven project that builds consistently from any environment, with dependencies resolved through Maven and the project layout aligned with Maven conventions, while preserving your source code unchanged.
+  Java projects built with Apache Ant or as Eclipse IDE projects depend on imperative scripts or IDE-specific metadata, which complicate dependency management and make automated, headless builds difficult. These tasks convert your Ant or Eclipse project to a Maven project that builds consistently from any environment, with dependencies resolved through Maven and the project layout aligned with Maven conventions, while preserving your source code unchanged.
 
 - Cache solutions to Azure Managed Redis
 
