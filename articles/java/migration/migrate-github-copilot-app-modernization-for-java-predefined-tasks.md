@@ -79,7 +79,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   Java applications often use LDAP-based authentication solutions that aren't easily migrated to Azure. This task helps you transition your local user authentication mechanism to one that uses Microsoft Entra ID for authentication.
 
-- Non-Microsoft SQL databases to Azure
+- Databases products to Azure database offerings
 
   Java applications running on on-premises or non-Microsoft SQL databases - including Oracle, IBM Db2, Informix, and Sybase Adaptive Server Enterprise (ASE) - can be migrated to Azure Database for PostgreSQL or Azure SQL Database for a fully managed cloud experience. These tasks update the application so it connects to the target Azure database with passwordless Microsoft Entra ID authentication and reconcile source-specific SQL syntax, data types, and functions with the target dialect, so the application keeps the same behavior on Azure.
 
