@@ -39,7 +39,12 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Other databases to Azure databases
 
-  When you transition between database engines, differences in SQL dialects, stored procedures, proprietary functions, and data types can pose significant challenges. This task converts engine-specific SQL and data access code in your Java application to the equivalents on Azure databases, ensuring seamless integration with Azure SQL Database or Azure Database for PostgreSQL. Supported source-to-target combinations include Oracle to Azure Database for PostgreSQL, IBM DB2 to Azure SQL Database or Azure Database for PostgreSQL, Informix to Azure Database for PostgreSQL, and Sybase ASE to Azure SQL Database.
+  When you transition between database engines, differences in SQL dialects, stored procedures, proprietary functions, and data types can pose significant challenges. This task converts engine-specific SQL and data access code in your Java application to the equivalents on Azure databases, ensuring seamless integration with Azure SQL Database or Azure Database for PostgreSQL. Supported source-to-target combinations include:
+
+  - Oracle to Azure Database for PostgreSQL.
+  - IBM DB2 to Azure SQL Database or Azure Database for PostgreSQL.
+  - Informix to Azure Database for PostgreSQL.
+  - Sybase ASE to Azure SQL Database.
 
 - Other cache solutions to Azure Managed Redis
 
@@ -47,7 +52,12 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Other messaging solutions to Azure Service Bus
 
-  Applications built on other messaging systems can be modernized to use Azure's managed messaging service. This task converts message producers, consumers, connection factories, and queue/topic interactions to their Azure Service Bus equivalents, preserving critical messaging semantics like at-least-once delivery, message batching, and visibility timeout behaviors while implementing best practices for reliability and secure authentication in cloud environments. Supported sources include Spring messaging frameworks with RabbitMQ (Spring AMQP and Spring JMS), Apache ActiveMQ, Java EE AMQP with RabbitMQ, and AWS Simple Queue Service (SQS).
+  Applications built on other messaging systems can be modernized to use Azure's managed messaging service. This task converts message producers, consumers, connection factories, and queue or topic interactions to their Azure Service Bus equivalents. It preserves critical messaging semantics like at-least-once delivery, message batching, and visibility timeout behaviors. It also implements best practices for reliability and secure authentication in cloud environments. Supported sources include:
+
+  - Spring messaging frameworks with RabbitMQ (Spring AMQP and Spring JMS).
+  - Apache ActiveMQ.
+  - Java EE AMQP with RabbitMQ.
+  - AWS Simple Queue Service (SQS).
 
 - Apache Kafka to Azure Event Hubs
 
@@ -57,15 +67,29 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   When you migrate your service from AWS to Azure, you can transition from AWS S3 to Azure Storage Blob. This task helps you convert the code logic that interacts with AWS S3 into code logic that operates with Azure Storage Blob, while maintaining the same semantics.
 
-  This migration knowledge was developed in collaboration with the Azure Storage team, leveraging their deep expertise in Blob Storage APIs, authentication patterns, and platform-specific behaviors to ensure the guidance reflects production-grade best practices. Key enhancements include behavioral-fidelity rules that prevent silent data loss during conversion, correct handling of immutability/Object Lock semantics, blob version deletion edge cases, and SAS token generation with token-based authentication — areas where S3 and Azure Blob Storage diverge in ways that are not obvious from API signatures alone.
+  This migration knowledge was developed in collaboration with the Azure Storage team. It uses their deep expertise in Blob Storage APIs, authentication patterns, and platform-specific behaviors to ensure the guidance reflects production-grade best practices. Key enhancements include:
+
+  - Behavioral-fidelity rules that prevent silent data loss during conversion.
+  - Correct handling of immutability and Object Lock semantics.
+  - Blob version deletion edge cases.
+  - SAS token generation with token-based authentication.
+
+  These are areas where S3 and Azure Blob Storage diverge in ways that aren't obvious from API signatures alone.
 
 - Migrate to Azure Key Vault for managing secrets, certificates, and cryptography operations
 
-  This task helps you migrate sensitive security assets and operations to Azure Key Vault. It supports hardcoded plaintext credentials and secrets in your codebase, local TLS/mTLS certificates managed in Java KeyStores, secrets stored in AWS Secrets Manager, and cryptographic operations performed locally. For secrets, it identifies suspicious secret texts and converts them into logic that retrieves the data from Azure Key Vault. For certificates, it transitions your application from managing certificates locally to using Azure Key Vault's Java Cryptography Architecture (JCA) provider. For AWS Secrets Manager, it transforms all aspects of secret management—from creation and retrieval to updating and deletion—using Azure Key Vault's comprehensive security capabilities and authentication models. For cryptography, it centralizes key management by using Azure Key Vault's cryptographic services, improving the security posture of your Java application while maintaining the same functionality.
+  This task helps you migrate sensitive security assets and operations to Azure Key Vault. It supports:
+
+  - Hardcoded plaintext credentials and secrets in your codebase.
+  - Local TLS or mTLS certificates managed in Java KeyStores.
+  - Secrets stored in AWS Secrets Manager.
+  - Cryptographic operations performed locally.
+
+  For secrets, it identifies suspicious secret texts and converts them into logic that retrieves the data from Azure Key Vault. For certificates, it transitions your application from managing certificates locally to using Azure Key Vault's Java Cryptography Architecture (JCA) provider. For AWS Secrets Manager, it transforms all aspects of secret management—from creation and retrieval to updating and deletion—using Azure Key Vault's comprehensive security capabilities and authentication models. For cryptography, it centralizes key management by using Azure Key Vault's cryptographic services, improving the security posture of your Java application while maintaining the same functionality.
 
 - Local file I/O to Azure Storage File share mounts
 
-  Azure hosting services offer flexibility in provisioning, scaling, failover, and more. At the same time, the file system for a given application runtime is transient. If your application reads from or writes to a local file, this task helps you identify such cases and convert them into unified mount path access. By doing so, you can mount an Azure Storage File share to the specified path, enabling your application to share and persist data across different replicas without concerns about relocation, failover, or similar issues.
+  Azure hosting services offer flexibility in provisioning, scaling, failover, and more. At the same time, the file system for a given application runtime is transient. If your application reads from or writes to a local file, this task helps you identify such cases. It then converts them to use a unified mount path. By doing so, you can mount an Azure Storage File share to the specified path, enabling your application to share and persist data across different replicas without concerns about relocation, failover, or similar issues.
 
 - User authentication to Microsoft Entra ID authentication
 
@@ -73,7 +97,17 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Use passwordless connections for Azure services
 
-  Authentication using connection strings or database passwords introduces security vulnerabilities and maintenance overhead. This task transforms your Java applications to use Azure's Managed Identity authentication, eliminating the need to store sensitive connection strings, shared access signatures, or database credentials in configuration files. Supported services include Azure SQL Server, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure Cosmos DB for Cassandra API, Azure Cosmos DB for MongoDB, Azure Event Hubs, Azure Service Bus, and Azure Cache for Redis (including Micronaut applications).
+  Authentication using connection strings or database passwords introduces security vulnerabilities and maintenance overhead. This task transforms your Java applications to use Azure's Managed Identity authentication, eliminating the need to store sensitive connection strings, shared access signatures, or database credentials in configuration files. Supported services include:
+
+  - Azure SQL Server
+  - Azure Database for MySQL
+  - Azure Database for PostgreSQL
+  - Azure Database for MariaDB
+  - Azure Cosmos DB for Cassandra API
+  - Azure Cosmos DB for MongoDB
+  - Azure Event Hubs
+  - Azure Service Bus
+  - Azure Cache for Redis, including Micronaut applications
 
 - Ant or Eclipse project to Maven project
 
