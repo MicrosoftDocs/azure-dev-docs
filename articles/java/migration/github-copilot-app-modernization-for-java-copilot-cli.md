@@ -1,12 +1,12 @@
 ---
 title: Modernize Java Apps by Using GitHub Copilot Modernization in the Copilot CLI
 titleSuffix: Azure
-description: Provides an overview of how Java developers can modernize applications by using GitHub Copilot modernization in the Copilot CLI.
+description: Provides an overview of how Java developers can modernize applications by using the GitHub Copilot modernization plugin in Copilot CLI.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: overview
-ms.date: 01/13/2026
+ms.date: 05/22/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
@@ -15,7 +15,7 @@ ms.update-cycle: 180-days
 
 # Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI
 
-This article provides an overview of how Java developers can modernize their applications by using GitHub Copilot modernization within the [Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli). With this approach, developers can modernize applications wherever they code. Copilot CLI delivers a seamless, end-to-end experience - from upgrade and migration to deployment - helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms. It's currently in public preview - give it a try and let us know if you have any [feedback](https://aka.ms/ghcp-appmod/feedback).
+This article provides an overview of how Java developers can modernize their applications by using the **GitHub Copilot modernization** plugin in [Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli). With this approach, developers can modernize applications wherever they code. The plugin delivers a seamless, end-to-end experience — from upgrade and migration to deployment — helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms. It's currently in public preview - give it a try and let us know if you have any [feedback](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml).
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" alt-text="Screenshot of the GitHub Copilot CLI that shows a GitHub Copilot modernization prompt.":::
 
