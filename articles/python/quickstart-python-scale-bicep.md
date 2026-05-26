@@ -10,7 +10,7 @@ ms.custom: devx-track-python, devx-track-bicep, devx-track-extended-azdevcli
 
 The [Python web `azd` templates](./overview-azd-templates.md) allow you to quickly create a new web application and deploy it to Azure. The `azd` templates were designed to use low-cost Azure service options. Undoubtedly, you'll want to adjust the service levels (or skus) for each of the services defined in the template for your scenario.
 
-In this Quickstart, you'll update the appropriate bicep template files to scale up existing services and add new services to your deployment. Then, you'll run the `azd provision` command and view the change you made to the Azure deployment.
+In this Quickstart, you'll update the appropriate bicep template files to scale up existing services. Then, you'll run the `azd provision` command and view the change you made to the Azure deployment.
 
 ## Prerequisites
 
@@ -50,12 +50,12 @@ To begin, you need a working `azd` deployment. Once you have that in place, you'
 
 ## Scale a service by modifying its Bicep properties
 
-You can scale an existing resource in your deployment by changing its SKU. To demonstrate this, you'll change the App Service plan from the "Basic Service plan" (which is designed for apps with lower traffic requirements and don't need advanced auto scale and traffic management features) to the "Standard Service plan", which is designed for running production workloads.
+You can scale an existing resource in your deployment by changing its SKU. To demonstrate this, you'll change the App Service plan from the "Basic Service plan" (which is designed for apps with lower traffic requirements and don't need advanced autoscale and traffic management features) to the "Standard Service plan", which is designed for running production workloads.
 
 > [!NOTE]
 > Not all SKU changes can be made after the fact. Some research may be necessary to better understand your scaling options.
 
-1. Open the *web.bicep* file and locate the `appService` module definition. In particular, look for the property setting:
+1. Open the *web.bicep* file and locate the `appServicePlan` module definition. In particular, look for the property setting:
 
    ```bicep
       sku: {
