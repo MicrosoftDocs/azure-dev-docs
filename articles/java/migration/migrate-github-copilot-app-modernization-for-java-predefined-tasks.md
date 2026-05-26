@@ -97,7 +97,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Ant / Eclipse project to Maven project
 
-  Java projects built with Apache Ant or as Eclipse IDE projects depend on imperative scripts or IDE-specific metadata, which complicate dependency management and make automated, headless builds difficult. These tasks convert your Ant or Eclipse project to a Maven project that builds consistently from any environment, with dependencies resolved through Maven and the project layout aligned with Maven conventions, while preserving your source code unchanged.
+  Java projects built with Apache Ant or as Eclipse IDE projects depend on imperative scripts or IDE-specific metadata, which complicates the dependency management and makes automated, headless builds difficult. These tasks convert your Ant or Eclipse project to a Maven project that builds consistently from any environment, with dependencies resolved through Maven and the project layout aligned with Maven conventions, while keeping your source code unchanged.
 
 - Cache solutions to Azure Managed Redis
 
