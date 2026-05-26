@@ -9,7 +9,7 @@ ms.custom: devx-track-python, keyless-python, devx-track-js, keyless-javascript,
 ms.collection: ce-skilling-ai-copilot
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
 zone_pivot_groups: intelligent-apps-languages
-# CustomerIntent: As an Azure OpenAI app developer, I want to upgrade an existing Chat Completions integration to the Responses API so that my app can use the newer API shape, reasoning improvements, and future model capabilities.
+## CustomerIntent: As an Azure OpenAI app developer, I want to upgrade an existing Chat Completions integration to the Responses API so that my app can use the newer API shape, reasoning improvements, and future model capabilities.
 ---
 
 # Upgrade your Azure OpenAI app from Chat Completions to the Responses API
@@ -171,7 +171,22 @@ $env:AZURE_TENANT_ID = az account show --query tenantId -o tsv
 
 ## Update the generation call
 
-Use the following examples to identify the part of your existing app that changes when you move from Chat Completions to the Responses API.
+This section shows the exact part of your app that usually changes during the migration. You're working with two code locations:
+
+- Your existing app, where you search for the current Chat Completions call.
+- The starter kit reference file, where you can see a working Responses API call for the language you selected.
+
+Open the starter kit reference file for your language, then compare it with the file in your app that currently sends model requests.
+
+| Language | In your app, look for | Starter kit reference file |
+| --- | --- | --- |
+| Python | `client.chat.completions.create` | `src/python/responses_example_entra.py` |
+| C# | `GetChatClient` or `CompleteChatAsync` | `src/dotnet/responses_example_entra.cs` |
+| TypeScript | `client.chat.completions.create` | `src/typescript/responses_example_entra.ts` |
+| Go | `client.Chat.Completions.New` or another Chat Completions SDK call | `src/go/responses_example_entra/main.go` |
+| Java | `client.chat().completions().create` or another Chat Completions SDK call | `src/java/src/main/java/com/azure/openai/starter/ResponsesExampleEntra.java` |
+
+The first snippet in each language shows the old Chat Completions shape you might find in your app. The second snippet shows the Responses API shape to use instead.
 
 :::zone pivot="python"
 
@@ -266,30 +281,30 @@ The full starter kit sample also shows Microsoft Entra ID authentication by usin
 
 :::zone pivot="golang"
 
-In Go, the starter kit uses the OpenAI Go SDK with Azure Identity middleware. After your OpenAI client is configured for the Azure OpenAI endpoint and Microsoft Entra ID authentication, the Responses API call is:
+Open `src/go/responses_example_entra/main.go` in the starter kit. The file contains the complete Microsoft Entra ID client setup, including Azure Identity middleware. After your OpenAI client is configured for the Azure OpenAI endpoint and Microsoft Entra ID authentication, replace your existing Chat Completions call with this Responses API call pattern:
 
 ```go
 response, err := client.Responses.New(context.Background(), responses.ResponseNewParams{
-	Model: deployment,
-	Input: responses.ResponseNewParamsInputUnion{
-		OfString: openai.String("Say hello from Azure OpenAI."),
-	},
-	MaxOutputTokens: openai.Int(300),
+  Model: deployment,
+  Input: responses.ResponseNewParamsInputUnion{
+    OfString: openai.String("Say hello from Azure OpenAI."),
+  },
+  MaxOutputTokens: openai.Int(300),
 })
 if err != nil {
-	log.Fatalf("Failed to create response: %s", err)
+  log.Fatalf("Failed to create response: %s", err)
 }
 
 fmt.Println(response.OutputText())
 ```
 
-The full starter kit sample includes the complete client setup, including `azidentity.NewDefaultAzureCredential` and an Azure Core bearer token policy.
+In the starter kit file, the client setup uses `azidentity.NewDefaultAzureCredential` and an Azure Core bearer token policy. In your app, keep your existing client construction if it already points to the Azure OpenAI v1 endpoint and authenticates successfully.
 
 :::zone-end
 
 :::zone pivot="java"
 
-In Java, the starter kit uses the OpenAI Java SDK with Azure Identity. After your OpenAI client is configured for the Azure OpenAI endpoint and Microsoft Entra ID authentication, the Responses API call is:
+Open `src/java/src/main/java/com/azure/openai/starter/ResponsesExampleEntra.java` in the starter kit. The file contains the complete Microsoft Entra ID client setup. After your OpenAI client is configured for the Azure OpenAI endpoint and Microsoft Entra ID authentication, replace your existing Chat Completions call with this Responses API call pattern:
 
 ```java
 Response response = client.responses().create(
@@ -303,7 +318,7 @@ Response response = client.responses().create(
 System.out.println(response.output());
 ```
 
-The full starter kit sample includes the complete client setup, including `DefaultAzureCredentialBuilder`, `AuthenticationUtil.getBearerTokenSupplier`, and `BearerTokenCredential`.
+In the starter kit file, the client setup uses `DefaultAzureCredentialBuilder`, `AuthenticationUtil.getBearerTokenSupplier`, and `BearerTokenCredential`. In your app, keep your existing client construction if it already points to the Azure OpenAI v1 endpoint and authenticates successfully.
 
 :::zone-end
 
@@ -362,7 +377,7 @@ The sample prints a response from the deployed Azure OpenAI model. The exact out
 
 ## Apply the migration to your app
 
-After the starter kit sample runs successfully, apply the same changes to your app:
+After you see the Responses API working in the starter kit sample, you have a known-good reference for endpoint format, deployment name, authentication, and SDK syntax. Use the following steps to apply the same pattern to your own app:
 
 1. Point your OpenAI client to your Azure OpenAI v1 endpoint: `https://<resource-name>.openai.azure.com/openai/v1/`.
 1. Keep using Microsoft Entra ID authentication for keyless access.
@@ -423,12 +438,3 @@ If you need help with the starter kit or the Responses API, use these resources:
 > [!div class="nextstepaction"]
 > [Switch between OpenAI and Azure OpenAI endpoints](/azure/developer/ai/how-to/switching-endpoints)
 
-## Author notes: questions for the repo owner
-
-The following questions are for this draft and should be removed before publication.
-
-- Should this article keep the `intelligent-apps-languages` pivot group with TypeScript content under the `javascript` pivot, or should a new pivot group be created for Python, C#, TypeScript, Go, and Java?
-- Which RBAC role should the article name for the identity running the local sample: `Cognitive Services User`, `Cognitive Services OpenAI User`, or both depending on the resource type?
-- Should the migration article show a complete runnable hello-world file per language, or is the starter kit sample command plus focused migration snippet the right balance?
-- Should the article recommend a specific Azure OpenAI region for GPT-5-mini, or avoid a default because model availability changes?
-- For Java, should the sample output continue to print `response.output()`, or should the article use an SDK helper such as `outputText()` if the repo updates to that shape?
