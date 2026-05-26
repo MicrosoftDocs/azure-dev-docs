@@ -27,7 +27,7 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-secure-your-application.md
         - name: Understand assessment rules
           href: migrate-github-copilot-app-modernization-for-java-assess-rules.md
-        - name: Optimize chat results with the AppModernization agent
+        - name: Optimize chat results with the modernize agent
           href: migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md
         - name: "Quickstart: Assess and migrate a Java project"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md

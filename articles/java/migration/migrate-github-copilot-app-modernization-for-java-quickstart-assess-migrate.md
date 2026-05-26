@@ -50,7 +50,7 @@ To apply a predefined task, use the following steps:
 1. Repeatedly select or enter **Continue** to confirm the use of tools or commands, and wait for the code changes to finish.
 
 > [!NOTE]
-> In Visual Studio Code, GitHub Copilot modernization uses the `AppModernization` custom agent with Claude Sonnet 4.5 by default for best results when updating Java code to migrate to Azure. It falls back to the `auto` model if Sonnet 4.5 isn't available to you. You can configure the custom agent to [modify the `model` setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
+> In Visual Studio Code, GitHub Copilot modernization uses the `modernize` custom agent with Claude Sonnet 4.6 by default for best results when updating Java code to migrate to Azure. It falls back to the `auto` model if Sonnet 4.6 isn't available to you. You can configure the custom agent to [modify the `model` setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
 
 ### Validation iteration
 

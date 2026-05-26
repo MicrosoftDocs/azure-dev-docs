@@ -31,6 +31,7 @@ By default, the assessment runs with Azure Kubernetes Service (AKS), Azure App S
   | `openjdk11`            | Best practices for migrating to OpenJDK 11.     |
   | `openjdk17`            | Best practices for migrating to OpenJDK 17.     |
   | `openjdk21`            | Best practices for migrating to OpenJDK 21.     |
+  | `openjdk25`            | Best practices for migrating to OpenJDK 25.     |
 
 - `os`: the target operating system to run the apps on.
 
@@ -73,12 +74,12 @@ The following examples describe some configurations:
     mode: issue-only
   ```
 
-- Example three: You want to modernize your apps to JDK21 and want to understand what issues need to be fixed. Use the following configuration:
+- Example three: You want to modernize your apps to JDK 25 and want to understand what issues need to be fixed. Use the following configuration:
 
   ```yaml
   appcat:
   - capability:
-      - openjdk21
+      - openjdk25
     mode: issue-only
   ```
 
