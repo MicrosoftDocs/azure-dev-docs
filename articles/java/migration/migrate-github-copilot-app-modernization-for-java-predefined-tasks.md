@@ -55,7 +55,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Managed Identity for Azure Cache for Redis in Micronaut projects
 
-  Micronaut applications that connect to Azure Cache for Redis or Azure Managed Redis can replace password-based access with Microsoft Entra ID managed identity. This task adds the `com.azure:azure-identity` dependency, updates the Redis configuration so the username becomes the managed identity's object ID and the URI points to the Azure Redis endpoint, and introduces an `AzureRedisCredentialsConfiguration` that plugs a `DefaultAzureCredential`-based `RedisCredentialsProvider` into Micronaut's Lettuce integration - while preserving existing features such as connection pooling, master-replica setup, and multi-server configuration.
+  Micronaut applications that connect to Azure Cache for Redis or Azure Managed Redis can replace password-based access with Microsoft Entra ID managed identity. This task adds the `com.azure:azure-identity` dependency, updates the Redis configuration so the username becomes the managed identity's object ID and the URI points to the Azure Redis endpoint, and introduces an `AzureRedisCredentialsConfiguration` that plugs a `DefaultAzureCredential`-based `RedisCredentialsProvider` into Micronaut's Lettuce integration - while preserving existing features such as connection pooling, primary-replica setup, and multi-server configuration.
 
 - Amazon Web Services (AWS) S3 to Azure Storage Blob
 
@@ -91,11 +91,11 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - IBM Db2 to Azure Database for PostgreSQL
 
-  Java applications backed by IBM Db2 can be migrated to Azure Database for PostgreSQL to take advantage of a fully managed open-source database. This task swaps the Db2 JDBC driver and dependencies for PostgreSQL ones, configures passwordless connections using Microsoft Entra ID and managed identity (through `spring-cloud-azure-starter-jdbc-postgresql` for Spring Boot or `azure-identity-extensions` for other Java projects), normalizes identifiers and SQL keyword casing, and converts Db2-specific SQL and types to PostgreSQL equivalents.
+  Java applications backed by IBM Db2 can be migrated to Azure Database for PostgreSQL to take advantage of a fully managed open-source database. This task swaps the Db2 Java Database Connectivity (JDBC) driver and dependencies for PostgreSQL ones, configures passwordless connections using Microsoft Entra ID and managed identity (through `spring-cloud-azure-starter-jdbc-postgresql` for Spring Boot or `azure-identity-extensions` for other Java projects), normalizes identifiers and SQL keyword casing, and converts Db2-specific SQL and types to PostgreSQL equivalents.
 
 - IBM Db2 to Azure SQL Database
 
-  When you move IBM Db2 workloads to Azure SQL Database, both the connection layer and the SQL dialect need updating. This task replaces the Db2 driver with the Microsoft JDBC driver for SQL Server, enables passwordless authentication using `ActiveDirectoryMSI` and the `spring-cloud-azure-starter` for Spring Boot (or the `msiClientId` connection string parameter for other Java projects), and converts Db2-specific SQL constructs - such as `FETCH FIRST`, `||` string concatenation, `QUARTER`, `BEGIN ATOMIC`, and `PERCENTILE_CONT` - into their T-SQL equivalents.
+  When you move IBM Db2 workloads to Azure SQL Database, both the connection layer and the SQL dialect need to be updated. This task replaces the Db2 driver with the Microsoft JDBC driver for SQL Server, enables passwordless authentication using `ActiveDirectoryMSI` and the `spring-cloud-azure-starter` for Spring Boot (or the `msiClientId` connection string parameter for other Java projects), and converts Db2-specific SQL constructs - such as `FETCH FIRST`, `||` string concatenation, `QUARTER`, `BEGIN ATOMIC`, and `PERCENTILE_CONT` - into their T-SQL equivalents.
 
 - Informix to Azure Database for PostgreSQL
 
@@ -123,7 +123,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Eclipse project to Maven project
 
-  Eclipse IDE projects rely on `.project` and `.classpath` files, which tightly couple the build to the IDE and make headless CI builds difficult. This task converts your Eclipse-based Java project to Maven by generating a `pom.xml` from the Eclipse configuration, translating `.classpath` library entries (including JRE container and user libraries) into Maven `<dependency>` declarations, restructuring source folders into Maven's standard directory layout, and handling both standard Java and Dynamic Web Project (WAR) packaging - so your project can build consistently from any environment.
+  Eclipse IDE projects rely on `.project` and `.classpath` files, which tightly couple the build to the IDE and make headless CI builds difficult. This task converts your Eclipse-based Java project to Maven by generating a `pom.xml` from the Eclipse configuration, translating `.classpath` library entries (including the Java Runtime Environment (JRE) container and user libraries) into Maven `<dependency>` declarations, restructuring source folders into Maven's standard directory layout, and handling both standard Java and Dynamic Web Project (WAR) packaging - so your project can build consistently from any environment.
 
 - Cache solutions to Azure Managed Redis
 
@@ -135,7 +135,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Apache Kafka to Confluent Cloud with Microsoft Entra ID authentication
 
-  When you move from self-hosted Apache Kafka to Apache Kafka on Confluent Cloud, you can also adopt passwordless authentication backed by Microsoft Entra ID. This task adds the `com.azure:azure-identity` dependency, introduces a custom `OAuthBearerLoginCallbackHandler` that uses `DefaultAzureCredential` to fetch tokens for the Confluent Cloud `sasl.oauthbearer.token.resource`, and updates Kafka configuration files (`.properties` or YAML) so producers and consumers connect to the Confluent Cloud endpoint using SASL OAuth bearer instead of static credentials.
+  When you move from self-hosted Apache Kafka to Apache Kafka on Confluent Cloud, you can also adopt passwordless authentication backed by Microsoft Entra ID. This task adds the `com.azure:azure-identity` dependency, introduces a custom `OAuthBearerLoginCallbackHandler` that uses `DefaultAzureCredential` to fetch tokens for the Confluent Cloud `sasl.oauthbearer.token.resource`, and updates Kafka configuration files (`.properties` or YAML) so producers and consumers connect to the Confluent Cloud endpoint using Simple Authentication and Security Layer (SASL) OAuth bearer instead of static credentials.
 
 ## See also
 
