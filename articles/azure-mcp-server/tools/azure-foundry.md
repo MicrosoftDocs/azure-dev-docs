@@ -5,7 +5,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 03/20/2026
+ms.date: 05/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -92,6 +92,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | Name of the resource group. |
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
 | **Deployment** |  Required | The name of the Foundry model deployment. |
 | **Message array** |  Required | Array of messages in the conversation (JSON format). Each message should have `role` and `content` properties. |
@@ -104,6 +105,7 @@ Example prompts include:
 | **Stream** |  Optional | Whether to stream back partial progress. Default is `false`. |
 | **Seed** |  Optional | If specified, the system will make a best effort to sample deterministically. |
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
