@@ -16,7 +16,7 @@ zone_pivot_groups: ide-set-one
 
 # Quickstart: Deploy your project to Azure by using GitHub Copilot modernization
 
-In this quickstart, you deploy your project to Azure by using GitHub Copilot modernization.
+This quickstart shows how to deploy your project to Azure by using GitHub Copilot modernization.
 
 During development, you often need to deploy your project to a cloud environment for testing. The GitHub Copilot modernization extension automates the deployment process, deploying your migrated project to Azure and fixing any deployment errors along the way.
 

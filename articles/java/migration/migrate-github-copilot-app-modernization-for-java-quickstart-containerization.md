@@ -15,7 +15,7 @@ ms.update-cycle: 180-days
 
 # Quickstart: Containerize your project by using GitHub Copilot modernization
 
-In this quickstart, you containerize your project by using GitHub Copilot modernization.
+This quickstart shows how to containerize your project by using GitHub Copilot modernization.
 
 To use container compute services like Azure Kubernetes Service and Azure Container Apps, you need to containerize your project by creating a Dockerfile and other related configuration files, and build container images. The GitHub Copilot modernization extension automates this containerization process.
 [!VIDEO https://www.youtube.com/watch?v=SUB5jB0eCWU&list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD&index=7]
@@ -42,13 +42,13 @@ Use the following steps to start the containerization process:
 
 1. Open your project in IDE.
 
-1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane.
-
-1. In the **Tasks** section, open **Containerize Tasks**, select task **Containerize Application** and click the **Run** button.
+1. From the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane. Under **Tasks** section, open **Containerize Tasks**, select task **Containerize Application** and click the **Run** button.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the Containerize Application task with the Run Task button highlighted.":::
 
 1. After you click the button, the Copilot chat window with Agent Mode opens automatically.
+
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" alt-text="Screenshot of Visual Studio Code that shows the Copilot chat window with Agent mode triggred automatically by Containerize Application task":::
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate containerization. Each tool's usage requires confirmation by selecting **Continue**.
 

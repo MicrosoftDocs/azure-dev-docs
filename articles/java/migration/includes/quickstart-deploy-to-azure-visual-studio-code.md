@@ -9,9 +9,7 @@ Use the following steps to start the deployment process:
 
 1. Open your project in Visual Studio Code.
 
-1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane.
-
-1. In the **Tasks** section, open **Deployment Tasks** and select one of the following tasks:
+1. From the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane. Under **Tasks**, open **Java/Deployment Tasks** and select one of the following tasks:
 
    - If you already have Azure infrastructure provisioned, select task **Deploy to Existing Azure Infrastructure** and click the **Run** button.
 
@@ -22,6 +20,8 @@ Use the following steps to start the deployment process:
      :::image type="content" source="../media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure-visual-studio-code-e2e.png" lightbox="../media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure-visual-studio-code-e2e.png" alt-text="Screenshot of Visual Studio Code that shows the Provision Infrastructure and Deploy to Azure task with the Run Task button highlighted.":::
 
 1. After you click the button, the Copilot chat window with Agent Mode opens automatically.
+
+     :::image type="content" source="../media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure-chat-visual-studio-code.png" lightbox="../media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure-chat-visual-studio-code.png" alt-text="Screenshot of Visual Studio Code that trigger Copilot chat window automatically":::
 
 1. In the Copilot Chat window (opens automatically in Agent Mode), select Continue to approve each tool action, and provide details like subscription and resource group when prompted
 

@@ -14,7 +14,7 @@ ms.update-cycle: 180-days
 
 # Quickstart: Prepare Azure infrastructure by using GitHub Copilot modernization
 
-In this quickstart, you generate infrastructure-as-code (IaC) files and provision Azure resources for your project by using GitHub Copilot modernization.
+This quickstart shows how to generate infrastructure-as-code (IaC) files and provision Azure resources for your project by using GitHub Copilot modernization.
 
 Before deploying an application to Azure, you need the right cloud infrastructure in place. The **Generate Infrastructure as Code and Provision** task in the GitHub Copilot modernization extension automates this process - it analyzes your project, generates IaC files, and provisions the required Azure resources. This process includes the ability to create an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) tailored to your application, covering networking, identity, governance, and security foundations.
 
@@ -36,13 +36,13 @@ Use the following steps to generate IaC files and provision Azure resources:
 
 1. Open your project in your IDE.
 
-1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane.
-
-1. In the **Tasks** section, Select **Generate Infrastructure as Code and Provision** and click **Run** button
+1. From **Activity** sidebar, open the **GitHub Copilot modernization** extension pane. Under the **Tasks** section, Select **Generate Infrastructure as Code and Provision** and click **Run** button
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra.png" alt-text="Screenshot of Visual Studio Code that shows the Generate Infrastructure as Code and Provision task with the Run Task button highlighted.":::
 
 1. After you click the button, the Copilot chat window with Agent Mode opens automatically.
+
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra-chat.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra-chat.png" alt-text="Screenshot of Visual Studio Code that shows the Copilot window with Agent mode triggered automatically.":::
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate infrastructure preparation. Each tool's usage requires confirmation by selecting **Continue**. Provide Copilot with the necessary information, such as subscription and resource group, as it prompts you.
 
