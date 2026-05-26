@@ -101,7 +101,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Cache solutions to Azure Managed Redis
 
-  Legacy Java caching libraries don't integrate natively with Azure and lack centralized scaling and security. This task replaces the existing caching library with Redis and configures the application to connect to Azure Managed Redis (or the retiring Azure Cache for Redis) using passwordless Microsoft Entra ID authentication, while preserving the application's caching behavior.
+  Applications often rely on a variety of caching solutions—from in-memory libraries to distributed systems (such as Infinispan, SwarmCache, and Memcached)—that lack seamless Azure integration and centralized scalability or security. This task modernizes the caching layer by migrating these implementations to Azure Managed Redis (or the retiring Azure Cache for Redis), enabling cloud-native scalability, unified management, and improved security with passwordless Microsoft Entra ID authentication, while preserving existing caching behavior.
 
 ## See also
 
