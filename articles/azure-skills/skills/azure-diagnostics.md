@@ -1,6 +1,6 @@
 ---
 title: Azure skill for diagnostics
-description: Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage.
+description: Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. Also covers App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
 ms.topic: reference
 ms.date: 5/26/2026
 author: diberry
@@ -11,7 +11,7 @@ ms.custom: skill-version-1.1.6
 
 # Azure skill for diagnostics
 
-Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage.
+Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. Also covers App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
 
 **Skill:** `azure-diagnostics` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-diagnostics/SKILL.md)
 
@@ -40,6 +40,10 @@ Use this skill when you need to:
 - Analyze logs in Azure
 - Work with insights, image pull failures, cold start issues, and health probe failures
 - Work with resource health and root cause of errors
+- Troubleshoot App Service issues such as high CPU, deployment failures, crashes, slow responses, TLS, or custom domain problems
+- Troubleshoot Azure Function Apps including invocation failures, timeouts, or binding errors
+- Find the Application Insights or Log Analytics workspace linked to a Function App
+- Troubleshoot Azure Messaging SDK issues such as Event Hubs or Service Bus connection failures, AMQP errors, or message lock issues
 
 ## Example prompts
 
@@ -55,6 +59,14 @@ Try these prompts to activate this skill:
 - "Fix image pull failures in Container Apps"
 - "My container app has image pull errors"
 - "Resolve cold start issues"
+- "Troubleshoot App Service high CPU"
+- "My App Service deployment is failing"
+- "Troubleshoot my Azure Function App invocation failures"
+- "My function app is timing out"
+- "Find the App Insights workspace for my Function App"
+- "My Event Hubs connection is failing"
+- "Troubleshoot Service Bus dead letter queue"
+- "I'm getting AMQP connection errors in my messaging SDK"
 
 ## Related content
 
