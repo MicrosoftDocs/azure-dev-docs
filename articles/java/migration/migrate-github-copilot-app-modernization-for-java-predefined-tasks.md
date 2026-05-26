@@ -95,7 +95,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   Transitioning from AWS SQS to Azure Service Bus involves reimplementing queue operations and message handling patterns. This task translates SQS-specific code constructs to their Azure Service Bus counterparts, preserving critical messaging semantics like at-least-once delivery, message batching, and visibility timeout behaviors while introducing Azure's enhanced security features.
 
-- Build system migration to Maven
+- Ant / Eclipse project to Maven project
 
   Java projects built with Apache Ant or as Eclipse IDE projects depend on imperative scripts or IDE-specific metadata, which complicate dependency management and make automated, headless builds difficult. These tasks convert your Ant or Eclipse project to a Maven project that builds consistently from any environment, with dependencies resolved through Maven and the project layout aligned with Maven conventions, while preserving your source code unchanged.
 
