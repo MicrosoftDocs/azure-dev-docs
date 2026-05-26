@@ -141,9 +141,9 @@ The main menu appears:
 
 1. Select **Assess** from the main menu.
 1. Choose how to specify your target repositories. You can select **Current folder** to use your current directory, **Manual input** to enter local paths or remote Git URLs, or **From a config file** to load repositories from a JSON config file. For this quickstart, select **Current folder**.
-1. Choose the execution mode. Select **Assess locally** to run the assessment on your machine, or **Delegate to Cloud Agents** to let cloud agents run the assessment in parallel. For this quickstart, select **Assess locally**.
 1. Select assessment domains, such as **Java upgrade** and **Cloud Readiness**, and press <kbd>Enter</kbd>.
 1. Review the assessment configuration options, such as Analysis Coverage and Target Runtime. Press <kbd>Enter</kbd> on **Continue** to accept the recommended defaults, or adjust individual settings as needed.
+1. Choose the execution mode. Select **Assess locally** to run the assessment on your machine, or **Delegate to Cloud Agents** to let cloud agents run the assessment in parallel. For this quickstart, select **Assess locally**.
 1. Accept the default output path or enter a custom one, and then press <kbd>Enter</kbd> to start the assessment.
 1. Wait for the assessment to complete.
 
