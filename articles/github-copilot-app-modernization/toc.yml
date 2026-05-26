@@ -175,6 +175,16 @@ items:
               - name: Migration sample
                 href: /dotnet/azure/migration/appmod/sample?context=/azure/developer/github-copilot-app-modernization/context/context
               
+        - name: JavaScript/TypeScript
+          expanded: false
+          items:
+            - name: Overview
+              href: javascript-typescript-overview.md
+            - name: "Quickstart: Upgrade npm packages"
+              href: javascript-typescript-quickstart-upgrade-npm-packages.md
+            - name: FAQ
+              href: javascript-typescript-faq.yml
+              
       - name: Portfolio assessment integration
         href: ../java/migration/github-copilot-app-modernization-for-java-portfolio-assessment-integration.md?context=/azure/developer/github-copilot-app-modernization/context/context
 

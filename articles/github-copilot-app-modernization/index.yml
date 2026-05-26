@@ -30,6 +30,10 @@ landingContent:
             url: /dotnet/core/porting/github-copilot-app-modernization/overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: .NET FAQ
             url: /dotnet/core/porting/github-copilot-app-modernization/faq?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: JavaScript/TypeScript overview
+            url: javascript-typescript-overview.md
+          - text: JavaScript/TypeScript FAQ
+            url: javascript-typescript-faq.yml
   - title: "CLI: Modernization agent"
     linkLists:
       - linkListType: overview
@@ -132,3 +136,13 @@ landingContent:
         links:
           - text: Migration sample
             url: /dotnet/azure/migration/appmod/sample?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+  - title: Upgrade JavaScript/TypeScript projects
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: GitHub Copilot modernization for JavaScript/TypeScript
+            url: javascript-typescript-overview.md
+      - linkListType: quickstart
+        links:
+          - text: "Quickstart: Upgrade npm packages"
+            url: javascript-typescript-quickstart-upgrade-npm-packages.md
