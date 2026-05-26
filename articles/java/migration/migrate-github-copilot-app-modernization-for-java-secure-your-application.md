@@ -35,8 +35,7 @@ Follow these steps to assess and remediate security issues in one flow.
 
 In the **GitHub Copilot modernization** pane, open the **Quick Start** view and select **Scan & Resolve Security Issues**.
 
-<!-- TODO(snapshot): Quick Start view showing the "Scan & Resolve Security Issues" entry point. -->
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/scan-and-resolve-security-issues-entry.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/scan-and-resolve-security-issues-entry.png" alt-text="Screenshot of Visual Studio Code that shows the Quick Start view with the Scan and Resolve Security Issues button.":::
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/scan-resolve-security-issue.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/scan-resolve-security-issue.png" alt-text="Screenshot of Visual Studio Code that shows the Quick Start view with the Scan and Resolve Security Issues button.":::
 
 Copilot runs a security-domain assessment over your project. The scan covers:
 
@@ -50,10 +49,9 @@ For the full catalog of CWE rules and the details of CVE coverage, see [Understa
 
 ### 2. Review the report
 
-When the scan finishes, the **Assessment Report** opens. Filter to the **Security** domain to see only security findings. Each row shows an **Issue Category** — one of the six CWE categories above, or **CVE - Known Vulnerability** for dependency CVEs.
+When the scan finishes, the **Assessment Report** opens with the security findings.
 
-<!-- TODO(snapshot): Assessment Report filtered to Security domain showing CWE and CVE rows. -->
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/security-assessment-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/security-assessment-report.png" alt-text="Screenshot of the Assessment Report in Visual Studio Code showing CWE and CVE findings.":::
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/security-assess-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/security-assess-report.png" alt-text="Screenshot of the Assessment Report in Visual Studio Code showing CWE and CVE findings.":::
 
 To control which CVEs surface, set **Security: Minimum CVE Severity** in the assessment configuration. Accepted values are `critical`, `high`, `medium`, and `low`; the default is `high`.
 
@@ -61,15 +59,13 @@ To control which CVEs surface, set **Security: Minimum CVE Severity** in the ass
 
 Select the issue categories you want to remediate. The action button updates to show the count — for example, **Create Plan (3)**. Select it to generate an execution plan.
 
-<!-- TODO(snapshot): Assessment Report with multiple categories selected and the Create Plan (3) button highlighted. -->
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/security-create-plan.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/security-create-plan.png" alt-text="Screenshot of the Assessment Report with security issue categories selected and the Create Plan button highlighted.":::
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/Create-plan-on-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/Create-plan-on-report.png" alt-text="Screenshot of the Assessment Report with security issue categories selected and the Create Plan button highlighted.":::
 
 ### 4. Review the plan
 
 Copilot writes the execution plan as a Markdown file and opens it in the preview pane so you can read it before any fix is applied. The plan describes how Copilot will group and address the selected issues — CVE issues are grouped by dependency, and CWE findings are grouped by file. Edit the Markdown file directly if you want to change scope or order.
 
-<!-- TODO(snapshot): VS Code Markdown preview of plan.md showing the security execution plan. -->
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/security-plan-preview.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/security-plan-preview.png" alt-text="Screenshot of the security execution plan opened in the Visual Studio Code Markdown preview.":::
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/preview-created-plan.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/preview-created-plan.png" alt-text="Screenshot of the security execution plan opened in the Visual Studio Code Markdown preview.":::
 
 ### 5. Execute the plan
 
