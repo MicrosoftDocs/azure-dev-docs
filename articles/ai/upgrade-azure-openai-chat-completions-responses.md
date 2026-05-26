@@ -421,7 +421,7 @@ If you need help with the starter kit or the Responses API, use these resources:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Switch between OpenAI and Azure OpenAI endpoints](./switching-endpoints.md)
+> [Switch between OpenAI and Azure OpenAI endpoints](/azure/developer/ai/how-to/switching-endpoints)
 
 ## Author notes: questions for the repo owner
 
