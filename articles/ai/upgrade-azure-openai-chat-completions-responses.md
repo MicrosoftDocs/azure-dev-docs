@@ -9,7 +9,7 @@ ms.custom: devx-track-python, keyless-python, devx-track-js, keyless-javascript,
 ms.collection: ce-skilling-ai-copilot
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
 zone_pivot_groups: intelligent-apps-languages
-## CustomerIntent: As an Azure OpenAI app developer, I want to upgrade an existing Chat Completions integration to the Responses API so that my app can use the newer API shape, reasoning improvements, and future model capabilities.
+# CustomerIntent: As an Azure OpenAI app developer, I want to upgrade an existing Chat Completions integration to the Responses API so that my app can use the newer API shape, reasoning improvements, and future model capabilities.
 ---
 
 # Upgrade your Azure OpenAI app from Chat Completions to the Responses API
@@ -111,15 +111,35 @@ git clone https://github.com/Azure-Samples/azure-openai-starter.git
 cd azure-openai-starter
 ```
 
-The source files you use later are in the cloned repository:
+:::zone pivot="python"
 
-| Language | Starter kit folder |
-| --- | --- |
-| Python | `src/python` |
-| C# | `src/dotnet` |
-| TypeScript | `src/typescript` |
-| Go | `src/go/responses_example_entra` |
-| Java | `src/java` |
+The source files you use later are in the `src/python` folder of the cloned repository.
+
+:::zone-end
+
+:::zone pivot="dotnet"
+
+The source files you use later are in the `src/dotnet` folder of the cloned repository.
+
+:::zone-end
+
+:::zone pivot="javascript"
+
+The source files you use later are in the `src/typescript` folder of the cloned repository.
+
+:::zone-end
+
+:::zone pivot="golang"
+
+The source files you use later are in the `src/go/responses_example_entra` folder of the cloned repository.
+
+:::zone-end
+
+:::zone pivot="java"
+
+The source files you use later are in the `src/java` folder of the cloned repository.
+
+:::zone-end
 
 ## Deploy Azure OpenAI for validation
 
@@ -178,17 +198,11 @@ This section shows the exact part of your app that usually changes during the mi
 
 Open the starter kit reference file for your language, then compare it with the file in your app that currently sends model requests.
 
-| Language | In your app, look for | Starter kit reference file |
-| --- | --- | --- |
-| Python | `client.chat.completions.create` | `src/python/responses_example_entra.py` |
-| C# | `GetChatClient` or `CompleteChatAsync` | `src/dotnet/responses_example_entra.cs` |
-| TypeScript | `client.chat.completions.create` | `src/typescript/responses_example_entra.ts` |
-| Go | `client.Chat.Completions.New` or another Chat Completions SDK call | `src/go/responses_example_entra/main.go` |
-| Java | `client.chat().completions().create` or another Chat Completions SDK call | `src/java/src/main/java/com/azure/openai/starter/ResponsesExampleEntra.java` |
-
 The first snippet in each language shows the old Chat Completions shape you might find in your app. The second snippet shows the Responses API shape to use instead.
 
 :::zone pivot="python"
+
+In your app, look for `client.chat.completions.create`. In the cloned starter kit, use `src/python/responses_example_entra.py` as the working Responses API reference.
 
 In a Chat Completions app, a simple generation call commonly looks like this:
 
@@ -221,6 +235,8 @@ The full starter kit sample also shows Microsoft Entra ID authentication by usin
 
 :::zone pivot="dotnet"
 
+In your app, look for `GetChatClient` or `CompleteChatAsync`. In the cloned starter kit, use `src/dotnet/responses_example_entra.cs` as the working Responses API reference.
+
 In a Chat Completions app, a simple generation call commonly uses a `ChatClient`:
 
 ```csharp
@@ -249,6 +265,8 @@ The full starter kit sample also shows Microsoft Entra ID authentication by usin
 :::zone-end
 
 :::zone pivot="javascript"
+
+In your app, look for `client.chat.completions.create`. In the cloned starter kit, use `src/typescript/responses_example_entra.ts` as the working Responses API reference.
 
 In a Chat Completions app, a simple generation call commonly looks like this:
 
@@ -281,7 +299,7 @@ The full starter kit sample also shows Microsoft Entra ID authentication by usin
 
 :::zone pivot="golang"
 
-Open `src/go/responses_example_entra/main.go` in the starter kit. The file contains the complete Microsoft Entra ID client setup, including Azure Identity middleware. After your OpenAI client is configured for the Azure OpenAI endpoint and Microsoft Entra ID authentication, replace your existing Chat Completions call with this Responses API call pattern:
+In your app, look for `client.Chat.Completions.New` or another Chat Completions SDK call. In the cloned starter kit, open `src/go/responses_example_entra/main.go`. The file contains the complete Microsoft Entra ID client setup, including Azure Identity middleware. After your OpenAI client is configured for the Azure OpenAI endpoint and Microsoft Entra ID authentication, replace your existing Chat Completions call with this Responses API call pattern:
 
 ```go
 response, err := client.Responses.New(context.Background(), responses.ResponseNewParams{
@@ -304,7 +322,7 @@ In the starter kit file, the client setup uses `azidentity.NewDefaultAzureCreden
 
 :::zone pivot="java"
 
-Open `src/java/src/main/java/com/azure/openai/starter/ResponsesExampleEntra.java` in the starter kit. The file contains the complete Microsoft Entra ID client setup. After your OpenAI client is configured for the Azure OpenAI endpoint and Microsoft Entra ID authentication, replace your existing Chat Completions call with this Responses API call pattern:
+In your app, look for `client.chat().completions().create` or another Chat Completions SDK call. In the cloned starter kit, open `src/java/src/main/java/com/azure/openai/starter/ResponsesExampleEntra.java`. The file contains the complete Microsoft Entra ID client setup. After your OpenAI client is configured for the Azure OpenAI endpoint and Microsoft Entra ID authentication, replace your existing Chat Completions call with this Responses API call pattern:
 
 ```java
 Response response = client.responses().create(
@@ -437,4 +455,3 @@ If you need help with the starter kit or the Responses API, use these resources:
 
 > [!div class="nextstepaction"]
 > [Switch between OpenAI and Azure OpenAI endpoints](/azure/developer/ai/how-to/switching-endpoints)
-
