@@ -81,7 +81,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Databases products to Azure database offerings
 
-  Java applications running on on-premises or non-Microsoft SQL databases - including Oracle, IBM Db2, Informix, and Sybase Adaptive Server Enterprise (ASE) - can be migrated to Azure Database for PostgreSQL or Azure SQL Database for a fully managed cloud experience. These tasks update the application so it connects to the target Azure database with passwordless Microsoft Entra ID authentication and reconcile source-specific SQL syntax, data types, and functions with the target dialect, so the application keeps the same behavior on Azure.
+  Java applications running on on-premises databases - including Oracle, IBM Db2, Informix, and Sybase Adaptive Server Enterprise (ASE) - can be migrated to Azure Database for PostgreSQL or Azure SQL Database for a fully managed cloud experience. These tasks update the application so that it connects to the target Azure database with passwordless Microsoft Entra ID authentication and reconcile source-specific SQL syntax, data types, and functions with the target dialect, so the application keeps the same behavior on Azure.
 
 - AWS Secret Manager to Azure Key Vault
 
