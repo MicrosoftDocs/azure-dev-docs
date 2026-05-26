@@ -1,11 +1,11 @@
 ---
 title: Azure MCP Server tools for Azure File Shares
 description: Use Azure MCP Server tools to manage Azure File Shares with natural language prompts from your IDE.
-ms.date: 05/13/2026
+ms.date: 05/26/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 tool_count: 14
-mcp-cli.version: 2.0.0-beta.39
+mcp-cli.version: 3.0.0-beta.12+d6e43aeae7450e7b68c5b1252e2a5c6e7bab1938
 author: diberry
 ms.author: diberry
 ai-usage: ai-generated
@@ -145,6 +145,7 @@ Example prompts include:
 | **Provisioned throughput in MiB per sec (mebibytes)** | Optional | The provisioned throughput in MiB per second. |
 | **Public network access** | Optional | Public network access setting (`Enabled` or `Disabled`). |
 | **NFS root squash** | Optional | NFS root squash setting (`NoRootSquash`, `RootSquash`, or `AllSquash`). |
+| **NFS encryption in transit** | Optional | NFS encryption in transit setting (`Enabled` or `Disabled`). |
 | **Allowed subnets** | Optional | Comma-separated list of subnet IDs allowed to access the file share. |
 | **Tags** | Optional | Resource tags as JSON (for example, `{"key1":"value1","key2":"value2"}`). |
 
@@ -198,6 +199,7 @@ Example prompts include:
 | **Provisioned throughput in MiB per sec (mebibytes)** | Optional | The provisioned throughput in MiB per second. |
 | **Public network access** | Optional | Public network access setting (`Enabled` or `Disabled`). |
 | **NFS root squash** | Optional | NFS root squash setting (`NoRootSquash`, `RootSquash`, or `AllSquash`). |
+| **NFS encryption in transit** | Optional | NFS encryption in transit setting (`Enabled` or `Disabled`). |
 | **Allowed subnets** | Optional | Comma-separated list of subnet IDs allowed to access the file share. |
 | **Tags** | Optional | Resource tags as JSON (for example, `{"key1":"value1","key2":"value2"}`). |
 
