@@ -296,6 +296,33 @@ Disable Copilot coding agent's integrated firewall in your repository settings a
 
 :::image type="content" source="../media/modernization-agent/disable-firewall-for-cloud-coding-agent.png" alt-text="Screenshot of GitHub that shows the repository settings with the Enable firewall setting set to Off." lightbox="../media/modernization-agent/disable-firewall-for-cloud-coding-agent.png":::
 
+
+##### MCP Server
+Configure GitHub Copilot Modernization MCP Server in Cloud Agent section of your repository settings as shown in the following example:
+
+```json
+{
+  "mcpServers": {
+   "AppModDotNetUpgrade": {
+        "type": "local",
+        "command": "dotnet",
+        "args": [
+          "dnx",
+          "Microsoft.GitHubCopilot.Modernization.Mcp",
+          "--prerelease",
+          "--yes",
+          "--source",
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "env": {
+          "APPMOD_CALLER_TYPE": "modernize-cli"
+        },
+        "tools": ["*"]
+    }
+  }
+}
+``` 
+
 #### Configuration for Java applications
 
 Configure GitHub Copilot Modernization MCP Server in Cloud Agent section of your repository settings as shown in the following example:
