@@ -29,7 +29,7 @@ The skill evaluates four core reliability dimensions:
 
 When issues are found, the skill offers two remediation paths: running Azure CLI commands directly against live resources, or generating infrastructure-as-code patches (Bicep or Terraform) so changes persist across future deployments.
 
-> **Scope note:** This skill currently supports Azure Functions only. App Service and Container Apps reliability are planned for a future version.
+> **Scope note:** This skill currently supports Azure Functions only.
 
 ## Prerequisites
 
