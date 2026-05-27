@@ -80,13 +80,23 @@ You can run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.co
 
     In the JSON output of the command, locate the `loginServer` value. This value represents the fully qualified registry name (all lowercase) and contains the registry name.
 
+    **Example output:**
+
+    ```json
+    {
+      "loginServer": "msdocscontainerregistryname.azurecr.io",
+      "name": "msdocscontainerregistryname",
+      ...
+    }
+    ```
+
 1. If you're using the Azure CLI on your local machine, run the [az acr login](/cli/azure/acr#az-acr-login) command to sign in to the container registry.
 
     ```azurecli-interactive
     az acr login -n $REGISTRY_NAME
     ```
 
-    The command adds `azurecr.io` to the name to create the fully qualified registry name. If successful, you see the message **"Login Succeeded"**.
+    The `-n` parameter accepts the short registry name (for example, `msdocscontainerregistryname`). Azure CLI automatically resolves it to the fully qualified login server address (`msdocscontainerregistryname.azurecr.io`). If successful, you see the message **"Login Succeeded"**.
 
     > [!NOTE]
     > In the Azure Cloud Shell, the `az acr login` command isn't necessary, as authentication is handled automatically through your Cloud Shell session. However, if you encounter authentication problems, you can still use it.
@@ -119,6 +129,14 @@ You can run Azure CLI commands in your local development environment by using th
     az acr repository list -n $REGISTRY_NAME
     ```
 
+    **Expected output:**
+
+    ```json
+    [
+      "msdocspythoncontainerwebapp"
+    ]
+    ```
+
 ### [VS Code](#tab/vscode-aztools)
 
 ## Create an Azure Container Registry
@@ -143,7 +161,7 @@ If you already have an Azure Container Registry, you can skip this step. Otherwi
 
 1. In the Docker extension, in the **REGISTRIES** section, find the registry you created, right-click, and select **View Properties**.
 
-    Look for the `loginServer` key value pair in the output. The value is the fully qualified name of the registry.
+    Look for the `loginServer` key-value pair in the output. The value is the fully qualified name of the registry (for example, `msdocscontainerregistryname.azurecr.io`).
 
 ## Build an image in Azure Container Registry
 
@@ -177,6 +195,12 @@ These steps require that VS Code is opened in the working folder of your web app
     1. In the Docker extension, in the **REGISTRIES** section, find the container image created. You might need to close and re-open VS Code to see the image.
 
     1. Confirm the name and tag **latest**.
+
+    Alternatively, verify the image using the Azure CLI:
+
+    ```azurecli-interactive
+    az acr repository list -n $REGISTRY_NAME
+    ```
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
 
