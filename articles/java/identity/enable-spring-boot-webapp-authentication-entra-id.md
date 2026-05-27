@@ -101,7 +101,7 @@ Use the following steps to configure the app:
 
 1. Find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
-1. Find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-auth` app registration copied from the Azure portal.
+1. Find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the `java-spring-webapp-auth` app's application ID or `clientId` that you copied from the Azure portal.
 
 1. Find the placeholder `Enter_Your_Client_Secret_Here` and replace the existing value with the value you saved during the creation of `java-spring-webapp-auth` copied from the Azure portal.
 
