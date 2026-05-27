@@ -62,12 +62,12 @@ To register the app, use the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
 
-1. Select **App Registrations** on the navigation pane, then select **New registration**.
+1. Select **App registrations** on the navigation pane, then select **New registration**.
 
 1. In the **Register an application page** that appears, enter the following application registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth`.
-   - Under **Supported account types**, select **Accounts in this organizational directory only**.
+   - Under **Supported account types**, select **Single tenant only - TENANT_NAME** (`TENANT_NAME` varies per tenant).
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 
 1. Select **Register** to create the application.
@@ -80,7 +80,7 @@ To register the app, use the following steps:
 
 1. Type a description - for example, **app secret**.
 
-1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select one of the available durations: **Recommended: 180 days (6 months)**, **90 days (3 months)**, **365 days (12 months)**, **545 days (18 months)** or **730 days (24 months)**.
 
 1. Select **Add**. The generated value is displayed.
 
@@ -101,7 +101,7 @@ Use the following steps to configure the app:
 
 1. Find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
-1. Find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-auth` app copied from the Azure portal.
+1. Find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the `java-spring-webapp-auth` app's application ID or `clientId` that you copied from the Azure portal.
 
 1. Find the placeholder `Enter_Your_Client_Secret_Here` and replace the existing value with the value you saved during the creation of `java-spring-webapp-auth` copied from the Azure portal.
 
