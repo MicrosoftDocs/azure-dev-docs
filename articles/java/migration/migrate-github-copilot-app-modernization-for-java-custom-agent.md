@@ -28,7 +28,7 @@ Choose the environment where you want to use custom agents:
 
 ### [Copilot CLI](#tab/copilot-cli)
 
-- [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) installed and configured. For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md#get-started).
+- [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) installed and configured. For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md#install-the-plugin).
 - A GitHub Copilot Pro, Pro+, Business, or Enterprise subscription.
 - [Node.js](https://nodejs.org/) version 22 or later.
 - [npm](https://www.npmjs.com/get-npm) version 10 or later.
@@ -87,7 +87,7 @@ Before creating a custom agent, add the GitHub Copilot modernization MCP server.
 
 1. Run `/mcp show` to verify the configuration.
 
-For more information, see [Add MCP Server for CLI](github-copilot-app-modernization-for-java-copilot-cli.md#get-started).
+For more information, see [Install the plugin](github-copilot-app-modernization-for-java-copilot-cli.md#install-the-plugin).
 
 ### [Copilot coding agent](#tab/copilot-coding-agent)
 
