@@ -28,9 +28,10 @@ Choose the environment where you want to use custom agents:
 
 ### [Copilot CLI](#tab/copilot-cli)
 
-- [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) installed and configured. For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md#install-the-plugin).
+- [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) installed and configured. For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md#get-started).
 - A GitHub Copilot Pro, Pro+, Business, or Enterprise subscription.
 - [Node.js](https://nodejs.org/) version 22 or later.
+- [npm](https://www.npmjs.com/get-npm) version 10 or later.
 
 ### [Copilot coding agent](#tab/copilot-coding-agent)
 
@@ -49,24 +50,44 @@ Before creating a custom agent, add the GitHub Copilot modernization MCP server.
 
 ### [Copilot CLI](#tab/copilot-cli)
 
-The MCP server is bundled with the GitHub Copilot modernization plugin. Install the plugin to make the MCP server available:
+1. In your terminal, go to your Java project folder.
 
-1. Add the marketplace and install the plugin:
+1. Run the following command in Copilot CLI:
 
-   ```bash
-   copilot plugin marketplace add microsoft/github-copilot-modernization
-   copilot plugin install github-copilot-modernization@github-copilot-modernization
-   ```
+    ```text
+    /mcp add app-modernization
+    ```
 
-1. Verify the plugin is installed:
+1. Fill in the fields as follows:
 
-   ```text
-   /plugin list
-   ```
+    - **Server Type**: Local
+    - **Command**: `npx -y @microsoft/github-copilot-app-modernization-mcp-server`
+    - **Environment Variables**: Leave empty
+    - **Tools**: Use the default value `*`
 
-   You should see `github-copilot-modernization:modernize` in the list.
+    Alternatively, manually update the `~/.copilot/mcp-config.json` file:
 
-For more information, see [Install the plugin](github-copilot-app-modernization-for-java-copilot-cli.md#install-the-plugin).
+    ```json
+    {
+      "mcpServers": {
+        "app-modernization": {
+          "type": "local",
+          "command": "npx",
+          "tools": [
+            "*"
+          ],
+          "args": [
+            "-y",
+            "@microsoft/github-copilot-app-modernization-mcp-server"
+          ]
+        }
+      }
+    }
+    ```
+
+1. Run `/mcp show` to verify the configuration.
+
+For more information, see [Add MCP Server for CLI](github-copilot-app-modernization-for-java-copilot-cli.md#get-started).
 
 ### [Copilot coding agent](#tab/copilot-coding-agent)
 

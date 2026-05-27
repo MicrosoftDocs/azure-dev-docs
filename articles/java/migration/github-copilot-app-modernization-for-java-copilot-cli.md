@@ -58,7 +58,7 @@ Using Copilot CLI for modernization enables you to run modernization tasks direc
    /plugin list
    ```
 
-   You should see `github-copilot-modernization:modernize` in the list.
+   You should see `github-copilot-modernization@github-copilot-modernization` in the list.
 
 > [!TIP]
 > To update the plugin when a new version is available, run:
@@ -86,7 +86,7 @@ If you're already in a Copilot CLI session, use the `/agent` command to switch t
 /agent
 ```
 
-Select `github-copilot-modernization:modernize` from the list.
+Select `modernize` from the list.
 
 > [!IMPORTANT]
 > You must select the `github-copilot-modernization:modernize` agent before running any modernization prompts. Without selecting the agent, Copilot CLI uses the default agent, which can't use the full multi-agent orchestration and specialized migration capabilities provided by the plugin.
