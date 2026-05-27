@@ -214,51 +214,6 @@ When the project is successfully deployed, a deployment summary is displayed.
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/deploy-summary.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/deploy-summary.png" alt-text="Screenshot of GitHub Copilot CLI that shows the Java deployment summary.":::
 
-## Define enterprise modernization policies
-
-Organizations can embed their modernization intent — target architectures, upgrade standards, and compliance policies — directly into the workflow through a **rulebook**. This ensures every generated plan aligns with enterprise standards without manual review of each decision.
-
-### Set up a rulebook
-
-Place markdown files in the `.github/modernize/rulebook/` directory of your project. The planning phase automatically reads all `.md` files in this folder and merges them with assessment results before generating the task plan.
-
-> [!IMPORTANT]
-> Rulebook constraints override assessment recommendations. If your rulebook specifies "use Azure Service Bus for messaging," that takes precedence regardless of what the assessment discovers.
-
-### What you can define in a rulebook
-
-| Policy type | Examples |
-|---|---|
-| **Target architectures** | Compute services (App Service, AKS, Container Apps), database choices (Azure SQL, Cosmos DB), messaging platforms (Service Bus, Event Hubs) |
-| **Upgrade standards** | Target Java version, Spring Boot version, framework migration paths |
-| **Guardrails** | Prohibited technologies, security requirements, compliance constraints, authentication standards |
-| **Coding standards** | Naming conventions, authentication patterns, logging frameworks |
-| **Migration strategy** | Scope boundaries, 6R classification preferences (rehost vs. refactor vs. rearchitect), phasing strategy |
-
-### Example rulebook
-
-Create a file at `.github/modernize/rulebook/enterprise-standards.md`:
-
-```markdown
-# Enterprise Modernization Standards
-
-## Target Architecture
-- Use Azure Container Apps for microservices deployments
-- Use Azure Service Bus for all asynchronous messaging
-- Use Azure SQL Database for relational data
-- Use Azure Blob Storage for file storage
-
-## Security and Compliance
-- All services must authenticate using Managed Identity — no connection strings or passwords in code
-- All public endpoints must be behind Azure Front Door
-
-## Guardrails
-- Do not use Azure Functions for long-running processes
-- All infrastructure must be defined in Bicep
-```
-
-No fixed naming or structure is required. The orchestrator infers the purpose of each file from its content.
-
 ## Troubleshooting
 
 ### Plugin not found
