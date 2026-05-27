@@ -16,7 +16,7 @@ mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 
 # Azure MCP Server tools for Azure Terraform overview
 
-The Azure MCP Server tools help you work with Terraform for Azure by using natural-language prompts. You can retrieve AzureRM and AzAPI provider documentation, discover Azure Verified Modules, export existing Azure resources to Terraform configuration, and validate Terraform workspaces and plans against the Azure policy library (`policy-library-avm`) via conftest.
+The Azure MCP Server tools help you work with Terraform for Azure by using natural-language prompts. You can retrieve AzureRM and AzAPI provider documentation, discover Azure Verified Modules, export existing Azure resources to Terraform configuration, and validate Terraform workspaces and plans against the Azure policy library ([policy-library-avm](https://github.com/Azure/policy-library-avm)) via conftest.
 
 Azure Terraform tools cover the full lifecycle of Infrastructure as Code with Terraform on Azure, from provider documentation lookup to resource export and policy validation. For more information, see [Terraform on Azure documentation](/azure/developer/terraform/).
 
