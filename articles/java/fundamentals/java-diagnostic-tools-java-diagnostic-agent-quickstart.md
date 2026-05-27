@@ -1,5 +1,5 @@
 ---
-title: Get Started with the Java Diagnostic Agent
+title: Get Started with the Java Diagnostic Agent for AKS
 description: Learn how to get started with the Java Diagnostic Agent to troubleshoot Java applications running on AKS without rebuilding or restarting.
 author: KarlErickson
 ms.author: karler
@@ -9,7 +9,7 @@ ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Get started with the Java Diagnostic Agent
+# Get started with the Java Diagnostic Agent for AKS
 
 This article describes how to get started using the Java Diagnostic Agent. It also describes the Java Diagnostic Tool on AKS plugin for IntelliJ IDEA.
 
