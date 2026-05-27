@@ -45,12 +45,6 @@ Using Copilot CLI for modernization enables you to run modernization tasks direc
 
 ## Install the plugin
 
-1. In a terminal, run `copilot` to start Copilot CLI.
-
-   ```bash
-   copilot
-   ```
-
 1. Add the marketplace and install the plugin:
 
    ```bash
