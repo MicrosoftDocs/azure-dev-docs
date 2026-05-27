@@ -572,19 +572,3 @@ If you need help with the starter kit, use these resources:
 
 > [!div class="nextstepaction"]
 > [Learn more about the Responses API](/azure/ai-services/openai/how-to/responses)
-
-## Author notes: questions for the repo owner
-
-The following questions are for this first-pass draft and should be removed before publication.
-
-- What is the preferred setup path for docs readers: `git clone`, `azd init -t azure-openai-starter`, GitHub Codespaces, or another entry point?
-- Which RBAC role does `azd up` assign to the signed-in user: `Cognitive Services OpenAI User`, `Cognitive Services User`, or another role?
-- Should the article expose the repo's `AZURE_OPENAI_GPT_DEPLOYMENT_NAME` variable directly in each sample, or keep mapping it to the simpler doc-level `AZURE_OPENAI_DEPLOYMENT` variable?
-- Does setting `AZURE_TENANT_ID` affect all five language samples when they use `DefaultAzureCredential`, or should the samples pass tenant options explicitly?
-- Which exact runtime versions should the article list for Python, Node.js, .NET, Go, and Java?
-- Should the TypeScript content use the `javascript` pivot from `intelligent-apps-languages`, or should a new Learn pivot group be created for TypeScript, Java, and Go together?
-- Should the article include API key authentication as an alternative path, or should this getting-started article stay keyless only?
-- If GPT-5-mini isn't available in a selected region, what region should the article recommend first?
-- Should the .NET sample continue to use file-based C# apps with `#:package`, or should docs use a conventional `dotnet new console` flow?
-- Should cleanup use `azd down --purge` or plain `azd down` for the official guidance?
-- Should the article mention the starter kit's validation scripts, `validate.sh` and `validate.ps1`, in the happy path or only in troubleshooting?
