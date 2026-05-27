@@ -95,7 +95,7 @@ If you're already in a Copilot CLI session, use the `/agent` command to switch t
 Select `github-copilot-modernization:modernize` from the list.
 
 > [!IMPORTANT]
-> You must select the `github-copilot-modernization:modernize` agent before running any modernization prompts. Without selecting the agent, Copilot CLI uses the default agent, which can't use the full multi-agent orchestration, enterprise rulebook support, and specialized migration capabilities provided by the plugin.
+> You must select the `github-copilot-modernization:modernize` agent before running any modernization prompts. Without selecting the agent, Copilot CLI uses the default agent, which can't use the full multi-agent orchestration and specialized migration capabilities provided by the plugin.
 
 ### Run a modernization prompt
 
@@ -132,7 +132,7 @@ The plugin uses a three-phase workflow that runs automatically. You don't need t
 
 ### Phase 2: Planning
 
-- Loads assessment results and enterprise rulebook constraints (if present).
+- Loads assessment results.
 - Generates an executable task plan.
 - Saves the plan to `.github/modernize/<app>/plan.md` and `tasks.json`.
 
