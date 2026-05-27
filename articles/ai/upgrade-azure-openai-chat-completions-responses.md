@@ -24,7 +24,7 @@ By the end of this article, you will:
 - Run a working Responses API sample with Microsoft Entra ID authentication.
 
 > [!IMPORTANT]
-> The `src/...` folders used in this article come from the GitHub repository you clone in the first step. The `azd up` command provisions Azure resources and writes environment values; it doesn't create local source files.
+> The `src/...` folders used in this article come from the GitHub repository you clone in the first step. The optional `azd up` command provisions Azure resources and writes environment values; it doesn't create local source files.
 
 ## Why upgrade to the Responses API
 
@@ -66,10 +66,12 @@ For a simple text generation call, the migration is usually small. The most impo
 To complete this article, you need:
 
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- Permissions to create Azure resources and role assignments in the subscription, such as [Owner](/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+- An Azure OpenAI deployment that supports the Responses API. If you don't already have one, you can optionally create a temporary validation deployment with the starter kit.
+- Access to the Azure OpenAI resource with an identity that can call the model deployment.
 - [Git](https://git-scm.com/).
 - [Azure CLI](/cli/azure/install-azure-cli).
-- [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd), if you want the starter kit to create temporary validation resources.
+- Permissions to create Azure resources and role assignments, such as [Owner](/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), if you want the starter kit to create temporary validation resources.
 
 :::zone pivot="python"
 
@@ -141,7 +143,25 @@ The source files you use later are in the `src/java` folder of the cloned reposi
 
 :::zone-end
 
-## Deploy Azure OpenAI for validation
+## Choose a validation deployment
+
+You can validate the Responses API call with an existing Azure OpenAI deployment or with a temporary deployment created by the starter kit.
+
+### Use an existing deployment
+
+Use this option if your app already uses an Azure OpenAI deployment that supports the Responses API. This article doesn't require you to create a separate Azure OpenAI resource. The starter kit sample only sends a test request to the deployment you configure.
+
+Sign in with the Azure CLI. The starter kit samples use your local Azure CLI sign-in through `DefaultAzureCredential`.
+
+```azurecli
+az login
+```
+
+Make sure you have the Azure OpenAI resource endpoint, the deployment name, and the tenant ID for the subscription that contains the resource. If the sample later returns a model compatibility error, use a newer deployment or create a temporary validation deployment with the starter kit.
+
+### Create a temporary validation deployment
+
+Use this optional path if you don't already have a Responses-compatible deployment, or if you want to test the starter kit without using your working app deployment.
 
 Sign in with both the Azure CLI and the Azure Developer CLI.
 
@@ -165,13 +185,39 @@ Use the following guidance to answer the prompts:
 | Location | Select a region near you. |
 | Azure OpenAI model location | Select a region where GPT-5-mini is available. |
 
-Deployment usually takes several minutes. When the command completes, the starter kit has provisioned Azure OpenAI and deployed a GPT-5-mini model.
+Deployment usually takes several minutes. When the command completes, the starter kit has provisioned Azure OpenAI and deployed a GPT-5-mini model for validation.
 
 ## Configure local environment values
 
-Set the endpoint and deployment values that the samples use.
+Set the endpoint and deployment values that the samples use. Use the values for your existing deployment, or read the values from the Azure Developer CLI environment if you created temporary validation resources.
 
-#### [Bash](#tab/bash)
+### Existing deployment
+
+Use your Azure OpenAI resource endpoint and the deployment name for a model that supports the Responses API.
+
+#### [Bash](#tab/existing-bash)
+
+```bash
+export AZURE_OPENAI_ENDPOINT="https://<resource-name>.openai.azure.com"
+export AZURE_OPENAI_DEPLOYMENT="<deployment-name>"
+export AZURE_TENANT_ID="<tenant-id>"
+```
+
+#### [PowerShell](#tab/existing-powershell)
+
+```powershell
+$env:AZURE_OPENAI_ENDPOINT = "https://<resource-name>.openai.azure.com"
+$env:AZURE_OPENAI_DEPLOYMENT = "<deployment-name>"
+$env:AZURE_TENANT_ID = "<tenant-id>"
+```
+
+---
+
+### Starter kit deployment
+
+If you ran `azd up`, use `azd env get-value` to read the values that the starter kit wrote.
+
+#### [Bash](#tab/azd-bash)
 
 ```bash
 export AZURE_OPENAI_ENDPOINT=$(azd env get-value AZURE_OPENAI_ENDPOINT)
@@ -179,7 +225,7 @@ export AZURE_OPENAI_DEPLOYMENT=$(azd env get-value AZURE_OPENAI_GPT_DEPLOYMENT_N
 export AZURE_TENANT_ID=$(az account show --query tenantId -o tsv)
 ```
 
-#### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/azd-powershell)
 
 ```powershell
 $env:AZURE_OPENAI_ENDPOINT = azd env get-value AZURE_OPENAI_ENDPOINT
@@ -342,7 +388,7 @@ In the starter kit file, the client setup uses `DefaultAzureCredentialBuilder`, 
 
 ## Run the upgraded sample
 
-Use the starter kit sample for your language to validate that your endpoint, deployment name, authentication, and Responses API call all work before you port the pattern into your app.
+Use the starter kit sample for your language to validate that your selected endpoint, deployment name, authentication, and Responses API call all work before you port the pattern into your app.
 
 :::zone pivot="python"
 
@@ -414,14 +460,15 @@ After you see the Responses API working in the starter kit sample, you have a kn
 | --- | --- |
 | `azd up` fails because GPT-5-mini isn't available in the selected region. | Select a different Azure OpenAI model location when prompted, or set another region with `azd env set AZURE_LOCATION eastus2` and run `azd up` again. |
 | `azd up` fails with a role assignment or authorization error. | Make sure your account can create resources and role assignments. Owner or User Access Administrator is usually required for this template. |
-| The app returns `401` or `PermissionDenied`. | Confirm that you're signed in to the same tenant and subscription used by `azd up`. Run `az login`, `azd auth login`, and set `AZURE_TENANT_ID` to the tenant ID from `az account show`. Role assignment propagation can also take a few minutes. |
+| The sample returns an error that the model or operation isn't supported. | Confirm that your deployment supports the Responses API. If you're using an older model deployment, use a newer deployment or create a temporary validation deployment with `azd up`. |
+| The app returns `401` or `PermissionDenied`. | Confirm that you're signed in to the same tenant and subscription as the Azure OpenAI resource. Run `az login` and set `AZURE_TENANT_ID` to the tenant ID from `az account show`. If you created resources with `azd up`, also run `azd auth login`. Role assignment propagation can take a few minutes. |
 | `DefaultAzureCredential failed to retrieve a token`. | Confirm that Azure CLI is installed and authenticated with `az account show`. If you use multiple tenants, sign in to the correct tenant with `az login --tenant <tenant-id>`. |
-| The app returns `model not found` or `deployment not found`. | Confirm that `AZURE_OPENAI_DEPLOYMENT` matches the Azure OpenAI deployment name. The starter kit default is `gpt-5-mini`. |
+| The app returns `model not found` or `deployment not found`. | Confirm that `AZURE_OPENAI_DEPLOYMENT` matches the Azure OpenAI deployment name. If you used `azd up`, the starter kit default is `gpt-5-mini`. |
 | The Go app can't find the module or dependencies. | Run the Go commands from `src/go/responses_example_entra`. Confirm that Go 1.25.1 or later is installed. |
 | The Java app fails with a source or target version error. | Confirm that Java 21 or later is installed and selected by your terminal. The Java sample is a Maven project whose `pom.xml` declares the OpenAI Java SDK and Azure Identity dependencies. |
-| You need detailed deployment logs. | Run `azd up --debug`. |
+| You need detailed deployment logs for the optional starter kit deployment. | Run `azd up --debug`. |
 
-You can inspect the current Azure Developer CLI environment values with:
+If you used `azd up`, you can inspect the current Azure Developer CLI environment values with:
 
 ```azdeveloper
 azd env get-values
@@ -429,13 +476,13 @@ azd env get-values
 
 ## Clean up resources
 
-When you no longer need the resources, run the following command from the starter kit repository root:
+If you created temporary validation resources with `azd up`, delete them when you no longer need them. Run the following command from the starter kit repository root:
 
 ```azdeveloper
 azd down --purge
 ```
 
-The command deletes the Azure resources created by the starter kit and helps stop ongoing charges.
+The command deletes the Azure resources created by the starter kit and helps stop ongoing charges. It doesn't delete an existing Azure OpenAI deployment that you used by setting environment variables manually.
 
 > [!TIP]
 > If your terminal is still in one of the language sample folders, return to the repository root before you run `azd down --purge`.
