@@ -20,6 +20,9 @@ The Azure MCP Server tools help you work with Terraform for Azure by using natur
 
 Azure Terraform tools cover the full lifecycle of Infrastructure as Code with Terraform on Azure, from provider documentation lookup to resource export and policy validation. For more information, see [Terraform on Azure documentation](/azure/developer/terraform/).
 
+> [!NOTE]
+> Tool annotations describe Azure-side behavior only. Some tools in this family generate local files or commands for the agent to execute, which isn't reflected in the annotation hints.
+
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Get AzureRM provider documentation
