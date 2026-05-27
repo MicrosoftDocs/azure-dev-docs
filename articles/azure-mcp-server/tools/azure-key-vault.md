@@ -4,13 +4,13 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 author: diberry
 ms.author: diberry
 ms.reviewer: mbaldwin
-ms.date: 02/13/2026
+ms.date: 05/26/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
 ms.custom: build-2025
-mcp-cli.version: 2.0.0-beta.19+526b8facdd707f352913f84af0195268a22dea6f
+mcp-cli.version: 3.0.0-beta.12+d6e43aeae7450e7b68c5b1252e2a5c6e7bab1938
 --- 
 # Azure Key Vault tools for the Azure MCP Server overview
 
@@ -59,7 +59,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
 | **Key name** | Required | The name of the key to create. |
-| **Key type** | Required | The type of key to create. Supported types: `RSA`, `RSA-HSM`, `EC`, `EC-HSM`, `oct`, `oct-HSM`. |
+| **Key type** | Required | The type of key to create. Valid values: `RSA`, `EC`, `RSA-HSM`, `EC-HSM`. Note: `RSA-HSM` and `EC-HSM` require a premium SKU vault. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
