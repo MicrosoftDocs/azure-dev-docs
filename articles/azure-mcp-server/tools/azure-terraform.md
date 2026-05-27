@@ -4,7 +4,6 @@ description: Use Azure MCP Server tools to retrieve Terraform provider documenta
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.date: 05/13/2026
-ms.custom: build-2025
 author: diberry
 ms.reviewer: yunliu1
 ms.author: diberry
@@ -17,7 +16,7 @@ mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 
 # Azure MCP Server tools for Azure Terraform overview
 
-The Azure MCP Server tools help you work with Terraform for Azure by using natural-language prompts. You can retrieve AzureRM and AzAPI provider documentation, discover Azure Verified Modules, export existing Azure resources to Terraform configuration, and validate Terraform workspaces and plans against Azure policies.
+The Azure MCP Server tools help you work with Terraform for Azure by using natural-language prompts. You can retrieve AzureRM and AzAPI provider documentation, discover Azure Verified Modules, export existing Azure resources to Terraform configuration, and validate Terraform workspaces and plans against the Azure policy library (`policy-library-avm`) via conftest.
 
 Azure Terraform tools cover the full lifecycle of Infrastructure as Code with Terraform on Azure, from provider documentation lookup to resource export and policy validation. For more information, see [Terraform on Azure documentation](/azure/developer/terraform/).
 
@@ -33,7 +32,7 @@ Example prompts include:
 
 - **Get resource documentation**: "Show me the Terraform documentation for azurerm_resource_group"
 - **Look up a data source**: "Get the data source documentation for azurerm_storage_account"
-- **Filter by argument**: "What are the arguments for azurerm_virtual_network's address_space?"
+- **Filter by argument**: "Show me the documentation for the `address_space` argument on `azurerm_virtual_network`."
 - **Check attributes**: "Show me the attributes for azurerm_key_vault"
 
 | Parameter | Required or optional | Description |
@@ -42,6 +41,8 @@ Example prompts include:
 | **Doc type** | Optional | The documentation type to retrieve. Options: `resource` (default), `data-source`. |
 | **Argument** | Optional | Filter results to a specific argument name. |
 | **Attribute** | Optional | Filter results to a specific attribute name. |
+
+Specify either `Argument` or `Attribute` — the tool looks up documentation for that specific element type.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -137,10 +138,12 @@ Example prompts include:
 - **Use AzAPI provider**: "Export resource /subscriptions/.../storageAccounts/myaccount using the azapi provider"
 - **Custom name**: "Export this VM to Terraform with resource name 'primary_vm'"
 
+Set this to `false` for authoritative exports — when `true`, the export may complete with skipped resources or incomplete infrastructure-as-code.
+
 | Parameter | Required or optional | Description |
 |-----------|---------------------|-------------|
 | **Resource ID** | Required | The full Azure resource ID to export (for example, `/subscriptions/.../resourceGroups/.../providers/Microsoft.Storage/storageAccounts/mystorageaccount`). |
-| **Output folder** | Optional | Output folder name for the generated Terraform files. |
+| **Output folder** | Optional | Output folder name for the generated Terraform files. No default — the tool prompts for a path when omitted. |
 | **Provider** | Optional | Terraform provider to use: `azurerm` (default) or `azapi`. |
 | **Terraform resource name** | Optional | Custom resource name to use in the generated Terraform configuration. |
 | **Include role assignment** | Optional | Include role assignments in the export. |
@@ -163,10 +166,12 @@ Example prompts include:
 - **Custom naming**: "Export resource group production-rg with name pattern 'prod_{type}'"
 - **Use AzAPI**: "Export my resource group to Terraform using the azapi provider"
 
+Set this to `false` for authoritative exports — when `true`, the export may complete with skipped resources or incomplete infrastructure-as-code.
+
 | Parameter | Required or optional | Description |
 |-----------|---------------------|-------------|
 | **Resource group** | Required | The name of the Azure resource group to export. |
-| **Output folder** | Optional | Output folder name for the generated Terraform files. |
+| **Output folder** | Optional | Output folder name for the generated Terraform files. No default — the tool prompts for a path when omitted. |
 | **Provider** | Optional | Terraform provider to use: `azurerm` (default) or `azapi`. |
 | **Name pattern** | Optional | Pattern for naming resources in the generated Terraform configuration. |
 | **Include role assignment** | Optional | Include role assignments in the export. |
@@ -189,10 +194,12 @@ Example prompts include:
 - **Export by query**: "Export resources matching type =~ 'Microsoft.Web/sites' to Terraform"
 - **Custom output**: "Export all VMs to Terraform in the 'infra-output' folder"
 
+Set this to `false` for authoritative exports — when `true`, the export may complete with skipped resources or incomplete infrastructure-as-code.
+
 | Parameter | Required or optional | Description |
 |-----------|---------------------|-------------|
 | **Query** | Required | Azure Resource Graph KQL WHERE clause to select resources for export (for example, `type =~ 'Microsoft.Storage/storageAccounts'`). |
-| **Output folder** | Optional | Output folder name for the generated Terraform files. |
+| **Output folder** | Optional | Output folder name for the generated Terraform files. No default — the tool prompts for a path when omitted. |
 | **Provider** | Optional | Terraform provider to use: `azurerm` (default) or `azapi`. |
 | **Name pattern** | Optional | Pattern for naming resources in the generated Terraform configuration. |
 | **Include role assignment** | Optional | Include role assignments in the export. |
@@ -207,7 +214,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- azureterraform conftest workspace -->
 
-Generates a `conftest` command to validate Terraform `.tf` files in a workspace against Azure policies. Returns the command and arguments for the agent to execute locally. Uses the Azure policy library (policy-library-avm) for validation with configurable policy sets. If `conftest` isn't installed locally, returns installation instructions instead.
+Generates a `conftest` command to validate Terraform `.tf` files in a workspace against Azure policies. Returns the command and arguments for the agent to execute locally. Uses the Azure policy library ([policy-library-avm](https://github.com/Azure/policy-library-avm)) for validation with configurable policy sets. If `conftest` isn't installed locally, returns installation instructions instead.
 
 Example prompts include:
 
@@ -219,7 +226,7 @@ Example prompts include:
 |-----------|---------------------|-------------|
 | **Workspace folder** | Required | Path to the Terraform workspace folder containing `.tf` files to validate. |
 | **Policy set** | Optional | Policy set to use for validation: `all` (default), `Azure-Proactive-Resiliency-Library-v2`, or `avmsec`. |
-| **Severity filter** | Optional | Severity filter for avmsec policies: `high`, `medium`, `low`, or `info`. Only applicable when policy set is `avmsec`. |
+| **Severity filter** | Optional | Severity filter for avmsec policies: `high`, `medium`, `low`, or `info`. Only applicable when policy set is `avmsec`. No default — all severities included. |
 | **Custom policies** | Optional | Comma-separated list of custom policy paths to include in validation. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -242,7 +249,7 @@ Example prompts include:
 |-----------|---------------------|-------------|
 | **Plan folder** | Required | Path to the folder containing the Terraform plan JSON file (`tfplan.json`) to validate. |
 | **Policy set** | Optional | Policy set to use for validation: `all` (default), `Azure-Proactive-Resiliency-Library-v2`, or `avmsec`. |
-| **Severity filter** | Optional | Severity filter for avmsec policies: `high`, `medium`, `low`, or `info`. Only applicable when policy set is `avmsec`. |
+| **Severity filter** | Optional | Severity filter for avmsec policies: `high`, `medium`, `low`, or `info`. Only applicable when policy set is `avmsec`. No default — all severities included. |
 | **Custom policies** | Optional | Comma-separated list of custom policy paths to include in validation. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
