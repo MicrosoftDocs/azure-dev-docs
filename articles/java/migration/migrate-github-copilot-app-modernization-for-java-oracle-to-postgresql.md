@@ -21,6 +21,8 @@ For app code changes related to database migration scenarios, GitHub Copilot mod
 
 Another important factor to consider during database migration is SQL dialect conversion, which encompasses both static and dynamic SQL present in application code. For homogeneous migrations, SQL conversion is typically unnecessary because the database type remains the same. However, in heterogeneous migrations - such as transitioning from Oracle to PostgreSQL - the process of converting SQL can be complex and requires considerable effort.
 
+[!VIDEO https://www.youtube.com/watch?v=is2oBRZebLE&list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD&index=5]
+
 ## New advances for Oracle to PostgreSQL migration
 
 We now offer two significant advances for the Oracle to PostgreSQL migration scenario in partnership with the Azure PostgreSQL team:
