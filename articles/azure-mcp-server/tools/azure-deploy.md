@@ -105,9 +105,9 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Deploy option** |  Required | Valid values: deploy-only, provision-and-deploy. Default to deploy-only. Set to `provision-and-deploy` only when you explicitly want an infra provisioning pipeline that uses local provisioning scripts. |
-| **Is AZD project** |  Required | Whether to use AZD tool in the deployment pipeline. Set to `true` only if `azure.yaml` is provided or the context suggests AZD tools. |
-| **Pipeline platform** |  Required | The platform for the deployment pipeline. Valid values: `github-actions`, `azure-devops`. |
+| **Deploy option** |  Optional | Valid values: deploy-only, provision-and-deploy. Default to deploy-only. Set to `provision-and-deploy` only when you explicitly want an infra provisioning pipeline that uses local provisioning scripts. |
+| **Is AZD project** |  Optional | Whether to use AZD tool in the deployment pipeline. Set to `true` only if `azure.yaml` is provided or the context suggests AZD tools. |
+| **Pipeline platform** |  Optional | The platform for the deployment pipeline. Valid values: `github-actions`, `azure-devops`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -127,11 +127,11 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Deploy option** |  Required | Set the value based on project and user input. Valid values: `provision-and-deploy`, `deploy-only`, `provision-only`. Choose `deploy-only` when you deploy to existing Azure resources or when IaC files already exist. Choose `provision-only` when you only want to provision Azure resources. Choose `provision-and-deploy` when you want to provision infrastructure and deploy the application. |
+| **Deploy option** |  Optional | Set the value based on project and user input. Valid values: `provision-and-deploy`, `deploy-only`, `provision-only`. Choose `deploy-only` when you deploy to existing Azure resources or when IaC files already exist. Choose `provision-only` when you only want to provision Azure resources. Choose `provision-and-deploy` when you want to provision infrastructure and deploy the application. |
 | **Project name** |  Required | The name of the project to generate the deployment plan for. If you don't provide a project name, the tool infers it from the workspace. |
-| **Provisioning tool** |  Required | The tool to use for provisioning Azure resources. Valid values: `AzCli`, `AZD`. For example, Azure Developer CLI (azd) or Azure CLI with Bicep. |
-| **Source type** |  Required | The source of the plan to generate from. Valid values: `from-project`, `from-azure`, `from-context`. Use `from-project` to base the plan on project files in the workspace. Use `from-azure` to base the plan on existing Azure resources. Use `from-context` to base the plan on values you provide when no project files or Azure resources exist. |
-| **Target app service** |  Required | The Azure service to deploy the application. Valid values: `ContainerApp`, `WebApp`, `FunctionApp`, `AKS`. Recommend one based on the application architecture and runtime. |
+| **Provisioning tool** |  Optional | The tool to use for provisioning Azure resources. Valid values: `AzCli`, `AZD`. For example, Azure Developer CLI (azd) or Azure CLI with Bicep. |
+| **Source type** |  Optional | The source of the plan to generate from. Valid values: `from-project`, `from-azure`, `from-context`. Use `from-project` to base the plan on project files in the workspace. Use `from-azure` to base the plan on existing Azure resources. Use `from-context` to base the plan on values you provide when no project files or Azure resources exist. |
+| **Target app service** |  Optional | The Azure service to deploy the application. Valid values: `ContainerApp`, `WebApp`, `FunctionApp`, `AKS`. Recommend one based on the application architecture and runtime. |
 | **Workspace folder** |  Required | The full path of the workspace folder. |
 | **IaC options** |  Optional | The Infrastructure as Code option. Valid values: `bicep`, `terraform`. Leave empty to use an Azure CLI script. |
 | **Resource group** | Optional | The name of the Azure resource group. |
