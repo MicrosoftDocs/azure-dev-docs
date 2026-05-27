@@ -44,6 +44,8 @@ items:
             - name: Install and configure
               expanded: false
               items:
+              - name: IDE
+                href: ../java/migration/github-copilot-app-modernization-for-java-ide-install.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Copilot CLI
                 href: ../java/migration/github-copilot-app-modernization-for-java-copilot-cli.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Coding agent
