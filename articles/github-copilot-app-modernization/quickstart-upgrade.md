@@ -23,6 +23,9 @@ GitHub Copilot modernization Java upgrades support the following scenarios:
   
 This quickstart shows you how to upgrade a Java project by using GitHub Copilot modernization.
 
+[!VIDEO https://www.youtube.com/watch?v=VwAOpu3lxdM&list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD&index=3]
+
+
 ## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. You need a Free Tier, Pro, Pro+, Business, or Enterprise plan.
