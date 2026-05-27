@@ -134,7 +134,6 @@ Example prompts include:
 | **Target app service** |  Optional | The Azure service to deploy the application. Valid values: `ContainerApp`, `WebApp`, `FunctionApp`, `AKS`. Recommend one based on the application architecture and runtime. |
 | **Workspace folder** |  Required | The full path of the workspace folder. |
 | **IaC options** |  Optional | The Infrastructure as Code option. Valid values: `bicep`, `terraform`. Leave empty to use an Azure CLI script. |
-| **Resource group** | Optional | The name of the Azure resource group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
