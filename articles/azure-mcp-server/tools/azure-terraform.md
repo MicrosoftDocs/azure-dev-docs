@@ -237,7 +237,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- azureterraform conftest plan -->
 
-Generates a `conftest` command to validate a Terraform plan JSON file against Azure policies. Returns the command and arguments for the agent to execute locally. Uses the Azure policy library (policy-library-avm) for validation with configurable policy sets. If `conftest` isn't installed locally, returns installation instructions instead.
+Generates a `conftest` command to validate a Terraform plan JSON file against Azure policies. Returns the command and arguments for the agent to execute locally. Uses the Azure policy library ([policy-library-avm](https://github.com/Azure/policy-library-avm)) for validation with configurable policy sets. If `conftest` isn't installed locally, returns installation instructions instead.
 
 Example prompts include:
 
