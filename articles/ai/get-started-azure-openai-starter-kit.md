@@ -69,7 +69,7 @@ To complete this article, you need:
 
 :::zone-end
 
-## Get the starter kit
+## Get the code
 
 Clone the Azure OpenAI Starter Kit repository and open the project folder.
 
