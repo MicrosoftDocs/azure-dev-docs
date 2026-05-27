@@ -2,7 +2,7 @@
 title: Build a containerized Python web app in Azure Container Registry
 description: Build a containerized Python web app (Django or Flask) in Azure Container Registry, without the need to install Docker locally.
 ms.topic: how-to
-ms.date: 04/10/2025
+ms.date: 05/27/2026
 ms.custom:
   - devx-track-python
   - py-fresh-zinc
@@ -12,15 +12,26 @@ ms.custom:
 
 # Build a containerized Python web app in Azure
 
-In this part of the tutorial series, you learn how to build a containerized Python web app directly in [Azure Container Registry](/azure/container-registry/container-registry-intro) without installing Docker locally. Building the Docker image in Azure is often faster and easier than creating the image locally and then pushing it to the Azure Container Registry. Additionally, cloud-based image building eliminates the need for Docker to run in your development environment.
+This article is part 3 of a 5-part tutorial series about containerizing and deploying a Python web app to Azure App Service. In [part 2](tutorial-containerize-deploy-python-web-app-azure-02.md), you built and ran the container image locally. In this article, you build the same Python web app directly in [Azure Container Registry](/azure/container-registry/container-registry-intro) without installing Docker locally. Building the image in Azure is typically faster and easier than building locally and then pushing it to a registry. Cloud-based image building also eliminates the need for Docker to be running in your development environment.
 
-App Service enables you to run containerized web apps and deploy them through the continuous integration/continuous deployment (CI/CD) capabilities of Docker Hub, Azure Container Registry, and Visual Studio Team Services. This article is part 3 of a 5-part tutorial series about how to containerize and deploy a Python web app to Azure App Service. In this part of the tutorial, you learn how to build the containerized Python web app in Azure.
+Azure App Service lets you deploy and run containerized web apps using CI/CD pipelines from platforms like Docker Hub, Azure Container Registry, and Azure DevOps. Once the Docker image is in Azure Container Registry, you can deploy it to Azure App Service.
 
-Azure App Service lets you deploy and run containerized web apps using CI/CD pipelines from platforms like Docker Hub, Azure Container Registry, and Azure DevOps. This article is part 3 of a 5-part tutorial series.
+## Prerequisites
 
-In [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md) series, you built and ran the container image locally. In contrast, in this part of the tutorial, you build (containerize) the same Python web app directly into a Docker image in the [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
+Before you begin, make sure you completed [part 2 of this tutorial series](tutorial-containerize-deploy-python-web-app-azure-02.md), which covers:
 
-Once the Docker image is in Azure Container Registry, it can be deployed to Azure App service.
+- Cloning the sample repository (Django or Flask).
+- Creating a resource group for Azure resources.
+- Running the containerized app locally to verify it works.
+
+You also need:
+
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- [Azure CLI](/cli/azure/install-azure-cli) installed locally (for Azure CLI steps) or access to [Azure Cloud Shell](https://shell.azure.com/).
+- [Visual Studio Code](https://code.visualstudio.com/) with the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed (for VS Code steps).
+
+> [!NOTE]
+> The sample Dockerfile uses `python:3.8-slim` as the base image. For production deployments, consider using Python 3.11 or later for improved performance and security updates.
 
 This service diagram highlights the components covered in this article.
 
@@ -30,14 +41,14 @@ This service diagram highlights the components covered in this article.
 
 ## Create an Azure Container Registry
 
-If you have an existing Azure Container Registry you wish to use, skip this next step and proceed to the next step. Otherwise, create a new Azure Container Registry using the Azure CLI.
+If you already have an Azure Container Registry, skip this step and proceed to the next step. Otherwise, create a new Azure Container Registry by using the Azure CLI.
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli).
+You can run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.com/) or in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 > [!NOTE]
 > Use the same names as in part 2 of this tutorial series.
 
-1. Create an Azure container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
+1. Create an Azure container registry by using the [az acr create](/cli/azure/acr#az-acr-create) command.
 
     ### [Bash](#tab/bash)
 
@@ -69,29 +80,29 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     In the JSON output of the command, locate the `loginServer` value. This value represents the fully qualified registry name (all lowercase) and contains the registry name.
 
-1. If you're using the Azure CLI on your local machine, execute the [az acr login](/cli/azure/acr#az-acr-login) command to log in to the container registry.
+1. If you're using the Azure CLI on your local machine, run the [az acr login](/cli/azure/acr#az-acr-login) command to sign in to the container registry.
 
     ```azurecli-interactive
     az acr login -n $REGISTRY_NAME
     ```
 
-    The command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you see the message "Login Succeeded".
+    The command adds `azurecr.io` to the name to create the fully qualified registry name. If successful, you see the message **"Login Succeeded"**.
 
     > [!NOTE]
-    > In the Azure Cloud Shell, the az `acr login command` isn't necessary, as authentication is handled automatically through your Cloud Shell session. However, if you encounter authentication issues, you can still use it.
+    > In the Azure Cloud Shell, the `az acr login` command isn't necessary, as authentication is handled automatically through your Cloud Shell session. However, if you encounter authentication problems, you can still use it.
 
 ## Build an image in Azure Container Registry
 
 You can generate the container image directly in Azure through various approaches:
 
-  * The Azure Cloud Shell allows you to construct the image entirely in the cloud, independent of your local environment.
-  * Alternatively, you can use VS Code or the Azure CLI to create it in Azure from your local setup, without needing Docker to be running locally.
+  * The Azure Cloud Shell enables you to construct the image entirely in the cloud, independent of your local environment.
+  * Alternatively, you can use VS Code or the Azure CLI to create the image in Azure from your local setup, without needing Docker to be running locally.
 
-Azure CLI commands can be run in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli) or in [Azure Cloud Shell](https://shell.azure.com/).
+You can run Azure CLI commands in your local development environment by using the [Azure CLI installed](/cli/azure/install-azure-cli) or in [Azure Cloud Shell](https://shell.azure.com/).
 
-1. In the console, navigate to the root folder for your cloned repository from part 2 of this tutorial series.
+1. In the console, go to the root folder for your cloned repository from part 2 of this tutorial series.
 
-1. Build the container image using the [az acr build](/cli/azure/acr#az-acr-build) command.
+1. Build the container image by using the [az acr build](/cli/azure/acr#az-acr-build) command.
 
     ```azurecli-interactive
     az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
@@ -100,9 +111,9 @@ Azure CLI commands can be run in your local development environment with the [Az
     # az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
     ```
 
-    The last argument in the command is the fully qualified path to the repo. When running in Azure Cloud Shell, use https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git for the Django sample app and https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git for the Flask sample app.
+    The last argument in the command is the fully qualified path to the repo. When running in Azure Cloud Shell, use `https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git` for the Django sample app and `https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git` for the Flask sample app.
 
-1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
+1. Confirm the container image was created by using the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
     ```azurecli-interactive
     az acr repository list -n $REGISTRY_NAME
@@ -112,13 +123,13 @@ Azure CLI commands can be run in your local development environment with the [Az
 
 ## Create an Azure Container Registry
 
-If you have an existing Azure Container Registry you wish to use, skip this next step and proceed to the next step. Otherwise, create a new Azure Container Registry using VS Code.
+If you already have an Azure Container Registry, you can skip this step. Otherwise, create a new Azure Container Registry by using VS Code.
 
 > [!IMPORTANT]
 > The steps in this section assume that you previously completed the **VS Code** sections of part 2 of this tutorial series.
 
-1. In the Docker extension in VS Code, go to **REGISTRIES** and click **Azure** to connect to the Azure Container Registry.
-1. In Visual Studio Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry** task.
+1. In the Docker extension in VS Code, go to **REGISTRIES** and select **Azure** to connect to the Azure Container Registry.
+1. In VS Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry** task.
 
     Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription, and select **Create Registry**. This action starts the same create registry task.
 
@@ -138,8 +149,8 @@ If you have an existing Azure Container Registry you wish to use, skip this next
 
 You can generate the container image directly in Azure through various approaches:
 
-  * The Azure Cloud Shell allows you to construct the image entirely in the cloud, independent of your local environment.
-  * Alternatively, you can use VS Code or the Azure CLI to create it in Azure from your local setup, without needing Docker to be running locally.
+  * The Azure Cloud Shell enables you to construct the image entirely in the cloud, independent of your local environment.
+  * Alternatively, you can use VS Code or the Azure CLI to create the image in Azure from your local setup, without needing Docker to be running locally.
 
 These steps require that VS Code is opened in the working folder of your web app.
 
@@ -163,7 +174,7 @@ These steps require that VS Code is opened in the working folder of your web app
 
 1. Confirm the image in the Azure Container Registry.
 
-    1. In the Docker extension, in the **REGISTRIES** section, find the container image created. You may need to close and re-open VS Code to see the image.
+    1. In the Docker extension, in the **REGISTRIES** section, find the container image created. You might need to close and re-open VS Code to see the image.
 
     1. Confirm the name and tag **latest**.
 
