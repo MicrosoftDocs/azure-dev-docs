@@ -53,7 +53,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   When you migrate your service from AWS to Azure, you can transition from AWS S3 to Azure Storage Blob. This task helps you convert the code logic that interacts with AWS S3 into code logic that operates with Azure Storage Blob, while maintaining the same semantics.
 
-  This migration knowledge was developed in collaboration with the Azure Storage team, drawing on their deep expertise in Blob Storage APIs, authentication patterns, and platform-specific behaviors to ensure the guidance reflects production-grade best practices. Key enhancements include behavioral-fidelity rules that prevent silent data loss during conversion, correct handling of immutability/Object Lock semantics, blob version deletion edge cases, and SAS token generation with token-based authentication—areas where S3 and Azure Blob Storage diverge in ways that aren't obvious from API signatures alone.
+  This migration knowledge was developed in collaboration with the Azure Storage team, drawing on their deep expertise in Blob Storage APIs, authentication patterns, and platform-specific behaviors to ensure the guidance reflects production-grade best practices. 
 
 - Logging to local file
 
