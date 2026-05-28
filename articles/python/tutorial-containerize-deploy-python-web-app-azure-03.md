@@ -2,7 +2,7 @@
 title: Build a containerized Python web app in Azure Container Registry
 description: Build a containerized Python web app (Django or Flask) in Azure Container Registry, without the need to install Docker locally.
 ms.topic: how-to
-ms.date: 05/27/2026
+ms.date: 05/28/2026
 ms.custom:
   - devx-track-python
   - py-fresh-zinc
@@ -30,8 +30,8 @@ You also need:
 - [Azure CLI](/cli/azure/install-azure-cli) installed locally (for Azure CLI steps) or access to [Azure Cloud Shell](https://shell.azure.com/).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed (for VS Code steps).
 
-> [!NOTE]
-> The sample Dockerfile uses `python:3.8-slim` as the base image. For production deployments, consider using Python 3.11 or later for improved performance and security updates.
+> [!IMPORTANT]
+> The sample Dockerfile uses `python:3.8-slim` as the base image. **Python 3.8 reached end-of-life in October 2024** and no longer receives security updates. Update your Dockerfile to use `python:3.12-slim` or `python:3.13-slim` for production deployments.
 
 This service diagram highlights the components covered in this article.
 
@@ -57,6 +57,7 @@ You can run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.co
     # Use the resource group that you created in part 2 of this tutorial series.
     RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
+    # If the name is already taken, you'll receive an error. Choose a different name and retry.
     REGISTRY_NAME='msdocscontainerregistryname'
 
     echo "Creating Azure Container Registry $REGISTRY_NAME..."
@@ -70,6 +71,7 @@ You can run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.co
     # Use the resource group that you created in part 2 of this tutorial series.
     $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
+    # If the name is already taken, you'll receive an error. Choose a different name and retry.
     $REGISTRY_NAME='msdocscontainerregistryname'
 
     Write-Output "Creating Azure Container Registry $REGISTRY_NAME..."
@@ -96,10 +98,16 @@ You can run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.co
     az acr login -n $REGISTRY_NAME
     ```
 
-    The `-n` parameter accepts the short registry name (for example, `msdocscontainerregistryname`). Azure CLI automatically resolves it to the fully qualified login server address (`msdocscontainerregistryname.azurecr.io`). If successful, you see the message **"Login Succeeded"**.
+    The `-n` parameter accepts either the short registry name (for example, `msdocscontainerregistryname`) or the fully qualified registry name (`msdocscontainerregistryname.azurecr.io`). The command authenticates Docker with Azure Container Registry using your Azure CLI credentials.
+    
+    **Expected output:**
+    
+    ```output
+    Login Succeeded
+    ```
 
     > [!NOTE]
-    > In the Azure Cloud Shell, the `az acr login` command isn't necessary, as authentication is handled automatically through your Cloud Shell session. However, if you encounter authentication problems, you can still use it.
+    > If you're using Azure Cloud Shell, you don't need to run the `az acr login` command because your Cloud Shell session automatically handles authentication.
 
 ## Build an image in Azure Container Registry
 
@@ -114,14 +122,25 @@ You can run Azure CLI commands in your local development environment by using th
 
 1. Build the container image by using the [az acr build](/cli/azure/acr#az-acr-build) command.
 
+    **Local development:**
+    
     ```azurecli-interactive
     az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
-    # When using Azure Cloud Shell, run one of the following commands instead:
-    # az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
-    # az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
     ```
 
-    The last argument in the command is the fully qualified path to the repo. When running in Azure Cloud Shell, use `https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git` for the Django sample app and `https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git` for the Flask sample app.
+    **Azure Cloud Shell:**
+    
+    If you're using Azure Cloud Shell, specify the GitHub repository URL instead of the local path (`.`):
+    
+    ```azurecli-interactive
+    # For Django sample:
+    az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
+    
+    # For Flask sample:
+    az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
+    ```
+
+    The final argument (`.` or the Git URL) is the Docker build context—the directory containing the Dockerfile and application files that Docker uses to build the image.
 
 1. Confirm the container image was created by using the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
@@ -153,7 +172,7 @@ If you already have an Azure Container Registry, you can skip this step. Otherwi
 
 1. Follow the prompts and enter the following values:
 
-    * **Registry name**: Enter **msdocscontainerregistryname**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+    * **Registry name**: Enter a unique name such as **msdocscontainerregistryname**. The registry name must be globally unique within Azure and contain 5-50 alphanumeric characters. If the name is already taken, choose a different name.
 
     * **SKU**: Select **Standard**.
 
@@ -161,7 +180,17 @@ If you already have an Azure Container Registry, you can skip this step. Otherwi
 
 1. In the Docker extension, in the **REGISTRIES** section, find the registry you created, right-click, and select **View Properties**.
 
-    Look for the `loginServer` key-value pair in the output. The value is the fully qualified name of the registry (for example, `msdocscontainerregistryname.azurecr.io`).
+    In the output, locate the `loginServer` value - the fully qualified registry name (for example, `msdocscontainerregistryname.azurecr.io`).
+    
+    **Example output:**
+    
+    ```json
+    {
+      "loginServer": "msdocscontainerregistryname.azurecr.io",
+      "name": "msdocscontainerregistryname",
+      ...
+    }
+    ```
 
 ## Build an image in Azure Container Registry
 
@@ -196,10 +225,20 @@ These steps require that VS Code is opened in the working folder of your web app
 
     1. Confirm the name and tag **latest**.
 
-    Alternatively, verify the image using the Azure CLI:
+    **CLI verification (optional):**
+    
+    Verify the image using the Azure CLI:
 
     ```azurecli-interactive
     az acr repository list -n $REGISTRY_NAME
+    ```
+    
+    **Expected output:**
+    
+    ```json
+    [
+      "msdocspythoncontainerwebapp"
+    ]
     ```
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
