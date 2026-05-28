@@ -39,7 +39,7 @@ To start the npm package upgrade process, use the following steps:
 
 1. Follow the prompts in Copilot Chat. Copilot asks questions and requests confirmations as it walks you through each stage of the upgrade. The tool is interactive, so answer questions in the chat as they appear.
 
-1. Copilot upgrades your `package.json` file, runs `npm install` or `npm update`, and suggests code changes if any breaking changes or API updates require modifications.
+1. Copilot upgrades your `package.json` file, runs the appropriate install command for your project (such as `npm install`, `pnpm install`, or `yarn install`), and suggests code changes if any breaking changes or API updates require modifications.
 
 Behind the scenes, the tool operates in an iterative loop: it analyzes the project, makes changes, verifies the build or checks for issues, and repeats as necessary. This process runs in Copilot's agent mode to provide intelligent, context-aware assistance. The tool creates a dedicated branch for the upgrade session and commits changes to that branch automatically as it works.
 

@@ -22,7 +22,7 @@ GitHub Copilot modernization for JavaScript/TypeScript is available as part of t
 
 - **Project analysis**: Analyzes files like `package.json` to understand your project's current state and dependencies.
 - **Upgrade planning**: Suggests an upgrade plan and provides transparent recommendations before making changes.
-- **Package upgrades**: Automatically upgrades npm packages to their latest versions by modifying `package.json` and running `npm install` or `npm update`.
+- **Package upgrades**: Automatically upgrades npm packages to their latest versions by modifying `package.json` and running the appropriate install command for your project (such as `npm install`, `pnpm install`, or `yarn install`).
 - **Code remediation**: Helps apply code changes needed for breaking changes or new APIs introduced in upgraded packages.
 - **Interactive experience**: Works through an interactive Copilot Chat experience in Visual Studio Code, walking you through changes with questions and confirmations.
 
