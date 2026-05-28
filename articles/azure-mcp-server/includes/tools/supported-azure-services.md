@@ -130,6 +130,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | `extension` | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | `quota` | Manage Azure resource quotas and limits. |
 | [Azure Resource Health](../../tools/azure-resource-health.md) | `resourcehealth` | Check availability status, view health events, and track service-impacting issues for Azure resources. |
+| [Azure SRE Agent](../../tools/azure-sre-agent.md) | `sreagent` | Manage Azure SRE Agent resources, including agents, skills, connectors, incidents, and workflows. |
 | [Azure Well-Architected Framework](../../tools/azure-well-architected-framework.md) | `wellarchitectedframework` | Get architectural best practices, design patterns, and recommendations for Azure services based on the five Well-Architected Framework pillars. |
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
 | [Resource Groups](../../tools/resource-group.md) | `group` | List Azure resource groups and list resources within a group. |
