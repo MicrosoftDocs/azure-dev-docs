@@ -1,13 +1,13 @@
 ---
-title: Azure MCP Server Tools for Azure Compute
-description: Discover compute tools for managing virtual machines, virtual machine scale sets, and disks in Azure MCP Server. Explore features and start optimizing your resources.
-#customer intent: As a system admin, I want to list all virtual machine scale sets in a subscription so I can manage their capacity and upgrade policies.
-ms.date: 05/13/2026
+title: Azure MCP Server tools for Azure Compute
+description: Discover Azure Compute tools for managing virtual machines, virtual machine scale sets, and disks in Azure MCP Server. Explore features and start optimizing your resources.
+#customer intent: As a system admin, I want to list all Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
+ms.date: 05/24/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.reviewer: audreytoney
-tool_count: 12
-mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
+tool_count: 13
+mcp-cli.version: 3.0.0-beta.11
 ---
 
 # Azure MCP Server tools for Azure compute overview
@@ -287,6 +287,44 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+## Virtual machine: power state
+
+<!-- @mcpcli compute vm power-state -->
+
+Change the running state of an Azure virtual machine (VM) by deallocating, starting, stopping, or restarting it. Deallocating releases compute resources and stops billing for compute while preserving the VM and its configuration. Starting powers on a stopped VM. Stopping powers off a VM and shuts down the operating system. Restarting reboots the VM.
+
+Use the skip shutdown option with `stop` to force the action without a graceful OS shutdown. Use the no-wait option to return immediately. The response includes a `statusUri`, which is the Azure Resource Manager (ARM) Azure-AsyncOperation URL, and you can GET it to poll the operation status (InProgress / Succeeded / Failed).
+
+Example prompts include:
+
+- "Start and power on VM `appserver01` in resource group `rg-prod`."
+
+- "Stop and power off the running VM `db-node-1` in resource group `rg-db-prod`."
+
+- "Deallocate VM `analytics-vm` in resource group `rg-analytics` to release compute resources while keeping the VM."
+
+- "Restart VM `webapp-vm` in resource group `rg-web-prod`."
+
+- "Stop VM `windows-server-01` in resource group `rg-windows` and skip the OS shutdown."
+
+- "Start VM `workerpool-02` in resource group `rg-compute` without waiting for completion."
+
+- "Power off and shut down VM `cache-node` in resource group `rg-cache`."
+
+- "Deallocate and power off VM `batch-vm-1` in resource group `rg-batch` to stop billing for compute resources while preserving the VM."
+
+| Parameter | Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Power action** | Required | The power action to apply to the VM (not the current power state). Accepted values: `start`, `stop`, `deallocate`, `restart`. |
+| **Resource group** | Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
+| **VM name** | Required | The name of the virtual machine. |
+| **No wait** | Optional | Return immediately without waiting for the operation to complete. |
+| **Skip shutdown** | Optional | Skip the graceful OS shutdown and force power off. Only compatible with the `stop` state. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Virtual machine: update
 
