@@ -149,7 +149,7 @@ In this step, complete the following tasks:
     ```powershell-interactive
     # Powershell syntax
     $APP_SERVICE_NAME="msdocs-website-name"
-    # Use the same rregistry name as in part 2 of this tutorial series.
+    # Use the same registry name as in part 2 of this tutorial series.
     $REGISTRY_NAME="msdocscontainerregistryname"
     $CONTAINER_NAME = "$REGISTRY_NAME.azurecr.io/msdocspythoncontainerwebapp:latest"
     
