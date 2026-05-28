@@ -14,7 +14,7 @@ ms.update-cycle: 180-days
 
 # Quickstart: Upgrade npm packages in a JavaScript or TypeScript project by using GitHub Copilot modernization
 
-This quickstart shows you how to use GitHub Copilot modernization to upgrade npm packages in a JavaScript or TypeScript project. The JavaScript/TypeScript Modernizer analyzes your project, suggests an upgrade plan, automatically updates packages, and helps you apply any necessary code changes.
+This quickstart shows you how to use GitHub Copilot modernization to upgrade npm packages in a JavaScript or TypeScript project. GitHub Copilot modernization for JavaScript/TypeScript analyzes your project, suggests an upgrade plan, automatically upgrades packages, and helps you apply any necessary code changes.
 
 ## Prerequisites
 
@@ -23,28 +23,9 @@ This quickstart shows you how to use GitHub Copilot modernization to upgrade npm
 - [GitHub Copilot](https://github.com/features/copilot). Sign in to your GitHub account in Visual Studio Code.
 - [GitHub Copilot modernization extension](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure).
 
-## Enable the experimental setting
-
-Enable the JavaScript/TypeScript upgrade experimental feature before you start the upgrade.
-
-1. In Visual Studio Code, open your `settings.json` file.
-
-1. Add the following setting:
-
-   ```json
-   {
-       "appmod.experimental.task.typescript.upgrade": true
-   }
-   ```
-
-1. Restart Visual Studio Code.
-
 ## Open the project
 
 Open your JavaScript or TypeScript project folder in Visual Studio Code. The project must contain a `package.json` file for the tool to detect it.
-
-> [!IMPORTANT]
-> The tool doesn't create branches or commits automatically. If you want to work in a separate branch, switch to your desired branch before starting the upgrade process.
 
 ## Start the upgrade
 
@@ -58,22 +39,21 @@ To start the npm package upgrade process, use the following steps:
 
 1. Follow the prompts in Copilot Chat. Copilot asks questions and requests confirmations as it walks you through each stage of the upgrade. The tool is interactive, so answer questions in the chat as they appear.
 
-1. Copilot applies updates to your `package.json` file, runs `npm install` or `npm update`, and suggests code changes if any breaking changes or API updates require modifications.
+1. Copilot upgrades your `package.json` file, runs `npm install` or `npm update`, and suggests code changes if any breaking changes or API updates require modifications.
 
-Behind the scenes, the tool operates in an iterative loop: it analyzes the project, makes changes, verifies the build or checks for issues, and repeats as necessary. This process runs in Copilot's agent mode to provide intelligent, context-aware assistance.
+Behind the scenes, the tool operates in an iterative loop: it analyzes the project, makes changes, verifies the build or checks for issues, and repeats as necessary. This process runs in Copilot's agent mode to provide intelligent, context-aware assistance. The tool creates a dedicated branch for the upgrade session and commits changes to that branch automatically as it works.
 
-## Review and commit changes
+## Review changes and create a pull request
 
-After Copilot completes the upgrade process, review the changes carefully:
+When the upgrade session completes, review what the tool did and decide whether to merge the work:
 
-1. Use the Visual Studio Code source control panel to review the diff of all modified files, including `package.json` and any code files that were updated.
+1. Open `summary.md` under `<project>/.github/modernize/code-migration/<timestamp>/` for an overview of what the upgrade session changed.
 
-1. Run your project's build and test scripts to ensure everything works as expected after the upgrade.
+1. Use the Visual Studio Code source control panel to review the commits the tool made on the upgrade branch.
 
-1. When you're satisfied with the changes, commit them using Visual Studio Code's source control features or your preferred Git workflow.
+1. Run your project's build and test scripts to verify the upgraded project behaves as expected.
 
-> [!NOTE]
-> The tool updates files but doesn't commit changes automatically. You remain in control of what gets committed to your repository.
+1. When you're satisfied with the changes, create a pull request from the upgrade branch into your main branch using your preferred Git workflow.
 
 ## Next steps
 

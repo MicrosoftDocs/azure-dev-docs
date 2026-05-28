@@ -19,42 +19,36 @@ sections:
   - name: FAQ
     questions:
 
-      - question: What does the JavaScript/TypeScript Modernizer support today?
+      - question: What does GitHub Copilot modernization for JavaScript/TypeScript support today?
         answer: |
-          The JavaScript/TypeScript Modernizer supports npm package upgrades with code remediation for breaking changes. The tool analyzes your project's `package.json`, suggests an upgrade plan, updates npm packages to their latest versions, and helps you apply code changes needed to accommodate breaking changes or new APIs. The tool is available only in Visual Studio Code through the GitHub Copilot modernization extension and requires enabling an experimental setting.
-
-      - question: How do I enable the JavaScript/TypeScript Modernizer?
-        answer: |
-          To use the JavaScript/TypeScript Modernizer, install the GitHub Copilot modernization extension for Visual Studio Code and enable the experimental setting `appmod.experimental.task.typescript.upgrade: true` in your `settings.json` file. Restart Visual Studio Code after you add the setting. The capability is enabled by an experimental setting and is under active development, so it may have rough edges.
+          GitHub Copilot modernization for JavaScript/TypeScript supports npm package upgrades with code remediation for breaking changes. The tool analyzes your project's `package.json`, suggests an upgrade plan, upgrades npm packages to their latest versions, and helps you apply code changes needed to accommodate breaking changes or new APIs. The tool is available only in Visual Studio Code through the GitHub Copilot modernization extension.
 
       - question: Can I use it on a monorepo or workspace with multiple projects?
         answer: |
           Currently, the tool supports one project at a time. For monorepos or workspaces with multiple `package.json` files, only the first detected project is targeted by the upgrade process. To upgrade multiple projects in a monorepo, open each project folder separately in Visual Studio Code and run the upgrade process individually for each project.
 
-      - question: Where are the logs if something goes wrong?
-        answer: |
-          If you encounter issues during the upgrade process, you can check logs in three locations:
-
-          - **TypeScript MCP Server logs**: In Visual Studio Code, open the Command Palette and select **MCP: List Servers**, then select **TypeScript Package Updater** and choose **Show Output**.
-          - **PROGRESS.md file**: After you trigger an upgrade, the tool creates a `.tsupgrader` folder next to your `package.json` file. Look for a `PROGRESS.md` file in this folder. If this file is missing, it might indicate an unexpected error occurred.
-          - **Local logs directory**: Check the logs in your user profile directory at `<user profile>/.ghcp-appmod/ts/logs/` for deeper diagnostics and error details.
-
       - question: What should I do if the upgrade gets stuck or produces unexpected results?
         answer: |
-          If the upgrade process gets stuck or doesn't produce the expected results, follow these troubleshooting steps:
+          If the upgrade process gets stuck or doesn't produce the expected results, check the following sources for diagnostic information:
 
-          1. Check the TypeScript MCP Server output in Visual Studio Code by opening the Command Palette, selecting **MCP: List Servers**, then selecting **TypeScript Package Updater** and choosing **Show Output**.
-          1. Look for the `PROGRESS.md` file in the `.tsupgrader` folder created next to your `package.json` file. This file contains progress information that can help identify where the process stopped.
-          1. Inspect the local logs at `<user profile>/.ghcp-appmod/ts/logs/` for detailed diagnostic information.
-          1. If the problem persists, provide feedback to the team by emailing the information you gathered (see the next question for feedback instructions).
+          - **Upgrade session files**: The tool writes `plan.md`, `progress.md`, and `summary.md` to `<project>/.github/modernize/code-migration/<timestamp>/`. These files describe what the upgrade session attempted and where it stopped.
+          - **TypeScript MCP Server logs**: In Visual Studio Code, open the Command Palette and select **MCP: List Servers**, then select **GitHub Copilot modernization - TypeScript** and choose **Show Output**.
+          - **Local logs directory**: Check the logs in your user profile directory at `<user profile>/.ghcp-appmod/app-modernization-for-typescript/logs` for deeper diagnostics and error details.
+
+          If the problem persists, see the next question for how to report it.
 
       - question: How do I provide feedback?
         answer: |
-          We welcome your feedback to help improve the JavaScript/TypeScript Modernizer. To provide feedback, send an email to webtoolsoutreach@microsoft.com with the following information:
+          We welcome your feedback to help improve GitHub Copilot modernization for JavaScript/TypeScript. You can:
 
-          - A description of the expected behavior versus the actual behavior you observed
-          - The contents of the MCP server output (from **MCP: List Servers** > **TypeScript Package Updater** > **Show Output**)
-          - The contents of the `PROGRESS.md` file from the `.tsupgrader` folder (if available)
-          - Any relevant log files from `<user profile>/.ghcp-appmod/ts/logs/`
+          - Open an issue at [https://aka.ms/ghcp-appmod/feedback](https://aka.ms/ghcp-appmod/feedback).
+          - Send an email to `webtoolsoutreach@microsoft.com`.
+
+          When you report an issue, include the following information:
+
+          - A description of the expected behavior versus the actual behavior you observed.
+          - The contents of the upgrade session files at `<project>/.github/modernize/code-migration/<timestamp>/` (especially `summary.md` and `progress.md`).
+          - The contents of the MCP server output (from **MCP: List Servers** > **GitHub Copilot modernization - TypeScript** > **Show Output**).
+          - Any relevant log files from `<user profile>/.ghcp-appmod/app-modernization-for-typescript/logs`.
 
           Your feedback helps us improve the tool and address issues in future releases.
