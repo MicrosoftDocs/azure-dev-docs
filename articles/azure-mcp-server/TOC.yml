@@ -173,6 +173,8 @@ items:
       href: tools/azure-signalr.md
     - name: Azure SQL
       href: tools/azure-sql.md
+    - name: Azure SRE Agent
+      href: tools/azure-sre-agent.md
     - name: Azure Storage
       href: tools/azure-storage.md
     - name: Azure Virtual Desktop
