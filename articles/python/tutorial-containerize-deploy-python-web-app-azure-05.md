@@ -3,29 +3,29 @@ title: Clean up Azure resources used in Python container tutorial
 description: How to clean up resources used in a tutorial showing how to containerize a Python web app (Django or Flask) and deploy it to App Service.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 05/28/2026
 ms.custom: devx-track-python
 ---
 
 # Containerize tutorial cleanup and next steps
 
-In this part of the tutorial series, you learn how to clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered.
+In this part of the tutorial series, you learn how to clean up resources used in Azure so you don't incur extra charges and help keep your Azure subscription uncluttered.
 
 ## Clean up resources
 
-At the end of a tutorial or project, it's important to clean up any Azure resources you no longer need. This helps you:
+At the end of a tutorial or project, clean up any Azure resources you no longer need. This step helps you:
 
 * Avoid unnecessary charges – Resources left running can continue to accrue costs.
 * Keep your Azure subscription organized – Removing unused resources makes it easier to manage and navigate your subscription.
 
-In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
+In this tutorial, you created all the Azure resources in the same resource group. Removing the resource group removes all resources in the resource group. It's the fastest way to remove all Azure resources used for your app.
 
 > [!TIP]
 > If you plan to continue development or testing, you can leave the resources running. Just be aware of potential costs.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+Run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 1. Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
@@ -51,7 +51,7 @@ You can optionally add the `--no-wait` argument to allow the command to return b
 
 ### [VS Code](#tab/vscode-aztools)
 
-To work with Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+To work with Azure resources in VS Code, you must install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) and sign into Azure from VS Code.
 
 1. In the Azure view in VS Code (from the Azure Tools extension), expand **RESOURCES** and find your subscription.
 
@@ -69,7 +69,7 @@ To work with Azure resources in VS Code, you must have the [Azure Tools extensio
 
 ## Next steps
 
-After completing this tutorial, here are some next steps you can take to build upon what you learned and move the tutorial code and deployment closer to production ready:
+After completing this tutorial, take these next steps to build on what you learned and move the tutorial code and deployment closer to production ready:
 
 * [Deploy a web app from a geo-replicated Azure container registry](/azure/container-registry/container-registry-tutorial-deploy-app)
 
@@ -83,9 +83,9 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * Create reusable infrastructure as code with [Azure Developer CLI (azd)](../azure-developer-cli/overview.md). 
 
-## Related Learn modules
+## Related Microsoft Learn modules
 
-The following are some Learn modules that explore the technologies and themes covered in this tutorial:
+The following Microsoft Learn modules explore the technologies and themes covered in this tutorial:
 
 * [Introduction to Python](/training/modules/intro-to-python/)
 
