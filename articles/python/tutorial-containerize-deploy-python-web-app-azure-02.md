@@ -2,7 +2,7 @@
 title: Build and run a containerized Python web app locally with MongoDB
 description: Build and run a containerized Python web app (Django or Flask) locally with MongoDB or using Azure Cosmos DB for MongoDB. In later articles in this tutorial series, you learn to deploy a Python web app to Azure App Service.
 ms.topic: how-to
-ms.date: 05/21/2025
+ms.date: 05/28/2026
 ms.custom:
   - devx-track-python
   - sfi-image-nochange
@@ -234,7 +234,7 @@ Now, create an Azure Cosmos DB for MongoDB instance by using the Azure CLI.
 
 Before running the following script, replace the location, the resource group, and Azure Cosmos DB for MongoDB account name with appropriate values (optional). Use the same resource group for all the Azure resources you create in this tutorial to make them easier to delete when you're finished.
 
-The script takes a few minutes to run.
+The script takes a few minutes to run. The `az cosmosdb create` command can take 5-10 minutes to complete.
 
 ### [Bash](#tab/bash)
 
