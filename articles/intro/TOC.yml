@@ -8,8 +8,10 @@ items:
     items:
       - name: Overview
         href: azure-developer-overview.md
-      - name: Get started with Azure dev tools
+      - name: 'Quickstart: Develop with Azure dev tools'
         href: quickstart-developer-tools.md
+      - name: 'Quickstart: Develop with agent-assisted tools'
+        href: quickstart-agent-assist.md
       - name: Key Azure services for developers
         href: azure-developer-key-services.md
       - name: Host applications on Azure

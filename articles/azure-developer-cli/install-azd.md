@@ -143,7 +143,7 @@ If you're using `brew` to upgrade `azd` from a version not installed using `brew
 ### Update `azd`
 
 ```bash
-brew upgrade azure/azd/azd
+brew upgrade --cask azure/azd/azd
 ```
 
 ### Uninstall `azd`
@@ -304,7 +304,51 @@ azd version 1.9.5 (commit cd2b7af9995d358aab33c782614f801ac1997dde)
 
 ## Update the Azure Developer CLI
 
-When working with an out of date version of `azd`, you'll see a warning to upgrade to the latest version. Follow the instructions in the warning to update to the latest version.
+You can update `azd` using the built-in `azd update` command (Beta) or manually using the same method you used to install it.
+
+### Use `azd update` (Beta)
+
+The `azd update` command detects how `azd` was originally installed and delegates to the appropriate update method automatically:
+
+| Install method | What `azd update` does |
+|---|---|
+| `winget` | Runs `winget upgrade Microsoft.Azd` |
+| `choco` | Runs `choco upgrade azd` |
+| Install script or MSI (Windows) | Runs `install-azd.ps1` with automatic backup and restore |
+| Install script (Linux/macOS) | Runs `install-azd.sh` |
+| Homebrew | Runs `brew upgrade --cask azure/azd/azd` |
+| `.deb` / `.rpm` package | Directly downloads and replaces the binary |
+
+Run the following command to update to the latest stable version:
+
+```azdeveloper
+azd update
+```
+
+> [!NOTE]
+> The `azd update` command is currently in Beta. Read more about alpha and beta feature support on the [feature versioning and release strategy](./feature-versioning.md) page.
+
+### Switch update channels
+
+`azd` supports two update channels: `stable` (default) and `daily`. Channel switching is supported for script-based installs and Homebrew. If you installed `azd` via `winget` or `choco`, daily builds aren't available through those package managers — `azd update` will show guidance to reinstall via script first.
+
+To switch to the `daily` channel and update:
+
+```azdeveloper
+azd update --channel daily
+```
+
+To switch back to the `stable` channel:
+
+```azdeveloper
+azd update --channel stable
+```
+
+When switching channels, `azd` prompts for confirmation before proceeding.
+
+### Use your package manager or install script
+
+You can also update manually at any time using the same package manager or install script commands shown in the installation sections above. When `azd` is out of date, it displays a warning message with the applicable update command for your install method.
 
 [!INCLUDE [request-help](includes/request-help.md)]
 

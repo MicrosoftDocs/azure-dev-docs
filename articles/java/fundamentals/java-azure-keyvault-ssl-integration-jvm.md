@@ -1,6 +1,6 @@
 ---
 title: Use Azure Key Vault to Deliver TLS/SSL Certificates to the JVM
-description: Use Azure Key Vault to deliver TLS/SSL certificates to the JVM
+description: Learn how to integrate Azure Key Vault with the JVM to deliver TLS/SSL certificates for secure Java applications. Get started today.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: manriem
@@ -33,20 +33,20 @@ To register the JCA provider, the JVM needs to know about it. To accomplish this
 
 To run your application, use the following steps and replace the `<...>` placeholders with your own values:
 
-1. Add the **azure-security-keyvault-jca-X.Y.Z.jar** file to the classpath. For example, if you want to integrate with Tomcat 9, then you should add the full path of the file **azure-security-keyvault-jca-X.Y.Z.jar** to the Java classpath by using **tomcat9w.exe**.
+1. Add the **azure-security-keyvault-jca-X.Y.Z.jar** file to the classpath. For example, if you want to integrate with Tomcat 9, add the full path of the **azure-security-keyvault-jca-X.Y.Z.jar** file to the Java classpath by using **tomcat9w.exe**.
 1. Add `-Djava.security.properties==my.java.security` to the command line.
 1. Add `-Dazure.keyvault.uri=<your-keyvault-uri>` to the command line to indicate which Azure Key Vault to use. For example: `-Dazure.keyvault.uri=https://some.vault.azure.net/`.
 1. Add the arguments indicated in the following list, depending on your scenario:
 
-   * If you authenticate using a service principal, add the following arguments:
+   * If you authenticate by using a service principal, add the following arguments:
 
      * `-Dazure.keyvault.tenant-id=<your-tenant-id>`
      * `-Dazure.keyvault.client-id=<your-client-id>`
      * `-Dazure.keyvault.client-secret=<your-client-secret>`
 
-   * If you authenticate using a system-assigned managed identity, no more arguments are required.
+   * If you authenticate by using a system-assigned managed identity, add no more arguments.
 
-   * If you authenticate using a user-assigned managed identity, add the following argument:
+   * If you authenticate by using a user-assigned managed identity, add the following argument:
 
      * `-Dazure.keyvault.managed-identity=<object-id-of-your-user-managed-identity>`
 
@@ -54,7 +54,7 @@ For more information about these authentication scenarios, see [Application and 
 
 ### Use a service principal
 
-To create an Azure client ID and an Azure client secret, use the following command, replacing the `<...>` placeholders with your own values. Be sure to store the values returned, such as `appId`, `password`, and `tenant`.
+To create an Azure client ID and an Azure client secret, use the following command. Replace the `<...>` placeholders with your own values. Be sure to store the values returned, such as `appId`, `password`, and `tenant`.
 
 ```azurecli
 export CLIENT_NAME=<your-client-name>
@@ -78,7 +78,7 @@ az keyvault set-policy \
 
 ### Use a managed identity
 
-To enable a system-assigned managed identity or create a user-assigned managed identity, follow the instructions at [Configure managed identities for Azure resources on an Azure VM using Azure CLI](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+To enable a system-assigned managed identity or create a user-assigned managed identity, follow the instructions at [Configure managed identities for Azure resources on an Azure VM using Azure CLI](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm).
 
 After getting the object ID of the managed identity, use the following command to create the access policy of your Key Vault for your managed identity:
 

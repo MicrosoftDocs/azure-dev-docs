@@ -10,8 +10,8 @@ ms.custom: devx-track-java, spring-cloud-azure
 appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
-- ✅ Version 6.2.0
-- ✅ Version 7.1.0
+- ✅ Version 6.3.0
+- ✅ Version 7.2.0
 ---
 
 # Deploy applications to Azure hosting services

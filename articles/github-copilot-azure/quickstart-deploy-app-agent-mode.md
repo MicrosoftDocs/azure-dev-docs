@@ -6,6 +6,7 @@ ms.service: github-copilot-for-azure
 ms.topic: quickstart
 ms.date: 12/19/2025
 ms.collection: ce-skilling-ai-copilot
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure
@@ -71,4 +72,4 @@ If any errors were encountered during the deployment process, Copilot agent mode
 
 - [What is GitHub Copilot for Azure?](introduction.md)
 - [Get started with GitHub Copilot for Azure](get-started.md)
-- [Video - GitHub Copilot App Modernization for Java - Automated Deployment to Azure](https://www.youtube.com/watch?v=469QHVDJiIk)
+- [Video - GitHub Copilot Modernization for Java - Automated Deployment to Azure](https://www.youtube.com/watch?v=469QHVDJiIk)

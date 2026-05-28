@@ -1,7 +1,7 @@
 ---
 title: Configure Your Local Rust Environment for Azure Development
 description: Set up your local Rust development environment for Azure with installation suggestions, SDK crates, authentication methods, and essential tools. Start building cloud applications today.
-ms.date: 09/02/2025
+ms.date: 05/18/2026
 ms.topic: get-started
 ms.service: azure-rust
 ms.custom: devx-track-rust, azure-sdk-rust
@@ -47,8 +47,6 @@ Follow these steps to install Rust:
     rustc --version
     cargo --version
     ```
-
-The Rust toolchain includes:
 
 For detailed installation guidance and troubleshooting, see the [Installation chapter][The Rust Book installation chapter] in The Rust Programming Language book. For development environment setup tips, including editor configuration, see the [Development Environment chapter][The Rust Book development environment chapter] and the [official Rust development tools guide][official Rust development tools guide].
 

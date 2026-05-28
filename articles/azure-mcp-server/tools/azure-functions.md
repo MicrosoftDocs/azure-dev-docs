@@ -4,15 +4,14 @@ description: Use Azure MCP Server tools to manage Azure Functions app resources 
 keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
-ms.date: 04/06/2026
+ms.date: 05/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-generated
 ms.topic: concept-article
 ms.custom: build-2025
 tool_count: 4
-mcp-cli.version: 2.0.0-beta.39+0410ff6ade5c70a207a8e7c7a7c78be69f7f1d76
-reviewer: manvkaur
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ms.reviewer: manvkaur
 ---
 
@@ -89,7 +88,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli functions template get -->
 
-Generate Azure Functions code from templates that include triggers, bindings, AI agents, Durable Functions, and Model Context Protocol (MCP) servers, or list available templates. This tool generates serverless function code for a specified language. Without the template parameter, this tool lists available templates for the specified language. With the template parameter, this tool generates function code using the specified trigger and optional input and output bindings. You specify one trigger and zero or more bindings. Run this tool after you run `functions language list` and `functions project get`.
+List available Azure Functions templates or generate function code. Shows triggers (HTTP, Timer, Blob, EventHub, Durable, MCP triggers, and more), bindings, and serverless function options. Create durable functions, orchestrations, activity functions, or MCP server functions. Supports azd infrastructure with Bicep, Terraform, and ARM templates. Without the template parameter, this tool lists all templates for the specified language. With the template parameter, this tool generates function code using the specified trigger and optional input and output bindings. You specify one trigger and zero or more bindings. Run this tool after you run `functions language list` and `functions project get`.
 
 Example prompts include:
 
@@ -104,6 +103,7 @@ Example prompts include:
 | **Language** |  Required | Programming language for the Azure Functions project. Valid values: python, typescript, javascript, java, csharp, powershell. |
 | **Runtime version** |  Optional | Optional runtime version for Java or TypeScript/JavaScript. When provided, template placeholders like {{javaVersion}} or {{nodeVersion}} are replaced automatically. See 'functions language list' for supported versions. |
 | **Template name** |  Optional | Name of the function template to retrieve. Omit to list all available templates for the specified language and valid values of template name. |
+| **Output** |  Optional | Output format. `New` (default) returns all files in a single files list for creating complete projects. `Add` separates files into function files and project files with merge instructions for adding to existing projects. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

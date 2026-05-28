@@ -33,7 +33,7 @@ helm install my-diag4j oci://diag4j.azurecr.io/helm/diag4j --version 1.1.5 -n <n
 
 Use the following commands to create a Spring Boot Admin (SBA) component:
 
-1. Apply a custom resource (CR) to create a Spring Boot Admin component. Create a file named **spring-boot-admin.yaml**, and then add the following contents. Replace `<namespace>` with the namespace that your Spring Boot apps are running in. SBA will auto-discover apps whose actuator endpoints are exposed. Others will show with the `DOWN` status on the dashboard.
+1. Apply a custom resource (CR) to create a Spring Boot Admin component. Create a file named **spring-boot-admin.yaml**, and then add the following contents. Replace `<namespace>` with the namespace that your Spring Boot apps are running in. SBA auto-discovers apps whose actuator endpoints are exposed. Others show with the `DOWN` status on the dashboard.
 
    ```yaml
    apiVersion: diagtool4j.microsoft.com/v1alpha1
@@ -61,21 +61,21 @@ Use the following steps to access the dashboard:
    kubectl port-forward svc/spring-boot-admin-azure-java -n <namespace> 8080:8080
    ```
 
-1. Navigate to `http://localhost:8080` in your browser to view the SBA dashboard. All applications in the same namespace should be registered automatically.
+1. Go to `http://localhost:8080` in your browser to view the SBA dashboard. All applications in the same namespace register automatically.
 
    :::image type="content" source="media/java-diagnostic-tool/spring-boot-admin-dashboard.png" alt-text="Screenshot of the Spring Boot Admin dashboard." lightbox="media/java-diagnostic-tool/spring-boot-admin-dashboard.png":::
 
 ## Use the diagnostic features
 
-To view application metrics, click on the application in the SBA dashboard. You can view real-time metrics including the following metrics:
+To view application metrics, select the application in the SBA dashboard. You can view real-time metrics, including the following metrics:
 
-- CPU & memory usage
+- CPU and memory usage
 - Garbage collection (GC) status
 - Active threads and environment variables
 
 :::image type="content" source="media/java-diagnostic-tool/app-details.png" alt-text="Screenshot of the Spring Boot Admin dashboard page that shows application metrics." lightbox="media/java-diagnostic-tool/app-details.png":::
 
-To adjust log levels, navigate to the **Loggers** section. You can then modify log levels dynamically for specific packages or classes in order to isolate issues.
+To adjust log levels, go to the **Loggers** section. You can then modify log levels dynamically for specific packages or classes to isolate problems.
 
 :::image type="content" source="media/java-diagnostic-tool/log-level-change.png" alt-text="Screenshot of the Spring Boot Admin dashboard page that shows the Loggers section." lightbox="media/java-diagnostic-tool/log-level-change.png":::
 

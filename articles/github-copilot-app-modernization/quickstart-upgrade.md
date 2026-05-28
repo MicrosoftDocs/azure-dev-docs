@@ -9,7 +9,7 @@ ms.date: 10/28/2025
 ms.custom: devx-track-java
 ---
 
-# Quickstart: upgrade a Java project with GitHub Copilot modernization
+# Quickstart: Upgrade a Java project with GitHub Copilot modernization
 
 GitHub Copilot modernization Java upgrades support the following scenarios:
 
@@ -21,11 +21,11 @@ GitHub Copilot modernization Java upgrades support the following scenarios:
 - Upgrade [third-party dependencies](framework-upgrade.md) to a specified version.
 - Upgrade Ant to Maven build.
   
-This quickstart shows you how to upgrade a Java project using GitHub Copilot modernization.
+This quickstart shows you how to upgrade a Java project by using GitHub Copilot modernization.
 
 ## Prerequisites
 
-- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Free Tier, Pro, Pro+, Business, or Enterprise plan is required.
+- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. You need a Free Tier, Pro, Pro+, Business, or Enterprise plan.
 - One of the following IDEs:
   - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
     - [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). For setup instructions, see [Set up GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup). Be sure to sign in to your GitHub account within Visual Studio Code.
@@ -38,7 +38,7 @@ This quickstart shows you how to upgrade a Java project using GitHub Copilot mod
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 - A Git-managed Java project using Maven or Gradle.
 - For Maven-based projects: access to the public Maven Central repository.
-- In the Visual Studio Code settings, make sure `chat.extensionTools.enabled` is set to `true`. This setting might be controlled by your organization.
+- In the Visual Studio Code settings, make sure `chat.extensionTools.enabled` is set to `true`. Your organization might control this setting.
 
 > [!NOTE]
 > [!INCLUDE [Azure account note](../includes/github-copilot-modernization-azure-note.md)]
@@ -62,7 +62,7 @@ Then, use the following steps to install the extension in Visual Studio Code:
 > [!TIP]
 > To get the best experience in IntelliJ, we recommend configuring a few key settings. For more information, see [Configure settings for GitHub Copilot modernization to optimize the experience for IntelliJ](configure-settings-intellij.md).
 
-After installation completes, you should see a notification in the corner of Visual Studio Code confirming success.
+After installation completes, you see a notification in the corner of Visual Studio Code confirming success.
 
 For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
 
@@ -109,7 +109,7 @@ GitHub Copilot then proceeds with the code transformation phase of the project. 
 
 At various stages of the process, GitHub Copilot prompts you to continue.
 
-For the **Confirm the OpenRewrite transformation** step, select **Continue** to upgrade Java code using OpenRewrite. This step might take a few minutes.
+For the **Confirm the OpenRewrite transformation** step, select **Continue** to upgrade Java code by using OpenRewrite. This step might take a few minutes.
 
 For the **Approve the dynamic build/fix loop** step, select **Continue** to build the project and fix errors.
 

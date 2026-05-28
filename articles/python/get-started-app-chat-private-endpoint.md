@@ -263,4 +263,4 @@ If your issue isn't addressed, add your issue to the repository's [Issues](https
 
 * See the [enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo).
 * Build a [chat app with Azure OpenAI](https://aka.ms/azai/chat) best-practices solution architecture.
-* Learn about [access control in generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
+* Learn about [access control in generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/access-control-in-generative-ai-applications-with-azure-ai-search/3956408).

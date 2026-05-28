@@ -1,4 +1,6 @@
-items:
+- name: GitHub Copilot for Azure
+  href: index.yml
+
 - name: Overview
   href: introduction.md
 - name: Get started
@@ -9,6 +11,10 @@ items:
   items:
     - name: Deploy an existing app with agent mode
       href: quickstart-deploy-app-agent-mode.md
+    - name: Create a Redis cache
+      href: quickstart-create-redis.md
+    - name: Import data into Cosmos DB
+      href: agent-mode-cosmosdb-import.md
 - name: Learn about Azure and your app
   href: learn-examples.md
 - name: Design and develop your app

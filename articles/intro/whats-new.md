@@ -66,7 +66,7 @@ New articles:
 
 New articles:
 
-- [Migrate Java apps to Azure by using GitHub Copilot app modernization via custom agent](../java/migration/migrate-github-copilot-app-modernization-for-java-custom-agent.md)
+- [Migrate Java apps to Azure by using GitHub Copilot modernization via custom agent](../java/migration/migrate-github-copilot-app-modernization-for-java-custom-agent.md)
 - [Optimize chat results for migrating Java apps to Azure](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md)
 - [Passwordless authentication with Spring Cloud Azure](../java/spring-framework/passwordless-authentication.md)
 
@@ -146,16 +146,16 @@ Updated articles:
 
 - [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md?tabs=manual&pivots=visual-studio-2026) - Update for Visual Studio 2026 release
 
-### GitHub Copilot app modernization
+### GitHub Copilot modernization
 
 New articles:
 
-- [Configure settings for GitHub Copilot app modernization to optimize the experience for IntelliJ](../github-copilot-app-modernization/configure-settings-intellij.md)
-- [Customize the Java project upgrade plan when using GitHub Copilot app modernization](../github-copilot-app-modernization/customize-upgrade-plan.md)
-- [GitHub Copilot app modernization Java utilities](../github-copilot-app-modernization/tools.md)
-- [Quickstart: generate Java unit tests with GitHub Copilot app modernization](../github-copilot-app-modernization/quickstart-unit-tests.md)
-- [Quickstart: upgrade a Java project with GitHub Copilot app modernization](../github-copilot-app-modernization/quickstart-upgrade.md)
-- [Upgrade a Java framework or third-party dependency by using GitHub Copilot app modernization](../github-copilot-app-modernization/framework-upgrade.md)
+- [Configure settings for GitHub Copilot modernization to optimize the experience for IntelliJ](../github-copilot-app-modernization/configure-settings-intellij.md)
+- [Customize the Java project upgrade plan when using GitHub Copilot modernization](../github-copilot-app-modernization/customize-upgrade-plan.md)
+- [GitHub Copilot modernization Java utilities](../github-copilot-app-modernization/tools.md)
+- [Quickstart: generate Java unit tests with GitHub Copilot modernization](../github-copilot-app-modernization/quickstart-unit-tests.md)
+- [Quickstart: upgrade a Java project with GitHub Copilot modernization](../github-copilot-app-modernization/quickstart-upgrade.md)
+- [Upgrade a Java framework or third-party dependency by using GitHub Copilot modernization](../github-copilot-app-modernization/framework-upgrade.md)
 
 ## TypeSpec on Azure
 

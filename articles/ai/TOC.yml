@@ -61,6 +61,8 @@ items:
       items:
         - name: Overview
           href: intelligent-app-templates.md 
+        - name: Get started with the Azure OpenAI Starter Kit
+          href: get-started-azure-openai-starter-kit.md
         - name: Secure your AI App with keyless authentication
           href: get-started-securing-your-ai-app.md
         - name: Chat with your data

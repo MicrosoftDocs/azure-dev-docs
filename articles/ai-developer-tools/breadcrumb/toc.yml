@@ -8,5 +8,15 @@ items:
     topicHref: /azure/developer/index
     items:
     - name: AI developer tools
-      tocHref: /azure
-      topicHref: /azure/developer/ai-developer-tools/TOC
+      tocHref: /azure/developer/ai-developer-tools
+      topicHref: /azure/developer/ai-developer-tools/index
+      items:
+      - name: GitHub Copilot for Azure
+        tocHref: /azure/developer/github-copilot-azure
+        topicHref: /azure/developer/github-copilot-azure/index
+      - name: Azure MCP Server
+        tocHref: /azure/developer/azure-mcp-server
+        topicHref: /azure/developer/azure-mcp-server/index
+      - name: Azure Skills
+        tocHref: /azure/developer/azure-skills
+        topicHref: /azure/developer/azure-skills/index

@@ -1,15 +1,17 @@
 ---
-title: Azure Database for PostgreSQL Tools 
+title: Azure Database for PostgreSQL Tools
 description: Learn how to use the Azure MCP Server to manage Azure Database for PostgreSQL resources with natural language prompts. Query databases, list tables, and retrieve schemas easily.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 05/13/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
 ms.custom: build-2025
---- 
+ms.reviewer: diberry
+mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
+---
 # Azure Database for PostgreSQL tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure Database for PostgreSQL resources using natural language prompts. You can query databases, list tables, retrieve schemas, and more without remembering complex query syntax.
@@ -18,25 +20,24 @@ The Azure MCP Server allows you to manage Azure Database for PostgreSQL resource
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Database: List databases
+## List servers, databases, and tables
 
-<!-- postgres database list -->
+<!-- postgres list -->
 
-The Azure MCP Server can list all databases in a PostgreSQL server.
+List Azure Database for PostgreSQL servers, databases, or tables. By default, this tool returns all servers in the specified resource group. Specify the `Server` to list databases, or specify both `Server` and `Database` to list tables. Results are returned at the level you specify: server, database, or table.
 
 Example prompts include:
 
-- **List databases**: "Show me all databases in my PostgreSQL server 'my-pg-server' in resource group 'my-resource-group'"
-- **View databases**: "What databases do I have in my PostgreSQL server 'my-pg-server' in resource group 'my-resource-group'?"
-- **Check databases**: "Check that I have a database named 'xyz' in server 'my-pg-server' in resource group 'my-resource-group'"
-- **Query databases**: "Show databases in PostgreSQL server 'my-pg-server' in resource group 'my-resource-group'"
-- **Find databases**: "Get all databases from my PostgreSQL instance 'my-pg-server' in resource group 'my-resource-group'"
+- "List all PostgreSQL servers in resource group 'my-resource-group'."
+- "Show me the databases in PostgreSQL server 'my-pg-server' in resource group 'my-resource-group'."
+- "List all tables in database 'my-db' on PostgreSQL server 'my-pg-server' in resource group 'my-resource-group'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** | Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **User** | Required | The user name to access PostgreSQL server. |
-| **Server** | Required | The PostgreSQL server to be accessed. |
+| **Server** | Optional | The PostgreSQL server to be accessed. When not specified, lists all servers in the resource group. Specify this parameter to list databases, or combine with `Database` to list tables. |
+| **Database** | Optional | The PostgreSQL database to be accessed. Requires `Server` to be specified. When provided, lists tables within this database. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -63,31 +64,8 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Query** | Required | Query to be executed against a PostgreSQL database. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Table: List tables
-
-<!-- postgres table list -->
-
-The Azure MCP Server can list all tables in a PostgreSQL database.
-
-Example prompts include:
-
-- **List tables**: "Show me all tables in my PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
-- **View tables**: "What tables do I have in my PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'?"
-- **Check tables**: "Check that I have a table named 'xyz' in PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
-- **Query tables**: "Show tables in PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
-- **Find tables**: "Get all tables from my PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **User** | Required | The user name to access PostgreSQL server. |
-| **Server** | Required | The PostgreSQL server to be accessed. |
-| **Database** | Required | The PostgreSQL database to be accessed. |
+| **Auth type** | Required | Authentication type to use for the connection. |
+| **Password** | Required | Password for database authentication. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -114,29 +92,8 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Table** | Required | The PostgreSQL table to be accessed. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
-
-## Server: List servers
-
-<!-- postgres server list -->
-
-The Azure MCP Server can list all PostgreSQL servers in a subscription and resource group.
-
-Example prompts include:
-
-- **List servers**: "Show me all PostgreSQL servers in resource group 'my-resource-group'"
-- **View servers**: "What PostgreSQL servers do I have in resource group 'my-resource-group'?"
-- **Check servers**: "Check if resource group 'my-resource-group' has a server named 'xyz'"
-- **Query servers**: "Show PostgreSQL servers in resource group 'my-resource-group'"
-- **Find servers**: "Get all PostgreSQL instances in resource group 'my-resource-group'"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **User** | Required | The user name to access PostgreSQL server. |
+| **Auth type** | Optional | Authentication type to use for the connection. |
+| **Password** | Optional | Password for database authentication. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
