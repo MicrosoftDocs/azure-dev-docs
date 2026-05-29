@@ -67,7 +67,7 @@ By default, Azure App Service locates the folder containing your wsgi.py file an
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-If you want to modify any Gunicorn arguments, such as increasing the timeout value to 1,200 seconds(`--timeout 1200`), create a custom startup command file. This method overrides the default settings with your specific requirements. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
+If you want to modify any Gunicorn arguments, such as increasing the timeout value to 1,200 seconds (`--timeout 1200`), create a custom startup command file. This method overrides the default settings with your specific requirements. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
 
 ## Flask startup commands
 
