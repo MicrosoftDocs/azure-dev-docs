@@ -2,6 +2,8 @@
 title: GitHub Copilot for Azure prompt engineering examples for deploying your application
 description: This article provides example prompts that can help you deploy your application to the cloud.
 keywords: github, copilot, ai, azure
+author: diberry
+ms.author: diberry
 ms.service: github-copilot-for-azure
 ms.topic: best-practice
 ms.date: 12/16/2025
