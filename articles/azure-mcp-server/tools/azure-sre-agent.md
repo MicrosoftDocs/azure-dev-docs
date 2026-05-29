@@ -560,7 +560,7 @@ This tool creates or updates a connector to Azure Data Explorer (Kusto) on an Az
 
 Example prompts include:
 
-- "Create a Kusto connector on SRE Agent 'sre-agent-01' with cluster URL https://my-resource.eastus.kusto.windows.net and name 'kusto-connector-prod'."
+- "Create a Kusto connector on SRE Agent 'sre-agent-01' with cluster URL 'https://my-resource.eastus.kusto.windows.net' and name 'kusto-connector-prod'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
