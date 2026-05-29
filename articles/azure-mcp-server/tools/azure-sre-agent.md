@@ -91,7 +91,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Confirm** |  Optional | Confirm a destructive operation. |
+| **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -438,7 +438,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Confirm** |  Optional | Confirm a destructive operation. |
+| **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -678,7 +678,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Confirm** |  Optional | Confirm a destructive operation. |
+| **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -918,7 +918,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Confirm** |  Optional | Confirm a destructive operation. |
+| **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1075,7 +1075,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Confirm** |  Optional | Confirm a destructive operation. |
+| **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1659,7 +1659,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Confirm** |  Optional | Confirm a destructive operation. |
+| **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1905,7 +1905,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Confirm** |  Optional | Confirm a destructive operation. |
+| **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -2024,7 +2024,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Confirm** |  Optional | Confirm a destructive operation. |
+| **Confirm** |  Required | Confirm a destructive operation. |
 | **Thread ID** |  Optional | The SRE Agent thread ID. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
