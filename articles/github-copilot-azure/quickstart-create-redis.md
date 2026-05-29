@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create and deploy an app using Azure Cache for Redis using GitHub Copilot for Azure and Azure MCP Server"
 description: "Create a prompt in GitHub Copilot for Azure that creates and deploys an instance of Azure Cache for Redis, and a Python app that writes and reads from it."
-author: bobtabor-msft
-ms.author: rotabor
+author: diberry
+ms.author: diberry
 ms.service: github-copilot-for-azure
 ms.topic: quickstart  #Don't change
-ms.date: 2/28/2026
+ms.date: 02/28/2026
 zone_pivot_group_filename: developer/github-copilot-azure/github-copilot-azure-zone-pivot-groups.json
 zone_pivot_groups: ide-options
 ---

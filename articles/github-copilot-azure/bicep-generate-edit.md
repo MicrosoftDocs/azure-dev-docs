@@ -2,6 +2,8 @@
 title: Use GitHub Copilot for Azure to Generate Bicep files
 description: This article provides sample prompts and example responses from GitHub Copilot for Azure to create Bicep files to deploy Azure resources.
 keywords: github, copilot, ai, azure
+author: diberry
+ms.author: diberry
 ms.service: github-copilot-for-azure
 ms.topic: overview
 ms.date: 12/19/2025
