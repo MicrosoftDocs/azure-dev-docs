@@ -13,16 +13,16 @@ mcp-cli.version: 3.0.0-beta.13+cd8d1e8f9924440b33e3e908c390c1599700ccba
 ---
 # Azure MCP Server tools for Azure SRE Agent
 
-The Azure MCP Server lets you manage Azure SRE Agent resources, including: activate, add, apply, create, deactivate, delete, generate, get, investigate, kusto, list, mcp, message, pagerduty, pause, plan, reindex, resume, search, servicenow, test, validate, and yolo, with natural language prompts.
+The Azure MCP Server helps you manage Azure SRE Agent resources, including: activate, add, apply, create, deactivate, delete, generate, get, investigate, kusto, list, mcp, message, pagerduty, pause, plan, reindex, resume, search, servicenow, test, validate, and yolo, by using natural language prompts.
 
-Azure SRE Agent is an Azure service that provides cloud-based capabilities for your applications. For more information, see [Azure SRE Agent documentation](/azure/sreagent/).
+Azure SRE Agent is an AI-powered reliability assistant that helps teams diagnose and resolve production issues, reduce operational toil, and lower mean time to resolution (MTTR). For more information, see [Azure SRE Agent documentation](/azure/sre-agent/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 
-## Agents: create or update a subagent
+## Agents: Create or update a subagent
 
-This tool creates or updates a subagent on a targeted SRE Agent resource. You specify the subscription, agent, and name to identify the subagent. The tool applies changes idempotently, so repeated requests with the same values don't create duplicates. Provide the required parameters to create or update the subagent.
+This tool creates or updates a subagent on a targeted SRE Agent resource. Specify the subscription, agent, and name to identify the subagent. The tool applies changes idempotently, so repeated requests with the same values don't create duplicates. Provide the required parameters to create or update the subagent.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -58,7 +58,7 @@ azmcp sreagent agents create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--description` | string | No | A description for the SRE Agent item. |
@@ -72,7 +72,7 @@ azmcp sreagent agents create \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Agents: delete a subagent
+## Agents: Delete a subagent
 
 This tool deletes a subagent from a targeted SRE Agent resource. 
 
@@ -106,7 +106,7 @@ azmcp sreagent agents delete \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | No | Confirm a destructive operation. |
@@ -117,7 +117,7 @@ azmcp sreagent agents delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Agents: get configuration details
+## Agents: Get configuration details
 
 Show the configuration details for a named SRE Agent. This tool returns the endpoint, provisioning state, location, and settings for the specified SRE Agent. You can filter results by resource group. 
 
@@ -147,7 +147,7 @@ azmcp sreagent agents get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -156,7 +156,7 @@ azmcp sreagent agents get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Agents: list resources
+## Agents: List resources
 
 This tool lists Azure SRE Agent resources. You can filter results by resource group. Each result includes `name`, `id`, `location`, `resourceGroup`, `provisioningState`, and `endpoint`. If the tool finds no SRE Agent resources, it returns an empty list.
 
@@ -180,7 +180,7 @@ azmcp sreagent agents list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -188,7 +188,7 @@ azmcp sreagent agents list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Agents tools: create or update custom tool
+## Agents tools: Create or update custom tool
 
 This tool creates or updates a custom tool on a target SRE Agent resource. You specify the agent, name, and tool type. If a tool with the specified name exists, this tool updates its configuration; otherwise, it creates a new tool. Provide configuration values according to the parameter table.
 
@@ -236,7 +236,7 @@ azmcp sreagent agents tools create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--tool-type` | string | Yes | The custom tool type, such as KustoTool or LinkTool. |
@@ -253,7 +253,7 @@ azmcp sreagent agents tools create \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Agents tools: get custom tool definition
+## Agents tools: Get custom tool definition
 
 Gets a custom tool definition from a targeted SRE Agent resource. This tool requires the agent and name parameters and returns the custom tool definition for the specified agent and name.
 
@@ -283,7 +283,7 @@ azmcp sreagent agents tools get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 
@@ -293,9 +293,9 @@ azmcp sreagent agents tools get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Agents tools: list tools
+## Agents tools: List tools
 
-This tool lists custom tools on a targeted SRE Agent resource. This tool returns the name, version, and status for each custom tool, so you can verify deployments and troubleshoot issues.
+This tool lists custom tools on a targeted SRE Agent resource. It returns the name, version, and status for each custom tool, so you can verify deployments and troubleshoot issues.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -321,7 +321,7 @@ azmcp sreagent agents tools list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -330,7 +330,7 @@ azmcp sreagent agents tools list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Architecture: plan an architecture
+## Architecture: Plan an architecture
 
 Plan and generate a site reliability engineering (SRE) agent architecture. This tool analyzes your requirements and produces a structured design for agents, tools, connectors, and triggers. You provide high-level requirements and constraints, and this tool returns component responsibilities, interaction patterns, deployment considerations, security and access control recommendations, and observability suggestions. Use the output to guide implementation, tooling selection, and integration planning.
 
@@ -378,7 +378,7 @@ azmcp sreagent architecture plan \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Common prompts: create or update a prompt
+## Common prompts: Create or update a prompt
 
 This tool creates or updates a named common prompt on the SRE Agent. It saves reusable prompt templates, so teams can centralize guidance and reduce duplication. The tool returns the created or updated prompt object.
 
@@ -410,7 +410,7 @@ azmcp sreagent commonprompts create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--content` | string | Yes | Skill content. |
@@ -421,7 +421,7 @@ azmcp sreagent commonprompts create \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Common prompts: delete a prompt
+## Common prompts: Delete a prompt
 
 This tool permanently removes the prompt identified by name from an SRE Agent. You confirm the deletion before the tool erases the prompt definition. This action isn't reversible.
 
@@ -453,7 +453,7 @@ azmcp sreagent commonprompts delete \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | No | Confirm a destructive operation. |
@@ -464,7 +464,7 @@ azmcp sreagent commonprompts delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Common prompts: get prompt text
+## Common prompts: Get prompt text
 
 This tool shows the full text of a specific named common prompt on a site reliability engineering (SRE) agent. You provide the name, and this tool returns the prompt text so you can inspect or audit prompts for debugging or review.
 
@@ -499,7 +499,7 @@ azmcp sreagent commonprompts get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 
@@ -509,7 +509,7 @@ azmcp sreagent commonprompts get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Common prompts: list prompts
+## Common prompts: List prompts
 
 This tool lists all common prompts available on an SRE Agent. It returns a collection of registered prompt names and descriptions. The results help you discover available prompts and review their descriptions.
 
@@ -539,7 +539,7 @@ azmcp sreagent commonprompts list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--search` | string | No | Optional search filter. |
 
@@ -549,7 +549,7 @@ azmcp sreagent commonprompts list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Connectors: create or update Kusto connector
+## Connectors: Create or update Kusto connector
 
 This tool creates or updates a connector to Azure Data Explorer (Kusto) on an Azure SRE Agent resource. The connector lets the agent ingest and query data from an Azure Data Explorer cluster.
 
@@ -560,7 +560,7 @@ This tool creates or updates a connector to Azure Data Explorer (Kusto) on an Az
 
 Example prompts include:
 
-- "Create a Kusto connector on SRE Agent 'sre-agent-01' with cluster URL 'https://adx-prod.eastus.kusto.windows.net' and name 'kusto-connector-prod'."
+- "Create a Kusto connector on SRE Agent 'sre-agent-01' with cluster URL https://my-resource.eastus.kusto.windows.net and name 'kusto-connector-prod'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -583,7 +583,7 @@ azmcp sreagent connectors create kusto \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--cluster-url` | string | Yes | The Azure Data Explorer cluster URL. |
@@ -595,7 +595,7 @@ azmcp sreagent connectors create kusto \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Connectors: create or update connector
+## Connectors: Create or update connector
 
 This tool creates or updates a connector on an Azure SRE Agent resource. You specify the agent, the connector name, and the connector type. You can also provide connection credentials and additional configuration settings. On success, this tool returns the connector resource.
 
@@ -644,7 +644,7 @@ azmcp sreagent connectors create mcp \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--type` | string | Yes | The MCP connector type: stdio or http. |
@@ -662,7 +662,7 @@ azmcp sreagent connectors create mcp \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ✅ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
-## Connectors: delete connector
+## Connectors: Delete connector
 
 This tool deletes a connector from an Azure SRE Agent resource. 
 #### [MCP Server](#tab/mcp-server)
@@ -693,7 +693,7 @@ azmcp sreagent connectors delete \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | No | Confirm a destructive operation. |
@@ -704,9 +704,9 @@ azmcp sreagent connectors delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Connectors: get connector details
+## Connectors: Get connector details
 
-This tool retrieves details for a connector that is configured on an Azure SRE Agent resource. You can view connector properties, configuration, and status to help troubleshoot or document the connector. Specify the agent and name parameters to identify the Azure SRE Agent resource and the connector.
+This tool retrieves details for a connector that you configure on an Azure SRE Agent resource. You can view connector properties, configuration, and status to help troubleshoot or document the connector. Specify the agent and name parameters to identify the Azure SRE Agent resource and the connector.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -734,7 +734,7 @@ azmcp sreagent connectors get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 
@@ -744,9 +744,9 @@ azmcp sreagent connectors get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Connectors: list connectors
+## Connectors: List connectors
 
-This tool lists connectors that are configured on an Azure SRE Agent resource. It returns connector names, connector types, and registration status so you can review integrations and troubleshoot issues.
+This tool lists connectors that you configure on an Azure SRE Agent resource. It returns connector names, connector types, and registration status so you can review integrations and troubleshoot issues.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -773,7 +773,7 @@ azmcp sreagent connectors list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -782,7 +782,7 @@ azmcp sreagent connectors list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Connectors: test connector
+## Connectors: Test connector
 
 This tool tests a connector and lists the tools the connector exposes. You can verify connector connectivity and inspect available tools, including each tool's name and capabilities. To test a connector, provide the agent and name parameters.
 
@@ -813,7 +813,7 @@ azmcp sreagent connectors test \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 
@@ -823,7 +823,7 @@ azmcp sreagent connectors test \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ✅ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Documentation: get reference documentation
+## Documentation: Get reference documentation
 
 This tool returns reference documentation for Site Reliability Engineering (SRE) Agent concepts. You can get definitions, configuration details, and usage examples for SRE Agent topics such as alerting, incident response, health checks, and telemetry. Specify the topic to retrieve a topic's reference entry.
 
@@ -858,9 +858,9 @@ azmcp sreagent docs get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Documentation memories: add document to knowledge base
+## Documentation memories: Add document to knowledge base
 
-This tool adds a document to the SRE Agent knowledge base by name. You upload markdown (*.md) content, and the tool indexes it for retrieval-augmented generation (RAG) based knowledge retrieval. Use clear, descriptive names so documents are easy to find.
+This tool adds a document to the SRE Agent knowledge base by name. You upload markdown (*.md) content, and the tool indexes it for retrieval-augmented generation (RAG) based knowledge retrieval. Use clear, descriptive names so you can easily find documents.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -890,7 +890,7 @@ azmcp sreagent docs memories add \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--content` | string | Yes | Skill content. |
@@ -901,9 +901,9 @@ azmcp sreagent docs memories add \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Documentation memories: delete knowledge base document
+## Documentation memories: Delete knowledge base document
 
-You specify the document by name. This tool deletes a knowledge base document after you confirm. Deletion is permanent and can't be undone. Confirm the document exists before you run this tool.
+Specify the document by name. This tool deletes a knowledge base document after you confirm. Deletion is permanent and can't be undone. Confirm the document exists before you run this tool.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -933,7 +933,7 @@ azmcp sreagent docs memories delete \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | No | Confirm a destructive operation. |
@@ -944,7 +944,7 @@ azmcp sreagent docs memories delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Documentation memories: list indexed knowledge base documents
+## Documentation memories: List indexed knowledge base documents
 
 This tool lists all indexed knowledge base documents that an SRE Agent stores in memory. It returns every document name and its metadata, with no search filter or query. Browsing the complete knowledge base helps you discover available documents before you run targeted searches.
 
@@ -972,7 +972,7 @@ azmcp sreagent docs memories list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -981,9 +981,9 @@ azmcp sreagent docs memories list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Documentation memories: reindex knowledge base
+## Documentation memories: Reindex knowledge base
 
-This tool triggers a reindex of a knowledge base. You use it to reprocess stored documents, update embeddings, and rebuild search indexes so search results reflect recent content and metadata changes. Reindexing time depends on dataset size and server load; it can take minutes or longer. After the tool starts, monitor reindex progress with the server's management endpoints.
+This tool triggers a reindex of a knowledge base. Use it to reprocess stored documents, update embeddings, and rebuild search indexes so search results reflect recent content and metadata changes. Reindexing time depends on dataset size and server load. It can take minutes or longer. After the tool starts, monitor reindex progress by using the server's management endpoints.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -1009,7 +1009,7 @@ azmcp sreagent docs memories reindex \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -1018,7 +1018,7 @@ azmcp sreagent docs memories reindex \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Documentation memories: search knowledge base
+## Documentation memories: Search knowledge base
 
 This tool searches the SRE Agent knowledge base using semantic search, and returns the most relevant documents for your query. It helps you find troubleshooting steps, runbooks, postmortems, and monitoring playbooks related to incidents or alerts.
 
@@ -1048,7 +1048,7 @@ azmcp sreagent docs memories search \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--query` | string | No | The Kusto query for Kusto tools. |
 
@@ -1058,7 +1058,7 @@ azmcp sreagent docs memories search \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Hooks: delete hook
+## Hooks: Delete hook
 
 This tool deletes a hook from an Azure SRE Agent resource. 
 
@@ -1090,7 +1090,7 @@ azmcp sreagent hooks delete \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | No | Confirm a destructive operation. |
@@ -1101,9 +1101,9 @@ azmcp sreagent hooks delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Hooks: get details
+## Hooks: Get details
 
-This tool returns details for a hook that's configured on an Azure SRE Agent resource. You can review the hook's configuration, check its current status, and confirm trigger settings or destination endpoints.
+This tool returns details for a hook that you configure on an Azure SRE Agent resource. You can review the hook's configuration, check its current status, and confirm trigger settings or destination endpoints.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -1131,7 +1131,7 @@ azmcp sreagent hooks get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 
@@ -1141,9 +1141,9 @@ azmcp sreagent hooks get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Hooks: list hooks
+## Hooks: List hooks
 
-Lists hooks configured on an Azure SRE Agent resource. Use this tool to view hook names, hook types, and their current status for a specified agent. You can use the output to inspect deployment, monitoring, and cleanup hooks that apply to the `Agent`.
+Lists hooks configured on an Azure SRE Agent resource. Use this tool to view hook names, hook types, and their current status for a specified agent. Use the output to inspect deployment, monitoring, and cleanup hooks that apply to the `Agent`.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -1169,7 +1169,7 @@ azmcp sreagent hooks list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -1178,7 +1178,7 @@ azmcp sreagent hooks list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Hooks: activate hook thread
+## Hooks: Activate hook thread
 
 This tool activates an on-demand hook for a thread on an Azure SRE Agent resource. It triggers the hook's configured actions immediately. 
 
@@ -1210,7 +1210,7 @@ azmcp sreagent hooks thread activate \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--hook-name` | string | Yes | The hook name. |
@@ -1221,7 +1221,7 @@ azmcp sreagent hooks thread activate \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Hooks: deactivate hook thread
+## Hooks: Deactivate hook thread
 
 This tool deactivates an on-demand hook for a thread on an Azure SRE Agent resource. You provide agent, hook name, and thread ID to identify the hook and target thread. The tool stops the hook from running on the specified thread without removing the hook configuration. You need appropriate permissions on the Azure SRE Agent resource to apply the change.
 
@@ -1257,7 +1257,7 @@ azmcp sreagent hooks thread deactivate \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--hook-name` | string | Yes | The hook name. |
@@ -1268,9 +1268,9 @@ azmcp sreagent hooks thread deactivate \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Hooks: list hook thread state
+## Hooks: List hook thread state
 
-This tool lists the hook activation state for a thread on an Azure SRE Agent resource. It returns whether hooks are enabled, disabled, or pending for the specified thread. Results help you verify hook configuration and troubleshoot thread behavior.
+This tool lists the hook activation state for a thread on an Azure SRE Agent resource. It returns whether hooks are enabled, disabled, or pending for the specified thread. Use the results to verify hook configuration and troubleshoot thread behavior.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -1298,7 +1298,7 @@ azmcp sreagent hooks thread list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | Yes | The SRE Agent thread ID. |
 
@@ -1308,9 +1308,9 @@ azmcp sreagent hooks thread list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Incidents: list active incidents
+## Incidents: List active incidents
 
-This tool lists active incidents on a site reliability engineering (SRE) Agent. It returns open incident threads with the title, status, affected services, and investigation details. You use the output to review ongoing investigations and see which services are impacted.
+This tool lists active incidents on a site reliability engineering (SRE) Agent. It returns open incident threads with the title, status, affected services, and investigation details. Use the output to review ongoing investigations and see which services are impacted.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -1336,7 +1336,7 @@ azmcp sreagent incidents active list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -1345,7 +1345,7 @@ azmcp sreagent incidents active list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Incidents: create incident
+## Incidents: Create incident
 
 Use this tool to create an incident investigation thread for an agent. You can log the incident details, associate affected services, and set severity to help prioritize response. You specify the incident description, services, severity, and title when you run this tool.
 
@@ -1381,7 +1381,7 @@ azmcp sreagent incidents create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--severity` | string | Yes | Incident severity: critical, high, medium, or low. |
 | `--title` | string | Yes | Incident title. |
@@ -1394,7 +1394,7 @@ azmcp sreagent incidents create \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Incidents: create plan
+## Incidents: Create plan
 
 This tool creates and enables an incident response plan that uses a filter to scope incidents and a handler to define response steps. You specify plan metadata, the services to monitor, severity, response steps, and a trigger condition. This tool validates the input and activates the plan so it starts handling matched incidents.
 
@@ -1438,7 +1438,7 @@ azmcp sreagent incidents plans create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--severity` | string | Yes | Incident severity: critical, high, medium, or low. |
@@ -1455,9 +1455,9 @@ azmcp sreagent incidents plans create \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Incidents: list plans
+## Incidents: List plans
 
-This tool lists incident response plans configured on an SRE Agent. You can view each plan's name, ID, and status. This helps you identify active plans and review their configuration.
+This tool lists incident response plans configured on an SRE Agent. You can view each plan's name, ID, and status. This information helps you identify active plans and review their configuration.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -1483,7 +1483,7 @@ azmcp sreagent incidents plans list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -1492,7 +1492,7 @@ azmcp sreagent incidents plans list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Incidents: connect agent to PagerDuty
+## Incidents: Connect agent to PagerDuty
 
 Connect a site reliability engineering (SRE) Agent to PagerDuty. This tool creates a PagerDuty connector that enables incident alerting and incident management. The connector uses an API key stored in an environment variable.
 
@@ -1526,7 +1526,7 @@ azmcp sreagent incidents setup pagerduty \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--api-key-env` | string | Yes | Environment variable containing the API key. |
@@ -1538,7 +1538,7 @@ azmcp sreagent incidents setup pagerduty \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
-## Incidents: set up ServiceNow connector
+## Incidents: Set up ServiceNow connector
 
 This tool creates a ServiceNow MCP connector that enables incident management integration. It uses credentials stored in environment variables and enables incident creation, updates, and resolution between ServiceNow and the SRE Agent.
 
@@ -1549,7 +1549,7 @@ This tool creates a ServiceNow MCP connector that enables incident management in
 
 Example prompts include:
 
-- "Connect SRE Agent to ServiceNow with auth type 'basic', instance URL 'https://dev-instance.service-now.com', name 'sre-agent-prod'."
+- "Connect SRE Agent to ServiceNow with auth type 'basic', instance URL 'https://my-resource.service-now.com', name 'sre-agent-prod'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -1578,7 +1578,7 @@ azmcp sreagent incidents setup servicenow \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--instance-url` | string | Yes | ServiceNow instance URL. |
@@ -1593,7 +1593,7 @@ azmcp sreagent incidents setup servicenow \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
-## Scheduled tasks: create scheduled task
+## Scheduled tasks: Create scheduled task
 
 This tool creates a scheduled task for an SRE Agent. It sends a specified message on the schedule you define with a cron expression, so the agent can run automated work. You provide the task details when you create the scheduled task.
 
@@ -1629,7 +1629,7 @@ azmcp sreagent scheduledtasks create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--cron-expression` | string | Yes | The cron expression for the schedule. |
@@ -1642,7 +1642,7 @@ azmcp sreagent scheduledtasks create \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Scheduled tasks: delete scheduled task
+## Scheduled tasks: Delete scheduled task
 
 This tool deletes an SRE Agent scheduled task. 
 
@@ -1674,7 +1674,7 @@ azmcp sreagent scheduledtasks delete \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 | `--confirm` | string | No | Confirm a destructive operation. |
@@ -1685,7 +1685,7 @@ azmcp sreagent scheduledtasks delete \
 
 Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Scheduled tasks: get scheduled task
+## Scheduled tasks: Get scheduled task
 
 This tool retrieves an SRE Agent scheduled task by task ID. You can view details such as the task configuration and current status.
 
@@ -1715,7 +1715,7 @@ azmcp sreagent scheduledtasks get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 
@@ -1725,7 +1725,7 @@ azmcp sreagent scheduledtasks get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Scheduled tasks: list scheduled tasks
+## Scheduled tasks: List scheduled tasks
 
 This tool lists scheduled tasks that the SRE Agent manages. You can inspect scheduled jobs, confirm schedules, and view task metadata such as status, next run time, and last run time. This tool returns a read-only list of scheduled tasks with fields for task name, status, schedule, next run time, and last run time.
 
@@ -1753,7 +1753,7 @@ azmcp sreagent scheduledtasks list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -1762,9 +1762,9 @@ azmcp sreagent scheduledtasks list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Scheduled tasks: pause scheduled task
+## Scheduled tasks: Pause scheduled task
 
-Pauses a scheduled task for a site reliability engineering (SRE) agent. This tool returns the task's updated status and related metadata. You pause scheduled tasks to temporarily stop automated activity during maintenance or troubleshooting.
+Pauses a scheduled task for a site reliability engineering (SRE) agent. This tool returns the task's updated status and related metadata. Pause scheduled tasks to temporarily stop automated activity during maintenance or troubleshooting.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -1792,7 +1792,7 @@ azmcp sreagent scheduledtasks pause \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 
@@ -1802,7 +1802,7 @@ azmcp sreagent scheduledtasks pause \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Scheduled tasks: resume scheduled task
+## Scheduled tasks: Resume scheduled task
 
 This tool resumes a scheduled task for an SRE Agent. After you run the tool, the agent resumes executing the scheduled task according to its schedule.
 
@@ -1832,7 +1832,7 @@ azmcp sreagent scheduledtasks resume \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 
@@ -1842,7 +1842,7 @@ azmcp sreagent scheduledtasks resume \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Skills: create skill
+## Skills: Create skill
 
 This tool creates or updates a custom skill on a targeted SRE Agent resource. 
 
@@ -1876,7 +1876,7 @@ azmcp sreagent skills create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--content` | string | Yes | Skill content. |
@@ -1888,7 +1888,7 @@ azmcp sreagent skills create \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Skills: delete skill
+## Skills: Delete skill
 
 This tool deletes a custom skill from an SRE Agent resource.
 
@@ -1920,7 +1920,7 @@ azmcp sreagent skills delete \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | No | Confirm a destructive operation. |
@@ -1931,7 +1931,7 @@ azmcp sreagent skills delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Skills: list skills
+## Skills: List skills
 
 Lists custom skills on a targeted SRE Agent resource. The tool returns details for each custom skill registered on the specified SRE Agent, including name, version, and status. Use the output to review or audit custom skill configurations.
 
@@ -1959,7 +1959,7 @@ azmcp sreagent skills list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -1968,7 +1968,7 @@ azmcp sreagent skills list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Threads: create thread
+## Threads: Create thread
 
 This tool creates a new thread on a Site Reliability Engineering (SRE) Agent and starts a conversation by sending the opening message. It returns the agent's initial response.
 
@@ -1998,7 +1998,7 @@ azmcp sreagent threads create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
 
@@ -2008,7 +2008,7 @@ azmcp sreagent threads create \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Threads: delete thread
+## Threads: Delete thread
 
 This tool deletes a site reliability engineering (SRE) agent thread. 
 
@@ -2040,7 +2040,7 @@ azmcp sreagent threads delete \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | No | The SRE Agent thread ID. |
 | `--confirm` | string | No | Confirm a destructive operation. |
@@ -2051,9 +2051,9 @@ azmcp sreagent threads delete \
 
 Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Threads: get messages
+## Threads: Get messages
 
-This tool gets messages for a specific SRE Agent thread and returns message content and metadata, such as timestamps and sender identity. You can use the returned messages to review conversation history or troubleshoot agent behavior.
+This tool gets messages for a specific SRE Agent thread and returns message content and metadata, such as timestamps and sender identity. Use the returned messages to review conversation history or troubleshoot agent behavior.
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -2081,7 +2081,7 @@ azmcp sreagent threads get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | No | The SRE Agent thread ID. |
 
@@ -2125,7 +2125,7 @@ azmcp sreagent threads investigate yolo \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
 | `--max-iterations` | string | No | The maximum number of automatic follow-up iterations. |
@@ -2137,7 +2137,7 @@ azmcp sreagent threads investigate yolo \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Threads: investigate incident
+## Threads: Investigate incident
 
 Investigate an issue or incident with a Site Reliability Engineering (SRE) agent. Use this tool to send an investigation message, and the agent asks follow-up questions until the investigation completes. You provide the investigation details in the message. Include relevant context, such as affected resources, timestamps, error messages, recent configuration changes, and steps to reproduce. Keep messages concise and focused to help the agent reach a resolution more efficiently.
 
@@ -2171,7 +2171,7 @@ azmcp sreagent threads investigate \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
 | `--max-iterations` | string | No | The maximum number of automatic follow-up iterations. |
@@ -2183,7 +2183,7 @@ azmcp sreagent threads investigate \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Threads: list agent chat threads
+## Threads: List agent chat threads
 
 This tool lists SRE Agent chat threads. It returns a read-only list of thread objects that include thread ID, participants, metadata, and the latest message, so you can review active and past conversations.
 
@@ -2211,7 +2211,7 @@ azmcp sreagent threads list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
@@ -2220,7 +2220,7 @@ azmcp sreagent threads list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Threads: send message to thread
+## Threads: Send message to thread
 
 This tool sends a message to an existing site reliability engineering (SRE) agent thread. It posts the specified message to the thread and returns the thread's updated state. Use concise messages to add context, status updates, or troubleshooting notes to an ongoing thread.
 
@@ -2252,7 +2252,7 @@ azmcp sreagent threads send message \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | No | The SRE Agent thread ID. |
 | `--message` | string | Yes | The message to send. |
@@ -2263,7 +2263,7 @@ azmcp sreagent threads send message \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Workflows: apply and deploy workflow
+## Workflows: Apply and deploy workflow
 
 Apply and deploy a YAML workflow to an SRE Agent. This tool uploads and activates ExtendedAgent or ExtendedAgentTool YAML configuration on the specified SRE Agent resource.
 
@@ -2295,7 +2295,7 @@ azmcp sreagent workflows apply \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This is a logical container for Azure resources. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--yaml-content` | string | Yes | YAML content. |
 | `--source-name` | string | No | Optional source name. |
@@ -2306,7 +2306,7 @@ azmcp sreagent workflows apply \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Workflows: generate workflow definition
+## Workflows: Generate workflow definition
 
 Generate a YAML workflow definition for a named site reliability engineering (SRE) Agent tool or agent. This tool creates validated YAML configuration for `ExtendedAgent`, `KustoTool`, and `LinkTool` resources. The generated workflow helps you deploy and manage SRE Agent tools consistently across environments.
 
@@ -2371,9 +2371,9 @@ azmcp sreagent workflows generate \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Workflows: validate workflow
+## Workflows: Validate workflow
 
-This tool validates SRE Agent workflow YAML and flags common issues in structure and syntax. It checks for invalid YAML, malformed steps, incorrect `run` strings, and missing required keys. You provide `YAML content`, and the tool returns identified issues with line numbers and suggested fixes. See the example below for a typical error the tool detects.
+This tool validates SRE Agent workflow YAML and flags common issues in structure and syntax. It checks for invalid YAML, malformed steps, incorrect `run` strings, and missing required keys. You provide `YAML content`, and the tool returns identified issues with line numbers and suggested fixes. See the following example for a typical error the tool detects.
 
 #### [MCP Server](#tab/mcp-server)
 
