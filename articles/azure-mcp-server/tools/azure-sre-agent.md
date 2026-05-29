@@ -101,7 +101,7 @@ azmcp sreagent agents delete \
   --agent <agent> \
   --name <name> \
   [--resource-group <resource-group>] \
-  [--confirm <confirm>]
+  --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
@@ -109,7 +109,7 @@ azmcp sreagent agents delete \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | No | Confirm a destructive operation. |
+| `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
@@ -448,7 +448,7 @@ azmcp sreagent commonprompts delete \
   --name <name> \
   [--resource-group <resource-group>] \
   [--agent <agent>] \
-  [--confirm <confirm>]
+  --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
@@ -456,7 +456,7 @@ azmcp sreagent commonprompts delete \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | No | Confirm a destructive operation. |
+| `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
@@ -688,7 +688,7 @@ azmcp sreagent connectors delete \
   --agent <agent> \
   --name <name> \
   [--resource-group <resource-group>] \
-  [--confirm <confirm>]
+  --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
@@ -696,7 +696,7 @@ azmcp sreagent connectors delete \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | No | Confirm a destructive operation. |
+| `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
@@ -928,7 +928,7 @@ azmcp sreagent docs memories delete \
   --name <name> \
   [--resource-group <resource-group>] \
   [--agent <agent>] \
-  [--confirm <confirm>]
+  --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
@@ -936,7 +936,7 @@ azmcp sreagent docs memories delete \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | No | Confirm a destructive operation. |
+| `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
@@ -1085,7 +1085,7 @@ azmcp sreagent hooks delete \
   --agent <agent> \
   --name <name> \
   [--resource-group <resource-group>] \
-  [--confirm <confirm>]
+  --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
@@ -1093,7 +1093,7 @@ azmcp sreagent hooks delete \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | No | Confirm a destructive operation. |
+| `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
@@ -1669,7 +1669,7 @@ azmcp sreagent scheduledtasks delete \
   --task-id <task-id> \
   [--resource-group <resource-group>] \
   [--agent <agent>] \
-  [--confirm <confirm>]
+  --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
@@ -1677,7 +1677,7 @@ azmcp sreagent scheduledtasks delete \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
-| `--confirm` | string | No | Confirm a destructive operation. |
+| `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
@@ -1915,7 +1915,7 @@ azmcp sreagent skills delete \
   --agent <agent> \
   --name <name> \
   [--resource-group <resource-group>] \
-  [--confirm <confirm>]
+  --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
@@ -1923,7 +1923,7 @@ azmcp sreagent skills delete \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | No | Confirm a destructive operation. |
+| `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
@@ -2035,7 +2035,7 @@ azmcp sreagent threads delete \
   [--resource-group <resource-group>] \
   [--agent <agent>] \
   [--thread-id <thread-id>] \
-  [--confirm <confirm>]
+  --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
@@ -2043,7 +2043,7 @@ azmcp sreagent threads delete \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | No | The SRE Agent thread ID. |
-| `--confirm` | string | No | Confirm a destructive operation. |
+| `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
