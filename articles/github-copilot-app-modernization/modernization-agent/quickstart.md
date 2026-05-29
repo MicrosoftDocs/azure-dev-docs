@@ -12,7 +12,8 @@ ms.date: 04/17/2026
 # Quickstart: Install and use the GitHub Copilot modernization agent
 
 This quickstart guides you through installing the GitHub Copilot modernization agent and using it to modernize a sample application.
-[!VIDEO https://www.youtube.com/watch?v=AvEfMgMjOOs&list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD&index=8]
+
+> [!VIDEO https://www.youtube.com/embed/AvEfMgMjOOs?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
 
 ## Prerequisites
 

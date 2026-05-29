@@ -25,7 +25,7 @@ Enterprises often deal with technical debt throughout their development cycles, 
 
 Built on **GitHub Copilot agent mode**, GitHub Copilot modernization offers predefined tasks for common upgrade and migration scenarios while incorporating industry best practices for running applications on Azure. At the same time, it enables teams to infuse their own coding standards, organizational policies, and existing practices into the modernization process.
 
-[!VIDEO https://www.youtube.com/watch?v=80uVjDgWaPI&list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD&index=1]
+> [!VIDEO https://www.youtube.com/embed/80uVjDgWaPI?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
 
 ## Key capabilities at a glance
 

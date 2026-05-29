@@ -18,7 +18,9 @@ ms.update-cycle: 180-days
 This quickstart shows how to containerize your project by using GitHub Copilot modernization.
 
 To use container compute services like Azure Kubernetes Service and Azure Container Apps, you need to containerize your project by creating a Dockerfile and other related configuration files, and build container images. The GitHub Copilot modernization extension automates this containerization process.
-[!VIDEO https://www.youtube.com/watch?v=SUB5jB0eCWU&list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD&index=7]
+
+> [!VIDEO https://www.youtube.com/embed/SUB5jB0eCWU?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
+
 ## Prerequisites
 
 - A GitHub account with an active [GitHub Copilot](https://github.com/features/copilot) subscription under any plan.

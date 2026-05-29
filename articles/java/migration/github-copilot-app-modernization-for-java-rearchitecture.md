@@ -32,7 +32,7 @@ Common re-architecture scenarios include:
 - Windows Forms (WinForms) desktop applications to Angular web applications
 - ASP.NET MVC frontend applications to Angular web applications
 
-[!VIDEO https://www.youtube.com/watch?v=p19p-sN6Y40&list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD&index=4]
+> [!VIDEO https://www.youtube.com/embed/p19p-sN6Y40?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
 
 ## Prerequisites
 

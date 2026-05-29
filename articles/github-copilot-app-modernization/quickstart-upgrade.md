@@ -25,8 +25,7 @@ GitHub Copilot modernization provides an AI-powered agentic experience that auto
 - Upgrade JUnit.
 - Upgrade third-party dependencies to a specified version.
 
-[!VIDEO https://www.youtube.com/watch?v=VwAOpu3lxdM&list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD&index=3]
-
+> [!VIDEO https://www.youtube.com/embed/VwAOpu3lxdM?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
 
 ## Prerequisites
 
