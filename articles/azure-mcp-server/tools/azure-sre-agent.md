@@ -390,7 +390,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Content** |  Required | Skill content. |
+| **Content** |  Required | The prompt content. |
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
 
@@ -870,7 +870,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Content** |  Required | Skill content. |
+| **Content** |  Required | The document content to add to the knowledge base. |
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
 
@@ -1031,7 +1031,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Query** |  Optional | The Kusto query for Kusto tools. |
+| **Query** |  Optional | The search query used to find relevant knowledge base documents. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1047,7 +1047,7 @@ azmcp sreagent docs memories search \
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--query` | string | No | The Kusto query for Kusto tools. |
+| `--query` | string | No | The search query used to find relevant knowledge base documents. |
 
 ---
 
@@ -1606,7 +1606,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Cron expression** |  Required | The cron expression for the schedule. |
-| **Message** |  Required | The message to send. |
+| **Message** |  Required | The prompt the agent runs on the defined schedule. |
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
 | **Description** |  Optional | A description for the SRE Agent item. |
@@ -1630,7 +1630,7 @@ azmcp sreagent scheduledtasks create \
 | `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--cron-expression` | string | Yes | The cron expression for the schedule. |
-| `--message` | string | Yes | The message to send. |
+| `--message` | string | Yes | The prompt the agent runs on the defined schedule. |
 | `--description` | string | No | A description for the SRE Agent item. |
 
 ---
