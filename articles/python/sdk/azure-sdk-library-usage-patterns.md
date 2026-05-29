@@ -1,7 +1,7 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns in the Azure SDK libraries for Python
-ms.date: 04/14/2025
+ms.date: 05/28/2025
 ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -14,7 +14,7 @@ All the libraries share certain common characteristics and usage patterns, such 
 
 ## Set up your local development environment
 
-If you haven't already, you can set up an environment where you can run this code. Here are some options:
+If you haven't already, set up an environment where you can run this code. Here are some options:
 
 [!INCLUDE [create_environment_options](../includes/create-environment-options.md)]
 
@@ -43,7 +43,7 @@ pip install azure-identity
 
 `pip install` retrieves the latest version of a library in your current Python environment.
 
-You can also use `pip` to uninstall libraries and install specific versions, including preview versions. For more information, see [How to install Azure library packages for Python](azure-sdk-install.md).
+Use `pip` to uninstall libraries and install specific versions, including preview versions. For more information, see [How to install Azure library packages for Python](azure-sdk-install.md).
 
 # [conda](#tab/conda)
 
@@ -77,9 +77,9 @@ Many client and management libraries provide async versions (`.aio`). The `async
 
 Examples of Azure Python SDK libraries with async versions include: [azure.storage.blob.aio](/python/api/azure-storage-blob/azure.storage.blob.aio), [azure.servicebus.aio](/python/api/azure-servicebus/azure.servicebus.aio), [azure.mgmt.keyvault.aio](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.aio), and [azure.mgmt.compute.aio](/python/api/azure-mgmt-compute/azure.mgmt.compute.aio).
 
-These libraries need an async transport such as `aiohttp` to work. The `azure-core` library provides an async transport, `AioHttpTransport`, which is used by the async libraries, so you may not need to install `aiohttp` separately.
+These libraries need an async transport such as `aiohttp` to work. The `azure-core` library provides an async transport, `AioHttpTransport`, which the async libraries use, so you might not need to install `aiohttp` separately.
 
-The following code shows how create a python file thath demonstrates how to create a client for the async version of the Azure Blob Storage library:
+The following code shows how to create a Python file that demonstrates how to create a client for the async version of the Azure Blob Storage library:
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_async.py" range="14-33":::
 
@@ -90,7 +90,7 @@ The full example is on GitHub at [use_blob_auth_async.py](https://github.com/Mic
 Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and `WebAppsClient.web_apps.begin_create_or_update`) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
 
 > [!NOTE]
-> You may notice differences in method names in a library depending on its version and whether it's based on azure.core. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are long polling operations. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
+> You might notice differences in method names in a library depending on its version and whether it's based on azure.core. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are long polling operations. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
 
 The [`LROPoller`](/python/api/azure-core/azure.core.polling.lropoller) return type means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
@@ -102,9 +102,9 @@ In this case, the return value of `begin_create_or_update` is of type `AzureOper
 
 ## Exceptions
 
-In general, the Azure libraries raise exceptions when operations fail to perform as intended, including failed HTTP requests to the Azure REST API. For app code, you can use `try...except` blocks around library operations.
+In general, the Azure libraries raise exceptions when operations fail to perform as intended, including failed HTTP requests to the Azure REST API. For app code, use `try...except` blocks around library operations.
 
-For more information on the type of exceptions that may be raised, see the documentation for the operation in question.
+For more information on the type of exceptions that might be raised, see the documentation for the operation in question.
 
 ## Logging
 
@@ -112,33 +112,33 @@ The most recent Azure libraries use the Python standard `logging` library to gen
 
 ## Proxy configuration
 
-To specify a proxy, you can use environment variables or optional arguments. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md).
+To specify a proxy, use environment variables or optional arguments. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md).
 
 ## Optional arguments for client objects and methods
 
-In the library reference documentation, you often see a `**kwargs` or `**operation_config` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question may support other named arguments. Typically, the reference documentation indicates the specific arguments you can use. There are also some general arguments that are often supported as described in the following sections.
+In the library reference documentation, you often see a `**kwargs` or `**operation_config` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question might support other named arguments. Typically, the reference documentation lists the specific arguments you can use. The following sections describe some general arguments that are often supported.
 
 ### Arguments for libraries based on azure.core
 
-These arguments apply to those libraries listed on [Python - New Libraries](https://azure.github.io/azure-sdk/releases/latest/#python). For example, here are a subset of the keyword arguments for `azure-core`. For a complete list, see the GitHub README for [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core#configurations).
+These arguments apply to the libraries listed on [Python - New Libraries](https://azure.github.io/azure-sdk/releases/latest/#python). For example, here are a subset of the keyword arguments for `azure-core`. For a complete list, see the GitHub README for [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/core/azure-core#configurations).
 
 | Name                       | Type | Default     | Description |
 | ---                        | ---  | ---         | ---         |
 | logging_enable             | bool | False       | Enables logging. For more information, see [Logging in the Azure libraries](azure-sdk-logging.md). |
 | proxies                    | dict | {}          | Proxy server URLs. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md). |
-| use_env_settings           | bool | True        | If True, allows use of `HTTP_PROXY` and `HTTPS_PROXY` environment variables for proxies. If False, the environment variables are ignored. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md). |
+| use_env_settings           | bool | True        | If True, the client uses `HTTP_PROXY` and `HTTPS_PROXY` environment variables for proxies. If False, the client ignores the environment variables. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md). |
 | connection_timeout         | int  | 300         | The timeout in seconds for making a connection to Azure REST API endpoints. |
 | read_timeout               | int  | 300         | The timeout in seconds for completing an Azure REST API operation (that is, waiting for a response). |
 | retry_total                | int  | 10          | The number of allowable retry attempts for REST API calls. Use `retry_total=0` to disable retries. |
-| retry_mode                 | enum | exponential | Applies retry timing in a linear or exponential manner. If 'single', retries are made at regular intervals. If 'exponential', each retry waits twice as long as the previous retry. |
+| retry_mode                 | enum | exponential | Applies retry timing in a linear or exponential manner. If `single`, retries are made at regular intervals. If `exponential`, each retry waits twice as long as the previous retry. |
 
-Individual libraries aren't obligated to support any of these arguments, so always consult the reference documentation for each library for exact details. Also, each library may support other arguments. For example, for blob storage specific keyword arguments, see the GitHub README for [azure-storage-blob](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob#optional-configuration).
+Individual libraries aren't obligated to support any of these arguments, so always consult the reference documentation for each library for exact details. Also, each library might support other arguments. For example, for blob storage specific keyword arguments, see the GitHub README for [azure-storage-blob](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob#optional-configuration).
 
 ## Inline JSON pattern for object arguments
 
-Many operations within the Azure libraries allow you to express object arguments either as discrete objects or as inline JSON.
+Many operations within the Azure libraries accept object arguments as either discrete objects or inline JSON.
 
-For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.resourcemanagementclient) object through which you create a resource group with its [`create_or_update`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-create-or-update) method. The second argument to this method is of type [`ResourceGroup`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.models.resourcegroup).
+For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.resourcemanagementclient) object through which you create a resource group by using its [`create_or_update`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-create-or-update) method. The second argument to this method is of type [`ResourceGroup`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.models.resourcegroup).
 
 To call the `create_or_update` method, you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
 
@@ -154,7 +154,7 @@ Objects can also have nested object arguments, in which case you can also use ne
 
 For example, suppose you have an instance of the [`KeyVaultManagementClient`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.keyvaultmanagementclient) object, and are calling its [`create_or_update`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.operations.vaultsoperations). In this case, the third argument is of type [`VaultCreateOrUpdateParameters`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.models.vaultchecknameavailabilityparameters), which itself contains an argument of type [`VaultProperties`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.models.vaultproperties). `VaultProperties`, in turn, contains object arguments of type [`Sku`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.models.sku) and [`list[AccessPolicyEntry]`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.models.accesspolicyentry). A `Sku` contains a [`SkuName`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.models.skuname) object, and each `AccessPolicyEntry` contains a [`Permissions`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.models.permissions) object.
 
-To call `begin_create_or_update` with embedded objects, you use code like the following (assuming `tenant_id`, `object_id`, and `LOCATION` are already defined). You can also create the necessary objects before the function call.
+To call `begin_create_or_update` with embedded objects, use code like the following (assuming `tenant_id`, `object_id`, and `LOCATION` are already defined). You can also create the necessary objects before the function call.
 
 :::code language="python" source="~/../python-sdk-docs-examples/key_vault/provision_key_vault.py" range="66-92":::
 
