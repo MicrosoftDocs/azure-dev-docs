@@ -38,7 +38,6 @@ Example prompts include:
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Description** |  Optional | A description for the SRE Agent item. |
-| **Handoffs** |  Optional | Subagent handoff names. Multiple values are supported. |
 | **Instructions** |  Optional | Instructions for the subagent. |
 | **Tools** |  Optional | Tool names to attach. Multiple values are supported. |
 
@@ -52,8 +51,7 @@ azmcp sreagent agents create \
   [--resource-group <resource-group>] \
   [--description <description>] \
   [--instructions <instructions>] \
-  [--tools <tools>] \
-  [--handoffs <handoffs>]
+  [--tools <tools>]
 ```
 
 | Parameter | Type | Required | Description |
@@ -64,7 +62,6 @@ azmcp sreagent agents create \
 | `--description` | string | No | A description for the SRE Agent item. |
 | `--instructions` | string | No | Instructions for the subagent. |
 | `--tools` | string | No | Tool names to attach. Multiple values are supported. |
-| `--handoffs` | string | No | Subagent handoff names. Multiple values are supported. |
 
 ---
 
@@ -2326,7 +2323,6 @@ Example prompts include:
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Connector** |  Optional | The connector name for Kusto tools. |
 | **Database name** |  Optional | The Kusto database for Kusto tools. |
-| **Handoffs** |  Optional | Subagent handoff names. Multiple values are supported. |
 | **Model or type** |  Optional | Tool type, such as KustoTool or LinkTool. |
 | **Parameters** |  Optional | Parameters as name:description. |
 | **Query** |  Optional | The Kusto query for Kusto tools. |
@@ -2343,7 +2339,6 @@ azmcp sreagent workflows generate \
   --description <description> \
   [--model-or-type <model-or-type>] \
   [--tools <tools>] \
-  [--handoffs <handoffs>] \
   [--connector <connector>] \
   [--database <database>] \
   [--query <query>] \
@@ -2358,7 +2353,6 @@ azmcp sreagent workflows generate \
 | `--description` | string | Yes | A description for the SRE Agent item. |
 | `--model-or-type` | string | No | Tool type, such as KustoTool or LinkTool. |
 | `--tools` | string | No | Tool names to attach. Multiple values are supported. |
-| `--handoffs` | string | No | Subagent handoff names. Multiple values are supported. |
 | `--connector` | string | No | The connector name for Kusto tools. |
 | `--database` | string | No | The Kusto database for Kusto tools. |
 | `--query` | string | No | The Kusto query for Kusto tools. |
