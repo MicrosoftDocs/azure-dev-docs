@@ -38,7 +38,7 @@ Example prompts include:
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Description** |  Optional | A description for the SRE Agent item. |
-| **Handoffs** |  Optional | Sub-agent handoff names. Multiple values are supported. |
+| **Handoffs** |  Optional | Subagent handoff names. Multiple values are supported. |
 | **Instructions** |  Optional | Instructions for the subagent. |
 | **Tools** |  Optional | Tool names to attach. Multiple values are supported. |
 
@@ -64,7 +64,7 @@ azmcp sreagent agents create \
 | `--description` | string | No | A description for the SRE Agent item. |
 | `--instructions` | string | No | Instructions for the subagent. |
 | `--tools` | string | No | Tool names to attach. Multiple values are supported. |
-| `--handoffs` | string | No | Sub-agent handoff names. Multiple values are supported. |
+| `--handoffs` | string | No | Subagent handoff names. Multiple values are supported. |
 
 ---
 
@@ -293,7 +293,7 @@ azmcp sreagent agents tools get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Agents tools: list
+## Agents tools: list tools
 
 This tool lists custom tools on a targeted SRE Agent resource. This tool returns the name, version, and status for each custom tool, so you can verify deployments and troubleshoot issues.
 
@@ -704,7 +704,7 @@ azmcp sreagent connectors delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Connectors: get conector details
+## Connectors: get connector details
 
 This tool retrieves details for a connector that is configured on an Azure SRE Agent resource. You can view connector properties, configuration, and status to help troubleshoot or document the connector. Specify the agent and name parameters to identify the Azure SRE Agent resource and the connector.
 
@@ -1538,7 +1538,7 @@ azmcp sreagent incidents setup pagerduty \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
-## Incidents: setup Servicenow connector
+## Incidents: set up ServiceNow connector
 
 This tool creates a ServiceNow MCP connector that enables incident management integration. It uses credentials stored in environment variables and enables incident creation, updates, and resolution between ServiceNow and the SRE Agent.
 
@@ -1725,7 +1725,7 @@ azmcp sreagent scheduledtasks get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Scheduled tasks: list schedule tasks
+## Scheduled tasks: list scheduled tasks
 
 This tool lists scheduled tasks that the SRE Agent manages. You can inspect scheduled jobs, confirm schedules, and view task metadata such as status, next run time, and last run time. This tool returns a read-only list of scheduled tasks with fields for task name, status, schedule, next run time, and last run time.
 
@@ -1888,7 +1888,7 @@ azmcp sreagent skills create \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Skills: delete
+## Skills: delete skill
 
 This tool deletes a custom skill from an SRE Agent resource.
 
@@ -2326,7 +2326,7 @@ Example prompts include:
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Connector** |  Optional | The connector name for Kusto tools. |
 | **Database name** |  Optional | The Kusto database for Kusto tools. |
-| **Handoffs** |  Optional | Sub-agent handoff names. Multiple values are supported. |
+| **Handoffs** |  Optional | Subagent handoff names. Multiple values are supported. |
 | **Model or type** |  Optional | Tool type, such as KustoTool or LinkTool. |
 | **Parameters** |  Optional | Parameters as name:description. |
 | **Query** |  Optional | The Kusto query for Kusto tools. |
@@ -2358,7 +2358,7 @@ azmcp sreagent workflows generate \
 | `--description` | string | Yes | A description for the SRE Agent item. |
 | `--model-or-type` | string | No | Tool type, such as KustoTool or LinkTool. |
 | `--tools` | string | No | Tool names to attach. Multiple values are supported. |
-| `--handoffs` | string | No | Sub-agent handoff names. Multiple values are supported. |
+| `--handoffs` | string | No | Subagent handoff names. Multiple values are supported. |
 | `--connector` | string | No | The connector name for Kusto tools. |
 | `--database` | string | No | The Kusto database for Kusto tools. |
 | `--query` | string | No | The Kusto query for Kusto tools. |
@@ -2417,6 +2417,8 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+
+
 
 
 
