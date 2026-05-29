@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: yangtony
 ms.topic: overview
 ms.date: 05/26/2026
-ms.custom: devx-javascript, devx-typescript
+ms.custom: devx-track-js, devx-track-ts
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
@@ -22,7 +22,7 @@ GitHub Copilot modernization for JavaScript/TypeScript is available as part of t
 
 - **Project analysis**: Analyzes files like `package.json` to understand your project's current state and dependencies.
 - **Upgrade planning**: Suggests an upgrade plan and provides transparent recommendations before making changes.
-- **Package upgrades**: Automatically upgrades npm packages to their latest versions by modifying `package.json` and running the appropriate install command for your project (such as `npm install`, `pnpm install`, or `yarn install`).
+- **Package upgrades**: Automatically upgrades npm packages to their latest versions by modifying `package.json` and running the appropriate package-manager commands for your project (such as `npm install`, `npm update`, `pnpm install`, or `yarn install`).
 - **Code remediation**: Helps apply code changes needed for breaking changes or new APIs introduced in upgraded packages.
 - **Interactive experience**: Works through an interactive Copilot Chat experience in Visual Studio Code, walking you through changes with questions and confirmations.
 
