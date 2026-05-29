@@ -131,4 +131,4 @@ After you configure your startup file, you need to deploy your application code 
 az webapp up --name <app-name>
 ```
 
-For more deployment options, see [Deployment to Azure App Service](/azure/app-service/deploy-local-git).
+For more deployment options, see [Deployment best practices](/azure/app-service/deploy-best-practices).
