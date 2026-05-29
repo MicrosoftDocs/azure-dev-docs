@@ -20,17 +20,18 @@ Azure SRE Agent is an Azure service that provides cloud-based capabilities for y
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 
-## Agents: Create
+## Agents: create or update a subagent
+
+This tool creates or updates a subagent on a targeted SRE Agent resource. You specify the subscription, agent, and name to identify the subagent. The tool applies changes idempotently, so repeated requests with the same values don't create duplicates. Provide the required parameters to create or update the subagent.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent agents create -->
 
-This tool creates or updates a sub-agent on a targeted SRE Agent resource. You specify the `subscription`, `agent`, and `name` to identify the sub-agent. The tool applies changes idempotently, so repeated requests with the same values don't create duplicates. Provide the required parameters to create or update the sub-agent.
-
 Example prompts include:
 
-- "Create a sub-agent with name 'sub-agent-01' on SRE Agent 'sre-agent-prod'."
+- "Create a subagent with name 'subagent-01' on SRE Agent 'sre-agent-prod'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -38,14 +39,11 @@ Example prompts include:
 | **Name** |  Required | The name of the SRE Agent item. |
 | **Description** |  Optional | A description for the SRE Agent item. |
 | **Handoffs** |  Optional | Sub-agent handoff names. Multiple values are supported. |
-| **Instructions** |  Optional | Instructions for the sub-agent. |
+| **Instructions** |  Optional | Instructions for the subagent. |
 | **Tools** |  Optional | Tool names to attach. Multiple values are supported. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Creates or updates a sub-agent on a targeted SRE Agent resource. Required: --subscription, --agent, --name.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent agents create \
@@ -64,7 +62,7 @@ azmcp sreagent agents create \
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--description` | string | No | A description for the SRE Agent item. |
-| `--instructions` | string | No | Instructions for the sub-agent. |
+| `--instructions` | string | No | Instructions for the subagent. |
 | `--tools` | string | No | Tool names to attach. Multiple values are supported. |
 | `--handoffs` | string | No | Sub-agent handoff names. Multiple values are supported. |
 
@@ -74,22 +72,20 @@ azmcp sreagent agents create \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Agents: Delete
+## Agents: delete a subagent
+
+This tool deletes a subagent from a targeted SRE Agent resource. 
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent agents delete -->
 
-This tool deletes a sub-agent from a targeted SRE Agent resource. This tool is part of the Model Context Protocol (MCP) tools. You specify the subscription, `Agent`, and `Name`, and set `confirm` to `true` to perform the deletion.
-
-Examples
-
-- For example, delete the sub-agent named 'telemetry-agent' from the SRE Agent 'prod-sre' in subscription '12345-abcde'.
-- For example, delete the sub-agent 'backup-monitor' from the SRE Agent 'staging-sre' in subscription 'my-subscription-id'.
-
 Example prompts include:
 
-- "Delete sub-agent name 'subagent-01' from SRE Agent 'sre-agent-prod'."
+- "Delete the subagent named 'telemetry-agent' from the SRE Agent 'prod-sre' in subscription '12345-abcde'."
+- "Delete the subagent 'backup-monitor' from the SRE Agent 'staging-sre' in subscription 'my-subscription-id'."
+- "Delete subagent name 'subagent-01' from SRE Agent 'sre-agent-prod'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -99,9 +95,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Deletes a sub-agent from a targeted SRE Agent resource. Required: --subscription, --agent, --name, --confirm true.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent agents delete \
@@ -124,34 +117,27 @@ azmcp sreagent agents delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Agents: Get
+## Agents: get configuration details
+
+Show the configuration details for a named SRE Agent. This tool returns the endpoint, provisioning state, location, and settings for the specified SRE Agent. You can filter results by resource group. 
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent agents get -->
 
-Show the configuration details for a named SRE Agent. This tool returns the endpoint, provisioning state, location, and settings for the specified SRE Agent. You can filter results by resource group. This tool is part of the Model Context Protocol (MCP) suite. You specify the subscription and the `Agent` name to run the tool.
-
 Example prompts include:
 
 - "Show details for SRE Agent 'sre-agent-north' in resource group 'rg-sre-prod'."
+- "Check configuration for SRE Agent 'sre-agent-eastus' in resource group 'prod-rg'."
+- "Show the endpoint and provisioning state for SRE Agent 'ops-agent-west' across the specified subscription."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
-
-
-Examples
-
-- Check configuration for SRE Agent 'sre-agent-eastus' in resource group 'prod-rg'.
-- Show the endpoint and provisioning state for SRE Agent 'ops-agent-west' across the specified subscription.
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Show the configuration details of a named SRE Agent. Retrieves endpoint, provisioning state, location, and settings for a specific SRE Agent by name, optionally filtered by resource group. Required: --subscription, --agent.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent agents get \
@@ -170,13 +156,15 @@ azmcp sreagent agents get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Agents: List
+## Agents: list resources
+
+This tool lists Azure SRE Agent resources. You can filter results by resource group. Each result includes `name`, `id`, `location`, `resourceGroup`, `provisioningState`, and `endpoint`. If the tool finds no SRE Agent resources, it returns an empty list.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent agents list -->
 
-This tool lists Azure SRE Agent resources in a subscription, using the Model Context Protocol (MCP). You can filter results by resource group. Each result includes `name`, `id`, `location`, `resourceGroup`, `provisioningState`, and `endpoint`. If the tool finds no SRE Agent resources, it returns an empty list.
 
 Example prompts include:
 
@@ -184,11 +172,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List Azure SRE Agent resources in a subscription. Optionally filter by resource group.
-Each result includes: name, id, location, resourceGroup, provisioningState, endpoint.
-If no SRE Agent resources are found the tool returns an empty list.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent agents list \
@@ -205,19 +188,18 @@ azmcp sreagent agents list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Agents tools: Create
+## Agents tools: create or update custom tool
+
+This tool creates or updates a custom tool on a target SRE Agent resource. You specify the agent, name, and tool type. If a tool with the specified name exists, this tool updates its configuration; otherwise, it creates a new tool. Provide configuration values according to the parameter table.
+
+Example prompts include:
+
+- "Create custom tool 'log-collector' on agent 'sre-agent-prod' in subscription 'contoso-sub' with tool type 'collector'."
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent agents tools create -->
-
-This Model Context Protocol (MCP) tool creates or updates a custom tool on a target SRE Agent resource. You specify the `subscription`, `agent`, `name`, and `tool type` parameters. If a tool with the specified `name` exists, this tool updates its configuration; otherwise, it creates a new tool. Provide configuration values according to the parameter table.
-
-For example, to create a collector tool named 'log-collector' on agent 'sre-agent-prod' in subscription 'contoso-sub', use a prompt like:
-- Create custom tool 'log-collector' on agent 'sre-agent-prod' in subscription 'contoso-sub' with tool type 'collector'.
-
-For example, to update an existing tool named 'file-watcher' on agent 'sre-agent-stage', use a prompt like:
-- Update tool 'file-watcher' on agent 'sre-agent-stage' in subscription 'contoso-sub' to set tool type 'watcher'.
 
 Example prompts include:
 
@@ -237,9 +219,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Creates or updates a custom tool on a targeted SRE Agent resource. Required: --subscription, --agent, --name, --tool-type.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent agents tools create \
@@ -274,13 +253,14 @@ azmcp sreagent agents tools create \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Agents tools: Get
+## Agents tools: get custom tool definition
+
+Gets a custom tool definition from a targeted SRE Agent resource. This tool requires the agent and name parameters and returns the custom tool definition for the specified agent and name.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent agents tools get -->
-
-Gets a custom tool definition from a targeted SRE Agent resource for the Model Context Protocol (MCP). This tool requires the `Subscription`, `Agent`, and `Name` parameters. It returns the custom tool definition for the specified `Agent` and `Name`.
 
 Example prompts include:
 
@@ -293,9 +273,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Gets a custom tool definition from a targeted SRE Agent resource. Required: --subscription, --agent, --name.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent agents tools get \
@@ -316,13 +293,14 @@ azmcp sreagent agents tools get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Agents tools: List
+## Agents tools: list
+
+This tool lists custom tools on a targeted SRE Agent resource. This tool returns the name, version, and status for each custom tool, so you can verify deployments and troubleshoot issues.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent agents tools list -->
-
-This tool, part of the Model Context Protocol (MCP), lists custom tools on a targeted SRE Agent resource. You must specify the subscription and the `Agent`. This tool returns the name, version, and status for each custom tool, so you can verify deployments and troubleshoot issues.
 
 Example prompts include:
 
@@ -334,9 +312,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Lists custom tools on a targeted SRE Agent resource. Required: --subscription and --agent.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent agents tools list \
@@ -355,13 +330,9 @@ azmcp sreagent agents tools list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Architecture: Plan
-#### [MCP Server](#tab/mcp-server)
+## Architecture: plan an architecture
 
-
-<!-- @mcpcli sreagent architecture plan -->
-
-Plan and generate a site reliability engineering (SRE) agent architecture using the Model Context Protocol (MCP). This tool analyzes your requirements and produces a structured design for agents, tools, connectors, and triggers. You provide high-level requirements and constraints, and this tool returns component responsibilities, interaction patterns, deployment considerations, security and access control recommendations, and observability suggestions. Use the output to guide implementation, tooling selection, and integration planning.
+Plan and generate a site reliability engineering (SRE) agent architecture. This tool analyzes your requirements and produces a structured design for agents, tools, connectors, and triggers. You provide high-level requirements and constraints, and this tool returns component responsibilities, interaction patterns, deployment considerations, security and access control recommendations, and observability suggestions. Use the output to guide implementation, tooling selection, and integration planning.
 
 Outputs include:
 - A component list with responsibilities and boundaries.
@@ -369,6 +340,11 @@ Outputs include:
 - Deployment and scalability considerations, including regional and orchestration recommendations.
 - Security and role-based access control (RBAC) guidance.
 - Observability and incident response patterns, including monitoring and alerting suggestions.
+
+#### [MCP Server](#tab/mcp-server)
+
+
+<!-- @mcpcli sreagent architecture plan -->
 
 Example prompts include:
 
@@ -382,9 +358,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Plan and generate an SRE Agent architecture. Analyzes requirements and produces a structured design for agents, tools, connectors, and triggers.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent architecture plan \
@@ -405,13 +378,14 @@ azmcp sreagent architecture plan \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Commonprompts: Create
+## Common prompts: create or update a prompt
+
+This tool creates or updates a named common prompt on the SRE Agent. It saves reusable prompt templates, so teams can centralize guidance and reduce duplication. The tool returns the created or updated prompt object.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent commonprompts create -->
-
-Model Context Protocol (MCP) tool. This tool creates or updates a named common prompt on the SRE Agent. It saves reusable prompt templates, so teams can centralize guidance and reduce duplication. The tool returns the created or updated prompt object.
 
 Example prompts include:
 
@@ -425,9 +399,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Create or update a named common prompt on the SRE Agent.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent commonprompts create \
@@ -450,13 +421,14 @@ azmcp sreagent commonprompts create \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Commonprompts: Delete
+## Common prompts: delete a prompt
+
+This tool permanently removes the prompt identified by name from an SRE Agent. You confirm the deletion before the tool erases the prompt definition. This action isn't reversible.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent commonprompts delete -->
-
-This tool permanently removes the prompt identified by `Name` from an SRE Agent. You confirm the deletion before the tool erases the prompt definition. This action isn't reversible.
 
 Example prompts include:
 
@@ -470,9 +442,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Permanently remove and irreversibly delete a named common prompt from an SRE Agent. Erases the prompt definition after explicit user confirmation. This action cannot be undone.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent commonprompts delete \
@@ -495,35 +464,31 @@ azmcp sreagent commonprompts delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Commonprompts: Get
+## Common prompts: get prompt text
+
+This tool shows the full text of a specific named common prompt on a site reliability engineering (SRE) agent. You provide the name, and this tool returns the prompt text so you can inspect or audit prompts for debugging or review.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent commonprompts get -->
 
-This Model Context Protocol (MCP) tool shows the full text of a specific named common prompt on a site reliability engineering (SRE) agent. You provide the `Name` value, and this tool returns the prompt text so you can inspect or audit prompts for debugging or review.
-
 Example prompts include:
 
 - "Show me the common prompt with name 'deploy-checklist' on SRE Agent 'sre-agent-westus'."
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-
-
 
 Examples
 
 - Retrieve the full prompt text for the common prompt 'incident-response'.
 - Show the prompt text for 'deploy-checklist'.
 
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Name** |  Required | The name of the SRE Agent item. |
+| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Show the content of a specific named common prompt on an SRE Agent. Returns the full prompt text for a single prompt identified by name.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent commonprompts get \
@@ -544,13 +509,14 @@ azmcp sreagent commonprompts get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Commonprompts: List
+## Common prompts: list prompts
+
+This tool lists all common prompts available on an SRE Agent. It returns a collection of registered prompt names and descriptions. The results help you discover available prompts and review their descriptions.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent commonprompts list -->
-
-This Model Context Protocol (MCP) tool lists all common prompts available on an SRE Agent. It returns a collection of registered prompt names and descriptions. The results help you discover available prompts and review their descriptions.
 
 Example prompts include:
 
@@ -563,9 +529,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List all common prompts available on an SRE Agent. Returns a collection of all registered prompt names and descriptions.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent commonprompts list \
@@ -586,13 +549,14 @@ azmcp sreagent commonprompts list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Connectors create: Kusto
+## Connectors: create or update Kusto connector
+
+This tool creates or updates a connector to Azure Data Explorer (Kusto) on an Azure SRE Agent resource. The connector lets the agent ingest and query data from an Azure Data Explorer cluster.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent connectors create kusto -->
-
-This tool, part of the Model Context Protocol (MCP) tools, creates or updates a connector to Azure Data Explorer (Kusto) on an Azure SRE Agent resource. The connector lets the agent ingest and query data from an Azure Data Explorer cluster.
 
 Example prompts include:
 
@@ -607,9 +571,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Create or update a Kusto connector on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent connectors create kusto \
@@ -634,19 +595,21 @@ azmcp sreagent connectors create kusto \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Connectors create: Mcp
+## Connectors: create or update connector
+
+This tool creates or updates a connector on an Azure SRE Agent resource. You specify the agent, the connector name, and the connector type. You can also provide connection credentials and additional configuration settings. On success, this tool returns the connector resource.
+
+Follow Azure naming conventions for resource names, and ensure role-based access control (RBAC) permissions allow connector updates. Use realistic names such as `sre-agent-prod` for the agent and `rg-sre-prod` for the resource group.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent connectors create mcp -->
 
-This tool creates or updates a Model Context Protocol (MCP) connector on an Azure SRE Agent resource. You specify the agent with `Agent`, the connector name with `Name`, and the connector type with `Type`. You can also provide connection credentials and additional configuration settings. On success, this tool returns the connector resource.
-
-Follow Azure naming conventions for resource names, and ensure role-based access control (RBAC) permissions allow connector updates. Use realistic names such as `sre-agent-prod` for the agent and `rg-sre-prod` for the resource group.
-
 Example prompts include:
 
 - "Create an MCP connector on SRE Agent 'sreagent-prod' with name 'mcp-connector' and type 'http'."
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -661,21 +624,8 @@ Example prompts include:
 | **Envs JSON** |  Optional | JSON object of environment variables for stdio MCP connectors. |
 | **Headers JSON** |  Optional | JSON object of HTTP headers. |
 
-
-
-Examples
-
-- Create a Kafka connector named 'connector-kafka-main' on agent 'sre-agent-prod' in resource group 'rg-sre-prod':
-  sreagent connectors create mcp --agent 'sre-agent-prod' --name 'connector-kafka-main' --type 'kafka' --resource-group 'rg-sre-prod'
-
-- Update an HTTP connector named 'connector-http-01' on agent 'sre-agent-prod' with new credentials in resource group 'rg-sre-prod':
-  sreagent connectors create mcp --agent 'sre-agent-prod' --name 'connector-http-01' --type 'http' --resource-group 'rg-sre-prod' --credentials 'new-credentials'
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Create or update an MCP connector on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent connectors create mcp \
@@ -712,13 +662,13 @@ azmcp sreagent connectors create mcp \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ✅ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
-## Connectors: Delete
+## Connectors: delete connector
+
+This tool deletes a connector from an Azure SRE Agent resource. 
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent connectors delete -->
-
-This tool, part of the Model Context Protocol (MCP) tools, deletes a connector from an Azure SRE Agent resource. Requires `subscription`, `agent`, `name`, and `confirm` set to `true`.
 
 Example prompts include:
 
@@ -732,9 +682,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Delete a connector from an Azure SRE Agent resource. Required: --subscription, --agent, --name, --confirm true.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent connectors delete \
@@ -757,13 +704,14 @@ azmcp sreagent connectors delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Connectors: Get
+## Connectors: get conector details
+
+This tool retrieves details for a connector that is configured on an Azure SRE Agent resource. You can view connector properties, configuration, and status to help troubleshoot or document the connector. Specify the agent and name parameters to identify the Azure SRE Agent resource and the connector.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent connectors get -->
-
-This tool retrieves details for a connector that is configured on an Azure SRE Agent resource. You can view connector properties, configuration, and status to help troubleshoot or document the connector. Specify the `Agent` and `Name` parameters to identify the Azure SRE Agent resource and the connector.
 
 Example prompts include:
 
@@ -776,9 +724,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Get details for a connector configured on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent connectors get \
@@ -799,34 +744,26 @@ azmcp sreagent connectors get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Connectors: List
+## Connectors: list connectors
+
+This tool lists connectors that are configured on an Azure SRE Agent resource. It returns connector names, connector types, and registration status so you can review integrations and troubleshoot issues.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent connectors list -->
 
-This Model Context Protocol (MCP) tool lists connectors that are configured on an Azure SRE Agent resource. It returns connector names, connector types, and registration status so you can review integrations and troubleshoot issues.
-
 Example prompts include:
 
 - "List the connectors configured on SRE Agent 'sreagent-prod'."
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
-
-
-Examples
-
-- List connectors for agent 'sre-agent-01'.
-- List connectors for agent 'sre-agent-prod' in resource group 'rg-sre-prod'.
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List connectors configured on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent connectors list \
@@ -845,37 +782,27 @@ azmcp sreagent connectors list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Connectors: Test
+## Connectors: test connector
+
+This tool tests a connector and lists the tools the connector exposes. You can verify connector connectivity and inspect available tools, including each tool's name and capabilities. To test a connector, provide the agent and name parameters.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent connectors test -->
 
-Test a connector and list the tools it exposes.
-
-This tool tests a connector in the Model Context Protocol (MCP) server and lists the tools the connector exposes. You can verify connector connectivity and inspect available tools, including each tool's name and capabilities. To test a connector, provide the `Agent` and `Name` parameters.
-
 Example prompts include:
 
 - "Test connector name 'my-connector' on SRE Agent 'sre-agent-prod' and list its tools."
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Name** |  Required | The name of the SRE Agent item. |
 
-
-
-Examples
-
-- Test connector 'sreagent' with name 'github-connector' to list available tools.
-- Test connector 'sreagent' with name 'sales-crm-connector' to verify connectivity and enumerate its tools.
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Test a connector and list the tools it exposes.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent connectors test \
@@ -896,18 +823,14 @@ azmcp sreagent connectors test \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ✅ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Docs: Get
+## Documentation: get reference documentation
+
+This tool returns reference documentation for Site Reliability Engineering (SRE) Agent concepts. You can get definitions, configuration details, and usage examples for SRE Agent topics such as alerting, incident response, health checks, and telemetry. Specify the topic to retrieve a topic's reference entry.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent docs get -->
-
-This tool returns reference documentation for Site Reliability Engineering (SRE) Agent concepts used with the Model Context Protocol (MCP). You can get definitions, configuration details, and usage examples for SRE Agent topics such as alerting, incident response, health checks, and telemetry. Specify the `Topic` to retrieve a topic's reference entry.
-
-Examples
-
-- Get the incident response reference: get Topic 'incident-response'
-- Get the alerting rules reference: get Topic 'alerting-rules'
 
 Example prompts include:
 
@@ -919,9 +842,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Return reference documentation for SRE Agent concepts.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent docs get \
@@ -938,13 +858,14 @@ azmcp sreagent docs get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Docs memories: Add
+## Documentation memories: add document to knowledge base
+
+This tool adds a document to the SRE Agent knowledge base by name. You upload markdown (*.md) content, and the tool indexes it for retrieval-augmented generation (RAG) based knowledge retrieval. Use clear, descriptive names so documents are easy to find.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent docs memories add -->
-
-This Model Context Protocol (MCP) tool adds a document to the SRE Agent knowledge base by name. You upload Markdown content, and the tool indexes it for retrieval-augmented generation (RAG) based knowledge retrieval. Use clear, descriptive names so documents are easy to find.
 
 Example prompts include:
 
@@ -958,9 +879,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Add a document to the SRE Agent knowledge base by name. Uploads markdown content that will be indexed for RAG-based knowledge retrieval.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent docs memories add \
@@ -983,13 +901,14 @@ azmcp sreagent docs memories add \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Docs memories: Delete
+## Documentation memories: delete knowledge base document
+
+You specify the document by name. This tool deletes a knowledge base document after you confirm. Deletion is permanent and can't be undone. Confirm the document exists before you run this tool.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent docs memories delete -->
-
-This tool deletes a knowledge base document from the Model Context Protocol (MCP) server after you confirm. You specify the document by `Name`. Deletion is permanent and can't be undone. Confirm the document before you run this tool.
 
 Example prompts include:
 
@@ -1003,9 +922,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Delete a knowledge base document after explicit confirmation.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent docs memories delete \
@@ -1028,13 +944,14 @@ azmcp sreagent docs memories delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Docs memories: List
+## Documentation memories: list indexed knowledge base documents
+
+This tool lists all indexed knowledge base documents that an SRE Agent stores in memory. It returns every document name and its metadata, with no search filter or query. Browsing the complete knowledge base helps you discover available documents before you run targeted searches.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent docs memories list -->
-
-This tool, part of the Model Context Protocol (MCP) suite, lists all indexed knowledge base documents that an SRE Agent stores in memory. It returns every document name and its metadata, with no search filter or query. Browsing the complete knowledge base helps you discover available documents before you run targeted searches.
 
 Example prompts include:
 
@@ -1046,9 +963,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Retrieve a complete list of all indexed knowledge base documents stored in an SRE Agent's memory. Returns all document names and metadata without any search filter or query. Use this to browse everything in the knowledge base before searching.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent docs memories list \
@@ -1067,13 +981,14 @@ azmcp sreagent docs memories list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Docs memories: Reindex
+## Documentation memories: reindex knowledge base
+
+This tool triggers a reindex of a knowledge base. You use it to reprocess stored documents, update embeddings, and rebuild search indexes so search results reflect recent content and metadata changes. Reindexing time depends on dataset size and server load; it can take minutes or longer. After the tool starts, monitor reindex progress with the server's management endpoints.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent docs memories reindex -->
-
-This Model Context Protocol (MCP) tool triggers a reindex of a knowledge base. You use it to reprocess stored documents, update embeddings, and rebuild search indexes so search results reflect recent content and metadata changes. Reindexing time depends on dataset size and server load; it can take minutes or longer. After the tool starts, monitor reindex progress with the server's management endpoints.
 
 Example prompts include:
 
@@ -1085,9 +1000,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Trigger a knowledge base reindex.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent docs memories reindex \
@@ -1106,13 +1018,14 @@ azmcp sreagent docs memories reindex \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Docs memories: Search
+## Documentation memories: search knowledge base
+
+This tool searches the SRE Agent knowledge base using semantic search, and returns the most relevant documents for your query. It helps you find troubleshooting steps, runbooks, postmortems, and monitoring playbooks related to incidents or alerts.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent docs memories search -->
-
-The Model Context Protocol (MCP) tool searches the SRE Agent knowledge base using semantic search, and returns the most relevant documents for your query. It helps you find troubleshooting steps, runbooks, postmortems, and monitoring playbooks related to incidents or alerts.
 
 Example prompts include:
 
@@ -1125,9 +1038,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Search the SRE Agent knowledge base. Uses semantic search to find relevant documents stored in the agent's knowledge base.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent docs memories search \
@@ -1148,13 +1058,14 @@ azmcp sreagent docs memories search \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Hooks: Delete
+## Hooks: delete hook
+
+This tool deletes a hook from an Azure SRE Agent resource. 
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent hooks delete -->
-
-This tool, part of the Model Context Protocol (MCP) tools, deletes a hook from an Azure SRE Agent resource. It requires a subscription, the `Agent`, the `Name`, and `confirm` set to `true`.
 
 Example prompts include:
 
@@ -1168,9 +1079,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Delete a hook from an Azure SRE Agent resource. Required: --subscription, --agent, --name, --confirm true.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent hooks delete \
@@ -1193,13 +1101,14 @@ azmcp sreagent hooks delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Hooks: Get
+## Hooks: get details
+
+This tool returns details for a hook that's configured on an Azure SRE Agent resource. You can review the hook's configuration, check its current status, and confirm trigger settings or destination endpoints.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent hooks get -->
-
-Model Context Protocol (MCP). This tool returns details for a hook that's configured on an Azure SRE Agent resource. You can review the hook's configuration, check its current status, and confirm trigger settings or destination endpoints.
 
 Example prompts include:
 
@@ -1212,9 +1121,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Get details for a hook configured on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent hooks get \
@@ -1235,13 +1141,14 @@ azmcp sreagent hooks get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Hooks: List
+## Hooks: list hooks
+
+Lists hooks configured on an Azure SRE Agent resource. Use this tool to view hook names, hook types, and their current status for a specified agent. You can use the output to inspect deployment, monitoring, and cleanup hooks that apply to the `Agent`.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent hooks list -->
-
-Lists hooks configured on an Azure SRE Agent resource. This tool is part of the Model Context Protocol (MCP) tools. Use this tool to view hook names, hook types, and their current status for a specified `Agent`. You can use the output to inspect deployment, monitoring, and cleanup hooks that apply to the `Agent`.
 
 Example prompts include:
 
@@ -1253,9 +1160,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List hooks configured on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent hooks list \
@@ -1274,13 +1178,14 @@ azmcp sreagent hooks list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Hooks thread: Activate
+## Hooks: activate hook thread
+
+This tool activates an on-demand hook for a thread on an Azure SRE Agent resource. It triggers the hook's configured actions immediately. 
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent hooks thread activate -->
-
-This tool activates an on-demand hook for a thread on an Azure SRE Agent resource. It is part of the Model Context Protocol (MCP) suite, and it triggers the hook's configured actions immediately. Specify the `Agent`, `Hook name`, and `Thread ID` to identify the target thread and hook.
 
 Example prompts include:
 
@@ -1294,9 +1199,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Activate an on-demand hook for a thread on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent hooks thread activate \
@@ -1319,36 +1221,31 @@ azmcp sreagent hooks thread activate \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Hooks thread: Deactivate
+## Hooks: deactivate hook thread
+
+This tool deactivates an on-demand hook for a thread on an Azure SRE Agent resource. You provide agent, hook name, and thread ID to identify the hook and target thread. The tool stops the hook from running on the specified thread without removing the hook configuration. You need appropriate permissions on the Azure SRE Agent resource to apply the change.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent hooks thread deactivate -->
 
-This Model Context Protocol (MCP) tool deactivates an on-demand hook for a thread on an Azure SRE Agent resource. You provide `Agent`, `Hook name`, and `Thread ID` to identify the hook and target thread. The tool stops the hook from running on the specified thread without removing the hook configuration. You need appropriate permissions on the Azure SRE Agent resource to apply the change.
-
 Example prompts include:
 
 - "Deactivate hook 'on-demand-restart' on thread ID 'thread-7' of SRE Agent 'sre-agent-prod'."
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
-| **Hook name** |  Required | The hook name. |
-| **Thread ID** |  Required | The SRE Agent thread ID. |
-
-
 
 Examples
 
 - Deactivate the on-demand snapshot hook named 'on-demand-snapshot' for thread 'thread-42' on agent 'sre-agent-eastus'.
 - Deactivate the emergency rollback hook named 'emergency-rollback' for thread 'ops-thread-7' on agent 'sre-agent-westus2'.
 
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
+| **Hook name** |  Required | The hook name. |
+| **Thread ID** |  Required | The SRE Agent thread ID. |
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Deactivate an on-demand hook for a thread on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent hooks thread deactivate \
@@ -1371,13 +1268,14 @@ azmcp sreagent hooks thread deactivate \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Hooks thread: List
+## Hooks: list hook thread state
+
+This tool lists the hook activation state for a thread on an Azure SRE Agent resource. It returns whether hooks are enabled, disabled, or pending for the specified thread. Results help you verify hook configuration and troubleshoot thread behavior.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent hooks thread list -->
-
-This tool, part of the Model Context Protocol (MCP) tools, lists the hook activation state for a thread on an Azure SRE Agent resource. It returns whether hooks are enabled, disabled, or pending for the specified thread. Results help you verify hook configuration and troubleshoot thread behavior.
 
 Example prompts include:
 
@@ -1390,9 +1288,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List hook activation state for a thread on an Azure SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent hooks thread list \
@@ -1413,13 +1308,14 @@ azmcp sreagent hooks thread list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Incidents active: List
+## Incidents: list active incidents
+
+This tool lists active incidents on a site reliability engineering (SRE) Agent. It returns open incident threads with the title, status, affected services, and investigation details. You use the output to review ongoing investigations and see which services are impacted.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent incidents active list -->
-
-This tool, part of the Model Context Protocol (MCP), lists active incidents on a site reliability engineering (SRE) Agent. It returns open incident threads with the title, status, affected services, and investigation details. You use the output to review ongoing investigations and see which services are impacted.
 
 Example prompts include:
 
@@ -1431,9 +1327,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List active incidents on an SRE Agent. Returns open incident threads with title, status, affected services, and investigation details.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent incidents active list \
@@ -1452,13 +1345,14 @@ azmcp sreagent incidents active list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Incidents: Create
+## Incidents: create incident
+
+Use this tool to create an incident investigation thread for an agent. You can log the incident details, associate affected services, and set severity to help prioritize response. You specify the incident description, services, severity, and title when you run this tool.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent incidents create -->
-
-Use this tool to create an incident investigation thread for an agent. You can log the incident details, associate affected services, and set severity to help prioritize response. You specify the incident description, services, severity, and title when you run this tool.
 
 Example prompts include:
 
@@ -1474,9 +1368,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Create an incident investigation thread for an agent.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent incidents create \
@@ -1503,13 +1394,14 @@ azmcp sreagent incidents create \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Incidents plans: Create
+## Incidents: create plan
+
+This tool creates and enables an incident response plan that uses a filter to scope incidents and a handler to define response steps. You specify plan metadata, the services to monitor, severity, response steps, and a trigger condition. This tool validates the input and activates the plan so it starts handling matched incidents.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent incidents plans create -->
-
-This Model Context Protocol (MCP) tool creates and enables an incident response plan that uses a filter to scope incidents and a handler to define response steps. You specify plan metadata, the services to monitor, severity, response steps, and a trigger condition. This tool validates the input and activates the plan so it starts handling matched incidents.
 
 Example prompts include:
 
@@ -1529,9 +1421,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Create and enable an incident response plan with a filter and handler.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent incidents plans create \
@@ -1566,13 +1455,14 @@ azmcp sreagent incidents plans create \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Incidents plans: List
+## Incidents: list plans
+
+This tool lists incident response plans configured on an SRE Agent. You can view each plan's name, ID, and status. This helps you identify active plans and review their configuration.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent incidents plans list -->
-
-This Model Context Protocol (MCP) tool lists incident response plans configured on an SRE Agent. You can view each plan's name, ID, and status. This helps you identify active plans and review their configuration.
 
 Example prompts include:
 
@@ -1584,9 +1474,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List incident response plans configured on an SRE Agent.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent incidents plans list \
@@ -1605,13 +1492,14 @@ azmcp sreagent incidents plans list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Incidents setup: Pagerduty
+## Incidents: connect agent to PagerDuty
+
+Connect a site reliability engineering (SRE) Agent to PagerDuty. This tool creates a PagerDuty connector that enables incident alerting and incident management. The connector uses an API key stored in an environment variable.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent incidents setup pagerduty -->
-
-Connect a site reliability engineering (SRE) Agent to PagerDuty. This tool creates a PagerDuty Model Context Protocol (MCP) connector that enables incident alerting and incident management. The connector uses an API key stored in an environment variable.
 
 Example prompts include:
 
@@ -1624,19 +1512,8 @@ Example prompts include:
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
 | **Subdomain** |  Optional | PagerDuty subdomain. |
 
-
-
-Examples
-
-- Connect a production SRE Agent to PagerDuty using the API key in environment variable 'PAGERDUTY_API_KEY' and name 'prod-pagerduty'.
-- Connect a staging SRE Agent to PagerDuty using the API key in environment variable 'STAGE_PD_KEY' and name 'staging-pagerduty'.
-- Create a connector named 'team-alpha-pagerduty' and keep the API key in environment variable 'TEAM_ALPHA_PD_KEY'.
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Connect an SRE Agent to PagerDuty. Creates a PagerDuty MCP connector to enable incident alerting and management integration using an API key from an environment variable.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent incidents setup pagerduty \
@@ -1661,13 +1538,14 @@ azmcp sreagent incidents setup pagerduty \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
-## Incidents setup: Servicenow
+## Incidents: setup Servicenow connector
+
+This tool creates a ServiceNow MCP connector that enables incident management integration. It uses credentials stored in environment variables and enables incident creation, updates, and resolution between ServiceNow and the SRE Agent.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent incidents setup servicenow -->
-
-Connect an SRE Agent to ServiceNow using the Model Context Protocol (MCP). This tool creates a ServiceNow MCP connector that enables incident management integration. It uses credentials stored in environment variables and enables incident creation, updates, and resolution between ServiceNow and the SRE Agent.
 
 Example prompts include:
 
@@ -1685,9 +1563,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Connect an SRE Agent to ServiceNow. Creates a ServiceNow MCP connector to enable incident management integration using credentials from environment variables.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent incidents setup servicenow \
@@ -1718,13 +1593,14 @@ azmcp sreagent incidents setup servicenow \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
-## Scheduledtasks: Create
+## Scheduled tasks: create scheduled task
+
+This tool creates a scheduled task for an SRE Agent. It sends a specified message on the schedule you define with a cron expression, so the agent can run automated work. You provide the task details when you create the scheduled task.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent scheduledtasks create -->
-
-This tool creates a scheduled task for an SRE Agent in the Model Context Protocol (MCP) server. It sends a specified message on the schedule you define with a cron expression, so the agent can run automated work. You provide the task details when you create the scheduled task.
 
 Example prompts include:
 
@@ -1740,9 +1616,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Create an SRE Agent scheduled task.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent scheduledtasks create \
@@ -1769,13 +1642,14 @@ azmcp sreagent scheduledtasks create \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Scheduledtasks: Delete
+## Scheduled tasks: delete scheduled task
+
+This tool deletes an SRE Agent scheduled task. 
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent scheduledtasks delete -->
-
-This Model Context Protocol (MCP) tool deletes an SRE Agent scheduled task. You must set `confirm=true` to confirm the deletion.
 
 Example prompts include:
 
@@ -1789,9 +1663,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Delete an SRE Agent scheduled task. Requires confirm=true.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent scheduledtasks delete \
@@ -1814,13 +1685,14 @@ azmcp sreagent scheduledtasks delete \
 
 Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Scheduledtasks: Get
+## Scheduled tasks: get scheduled task
+
+This tool retrieves an SRE Agent scheduled task by task ID. You can view details such as the task configuration and current status.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent scheduledtasks get -->
-
-This Model Context Protocol (MCP) tool retrieves an SRE Agent scheduled task by `Task ID`. You can view details such as the task configuration and current status.
 
 Example prompts include:
 
@@ -1833,9 +1705,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Get an SRE Agent scheduled task.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent scheduledtasks get \
@@ -1856,19 +1725,14 @@ azmcp sreagent scheduledtasks get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Scheduledtasks: List
+## Scheduled tasks: list schedule tasks
+
+This tool lists scheduled tasks that the SRE Agent manages. You can inspect scheduled jobs, confirm schedules, and view task metadata such as status, next run time, and last run time. This tool returns a read-only list of scheduled tasks with fields for task name, status, schedule, next run time, and last run time.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent scheduledtasks list -->
-
-This tool, part of the Model Context Protocol (MCP) tools, lists scheduled tasks that the SRE Agent manages. You can inspect scheduled jobs, confirm schedules, and view task metadata such as status, next run time, and last run time. This tool returns a read-only list of scheduled tasks with fields for task name, status, schedule, next run time, and last run time.
-
-Examples
-
-- List all scheduled tasks for SRE Agent 'sre-agent-prod'.
-- List scheduled tasks in resource group 'sre-management' with status 'Failed'.
-- List scheduled tasks for SRE Agent 'sre-agent-stage' and include next run times.
 
 Example prompts include:
 
@@ -1880,9 +1744,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List SRE Agent scheduled tasks.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent scheduledtasks list \
@@ -1901,13 +1762,14 @@ azmcp sreagent scheduledtasks list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Scheduledtasks: Pause
+## Scheduled tasks: pause scheduled task
+
+Pauses a scheduled task for a site reliability engineering (SRE) agent. This tool returns the task's updated status and related metadata. You pause scheduled tasks to temporarily stop automated activity during maintenance or troubleshooting.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent scheduledtasks pause -->
-
-Pauses a scheduled task for a site reliability engineering (SRE) agent registered with the Model Context Protocol (MCP) server. This tool returns the task's updated status and related metadata. You pause scheduled tasks to temporarily stop automated activity during maintenance or troubleshooting.
 
 Example prompts include:
 
@@ -1920,9 +1782,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Pause an SRE Agent scheduled task.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent scheduledtasks pause \
@@ -1943,13 +1802,14 @@ azmcp sreagent scheduledtasks pause \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Scheduledtasks: Resume
+## Scheduled tasks: resume scheduled task
+
+This tool resumes a scheduled task for an SRE Agent. After you run the tool, the agent resumes executing the scheduled task according to its schedule.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent scheduledtasks resume -->
-
-This tool resumes a scheduled task for an SRE Agent that's registered with the Model Context Protocol (MCP) server. After you run the tool, the agent resumes executing the scheduled task according to its schedule.
 
 Example prompts include:
 
@@ -1962,9 +1822,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Resume an SRE Agent scheduled task.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent scheduledtasks resume \
@@ -1985,13 +1842,14 @@ azmcp sreagent scheduledtasks resume \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Skills: Create
+## Skills: create skill
+
+This tool creates or updates a custom skill on a targeted SRE Agent resource. 
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent skills create -->
-
-This Model Context Protocol (MCP) tool creates or updates a custom skill on a targeted SRE Agent resource. You must specify the subscription, agent, name, and content.
 
 Example prompts include:
 
@@ -2006,9 +1864,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Creates or updates a custom skill on a targeted SRE Agent resource. Required: --subscription, --agent, --name, --content.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent skills create \
@@ -2033,13 +1888,14 @@ azmcp sreagent skills create \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Skills: Delete
+## Skills: delete
+
+This tool deletes a custom skill from an SRE Agent resource.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent skills delete -->
-
-This tool deletes a custom skill from an SRE Agent resource. You must specify the `subscription`, `agent`, and `name`, and set `confirm` to `true`. Deletion is destructive and irreversible.
 
 Example prompts include:
 
@@ -2053,9 +1909,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Deletes a custom skill from a targeted SRE Agent resource. Required: --subscription, --agent, --name, --confirm true.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent skills delete \
@@ -2078,13 +1931,14 @@ azmcp sreagent skills delete \
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Skills: List
+## Skills: list skills
+
+Lists custom skills on a targeted SRE Agent resource. The tool returns details for each custom skill registered on the specified SRE Agent, including name, version, and status. Use the output to review or audit custom skill configurations.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent skills list -->
-
-Lists custom skills on a targeted SRE Agent resource for the Model Context Protocol (MCP) server. You specify a subscription and the `Agent`. The tool returns details for each custom skill registered on the specified SRE Agent, including name, version, and status. Use the output to review or audit custom skill configurations.
 
 Example prompts include:
 
@@ -2096,9 +1950,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Lists custom skills on a targeted SRE Agent resource. Required: --subscription and --agent.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent skills list \
@@ -2117,13 +1968,14 @@ azmcp sreagent skills list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Threads: Create
+## Threads: create thread
+
+This tool creates a new thread on a Site Reliability Engineering (SRE) Agent and starts a conversation by sending the opening message. It returns the agent's initial response.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent threads create -->
-
-Part of the Model Context Protocol (MCP) tools, this tool creates a new thread on a Site Reliability Engineering (SRE) Agent and starts a conversation by sending the opening message. It returns the agent's initial response.
 
 Example prompts include:
 
@@ -2136,9 +1988,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Create a new thread on an SRE Agent and start a conversation by sending the opening message. Returns the initial agent response.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent threads create \
@@ -2159,13 +2008,14 @@ azmcp sreagent threads create \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Threads: Delete
+## Threads: delete thread
+
+This tool deletes a site reliability engineering (SRE) agent thread. 
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent threads delete -->
-
-Part of the Model Context Protocol (MCP) tools, this tool deletes a site reliability engineering (SRE) agent thread. You must set `confirm=true` to proceed.
 
 Example prompts include:
 
@@ -2179,9 +2029,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Delete an SRE Agent thread. Requires confirm=true.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent threads delete \
@@ -2204,13 +2051,14 @@ azmcp sreagent threads delete \
 
 Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Threads: Get
+## Threads: get messages
+
+This tool gets messages for a specific SRE Agent thread and returns message content and metadata, such as timestamps and sender identity. You can use the returned messages to review conversation history or troubleshoot agent behavior.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent threads get -->
-
-The Model Context Protocol (MCP) provides tools to interact with SRE Agent threads. This tool gets messages for a specific SRE Agent thread and returns message content and metadata, such as timestamps and sender identity. You can use the returned messages to review conversation history or troubleshoot agent behavior.
 
 Example prompts include:
 
@@ -2223,9 +2071,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Get messages for an SRE Agent thread.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent threads get \
@@ -2246,13 +2091,14 @@ azmcp sreagent threads get \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Threads investigate: Yolo
+## Threads: YOLO mode
+
+This tool starts an investigation on the specified SRE Agent and grants all pending approvals, so the agent proceeds without human approval gates. The tool records investigation actions and granted approvals for auditing.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent threads investigate yolo -->
-
-Yolo investigation mode runs an investigation on an SRE Agent and automatically grants all pending approval requests without waiting for human confirmation. This tool starts an investigation on the specified SRE Agent and grants all pending approvals, so the agent proceeds without human approval gates. The tool records investigation actions and granted approvals for auditing.
 
 Example prompts include:
 
@@ -2267,9 +2113,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Yolo investigation mode: runs an investigation on an SRE Agent and automatically grants all pending approval requests without waiting for human confirmation. Use this when you want the agent to proceed without any approval gates.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent threads investigate yolo \
@@ -2294,13 +2137,14 @@ azmcp sreagent threads investigate yolo \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Threads: Investigate
+## Threads: investigate incident
+
+Investigate an issue or incident with a Site Reliability Engineering (SRE) agent. Use this tool to send an investigation message, and the agent asks follow-up questions until the investigation completes. You provide the investigation details in the message. Include relevant context, such as affected resources, timestamps, error messages, recent configuration changes, and steps to reproduce. Keep messages concise and focused to help the agent reach a resolution more efficiently.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent threads investigate -->
-
-Investigate an issue or incident with a Site Reliability Engineering (SRE) agent that uses the Model Context Protocol (MCP). Use this tool to send an investigation message, and the agent asks follow-up questions until the investigation completes. You provide the investigation details in the `Message` parameter. Include relevant context, such as affected resources, timestamps, error messages, recent configuration changes, and steps to reproduce. Keep messages concise and focused to help the agent reach a resolution more efficiently.
 
 Example prompts include:
 
@@ -2315,9 +2159,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Investigate an issue or incident using an SRE Agent. Sends your investigation message and automatically follows up on agent questions until the investigation is complete.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent threads investigate \
@@ -2342,13 +2183,14 @@ azmcp sreagent threads investigate \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Threads: List
+## Threads: list agent chat threads
+
+This tool lists SRE Agent chat threads. It returns a read-only list of thread objects that include thread ID, participants, metadata, and the latest message, so you can review active and past conversations.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent threads list -->
-
-Model Context Protocol (MCP). This tool lists SRE Agent chat threads. It returns a read-only list of thread objects that include thread ID, participants, metadata, and the latest message, so you can review active and past conversations.
 
 Example prompts include:
 
@@ -2360,9 +2202,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-List SRE Agent chat threads.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent threads list \
@@ -2381,13 +2220,14 @@ azmcp sreagent threads list \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Threads send: Message
+## Threads: send message to thread
+
+This tool sends a message to an existing site reliability engineering (SRE) agent thread. It posts the specified message to the thread and returns the thread's updated state. Use concise messages to add context, status updates, or troubleshooting notes to an ongoing thread.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent threads send message -->
-
-This tool sends a message to an existing site reliability engineering (SRE) agent thread on the Model Context Protocol (MCP) server. It posts the specified message to the thread and returns the thread's updated state. Use concise messages to add context, status updates, or troubleshooting notes to an ongoing thread.
 
 Example prompts include:
 
@@ -2399,19 +2239,8 @@ Example prompts include:
 | **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
 | **Thread ID** |  Optional | The SRE Agent thread ID. |
 
-
-
-Examples
-
-- "Send message 'Investigating memory leak on web-prod-01. Restarting app service and collecting logs.' to thread 'thread-1234'"
-- "Post message 'Deployment caused API 500s, rolling back to previous version' to thread 'inc-9876'"
-- "Add message 'User reports timeout when uploading files larger than 50 MB' to thread 'thread-550'"
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Send a message to an existing SRE Agent thread.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent threads send message \
@@ -2434,13 +2263,14 @@ azmcp sreagent threads send message \
 
 Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Workflows: Apply
+## Workflows: apply and deploy workflow
+
+Apply and deploy a YAML workflow to an SRE Agent. This tool uploads and activates ExtendedAgent or ExtendedAgentTool YAML configuration on the specified SRE Agent resource.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent workflows apply -->
-
-Apply and deploy a YAML workflow to an SRE Agent. This tool uploads and activates ExtendedAgent or ExtendedAgentTool YAML configuration on the specified SRE Agent resource.
 
 Example prompts include:
 
@@ -2454,9 +2284,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Apply and deploy a YAML workflow to an SRE Agent. Uploads and activates ExtendedAgent or ExtendedAgentTool YAML configuration on the specified SRE Agent resource.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent workflows apply \
@@ -2479,13 +2306,14 @@ azmcp sreagent workflows apply \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
-## Workflows: Generate
+## Workflows: generate workflow definition
+
+Generate a YAML workflow definition for a named site reliability engineering (SRE) Agent tool or agent. This tool creates validated YAML configuration for `ExtendedAgent`, `KustoTool`, and `LinkTool` resources. The generated workflow helps you deploy and manage SRE Agent tools consistently across environments.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent workflows generate -->
-
-Generate a YAML workflow definition for a named site reliability engineering (SRE) Agent tool or agent for the Model Context Protocol (MCP) server. This tool creates validated YAML configuration for `ExtendedAgent`, `KustoTool`, and `LinkTool` resources. The generated workflow helps you deploy and manage SRE Agent tools consistently across environments.
 
 Example prompts include:
 
@@ -2507,9 +2335,6 @@ Example prompts include:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Generate a YAML workflow definition for a named SRE Agent tool or agent. Creates validated YAML configuration for ExtendedAgent, KustoTool, or LinkTool resources.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent workflows generate \
@@ -2546,13 +2371,14 @@ azmcp sreagent workflows generate \
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Workflows: Validate
+## Workflows: validate workflow
+
+This tool validates SRE Agent workflow YAML and flags common issues in structure and syntax. It checks for invalid YAML, malformed steps, incorrect `run` strings, and missing required keys. You provide `YAML content`, and the tool returns identified issues with line numbers and suggested fixes. See the example below for a typical error the tool detects.
+
 #### [MCP Server](#tab/mcp-server)
 
 
 <!-- @mcpcli sreagent workflows validate -->
-
-This tool validates Model Context Protocol (MCP) SRE Agent workflow YAML and flags common issues in structure and syntax. It checks for invalid YAML, malformed steps, incorrect `run` strings, and missing required keys. You provide `YAML content`, and the tool returns identified issues with line numbers and suggested fixes. See the example below for a typical error the tool detects.
 
 Example prompts include:
 
@@ -2571,9 +2397,6 @@ spec:
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-Validate SRE Agent YAML content for common issues.
-
-**Example CLI command**
 
 ```console
 azmcp sreagent workflows validate \
@@ -2594,3 +2417,6 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+
+
+
