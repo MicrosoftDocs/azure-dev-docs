@@ -83,9 +83,9 @@ This tool deletes a subagent from a targeted SRE Agent resource.
 
 Example prompts include:
 
-- "Delete the subagent named 'telemetry-agent' from the SRE Agent 'prod-sre' in subscription '12345-abcde'."
-- "Delete the subagent 'backup-monitor' from the SRE Agent 'staging-sre' in subscription 'my-subscription-id'."
-- "Delete subagent name 'subagent-01' from SRE Agent 'sre-agent-prod'."
+- "Delete the subagent named 'telemetry-agent' from the SRE Agent 'prod-sre' in subscription '12345-abcde' with confirm 'true'."
+- "Delete the subagent 'backup-monitor' from the SRE Agent 'staging-sre' in subscription 'my-subscription-id' with confirm 'true'."
+- "Delete subagent name 'subagent-01' from SRE Agent 'sre-agent-prod' with confirm 'true'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -432,7 +432,7 @@ This tool permanently removes the prompt identified by name from an SRE Agent. Y
 
 Example prompts include:
 
-- "Permanently delete common prompt name 'cpu-throttle-guidance' from SRE Agent 'sre-agent-westus'."
+- "Permanently delete common prompt name 'cpu-throttle-guidance' from SRE Agent 'sre-agent-westus' with confirm 'true'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -672,7 +672,7 @@ This tool deletes a connector from an Azure SRE Agent resource.
 
 Example prompts include:
 
-- "Delete connector 'metrics-collector' from SRE Agent 'sre-agent-prod'."
+- "Delete connector 'metrics-collector' from SRE Agent 'sre-agent-prod' with confirm 'true'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -912,7 +912,7 @@ Specify the document by name. This tool deletes a knowledge base document after 
 
 Example prompts include:
 
-- "Confirm and delete knowledge base document name 'sre-kb-doc-01' from SRE Agent 'sre-agent-westus'."
+- "Delete knowledge base document name 'sre-kb-doc-01' from SRE Agent 'sre-agent-westus' with confirm 'true'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -1069,7 +1069,7 @@ This tool deletes a hook from an Azure SRE Agent resource.
 
 Example prompts include:
 
-- "Delete hook name 'backup-trigger' from SRE Agent 'sre-agent-prod'."
+- "Delete hook name 'backup-trigger' from SRE Agent 'sre-agent-prod' with confirm 'true'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -1899,7 +1899,7 @@ This tool deletes a custom skill from an SRE Agent resource.
 
 Example prompts include:
 
-- "Delete the skill with name 'error-logger' from SRE Agent 'sre-agent-west'."
+- "Delete the skill with name 'error-logger' from SRE Agent 'sre-agent-west' with confirm 'true'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
