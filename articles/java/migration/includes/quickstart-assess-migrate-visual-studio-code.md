@@ -1,5 +1,5 @@
 ---
-ms.date: 03/20/2026
+ms.date: 06/02/2026
 ms.collection: ce-skilling-ai-copilot
 ---
 

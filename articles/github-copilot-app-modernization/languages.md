@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: yangtony
 ms.topic: reference
-ms.date: 11/18/2025
+ms.date: 06/02/2026
 ---
 
 # Languages and frameworks supported by GitHub Copilot modernization

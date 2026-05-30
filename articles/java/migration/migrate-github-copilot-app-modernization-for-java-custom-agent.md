@@ -4,7 +4,7 @@ description: Learn to migrate Java apps to Azure using GitHub Copilot custom age
 #customer intent: As a Java developer, I want to migrate my application to Azure using GitHub Copilot CLI so that I can automate the modernization process.
 ms.topic: quickstart
 ms.custom: devx-track-java
-ms.date: 01/13/2026
+ms.date: 06/02/2026
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
@@ -54,7 +54,7 @@ Before creating a custom agent, add the GitHub Copilot modernization MCP server.
 
 1. Run the following command in Copilot CLI:
 
-    ```text
+    ```Copilot CLI
     /mcp add app-modernization
     ```
 
@@ -135,7 +135,7 @@ The custom agent defines the specialized behavior and instructions for your migr
 
 1. To use the custom agent, run `/agent` in interactive mode or call it directly in a prompt:
 
-    ```text
+    ```prompt
     Use the modernization agent to migrate this application from S3 to Azure Blob Storage.
     ```
 
@@ -1200,7 +1200,7 @@ After creating the custom agent, use it to migrate your Java applications. The p
 
 1. Start Copilot CLI and use your custom agent with a migration prompt:
 
-    ```text
+    ```prompt
     Use the modernization agent to migrate this application from S3 to Azure Blob Storage
     ```
 
@@ -1226,7 +1226,7 @@ After creating the custom agent, use it to migrate your Java applications. The p
 
 1. Enter your migration prompt. For example:
 
-    ```text
+    ```prompt
     Run migration task for scenario Migrate Cassandra integration to Azure SDK using Managed Identity
     ```
 

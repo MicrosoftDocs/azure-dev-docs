@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 06/02/2026
 ---
 
 # Customize the GitHub Copilot modernization agent

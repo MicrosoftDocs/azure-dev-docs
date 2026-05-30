@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: haozhan
 ms.topic: how-to
-ms.date: 05/21/2026
+ms.date: 06/02/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot

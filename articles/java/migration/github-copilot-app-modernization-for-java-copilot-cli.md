@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: overview
-ms.date: 05/22/2026
+ms.date: 06/02/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
@@ -54,7 +54,7 @@ Using Copilot CLI for modernization enables you to run modernization tasks direc
 
 1. Verify the plugin is installed by listing installed plugins:
 
-   ```text
+   ```Copilot CLI
    /plugin list
    ```
 
@@ -82,7 +82,7 @@ copilot --agent=github-copilot-modernization:modernize
 
 If you're already in a Copilot CLI session, use the `/agent` command to switch to the modernization agent:
 
-```text
+```Copilot CLI
 /agent
 ```
 
@@ -95,16 +95,22 @@ Select `modernize` from the list.
 
 Once the agent is active, describe what you want in natural language:
 
-```text
-copilot> modernize my application
+```prompt
+modernize my application
 ```
 
 Or be more specific:
 
-```text
-copilot> upgrade this app to Java 21 and Spring Boot 3.2
-copilot> migrate this Spring Boot app to Azure
-copilot> fix CVE vulnerabilities in my project
+```prompt
+upgrade this app to Java 21 and Spring Boot 3.2
+```
+
+```prompt
+migrate this Spring Boot app to Azure
+```
+
+```prompt
+fix CVE vulnerabilities in my project
 ```
 
 For unattended execution, use the `--allow-all` flag:
@@ -156,8 +162,8 @@ To upgrade your Java application to a newer runtime or framework version, use th
 copilot --agent=github-copilot-modernization:modernize
 ```
 
-```text
-copilot> upgrade this project to JDK 21 and Spring Boot 3.2
+```prompt
+upgrade this project to JDK 21 and Spring Boot 3.2
 ```
 
 The modernization task then executes, including generating the upgrade plan, performing code remediation, building the project, and checking for vulnerabilities as shown in the following screenshot:
@@ -176,8 +182,8 @@ To migrate your Java application to Azure, describe your migration scenario, as 
 copilot --agent=github-copilot-modernization:modernize
 ```
 
-```text
-copilot> migrate this application from S3 to Azure Blob Storage
+```prompt
+migrate this application from S3 to Azure Blob Storage
 ```
 
 With this prompt, the migration task is executed and shows progress in Copilot CLI.
@@ -196,8 +202,8 @@ After upgrading or migrating your application, you can deploy it directly from C
 copilot --agent=github-copilot-modernization:modernize
 ```
 
-```text
-copilot> Scan my project and help me plan how to containerize my application using the #appmod-get-containerization-plan tool. Execute the plan. The end goal is to have Dockerfiles that are able to be built.
+```prompt
+Scan my project and help me plan how to containerize my application using the #appmod-get-containerization-plan tool. Execute the plan. The end goal is to have Dockerfiles that are able to be built.
 ```
 
 With this prompt, the deployment task runs and shows progress in Copilot CLI.

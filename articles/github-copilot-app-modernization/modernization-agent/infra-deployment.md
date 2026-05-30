@@ -7,7 +7,7 @@ ms.author: karler
 ms.reviewer: honc
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 06/02/2026
 ---
 
 # Prepare infrastructure and deploy applications with the GitHub Copilot modernization agent

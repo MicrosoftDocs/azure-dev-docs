@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 05/22/2026
+ms.date: 06/02/2026
 ---
 
 # Batch plan with the GitHub Copilot modernization agent
@@ -60,14 +60,14 @@ For batch operations across many repositories, create a JSON config file to list
 
 ```json
 [
-	{
-		"name": "PhotoAlbum-Java",
-		"url": "https://github.com/Azure-Samples/PhotoAlbum-Java.git"
-	},
-	{
-		"name": "PhotoAlbum",
-		"url": "https://github.com/Azure-Samples/NewsFeedSite.git"
-	}
+    {
+        "name": "PhotoAlbum-Java",
+        "url": "https://github.com/Azure-Samples/PhotoAlbum-Java.git"
+    },
+    {
+        "name": "PhotoAlbum",
+        "url": "https://github.com/Azure-Samples/NewsFeedSite.git"
+    }
 ]
 ```
 
@@ -103,14 +103,14 @@ After you configure your repositories, start the batch planning workflow.
 
 1. Run the modernization agent:
 
-	```bash
-	modernize
-	```
+    ```bash
+    modernize
+    ```
 
 1. Select **Plan** from the main menu.
 
-	```Modernize CLI
-	○ How would you like to modernize your app?
+    ```Modernize CLI
+    ○ How would you like to modernize your app?
 
         Assess
         Analyze modernization readiness across one or multiple applications
@@ -119,11 +119,11 @@ After you configure your repositories, start the batch planning workflow.
         Execute
         Run the tasks defined in the modernization plan
 
-	  Or select a quick-start scenario:
+      Or select a quick-start scenario:
 
         Upgrade
             Upgrade runtimes and frameworks across one or multiple applications
-	```
+    ```
 
 1. Choose how to specify your target repositories. Select **From a config file** to use a `repos.json` file.
 

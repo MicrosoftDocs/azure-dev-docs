@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: honc
 ms.topic: quickstart
-ms.date: 03/11/2026
+ms.date: 06/02/2026
 ai-usage: ai-assisted
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot

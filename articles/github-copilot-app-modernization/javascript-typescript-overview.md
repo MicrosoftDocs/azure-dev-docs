@@ -5,11 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: yangtony
 ms.topic: overview
-ms.date: 05/26/2026
+ms.date: 06/02/2026
 ms.custom: devx-track-js, devx-track-ts
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
+ai-usage: ai-assisted
 ---
 
 # GitHub Copilot modernization for JavaScript/TypeScript developers

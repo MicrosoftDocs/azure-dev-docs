@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 04/17/2026
+ms.date: 06/02/2026
 ---
 
 # Batch assessment with the GitHub Copilot modernization agent
