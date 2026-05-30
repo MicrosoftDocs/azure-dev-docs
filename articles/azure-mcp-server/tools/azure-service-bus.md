@@ -1,13 +1,16 @@
 ---
-title: Azure Service Bus Tools 
+title: Azure Service Bus Tools
 description: "Learn how to use Azure MCP Server with Azure Service Bus to manage queues, topics, and peek at messages with natural language prompts."
 author: diberry
 ms.author: diberry
-ms.date: 12/05/2025
+ms.date: 05/30/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
+ms.service: azure-mcp-server
+mcp-cli.version: 3.0.0-beta.14
+tool_count: 3
 ms.custom: build-2025
 --- 
 # Azure Service Bus tools for the Azure MCP Server overview
