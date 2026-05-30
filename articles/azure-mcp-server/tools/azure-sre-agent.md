@@ -189,10 +189,6 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 This tool creates or updates a custom tool on a target SRE Agent resource. You specify the agent, name, and tool type. If a tool with the specified name exists, this tool updates its configuration; otherwise, it creates a new tool. Provide configuration values according to the parameter table.
 
-Example prompts include:
-
-- "Create custom tool 'log-collector' on agent 'sre-agent-prod' in subscription 'contoso-sub' with tool type 'collector'."
-
 #### [MCP Server](#tab/mcp-server)
 
 
@@ -200,6 +196,7 @@ Example prompts include:
 
 Example prompts include:
 
+- "Create custom tool 'log-collector' on agent 'sre-agent-prod' in subscription 'contoso-sub' with tool type 'collector'."
 - "Create a custom tool with name 'custom-kusto-tool', tool type 'KustoTool', on SRE Agent 'sre-agent-prod'."
 
 | Parameter |  Required or optional | Description |
@@ -473,11 +470,6 @@ This tool shows the full text of a specific named common prompt on a site reliab
 Example prompts include:
 
 - "Show me the common prompt with name 'deploy-checklist' on SRE Agent 'sre-agent-westus'."
-
-Examples
-
-- Retrieve the full prompt text for the common prompt 'incident-response'.
-- Show the prompt text for 'deploy-checklist'.
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -1231,16 +1223,12 @@ Example prompts include:
 
 - "Deactivate hook 'on-demand-restart' on thread ID 'thread-7' of SRE Agent 'sre-agent-prod'."
 
-Examples
-
-- Deactivate the on-demand snapshot hook named 'on-demand-snapshot' for thread 'thread-42' on agent 'sre-agent-eastus'.
-- Deactivate the emergency rollback hook named 'emergency-rollback' for thread 'ops-thread-7' on agent 'sre-agent-westus2'.
-
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Hook name** |  Required | The hook name. |
 | **Thread ID** |  Required | The SRE Agent thread ID. |
+
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
@@ -2376,14 +2364,7 @@ This tool validates SRE Agent workflow YAML and flags common issues in structure
 
 Example prompts include:
 
-- "Validate the following SRE Agent workflow YAML content 'apiVersion: v1
-kind: Workflow
-metadata:
-  name: example-workflow
-spec:
-  steps:
-    - name: check
-      run: "echo hello"'." 
+- "Validate the following SRE Agent workflow YAML content 'apiVersion: sre/v1\nkind: ExtendedAgent\nmetadata:\n  name: deploy-workflow'." 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
