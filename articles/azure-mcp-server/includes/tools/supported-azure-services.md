@@ -25,6 +25,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Microsoft Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure Speech in Foundry Tools](../../tools/ai-services-speech.md) | `speech` | Manage Speech resources such as speech-to-text and text-to-speech services. |
+| [Azure SRE Agent](../../tools/azure-sre-agent.md) | `sreagent` | Manage Azure SRE Agent resources, including agents, skills, connectors, incidents, and workflows. |
 
 ### Analytics
 
