@@ -59,4 +59,28 @@ To iterate through all items in a paginated response, use the [`into_pages()`][R
 
 The code shown in this article is available on <https://github.com/azure-samples/azure-sdk-for-rust-docs/>.
 
+## Next steps
+
 [!INCLUDE [common resources](../includes/resources.md)]
+
+[API reference documentation]: https://docs.rs/releases/search?query=azure_
+[Crates]: ../azure-sdk-library-package-index.md
+[Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
+
+[Azure SDK main Cargo.toml]: https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml
+
+[Ref doc - secret - SecretClient]: https://docs.rs/azure_security_keyvault_secrets/latest/azure_security_keyvault_secrets/
+[Ref doc - core - ClientOptions]: https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
+[Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/response/struct.Response.html
+[Ref doc - core - http status code]: https://docs.rs/azure_core/latest/azure_core/http/enum.StatusCode.html
+[Ref doc - core - Result]: https://docs.rs/azure_core/latest/azure_core/type.Result.html
+[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/pager/type.Pager.html
+[Ref doc - core - into_pages]: https://docs.rs/azure_core/latest/azure_core/http/pager/struct.ItemIterator.html#method.into_pages
+[Ref doc - core - PageIterator]: https://docs.rs/azure_core/latest/azure_core/http/pager/struct.PageIterator.html
+
+[Crate - identity]: https://crates.io/crates/azure_identity
+
+[Free Subscription]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn/
+
+[Azure Developer CLI]: /azure/developer/azure-developer-cli
+[Azure CLI]: /cli/azure/

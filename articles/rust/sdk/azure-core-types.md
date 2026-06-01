@@ -51,10 +51,14 @@ You can access detailed errors returned by the Azure service. The following exam
 
 :::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_error_response.rs" range="19-75" :::
 
-## Related content
+## Next steps
 
-- [Authenticate Rust apps to Azure using the Azure Identity crate](authentication/overview.md)
-- [OpenTelemetry in Azure SDK for Rust crates](logging.md)
-- [Use Azure SDK for Rust crates to access Azure services](use-crates.md)
+- [Authenticate with Azure services](./authentication/overview.md)
+- [OpenTelemetry in Azure SDK for Rust crates](./logging.md)
+- [Use Azure SDK for Rust crates](./use-crates.md)
 
 [!INCLUDE [common resources](../includes/resources.md)]
+
+[API reference documentation]: https://docs.rs/azure_core/
+[Crates]: https://crates.io/crates/azure_core
+[Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core/azure_core/
