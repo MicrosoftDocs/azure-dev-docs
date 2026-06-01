@@ -1,7 +1,7 @@
 ---
 title: Connect to all regions using Azure libraries for Python multicloud 
-description: How to use the azure_cloud module of msrestazure to connect to Azure in different sovereign regions
-ms.date: 04/23/2025
+description: How to use the Azure libraries for Python to connect to Azure in different sovereign regions
+ms.date: 06/01/2026
 ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -14,7 +14,7 @@ By default, the Azure libraries are configured to connect to the global Azure cl
 
 ## Using pre-defined sovereign cloud constants
 
-Pre-defined sovereign cloud constants are provided by the `AzureAuthorityHosts` module of the `azure.identity` library:
+The `AzureAuthorityHosts` module of the `azure.identity` library provides pre-defined sovereign cloud constants:
 
 - `AZURE_CHINA`
 - `AZURE_GOVERNMENT`
@@ -22,12 +22,12 @@ Pre-defined sovereign cloud constants are provided by the `AzureAuthorityHosts` 
 
 To use a definition, import the appropriate constant from `azure.identity.AzureAuthorityHosts` and apply it when creating client objects.
 
-When using [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential), as shown in the following example, you can specify the cloud by using the appropriate value from `azure.identity.AzureAuthorityHosts`.
+When you use [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential), as shown in the following example, you can specify the cloud by using the appropriate value from `azure.identity.AzureAuthorityHosts`.
 
 :::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/sovereign_cloud.py":::
  
 > [!NOTE]
-> The `cloud_setting` feature is newly added and is rolling out across Azure SDK management libraries. During this period, some clients support it while others do not. To check support, look for a `cloud_setting` parameter on the client constructor. If your service's client doesn't expose `cloud_setting` yet, you can still target sovereign clouds using the previous approach shown in the examples below.
+> The `cloud_setting` feature is newly added and is rolling out across Azure SDK management libraries. During this period, some clients support it while others don't. To check support, look for a `cloud_setting` parameter on the client constructor. If your service's client doesn't expose `cloud_setting` yet, you can still target sovereign clouds by using the previous approach shown in the examples below.
 
 :::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/sovereign_cloud_old.py":::
   
@@ -85,6 +85,6 @@ For example, for Azure Stack, you can use the [az cloud show](/cli/azure/cloud#a
 
 ```
 
-In the preceding code, you can set `authority` to the value of the `endpoints.activeDirectory` property, `endpoint` to the value of the `endpoints.resourceManager` property, and `audience` to the value of `endpoints.activeDirectoryResourceId` property +  ".default".
+In the preceding code, set `authority` to the value of the `endpoints.activeDirectory` property, `endpoint` to the value of the `endpoints.resourceManager` property, and `audience` to the value of `endpoints.activeDirectoryResourceId` property +  ".default".
 
 For more information, see [Use Azure CLI with Azure Stack Hub](/azure-stack/user/azure-stack-version-profiles-azurecli2) and [Get authentication information for Azure Stack Hub](/azure-stack/user/authenticate-azure-stack-hub).

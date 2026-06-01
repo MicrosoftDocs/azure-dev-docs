@@ -45,6 +45,8 @@
     href: skills/azure-quotas.md
   - name: Azure RBAC
     href: skills/azure-rbac.md
+  - name: Azure Reliability
+    href: skills/azure-reliability.md
   - name: Azure Resource Lookup
     href: skills/azure-resource-lookup.md
   - name: Azure Resource Visualizer
