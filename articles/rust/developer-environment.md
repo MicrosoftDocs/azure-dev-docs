@@ -1,6 +1,6 @@
 ---
 title: Configure Your Local Rust Environment for Azure Development
-description: Set up your local Rust development environment for Azure with installation suggestions, SDK crates, authentication methods, and essential tools. Start building cloud applications today.
+description: Set up your local Rust development environment for Azure with SDK crates, authentication methods, and essential tools.
 ms.date: 05/18/2026
 ms.topic: get-started
 ms.service: azure-rust
