@@ -46,6 +46,14 @@ GitHub Copilot modernization can help you [migrate your .NET application to Azur
 
 The tool supports [common scenarios](/dotnet/azure/migration/appmod/predefined-tasks?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) with AI-assisted code changes. It validates code changes by checking compilation and CVE fixes.
 
+## JavaScript/TypeScript
+
+The following section describes the JavaScript and TypeScript support.
+
+### Upgrade npm packages
+
+GitHub Copilot modernization can help you [upgrade npm packages](javascript-typescript-quickstart-upgrade-npm-packages.md) in your JavaScript or TypeScript project. The tool analyzes your `package.json` file, suggests an upgrade plan, and automatically upgrades packages to their latest versions by using your project's package manager, such as `npm`, `pnpm`, or `yarn`. It also helps you apply code changes needed to accommodate breaking changes or new APIs introduced in the upgraded packages.
+
 ## Python
 
 The following section describes the Python support.
