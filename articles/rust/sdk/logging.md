@@ -182,7 +182,7 @@ Azure offers four kinds of telemetry:
 
 Pick the right telemetry for your question:
 
-| Scenario                                                                               | Use logs...                                         | Use metrics...                                       | Use alerts...                                           |
+| Scenario                                                                               | Use logs                                            | Use metrics                                          | Use alerts                                              |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------- |
 | "Did my web app start and respond?"                                                     | App Service web-server logs (Logs)          | N/A                                                | N/A                                                   |
 | "Is my function timing out or failing?"                                                | Function invocation logs (Monitor)          | Function execution duration metric                 | Alert on "Function Errors >0"                         |
