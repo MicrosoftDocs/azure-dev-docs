@@ -116,13 +116,13 @@ The agent analyzes the project, identifies source files lacking unit tests, and 
 
 ## Review the results
 
-After test generation is complete, the work log shows a final summary comparing pre-generation and post-generation test results, including:
+After test generation finishes, the work log shows a final summary that compares pre-generation and post-generation test results. This summary includes:
 
 - Number of new test files created
 - Total tests before and after generation
-- Pass/fail status for each generated test class
+- Pass or fail status for each generated test class
 
-The agent generates tests that follow the project's existing test patterns and validates that all tests pass before completing.
+The agent generates tests that follow the project's existing test patterns and validates that all tests pass before it finishes.
 
 :::image type="content" source="media/quickstart-unit-tests/after-generation.png" alt-text="Screenshot of Visual Studio Code that shows the post-generation test summary." lightbox="media/quickstart-unit-tests/after-generation.png":::
 

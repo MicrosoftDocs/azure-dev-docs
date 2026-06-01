@@ -150,8 +150,8 @@ Batch upgrade supports two execution modes and two interaction methods:
 > [!NOTE]
 > You can combine any execution mode with any interaction method. For example:
 >
-> - `modernize` → select Upgrade (interactive, local)
-> - `modernize` → select Upgrade → Delegate to Cloud Agents (interactive, cloud)
+> - `modernize` → select **Upgrade** (interactive, local)
+> - `modernize` → select **Upgrade** > **Delegate to Cloud Agents** (interactive, cloud)
 > - `modernize upgrade "Java 21" --source ./repos.json` (non-interactive, local)
 > - `modernize upgrade "Java 21" --source ./repos.json --delegate cloud` (non-interactive, cloud)
 

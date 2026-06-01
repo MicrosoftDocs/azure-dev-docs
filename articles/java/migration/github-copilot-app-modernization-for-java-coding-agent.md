@@ -15,15 +15,15 @@ ms.update-cycle: 180-days
 
 # Modernize Java apps by using GitHub Copilot modernization in coding agent
 
-This article provides an overview of how Java developers can modernize their applications using GitHub Copilot modernization within the [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent). The agent can work independently in the background to complete modernization tasks, just like a human developer. Developers can delegate tasks via issues or pull requests, and the agent executes them in the cloud, helping teams complete the entire modernization journey efficiently.
+This article provides an overview of how Java developers can modernize their applications by using GitHub Copilot modernization within the [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent). The agent works independently in the background to complete modernization tasks, just like a human developer. Developers delegate tasks via issues or pull requests, and the agent executes them in the cloud. This process helps teams efficiently complete the entire modernization journey.
 
 > [!NOTE]
-> Copilot coding agent is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business and GitHub Copilot Enterprise plans. The agent is available in all repositories stored on GitHub, except repositories owned by managed user accounts and where it has been explicitly disabled.
+> GitHub Copilot coding agent is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business, and GitHub Copilot Enterprise plans. The agent is available in all repositories stored on GitHub, except repositories owned by managed user accounts and where it's explicitly disabled.
 
 Supported scenarios:
 
 - **Upgrade your Java application** – for example: `Upgrade this project to the latest Java version`.
-- **Migrate your Java application to Azure** – using predefined tasks listed in [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list).
+- **Migrate your Java application to Azure** – use predefined tasks listed in [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list).
 - **Deploy your Java application to Azure** – for example: `Deploy this application to Azure`.
 
 ## Prerequisites
@@ -41,7 +41,7 @@ Use the following steps to get started with the Copilot coding agent:
 
 1. Go to the **Settings** section of the target repository you want to modernize. You must be an administrator of this repository.
 
-1. Select Copilot, then select **Coding Agent**.
+1. Select Copilot, and then select **Coding Agent**.
 
 1. Under **MCP Configuration** in the **Model Context Protocol (MCP)** section, manually add the following configuration, and then select **Save Configuration**:
 
@@ -65,7 +65,7 @@ Use the following steps to get started with the Copilot coding agent:
 
    :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/mcp.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/mcp.png" alt-text="Screenshot of GitHub that shows the Copilot coding agent MCP configuration.":::
 
-1. Add the custom agent for upgrade. Create a file named `modernize-java.agent.md` in your repo's `.github/agents/` directory with the following content, then commit and merge it into your default branch:
+1. Add the custom agent for upgrade. Create a file named `modernize-java.agent.md` in your repo's `.github/agents/` directory with the following content, and then commit and merge it into your default branch:
 
    > [!NOTE]
    > The custom agent defines the full upgrade workflow, including plan generation, code transformation, build validation, CVE scanning, and summary generation. It works together with the MCP server configured in the previous step.
@@ -373,7 +373,7 @@ Use the following steps to get started with the Copilot coding agent:
 
 1. (Optional) If environment variables are required, set them under **Environment** > **Copilot** in the settings. These environment variables are initialized automatically the first time a user invokes an agentic task in this repository.
 
-1. Open the **Agents** panel in the top-right corner and enter your prompt. After the prompt is entered, Copilot starts a new session and opens a new pull request, which appears in the list below the prompt box. Copilot works on the task and then adds you as a reviewer when it's finished, triggering a notification.
+1. Open the **Agents** panel in the top-right corner and enter your prompt. After you enter the prompt, Copilot starts a new session and opens a new pull request, which appears in the list below the prompt box. Copilot works on the task and then adds you as a reviewer when it's finished, triggering a notification.
 
    :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/agent-panel.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/agent-panel.png" alt-text="Screenshot of GitHub that shows the Agents panel and a list of previous Java upgrade sessions.":::
 
@@ -381,9 +381,9 @@ You can find sample prompts in the next section.
 
 ## Upgrade your Java application
 
-To upgrade your Java application to a newer runtime or framework version, you use the **modernize-java** custom agent together with the MCP server. The custom agent orchestrates the full upgrade lifecycle — generating an upgrade plan, performing code transformation with build validation at each step, scanning for CVEs, and producing a final summary. The MCP server provides the underlying tools that the agent calls during execution.
+To upgrade your Java application to a newer runtime or framework version, use the **modernize-java** custom agent together with the MCP server. The custom agent orchestrates the full upgrade lifecycle - generating an upgrade plan, performing code transformation with build validation at each step, scanning for CVEs, and producing a final summary. The MCP server provides the underlying tools that the agent calls during execution.
 
-To start an upgrade, select the **modernize-java** agent in the Agents panel and enter a prompt describing your upgrade goal:
+To start an upgrade, select the **modernize-java** agent in the **Agents** panel and enter a prompt describing your upgrade goal:
 
 ```prompt
 Upgrade this project to JDK 21 and Spring Boot 3.5
@@ -395,7 +395,7 @@ The following steps illustrate the upgrade process:
 
    :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-input.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-input.png" alt-text="Screenshot of GitHub that shows the Agents panel with the Java upgrade task input.":::
 
-1. The custom agent executes the upgrade workflow automatically — generating the upgrade plan, performing code transformation with build validation at each step, and scanning for CVE issues.
+1. The custom agent executes the upgrade workflow automatically - generating the upgrade plan, performing code transformation with build validation at each step, and scanning for CVE issues.
 
    :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-progress.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-progress.png" alt-text="Screenshot of GitHub that shows the Agents panel with the Java upgrade progress.":::
 

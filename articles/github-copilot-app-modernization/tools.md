@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # GitHub Copilot modernization Java utilities
 
-This article describes several Java-focused tools that are available through GitHub Copilot modernization. These tools provide more flexibility for day-to-day development and code maintenance. You can invoke them directly in Copilot Chat using the `#` prefix.
+This article describes several Java-focused tools that are available through GitHub Copilot modernization. These tools provide more flexibility for day-to-day development and code maintenance. You can invoke them directly in Copilot Chat by using the `#` prefix.
 
 ## Validation
 

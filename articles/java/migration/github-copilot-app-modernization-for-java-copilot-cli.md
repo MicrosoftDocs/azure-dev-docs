@@ -15,21 +15,21 @@ ms.update-cycle: 180-days
 
 # Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI
 
-This article provides an overview of how Java developers can modernize their applications by using the **GitHub Copilot modernization** plugin in [Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli). With this approach, developers can modernize applications wherever they code. The plugin delivers a seamless, end-to-end experience — from upgrade and migration to deployment — helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms.
+This article provides an overview of how Java developers can modernize their applications by using the **GitHub Copilot modernization** plugin in [Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli). By using this approach, developers can modernize applications wherever they code. The plugin delivers a seamless, end-to-end experience - from upgrade and migration to deployment - helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms.
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" alt-text="Screenshot of the GitHub Copilot CLI that shows a GitHub Copilot modernization prompt.":::
 
 > [!NOTE]
 > GitHub Copilot CLI is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business, and GitHub Copilot Enterprise plans. If you receive Copilot from an organization, the Copilot CLI policy must be enabled in the organization's settings.
 
-Using Copilot CLI for modernization enables you to run modernization tasks directly from the terminal, with no need to switch to an IDE. This approach supports both interactive - human-in-the-loop - and batch workflows.
+By using Copilot CLI for modernization, you can run modernization tasks directly from the terminal, with no need to switch to an IDE. This approach supports both interactive - human-in-the-loop - and batch workflows.
 
 ## What you can do
 
 | Capability | Description |
 |---|---|
 | **Java upgrade** | Upgrade Java version (8 → 11 → 17 → 21 → 25), migrate Spring Boot 2.x to 3.x, javax to jakarta, and deprecated APIs |
-| **Azure migration** | Assess and migrate Java applications to Azure services (Service Bus, Azure SQL, Redis, Key Vault, Application Insights, Managed Identity) |
+| **Azure migration** | Assess and migrate Java applications to Azure services (Azure Service Bus, Azure SQL, Redis, Azure Key Vault, Application Insights, Managed Identity) |
 | **CVE and vulnerability fixing** | Scan and fix CVE vulnerabilities in Maven dependencies, including Log4j, Spring, Jackson, and OWASP dependency analysis |
 | **Application rearchitecture** | Structural rewrites such as monolith-to-microservices decomposition, legacy UI modernization, and module extraction |
 | **Deploy to Azure** | Deploy upgraded or migrated Java applications directly to Azure |
@@ -121,7 +121,7 @@ copilot --agent=github-copilot-modernization:modernize --allow-all
 
 ## How the workflow works
 
-The plugin uses a three-phase workflow that runs automatically. You don't need to invoke each phase manually — the orchestrator handles routing based on your request.
+The plugin uses a three-phase workflow that runs automatically. You don't need to invoke each phase manually - the orchestrator handles routing based on your request.
 
 ### Phase 1: Assessment
 
@@ -196,7 +196,7 @@ When the project is successfully migrated to Microsoft Azure Blob Storage, a mig
 
 ### Deploy your Java application to Azure
 
-After upgrading or migrating your application, you can deploy it directly from Copilot CLI using the following example:
+After upgrading or migrating your application, you can deploy it directly from Copilot CLI by using the following example:
 
 ```bash
 copilot --agent=github-copilot-modernization:modernize
@@ -206,7 +206,7 @@ copilot --agent=github-copilot-modernization:modernize
 Scan my project and help me plan how to containerize my application using the #appmod-get-containerization-plan tool. Execute the plan. The end goal is to have Dockerfiles that are able to be built.
 ```
 
-With this prompt, the deployment task runs and shows progress in Copilot CLI.
+By using this prompt, the deployment task runs and shows progress in Copilot CLI.
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/deploy-details.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/deploy-details.png" alt-text="Screenshot of GitHub Copilot CLI that shows the Java deployment details.":::
 
@@ -236,11 +236,11 @@ copilot plugin install github-copilot-modernization@github-copilot-modernization
 
 ### MCP server issues
 
-The plugin uses the MCP server defined in its configuration. If you encounter issues, try reinstalling the plugin to reset the MCP configuration.
+The plugin uses the MCP server defined in its configuration. If you encounter problems, try reinstalling the plugin to reset the MCP configuration.
 
 ## Provide feedback
 
-If you have any feedback about **GitHub Copilot modernization** plugin, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml).
+If you have any feedback about the **GitHub Copilot modernization** plugin, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml).
 
 ## Next step
 

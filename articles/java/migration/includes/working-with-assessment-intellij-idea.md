@@ -15,7 +15,7 @@ Currently, you can configure the `target`, `capability`, `os`, and `mode` proper
 
 By default, the assessment runs with Azure Kubernetes Service (AKS), Azure App Service, and Azure Container Apps (ACA) as the service targets.
 
-- `target`: the Azure compute service to run the apps on. Choose multiple targets if you haven't decided which one to use. You can then compare the targets on the assessment report.
+- `target`: the Azure compute service to run the apps on. Choose multiple targets if you aren't sure which one to use. You can then compare the targets on the assessment report.
 
   | Value                  | Description                                                      |
   |------------------------|------------------------------------------------------------------|
@@ -93,7 +93,7 @@ The assessment report provides comprehensive analysis results to help you unders
 
 The assessment report consists of several key sections:
 
-- **Application Information**: Basic information about your application including Java version, frameworks, build tools, project structure, and target Azure service.
+- **Application Information**: Basic information about your application, including Java version, frameworks, build tools, project structure, and target Azure service.
 - **Issue Summary**: Overview of migration issues categorized by domain with criticality percentages.
 - **Detailed Analysis**: The detailed report is organized into the following four subsections.
   - **Issues**: Provides a concise summary of all issues that require attention.
@@ -147,7 +147,7 @@ Access this part by selecting the **Insights** tab. Displays file details and in
 
 ## Delete assessment report
 
-If you don't want the report anymore, you can delete it.
+If you no longer need the report, you can delete it.
 
 To remove an assessment report, right-click **Assessment Report** and then select **Delete**.
 

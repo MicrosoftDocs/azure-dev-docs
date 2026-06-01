@@ -27,7 +27,7 @@ The following sections describe key parameters in the plan that you can modify.
 
 ### Build tool command options
 
-In the **Available Tools** section, the agent detects your build tools (Maven or Gradle) and JDK paths. If you need custom command-line parameters for build execution, you can add them to the **Guidelines** section.
+In the **Available Tools** section, the agent detects your build tools (Maven or Gradle) and JDK paths. If you need custom command-line parameters for build execution, add them to the **Guidelines** section.
 
 Examples:
 

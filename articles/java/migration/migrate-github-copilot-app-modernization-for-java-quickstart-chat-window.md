@@ -48,7 +48,7 @@ With the `modernize` agent selected, use simple, natural language prompts to per
 
 1. Make sure you have a Java project open in Visual Studio Code that uses RabbitMQ.
 
-1. In the Copilot chat window with the `modernize` agent selected, enter the following prompt:
+1. In the Copilot chat window, select the `modernize` agent and enter the following prompt:
 
    ```prompt
    migrate from rabbitmq to Azure service bus

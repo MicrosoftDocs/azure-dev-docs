@@ -35,9 +35,9 @@ Choose the environment where you want to use custom agents:
 
 ### [Copilot coding agent](#tab/copilot-coding-agent)
 
-- [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) configured. For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in coding agent](github-copilot-app-modernization-for-java-coding-agent.md#get-started).
+- A configured [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent). For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in coding agent](github-copilot-app-modernization-for-java-coding-agent.md#get-started).
 - A GitHub Copilot Pro, Pro+, Business, or Enterprise subscription.
-- A GitHub repository containing your application source code. Administrator access is required.
+- A GitHub repository containing your application source code. You need administrator access.
 
 ---
 
@@ -91,7 +91,7 @@ For more information, see [Install the plugin](github-copilot-app-modernization-
 
 ### [Copilot coding agent](#tab/copilot-coding-agent)
 
-1. Go to **Settings** for your target repository. Administrator access is required.
+1. Go to **Settings** for your target repository. You need administrator access.
 
 1. Select **Copilot**, and then select **Coding Agent**.
 
@@ -117,7 +117,7 @@ For more information, see [Install the plugin](github-copilot-app-modernization-
 
 1. Select **Save Configuration**.
 
-1. (Optional) If environment variables are required, set them under **Environment → Copilot** in the settings.
+1. (Optional) If you need environment variables, set them under **Environment → Copilot** in the settings.
 
 For more information, see [Add MCP Server for coding agent](github-copilot-app-modernization-for-java-coding-agent.md#get-started).
 

@@ -15,9 +15,9 @@ ms.update-cycle: 180-days
 
 # GitHub Copilot modernization for Java developers
 
-This article describes GitHub Copilot modernization, which is an AI assistant that delivers end-to-end support for application modernization.
+This article describes GitHub Copilot modernization, an AI assistant that delivers end-to-end support for application modernization.
 
-Enterprises often deal with technical debt throughout their development cycles, and upgrading Java runtimes, frameworks, and dependencies is a common but resource-intensive task. At the same time, many organizations aim to migrate and modernize their application estate to the cloud, which involves:
+Enterprises often deal with technical debt throughout their development cycles. Upgrading Java runtimes, frameworks, and dependencies is a common but resource-intensive task. At the same time, many organizations aim to migrate and modernize their application estate to the cloud. This process involves:
 
 - Assessing the current state of code, configuration, and dependencies
 - Planning Azure resources
@@ -49,7 +49,7 @@ In scenarios where code changes are required, GitHub Copilot modernization guide
 
 To learn more about predefined tasks available in GitHub Copilot modernization today, see [Predefined tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
 
-When it comes to development, enterprises often have strict processes and controls, which is where custom skills come in. For more information, see [Quickstart: create and apply your own skills for GitHub Copilot modernization](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
+When it comes to development, enterprises often have strict processes and controls, which is where custom skills come in. For more information, see [Quickstart: create and apply your own skills for GitHub Copilot modernization](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md).
 
 Custom skills can reference the code commits from previously migrated applications. These skills serve as remediation guides for similar issues in other apps, enabling Copilot to apply proven patterns across multiple codebases. With each successful migration, the knowledge base expands, accelerating future remediations and reducing manual effort.
 

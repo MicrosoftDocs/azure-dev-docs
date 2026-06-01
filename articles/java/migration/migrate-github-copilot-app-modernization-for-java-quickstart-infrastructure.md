@@ -16,7 +16,7 @@ ms.update-cycle: 180-days
 
 This quickstart shows how to generate infrastructure-as-code (IaC) files and provision Azure resources for your project by using GitHub Copilot modernization.
 
-Before deploying an application to Azure, you need the right cloud infrastructure in place. The **Generate Infrastructure as Code and Provision** task in the GitHub Copilot modernization extension automates this process - it analyzes your project, generates IaC files, and provisions the required Azure resources. This process includes the ability to create an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) tailored to your application, covering networking, identity, governance, and security foundations.
+Before deploying an application to Azure, you need the right cloud infrastructure in place. The **Generate Infrastructure as Code and Provision** task in the GitHub Copilot modernization extension automates this process. It analyzes your project, generates IaC files, and provisions the required Azure resources. This process includes the ability to create an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) tailored to your application, covering networking, identity, governance, and security foundations.
 
 ## Prerequisites
 
@@ -36,11 +36,11 @@ Use the following steps to generate IaC files and provision Azure resources:
 
 1. Open your project in your IDE.
 
-1. From **Activity** sidebar, open the **GitHub Copilot modernization** extension pane. Under the **Tasks** section, Select **Generate Infrastructure as Code and Provision** and click **Run** button
+1. From the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane. Under the **Tasks** section, select **Generate Infrastructure as Code and Provision**, and then select **Run**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra.png" alt-text="Screenshot of Visual Studio Code that shows the Generate Infrastructure as Code and Provision task with the Run Task button highlighted.":::
 
-1. After you click the button, the Copilot chat window with Agent Mode opens automatically.
+1. After you select the button, the Copilot chat window with Agent Mode opens automatically.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra-chat.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-prepare-infra-chat.png" alt-text="Screenshot of Visual Studio Code that shows the Copilot window with Agent mode triggered automatically.":::
 
@@ -66,10 +66,10 @@ The **Generate Infrastructure as Code and Provision** button sends a predefined 
 > [!TIP]
 > Example prompts for different scenarios:
 >
-> - `"Create an Azure landing zone tailored to my application's architecture and requirements"`—design a landing zone with networking, identity, and governance foundations.
-> - `"Generate Bicep files for my project's Azure infrastructure based on the assessment report in docs/assessment.md, don't provision yet"`—generate IaC only, referencing an assessment report.
-> - `"Provision Azure infrastructure following the architecture diagram in docs/architecture.png and the compliance policies in docs/security-requirements.md"`—combine architecture and compliance inputs.
-> - `"Generate Terraform files for my project and provision resources in East US region"`—request a specific IaC format and region.
+> - `"Create an Azure landing zone tailored to my application's architecture and requirements"` - design a landing zone with networking, identity, and governance foundations.
+> - `"Generate Bicep files for my project's Azure infrastructure based on the assessment report in docs/assessment.md, don't provision yet"` - generate IaC only, referencing an assessment report.
+> - `"Provision Azure infrastructure following the architecture diagram in docs/architecture.png and the compliance policies in docs/security-requirements.md"` - combine architecture and compliance inputs.
+> - `"Generate Terraform files for my project and provision resources in East US region"` - request a specific IaC format and region.
 
 ## Next step
 

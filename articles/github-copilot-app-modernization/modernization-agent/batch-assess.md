@@ -11,26 +11,26 @@ ms.date: 06/02/2026
 
 # Batch assessment with the GitHub Copilot modernization agent
 
-Batch assessment enables you to analyze a portfolio of **Java, .NET, and JavaScript/TypeScript** applications in a single run, providing a comprehensive view of the modernization landscape across your applications. This article guides you through the process of assessing multiple repositories efficiently. Both single-language repositories and **mono-repos** that contain a mix of Java, .NET, and JavaScript/TypeScript projects are supported.
+Batch assessment enables you to analyze a portfolio of **Java, .NET, and JavaScript/TypeScript** applications in a single run. You get a comprehensive view of the modernization landscape across your applications. This article guides you through the process of assessing multiple repositories efficiently. The process supports both single-language repositories and **mono-repos** that contain a mix of Java, .NET, and JavaScript/TypeScript projects.
 
-Each application is analyzed along two complementary tracks. **Issue scanning** finds problems you need to fix; **codebase insights** document how the application is built so you can plan around it.
+Each application is analyzed along two complementary tracks. **Issue scanning** finds problems you need to fix. **Codebase insights** document how the application is built so you can plan around it.
 
 ### Issue scanning
 
-Issue scanning detects modernization and security issues across three domains. Language coverage differs by domain:
+Issue scanning detects modernization and security problems across three domains. Language coverage differs by domain:
 
 - **Upgrade** — runtime and framework version analysis. Covers **Java** and **.NET**.
-- **Cloud Readiness** — Azure target platform fit and migration issues. Covers **Java** and **.NET**.
-- **Security** — CVE scanning across direct and transitive dependencies, plus **ISO 5055-guided CWE** security issues. **Java only** at this time; .NET and JavaScript/TypeScript support is on the roadmap.
+- **Cloud Readiness** — Azure target platform fit and migration problems. Covers **Java** and **.NET**.
+- **Security** — CVE scanning across direct and transitive dependencies, plus **ISO 5055-guided CWE** security problems. **Java only** at this time; .NET and JavaScript/TypeScript support is on the roadmap.
 
 ### Codebase insights
 
-Codebase insights document how each application is built. They are produced for **Java**, **.NET**, and **JavaScript/TypeScript** projects, and are surfaced when you select **Full analysis** in the Analysis Coverage setting.
+Codebase insights document how each application is built. They're produced for **Java**, **.NET**, and **JavaScript/TypeScript** projects. They surface when you select **Full analysis** in the Analysis Coverage setting.
 
 - **Architecture** — high-level architecture diagram with layering, module boundaries, runtime topology, and entry points. 
 - **API Contracts** — REST, gRPC, message-queue, and webhook surfaces the app exposes or consumes. Sizes integration blast radius before migration.
-- **Configuration** — config files, environment variables, feature flags, connection strings, and secrets. Drives the secrets-and-config migration to Azure Key Vault and App Configuration.
-- **Business Workflows** — end-to-end functional flows reconstructed from code (e.g., *order → reserve → pay → fulfill*). Anchors regression scope and stakeholder communication.
+- **Configuration** — config files, environment variables, feature flags, connection strings, and secrets. Drives the secrets-and-config migration to Azure Key Vault and Azure App Configuration.
+- **Business Workflows** — end-to-end functional flows reconstructed from code (for example, *order → reserve → pay → fulfill*). Anchors regression scope and stakeholder communication.
 - **Dependencies** — direct and transitive libraries, SDKs, and drivers with pinned versions. Feeds Azure-service mapping and surfaces EOL or beta pins.
 - **Data Model** — databases, schemas, key entities, and relationships from ORM mappings and DDL. Drives data-tier migration planning.
 
@@ -38,8 +38,8 @@ Codebase insights document how each application is built. They are produced for 
 
 Batch assessment is especially valuable for migration planning because it enables you to efficiently assess the readiness and requirements of various applications at once. By using batch assessment, you can evaluate different repositories at the same time and obtain detailed assessment reports for each application. It produces two kinds of reports to support your migration planning:
 
-- **Per repository report**: Provides detailed insights on above two aspects identified at the individual repository level.
-- **Aggregated report**: Presents an overall perspective of all assessed applications, offering summary insights, recommendations on Azure services, target platforms, upgrade paths, migration strategies and migration waves. Additionally, the aggregated report includes shortcuts for easy access to each per repository report.
+- **Per repository report**: Provides detailed insights on the two aspects identified at the individual repository level.
+- **Aggregated report**: Presents an overall perspective of all assessed applications, offering summary insights, recommendations on Azure services, target platforms, upgrade paths, migration strategies, and migration waves. Additionally, the aggregated report includes shortcuts for easy access to each per repository report.
 
 Batch assessment provides the following benefits:
 
@@ -223,7 +223,7 @@ Two execution modes are available:
     - **General / Analysis Coverage**:
        - **Issue only** (default): Detects modernization and security issues in your source code. Fastest option.
        - **Full analysis**: Detects issues and additionally generates **codebase insights** across six aspects of your application — **Architecture**, **API Contracts**, **Configuration**, **Business Workflows**, **Dependencies**, and **Data Model**. Takes longer to run than issue-only analysis.
-    - **Java / UPGRADE**: Target Runtime (OpenJDK 11, 17, 21 or 25).
+    - **Java / UPGRADE**: Target Runtime (OpenJDK 11, 17, 21, or 25).
     - **Java / CLOUD READINESS**: Target Compute Services, Target Operating System, and Containerization.
     - **Java / SECURITY**: Minimum CVE severity (`low`, `medium`, `high`, `critical`; default `high`). Lower severity values include more findings. *(Security domain is Java-only today.)*
     - **.NET / UPGRADE**: Target Framework (.NET 8, 9, or 10).
@@ -405,14 +405,14 @@ You can drive batch assessment directly from your Azure Migrate project and have
 
 The end-to-end flow:
 
-1. **Download a starter `repos.json` from Azure Migrate.** Azure Migrate generates a JSON file scoped to the applications you've selected for modernization assessment. The file already contains the `apps[]` entries and the `output` block that points back to your Azure Migrate project.
+1. **Download a starter `repos.json` from Azure Migrate.** Azure Migrate generates a JSON file scoped to the applications you selected for modernization assessment. The file already contains the `apps[]` entries and the `output` block that points back to your Azure Migrate project.
 
 
-1. **Fill in repository URLs.** Edit each `repos[]` entry in the downloaded file to add the GitHub repository URL for the application. Keep the `apps[]` and `output` blocks as Azure Migrate generated them — those drive the upload.
+1. **Fill in repository URLs.** Edit each `repos[]` entry in the downloaded file to add the GitHub repository URL for the application. Keep the `apps[]` and `output` blocks as Azure Migrate generated them - those blocks drive the upload.
 
-1. **Run batch assessment.** Run the assessment locally or by delegating to Cloud Agents following above steps. Both execution modes honor the Azure Migrate output configuration.
+1. **Run batch assessment.** Run the assessment locally or by delegating to Cloud Agents following preceding steps. Both execution modes honor the Azure Migrate output configuration.
 
-1. **Reports upload automatically.** When the assessment completes, the modernization agent uploads each application's report back to your Azure Migrate project. No additional CLI flag is required — the upload is driven entirely by the `output.type` setting in the `repos.json` file.
+1. **Reports upload automatically.** When the assessment completes, the modernization agent uploads each application's report back to your Azure Migrate project. No extra CLI flag is required - the `output.type` setting in the `repos.json` file drives the upload.
 
 ## Understanding the aggregated report
 
@@ -457,7 +457,7 @@ The aggregated report provides a comprehensive view across assessed applications
 
 - Check if the repository contains valid Java, .NET, or JavaScript/TypeScript projects.
 - Verify that build files exist, such as `pom.xml`, `build.gradle`, `*.csproj`, `*.sln`, `*.slnx`, or `package.json`.
-- Review error messages in the console output. Non-fatal warnings (for example, missing build files in a sub-module) are now surfaced directly to the CLI output — review them before treating the report as final.
+- Review error messages in the console output. Non-fatal warnings (for example, missing build files in a sub-module) are now surfaced directly to the CLI output - review them before treating the report as final.
 
 **Cloud Agent delegation problems:**
 

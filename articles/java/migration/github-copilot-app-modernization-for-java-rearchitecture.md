@@ -19,7 +19,7 @@ This article describes how to use the re-architecture feature in GitHub Copilot 
 
 ## Overview
 
-The re-architecture feature enables you to transform an entire project from a legacy framework to a modern architecture by using an AI-powered multi-agent workflow. Instead of manual, file-by-file migration, you can describe the desired transformation in natural language, and the modernization agents handle analysis, planning, and code generation.
+The re-architecture feature enables you to transform an entire project from a legacy framework to a modern architecture by using an AI-powered multi-agent workflow. Instead of manual, file-by-file migration, describe the desired transformation in natural language, and the modernization agents handle analysis, planning, and code generation.
 
 Common re-architecture scenarios include:
 
@@ -107,7 +107,7 @@ Before the agent starts writing code, it produces analysis and planning artifact
 
 The analysis artifacts include:
 
-- **Architecture summary**: An overview of the existing tech stack, project structure, data model, and integration points. Check this to verify the agent correctly identified your project's key components. Look for files such as `artifacts/t2-architect-architecture-summary.md`, `artifacts/t2-architect-tech-stack.md`, and `artifacts/t2-architect-data-model.md`.
+- **Architecture summary**: An overview of the existing tech stack, project structure, data model, and integration points. Check this summary to verify the agent correctly identified your project's key components. Look for files such as `artifacts/t2-architect-architecture-summary.md`, `artifacts/t2-architect-tech-stack.md`, and `artifacts/t2-architect-data-model.md`.
 - **Feature inventory**: A catalog of all features in the original application, each assigned a requirement ID (for example, `REQ-001`). Verify that this list is complete and accurate. Look for `artifacts/t3-pm-spec.md`.
 - **Target architecture design**: The proposed API contracts, module structure, and technology choices for the new application. Look for files such as `artifacts/t5-architect-api-contracts.md` and `artifacts/t5-architect-integration.md`.
 

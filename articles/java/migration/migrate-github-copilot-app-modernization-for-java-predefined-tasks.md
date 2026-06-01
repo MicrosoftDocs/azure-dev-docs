@@ -43,7 +43,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Managed Identities for Database migration to Azure
 
-  The Azure database offerings - Azure SQL Server, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Cosmos DB for Cassandra API, and Azure Cosmos DB for MongoDB - support secure sign-in using Managed Identity. When you migrate an application from a local database to a managed Azure cloud database, this task helps you prepare your codebase for Managed Identity authentication to the database.
+    The Azure database offerings - Azure SQL Server, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Cosmos DB for Cassandra API, and Azure Cosmos DB for MongoDB - support secure sign-in using Managed Identity. When you migrate an application from a local database to a managed Azure cloud database, this task helps you prepare your codebase for Managed Identity authentication to the database.
 
 - Managed Identities for Credential Migration on Azure
 
@@ -63,7 +63,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   Azure hosting services offer flexibility in provisioning, scaling, failover, and more. At the same time, the file system for a given application runtime is transient. If your application reads from or writes to a local file, this task helps you identify such cases and convert them into unified mount path access. By doing so, you can mount an Azure Storage File share to the specified path, enabling your application to share and persist data across different replicas without concerns about relocation, failover, or similar issues.
 
-- Java Mail to Azure Communication Service
+- Java Mail to Azure Communication Services
 
   Migrating applications with Simple Mail Transfer Protocol (SMTP) dependencies can be challenging because not all Azure environments support outgoing requests on port 25. This task helps convert an application that sends mail over SMTP to use Azure Communication Services, which is fully compatible with Azure hosting environments.
 
@@ -97,11 +97,11 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
 - Ant / Eclipse project to Maven project
 
-  Java projects built with Apache Ant or as Eclipse IDE projects depend on imperative scripts or IDE-specific metadata, which complicates the dependency management and makes automated, headless builds difficult. These tasks convert your Ant or Eclipse project to a Maven project that builds consistently from any environment, with dependencies resolved through Maven and the project layout aligned with Maven conventions, while keeping your source code unchanged.
+  Java projects built with Apache Ant or as Eclipse IDE projects depend on imperative scripts or IDE-specific metadata, which complicates dependency management and makes automated, headless builds difficult. These tasks convert your Ant or Eclipse project to a Maven project that builds consistently from any environment, with dependencies resolved through Maven and the project layout aligned with Maven conventions, while keeping your source code unchanged.
 
 - Cache solutions to Azure Managed Redis
 
-  Applications often rely on various caching solutions—from in-memory libraries to distributed systems (such as Infinispan, SwarmCache, and Memcached)—that lack seamless Azure integration and centralized scalability or security. This task modernizes the caching layer by migrating these implementations to Azure Managed Redis (or the retiring Azure Cache for Redis), enabling cloud-native scalability, unified management, and improved security with passwordless Microsoft Entra ID authentication, while preserving existing caching behavior.
+    Applications often rely on various caching solutions - from in-memory libraries to distributed systems (such as Infinispan, SwarmCache, and Memcached) - that lack seamless Azure integration and centralized scalability or security. This task modernizes the caching layer by migrating these implementations to Azure Managed Redis (or the retiring Azure Cache for Redis), enabling cloud-native scalability, unified management, and improved security with passwordless Microsoft Entra ID authentication, while preserving existing caching behavior.
 
 ## See also
 

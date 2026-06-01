@@ -42,13 +42,13 @@ Use the following steps to start the containerization process:
 
 1. Make sure you have Docker installed and running.
 
-1. Open your project in IDE.
+1. Open your project in your IDE.
 
-1. From the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane. Under **Tasks** section, open **Containerize Tasks**, select task **Containerize Application** and click the **Run** button.
+1. From the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane. Under the **Tasks** section, open **Containerize Tasks**, select the task **Containerize Application**, and then select **Run**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the Containerize Application task with the Run Task button highlighted.":::
 
-1. After you click the button, the Copilot chat window with Agent Mode opens automatically.
+1. After you select the button, the Copilot chat window with Agent Mode opens automatically.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" alt-text="Screenshot of Visual Studio Code that shows the Copilot chat window with Agent mode triggered automatically by the Containerize Application task.":::
 
@@ -64,7 +64,7 @@ Use the following steps to start the containerization process:
    - Creates a summary of the containerization results.
 
 > [!NOTE]
-> We recommend using Claude Opus 4.5 or later models for the best results.
+> Use Claude Opus 4.5 or later models for the best results.
 >
 > It might take Copilot a few iterations to correct containerization errors.
 

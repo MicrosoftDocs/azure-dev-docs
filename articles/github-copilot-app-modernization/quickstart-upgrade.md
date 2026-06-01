@@ -13,7 +13,7 @@ zone_pivot_groups: java-upgrade
 
 # Quickstart: Upgrade a Java project with GitHub Copilot modernization
 
-GitHub Copilot modernization provides an AI-powered agentic experience that automates Java upgrade workflows end-to-end — from project analysis and plan generation to code transformation, build validation, and CVE remediation.
+GitHub Copilot modernization provides an AI-powered agentic experience that automates Java upgrade workflows end-to-end - from project analysis and plan generation to code transformation, build validation, and CVE remediation.
 
 ## Supported upgrade scenarios
 
@@ -76,7 +76,7 @@ GitHub Copilot modernization provides an AI-powered agentic experience that auto
 
 ## Select a Java project to upgrade
 
-For the purposes of this tutorial, choose one of the following sample repositories:
+For this tutorial, choose one of the following sample repositories:
 
 - Maven: [uportal-messaging](https://github.com/UW-Madison-DoIT/uportal-messaging)
 - Gradle: [docraptor-java](https://github.com/DocRaptor/docraptor-java)
@@ -91,12 +91,12 @@ Use the following steps to start the upgrade process:
 1. In the sidebar, open the **GitHub Copilot modernization** panel to see the QuickStart page.
 1. Select **Upgrade Java Runtime & Frameworks**.
 
-   This opens GitHub Copilot Chat in agent mode and automatically starts the upgrade process.
+   This action opens GitHub Copilot Chat in agent mode and automatically starts the upgrade process.
 
    > [!TIP]
    > You can also select a specific task from the **Tasks** tree below the QuickStart panel (for example, **Upgrade Spring Boot Version** or **Upgrade Jakarta EE Version**) to trigger a targeted upgrade.
    >
-   > Alternatively, you can type directly in GitHub Copilot Chat using agent mode — for example, *"Upgrade my Java project to Java 21"* — to start the upgrade.
+   > Alternatively, you can type directly in GitHub Copilot Chat using agent mode - for example, *"Upgrade my Java project to Java 21"* - to start the upgrade.
 
 :::image type="content" source="media/quickstart-upgrade/quickstart-page.png" alt-text="Screenshot of Visual Studio Code that shows the QuickStart page with the Upgrade Java Runtime & Frameworks button." lightbox="media/quickstart-upgrade/quickstart-page.png":::
 
@@ -110,10 +110,10 @@ Use the following steps to start the upgrade process:
 1. In the sidebar, open the **GitHub Copilot modernization** panel to see the QuickStart page.
 1. Select **Upgrade Runtime & Frameworks**.
 
-   This opens GitHub Copilot Chat in agent mode and automatically starts the upgrade process.
+   This action opens GitHub Copilot Chat in agent mode and automatically starts the upgrade process.
 
    > [!TIP]
-   > You can also type directly in GitHub Copilot Chat using agent mode — for example, *"Upgrade my Java project to Java 21"* — to start the upgrade.
+   > You can also type directly in GitHub Copilot Chat using agent mode - for example, *"Upgrade my Java project to Java 21"* - to start the upgrade.
 
 :::image type="content" source="media/quickstart-upgrade/java-jetbrains-launch.png" alt-text="Screenshot of IntelliJ IDEA that shows the GitHub Copilot modernization panel with upgrade tasks and the Chat panel running the upgrade process." lightbox="media/quickstart-upgrade/java-jetbrains-launch.png":::
 
@@ -176,11 +176,11 @@ Review the plan and make changes if needed, then confirm to proceed. For informa
 
 ## Execute the upgrade
 
-After plan confirmation, the agent automatically proceeds with the code transformation phase. As part of this process, it performs the following tasks:
+After you confirm the plan, the agent automatically proceeds with the code transformation phase. As part of this process, it performs the following tasks:
 
-- Modify code and configuration files to ensure compatibility with the target versions.
-- Perform build validation to confirm the project compiles successfully at each step.
-- Execute test validation if enabled in the plan options.
+- Modifies code and configuration files to ensure compatibility with the target versions.
+- Performs build validation to confirm the project compiles successfully at each step.
+- Executes test validation if enabled in the plan options.
 
 The agent iterates through each upgrade step until all steps complete successfully. You can monitor progress at any time by checking the **progress.md** file in the editor.
 
@@ -192,7 +192,7 @@ The agent iterates through each upgrade step until all steps complete successful
 
 ## CVE validation and fix
 
-After the code transformation steps complete, the agent automatically scans dependencies for Common Vulnerabilities and Exposures (CVE) issues. If CVEs are found, the agent fixes them by upgrading the affected dependencies — no manual intervention is required. The final validation step then runs to confirm everything still builds and passes tests after the CVE fixes.
+After the code transformation steps complete, the agent automatically scans dependencies for Common Vulnerabilities and Exposures (CVE) issues. If CVEs are found, the agent fixes them by upgrading the affected dependencies - no manual intervention is required. The final validation step then runs to confirm everything still builds and passes tests after the CVE fixes.
 
 ## View the summary
 

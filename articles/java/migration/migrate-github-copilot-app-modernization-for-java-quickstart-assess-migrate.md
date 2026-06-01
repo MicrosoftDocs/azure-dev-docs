@@ -17,7 +17,7 @@ zone_pivot_groups: ide-set-one
 
 # Quickstart: assess and migrate a Java project using GitHub Copilot modernization
 
-This quickstart shows you how to use GitHub Copilot modernization to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined task to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+This quickstart shows you how to use GitHub Copilot modernization to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined task to update an Azure SQL Database connection to use Azure Managed Identity instead of a username and password.
 
 The following video demonstrates how GitHub Copilot modernization uses [AppCAT](/azure/migrate/appcat/java) to help assess a Java project for migration to Azure:
 
@@ -35,7 +35,7 @@ The following video demonstrates how GitHub Copilot modernization uses [AppCAT](
 
 ## Apply a predefined task
 
-For migration, Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, by using the `mi-sql-public-demo` sample, the **Database Migration (Microsoft SQL)** task changes the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+For migration, Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, by using the `mi-sql-public-demo` sample, the **Database Migration (Microsoft SQL)** task changes the SQL Database connection to use Azure Managed Identity instead of a username and password.
 
 To apply a predefined task, use the following steps:
 
