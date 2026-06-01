@@ -3,10 +3,10 @@ title: Azure MCP Server tools for Azure Cosmos DB
 description: Use Azure MCP Server tools to manage Azure Cosmos DB resources with natural language prompts from your IDE.
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 05/29/2026
+ms.date: 06/01/2026
 ai-usage: ai-assisted
 tool_count: 7
-mcp-cli.version: 3.0.0-beta.14
+mcp-cli.version: 3.0.0-beta.14+437cd2233b355c42c7f40d4b73354075117bd456
 ---
 
 # Azure MCP Server tools for Azure Cosmos DB
