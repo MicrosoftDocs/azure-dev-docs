@@ -1,7 +1,7 @@
 ---
 title: Connect to all regions using Azure libraries for Python multicloud 
 description: How to use the Azure libraries for Python to connect to Azure in different sovereign regions
-ms.date: 06/01/2025
+ms.date: 06/01/2026
 ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
