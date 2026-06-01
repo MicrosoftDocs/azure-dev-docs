@@ -5,7 +5,8 @@ ms.date: 06/01/2026
 ms.service: azure-rust
 ms.topic: get-started
 ms.custom:
-  - devx-track-rust, azure-sdk-rust
+  - devx-track-rust
+  - azure-sdk-rust
 ---
 
 # Configure your Rust development environment for Azure
