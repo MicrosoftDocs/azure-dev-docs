@@ -25,6 +25,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Microsoft Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure Speech in Foundry Tools](../../tools/ai-services-speech.md) | `speech` | Manage Speech resources such as speech-to-text and text-to-speech services. |
+| [Azure SRE Agent](../../tools/azure-sre-agent.md) | `sreagent` | Manage Azure SRE Agent resources, including agents, skills, connectors, incidents, and workflows. |
 
 ### Analytics
 
@@ -84,6 +85,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Developer CLI](../../tools/azure-cli.md) | `extension` | Get installation instructions for Azure Developer CLI (azd), learn usage for deployment scenarios, and access azd MCP tools when azd is installed locally |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | `grafana` | List Azure Managed Grafana workspaces. |
 | [Azure Monitor](../../tools/azure-monitor.md) | `monitor` | Query Azure Monitor logs and metrics. |
+| [Azure Terraform](../../tools/azure-terraform.md) | `azureterraform` | Retrieve Terraform provider documentation, discover Azure Verified Modules, export Azure resources to Terraform, and validate configurations against the Azure policy library (`policy-library-avm`) via conftest. |
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
 
 

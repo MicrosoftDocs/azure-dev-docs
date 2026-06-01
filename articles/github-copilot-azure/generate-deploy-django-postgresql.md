@@ -2,6 +2,8 @@
 title: Generate a Django and PostgreSQL app and deploy to Azure
 description: This article demonstrates how to prompt GitHub Copilot along with GitHub Copilot for Azure to generate an entire app, then deploy to Azure App Service and Azure PostgreSQL Flexible Server.
 keywords: github, copilot, ai, azure
+author: diberry
+ms.author: diberry
 ms.service: github-copilot-for-azure
 ms.topic: how-to
 ms.date: 12/19/2025

@@ -2,7 +2,7 @@
 title: Azure pricing tools overview for the MCP Server
 description: Discover Azure pricing tools for MCP Server to manage cost estimates and billing. Start optimizing your Azure costs today.
 #customer intent: As a system administrator, I want to analyze pricing for Azure services like Virtual Machines and Storage so that I can recommend the best configurations for my organization.
-ms.date: 02/18/2026
+ms.date: 05/28/2026
 ms.reviewer: anannyapatra
 ms.service: azure-mcp-server
 ms.topic: concept-article
@@ -19,7 +19,7 @@ Azure [pricing tools](/azure/cost-management-billing/) in MCP Server help you ma
 
 <!-- @mcpcli pricing get -->
 
-Get Azure retail pricing information. The tool can estimate deployment costs from an ARM or Bicep template. You can provide the template within the prompt or as a file input.
+Get Azure retail pricing information. Only call this tool after the user specifies a SKU (`--sku`) or confirms they want all pricing for a service. Don't call this tool if the user provides only a broad service name (for example, `Virtual Machines`, `Storage`, `SQL Database`) without a specific SKU — ask for the exact SKU or tier first. For comparisons across regions or SKUs, require explicit ARM SKU names and don't assume defaults. Requires at least one filter: `--sku`, `--service`, `--region`, `--service-family`, or `--filter`. `SavingsPlan` isn't a valid `--price-type` value; use `--include-savings-plan` instead. Valid `--price-type` values are `Consumption`, `Reservation`, and `DevTestConsumption`. When `--include-savings-plan` is `true`, `Consumption` results include a nested `savingsPlan` array with 1-year and 3-year pricing, mainly for Linux VMs. For Bicep/ARM cost estimation, extract the resource type and SKU, query per resource, and sum monthly costs (hourly × 730).
 
 Example prompts include:
 
