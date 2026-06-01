@@ -52,6 +52,8 @@ landingContent:
         links:
           - text: Batch assessment
             url: modernization-agent/batch-assess.md
+          - text: Batch plan
+            url: modernization-agent/batch-plan.md
           - text: Batch upgrade
             url: modernization-agent/batch-upgrade.md
           - text: Customization

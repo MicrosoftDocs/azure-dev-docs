@@ -50,7 +50,7 @@ Use the following steps to start the containerization process:
 
 1. After you click the button, the Copilot chat window with Agent Mode opens automatically.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" alt-text="Screenshot of Visual Studio Code that shows the Copilot chat window with Agent mode triggred automatically by Containerize Application task":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" alt-text="Screenshot of Visual Studio Code that shows the Copilot chat window with Agent mode triggered automatically by the Containerize Application task.":::
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate containerization. Each tool's usage requires confirmation by selecting **Continue**.
 
@@ -80,7 +80,8 @@ The **Containerize Application** button sends a predefined prompt. For more cont
 > - `"Containerize all modules in this multi-module project and create a docker-compose.yml for local testing"` - handle multi-module projects with compose.
 > - `"Containerize my app and push the image to my Azure Container Registry: <acr-name>.azurecr.io"` - build and push in one step.
 
-## See also
+## Next steps
 
+- [Quickstart: Deploy your project to Azure](migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md)
 - GitHub Copilot modernization uses certain tools in containerization assist. For more information, see the [containerization-assist](https://github.com/Azure/containerization-assist) repository on GitHub.
 - [GitHub Copilot modernization documentation](../../github-copilot-app-modernization/index.yml)

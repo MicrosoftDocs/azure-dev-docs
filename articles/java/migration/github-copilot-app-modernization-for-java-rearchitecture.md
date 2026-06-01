@@ -172,3 +172,7 @@ Keep the following limitations in mind:
 ## Provide feedback
 
 If you have any feedback about the re-architecture feature, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+
+## See also
+
+[GitHub Copilot modernization for Java overview](migrate-github-copilot-app-modernization-for-java.md)

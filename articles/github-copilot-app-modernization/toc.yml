@@ -22,6 +22,8 @@ items:
             items:
               - name: Batch assessment
                 href: modernization-agent/batch-assess.md
+              - name: Batch plan
+                href: modernization-agent/batch-plan.md
               - name: Batch upgrade
                 href: modernization-agent/batch-upgrade.md
 

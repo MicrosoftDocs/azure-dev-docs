@@ -1246,7 +1246,7 @@ After creating the custom agent, use it to migrate your Java applications. The p
 
 Share feedback about GitHub Copilot modernization by using the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
 
-## Reference
+## Next steps
 
 - [Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md)
 - [Modernize Java apps by using GitHub Copilot modernization in coding agent](github-copilot-app-modernization-for-java-coding-agent.md)

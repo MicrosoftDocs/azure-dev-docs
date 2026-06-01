@@ -161,12 +161,12 @@ After you configure your repositories, start the batch planning workflow.
 
 1. The agent automatically:
 
-    - Clone each selected repository or submit a job to Cloud Coding Agent for each repo.
+    - Clones each selected repository or submits a job to Cloud Coding Agent for each repo.
     - Generates a plan for each repository locally or a PR with the plan in each repository.
 
 ## Next steps
 
-After completing batch plan, you can review the plans and execute them with the execute command:
+After completing the batch plan, review the plans and execute them by using the `execute` command:
 
 - [Learn about CLI commands](cli-commands.md).
 - [Create custom skills for organization-specific patterns](customization.md).

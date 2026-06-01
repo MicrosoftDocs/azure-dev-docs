@@ -71,6 +71,6 @@ The **Generate Infrastructure as Code and Provision** button sends a predefined 
 > - `"Provision Azure infrastructure following the architecture diagram in docs/architecture.png and the compliance policies in docs/security-requirements.md"`—combine architecture and compliance inputs.
 > - `"Generate Terraform files for my project and provision resources in East US region"`—request a specific IaC format and region.
 
-## See also
+## Next step
 
-- [GitHub Copilot modernization documentation](../../github-copilot-app-modernization/index.yml)
+- [Quickstart: Containerize your project](migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md)
