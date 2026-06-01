@@ -6,6 +6,7 @@ ms.service: azure-rust
 ms.topic: concept-article
 ms.custom:
   - devx-track-rust
+# This page's includes are auto-updated from Azure SDK team but they aren't changing this file's date.
 ---
 
 # Azure SDK for Rust crates
