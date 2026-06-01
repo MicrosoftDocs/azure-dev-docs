@@ -1,11 +1,11 @@
 ---
-title: Azure SDK for Rust crates
+title: Azure SDK for Rust Crates
 description: Listing of the package names, crates links, docs links, and source code links for all libraries in the Azure SDK for Rust.
-ms.date: 05/18/2026
-ms.topic: concept-article
+ms.date: 06/01/2026
 ms.service: azure-rust
-ms.custom: devx-track-rust
-# This page's includes are auto-updated from Azure SDK team but they aren't changing this file's date.
+ms.topic: concept-article
+ms.custom:
+  - devx-track-rust
 ---
 
 # Azure SDK for Rust crates
@@ -15,4 +15,3 @@ The Azure SDK for Rust crates are available for installation from [crates.io](ht
 ## Modern Rust libraries
 
 [!INCLUDE [rust-new-releases](../includes/rust-new.md)]
-
