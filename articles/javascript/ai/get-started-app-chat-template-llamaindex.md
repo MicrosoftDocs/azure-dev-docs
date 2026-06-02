@@ -1,13 +1,14 @@
 ---
-title: "Get started with Serverless AI Chat using LlamaIndex"
-description: "Use LlamaIndex to build intelligent apps. It aids in data ingestion, transformation, vectorization, and creating a searchable index for your data."
-ms.topic: get-started 
-ms.date: 01/30/2026
+title: Get Started with Serverless AI Chat Using LlamaIndex
+description: Use LlamaIndex to build intelligent apps. It aids in data ingestion, transformation, vectorization, and creating a searchable index for your data.
+ms.date: 06/01/2026
 ms.subservice: intelligent-apps
-ms.custom: build-2024-intelligent-apps
-ms.collection: ce-skilling-ai-copilot
-#customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how LLamaIndex helps a chat app.
-
+ms.topic: get-started
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - build-2024-intelligent-apps
+# customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how LLamaIndex helps a chat app.
 ---
 
 # Get started with Serverless AI Chat with RAG using LlamaIndex
@@ -22,13 +23,13 @@ The application flow includes:
 
 - Using the chat interface to enter a prompt.
 - Sending the user's prompt to the Serverless API via HTTP calls.
-- Receiving the user's prompt then using LlamaIndex framework to process and stream the response. The serverless API uses an engine to create a connection to the Azure OpenAI large language model (LLM) and the vector index from LlamaIndex. 
+- Receiving the user's prompt then using LlamaIndex framework to process and stream the response. The serverless API uses an engine to create a connection to the Azure OpenAI large language model (LLM) and the vector index from LlamaIndex.
 
 A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="../media/get-started-app-chat-template-llamaindex/architecture-diagram-llama-index-javascript.png" alt-text="Diagram of the architecture for the LlamaIndex RAG chat app.":::
 
-This sample uses LlamaIndex to generate embeddings and store in its own vector store. LlamaIndex also provides [integration with other vector stores](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/) including [Azure AI Search](/azure/search/). That integration isn't demonstrated in this sample.  
+This sample uses LlamaIndex to generate embeddings and store in its own vector store. LlamaIndex also provides [integration with other vector stores](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/) including [Azure AI Search](/azure/search/). That integration isn't demonstrated in this sample.
 
 ### Where is Azure in this architecture?
 
@@ -85,7 +86,7 @@ Use the following instructions to deploy a preconfigured development environment
 
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Open in codespace.
@@ -108,8 +109,7 @@ The remaining tasks in this article take place in the context of this developmen
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-
-1. Create a new local directory on your computer for the project. 
+1. Create a new local directory on your computer for the project.
 
     ```bash
     mkdir my-intelligent-app && cd my-intelligent-app
@@ -146,7 +146,7 @@ The sample repository contains all the code and configuration files you need to 
 
 ### Deploy chat app to Azure
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it finishes.
 
 1. To provision the Azure resources and deploy the source code, run the following Azure Developer CLI command:
@@ -180,13 +180,13 @@ The chat app is preloaded with information about the physical standards for dome
 
     :::image type="content" source="../media/get-started-app-chat-template-llamaindex/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
-    The answer comes from Azure OpenAI with influence from the PDF data ingested into the LlamaIndex vector store. 
+    The answer comes from Azure OpenAI with influence from the PDF data ingested into the LlamaIndex vector store.
 
 ## Clean up resources
 
-To clean up resources, there are two things to address:  
+To clean up resources, there are two things to address:
 
-- Azure resources, you can clean the resources up with Azure Developer CLI, azd.  
+- Azure resources, you can clean the resources up with Azure Developer CLI, azd.
 - Your developer environment; either GitHub Codespaces or DevContainers via Visual Studio Code.
 
 ### Clean up Azure resources
@@ -205,7 +205,7 @@ azd down --purge
 
 Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Sign into the [GitHub Codespaces dashboard](https://github.com/codespaces).
@@ -224,7 +224,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 :::image type="content" source="../media/get-started-app-chat-template-llamaindex/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
-> [!TIP]
+> [!TIP]  
 > After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
@@ -238,4 +238,4 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Assistants and function calling in JavaScript](get-started-app-chat-assistants-function-calling.md)
+> [Get started with Azure OpenAI with Assistants and function calling in JavaScript](get-started-app-chat-assistants-function-calling.md)

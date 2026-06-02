@@ -1,11 +1,13 @@
 ---
-title: "AI Chat: JavaScript frontend + Python backend"
+title: "AI Chat: JavaScript Frontend + Python Backend"
 description: Steps to integrate the JavaScript frontend with the Python backend in the enterprise Azure OpenAI Chat App.
-ms.date: 09/30/2025
-ms.topic: get-started
+ms.date: 06/01/2026
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, build-2024-intelligent-apps
-ms.collection: ce-skilling-ai-copilot
+ms.topic: get-started
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, build-2024-intelligent-apps
 # CustomerIntent: As a multi-language developer new to Azure OpenAI, I want use the JavaScript frontend with a different language backend from the reference templates.
 ---
 
@@ -15,23 +17,23 @@ The Chat app is a reference application that demonstrates how to use the Azure O
 
 By mixing and matching the frontend and backend, you can create a multi-language application that uses the best of both worlds.
 
-* [Demo](https://aka.ms/azai/js.py/video) - Configure JavaScript frontend with Python backend video
+- [Demo](https://aka.ms/azai/js.py/video) - Configure JavaScript frontend with Python backend video
 
 This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include:
 
-* [.NET](/dotnet/ai/get-started-app-chat-template)
-* [Java](../../java/quickstarts/get-started-app-chat-template.md)
-* [Python](../../python/get-started-app-chat-template.md)
+- [.NET](/dotnet/ai/get-started-app-chat-template)
+- [Java](../../java/quickstarts/get-started-app-chat-template.md)
+- [Python](../../python/get-started-app-chat-template.md)
 
-> [!NOTE]
+> [!NOTE]  
 > This article uses one or more [AI app templates](../../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Prerequisites
 
 Deploy the two reference architectures using the following articles. Make sure to use the same subscription and region for both deployments. The deployment might take up to 20 minutes. Leave the deployments up; don't complete the _Clean-up resources_ section until you're done with this article.
 
-* Deploy the JavaScript chat app using this [article](/azure/developer/javascript/get-started-app-chat-template)
-* Deploy the Python chat app using this [article](/azure/developer/python/get-started-app-chat-template)
+- Deploy the JavaScript chat app using this [article](/azure/developer/javascript/get-started-app-chat-template)
+- Deploy the Python chat app using this [article](/azure/developer/python/get-started-app-chat-template)
 
 ## Get the URLs for the frontend and backend
 
@@ -89,27 +91,28 @@ You should have each repo in a separate development environment, either locally 
 
 The Python app uses an HR benefits subject area while the JavaScript app uses a real estate subject area. Now that the apps are connected, you can use the front-end to ask about HR benefits. Suggested questions include:
 
-* What is included in my Northwind Health Plus plan that isn't standard?
-* What happens in a performance review?
-* What does a Product Manager do?
+- What is included in my Northwind Health Plus plan that isn't standard?
+- What happens in a performance review?
+- What does a Product Manager do?
 
 ## Clean-up resources
 
 When you're done with the apps, you can delete the resources to avoid incurring more charges.
 
-* Delete the JavaScript app with [these instructions](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
-* Delete the Python app with [these instructions](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
+- Delete the JavaScript app with [these instructions](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
+- Delete the Python app with [these instructions](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
 
-## Troubleshooting
+<a id="troubleshooting"></a>
 
-* If you get an error, make sure the URLs you entered in the environment don't end with a slash, `/`.
+## Troubleshoot
 
-## Next steps
+- If you get an error, make sure the URLs you entered in the environment don't end with a slash, `/`.
 
-* [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
-* [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/access-control-in-generative-ai-applications-with-azure-ai-search/3956408)
-* [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/blog/appsonazureblog/build-an-enterprise-ready-azure-openai-solution-with-azure-api-management/3907562)
-* [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/azure-ai-search-outperforming-vector-search-with-hybrid-retrieval-and-reranking/3929167)
-- Learn more about how the Azure Developer CLI (AZD) is used in this template:
-    - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
-    - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
+## Related content
+
+- [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat)
+- [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/access-control-in-generative-ai-applications-with-azure-ai-search/3956408)
+- [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/blog/appsonazureblog/build-an-enterprise-ready-azure-openai-solution-with-azure-api-management/3907562)
+- [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/azure-ai-search-outperforming-vector-search-with-hybrid-retrieval-and-reranking/3929167)
+- [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
+- [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)

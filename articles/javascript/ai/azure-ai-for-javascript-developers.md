@@ -1,13 +1,15 @@
 ---
-title: Develop JavaScript apps that use Foundry Tools
+title: Develop JavaScript Apps That Use Foundry Tools
 description: This article provides an organized list of resources about Azure AI scenarios for JavaScript developers, including documentation and code samples.
-keywords: ai, azure openai service
+ms.date: 06/01/2026
 ms.subservice: intelligent-apps
 ms.topic: overview
+ms.collection:
+  - ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 01/30/2026
-ms.custom: overview, devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
-ms.collection: ce-skilling-ai-copilot
+ms.custom:
+  - overview, devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
+keywords: ai, azure openai service
 ---
 
 # Develop AI apps with JavaScript

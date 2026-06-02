@@ -1,12 +1,14 @@
 ---
-title: "JavaScript Azure OpenAI Assistants and function calling"
-description: "This article shows you how to deploy and run the serverless Azure OpenAI Assistant with function calling."
-ms.date: 01/30/2026
-ms.topic: get-started
+title: JavaScript Azure OpenAI Assistants and Function Calling
+description: This article shows you how to deploy and run the serverless Azure OpenAI Assistant with function calling.
+ms.date: 06/01/2026
 ms.service: azure-javascript
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-js-ai
-ms.collection: ce-skilling-ai-copilot
+ms.topic: get-started
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - devx-track-js, devx-track-js-ai
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to understand and deploy an app using assistants and function calling.
 ---
 # Get started with Azure OpenAI with Assistants and function calling in JavaScript
@@ -21,9 +23,9 @@ Azure OpenAI Assistants allows you to create AI assistants tailored to your need
 
 This application is built around two main components:
 
-- A simple HTML page with a vanilla CSS and JavaScript files, and hosted on [Azure Static Web Apps](/azure/static-web-apps/overview). 
+- A simple HTML page with a vanilla CSS and JavaScript files, and hosted on [Azure Static Web Apps](/azure/static-web-apps/overview).
 
-- A serverless API built with [Azure Functions](/azure/azure-functions/functions-overview?pivots=programming-language-javascript) and using OpenAI JavaScript SDK. The serverless app sends the assistants definition including the function call to the OpenAI endpoint. The endpoint responds with the follow-up function call and the parameters needed to complete that call. 
+- A serverless API built with [Azure Functions](/azure/azure-functions/functions-overview?pivots=programming-language-javascript) and using OpenAI JavaScript SDK. The serverless app sends the assistants definition including the function call to the OpenAI endpoint. The endpoint responds with the follow-up function call and the parameters needed to complete that call.
 
     - The sample's function call simulates an API call by generating a random stock ticker value based on the stock symbol sent into the Azure Function. This simulation can be replaced with a remote API in your solution.
 
@@ -42,11 +44,12 @@ To use this article, you need the following prerequisites:
 1. A GitHub account.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
+
 1. An Azure subscription - [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 1. [Azure Developer CLI](../../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-1. [Git](https://git-scm.com/downloads) 
+1. [Git](https://git-scm.com/downloads)
 1. [Visual Studio Code](https://code.visualstudio.com/)
 1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
@@ -60,7 +63,7 @@ Use the following instructions to deploy a preconfigured development environment
 
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-openai-assistant-javascript`](https://github.com/Azure-Samples/azure-openai-assistant-javascript) GitHub repository.
@@ -104,7 +107,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Open a new terminal in the editor.
 
-    > [!TIP]
+    > [!TIP]  
     > Use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
     > :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" lightbox="../media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
@@ -119,7 +122,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
 
-    > [!TIP]
+    > [!TIP]  
     > Visual Studio Code might automatically prompt you to reopen the existing folder within a development container. This action is functionally equivalent to using the command palette to reopen the current workspace in a container.
 
 1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
@@ -133,7 +136,7 @@ The sample repository contains all the code and configuration files you need to 
 
 ### Deploy assistants app to Azure
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it finishes.
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
@@ -142,8 +145,8 @@ The sample repository contains all the code and configuration files you need to 
     azd up
     ```
 
-1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
-1. When prompted, select a subscription to create the resources in. 
+1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name.
+1. When prompted, select a subscription to create the resources in.
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It might take 5-10 minutes for the deployment to complete.
@@ -157,7 +160,7 @@ Use the assistant app to get the stock market price of `MSFT`. The following ste
 1. In the browser, copy and paste in the following prompt:
 
     ```
-    Based on the latest financial data and current stock market trends, can you provide a detailed analysis of Microsoft's current state? Please include insights into their recent performance, market position, and future outlook. Additionally, retrieve and include the latest closing price of Microsoft's stock using its ticker symbol (MSFT). 
+    Based on the latest financial data and current stock market trends, can you provide a detailed analysis of Microsoft's current state? Please include insights into their recent performance, market position, and future outlook. Additionally, retrieve and include the latest closing price of Microsoft's stock using its ticker symbol (MSFT).
     ```
 
 1. Select the **Run** button. Your results should look _similar_ to the following response.
@@ -182,7 +185,7 @@ azd down --purge
 
 Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Sign into the [GitHub Codespaces dashboard](https://github.com/codespaces).
@@ -201,7 +204,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
     :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
-> [!TIP]
+> [!TIP]  
 > After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
