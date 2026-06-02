@@ -1,5 +1,5 @@
 ---
-title: Use Azure SDK for Rust Azure-Core Crate for Advanced Scenarios
+title: Use Azure SDK for Rust Azure Core crate for advanced scenarios
 description: Learn how to use Azure SDK for Rust azure_core crate types to customize HTTP clients, policies, and error handling in your applications.
 ms.date: 06/01/2026
 ms.service: azure-rust
