@@ -9,7 +9,7 @@ ms.custom:
 ai-usage: ai-assisted
 ---
 
-# Use the azure-core crate for advanced scenarios in Rust applications
+# Use the `azure_core` crate for advanced scenarios in Rust applications
 
 The `azure_core` crate provides fundamental types, traits, and abstractions that form the foundation of all Azure SDK for Rust crates. This article demonstrates how to implement custom HTTP clients, create custom policies for request/response processing, and access detailed error information from Azure services.
 
