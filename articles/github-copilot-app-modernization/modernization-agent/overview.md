@@ -77,7 +77,7 @@ Execute modernization plans with validation at every stage:
 - **Version control integration**: Create branches and commits with traceable change history.
 - **Cloud alignment**: Support containerization and deployment workflows as part of execution.
 
-You can also delegate assessment, upgrade, and execution tasks to GitHub Copilot Coding Agent for enhanced tracking and collaboration.
+You can also delegate assessment, upgrade, and execution tasks to GitHub Copilot cloud agent for enhanced tracking and collaboration.
 
 ### Multi-repo and batch modernization
 

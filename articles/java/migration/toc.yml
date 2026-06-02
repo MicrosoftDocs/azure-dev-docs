@@ -19,7 +19,7 @@ items:
           href: github-copilot-app-modernization-for-java-ide-install.md
         - name: Copilot CLI
           href: github-copilot-app-modernization-for-java-copilot-cli.md
-        - name: Coding agent
+        - name: Cloud agent
           href: github-copilot-app-modernization-for-java-coding-agent.md
         - name: Predefined tasks
           href: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md

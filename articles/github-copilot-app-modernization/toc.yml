@@ -50,7 +50,7 @@ items:
                 href: ../java/migration/github-copilot-app-modernization-for-java-ide-install.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Copilot CLI
                 href: ../java/migration/github-copilot-app-modernization-for-java-copilot-cli.md?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: Coding agent
+              - name: Cloud agent
                 href: ../java/migration/github-copilot-app-modernization-for-java-coding-agent.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Configure settings for IntelliJ
                 href: configure-settings-intellij.md
@@ -172,7 +172,7 @@ items:
                 href: /dotnet/azure/migration/appmod/deploy?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Copilot CLI support
                 href: /dotnet/azure/migration/appmod/copilot-cli-support?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: Coding agent support
+              - name: Cloud agent support
                 href: /dotnet/azure/migration/appmod/coding-agent-support?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Migration sample
                 href: /dotnet/azure/migration/appmod/sample?context=/azure/developer/github-copilot-app-modernization/context/context

@@ -51,7 +51,7 @@ Batch assessment provides the following benefits:
 
 - Scale and efficiency:
 
-   - **Parallel processing**: Use Cloud Agents to process multiple repositories simultaneously.
+   - **Parallel processing**: Use cloud agents to process multiple repositories simultaneously.
    - **Automated workflows**: Integrate with CI/CD pipelines for scheduled assessment.
    - **Time savings**: Reduce total assessment time from weeks to hours.
 
@@ -179,13 +179,13 @@ The modernization agent automatically detects the `repos.json` file at `.github/
 Two execution modes are available:
 
 - **Local execution**: The modernization agent processes repositories one after another on your local machine. This mode works best for a smaller set of applications or for initial testing. Supports both Git URL and local path repositories.
-- **Cloud Agent delegation**: The modernization agent submits tasks to GitHub Cloud Agents for parallel processing in the cloud. This mode is faster for multi-repo scenarios.
+- **Cloud agent delegation**: The modernization agent submits tasks to GitHub Copilot cloud agents for parallel processing in the cloud. This mode is faster for multi-repo scenarios.
 
 > [!IMPORTANT]
-> Cloud Agent delegation requires repositories to have **GitHub (github.com) repository URLs**. Local path repositories and non-GitHub providers (GitLab, Azure DevOps) aren't supported for cloud delegation. Use local execution for those repositories.
+> Cloud agent delegation requires repositories to have **GitHub (github.com) repository URLs**. Local path repositories and non-GitHub providers (GitLab, Azure DevOps) aren't supported for cloud delegation. Use local execution for those repositories.
 
 > [!TIP]
-> By using Cloud Agent delegation, you enable parallel execution across all repositories. This approach significantly reduces the total assessment time for large portfolios.
+> By using Cloud agent delegation, you enable parallel execution across all repositories. This approach significantly reduces the total assessment time for large portfolios.
 
 ### Interactive mode (assess locally)
 
@@ -258,15 +258,15 @@ Two execution modes are available:
 
     :::image type="content" source="../media/modernization-agent/assess-repo-list-report.png" alt-text="Screenshot of Modernize CLI that shows the content of the aggregated report." lightbox="../media/modernization-agent/assess-repo-list-report.png":::
 
-### Interactive mode (delegating to Cloud Agents)
+### Interactive mode (delegating to cloud agents)
 
-First, configure Cloud Agents in each application repository. To configure Cloud Agents, fork the sample repositories.
+First, configure cloud agents in each application repository. To configure cloud agents, fork the sample repositories.
 
 #### Configuration for .NET applications
 
 ##### Configure to run on Windows for .NET Framework applications
 
-By default, the Copilot Coding Agent runs in an Ubuntu Linux environment. For .NET Framework applications, you need a Windows environment. To enable it, configure `.github/workflows/copilot-setup-steps.yaml` in the `main` branch of your application repository as shown in the following example:
+By default, the Copilot cloud agent runs in an Ubuntu Linux environment. For .NET Framework applications, you need a Windows environment. To enable it, configure `.github/workflows/copilot-setup-steps.yaml` in the `main` branch of your application repository as shown in the following example:
 
 ```yaml
 # Windows-based Copilot Setup Steps for .NET tasks
@@ -288,17 +288,17 @@ jobs:
         uses: actions/checkout@v5
 ```
 
-Learn more from: [Customizing Copilot's development environment with Copilot setup steps](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment#customizing-copilots-development-environment-with-copilot-setup-steps)
+Learn more from: [Customizing Copilot's development environment with Copilot setup steps](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment#customizing-copilots-development-environment-with-copilot-setup-steps)
 
 ##### Disable firewall 
 
-Disable Copilot coding agent's integrated firewall in your repository settings as shown in the following image:
+Disable Copilot cloud agent's integrated firewall in your repository settings as shown in the following image:
 
 :::image type="content" source="../media/modernization-agent/disable-firewall-for-cloud-coding-agent.png" alt-text="Screenshot of GitHub that shows the repository settings with the Enable firewall setting set to Off." lightbox="../media/modernization-agent/disable-firewall-for-cloud-coding-agent.png":::
 
-
 ##### MCP Server
-Configure GitHub Copilot Modernization MCP Server in Cloud Agent section of your repository settings as shown in the following example:
+
+Configure GitHub Copilot Modernization MCP Server in the **Cloud agent** section of your repository settings as shown in the following example:
 
 ```json
 {
@@ -325,7 +325,7 @@ Configure GitHub Copilot Modernization MCP Server in Cloud Agent section of your
 
 #### Configuration for Java applications
 
-Configure GitHub Copilot Modernization MCP Server in Cloud Agent section of your repository settings as shown in the following example:
+Configure GitHub Copilot Modernization MCP Server in the **Cloud agent** section of your repository settings as shown in the following example:
 
 ```json
 {
@@ -345,7 +345,7 @@ Configure GitHub Copilot Modernization MCP Server in Cloud Agent section of your
 }
 ```
 
-:::image type="content" source="../media/modernization-agent/mcp-config-cloud-coding-agent.png" alt-text="Screenshot of GitHub that shows the repository Coding agent settings with the MCP configuration section highlighted." lightbox="../media/modernization-agent/mcp-config-cloud-coding-agent.png":::
+:::image type="content" source="../media/modernization-agent/mcp-config-cloud-coding-agent.png" alt-text="Screenshot of GitHub that shows the repository Cloud agent settings with the MCP configuration section highlighted." lightbox="../media/modernization-agent/mcp-config-cloud-coding-agent.png":::
 
 #### Steps
 
@@ -365,9 +365,9 @@ The interactive flow for cloud delegation is identical to **Assess locally** thr
 
 1. Enter the output path for assessment results or press <kbd>Enter</kbd> to accept the default.
 
-1. The agent automatically delegates assessment tasks for each repository to Cloud Agents and executes them in the cloud in parallel.
+1. The agent automatically delegates assessment tasks for each repository to cloud agents and executes them in the cloud in parallel.
 
-    :::image type="content" source="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png" alt-text="Screenshot of Modernize CLI that shows the output of the progress of delegating assessment to Cloud Agents in the terminal." lightbox="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png":::
+    :::image type="content" source="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png" alt-text="Screenshot of Modernize CLI that shows the output of the progress of delegating assessment to cloud agents in the terminal." lightbox="../media/modernization-agent/assess-delegate-cloud-coding-agents-progress.png":::
 
     The agent pulls the per-app assessment results back to local and generates the aggregated report locally.
 
@@ -391,7 +391,7 @@ modernize assess --source .github/modernize/repos.json
 modernize assess --source https://github.com/org/repo1 --source https://github.com/org/repo2
 ```
 
-**Assess by delegating to Cloud Agents:**
+**Assess by delegating to cloud agents:**
 
 ```bash
 modernize assess --source .github/modernize/repos.json --delegate cloud --wait
@@ -410,7 +410,7 @@ The end-to-end flow:
 
 1. **Fill in repository URLs.** Edit each `repos[]` entry in the downloaded file to add the GitHub repository URL for the application. Keep the `apps[]` and `output` blocks as Azure Migrate generated them - those blocks drive the upload.
 
-1. **Run batch assessment.** Run the assessment locally or by delegating to Cloud Agents following preceding steps. Both execution modes honor the Azure Migrate output configuration.
+1. **Run batch assessment.** Run the assessment locally or by delegating to cloud agents following preceding steps. Both execution modes honor the Azure Migrate output configuration.
 
 1. **Reports upload automatically.** When the assessment completes, the modernization agent uploads each application's report back to your Azure Migrate project. No extra CLI flag is required - the `output.type` setting in the `repos.json` file drives the upload.
 
@@ -459,9 +459,9 @@ The aggregated report provides a comprehensive view across assessed applications
 - Verify that build files exist, such as `pom.xml`, `build.gradle`, `*.csproj`, `*.sln`, `*.slnx`, or `package.json`.
 - Review error messages in the console output. Non-fatal warnings (for example, missing build files in a sub-module) are now surfaced directly to the CLI output - review them before treating the report as final.
 
-**Cloud Agent delegation problems:**
+**Cloud agent delegation problems:**
 
-- Cloud Agent delegation accepts only `https://github.com/...` repository URLs. Local paths and non-GitHub providers (GitLab, Azure DevOps) are rejected upfront with a descriptive error. Use local execution for those repositories.
+- Cloud agent delegation accepts only `https://github.com/...` repository URLs. Local paths and non-GitHub providers (GitLab, Azure DevOps) are rejected upfront with a descriptive error. Use local execution for those repositories.
 - Make sure you have the right permissions to create GitHub Actions workflows.
 - Check GitHub Actions permissions and quota limits for your organization.
 - For .NET Framework apps, make sure Windows runner configuration is properly set.

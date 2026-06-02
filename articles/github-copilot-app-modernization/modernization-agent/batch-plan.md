@@ -147,7 +147,7 @@ After you configure your repositories, start the batch planning workflow.
 
     - **Use arrow keys** to navigate and press <kbd>Space</kbd> to toggle individual repositories.
 
-1. Select **1. Keep the plan local** to generate plans on your machine, or choose **2. Submit to Cloud Coding Agent** to have a cloud coding agent generate them. Option 2 is experimental.
+1. Select **1. Keep the plan local** to generate plans on your machine, or choose **2. Submit to Cloud Agent** to have a cloud agent generate them. Option 2 is experimental.
 
 1. Enter a plan name or press <kbd>Enter</kbd> to use the default.
 
@@ -161,7 +161,7 @@ After you configure your repositories, start the batch planning workflow.
 
 1. The agent automatically:
 
-    - Clones each selected repository or submits a job to Cloud Coding Agent for each repo.
+    - Clones each selected repository or submits a job to a cloud agent for each repo.
     - Generates a plan for each repository locally or a PR with the plan in each repository.
 
 ## Next steps

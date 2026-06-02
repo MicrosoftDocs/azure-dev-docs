@@ -77,7 +77,7 @@ modernize assess [options]
 | `--format <format>`      | Output format for assessment reports: `html` or `markdown`.                                                                                                                                                                 | `html`                          |
 | `--assess-config <path>` | Path to assessment configuration YAML file. Overrides default assessment parameters such as target JDK version, compute services, and migration preferences. For more information, see [Batch assessment](batch-assess.md). | None                            |
 | `--model <model>`        | The LLM model to use.                                                                                                                                                                                                       | `claude-sonnet-4.6`             |
-| `--delegate <delegate>`  | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent).                                                                                                                                                 | `local`                         |
+| `--delegate <delegate>`  | The execution mode: `local` (this machine) or `cloud` (cloud agent).                                                                                                                                                 | `local`                         |
 | `--wait`                 | Waits for the delegated tasks to complete and generate results (only valid with `--delegate cloud`).                                                                                                                        | Disabled                        |
 | `--force`                | Forces restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`).                                                                                                                                     | Disabled                        |
 
@@ -272,8 +272,8 @@ modernize plan execute [prompt] [options]
 | `--plan-name <name>`    | The name of the plan to execute.                                            | `modernization-plan` |
 | `--language <lang>`     | The programming language (`java` or `dotnet`).                              | Auto-detected        |
 | `--model <model>`       | The LLM model to use.                                                       | `claude-sonnet-4.6`  |
-| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent). | `local`              |
-| `--force`               | Forces execution even when a Cloud Coding Agent job is in progress. Only valid with `--delegate cloud`. | Disabled             |
+| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (cloud agent). | `local`              |
+| `--force`               | Forces execution even when a cloud agent job is in progress. Only valid with `--delegate cloud`. | Disabled             |
 
 #### Examples
 
@@ -295,14 +295,14 @@ Execute with extra instructions:
 modernize plan execute "skip the test" --plan-name spring-boot-upgrade
 ```
 
-Force execution on Cloud Coding Agent even if job is running:
+Force execution on a cloud agent even if a job is running:
 
 ```bash
 modernize plan execute --delegate cloud --force --plan-name spring-boot-upgrade
 ```
 
 > [!NOTE]
-> The `--force` option can only be used with Cloud Coding Agent delegation (`--delegate cloud`).
+> The `--force` option can only be used with cloud agent delegation (`--delegate cloud`).
 
 Execute in headless mode for CI/CD:
 
@@ -353,7 +353,7 @@ modernize upgrade [prompt] [options]
 | Option                  | Description                                                                                                                                               | Default                 |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
 | `--source <source>`     | Source to upgrade (repeatable). Accepts local paths, Git URLs, or a JSON config file path. Use multiple `--source` flags to specify several repositories. | `.` (current directory) |
-| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (Cloud Coding Agent).                                                                               | `local`                 |
+| `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (cloud agent).                                                                               | `local`                 |
 | `--model <model>`       | The LLM model to use.                                                                                                                                     | `claude-sonnet-4.6`     |
 
 #### Examples
@@ -374,7 +374,7 @@ Run `upgrade` on a specific project:
 modernize upgrade "Java 17" --source /path/to/project
 ```
 
-Run `upgrade` by using the Cloud Coding Agent:
+Run `upgrade` by using the cloud agent:
 
 ```bash
 modernize upgrade "Java 17" --delegate cloud
@@ -560,7 +560,7 @@ The `output` field supports the following distribution types:
 | `git`   | Push reports to a Git repository. URL format: `https://github.com/org/repo.git#branch:path`. | `url`           |
 
 > [!IMPORTANT]
-> Cloud Coding Agent delegation (`--delegate cloud`) requires repositories to have **GitHub (github.com) repository URLs**. Local path repositories and non-GitHub providers (GitLab, Azure DevOps) aren't supported for cloud delegation and are skipped.
+> Cloud agent delegation (`--delegate cloud`) requires repositories to have **GitHub (github.com) repository URLs**. Local path repositories and non-GitHub providers (GitLab, Azure DevOps) aren't supported for cloud delegation and are skipped.
 
 Then use `--source` to pass the config file path:
 
@@ -570,13 +570,13 @@ Assess all repositories locally:
 modernize assess --source .github/modernize/repos.json
 ```
 
-Assess all repositories by using the Cloud Coding Agent:
+Assess all repositories by using the cloud agent:
 
 ```bash
 modernize assess --source .github/modernize/repos.json --delegate cloud
 ```
 
-Upgrade all repositories by using the Cloud Coding Agent:
+Upgrade all repositories by using the cloud agent:
 
 ```bash
 modernize upgrade --source .github/modernize/repos.json --delegate cloud

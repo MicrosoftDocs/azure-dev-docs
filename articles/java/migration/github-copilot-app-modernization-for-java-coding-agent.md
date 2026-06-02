@@ -1,7 +1,7 @@
 ---
-title: Modernize Java Apps by Using GitHub Copilot Modernization in Coding Agent
+title: Modernize Java Apps by Using GitHub Copilot Modernization in the Cloud Agent
 titleSuffix: Azure
-description: Provides an overview of how Java developers can modernize applications by using GitHub Copilot modernization in the Copilot coding agent.
+description: Provides an overview of how Java developers can modernize applications by using GitHub Copilot modernization in the Copilot cloud agent.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xinrzhu
@@ -13,12 +13,12 @@ ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Modernize Java apps by using GitHub Copilot modernization in coding agent
+# Modernize Java apps by using GitHub Copilot modernization in the cloud agent
 
-This article provides an overview of how Java developers can modernize their applications by using GitHub Copilot modernization within the [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent). The agent works independently in the background to complete modernization tasks, just like a human developer. Developers delegate tasks via issues or pull requests, and the agent executes them in the cloud. This process helps teams efficiently complete the entire modernization journey.
+This article provides an overview of how Java developers can modernize their applications by using GitHub Copilot modernization within the [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent). The agent works independently in the background to complete modernization tasks, just like a human developer. Developers delegate tasks via issues or pull requests, and the agent executes them in the cloud. This process helps teams efficiently complete the entire modernization journey.
 
 > [!NOTE]
-> GitHub Copilot coding agent is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business, and GitHub Copilot Enterprise plans. The agent is available in all repositories stored on GitHub, except repositories owned by managed user accounts and where it's explicitly disabled.
+> GitHub Copilot cloud agent is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business, and GitHub Copilot Enterprise plans. The agent is available in all repositories stored on GitHub, except repositories owned by managed user accounts and where it's explicitly disabled.
 
 Supported scenarios:
 
@@ -28,7 +28,7 @@ Supported scenarios:
 
 ## Prerequisites
 
-- [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) configured
+- [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) configured
 - A GitHub Copilot Pro, Pro+, Business, or Enterprise subscription
 - A GitHub repo
 
@@ -37,11 +37,11 @@ Supported scenarios:
 
 ## Get started
 
-Use the following steps to get started with the Copilot coding agent:
+Use the following steps to get started with the Copilot cloud agent:
 
 1. Go to the **Settings** section of the target repository you want to modernize. You must be an administrator of this repository.
 
-1. Select Copilot, and then select **Coding Agent**.
+1. Select Copilot, and then select **Cloud Agent**.
 
 1. Under **MCP Configuration** in the **Model Context Protocol (MCP)** section, manually add the following configuration, and then select **Save Configuration**:
 
@@ -63,7 +63,7 @@ Use the following steps to get started with the Copilot coding agent:
    }
    ```
 
-   :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/mcp.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/mcp.png" alt-text="Screenshot of GitHub that shows the Copilot coding agent MCP configuration.":::
+   :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/mcp.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/mcp.png" alt-text="Screenshot of GitHub that shows the Copilot cloud agent MCP configuration.":::
 
 1. Add the custom agent for upgrade. Create a file named `modernize-java.agent.md` in your repo's `.github/agents/` directory with the following content, and then commit and merge it into your default branch:
 
@@ -405,7 +405,7 @@ The following steps illustrate the upgrade process:
 
 ## Migrate your Java application to Azure
 
-To migrate your Java application to Azure, describe your migration scenario for the coding agent as shown in the following example prompt. For more information about predefined migration tasks, see [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md). 
+To migrate your Java application to Azure, describe your migration scenario for the cloud agent as shown in the following example prompt. For more information about predefined migration tasks, see [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md). 
 
 ```prompt
 Run migration task for scenario Migrate Cassandra integration to Azure SDK using Managed Identity
@@ -427,7 +427,7 @@ The following steps illustrate the migration process:
 
 ## Deploy your Java application to Azure
 
-After upgrading or migrating your application, you can deploy it directly from the coding agent by using the following prompt:
+After upgrading or migrating your application, you can deploy it directly from the cloud agent by using the following prompt:
 
 ```prompt
 Deploy this application to Azure

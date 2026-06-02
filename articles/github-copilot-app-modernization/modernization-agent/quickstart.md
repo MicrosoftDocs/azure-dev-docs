@@ -168,7 +168,7 @@ After the assessment finishes, the agent prompts you to create a modernization p
 ```
 
 1. Select **1. Create modernization plan**.
-1. Select **1. Keep the plan local** to generate the plan on your machine, or choose **2. Submit to Cloud Coding Agent** to have a cloud coding agent generate it. Option 2 is experimental.
+1. Select **1. Keep the plan local** to generate the plan on your machine, or choose **2. Submit to Cloud Agent** to have a cloud agent generate it. Option 2 is experimental.
 1. The newly created assessment report is selected by default to generate the plan. Select **1. No report** if you want to describe your specific requirements instead.
 1. Enter a plan name or press Enter to use the default name.
 1. Enter your modernization goal as a prompt. By default, the prompt is `Based on the assessment report, upgrade the project and migrate to Azure` to create a plan based on the assessment findings. You can replace it with any other migration request, for example:
