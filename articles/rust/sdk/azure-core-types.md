@@ -1,14 +1,15 @@
 ---
-title: Use Azure SDK for Rust azure-core crate for advanced scenarios
-description: Learn how to use Azure SDK for Rust azure-core crate core types in Rust applications to customize HTTP clients, policies, and error handling. Discover how to implement your own clients and optimize Azure SDK for Rust crates usage.
-ms.date: 05/18/2026
-ms.topic: how-to
+title: Use Azure SDK for Rust Azure Core crate for advanced scenarios
+description: Learn how to use Azure SDK for Rust azure_core crate types to customize HTTP clients, policies, and error handling in your applications.
+ms.date: 06/01/2026
 ms.service: azure-rust
-ms.custom: devx-track-rust
+ms.topic: how-to
+ms.custom:
+  - devx-track-rust
 ai-usage: ai-assisted
 ---
 
-# Use the `azure-core` crate for advanced scenarios in Rust applications
+# Use the azure_core crate for advanced scenarios in Rust applications
 
 The `azure_core` crate provides fundamental types, traits, and abstractions that form the foundation of all Azure SDK for Rust crates. This article demonstrates how to implement custom HTTP clients, create custom policies for request/response processing, and access detailed error information from Azure services.
 
@@ -49,7 +50,6 @@ Then construct the client:
 You can access detailed errors returned by the Azure service. The following example demonstrates deserializing a standard Azure error response to get more details such as the `error_code` and error details.
 
 :::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_error_response.rs" range="19-75" :::
-
 
 ## Next steps
 

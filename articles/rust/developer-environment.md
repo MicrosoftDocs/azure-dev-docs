@@ -1,10 +1,12 @@
 ---
 title: Configure Your Local Rust Environment for Azure Development
-description: Set up your local Rust development environment for Azure with installation suggestions, SDK crates, authentication methods, and essential tools. Start building cloud applications today.
-ms.date: 05/18/2026
-ms.topic: get-started
+description: Set up your local Rust development environment for Azure with SDK crates, authentication methods, and essential tools.
+ms.date: 06/01/2026
 ms.service: azure-rust
-ms.custom: devx-track-rust, azure-sdk-rust
+ms.topic: get-started
+ms.custom:
+  - devx-track-rust
+  - azure-sdk-rust
 ---
 
 # Configure your Rust development environment for Azure
@@ -19,10 +21,10 @@ You create [Azure resources](/azure/cloud-adoption-framework/ready/azure-setup-g
 
 If you already have a subscription, access your existing subscription with:
 
-* [Azure portal][Azure portal]
-* [Azure CLI][Azure CLI]
-* [Azure SDK for Rust crates][Azure crates]
-* [Visual Studio Code extensions][Visual Studio Code extensions]
+- [Azure portal][Azure portal]
+- [Azure CLI][Azure CLI]
+- [Azure SDK for Rust crates][Azure crates]
+- [Visual Studio Code extensions][Visual Studio Code extensions]
 
 ## One-time software installation
 
@@ -56,7 +58,7 @@ For detailed installation guidance and troubleshooting, see the [Installation ch
 
 ## Add Azure SDK crates to your Rust project
 
-You can get the Azure SDK for Rust crates from [crates.io][Azure crates]. To learn more, see [Azure SDK for Rust](./sdk/overview.md).
+You can get the Azure SDK for Rust crates from [crates.io][Azure crates]. To learn more, see [Azure SDK for Rust](sdk/overview.md).
 
 ## Authenticate to Azure
 
@@ -71,7 +73,6 @@ If you're new to Rust, these official resources can help you get up to speed:
 - [The Cargo Book][The Cargo Book] - Complete guide to Cargo, Rust's package manager and build system
 - [Rustlings][Rustlings] - Interactive exercises to learn Rust
 - [Rust development tools][official Rust development tools guide] - Official overview of IDEs, editors, and development tools
-
 
 <!-- Reference links for Rust resources -->
 [Azure portal]: https://portal.azure.com/
