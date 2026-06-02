@@ -6,12 +6,14 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: quickstart
 ai-usage: ai-assisted
-ms.date: 04/17/2026
+ms.date: 06/02/2026
 ---
 
 # Quickstart: Install and use the GitHub Copilot modernization agent
 
 This quickstart guides you through installing the GitHub Copilot modernization agent and using it to modernize a sample application.
+
+> [!VIDEO https://www.youtube.com/embed/AvEfMgMjOOs?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
 
 ## Prerequisites
 
@@ -121,22 +123,28 @@ modernize
 The main menu appears:
 
 ```Modernize CLI
-○ What would you like to do?
+○ How would you like to modernize your app?
 
-  > Assess        Analyze your source application and generate an assessment report
-    Plan          Create a modernization plan based on assessment findings
-    Execute       Run tasks defined in your modernization plan
-  ──────────────
-    Upgrade       Upgrade your runtime and frameworks to the latest versions
+  > Assess
+    Analyze modernization readiness across one or multiple applications
+    Plan
+    Generate a structured plan to guide the agent
+    Execute
+    Run the tasks defined in the modernization plan
+
+  Or select a quick-start scenario:
+
+    Upgrade
+    Upgrade runtimes and frameworks across one or multiple applications
 ```
 
 ### Step 1: Assess the application
 
 1. Select **Assess** from the main menu.
 1. Choose how to specify your target repositories. You can select **Current folder** to use your current directory, **Manual input** to enter local paths or remote Git URLs, or **From a config file** to load repositories from a JSON config file. For this quickstart, select **Current folder**.
-1. Choose the execution mode. Select **Assess locally** to run the assessment on your machine, or **Delegate to Cloud Agents** to let cloud agents run the assessment in parallel. For this quickstart, select **Assess locally**.
 1. Select assessment domains, such as **Java upgrade** and **Cloud Readiness**, and press <kbd>Enter</kbd>.
 1. Review the assessment configuration options, such as Analysis Coverage and Target Runtime. Press <kbd>Enter</kbd> on **Continue** to accept the recommended defaults, or adjust individual settings as needed.
+1. Choose the execution mode. Select **Assess locally** to run the assessment on your machine, or **Delegate to Cloud Agents** to let cloud agents run the assessment in parallel. For this quickstart, select **Assess locally**.
 1. Accept the default output path or enter a custom one, and then press <kbd>Enter</kbd> to start the assessment.
 1. Wait for the assessment to complete.
 
@@ -160,20 +168,22 @@ After the assessment finishes, the agent prompts you to create a modernization p
 ```
 
 1. Select **1. Create modernization plan**.
+1. Select **1. Keep the plan local** to generate the plan on your machine, or choose **2. Submit to Cloud Agent** to have a cloud agent generate it. Option 2 is experimental.
+1. The newly created assessment report is selected by default to generate the plan. Select **1. No report** if you want to describe your specific requirements instead.
 1. Enter a plan name or press Enter to use the default name.
-1. Enter your modernization goal as a prompt. By default, the prompt is `References the assessment summary and creates plan` to create a plan based on the assessment findings. You can replace it with any other migration request, for example:
+1. Enter your modernization goal as a prompt. By default, the prompt is `Based on the assessment report, upgrade the project and migrate to Azure` to create a plan based on the assessment findings. You can replace it with any other migration request, for example:
    - `migrate the database to Azure PostgreSQL`
    - `upgrade to Spring Boot 3`
    - `deploy to Azure Container Apps`
 1. Press Enter to generate the plan.
+1. The agent analyzes your codebase and asks you to clarify the request. You can select a suggested answer or type your own.
 
-The agent analyzes your codebase and generates:
+The agent aggregates all the information and generates:
 
 - **Plan file** (`.github/modernize/{plan-name}/plan.md`): Detailed strategy and approach.
-- **Task list** (`.github/modernize/{plan-name}/tasks.json`): Breakdown of executable steps.
 
 > [!TIP]
-> You can manually edit `plan.md` to add clarifications or adjust details. You can also update `tasks.json` to modify, reorder, add, or remove tasks before executing the plan.
+> You can manually edit `plan.md` to add clarifications or adjust details.
 
 ### Step 3: Execute the modernization plan
 
@@ -226,4 +236,15 @@ After execution finishes, you can review all changes that the agent made before 
 
 ## Provide feedback
 
-Your input is important! If you have any feedback about the Modernization agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
+Your feedback helps improve the modernization agent. To send feedback from the Modernize TUI, press **F**.
+
+```Modernize CLI
+GitHub Copilot modernization v1.0.0
+GitHub Copilot modernization is AI-powered and may not always be accurate.
+
+GitHub account: <username>
+Copilot CLI version: 1.0.0
+Model: Claude Sonnet 4.5 (1x) · M Select model · F Feedback
+```
+
+You can also [create an issue in the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml) or use the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).

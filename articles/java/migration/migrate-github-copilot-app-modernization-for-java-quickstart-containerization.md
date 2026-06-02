@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: honc
 ms.topic: quickstart
-ms.date: 03/11/2026
+ms.date: 06/02/2026
 ai-usage: ai-assisted
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
@@ -15,15 +15,17 @@ ms.update-cycle: 180-days
 
 # Quickstart: Containerize your project by using GitHub Copilot modernization
 
-In this quickstart, you containerize your project by using GitHub Copilot modernization.
+This quickstart shows how to containerize your project by using GitHub Copilot modernization.
 
 To use container compute services like Azure Kubernetes Service and Azure Container Apps, you need to containerize your project by creating a Dockerfile and other related configuration files, and build container images. The GitHub Copilot modernization extension automates this containerization process.
+
+> [!VIDEO https://www.youtube.com/embed/SUB5jB0eCWU?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
 
 ## Prerequisites
 
 - A GitHub account with an active [GitHub Copilot](https://github.com/features/copilot) subscription under any plan.
 - One of the following IDEs:
-  - The latest version of [Visual Studio Code](https://code.visualstudio.com/) (version 1.106 or later) with the following extensions:
+  - The latest version of [Visual Studio Code](https://code.visualstudio.com/) (version 1.113 or later) with the following extensions:
     - [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). For setup instructions, see [Set up GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup). Be sure to sign in to your GitHub account within Visual Studio Code.
     - [GitHub Copilot modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). Restart Visual Studio Code after installation.
   - The latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download) (version 2023.3 or later) with the following plugins:
@@ -40,15 +42,15 @@ Use the following steps to start the containerization process:
 
 1. Make sure you have Docker installed and running.
 
-1. In Visual Studio Code, open your migrated project.
+1. Open your project in your IDE.
 
-1. In the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane.
-
-1. In the **Tasks** section, open **Containerize Tasks** and select **Containerize Application**.
+1. From the **Activity** sidebar, open the **GitHub Copilot modernization** extension pane. Under the **Tasks** section, open **Containerize Tasks**, select the task **Containerize Application**, and then select **Run**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the Containerize Application task with the Run Task button highlighted.":::
 
-1. After you select the task, the Copilot chat window with Agent Mode opens automatically.
+1. After you select the button, the Copilot chat window with Agent Mode opens automatically.
+
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize-chat.png" alt-text="Screenshot of Visual Studio Code that shows the Copilot chat window with Agent mode triggered automatically by the Containerize Application task.":::
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate containerization. Each tool's usage requires confirmation by selecting **Continue**.
 
@@ -62,7 +64,7 @@ Use the following steps to start the containerization process:
    - Creates a summary of the containerization results.
 
 > [!NOTE]
-> We recommend using Claude Sonnet 4 or later models for the best results.
+> Use Claude Opus 4.5 or later models for the best results.
 >
 > It might take Copilot a few iterations to correct containerization errors.
 
@@ -78,7 +80,8 @@ The **Containerize Application** button sends a predefined prompt. For more cont
 > - `"Containerize all modules in this multi-module project and create a docker-compose.yml for local testing"` - handle multi-module projects with compose.
 > - `"Containerize my app and push the image to my Azure Container Registry: <acr-name>.azurecr.io"` - build and push in one step.
 
-## See also
+## Next steps
 
+- [Quickstart: Deploy your project to Azure](migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md)
 - GitHub Copilot modernization uses certain tools in containerization assist. For more information, see the [containerization-assist](https://github.com/Azure/containerization-assist) repository on GitHub.
 - [GitHub Copilot modernization documentation](../../github-copilot-app-modernization/index.yml)

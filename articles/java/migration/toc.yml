@@ -15,17 +15,21 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-faq.yml
         - name: Portfolio assessment integration
           href: github-copilot-app-modernization-for-java-portfolio-assessment-integration.md
+        - name: Install for IDE
+          href: github-copilot-app-modernization-for-java-ide-install.md
         - name: Copilot CLI
           href: github-copilot-app-modernization-for-java-copilot-cli.md
-        - name: Coding agent
+        - name: Cloud agent
           href: github-copilot-app-modernization-for-java-coding-agent.md
         - name: Predefined tasks
           href: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
         - name: Working with assessment
           href: migrate-github-copilot-app-modernization-for-java-working-with-assessment.md
+        - name: Secure your Java applications
+          href: migrate-github-copilot-app-modernization-for-java-secure-your-application.md
         - name: Understand assessment rules
           href: migrate-github-copilot-app-modernization-for-java-assess-rules.md
-        - name: Optimize chat results with the AppModernization agent
+        - name: Optimize chat results with the modernize agent
           href: migrate-github-copilot-app-modernization-for-java-quickstart-chat-window.md
         - name: "Quickstart: Assess and migrate a Java project"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
@@ -43,7 +47,7 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md
         - name: Migration via custom agent
           href: migrate-github-copilot-app-modernization-for-java-custom-agent.md
-        - name: Re-architect (preview)
+        - name: Re-architect
           href: github-copilot-app-modernization-for-java-rearchitecture.md
     - name: Spring to Azure
       expanded: true

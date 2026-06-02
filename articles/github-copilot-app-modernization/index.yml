@@ -8,7 +8,7 @@ metadata:
   description: Provides an overview, reference, and quickstarts on using GitHub Copilot modernization.
   author: KarlErickson
   ms.author: karler
-  ms.date: 03/26/2026
+  ms.date: 06/02/2026
   ms.topic: landing-page
 
 landingContent:
@@ -30,6 +30,10 @@ landingContent:
             url: /dotnet/core/porting/github-copilot-app-modernization/overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: .NET FAQ
             url: /dotnet/core/porting/github-copilot-app-modernization/faq?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: JavaScript/TypeScript overview
+            url: javascript-typescript-overview.md
+          - text: JavaScript/TypeScript FAQ
+            url: javascript-typescript-faq.yml
   - title: "CLI: Modernization agent"
     linkLists:
       - linkListType: overview
@@ -48,6 +52,8 @@ landingContent:
         links:
           - text: Batch assessment
             url: modernization-agent/batch-assess.md
+          - text: Batch plan
+            url: modernization-agent/batch-plan.md
           - text: Batch upgrade
             url: modernization-agent/batch-upgrade.md
           - text: Customization
@@ -70,8 +76,8 @@ landingContent:
             url: configure-settings-intellij.md
           - text: Customize the upgrade plan
             url: customize-upgrade-plan.md
-          - text: Upgrade a framework or third-party dependency
-            url: framework-upgrade.md
+          - text: Customize the modernization plan
+            url: customize-modernization-plan.md
   - title: Migrate Java projects to Azure
     linkLists:
       - linkListType: reference
@@ -80,6 +86,8 @@ landingContent:
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-tasks.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Working with assessment
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-working-with-assessment.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: Secure your Java applications
+            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-secure-your-application.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Understand assessment rules
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-assess-rules.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: quickstart
@@ -130,3 +138,13 @@ landingContent:
         links:
           - text: Migration sample
             url: /dotnet/azure/migration/appmod/sample?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+  - title: Upgrade JavaScript/TypeScript projects
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: GitHub Copilot modernization for JavaScript/TypeScript
+            url: javascript-typescript-overview.md
+      - linkListType: quickstart
+        links:
+          - text: "Quickstart: Upgrade npm packages"
+            url: javascript-typescript-quickstart-upgrade-npm-packages.md

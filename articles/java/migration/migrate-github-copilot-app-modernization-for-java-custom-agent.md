@@ -1,10 +1,10 @@
 ---
 title: Migrate Java Apps to Azure with Custom Agents
-description: Learn to migrate Java apps to Azure using GitHub Copilot custom agents. Automate modernization with Copilot CLI and coding agent. Start migrating today.
+description: Learn to migrate Java apps to Azure using GitHub Copilot custom agents. Automate modernization with Copilot CLI and cloud agent. Start migrating today.
 #customer intent: As a Java developer, I want to migrate my application to Azure using GitHub Copilot CLI so that I can automate the modernization process.
 ms.topic: quickstart
 ms.custom: devx-track-java
-ms.date: 01/13/2026
+ms.date: 06/02/2026
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
@@ -14,7 +14,7 @@ ms.update-cycle: 180-days
 
 # Migrate Java apps to Azure by using GitHub Copilot modernization via custom agent
 
-This article shows you how to migrate Java apps by using GitHub Copilot modernization custom agents. By using custom agents, you can define specialized migration workflows that work in both the [Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md) and [Copilot coding agent](github-copilot-app-modernization-for-java-coding-agent.md).
+This article shows you how to migrate Java apps by using GitHub Copilot modernization custom agents. By using custom agents, you can define specialized migration workflows that work in both the [Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md) and [Copilot cloud agent](github-copilot-app-modernization-for-java-coding-agent.md).
 
 By creating a custom agent profile, you can:
 - Standardize migration workflows across your team.
@@ -28,16 +28,16 @@ Choose the environment where you want to use custom agents:
 
 ### [Copilot CLI](#tab/copilot-cli)
 
-- [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) installed and configured. For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md#get-started).
+- [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) installed and configured. For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md#install-the-plugin).
 - A GitHub Copilot Pro, Pro+, Business, or Enterprise subscription.
 - [Node.js](https://nodejs.org/) version 22 or later.
 - [npm](https://www.npmjs.com/get-npm) version 10 or later.
 
-### [Copilot coding agent](#tab/copilot-coding-agent)
+### [Copilot cloud agent](#tab/copilot-cloud-agent)
 
-- [Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) configured. For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in coding agent](github-copilot-app-modernization-for-java-coding-agent.md#get-started).
+- A configured [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent). For setup instructions, see [Modernize Java apps by using GitHub Copilot modernization in the cloud agent](github-copilot-app-modernization-for-java-coding-agent.md#get-started).
 - A GitHub Copilot Pro, Pro+, Business, or Enterprise subscription.
-- A GitHub repository containing your application source code. Administrator access is required.
+- A GitHub repository containing your application source code. You need administrator access.
 
 ---
 
@@ -46,7 +46,7 @@ Choose the environment where you want to use custom agents:
 
 ## Add the MCP server
 
-Before creating a custom agent, add the GitHub Copilot modernization MCP server. The setup process differs between CLI and coding agent.
+Before creating a custom agent, add the GitHub Copilot modernization MCP server. The setup process differs between CLI and the cloud agent.
 
 ### [Copilot CLI](#tab/copilot-cli)
 
@@ -54,7 +54,7 @@ Before creating a custom agent, add the GitHub Copilot modernization MCP server.
 
 1. Run the following command in Copilot CLI:
 
-    ```text
+    ```Copilot CLI
     /mcp add app-modernization
     ```
 
@@ -87,13 +87,13 @@ Before creating a custom agent, add the GitHub Copilot modernization MCP server.
 
 1. Run `/mcp show` to verify the configuration.
 
-For more information, see [Add MCP Server for CLI](github-copilot-app-modernization-for-java-copilot-cli.md#get-started).
+For more information, see [Install the plugin](github-copilot-app-modernization-for-java-copilot-cli.md#install-the-plugin).
 
-### [Copilot coding agent](#tab/copilot-coding-agent)
+### [Copilot cloud agent](#tab/copilot-cloud-agent)
 
-1. Go to **Settings** for your target repository. Administrator access is required.
+1. Go to **Settings** for your target repository. You need administrator access.
 
-1. Select **Copilot**, and then select **Coding Agent**.
+1. Select **Copilot**, and then select **Cloud Agent**.
 
 1. In the **Model Context Protocol (MCP)** section under **MCP Configuration**, add the following configuration:
 
@@ -117,9 +117,9 @@ For more information, see [Add MCP Server for CLI](github-copilot-app-modernizat
 
 1. Select **Save Configuration**.
 
-1. (Optional) If environment variables are required, set them under **Environment → Copilot** in the settings.
+1. (Optional) If you need environment variables, set them under **Environment → Copilot** in the settings.
 
-For more information, see [Add MCP Server for coding agent](github-copilot-app-modernization-for-java-coding-agent.md#get-started).
+For more information, see [Add MCP Server for cloud agent](github-copilot-app-modernization-for-java-coding-agent.md#get-started).
 
 ---
 
@@ -135,13 +135,13 @@ The custom agent defines the specialized behavior and instructions for your migr
 
 1. To use the custom agent, run `/agent` in interactive mode or call it directly in a prompt:
 
-    ```text
+    ```prompt
     Use the modernization agent to migrate this application from S3 to Azure Blob Storage.
     ```
 
 For more information, see [Use custom agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents).
 
-### [Copilot coding agent](#tab/copilot-coding-agent)
+### [Copilot cloud agent](#tab/copilot-cloud-agent)
 
 1. Go to the [GitHub Agents tab](https://github.com/copilot/agents).
 
@@ -165,7 +165,7 @@ For more information, see [Creating a custom agent profile in a repository on Gi
 
 ### Custom agent content
 
-Use the following content for both CLI and coding agent. For Copilot CLI, include the `tools` field in the YAML front matter.
+Use the following content for both CLI and the cloud agent. For Copilot CLI, include the `tools` field in the YAML front matter.
 
 #### [Copilot CLI (with tools field)](#tab/copilot-cli)
 
@@ -680,7 +680,7 @@ After completing Stage 6:
 
 ```
 
-#### [Copilot coding agent (without tools field)](#tab/copilot-coding-agent)
+#### [Copilot cloud agent (without tools field)](#tab/copilot-cloud-agent)
 
 ```text
 ---
@@ -1192,7 +1192,7 @@ After completing Stage 6:
 
 ## Migrate your Java application to Azure
 
-After creating the custom agent, use it to migrate your Java applications. The process is similar in both CLI and coding agent.
+After creating the custom agent, use it to migrate your Java applications. The process is similar in both CLI and cloud agent.
 
 ### [Copilot CLI](#tab/copilot-cli)
 
@@ -1200,7 +1200,7 @@ After creating the custom agent, use it to migrate your Java applications. The p
 
 1. Start Copilot CLI and use your custom agent with a migration prompt:
 
-    ```text
+    ```prompt
     Use the modernization agent to migrate this application from S3 to Azure Blob Storage
     ```
 
@@ -1216,17 +1216,17 @@ After creating the custom agent, use it to migrate your Java applications. The p
 
     :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent/migrate-summary.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent/migrate-summary.png" alt-text="Screenshot of GitHub Copilot CLI that shows the Java migration summary.":::
 
-### [Copilot coding agent](#tab/copilot-coding-agent)
+### [Copilot cloud agent](#tab/copilot-cloud-agent)
 
 1. Open the [Agents panel](https://github.com/copilot/agents).
 
 1. Select your target repository and custom agent from the dropdown.
 
-    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/select-custom-agent.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/select-custom-agent.png" alt-text="Screenshot of the GitHub Agents panel that shows the Java migrate task input in the coding agent.":::
+    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/select-custom-agent.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/select-custom-agent.png" alt-text="Screenshot of the GitHub Agents panel that shows the Java migrate task input in the cloud agent.":::
 
 1. Enter your migration prompt. For example:
 
-    ```text
+    ```prompt
     Run migration task for scenario Migrate Cassandra integration to Azure SDK using Managed Identity
     ```
 
@@ -1234,11 +1234,11 @@ After creating the custom agent, use it to migrate your Java applications. The p
 
 1. Copilot starts a new session and opens a pull request. Monitor the progress:
 
-    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/migrate-progress.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/migrate-progress.png" alt-text="Screenshot of the GitHub Agents pane that shows the Java migrate progress in the coding agent.":::
+    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/migrate-progress.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/migrate-progress.png" alt-text="Screenshot of the GitHub Agents pane that shows the Java migrate progress in the cloud agent.":::
 
 1. Review the migration summary when your app is fully migrated and cloud-ready.
     
-    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/migrate-completion.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/migrate-completion.png" alt-text="Screenshot of the GitHub Agents pane that shows the Java migrate completion in the coding agent.":::
+    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/migrate-completion.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/migrate-completion.png" alt-text="Screenshot of the GitHub Agents pane that shows the Java migrate completion in the cloud agent.":::
 
 ---
 
@@ -1246,10 +1246,10 @@ After creating the custom agent, use it to migrate your Java applications. The p
 
 Share feedback about GitHub Copilot modernization by using the [GitHub Copilot modernization feedback form](https://aka.ms/ghcp-appmod/feedback).
 
-## Reference
+## Next steps
 
 - [Modernize Java apps by using GitHub Copilot modernization in the Copilot CLI](github-copilot-app-modernization-for-java-copilot-cli.md)
-- [Modernize Java apps by using GitHub Copilot modernization in coding agent](github-copilot-app-modernization-for-java-coding-agent.md)
+- [Modernize Java apps by using GitHub Copilot modernization in the cloud agent](github-copilot-app-modernization-for-java-coding-agent.md)
 - [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli)
 - [Use GitHub Copilot agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents)
 - [Predefined tasks for GitHub Copilot modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)

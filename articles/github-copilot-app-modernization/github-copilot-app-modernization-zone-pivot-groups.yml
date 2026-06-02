@@ -1,0 +1,12 @@
+# YamlMime:ZonePivotGroups
+groups:
+- id: java-upgrade
+  title: IDE
+  prompt: Choose your tool
+  pivots:
+  - id: visual-studio-code
+    title: Visual Studio Code
+  - id: intellij
+    title: IntelliJ IDEA
+  - id: cli
+    title: Copilot CLI

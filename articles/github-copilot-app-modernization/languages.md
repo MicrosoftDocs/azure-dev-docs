@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: yangtony
 ms.topic: reference
-ms.date: 11/18/2025
+ms.date: 06/02/2026
 ---
 
 # Languages and frameworks supported by GitHub Copilot modernization
@@ -22,7 +22,7 @@ GitHub Copilot modernization can help you [upgrade the Java version](/java/upgra
 
 ### Upgrade the Java framework version
 
-GitHub Copilot modernization can help you [upgrade the framework version](/java/upgrade/framework-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your Java application, whether it's Spring, Spring Boot, or Java EE/Jakarta EE. The tool makes sure the JDK version is also upgraded to be compatible with the framework version, and verifies the changes with build fixes and CVE checks.
+GitHub Copilot modernization can help you [upgrade the framework version](/java/upgrade/quickstart-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your Java application, whether it's Spring, Spring Boot, or Java EE/Jakarta EE. The tool makes sure the JDK version is also upgraded to be compatible with the framework version, and verifies the changes with build fixes and CVE checks.
 
 ### Migrate Java apps to Azure
 
@@ -45,6 +45,14 @@ GitHub Copilot modernization can help you [upgrade the .NET version](/dotnet/cor
 GitHub Copilot modernization can help you [migrate your .NET application to Azure](/dotnet/azure/migration/appmod/quickstart?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) by assessing its cloud readiness and updating the code for dependency services.
 
 The tool supports [common scenarios](/dotnet/azure/migration/appmod/predefined-tasks?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) with AI-assisted code changes. It validates code changes by checking compilation and CVE fixes.
+
+## JavaScript/TypeScript
+
+The following section describes the JavaScript and TypeScript support.
+
+### Upgrade npm packages
+
+GitHub Copilot modernization can help you [upgrade npm packages](javascript-typescript-quickstart-upgrade-npm-packages.md) in your JavaScript or TypeScript project. The tool analyzes your `package.json` file, suggests an upgrade plan, and automatically upgrades packages to their latest versions by using your project's package manager, such as `npm`, `pnpm`, or `yarn`. It also helps you apply code changes needed to accommodate breaking changes or new APIs introduced in the upgraded packages.
 
 ## Python
 

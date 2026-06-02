@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 03/11/2026
+ms.date: 06/02/2026
 author: KarlErickson
 ms.author: karler
 ms.topic: whats-new
@@ -154,8 +154,7 @@ New articles:
 - [Customize the Java project upgrade plan when using GitHub Copilot modernization](../github-copilot-app-modernization/customize-upgrade-plan.md)
 - [GitHub Copilot modernization Java utilities](../github-copilot-app-modernization/tools.md)
 - [Quickstart: generate Java unit tests with GitHub Copilot modernization](../github-copilot-app-modernization/quickstart-unit-tests.md)
-- [Quickstart: upgrade a Java project with GitHub Copilot modernization](../github-copilot-app-modernization/quickstart-upgrade.md)
-- [Upgrade a Java framework or third-party dependency by using GitHub Copilot modernization](../github-copilot-app-modernization/framework-upgrade.md)
+- [Quickstart: Upgrade a Java project with GitHub Copilot modernization](../github-copilot-app-modernization/quickstart-upgrade.md)
 
 ## TypeSpec on Azure
 

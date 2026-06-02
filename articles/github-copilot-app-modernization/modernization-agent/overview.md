@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: overview
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 06/02/2026
 keywords: modernize cli, modernization agent
 ---
 
@@ -77,7 +77,7 @@ Execute modernization plans with validation at every stage:
 - **Version control integration**: Create branches and commits with traceable change history.
 - **Cloud alignment**: Support containerization and deployment workflows as part of execution.
 
-You can also delegate assessment, upgrade, and execution tasks to GitHub Copilot Coding Agent for enhanced tracking and collaboration.
+You can also delegate assessment, upgrade, and execution tasks to GitHub Copilot cloud agent for enhanced tracking and collaboration.
 
 ### Multi-repo and batch modernization
 
@@ -121,6 +121,7 @@ Use the modernization agent when you need:
 - [CLI command reference](cli-commands.md)
 - [Batch assessment: Assess multiple applications](batch-assess.md)
 - [Batch upgrade: Upgrade multiple applications](batch-upgrade.md)
+- [Batch plan: Generate modernization plan for multiple applications](batch-plan.md)
 - [Customization with skills](customization.md)
 
 ## Provide feedback

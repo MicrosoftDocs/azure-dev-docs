@@ -1,0 +1,55 @@
+### YamlMime:FAQ
+metadata:
+  title: GitHub Copilot Modernization for JavaScript/TypeScript FAQ
+  description: Answers frequently asked questions about GitHub Copilot modernization for JavaScript and TypeScript.
+  author: KarlErickson
+  ms.author: karler
+  ms.reviewer: yangtony
+  ms.topic: faq
+  ms.date: 06/02/2026
+  ms.custom: devx-track-js, devx-track-ts
+  ms.subservice: migration-copilot
+  ms.collection: ce-skilling-ai-copilot
+  ms.update-cycle: 180-days
+  ai-usage: ai-assisted
+
+title: GitHub Copilot modernization for JavaScript/TypeScript FAQ
+summary: Answers frequently asked questions about GitHub Copilot modernization for JavaScript and TypeScript.
+
+sections:
+  - name: FAQ
+    questions:
+
+      - question: What does GitHub Copilot modernization for JavaScript/TypeScript support today?
+        answer: |
+          GitHub Copilot modernization for JavaScript/TypeScript supports npm package upgrades with code remediation for breaking changes. The tool analyzes your project's `package.json`, suggests an upgrade plan, upgrades npm packages to their latest versions, and helps you apply code changes needed to accommodate breaking changes or new APIs. The tool is available only in Visual Studio Code through the GitHub Copilot modernization extension.
+
+      - question: Can I use it on a monorepo or workspace with multiple projects?
+        answer: |
+          Currently, the tool supports one project at a time. For monorepos or workspaces with multiple `package.json` files, only the first detected project is targeted by the upgrade process. To upgrade multiple projects in a monorepo, open each project folder separately in Visual Studio Code and run the upgrade process individually for each project.
+
+      - question: What should I do if the upgrade gets stuck or produces unexpected results?
+        answer: |
+          If the upgrade process gets stuck or doesn't produce the expected results, check the following sources for diagnostic information:
+
+          - **Upgrade session files**: The tool writes `plan.md`, `progress.md`, and `summary.md` to `<project>/.github/modernize/code-migration/<timestamp>/`. These files describe what the upgrade session attempted and where it stopped.
+          - **TypeScript MCP Server logs**: In Visual Studio Code, open the Command Palette and select **MCP: List Servers**, then select **GitHub Copilot modernization - TypeScript** and choose **Show Output**.
+          - **Local logs directory**: Check the logs in your user profile directory at `<user profile>/.ghcp-appmod/app-modernization-for-typescript/logs` for deeper diagnostics and error details.
+
+          If the problem persists, see the next question for how to report it.
+
+      - question: How do I provide feedback?
+        answer: |
+          We welcome your feedback to help improve GitHub Copilot modernization for JavaScript/TypeScript. You can:
+
+          - Open an issue at [https://aka.ms/ghcp-appmod/feedback](https://aka.ms/ghcp-appmod/feedback).
+          - Send an email to `webtoolsoutreach@microsoft.com`.
+
+          When you report an issue, include the following information:
+
+          - A description of the expected behavior versus the actual behavior you observed.
+          - The contents of the upgrade session files at `<project>/.github/modernize/code-migration/<timestamp>/` (especially `summary.md` and `progress.md`).
+          - The contents of the MCP server output (from **MCP: List Servers** > **GitHub Copilot modernization - TypeScript** > **Show Output**).
+          - Any relevant log files from `<user profile>/.ghcp-appmod/app-modernization-for-typescript/logs`.
+
+          Your feedback helps us improve the tool and address issues in future releases.
