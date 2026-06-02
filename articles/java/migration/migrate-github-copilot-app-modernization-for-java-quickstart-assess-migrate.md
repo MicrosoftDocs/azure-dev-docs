@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: haozhan
 ms.topic: quickstart
-ms.date: 03/20/2026
+ms.date: 06/02/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
@@ -17,7 +17,7 @@ zone_pivot_groups: ide-set-one
 
 # Quickstart: assess and migrate a Java project using GitHub Copilot modernization
 
-This quickstart shows you how to use GitHub Copilot modernization to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined task to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+This quickstart shows you how to use GitHub Copilot modernization to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined task to update an Azure SQL Database connection to use Azure Managed Identity instead of a username and password.
 
 The following video demonstrates how GitHub Copilot modernization uses [AppCAT](/azure/migrate/appcat/java) to help assess a Java project for migration to Azure:
 
@@ -35,7 +35,7 @@ The following video demonstrates how GitHub Copilot modernization uses [AppCAT](
 
 ## Apply a predefined task
 
-For migration, Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, by using the `mi-sql-public-demo` sample, the **Database Migration (Microsoft SQL)** task changes the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+For migration, Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, by using the `mi-sql-public-demo` sample, the **Database Migration (Microsoft SQL)** task changes the SQL Database connection to use Azure Managed Identity instead of a username and password.
 
 To apply a predefined task, use the following steps:
 
@@ -50,7 +50,7 @@ To apply a predefined task, use the following steps:
 1. Repeatedly select or enter **Continue** to confirm the use of tools or commands, and wait for the code changes to finish.
 
 > [!NOTE]
-> In Visual Studio Code, GitHub Copilot modernization uses the `AppModernization` custom agent with Claude Sonnet 4.5 by default for best results when updating Java code to migrate to Azure. It falls back to the `auto` model if Sonnet 4.5 isn't available to you. You can configure the custom agent to [modify the `model` setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
+> In Visual Studio Code, GitHub Copilot modernization uses the `modernize` custom agent with Claude Sonnet 4.6 by default for best results when updating Java code to migrate to Azure. It falls back to the `auto` model if Sonnet 4.6 isn't available to you. You can configure the custom agent to [modify the `model` setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
 
 ### Validation iteration
 

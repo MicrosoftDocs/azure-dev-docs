@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: haozhan
 ms.topic: reference
-ms.date: 03/20/2026
+ms.date: 06/02/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
@@ -20,6 +20,8 @@ zone_pivot_groups: ide-set-one
 This comprehensive guide covers advanced assessment capabilities in GitHub Copilot modernization to help you maximize the value of your application modernization assessment process.
 
 Application assessment is a critical first step in your modernization journey. This article covers the complete assessment workflow to help you effectively work with assessment reports, configure assessments for different scenarios, and manage assessment data throughout your modernization process.
+
+> [!VIDEO https://www.youtube.com/embed/ZjbKv1iJFok?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
 
 ::: zone pivot="vscode"
 [!INCLUDE [working-with-assessment-visual-studio-code.md](./includes/working-with-assessment-visual-studio-code.md)]

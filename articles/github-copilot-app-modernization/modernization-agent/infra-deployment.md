@@ -7,7 +7,7 @@ ms.author: karler
 ms.reviewer: honc
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 06/02/2026
 ---
 
 # Prepare infrastructure and deploy applications with the GitHub Copilot modernization agent
@@ -63,7 +63,7 @@ The agent generates a plan that includes a proposed Azure architecture and a det
 Review the output files before execution:
 
 - **Plan file** (`.github/modernize/infra-setup/plan.md`): Infrastructure strategy and proposed architecture.
-- **Task list** (`.github/modernize/infra-setup/tasks.json`): Specific tasks the agent performs.
+- **Task list** (`.github/modernize/infra-setup/.metadata/tasks.json`): Specific tasks the agent performs.
 
 You can edit both files to adjust resource configurations or modify the approach before execution.
 

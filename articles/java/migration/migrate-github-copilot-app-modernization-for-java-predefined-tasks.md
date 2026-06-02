@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: overview
-ms.date: 01/13/2026
+ms.date: 06/02/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
@@ -25,7 +25,7 @@ Predefined tasks capture industry best practices for using Azure services. Curre
 - Identity management
 
 > [!NOTE]
-> This list will grow based on customer feedback and evolving cloud needs.
+> This list grows based on customer feedback and evolving cloud needs.
 
 The following video demonstrates using GitHub Copilot modernization to apply a predefined task to migrate a Java project to Azure:
 
@@ -37,13 +37,13 @@ The following video demonstrates using GitHub Copilot modernization to apply a p
 
 GitHub Copilot modernization currently supports the following predefined tasks:
 
-- Spring RabbitMQ to Azure Service Bus
+- RabbitMQ to Azure Service Bus
 
-  This task converts an application that uses Spring messaging frameworks - including Spring Advanced Message Queuing Protocol (AMQP) and Spring Java Message Service (JMS) - with RabbitMQ, changing it to use the managed service Azure Service Bus instead. The message queue interaction logic is adapted to the Azure Service Bus equivalent, preserving the messaging patterns and semantics while enabling secure authentication mechanisms by default.
+  These tasks convert Java applications that use RabbitMQ - through Spring Advanced Message Queuing Protocol (AMQP), Spring Java Message Service (JMS), or Java EE / Jakarta EE over AMQP - to use the managed service Azure Service Bus instead, preserving the messaging patterns and semantics while enabling secure authentication by default.
 
 - Managed Identities for Database migration to Azure
 
-  The Azure database offerings - Azure SQL Server, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Cosmos DB for Cassandra API, and Azure Cosmos DB for MongoDB - support secure sign-in using Managed Identity. When you migrate an application from a local database to a managed Azure cloud database, this task helps you prepare your codebase for Managed Identity authentication to the database.
+    The Azure database offerings - Azure SQL Server, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Cosmos DB for Cassandra API, and Azure Cosmos DB for MongoDB - support secure sign-in using Managed Identity. When you migrate an application from a local database to a managed Azure cloud database, this task helps you prepare your codebase for Managed Identity authentication to the database.
 
 - Managed Identities for Credential Migration on Azure
 
@@ -53,6 +53,8 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   When you migrate your service from AWS to Azure, you can transition from AWS S3 to Azure Storage Blob. This task helps you convert the code logic that interacts with AWS S3 into code logic that operates with Azure Storage Blob, while maintaining the same semantics.
 
+  This migration knowledge was developed in collaboration with the Azure Storage team, drawing on their deep expertise in Blob Storage APIs, authentication patterns, and platform-specific behaviors to ensure the guidance reflects production-grade best practices. 
+
 - Logging to local file
 
   Azure hosting services integrate with Azure Monitor by default, collecting log output to the console and enabling you to query and monitor them. At the same time, logging to files in a cloud environment isn't recommended because it requires extra log rotation and transfer. This task helps you convert file-based logging in your application to console-based logging, making it ready for integration with Azure Monitor.
@@ -61,7 +63,7 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   Azure hosting services offer flexibility in provisioning, scaling, failover, and more. At the same time, the file system for a given application runtime is transient. If your application reads from or writes to a local file, this task helps you identify such cases and convert them into unified mount path access. By doing so, you can mount an Azure Storage File share to the specified path, enabling your application to share and persist data across different replicas without concerns about relocation, failover, or similar issues.
 
-- Java Mail to Azure Communication Service
+- Java Mail to Azure Communication Services
 
   Migrating applications with Simple Mail Transfer Protocol (SMTP) dependencies can be challenging because not all Azure environments support outgoing requests on port 25. This task helps convert an application that sends mail over SMTP to use Azure Communication Services, which is fully compatible with Azure hosting environments.
 
@@ -69,13 +71,17 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 
   This task helps migrate sensitive security assets to Azure Key Vault. It supports both hardcoded secrets in your codebase and local TLS/mTLS certificates managed in Java KeyStores. For secrets, it identifies suspicious secret texts and converts them into logic that retrieves the data from Azure Key Vault. For certificates, it transitions your application from managing certificates locally to using Azure Key Vault's Java Cryptography Architecture (JCA) provider while maintaining the same functionality and security posture.
 
+- Cryptography operations to Azure Key Vault
+
+  Java applications that perform cryptographic operations locally manage keys outside of a centralized, auditable service. This task migrates local cryptography logic to Azure Key Vault so that signing, verification, encryption, and decryption operations run against keys that never leave the vault, while preserving the application's existing behavior.
+
 - User authentication to Microsoft Entra ID authentication
 
   Java applications often use LDAP-based authentication solutions that aren't easily migrated to Azure. This task helps you transition your local user authentication mechanism to one that uses Microsoft Entra ID for authentication.
 
-- SQL Dialect: Oracle to PostgreSQL
+- Databases products to Azure database offerings
 
-  When you transition from Oracle to PostgreSQL, differences in SQL dialects can pose significant challenges. This task converts Oracle-specific SQL queries, data types, and proprietary functions in your Java code to their PostgreSQL equivalents, ensuring a seamless integration with Azure Database for PostgreSQL.
+  Java applications running on on-premises databases - including Oracle, IBM Db2, Informix, and Sybase Adaptive Server Enterprise (ASE) - can be migrated to Azure Database for PostgreSQL or Azure SQL Database for a fully managed cloud experience. These tasks update the application so that it connects to the target Azure database with passwordless Microsoft Entra ID authentication and reconcile source-specific SQL syntax, data types, and functions with the target dialect, so the application keeps the same behavior on Azure.
 
 - AWS Secret Manager to Azure Key Vault
 
@@ -88,6 +94,14 @@ GitHub Copilot modernization currently supports the following predefined tasks:
 - Amazon Web Services (AWS) Simple Queue Service (SQS) to Azure Service Bus
 
   Transitioning from AWS SQS to Azure Service Bus involves reimplementing queue operations and message handling patterns. This task translates SQS-specific code constructs to their Azure Service Bus counterparts, preserving critical messaging semantics like at-least-once delivery, message batching, and visibility timeout behaviors while introducing Azure's enhanced security features.
+
+- Ant / Eclipse project to Maven project
+
+  Java projects built with Apache Ant or as Eclipse IDE projects depend on imperative scripts or IDE-specific metadata, which complicates dependency management and makes automated, headless builds difficult. These tasks convert your Ant or Eclipse project to a Maven project that builds consistently from any environment, with dependencies resolved through Maven and the project layout aligned with Maven conventions, while keeping your source code unchanged.
+
+- Cache solutions to Azure Managed Redis
+
+    Applications often rely on various caching solutions - from in-memory libraries to distributed systems (such as Infinispan, SwarmCache, and Memcached) - that lack seamless Azure integration and centralized scalability or security. This task modernizes the caching layer by migrating these implementations to Azure Managed Redis (or the retiring Azure Cache for Redis), enabling cloud-native scalability, unified management, and improved security with passwordless Microsoft Entra ID authentication, while preserving existing caching behavior.
 
 ## See also
 

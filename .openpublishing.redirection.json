@@ -1975,6 +1975,11 @@
       "source_path": "articles/azure-mcp-server/tools/azure-virtual-machines.md",
       "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-compute",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/github-copilot-app-modernization/framework-upgrade.md",
+      "redirect_url": "/azure/developer/github-copilot-app-modernization/quickstart-upgrade",
+      "redirect_document_id": false
     }
   ]
 }

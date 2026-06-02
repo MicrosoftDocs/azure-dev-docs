@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 03/11/2026
+ms.date: 06/02/2026
 ---
 
 # Customize the GitHub Copilot modernization agent
@@ -102,7 +102,7 @@ To verify which skills are detected:
 
 1. Create a plan with your prompt.
 
-1. Review `.github/modernization/{plan-name}/tasks.json`.
+1. Review `.github/modernization/{plan-name}/.metadata/tasks.json`.
 
 1. Look for references to your custom skills.
 

@@ -22,6 +22,8 @@ items:
             items:
               - name: Batch assessment
                 href: modernization-agent/batch-assess.md
+              - name: Batch plan
+                href: modernization-agent/batch-plan.md
               - name: Batch upgrade
                 href: modernization-agent/batch-upgrade.md
 
@@ -44,9 +46,11 @@ items:
             - name: Install and configure
               expanded: false
               items:
+              - name: IDE
+                href: ../java/migration/github-copilot-app-modernization-for-java-ide-install.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Copilot CLI
                 href: ../java/migration/github-copilot-app-modernization-for-java-copilot-cli.md?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: Coding agent
+              - name: Cloud agent
                 href: ../java/migration/github-copilot-app-modernization-for-java-coding-agent.md?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Configure settings for IntelliJ
                 href: configure-settings-intellij.md
@@ -66,11 +70,12 @@ items:
               items:
               - name: "Quickstart: Upgrade a Java project"
                 href: quickstart-upgrade.md
-              - name: Upgrade a framework or third-party dependency
-                href: framework-upgrade.md
+              - name: "Quickstart: Generate unit tests"
+                href: quickstart-unit-tests.md
+              - name: Customize the upgrade plan
+                href: customize-upgrade-plan.md
               - name: Batch upgrade
                 href: modernization-agent/batch-upgrade.md
-  
             - name: Migrate Java projects to Azure
               expanded: false
               items:
@@ -103,15 +108,19 @@ items:
 
             - name: Secure Java applications
               expanded: false
-              items: 
+              items:
               - name: Fix vulnerabilities
                 href: tools.md
+              - name: Secure your Java applications
+                href: ../java/migration/migrate-github-copilot-app-modernization-for-java-secure-your-application.md?context=/azure/developer/github-copilot-app-modernization/context/context
 
             - name: Customization
               expanded: false
               items:
               - name: Customize the upgrade plan
                 href: customize-upgrade-plan.md
+              - name: Customize the modernization plan
+                href: customize-modernization-plan.md
               - name: Customize with your own skills
                 href: modernization-agent/customization.md
                 
@@ -163,10 +172,20 @@ items:
                 href: /dotnet/azure/migration/appmod/deploy?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Copilot CLI support
                 href: /dotnet/azure/migration/appmod/copilot-cli-support?context=/azure/developer/github-copilot-app-modernization/context/context
-              - name: Coding agent support
+              - name: Cloud agent support
                 href: /dotnet/azure/migration/appmod/coding-agent-support?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Migration sample
                 href: /dotnet/azure/migration/appmod/sample?context=/azure/developer/github-copilot-app-modernization/context/context
+              
+        - name: JavaScript/TypeScript
+          expanded: false
+          items:
+            - name: Overview
+              href: javascript-typescript-overview.md
+            - name: "Quickstart: Upgrade npm packages"
+              href: javascript-typescript-quickstart-upgrade-npm-packages.md
+            - name: FAQ
+              href: javascript-typescript-faq.yml
               
       - name: Portfolio assessment integration
         href: ../java/migration/github-copilot-app-modernization-for-java-portfolio-assessment-integration.md?context=/azure/developer/github-copilot-app-modernization/context/context

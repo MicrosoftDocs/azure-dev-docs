@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: overview
-ms.date: 01/13/2026
+ms.date: 06/02/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
@@ -20,6 +20,8 @@ This article provides instructions to guide you in migrating Java projects from 
 For app code changes related to database migration scenarios, GitHub Copilot modernization provides a list of predefined tasks to support you on homogeneous migration. The scenarios include migration from PostgreSQL, Microsoft SQL Server, MySQL, Cassandra, MongoDB, and other databases to the corresponding Azure database offering. The tool also supports heterogeneous migration from Oracle to Azure PostgreSQL. The tasks mainly help you prepare your codebase for Managed Identity authentication to the Azure databases.
 
 Another important factor to consider during database migration is SQL dialect conversion, which encompasses both static and dynamic SQL present in application code. For homogeneous migrations, SQL conversion is typically unnecessary because the database type remains the same. However, in heterogeneous migrations - such as transitioning from Oracle to PostgreSQL - the process of converting SQL can be complex and requires considerable effort.
+
+> [!VIDEO https://www.youtube.com/embed/is2oBRZebLE?list=PLlrxD0HtieHhaBJWlcxGd-kTDikSD4xyD]
 
 ## New advances for Oracle to PostgreSQL migration
 
