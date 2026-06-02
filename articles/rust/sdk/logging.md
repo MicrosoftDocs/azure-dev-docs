@@ -25,7 +25,7 @@ Azure SDK for Rust crates use OpenTelemetry as the standard approach to observab
 - **Correlation across services**: Automatically propagate trace context between microservices
 - **Production monitoring**: Built for high-scale production environments with sampling and performance optimizations
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Currently, Microsoft doesn't provide a direct Azure Monitor OpenTelemetry exporter for Rust applications. The [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-overview) only supports .NET, Java, Node.js, and Python. For Rust applications, you need to export OpenTelemetry data to an intermediate system (such as Azure Storage, Event Hubs, or the OpenTelemetry Collector) and then import that data into Azure Monitor using supported ingestion methods.
 
 ## Set up OpenTelemetry logging
@@ -88,7 +88,7 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
     tokio = { version = "1.47.1", features = ["full"] }
     ```
 
-    > [!NOTE]  
+    > [!NOTE]
     > The `opentelemetry-otlp` crate is included for exporting telemetry data to an OpenTelemetry Collector, which can then forward the data to Azure Monitor. Direct Azure Monitor export from Rust applications isn't supported.
 
 1. Create your main application with OpenTelemetry configuration. See the [azure_core_opentelemetry](https://docs.rs/azure_core_opentelemetry/latest/azure_core_opentelemetry/) documentation for details.
