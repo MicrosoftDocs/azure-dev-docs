@@ -1,8 +1,8 @@
 ---
 author: rotabor
+ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: include
-ms.date: 03/02/2026
 ---
 
 ## Prerequisites
@@ -21,7 +21,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 
    If you're installing Visual Studio 2026 for the first time, the Visual Studio Installer automatically displays the available workloads.
 
-1.  On the Workloads tab, make sure "Azure AI development" is selected.
+1.  On the Workloads tab, make sure "Azure AI development" is selected.
 
    :::image type="content" source="../media/get-started/visual-studio-2026-installer-workloads.png" alt-text="Screenshot that shows the Visual Studio Installer's available workloads with the Azure AI development option selected and highlighted.":::
 
@@ -29,11 +29,11 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 
 1. Launch Visual Studio 2026 and create or load a project.
 
-1. Open GitHub Copilot Chat. 
+1. Open GitHub Copilot Chat.
 
-1. If prompted, sign in to your GitHub account. 
+1. If prompted, sign in to your GitHub account.
 
-1. If prompted, sign in to your Azure account. 
+1. If prompted, sign in to your Azure account.
 
 1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. Enable all Azure tools by checking the top nodes for **Azure**.
 
@@ -42,7 +42,6 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
    Also select the top node for **Azure MCP Server**.
 
    :::image type="content" source="../media/get-started/visual-studio-2026-select-tools-mcp-server.png" alt-text="Screenshot that shows the select tools dialog with the Azure MCP Server node checked.":::
-
 
 ## Write your first prompt
 

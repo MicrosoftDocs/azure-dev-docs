@@ -1,22 +1,24 @@
 ---
-title: Get started with the chat using your own data sample for JavaScript
+title: Get Started with the Chat Using Your Own Data Sample for JavaScript
 description: Get started with JavaScript and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 09/30/2025
-ms.topic: get-started
+ms.date: 06/01/2026
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
-ms.collection: ce-skilling-ai-copilot
+ms.topic: get-started
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with chat app infused with my own business data so that learn from the sample code.
 ---
 
 # Get started with the chat using your own data sample for JavaScript
 
-This article shows you how to deploy and run the [Chat with your data sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample implements a chat app using JavaScript, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+This article shows you how to deploy and run the [Chat with your data sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample implements a chat app using JavaScript, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support.
 
-* [Demo JavaScript](https://aka.ms/azai/js/video) -  full stack video
-* [Demo JavaScript](https://aka.ms/azai/js.py/video) - frontend with Python backend video
+- [Demo JavaScript](https://aka.ms/azai/js/video) -  full stack video
+- [Demo JavaScript](https://aka.ms/azai/js.py/video) - frontend with Python backend video
 
-By following the instructions in this article, you will:
+By following the instructions in this article, you'll:
 
 - Deploy a chat app to Azure.
 - Get answers about rental properties website information.
@@ -24,13 +26,13 @@ By following the instructions in this article, you will:
 
 Once you complete this article, you can start modifying the new project with your custom code and data.
 
-This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include:
 
-* [.NET](/dotnet/ai/get-started-app-chat-template)
-* [Java](../../java/quickstarts/get-started-app-chat-template.md)
-* [Python](../../python/get-started-app-chat-template.md)
+- [.NET](/dotnet/ai/get-started-app-chat-template)
+- [Java](../../java/quickstarts/get-started-app-chat-template.md)
+- [Python](../../python/get-started-app-chat-template.md)
 
-> [!NOTE]
+> [!NOTE]  
 > This article uses one or more [AI app templates](../../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
@@ -63,17 +65,18 @@ To use this article, you need the following prerequisites:
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
-* Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* GitHub account
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+- GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
-* Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* [Azure Developer CLI](/azure/developer/azure-developer-cli)
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+- [Azure Developer CLI](/azure/developer/azure-developer-cli)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
 
@@ -85,7 +88,7 @@ Use the following instructions to deploy a preconfigured development environment
 
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
@@ -132,7 +135,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd init -t azure-search-openai-javascript
     ```
 
-1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing. 
+1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
@@ -151,8 +154,8 @@ The sample repository contains all the code and configuration files you need to 
 
 ### Deploy chat app to Azure
 
-> [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes. 
+> [!IMPORTANT]  
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes.
 
 1. To provision the Azure resources and deploy the source code, run the following Azure Developer CLI command:
 
@@ -160,12 +163,12 @@ The sample repository contains all the code and configuration files you need to 
     azd up
     ```
 
-1. If you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
-1. When prompted, select a subscription to create the resources in. 
+1. If you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name.
+1. When prompted, select a subscription to create the resources in.
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It might take 5-10 minutes for the deployment to complete.
-1. After the application successfully deploys, you see a URL displayed in the terminal. 
+1. After the application successfully deploys, you see a URL displayed in the terminal.
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
     :::image type="content" source="../media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="../media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser with suggestions for chat input and the chat text box to enter a question.":::
@@ -238,7 +241,7 @@ azd down --purge
 
 Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Sign into the [GitHub Codespaces dashboard](https://github.com/codespaces).
@@ -259,7 +262,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
     :::image type="content" source="../media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
-> [!TIP]
+> [!TIP]  
 > Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You can always delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
@@ -270,13 +273,12 @@ This sample repository offers [troubleshooting information](https://github.com/A
 
 If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-javascript/issues).
 
-## Next steps
+## Related content
 
-* [Get the source code for the sample used in this article](https://github.com/Azure-Samples/azure-search-openai-javascript)
-* [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
-* [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/access-control-in-generative-ai-applications-with-azure-ai-search/3956408)
-* [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/blog/appsonazureblog/build-an-enterprise-ready-azure-openai-solution-with-azure-api-management/3907562)
-* [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/azure-ai-search-outperforming-vector-search-with-hybrid-retrieval-and-reranking/3929167)
-- Learn more about how AZD is used in this template:
-    - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
-    - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
+- [Get the source code for the sample used in this article](https://github.com/Azure-Samples/azure-search-openai-javascript)
+- [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat)
+- [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/access-control-in-generative-ai-applications-with-azure-ai-search/3956408)
+- [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/blog/appsonazureblog/build-an-enterprise-ready-azure-openai-solution-with-azure-api-management/3907562)
+- [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/azure-ai-search-outperforming-vector-search-with-hybrid-retrieval-and-reranking/3929167)
+- [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
+- [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)

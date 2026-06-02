@@ -1,16 +1,18 @@
 ---
-title: Get started with GitHub Copilot for Azure
+title: Get Started with GitHub Copilot for Azure
 description: Install GitHub Copilot for Azure and write your first prompt in Visual Studio Code, Visual Studio 2022, or Visual Studio 2026.
-keywords: github, copilot, ai, azure
 author: diberry
 ms.author: diberry
+ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: get-started
-ms.date: 05/20/2026
-ms.collection: ce-skilling-ai-copilot
-ms.custom: sfi-image-nochange
-zone_pivot_group_filename: developer/github-copilot-azure/github-copilot-azure-zone-pivot-groups.json
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - sfi-image-nochange
+keywords: github, copilot, ai, azure
 zone_pivot_groups: ide-options
+zone_pivot_group_filename: "developer/github-copilot-azure/github-copilot-azure-zone-pivot-groups.json"
 ---
 
 # Get started with GitHub Copilot for Azure
@@ -19,28 +21,26 @@ Get started with GitHub Copilot for Azure to streamline your development workflo
 
 ::: zone pivot="visual-studio-code"
 [!INCLUDE [get-started-vscode](./includes/get-started-vscode.md)]
-::: zone-end  
+
+::: zone-end
 
 ::: zone pivot="visual-studio-2022"  
 [!INCLUDE [get-started-vs2022](./includes/get-started-visual-studio-2022.md)]
+
 ::: zone-end
 
 ::: zone pivot="visual-studio-2026"  
 [!INCLUDE [get-started-vs2026](./includes/get-started-visual-studio-2026.md)]
+
 ::: zone-end
-
-## Next steps
-
-Now that you have GitHub Copilot for Azure installed, start using it:
-
-- [Deploy your first app to Azure with agent mode](quickstart-deploy-app-agent-mode.md) - Follow the quickstart to deploy, monitor, and troubleshoot an Azure application.
-- [Generate Bicep files to create Azure resources](bicep-generate-edit.md) - Use natural language to generate infrastructure-as-code.
-- [Create and deploy an app using Azure Cache for Redis](quickstart-create-redis.md) - Build a complete application using GitHub Copilot for Azure and Azure MCP Server.
 
 ## Related content
 
 - [What is GitHub Copilot for Azure?](introduction.md)
-- [Prompt examples for learning about Azure](learn-examples.md)
-- [Prompt examples for designing and developing applications](design-develop-examples.md)
-- [Prompt examples for deploying your application](deploy-examples.md)
-- [Prompt examples for troubleshooting your Azure resources](troubleshoot-examples.md)
+- [Example prompts for learning about Azure and your application with GitHub Copilot for Azure](learn-examples.md)
+- [Example prompts for designing and developing your application with GitHub Copilot for Azure](design-develop-examples.md)
+- [Example prompts for deploying your application with GitHub Copilot for Azure](deploy-examples.md)
+- [Troubleshoot Azure applications with GitHub Copilot for Azure](troubleshoot-examples.md)
+- [Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure](quickstart-deploy-app-agent-mode.md)
+- [Generate Bicep files using GitHub Copilot for Azure](bicep-generate-edit.md)
+- [Quickstart: Create and deploy an app using Azure Cache for Redis by using GitHub Copilot for Azure and Azure MCP Server](quickstart-create-redis.md)

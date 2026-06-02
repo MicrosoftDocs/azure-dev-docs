@@ -1,8 +1,8 @@
 ---
 author: rotabor
+ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: include
-ms.date: 05/18/2026
 ---
 
 ## Prerequisites
@@ -26,7 +26,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 
 1. Ensure that the extension is installed, that you're properly authenticated, and that the extension is working correctly.
 
-1. If the Chat window isn't already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
+1. If the Chat window isn't already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown list next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
 
    :::image type="content" source="../media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the Open Chat menu option.":::
 
@@ -97,7 +97,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
       - Capabilities: Azure development best practices guidance, Microsoft Learn documentation lookup, query Azure Resource Graph (when authenticated), manage Azure auth context (change tenant, sign out), generate Azure CLI / Bicep / ARM snippets, Bicep schemas, and guidance for deploying models and services.
       - Example prompts:
          - "What are Azure best practices for deploying this function app?"
-         - "@azure /changeTenant — set my default tenant to <tenant-id>"
+         - "@azure /changeTenant - set my default tenant to <tenant-id>"
          - "Generate a Bicep template for an App Service and a Storage Account."
       - When to use: any task that touches Azure resources, deployment, or configuration.
 
@@ -117,11 +117,11 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
    - Checks (like running tests or linters) when terminal access is allowed.
 
    Example: Quick copy-paste prompts you can use in the VS Code chat
-   
-   - "What are your tools?" — lists the tools (this reply).
+
+   - "What are your tools?" - lists the tools (this reply).
    - "Find all TODO comments in this repo and open a summary."
    - "Generate an az CLI command to list storage accounts sorted by region."
-   - "@azure /changeTenant" — opens tenant selection (if you need to set a default).
+   - "@azure /changeTenant" - opens tenant selection (if you need to set a default).
 
    Notes and privacy/permissions
 
@@ -133,12 +133,11 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
    - Expand any tool section with more example prompts and exact commands.
    - Show a short step-by-step for enabling/disabling tools in the chat pane.
    - Generate a one-page cheatsheet you can paste into an internal docs file. Which would you like next?
-   
    ```
 
-   The contents of the reply may vary and can change over time as new capabilities and tools are added.
+   The contents of the reply might vary and can change over time as new capabilities and tools are added.
 
-1. To test out prompts about Azure-specific tooling, try the following prompt: 
+1. To test out prompts about Azure-specific tooling, try the following prompt:
 
    ```
    What is the az command to list all my storage accounts ordered by location?
@@ -147,13 +146,12 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
    The completion to that prompt might generate:
 
    ```
-
    I'll show the exact az CLI commands (sorted ascending/descending) plus a few useful output variants and a quick note about prerequisites.
 
    Commands
 
    - Sorted by location (ascending), full JSON:
-      
+
       az storage account list --query "sort_by(@, &location)" -o json
 
    - Sorted by location, show only name and location in a readable table:
@@ -175,7 +173,6 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
    - The query uses JMESPath (sort_by/reverse) to order results client-side.
 
    Would you like a version that groups counts by region or that queries across all subscriptions?
-
    ```
 
 ### Enable and disable tools in agent mode
@@ -190,7 +187,6 @@ You might want to disable or re-enable certain tools available by GitHub Copilot
 
    :::image type="content" source="../media/get-started/tool-list.png" alt-text="Screenshot of the list of tools in Visual Studio Code.":::
 
-
 ## Set your default tenant
 
 If you have multiple [Microsoft Entra ID](/entra/fundamentals/whatis#terminology) tenants, You can set a default tenant using the following prompt:
@@ -199,7 +195,7 @@ If you have multiple [Microsoft Entra ID](/entra/fundamentals/whatis#terminology
    @azure /changeTenant
    ```
 
-Select from a list of your available tenants in the top center drop-down.
+Select from a list of your available tenants in the top center dropdown list.
 
 You can also set the default tenant in the extension settings:
 
@@ -217,12 +213,12 @@ You can also set the default tenant in the extension settings:
 
 ## View the GitHub Copilot for Azure instructions file
 
-The **instructions** file (also referred to as "Azure Copilot Guidelines") contains high-level guidance for GitHub Copilot that is added to the context window when sending prompts to GitHub Copilot for Azure tools and Azure MCP Server tools. The guidance in this file is intended to be global in nature, meaning, it's intended for all interactions across GitHub Copilot for Azure across all projects. This file is located in a hidden folder location and is not intended to be modified. You should not modify this file because it could degrade or disable GitHub Copilot for Azure, and your changes might be overwritten with new updates to GitHub Copilot for Azure.
+The **instructions** file (also referred to as "Azure Copilot Guidelines") contains high-level guidance for GitHub Copilot that is added to the context window when sending prompts to GitHub Copilot for Azure tools and Azure MCP Server tools. The guidance in this file is intended to be global in nature, meaning, it's intended for all interactions across GitHub Copilot for Azure across all projects. This file is located in a hidden folder location and isn't intended to be modified. You shouldn't modify this file because it could degrade or disable GitHub Copilot for Azure, and your changes might be overwritten with new updates to GitHub Copilot for Azure.
 
 Viewing the "Azure Copilot Guidelines" can provide an insight into how the GitHub Copilot for Azure tools and the Azure MCP Server tools are introduced to GitHub Copilot helping you develop a deeper understanding of how it all works.
 
-> [!Important]
-> You should not modify this file.
+> [!IMPORTANT]  
+> You shouldn't modify this file.
 
 1. Select `ctrl` + `shift` + `p` to open the command palette.
 
@@ -238,5 +234,5 @@ Viewing the "Azure Copilot Guidelines" can provide an insight into how the GitHu
 
    :::image type="content" source="../media/get-started/configure-instructions-file.png" alt-text="Screenshot of the GitHub Copilot for Azure instructions file.":::
 
-   > [!Important]
-   > You should not modify this file.
+   > [!IMPORTANT]  
+   > You shouldn't modify this file.

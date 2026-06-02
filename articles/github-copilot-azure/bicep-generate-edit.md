@@ -1,18 +1,19 @@
 ---
-title: Use GitHub Copilot for Azure to Generate Bicep files
+title: Use GitHub Copilot for Azure to Generate Bicep Files
 description: This article provides sample prompts and example responses from GitHub Copilot for Azure to create Bicep files to deploy Azure resources.
-keywords: github, copilot, ai, azure
 author: diberry
 ms.author: diberry
+ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: overview
-ms.date: 12/19/2025
-ms.collection: ce-skilling-ai-copilot
+ms.collection:
+  - ce-skilling-ai-copilot
+keywords: github, copilot, ai, azure
 ---
 
 # Generate Bicep files using GitHub Copilot for Azure
 
- There are many ways to create new resources on Azure. Bicep files provide a declarative, modular, and reusable approach to defining Azure resources. Bicep templates offer improved readability, maintainability, and native integration with Azure Resource Manager (ARM) compared to JSON-based ARM templates or imperative scripting methods like PowerShell and Azure CLI. GitHub Copilot for Azure can help you create Bicep files. 
+ There are many ways to create new resources on Azure. Bicep files provide a declarative, modular, and reusable approach to defining Azure resources. Bicep templates offer improved readability, maintainability, and native integration with Azure Resource Manager (ARM) compared to JSON-based ARM templates or imperative scripting methods like PowerShell and Azure CLI. GitHub Copilot for Azure can help you create Bicep files.
 
 ## Generate Bicep files
 
@@ -32,7 +33,7 @@ Show me a Bicep file that creates an Azure Storage account with a blob container
 
 ### Example response
 
-> [!NOTE]
+> [!NOTE]  
 > The following response is an example. GitHub Copilot for Azure responses are nondeterministic, so you might get a different response from the one shown here.
 
 GitHub Copilot for Azure generates a Bicep file similar to the following.
@@ -99,7 +100,6 @@ Alternatively, you can edit the Bicep file initializing the `storageAccountName`
 param storageAccountName string = '<your-storage-account-name>'
 ```
 
-
 ## Refine the response
 
 However, if you're new to Bicep files, you might need more information. Continue prompting in the same chat session to understand next steps.
@@ -127,23 +127,18 @@ To execute the Bicep file, you can use the Azure CLI with the following steps:
 
    az bicep install
 
-
 2. **Log in to Azure**: Use the Azure CLI to log in to your Azure account:
 
    az login
 
-
 3. **Deploy the Bicep file**: Use the `az deployment group create` command to deploy the Bicep file to a resource group. Replace `<resource-group-name>` with your resource group name and `<location>` with your desired Azure region:
-  
+
    az deployment group create --resource-group <resource-group-name> --template-file infra/storageAccount.bicep --parameters storageAccountName=<your-storage-account-name> containerName=<your-container-name> fileShareName=<your-file-share-name> location=<location>
 
-
 This command will deploy the resources defined in your Bicep file to the specified resource group in Azure.
-
 ```
 
 While following these instructions, if you get stuck or encounter a problem, continue asking GitHub Copilot questions creating prompts including the word `azure` in the chat pane.
-
 
 ## Related content
 

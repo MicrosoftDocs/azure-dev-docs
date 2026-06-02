@@ -1,16 +1,17 @@
 ---
-title: OpenTelemetry in Azure SDK for Rust crates
+title: OpenTelemetry in Azure SDK for Rust Crates
 description: Learn how to implement OpenTelemetry in Rust applications using Azure SDK crates for observability, monitoring, and troubleshooting.
-ms.date: 05/18/2026
+ms.date: 06/01/2026
+ms.service: azure-rust
 ms.topic: how-to
-ms.custom: devx-track-rust
+ms.custom:
+  - devx-track-rust
 ai-usage: ai-generated
 ---
 
 # OpenTelemetry in Azure SDK for Rust crates
 
 When you work with Azure SDK for Rust crates, you need visibility into SDK operations to debug issues, monitor performance, and understand how your application interacts with Azure services. This article shows you how to implement effective OpenTelemetry-based logging and telemetry strategies that provide insights into the inner workings of Rust applications on Azure.
-
 
 ## Telemetry for Azure developers
 
@@ -19,13 +20,13 @@ The Azure SDK for Rust crates provide comprehensive observability through OpenTe
 Azure SDK for Rust crates use OpenTelemetry as the standard approach to observability, providing:
 
 - **Industry-standard telemetry**: Use OpenTelemetry formats compatible with monitoring platforms
-- **Distributed tracing**: Track requests across multiple services and Azure resources  
+- **Distributed tracing**: Track requests across multiple services and Azure resources
 - **Advanced exporters**: Send data to Jaeger, Prometheus, Grafana, and other observability platforms
 - **Correlation across services**: Automatically propagate trace context between microservices
 - **Production monitoring**: Built for high-scale production environments with sampling and performance optimizations
 
 > [!IMPORTANT]
-> Currently, Microsoft does not provide a direct Azure Monitor OpenTelemetry exporter for Rust applications. The [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-overview) only supports .NET, Java, Node.js, and Python. For Rust applications, you need to export OpenTelemetry data to an intermediate system (such as Azure Storage, Event Hubs, or the OpenTelemetry Collector) and then import that data into Azure Monitor using supported ingestion methods.
+> Currently, Microsoft doesn't provide a direct Azure Monitor OpenTelemetry exporter for Rust applications. The [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-overview) only supports .NET, Java, Node.js, and Python. For Rust applications, you need to export OpenTelemetry data to an intermediate system (such as Azure Storage, Event Hubs, or the OpenTelemetry Collector) and then import that data into Azure Monitor using supported ingestion methods.
 
 ## Set up OpenTelemetry logging
 
@@ -38,24 +39,24 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
     ```
 
 1. Create Azure Monitor resources by using Azure CLI:
-    
+
     ```bash
     # Set variables
     RESOURCE_GROUP="rust-telemetry-rg"
     LOCATION="eastus"
     APP_INSIGHTS_NAME="rust-app-insights"
     LOG_ANALYTICS_WORKSPACE="rust-logs-workspace"
-    
+
     # Create resource group
     az group create --name $RESOURCE_GROUP --location $LOCATION
-    
+
     # Create Log Analytics workspace
     WORKSPACE_ID=$(az monitor log-analytics workspace create \
       --resource-group $RESOURCE_GROUP \
       --workspace-name $LOG_ANALYTICS_WORKSPACE \
       --location $LOCATION \
       --query id -o tsv)
-    
+
     # Create Application Insights instance
     az extension add --name application-insights
     INSTRUMENTATION_KEY=$(az monitor app-insights component create \
@@ -64,18 +65,18 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
       --resource-group $RESOURCE_GROUP \
       --workspace $WORKSPACE_ID \
       --query instrumentationKey -o tsv)
-    
+
     # Get connection string
     CONNECTION_STRING=$(az monitor app-insights component show \
       --app $APP_INSIGHTS_NAME \
       --resource-group $RESOURCE_GROUP \
       --query connectionString -o tsv)
-    
+
     echo "Application Insights Connection String: $CONNECTION_STRING"
     ```
 
 1. Configure your Rust project. Add the required dependencies to your `Cargo.toml`:
-    
+
     ```toml
     [dependencies]
     azure_core_opentelemetry = "*"
@@ -88,7 +89,7 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
     ```
 
     > [!NOTE]
-    > The `opentelemetry-otlp` crate is included for exporting telemetry data to an OpenTelemetry Collector, which can then forward the data to Azure Monitor. Direct Azure Monitor export from Rust applications is not supported.
+    > The `opentelemetry-otlp` crate is included for exporting telemetry data to an OpenTelemetry Collector, which can then forward the data to Azure Monitor. Direct Azure Monitor export from Rust applications isn't supported.
 
 1. Create your main application with OpenTelemetry configuration. See the [azure_core_opentelemetry](https://docs.rs/azure_core_opentelemetry/latest/azure_core_opentelemetry/) documentation for details.
 
@@ -97,7 +98,7 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
     ```bash
     # Set Key Vault URL (replace with your actual Key Vault URL)
     export AZURE_KEYVAULT_URL="https://mykeyvault.vault.azure.net/"
-    
+
     # Run the application
     cargo run
     ```
@@ -136,7 +137,9 @@ For real-time telemetry processing:
 
 OpenTelemetry provides a flexible framework for customizing telemetry data to suit your application's needs. Use these strategies to enhance your telemetry:
 
-### Instrumenting your application code
+<a id="instrumenting-your-application-code"></a>
+
+### Instrument your application code
 
 Adding custom instrumentation to your application code helps you correlate your business logic with Azure SDK operations. This correlation makes it easier to understand the complete flow of operations.
 
@@ -179,7 +182,7 @@ Azure offers four kinds of telemetry:
 
 Pick the right telemetry for your question:
 
-| Scenario                                                                               | Use logs…                                         | Use metrics…                                       | Use alerts…                                           |
+| Scenario                                                                               | Use logs                                            | Use metrics                                          | Use alerts                                              |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------- |
 | "Did my web app start and respond?"                                                     | App Service web-server logs (Logs)          | N/A                                                | N/A                                                   |
 | "Is my function timing out or failing?"                                                | Function invocation logs (Monitor)          | Function execution duration metric                 | Alert on "Function Errors >0"                         |
@@ -198,6 +201,7 @@ After setting up OpenTelemetry in your Rust application and configuring an inter
 Once your telemetry data reaches Azure Monitor through one of these methods, you can analyze it:
 
 1. **Navigate to Application Insights** in the Azure portal:
+
    ```bash
    az monitor app-insights component show \
      --app $APP_INSIGHTS_NAME \
@@ -223,18 +227,19 @@ Once your telemetry data reaches Azure Monitor through one of these methods, you
    - Use **End-to-end transaction details** to see complete request flows
 
 1. **Custom KQL queries for your Rust application**:
+
    ```kusto
    // View all custom logs from your Rust app
    traces
    | where customDimensions.["service.name"] == "rust-azure-app"
    | order by timestamp desc
-   
+
    // View Azure SDK HTTP operations
    dependencies
    | where type == "HTTP"
    | where target contains "vault.azure.net"
    | order by timestamp desc
-   
+
    // Monitor error rates
    traces
    | where severityLevel >= 3  // Warning and above

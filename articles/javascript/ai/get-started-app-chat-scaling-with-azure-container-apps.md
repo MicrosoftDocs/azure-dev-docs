@@ -1,11 +1,13 @@
 ---
-title: Scale OpenAI for JavaScript chat sample using RAG
-description: Learn how to add load balancing to your JavaScript solution to extend the chat app beyond the Azure OpenAI Models in Microsoft Foundry token and model quota limits. 
-ms.date: 01/30/2026
-ms.topic: get-started
+title: Scale OpenAI for JavaScript Chat Sample Using RAG
+description: Learn how to add load balancing to your JavaScript solution to extend the chat app beyond the Azure OpenAI Models in Microsoft Foundry token and model quota limits.
+ms.date: 06/01/2026
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
-ms.collection: ce-skilling-ai-copilot
+ms.topic: get-started
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to scale my Azure OpenAI Models in Microsoft Foundry capacity using Azure Container Apps to avoid rate limit errors.
 ---
 
@@ -15,18 +17,18 @@ ms.collection: ce-skilling-ai-copilot
 
 ## Prerequisites
 
-* Azure subscription.  [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- Azure subscription.  [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
-* [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
+- [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
     #### [Codespaces (recommended)](#tab/github-codespaces)
-    
-    * A GitHub account.
-    
+
+    - A GitHub account.
+
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running.
-    * [Visual Studio Code](https://code.visualstudio.com/)
-    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    - [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running.
+    - [Visual Studio Code](https://code.visualstudio.com/)
+    - [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
     ---
 
@@ -44,13 +46,11 @@ ms.collection: ce-skilling-ai-copilot
 
 Samples used in this article include:
 
-* [JavaScript chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-javascript)
-* [Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
+- [JavaScript chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-javascript)
+- [Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
 
-## Next step
+## Related content
 
-* Use [Azure Load Testing](/azure/load-testing/) to load test your chat app with Azure Load Testing Service.
-- Learn more about how the Azure Developer CLI (AZD) is used in this template:
-    - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
-    - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
-
+- [Azure Load Testing](/azure/load-testing/)
+- [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
+- [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
