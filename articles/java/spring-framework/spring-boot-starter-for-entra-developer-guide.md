@@ -10,8 +10,8 @@ ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-exte
 appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
-- ✅ Version 6.3.0
-- ✅ Version 7.2.0
+- ✅ Version 6.4.0
+- ✅ Version 7.3.0
 ---
 
 # Spring Boot Starter for Microsoft Entra developer's guide
