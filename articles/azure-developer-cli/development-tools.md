@@ -12,9 +12,7 @@ ai-usage: ai-generated
 
 # Manage Azure development tools with `azd tool`
 
-The Azure Developer CLI (`azd`) includes a built-in `azd tool` command group for discovering, installing, upgrading, and checking the status of common tools used to build and ship Azure applications. The command group wraps the underlying package managers on each platform (such as `winget`, `brew`, `apt`, `npm`, and the VS Code `code` CLI) behind a consistent set of subcommands, and uses a built-in registry that describes each supported tool, its per-platform install strategy, and how to detect whether it's already installed.
-
-Use `azd tool` to bootstrap a new development machine, onboard team members with a reproducible set of prerequisites, audit installed Azure tools across machines or CI agents, and keep tooling up to date. The command group supports both interactive use and automation through positional arguments, non-interactive flags, and JSON output.
+The Azure Developer CLI (`azd`) includes a built-in `azd tool` command group for discovering, installing, upgrading, and checking the status of common tools used to build and ship Azure applications. It wraps the underlying package managers on each platform (such as `winget`, `brew`, `apt`, `npm`, and the VS Code `code` CLI) behind a consistent set of subcommands, and supports both interactive use and automation.
 
 Common use cases for `azd tool` include:
 
