@@ -1,7 +1,7 @@
 ---
 title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
-ms.date: 04/23/2025
+ms.date: 06/01/2026
 ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -21,16 +21,16 @@ The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-* Configure a Python virtual environment using `venv` or your tool of choice. To start using the virtual environment, be sure to activate it. To install python, see [Install Python](https://www.python.org/downloads/).
+* Configure a Python virtual environment using `venv` or your tool of choice. To start using the virtual environment, be sure to activate it. To install Python, see [Install Python](https://www.python.org/downloads/).
 
 ### [Bash](#tab/bash)
 
 ```azurecli-interactive
 #!/bin/bash
 # Create a virtual environment
-python -m venv .venv
+python -m venv venv
 # Activate the virtual environment
-source .venv/Scripts/activate # only required for Windows (Git Bash)
+source venv/bin/activate
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -72,15 +72,15 @@ Create a Python file named *list_groups.py* with the following code. The comment
 
 Create a Python file named *list_resources.py* with the following code. The comments explain the details.
 
-By default, the code lists resources in "myResourceGroup". To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
+By default, the code lists resources in `myResourceGroup`. To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
 
 :::code language="python" source="~/../python-sdk-docs-examples/resource_group/list_resources.py":::
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create and list resource groups in your Azure subscription, the code will run successfully.
+Later in this article, you sign in to Azure by using the Azure CLI to run the sample code. If your account has permissions to create and list resource groups in your Azure subscription, the code runs successfully.
 
-To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create and list resource groups in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
+To use this code in a production script, set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). Ensure that the service principal has sufficient permissions to create and list resource groups in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
 
 ### Reference links for classes used in the code
 
@@ -89,13 +89,13 @@ To use such code in a production script, you can set environment variables to us
 
 ## 4: Run the scripts
 
-1. If you haven't already, sign in to Azure using the Azure CLI:
+1. If you didn't already, sign in to Azure by using the Azure CLI:
 
     ```azurecli
     az login
     ```
 
-1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
+1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (Run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
     # [Bash](#tab/bash)
 
@@ -103,7 +103,7 @@ To use such code in a production script, you can set environment variables to us
     export AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
     ```
 
-    # [Powershell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     $env:AZURE_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
@@ -111,7 +111,7 @@ To use such code in a production script, you can set environment variables to us
 
     ---
 
-1. List all resources groups in the subscription:
+1. List all resource groups in the subscription:
 
     ```console
     python list_groups.py
@@ -123,7 +123,7 @@ To use such code in a production script, you can set environment variables to us
     python list_resources.py
     ```
 
-    By default, the code lists resources in "myResourceGroup". To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
+    By default, the code lists resources in `myResourceGroup`. To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
 
 ### For reference: equivalent Azure CLI commands
 
@@ -133,7 +133,7 @@ The following Azure CLI command lists resource groups in a subscription:
 az group list
 ```
 
-The following command lists resources within the "myResourceGroup" in the centralus region (the `location` argument is necessary to identify a specific data center):
+The following command lists resources within the `myResourceGroup` in the centralus region (the `location` argument is necessary to identify a specific data center):
 
 ```azurecli
 az resource list --resource-group myResourceGroup --location centralus
