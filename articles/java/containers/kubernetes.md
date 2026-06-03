@@ -15,16 +15,16 @@ This article describes how to containerize your Java applications for deployment
 
 ## Determine the appropriate VM SKU for the Kubernetes node pool
 
-Determine whether the Kubernetes node pool or pools that are available for your cluster can fit the container memory and vCPU cores that you intend to use. If the node pool can host the application, then continue on. Otherwise, provision a node pool that's appropriate for the amount of container memory and number of vCPU cores you're targeting.
+Determine whether the Kubernetes node pool or pools that are available for your cluster can fit the container memory and vCPU cores that you intend to use. If the node pool can host the application, continue. Otherwise, provision a node pool that's appropriate for the amount of container memory and number of vCPU cores you're targeting.
 
-Keep in mind that the cost of a VM SKU is proportional to the number of cores and amount of memory. After you determine your starting point in terms of vCPUs and memory for one container instance, determine whether you can meet your application's needs by horizontal scaling only. For reliable, always-on systems, a minimum of two replicas must be available. Scale up and out as needed.
+The cost of a VM SKU is proportional to the number of cores and amount of memory. After you determine your starting point in terms of vCPUs and memory for one container instance, determine whether you can meet your application's needs by horizontal scaling only. For reliable, always-on systems, a minimum of two replicas must be available. Scale up and out as needed.
 
 ## Set CPU requests and limits
 
 If you must limit the CPU, ensure that you apply the same value for both `limits` and `requests` in the deployment file. The JVM doesn't dynamically adjust its runtime, such as the GC and other thread pools. The JVM reads the number of processors available only during startup time.
 
 > [!TIP]
-> Set same value for CPU requests and CPU limits.
+> Set the same value for CPU requests and CPU limits.
 
 ```yaml
 containers:
