@@ -12,41 +12,21 @@ ai-usage: ai-generated
 
 # Manage Azure development tools with `azd tool`
 
-The Azure Developer CLI (`azd`) includes a built-in `azd tool` command group that helps you discover, install, upgrade, and check the status of the most common tools used to build and ship Azure applications. Instead of hunting for install docs or remembering different package manager commands across operating systems, you can manage your developer prerequisites from a single, cross-platform CLI.
+The Azure Developer CLI (`azd`) includes a built-in `azd tool` command group for discovering, installing, upgrading, and checking the status of common tools used to build and ship Azure applications. The command group wraps the underlying package managers on each platform (such as `winget`, `brew`, `apt`, `npm`, and the VS Code `code` CLI) behind a consistent set of subcommands, and uses a built-in registry that describes each supported tool, its per-platform install strategy, and how to detect whether it's already installed.
 
-In this article, you learn:
+Use `azd tool` to bootstrap a new development machine, onboard team members with a reproducible set of prerequisites, audit installed Azure tools across machines or CI agents, and keep tooling up to date. The command group supports both interactive use and automation through positional arguments, non-interactive flags, and JSON output.
 
-- What the `azd tool` command does and when to use it.
-- Which tools are available in the built-in registry.
-- How to list, inspect, install, upgrade, and check tools.
-- How `azd tool` behaves in interactive, CI, and first-run scenarios.
+Common use cases for `azd tool` include:
 
-## What is `azd tool`?
-
-`azd tool` is a unified command group for managing Azure development tooling from the Azure Developer CLI. It wraps the underlying package managers on each platform (such as `winget`, `brew`, `apt`, `npm`, and the VS Code `code` CLI) behind a consistent set of subcommands. A built-in registry (manifest) describes each supported tool, including its category, recommendation level, per-platform install strategy, and how to detect whether it's already installed and at what version.
-
-When you run a tool command, `azd`:
-
-1. Detects which tools are installed on your machine and their current versions.
-1. Looks up the appropriate install strategy for your operating system.
-1. Runs the install or upgrade through the matching package manager.
-1. Optionally checks for newer versions and surfaces non-intrusive update notifications.
-
-## Why use `azd tool`?
-
-Use `azd tool` when you want to:
-
-- Bootstrap a new development machine for Azure work without manually researching each tool.
-- Onboard new team members with a consistent, reproducible set of prerequisites.
-- Audit which Azure tools are installed (and at which versions) across machines or CI agents.
-- Keep your Azure tooling up to date with a single command.
-- Script tool setup in automation by using JSON output and non-interactive flags.
-
-The command group is designed to be safe in both interactive and automated environments. Interactive users get a guided experience, while CI pipelines and scripts can use positional arguments and flags to install or upgrade tools without prompts.
+- Installing all recommended Azure development tools on a new machine with a single command.
+- Standardizing the development environment across a team or set of CI agents.
+- Auditing which Azure tools (and which versions) are installed on a given machine.
+- Checking for and applying updates to installed tools.
+- Scripting tool setup in pipelines using non-interactive flags and JSON output.
 
 ## Built-in tools
 
-The following tools are included in the built-in registry. Categories and priorities help you decide what to install for your workflow.
+The following tools are included in the built-in registry. Use the category and priority columns to determine which tools apply to a given workflow.
 
 | Id | Name | Category | Priority | Typical install strategy |
 |---|---|---|---|---|
@@ -58,10 +38,10 @@ The following tools are included in the built-in registry. Categories and priori
 | `azure-mcp-server` | Azure MCP Server | `server` | Optional | `npm` |
 | `azd-ai-extensions` | `azd` AI Extensions | `library` | Optional | `azd extension` |
 
-The exact install strategy used depends on your operating system and the package managers that are available on your machine.
+The exact install strategy depends on the operating system and the package managers available on the machine.
 
 > [!NOTE]
-> VS Code extensions require the `code` CLI to be available on your `PATH`. If `code` isn't available, those tools are shown as not installed and can't be installed through `azd tool`.
+> VS Code extensions require the `code` CLI to be available on the `PATH`. If `code` isn't available, those tools are shown as not installed and can't be installed through `azd tool`.
 
 ## Commands overview
 
@@ -69,43 +49,43 @@ The `azd tool` command group includes the following subcommands.
 
 | Command | Description |
 |---|---|
-| `azd tool` | Starts an interactive flow that shows installed and available tools and lets you select tools to install in one step. |
+| `azd tool` | Starts an interactive flow that shows installed and available tools and prompts for tools to install in one step. |
 | `azd tool list` | Lists all registered tools, including install status, version, category, and priority. |
 | `azd tool show <id>` | Shows detailed information for a specific tool, including per-platform install strategies and the project website. |
 | `azd tool check` | Checks installed tools for available updates. |
 | `azd tool install [ids...]` | Installs one or more tools by `id`. |
 | `azd tool upgrade [ids...]` | Upgrades one or more installed tools. |
 
-All commands support `--output json` for machine-readable output that's easy to consume in scripts and pipelines.
+All commands support `--output json` for machine-readable output suitable for scripts and pipelines.
 
 ### Common flags
 
 The following flags are available on `install` and `upgrade`:
 
-- `--all`: Installs or upgrades every tool that's eligible (typically all recommended tools for `install`, and all installed tools that have updates for `upgrade`).
+- `--all`: Installs or upgrades every eligible tool. For `install`, this includes all recommended tools. For `upgrade`, this includes all installed tools that have updates available.
 - `--dry-run`: Previews the actions `azd` would take without making any changes.
 
-The following flags help control prompting:
+The following options control prompting behavior:
 
 - `--no-prompt`: Suppresses interactive prompts. Useful in scripts.
 - `AZD_NON_INTERACTIVE=true`: Environment variable equivalent to `--no-prompt`.
 - `AZD_SKIP_FIRST_RUN=true`: Disables the first-run tool-check prompt.
 
-## Sample use case: bootstrap a new dev machine
+## Sample use case: bootstrap a development machine
 
-Imagine you just got a new laptop and need to set up everything required to build and deploy an Azure app. Instead of installing the Azure CLI, Bicep extension, and other tools one by one, you can run:
+To set up the complete set of recommended Azure development tools on a new machine, run the following command:
 
 ```bash
 azd tool install --all
 ```
 
-This command installs every tool marked as `recommended` in the registry, using the right package manager for your platform. To preview what would happen first, add `--dry-run`:
+This command installs every tool marked as `recommended` in the registry using the appropriate package manager for the current platform. To preview the install actions without making changes, add `--dry-run`:
 
 ```bash
 azd tool install --all --dry-run
 ```
 
-Later, when you want to make sure everything is current, run:
+To keep installed tools current, run the following commands:
 
 ```bash
 azd tool check
@@ -114,7 +94,7 @@ azd tool upgrade --all
 
 ## List installed and available tools
 
-Run `azd tool list` to see every registered tool, whether it's installed, and which version is present:
+Run `azd tool list` to display every registered tool, its install status, and its installed version:
 
 ```output
 $ azd tool list
@@ -130,7 +110,7 @@ $ azd tool list
   azd-ai-extensions      azd AI Extensions         library     optional      Not Installed
 ```
 
-To get the same data as JSON for scripting, run:
+To return the same data as JSON for scripting, run:
 
 ```bash
 azd tool list --output json
@@ -138,7 +118,7 @@ azd tool list --output json
 
 ## Show details for a tool
 
-Use `azd tool show <id>` to inspect a specific tool, including the install strategies that apply to each supported platform and the project website:
+Run `azd tool show <id>` to inspect a specific tool, including the install strategies that apply to each supported platform and the project website:
 
 ```bash
 azd tool show az-cli
@@ -146,7 +126,7 @@ azd tool show az-cli
 
 ## Install one or more tools
 
-Provide one or more tool `id` values to install specific tools:
+Pass one or more tool `id` values to install specific tools:
 
 ```bash
 azd tool install az-cli vscode-bicep
@@ -164,17 +144,17 @@ To preview the install commands without running them, add `--dry-run`:
 azd tool install az-cli --dry-run
 ```
 
-If you run `azd tool` with no subcommand, you enter an interactive flow that displays which tools are installed, lets you select additional tools, and installs them in a single step.
+Running `azd tool` with no subcommand starts an interactive flow that displays installed tools, allows selection of additional tools, and installs them in a single step.
 
 ## Check for updates
 
-Use `azd tool check` to scan installed tools for available updates:
+Run `azd tool check` to scan installed tools for available updates:
 
 ```bash
 azd tool check
 ```
 
-`azd` also runs a background update check periodically and surfaces non-intrusive notifications when newer versions of registered tools are available.
+`azd` also runs a periodic background update check and surfaces non-intrusive notifications when newer versions of registered tools are available.
 
 ## Upgrade tools
 
@@ -198,9 +178,9 @@ azd tool upgrade --all --dry-run
 
 ## First-run experience
 
-The first time you run a workflow command such as `azd init`, `azd up`, or `azd deploy`, `azd` performs a one-time tool check and prompts you to review or install recommended tools. This experience helps new users get a complete environment with minimal friction.
+The first time a workflow command such as `azd init`, `azd up`, or `azd deploy` runs, `azd` performs a one-time tool check and prompts to review or install recommended tools.
 
-You can skip or disable the first-run prompt in several ways:
+Use any of the following options to skip or disable the first-run prompt:
 
 - Pass `--no-prompt` on the workflow command.
 - Set the environment variable `AZD_SKIP_FIRST_RUN=true`.
@@ -208,14 +188,14 @@ You can skip or disable the first-run prompt in several ways:
 
 ## CI and non-interactive scenarios
 
-`azd tool` is designed to work cleanly in pipelines and scripts:
+The `azd tool` command group supports pipelines and scripts through the following options:
 
-- Use positional `id` arguments with `install` and `upgrade` so no interactive selection is needed.
-- Add `--no-prompt` (or set `AZD_NON_INTERACTIVE=true`) to suppress prompts.
+- Use positional `id` arguments with `install` and `upgrade` to avoid interactive selection.
+- Add `--no-prompt` or set `AZD_NON_INTERACTIVE=true` to suppress prompts.
 - Use `--output json` to capture structured results for downstream steps.
-- CI environments are auto-detected, which suppresses the first-run prompt and background update notifications.
+- Rely on CI auto-detection, which suppresses the first-run prompt and background update notifications.
 
-For example, a pipeline step that ensures the Azure CLI and Bicep extension are present might look like this:
+The following example installs the Azure CLI and the Bicep extension in a pipeline step:
 
 ```bash
 azd tool install az-cli vscode-bicep --no-prompt --output json
