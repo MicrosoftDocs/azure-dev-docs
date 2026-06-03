@@ -24,7 +24,7 @@ Common use cases for `azd tool` include:
 
 ## Built-in tools
 
-The following tools are included in the built-in registry. Use the category and priority columns to determine which tools apply to a given workflow.
+The built-in registry includes the following tools. Use the category and priority columns to determine which tools apply to a given workflow.
 
 | Id | Name | Category | Priority | Typical install strategy |
 |---|---|---|---|---|
@@ -39,7 +39,7 @@ The following tools are included in the built-in registry. Use the category and 
 The exact install strategy depends on the operating system and the package managers available on the machine.
 
 > [!NOTE]
-> VS Code extensions require the `code` CLI to be available on the `PATH`. If `code` isn't available, those tools are shown as not installed and can't be installed through `azd tool`.
+> VS Code extensions require the `code` CLI to be available on the `PATH`. If `code` isn't available, the tools show as not installed and you can't install them through `azd tool`.
 
 ## Commands overview
 
@@ -60,7 +60,7 @@ All commands support `--output json` for machine-readable output suitable for sc
 
 The following flags are available on `install` and `upgrade`:
 
-- `--all`: Installs or upgrades every eligible tool. For `install`, this includes all recommended tools. For `upgrade`, this includes all installed tools that have updates available.
+- `--all`: Installs or upgrades every eligible tool. For `install`, this command includes all recommended tools. For `upgrade`, this command includes all installed tools that have updates available.
 - `--dry-run`: Previews the actions `azd` would take without making any changes.
 
 The following options control prompting behavior:
@@ -77,7 +77,7 @@ To set up the complete set of recommended Azure development tools on a new machi
 azd tool install --all
 ```
 
-This command installs every tool marked as `recommended` in the registry using the appropriate package manager for the current platform. To preview the install actions without making changes, add `--dry-run`:
+This command installs every tool marked as `recommended` in the registry by using the appropriate package manager for the current platform. To preview the install actions without making changes, add `--dry-run`:
 
 ```bash
 azd tool install --all --dry-run
