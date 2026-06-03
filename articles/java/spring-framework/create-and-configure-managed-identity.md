@@ -10,8 +10,8 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
-- ✅ Version 6.3.0
-- ✅ Version 7.2.0
+- ✅ Version 6.4.0
+- ✅ Version 7.3.0
 ---
 
 # Create and configure a managed identity on Azure hosting services

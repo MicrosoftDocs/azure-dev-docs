@@ -10,8 +10,8 @@ ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.25.0
-- ✅ Version 6.3.0
-- ✅ Version 7.2.0
+- ✅ Version 6.4.0
+- ✅ Version 7.3.0
 ---
 
 # Spring Cloud Azure developer guide
@@ -44,7 +44,7 @@ If you use Maven, add the BOM to your **pom.xml** file in the `dependencyManagem
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>7.2.0</version>
+      <version>7.3.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>

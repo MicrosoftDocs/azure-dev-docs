@@ -9,8 +9,8 @@ ms.topic: reference
 ms.custom: devx-track-java
 appliesto:
 - ✅ Version 5.25.0
-- ✅ Version 6.3.0
-- ✅ Version 7.2.0
+- ✅ Version 6.4.0
+- ✅ Version 7.3.0
 ---
 
 # Spring Cloud Azure support for Testcontainers
@@ -53,7 +53,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.3.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -96,7 +96,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.3.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -140,7 +140,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.3.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -183,7 +183,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.3.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -226,7 +226,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.3.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -269,7 +269,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.3.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
@@ -322,7 +322,7 @@ The following configuration sets up the required dependencies:
 
 ```xml
   <properties>
-    <version.spring.cloud.azure>7.2.0</version.spring.cloud.azure>
+    <version.spring.cloud.azure>7.3.0</version.spring.cloud.azure>
   </properties>
 
   <dependencyManagement>
