@@ -147,7 +147,7 @@
     items:
     - name: Manage config settings
       href: azd-config.md
-    - name: Manage Azure development tooling with azd
+    - name: Manage Azure development tooling
       href: development-tools.md
     - name: Customize workflows using command and event hooks
       href: azd-extensibility.md

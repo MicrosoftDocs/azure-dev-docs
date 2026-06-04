@@ -27,12 +27,6 @@ Predefined tasks capture industry best practices for using Azure services. Curre
 > [!NOTE]
 > This list grows based on customer feedback and evolving cloud needs.
 
-The following video demonstrates using GitHub Copilot modernization to apply a predefined task to migrate a Java project to Azure:
-
-<br>
-
-> [!VIDEO https://www.youtube.com/embed/6dgqToLNa58]
-
 ## Task list
 
 GitHub Copilot modernization currently supports the following predefined tasks:
