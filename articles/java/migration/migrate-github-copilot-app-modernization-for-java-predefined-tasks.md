@@ -27,8 +27,6 @@ Predefined tasks capture industry best practices for using Azure services. Curre
 > [!NOTE]
 > This list grows based on customer feedback and evolving cloud needs.
 
-
-
 ## Task list
 
 GitHub Copilot modernization currently supports the following predefined tasks:
