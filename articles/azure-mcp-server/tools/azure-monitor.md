@@ -197,7 +197,7 @@ Query diagnostic and activity logs for a specific Azure resource in a Log Analyt
 
 Example prompts include:
 
-- "Show logs with query 'recent' for resource ID '/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/rg-prod/providers/Microsoft.Compute/virtualMachines/my-vm' in table 'AzureDiagnostics'."
+- "Show logs with query 'recent' for resource ID '/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/rg-prod/providers/Microsoft.Compute/virtualMachines/my-vm' in table 'AzureDiagnostics'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -531,5 +531,3 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 - [Workbooks in Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview)
 - [Metrics in Azure Monitor](/azure/azure-monitor/platform/tutorial-metrics)
-
-
