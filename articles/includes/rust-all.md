@@ -4,6 +4,8 @@
 | Core - AMQP | crate [1.0.0](https://crates.io/crates/azure_core_amqp/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@1.0.0/sdk/core/azure_core_amqp) |
 | Core - Macros | crate [1.0.0](https://crates.io/crates/azure_core_macros/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@1.0.0/sdk/core/azure_core_macros) |
 | Core - OpenTelemetry | crate [1.0.0](https://crates.io/crates/azure_core_opentelemetry/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@1.0.0/sdk/core/azure_core_opentelemetry) |
+| Core Test | crate [0.1.0](https://crates.io/crates/azure_core_test/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_test@0.1.0/sdk/core/azure_core_test) |
+| Core Test Macros | crate [0.1.0](https://crates.io/crates/azure_core_test_macros/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_test_macros@0.1.0/sdk/core/azure_core_test_macros) |
 | Cosmos DB | crate [0.34.0](https://crates.io/crates/azure_data_cosmos/0.34.0) |  | GitHub [0.34.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.34.0/sdk/cosmos/azure_data_cosmos) |
 | Cosmos DB Client Driver | crate [0.3.0](https://crates.io/crates/azure_data_cosmos_driver/0.3.0) |  | GitHub [0.3.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_driver@0.3.0/sdk/cosmos/azure_data_cosmos_driver) |
 | Cosmos DB SDK Macros | crate [0.1.0](https://crates.io/crates/azure_data_cosmos_macros/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_macros@0.1.0/sdk/cosmos/azure_data_cosmos_macros) |
