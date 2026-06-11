@@ -1,10 +1,11 @@
 ---
 author: diberry
+ms.author: diberry
+ms.date: 06/01/2026
 ms.service: azure
 ms.topic: include
-ms.date: 02/18/2026
-ms.author: diberry
 ---
+
 ## Sign-in to Azure using developer tooling
 
 Next, sign-in to Azure using one of several developer tools that can be used to perform authentication in your development environment. The account you authenticate should also exist in the Microsoft Entra group you created and configured earlier.

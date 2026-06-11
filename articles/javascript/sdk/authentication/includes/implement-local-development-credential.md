@@ -1,16 +1,16 @@
 ---
 author: diberry
+ms.author: diberry
+ms.date: 06/01/2026
 ms.service: azure-javascript
 ms.topic: include
-ms.date: 01/21/2026
-ms.author: diberry
 ---
 
 ## Authenticate to Azure services from your app
 
 The [Azure Identity library](/javascript/api/overview/azure/identity-readme) provides implementations of [TokenCredential](/javascript/api/@azure/core-auth/tokencredential) that support various scenarios and Microsoft Entra authentication flows. The following steps demonstrate how to use [DefaultAzureCredential](/azure/developer/javascript/sdk/authentication/credential-chains#use-defaultazurecredential-for-flexibility) or a specific development tool credential when working with user accounts locally.
 
-> [!TIP]
+> [!TIP]  
 > When your team uses multiple development tools to authenticate with Azure, prefer a local development-optimized instance of `DefaultAzureCredential` over tool-specific credentials.
 
 ### Implement the code
@@ -21,7 +21,7 @@ The [Azure Identity library](/javascript/api/overview/azure/identity-readme) pro
     npm install @azure/identity
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > If you want to use `VisualStudioCodeCredential`, you must also install the [@azure/identity-vscode](https://www.npmjs.com/package/@azure/identity-vscode) plugin package. Then explicitly load the credential. For an example, see the [@azure/identity-vscode README](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity-vscode/README.md#examples).
 
 1. Choose _one_ of the credential implementations based on your scenario.

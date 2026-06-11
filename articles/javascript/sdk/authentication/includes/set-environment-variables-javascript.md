@@ -1,6 +1,6 @@
 ---
+ms.date: 06/01/2026
 ms.topic: include
-ms.date: 01/05/2026
 ---
 
 ## Set the app environment variables
@@ -95,7 +95,7 @@ For earlier Node.js versions, you can use the [dotenv](https://www.npmjs.com/pac
     import 'dotenv/config';
     ```
 
-> [!CAUTION]
+> [!CAUTION]  
 > Never commit `.env` files or client secrets to source control. Add `.env` to your `.gitignore` file.
 
 ---
