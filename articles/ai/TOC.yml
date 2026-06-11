@@ -32,6 +32,8 @@ items:
               href: keyless-connections.md
             - name: Use Azure AI Search without keys
               href: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Migrate Chat Completions API apps to Responses API
+          href: how-to/azure-openai-to-responses.md
     - name: AI app design
       items:
         - name: AI agent orchestration patterns
