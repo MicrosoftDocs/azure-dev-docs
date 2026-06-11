@@ -1,7 +1,7 @@
 ---
 title: Create Azure Storage with the Azure libraries for Python
-description: Use the Azure SDK for Python libraries to create a blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 05/20/2025
+description: Use the Azure SDK for Python management libraries to create a resource group, Azure Storage account, and blob container.
+ms.date: 06/09/2026
 ms.topic: how-to
 ms.custom:
   - devx-track-python
@@ -47,11 +47,11 @@ In this step, you set environment variables for use in the code in this article.
 
 ```azurecli
 #!/bin/bash
-export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
-export LOCATION=<Location> # Change to your preferred region
+export AZURE_RESOURCE_GROUP_NAME="<ResourceGroupName>" # Change to your preferred resource group name
+export LOCATION="<Location>" # Change to your preferred region
 export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-export STORAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
-export CONTAINER_NAME=<ContainerName> # Change to your preferred container name
+export STORAGE_ACCOUNT_NAME="<StorageAccountName>" # Change to your preferred storage account name
+export CONTAINER_NAME="<ContainerName>" # Change to your preferred container name
 
 ```
 
@@ -59,24 +59,23 @@ export CONTAINER_NAME=<ContainerName> # Change to your preferred container name
 
 ```azurecli
 # PowerShell syntax
-$env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
-$env:LOCATION = <Location> # Change to your preferred region
+$env:AZURE_RESOURCE_GROUP_NAME = "<ResourceGroupName>" # Change to your preferred resource group name
+$env:LOCATION = "<Location>" # Change to your preferred region
 $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
-$env:STORAGE_ACCOUNT_NAME = <StorageAccountName> # Change to your preferred storage account name
-$env:CONTAINER_NAME = <ContainerName> # Change to your preferred container name
+$env:STORAGE_ACCOUNT_NAME = "<StorageAccountName>" # Change to your preferred storage account name
+$env:CONTAINER_NAME = "<ContainerName>" # Change to your preferred container name
 ```
 
 ---
 
 ## 4: Write code to create a storage account and blob container
 
-In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group, Azure Storage account, and Blob container using the Azure SDK for Python.
+In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group, Azure Storage account, and Blob container.
 
 ```Python
-import os, random
+import os
 
-# Import the needed management objects from the libraries. The azure.common library
-# is installed automatically with the other libraries.
+# Import the needed credential and management objects from the libraries.
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.storage import StorageManagementClient
@@ -100,8 +99,8 @@ rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME
 
 print(f"Provisioned resource group {rg_result.name}")
 
-# For details on the previous code, see Example: Provision a resource group
-# at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
+# For details on the previous code, see Example: Create a resource group:
+# https://learn.microsoft.com/azure/developer/python/sdk/examples/azure-sdk-example-resource-group
 
 
 # Step 2: Provision the storage account, starting with a management object.
@@ -113,7 +112,7 @@ STORAGE_ACCOUNT_NAME = os.environ["STORAGE_ACCOUNT_NAME"]
 # Check if the account name is available. Storage account names must be unique across
 # Azure because they're used in URLs.
 availability_result = storage_client.storage_accounts.check_name_availability(
-    { "name": STORAGE_ACCOUNT_NAME }
+    { "name": STORAGE_ACCOUNT_NAME, "type": "Microsoft.Storage/storageAccounts" }
 )
 
 if not availability_result.name_available:
@@ -138,9 +137,9 @@ print(f"Provisioned storage account {account_result.name}")
 # Step 3: Retrieve the account's primary access key and generate a connection string.
 keys = storage_client.storage_accounts.list_keys(RESOURCE_GROUP_NAME, STORAGE_ACCOUNT_NAME)
 
-print(f"Primary key for storage account: {keys.keys[0].value}")
+print("Retrieved the primary key for the storage account")
 
-conn_string = f"DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={STORAGE_ACCOUNT_NAME};AccountKey={keys.keys[0].value}"
+conn_string = f"DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={STORAGE_ACCOUNT_NAME};AccountKey={keys['keys'][0].value}"
 
 # print(f"Connection string: {conn_string}")
 
@@ -153,9 +152,9 @@ print(f"Provisioned blob container {container.name}")
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script should run successfully without additional configuration.
+Later in this article, you sign in to Azure by using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script runs successfully without additional configuration.
 
-To use this code in a production environment, authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+To use this code in a production environment, authenticate by using a service principal and set environment variables. This approach enables secure, automated access without relying on interactive sign-in. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
 Ensure that the service principal is assigned a role with sufficient permissions to create resource groups and storage accounts. For example, assigning the Contributor role at the subscription level provides the necessary access. To learn more about role assignments, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
@@ -167,7 +166,7 @@ Ensure that the service principal is assigned a role with sufficient permissions
 
 ## 5. Run the script
 
-1. If you haven't already, sign in to Azure using the Azure CLI:
+1. If you didn't already, sign in to Azure by using the Azure CLI:
 
     ```azurecli
     az login
@@ -185,11 +184,9 @@ Ensure that the service principal is assigned a role with sufficient permissions
 
 ## 6: Verify the resources
 
-1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were created as expected. You may need to wait a minute and also select **Show hidden types** in the resource group.
+1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were created as expected. You might need to wait a minute and then refresh the resource group view.
 
-    ![Azure portal page for the new resource group, showing the storage account](../../media/azure-sdk-example-storage/portal-show-hidden-types.png)
-
-1. Select the storage account, then select **Data storage** > **Containers** in the left-hand menu to verify that the "blob-container-01" appears:
+1. Select the storage account, and then select **Data storage** > **Containers** in the left-hand menu to verify that the container you created appears:
 
     ![Azure portal page for the storage account showing the blob container](../../media/azure-sdk-example-storage/portal-show-blob-containers.png)
 
@@ -199,9 +196,9 @@ For another example of using the Azure Storage management library, see the [Mana
 
 ## 7: Clean up resources
 
-Leave the resources in place if you want to follow the article [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use these resources in app code. Otherwise, run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources created in this example.
+If you want to use these resources in app code, follow the article [Example: Use Azure Storage](azure-sdk-example-storage-use.md). Otherwise, run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources that you created in this example.
 
-Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might incur charges. It's a good practice to clean up any resource group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 # [Bash](#tab/bash)
 
@@ -227,13 +224,12 @@ The following Azure CLI commands complete the same creation steps as the Python 
 
 ```azurecli
 #!/bin/bash
-#!/bin/bash
 
 # Set variables
-export LOCATION=<Location> # Change to your preferred region
-export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
-export STORAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
-export CONTAINER_NAME=<ContainerName> # Change to your preferred container name
+export LOCATION="<Location>" # Change to your preferred region
+export AZURE_RESOURCE_GROUP_NAME="<ResourceGroupName>" # Change to your preferred resource group name
+export STORAGE_ACCOUNT_NAME="<StorageAccountName>" # Change to your preferred storage account name
+export CONTAINER_NAME="<ContainerName>" # Change to your preferred container name
 
 # Provision the resource group
 echo "Creating resource group: $AZURE_RESOURCE_GROUP_NAME"
@@ -242,51 +238,63 @@ az group create \
     --name "$AZURE_RESOURCE_GROUP_NAME"
 
 # Provision the storage account
-az storage account create -g $AZURE_RESOURCE_GROUP_NAME -l $LOCATION -n $STORAGE ACCOUNT_NAME --kind StorageV2 --sku Standard_LRS
+az storage account create \
+    --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
+    --location "$LOCATION" \
+    --name "$STORAGE_ACCOUNT_NAME" \
+    --kind StorageV2 \
+    --sku Standard_LRS
 
-echo Storage account name is $STORAGE_ACCOUNT_NAME
+echo "Storage account name is $STORAGE_ACCOUNT_NAME"
 
 # Retrieve the connection string
-CONNECTION_STRING=$(az storage account show-connection-string -g $AZURE_RESOURCE_GROUP_NAME -n $STORAGE_ACCOUNT_NAME --query connectionString)
+CONNECTION_STRING=$(az storage account show-connection-string \
+    --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
+    --name "$STORAGE_ACCOUNT_NAME" \
+    --query connectionString \
+    --output tsv)
 
 # Provision the blob container
-az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --connection-string $CONNECTION_STRING
+az storage container create \
+    --name "$CONTAINER_NAME" \
+    --account-name "$STORAGE_ACCOUNT_NAME" \
+    --connection-string "$CONNECTION_STRING"
 ```
 
-### [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurecli
 # PowerShell syntax
 # Define variables
-$env:LOCATION = <Location> # Change to your preferred region
-$env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
-$env:STORAGE_ACCOUNT_NAME = <StorageAccountName> # Change to your preferred storage account name
-$env:CONTAINER_NAME = <ContainerName> # Change to your preferred container name
+$env:LOCATION = "<Location>" # Change to your preferred region
+$env:AZURE_RESOURCE_GROUP_NAME = "<ResourceGroupName>" # Change to your preferred resource group name
+$env:STORAGE_ACCOUNT_NAME = "<StorageAccountName>" # Change to your preferred storage account name
+$env:CONTAINER_NAME = "<ContainerName>" # Change to your preferred container name
 
 # Provision the resource group
-az group create -n $AZURE_RESOURCE_GROUP_NAME -l $LOCATION
+az group create -n $env:AZURE_RESOURCE_GROUP_NAME -l $env:LOCATION
 
 # Provision the storage account
 az storage account create `
-  -g $AZURE_RESOURCE_GROUP_NAME `
-  -l $LOCATION `
-  -n $STORAGE_ACCOUNT_NAME `
+  --resource-group $env:AZURE_RESOURCE_GROUP_NAME `
+  --location $env:LOCATION `
+  --name $env:STORAGE_ACCOUNT_NAME `
   --kind StorageV2 `
   --sku Standard_LRS
 
 # Retrieve the connection string
-Write-Output "Storage account name is $ACCOUNT_NAME"
+Write-Output "Storage account name is $env:STORAGE_ACCOUNT_NAME"
 
 $CONNECTION_STRING = az storage account show-connection-string `
-  -g $AZURE_RESOURCE_GROUP_NAME `
-  -n $STORAGE_ACCOUNT_NAME `
+  --resource-group $env:AZURE_RESOURCE_GROUP_NAME `
+  --name $env:STORAGE_ACCOUNT_NAME `
   --query connectionString `
-  -o tsv
+  --output tsv
 
 # Provision the blob container
 az storage container create `
-  --name $CONTAINER_NAME `
-  --account-name $STORAGE_ACCOUNT_NAME `
+  --name $env:CONTAINER_NAME `
+  --account-name $env:STORAGE_ACCOUNT_NAME `
   --connection-string $CONNECTION_STRING
 
 ```
