@@ -101,6 +101,8 @@
       href: tools/azure-app-lens.md
     - name: Azure App Service
       href: tools/azure-app-service.md
+    - name: Azure Backup
+      href: tools/azure-backup.md
     - name: Azure Bicep schema
       href: tools/azure-bicep-schema.md
     - name: Azure CLI

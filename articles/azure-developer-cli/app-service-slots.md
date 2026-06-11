@@ -103,6 +103,29 @@ If your service has exactly one slot, `azd` ignores the environment variable bec
 
 If your service has two or more slots and the environment variable isn't set, `azd` prompts you to choose a slot.
 
+## Bypass slot detection and deploy to the main app
+
+In some scenarios, you need `azd` to deploy directly to the main App Service app even when slots exist. For example:
+
+- Your CI pipeline needs to refresh the main app while leaving existing slots untouched.
+- You're recovering from a bad slot state and want to redeploy the production site directly.
+- You're rebaselining the main app before configuring new slots.
+
+To bypass slot detection, set the following environment variable for the service:
+
+`AZD_DEPLOY_<SERVICE_NAME>_IGNORE_SLOTS`
+
+Build the variable name from the service name in `azure.yaml` by using uppercase and replacing hyphens with underscores. Set the value to `true` to skip slot detection and deploy to the main app.
+
+For example, if your service is named `my-api`, use `AZD_DEPLOY_MY_API_IGNORE_SLOTS`.
+
+```bash
+azd env set AZD_DEPLOY_MY_API_IGNORE_SLOTS true
+azd deploy my-api
+```
+
+When `AZD_DEPLOY_<SERVICE_NAME>_IGNORE_SLOTS` is set to `true`, `azd` deploys to the main app and ignores any `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` value for the same service. Unset the variable or set it to `false` to return to the default slot-aware behavior.
+
 ## CI and noninteractive behavior
 
 When you run `azd deploy --no-prompt` or deploy from CI, slot selection behaves differently depending on how many slots are available:
@@ -110,10 +133,10 @@ When you run `azd deploy --no-prompt` or deploy from CI, slot selection behaves 
 | Slots | Environment variable behavior | Result |
 | --- | --- | --- |
 | `0` | Not applicable. | `azd` deploys to the main app. |
-| `1` | Ignored. | `azd` deploys to the only slot. |
-| `2+` | Required to avoid prompting. | `azd` deploys to the specified slot, or fails if no slot can be selected. |
+| `1` | Ignored unless `AZD_DEPLOY_<SERVICE_NAME>_IGNORE_SLOTS` is `true`. | `azd` deploys to the only slot, or to the main app when slots are ignored. |
+| `2+` | `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` required to avoid prompting, unless `AZD_DEPLOY_<SERVICE_NAME>_IGNORE_SLOTS` is `true`. | `azd` deploys to the specified slot, deploys to the main app when slots are ignored, or fails if no target can be selected. |
 
-If you automate deployments for an App Service that has two or more slots, set `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` in the pipeline environment before running `azd deploy`.
+If you automate deployments for an App Service that has two or more slots, set `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` in the pipeline environment before running `azd deploy`. To force a direct-to-main deployment from CI when slots exist, set `AZD_DEPLOY_<SERVICE_NAME>_IGNORE_SLOTS` to `true` instead.
 
 ## Swap Azure App Service deployment slots
 
@@ -148,7 +171,7 @@ Swapping is the intended path for updating production after slots are configured
 1. Define one or more App Service deployment slots in your Bicep templates.
 1. Provision the App Service resources by using `azd provision` or `azd up`.
 1. Let the first deployment establish a baseline on the main app and every slot.
-1. Deploy later application updates to a staging slot by setting `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` when you have two or more slots, or by selecting the slot when prompted.
+1. Deploy later application updates to a staging slot by setting `AZD_DEPLOY_<SERVICE_NAME>_SLOT_NAME` when you have two or more slots, or by selecting the slot when prompted. To force a direct-to-main deployment from CI when slots exist, set `AZD_DEPLOY_<SERVICE_NAME>_IGNORE_SLOTS` to `true` instead.
 1. Validate the staged deployment.
 1. Run `azd appservice swap --src <slot> --dst @main` to promote the release.
 1. If needed, run the reverse swap to roll back.
