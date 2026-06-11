@@ -1,8 +1,8 @@
 ---
-title: Authenticate to Azure resources from JavaScript apps hosted on-premises
-description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript in on-premises hosted apps. 
+title: Authenticate to Azure Resources from JavaScript Apps Hosted On-Premises
+description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript in on-premises hosted apps.
+ms.date: 06/01/2026
 ms.topic: how-to
-ms.date: 01/06/2026
 ms.custom:
   - devx-track-js
   - engagement-fy23
@@ -26,7 +26,6 @@ A different app registration should be created for each environment the app is h
 [!INCLUDE [authentication-assign-service-principal-roles](../../../includes/authentication/assign-service-principal-roles.md)]
 
 [!INCLUDE [authentication-set-environment-variables](includes/set-environment-variables-javascript.md)]
-
 
 ## Authenticate to Azure services from your app
 
@@ -80,4 +79,3 @@ const blobServiceClient = new BlobServiceClient(
   new ClientSecretCredential(tenantId, clientId, clientSecret)
 );
 ```
-

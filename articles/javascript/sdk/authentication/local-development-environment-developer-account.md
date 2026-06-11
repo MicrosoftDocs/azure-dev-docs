@@ -1,14 +1,13 @@
 ---
-title: Authenticate Node.js Apps to Azure Using Developer Accounts
+title: "Authenticate Node.js Apps to Azure Using Developer Accounts"
 description: Learn how to authenticate your application to Azure services when using the Azure SDK for Node.js during local development using developer accounts.
+ms.date: 06/01/2026
 ms.topic: how-to
-ms.date: 02/18/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell
   - devx-track-js
   - sfi-image-nochange
-
 ---
 
 # Authenticate Node.js apps to Azure services during local development using developer accounts
@@ -29,7 +28,7 @@ For an app to authenticate to Azure during local development using the developer
 
 The Azure Identity library can detect that the developer is signed-in from one of these tools. The library can then obtain the Microsoft Entra access token via the tool to authenticate the app to Azure as the signed-in user.
 
-This approach takes advantage of the developer's existing Azure accounts to streamline the authentication process. However, a developer's account likely has more permissions than required by the app, therefore exceeding the permissions the app runs with in production. As an alternative, you can [create application service principals to use during local development](./local-development-environment-service-principal.md), which can be scoped to have only the access needed by the app.
+This approach takes advantage of the developer's existing Azure accounts to streamline the authentication process. However, a developer's account likely has more permissions than required by the app, therefore exceeding the permissions the app runs with in production. As an alternative, you can [create application service principals to use during local development](local-development-environment-service-principal.md), which can be scoped to have only the access needed by the app.
 
 [!INCLUDE [create-entra-group](../../../includes/authentication/create-entra-group.md)]
 

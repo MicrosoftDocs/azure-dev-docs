@@ -1,19 +1,18 @@
 ---
-title: "Local dev: Auth JS apps to Azure services with service principal"
+title: "Local Dev: Auth JS Apps to Azure Services with Service Principal"
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript during local development using dedicated application service principals.
-ms.date: 01/20/2026
+ms.date: 06/01/2026
 ms.topic: how-to
 ms.custom:
   - dexx-track-js
   - devx-track-azurecli
   - devx-track-js
   - sfi-image-nochange
-#.NET:03/11/2025:https://github.com/dotnet/docs/blob/main/docs/azure/sdk/authentication/local-development-service-principal.md
 ---
 
 # Authenticate JavaScript apps to Azure services during local development using service principals
 
-During local development, applications need to authenticate to Azure to access various Azure services. Two common approaches for local authentication are to [use a developer account](./local-development-environment-developer-account.md) or a service principal. This article explains how to use an application service principal. In the following sections, you learn:
+During local development, applications need to authenticate to Azure to access various Azure services. Two common approaches for local authentication are to [use a developer account](local-development-environment-developer-account.md) or a service principal. This article explains how to use an application service principal. In the following sections, you learn:
 
 - How to register an application with Microsoft Entra to create a service principal
 - How to use Microsoft Entra groups to efficiently manage permissions

@@ -1,14 +1,15 @@
 ---
-title: Authenticate JavaScript apps to Azure using brokered authentication.
-ms.reviewer: diberry
-ms.author: diberry
-author: diberry
+title: Authenticate JavaScript Apps to Azure Using Brokered Authentication.
 description: Learn how to authenticate your app to Azure services when using the Azure SDK for JavaScript during local development using brokered authentication.
-ms.date: 11/13/2025
+author: diberry
+ms.author: diberry
+ms.reviewer: diberry
+ms.date: 06/01/2026
 ms.topic: how-to
-ms.custom: devx-track-js
-zone_pivot_group_filename: developer/pivots.yml
+ms.custom:
+  - devx-track-js
 zone_pivot_groups: pivot-os-windows-linux
+zone_pivot_group_filename: "developer/pivots.yml"
 ---
 
 # Authenticate JavaScript apps to Azure services during local development using brokered authentication
@@ -45,7 +46,7 @@ The Azure Identity library supports brokered authentication using [InteractiveBr
 
     :::code language="typescript" source="~/../azure-sdk-for-js-docs/samples/identity/credentials/src/broker.ts" id="BROKER":::
 
-> [!TIP]
+> [!TIP]  
 > View the [complete sample app code](https://github.com/Azure-Samples/azure-sdk-for-js-docs/blob/main/samples/identity/credentials/src/broker.ts) in the Azure SDK for JavaScript GitHub repository.
 
 In the preceding example, property `useDefaultBrokerAccount` is set to `true`, which opts into a silent, brokered authentication flow with the default system account. In this way, the user doesn't have to repeatedly select the same account. If silent, brokered authentication fails, or `useDefaultBrokerAccount` is set to `false`, `InteractiveBrowserCredential` falls back to interactive, brokered authentication.
@@ -68,7 +69,7 @@ The following video shows the alternative interactive, brokered authentication e
 
 ## Related content
 
-- [Authenticate JavaScript apps to Azure services by using the Azure SDK for JavaScript](overview.md)
-- [Authenticate JavaScript apps to Azure services during local development](local-development-environment-service-principal.md)
+- [Authenticate JavaScript apps to Azure services using the Azure Identity library](overview.md)
+- [Authenticate JavaScript apps to Azure services during local development using service principals](local-development-environment-service-principal.md)
 - [Azure Identity library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity)
 - [Azure Identity Broker library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity-broker)

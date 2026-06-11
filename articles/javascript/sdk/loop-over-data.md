@@ -1,9 +1,10 @@
 ---
-title: Loop over data using async iterators in the Azure SDK for JavaScript
+title: Loop over Data Using Async Iterators in the Azure SDK for JavaScript
 description: Learn how to loop over large data sets using async iterators in the Azure SDK for JavaScript. Discover benefits and practical examples for paginated data.
-ms.date: 06/28/2025
+ms.date: 06/01/2026
 ms.topic: concept-article
-ms.custom: devx-track-js 
+ms.custom:
+  - devx-track-js
 ai-usage: ai-assisted
 ---
 
@@ -27,7 +28,7 @@ If you're new to async iterators, the following concepts help to understand how 
 - **Generators:** Functions that can be paused and resumed, yielding multiple values.
 - **Async Generators:** Combine the features of async functions and generators to produce async iterators.
 
-Azure client libraries use async iterators to handle potentially large collections of data. Below are examples of how to use async iterators with various Azure services. 
+Azure client libraries use async iterators to handle potentially large collections of data. Below are examples of how to use async iterators with various Azure services.
 
 ## Loop over a few items
 
@@ -37,11 +38,11 @@ If you result set is only a few items, you can loop through that small list. The
 
 ## Loop over data by page
 
-If your data set is larger, you may want to return the data in pages, then iterate over items in each page. The following code loops through a data by page, then each item.
+If your data set is larger, you might want to return the data in pages, then iterate over items in each page. The following code loops through a data by page, then each item.
 
 :::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-by-page.ts" id="Loop_over_data_by_page":::
 
-## Continue looping 
+## Continue looping
 
 If you need to have more control over the loop, including resuming the loop, use a continuation token. The paged iterator also supports resuming from a continuation token. In the following example, we use the continuation token from the first iteration to resume iteration at the second page.
 
@@ -53,4 +54,3 @@ If you need to have more control over the loop, including resuming the loop, use
 - [Azure SDK pagination guidelines](https://azure.github.io/azure-sdk/typescript_design.html#ts-pagination)
 - [MDN documentation for iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
 - [MDN documentation for Symbol.asyncIterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator)
-
