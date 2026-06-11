@@ -11,7 +11,7 @@ sequenceDiagram
   participant A as Node.js app;
   participant B as Credential chain;
   participant C as TokenCredential instance;
-    
+
   A->>B: Authenticate to Microsoft Entra ID;
   activate B;
   B->>B: getToken;
@@ -24,7 +24,7 @@ sequenceDiagram
     end;
     deactivate C;
   end;
-  
+
   B-->>A: AccessToken;
   deactivate B;
 ```

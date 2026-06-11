@@ -1,24 +1,25 @@
 ---
-title: "How to Test Azure SDK Integration in JavaScript Applications"
-description: "Learn how to test Azure SDK integration in JavaScript apps using Jest. Discover best practices for using live dependencies, doubles, and mocks with Azure client libraries."
-ms.date: 03/26/2025
+title: How to Test Azure SDK Integration in JavaScript Applications
+description: Learn how to test Azure SDK integration in JavaScript apps using Jest. Discover best practices for using live dependencies, doubles, and mocks with Azure client libraries.
+ms.date: 06/01/2026
 ms.topic: concept-article
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
 ai-usage: ai-assisted
-#customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
+# customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
 
 # How to Test Azure SDK integration in JavaScript applications
 
-Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. This guide shows you how to effectively test Azure SDK integration in your JavaScript applications a testing framework. 
+Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. This guide shows you how to effectively test Azure SDK integration in your JavaScript applications a testing framework.
 
-When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost. This article demonstrates how to use a test framework for testing SDK integration. The application code inserts a document into Cosmos DB. The test code mocks out that resource usage so the cloud resource isn't used. 
+When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost. This article demonstrates how to use a test framework for testing SDK integration. The application code inserts a document into Cosmos DB. The test code mocks out that resource usage so the cloud resource isn't used.
 
 The frameworks used are:
 
-* Jest with CommonJs
-* Vitest with ESM
-* Node.js Test runner with ESM
+- Jest with CommonJs
+- Vitest with ESM
+- Node.js Test runner with ESM
 
 ## Prerequisites
 
@@ -26,10 +27,10 @@ The frameworks used are:
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) is part of the Node.js installation. 
+The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) is part of the Node.js installation.
 
-> [!CAUTION]
-> The sample provided for the Node.js test runner uses the experimental node:test module with mock.fn(). Keep in mind that Node’s built‐in test runner doesn't yet offer a fully supported mocking API. Make sure that your target Node version supports the experimental APIs or consider using a third‑party mocking library (or stub functions) instead.
+> [!CAUTION]  
+> The sample provided for the Node.js test runner uses the experimental node:test module with mock.fn(). Keep in mind that Node's built‐in test runner doesn't yet offer a fully supported mocking API. Make sure that your target Node version supports the experimental APIs or consider using a third-party mocking library (or stub functions) instead.
 
 ### [Jest](#tab/test-with-jest)
 
@@ -41,8 +42,9 @@ The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) 
 
 ---
 
+<a id="mocking-cloud-services"></a>
 
-### Mocking cloud services
+### Mock cloud services
 
 **Pros:**
 
@@ -57,7 +59,9 @@ The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) 
 - Might ignore certain features or behaviors of the live service.
 - Less realistic environment compared to production.
 
-### Using a live service
+<a id="using-a-live-service"></a>
+
+### Use a live service
 
 **Pros:**
 
@@ -75,13 +79,13 @@ The choice between mocking and using live services depends on your testing strat
 
 ## Test doubles: Mocks, stubs, and fakes
 
-A test double is any kind of substitute used in place of something real for testing purposes. The type of double you choose is based on what you want it to replace. The term _mock_ is often meant as any _double_ when the term is used casually. In this article, the term is used specifically and illustrated specifically in the Jest test framework. 
+A test double is any kind of substitute used in place of something real for testing purposes. The type of double you choose is based on what you want it to replace. The term _mock_ is often meant as any _double_ when the term is used casually. In this article, the term is used specifically and illustrated specifically in the Jest test framework.
 
 ### Mocks
 
-Mocks (also called _spies_): Substitute in a function and be able to control and spy on the **behavior** of that function when it's called indirectly by some other code. 
+Mocks (also called _spies_): Substitute in a function and be able to control and spy on the **behavior** of that function when it's called indirectly by some other code.
 
-In the following examples, you have 2 functions: 
+In the following examples, you have 2 functions:
 
 - **someTestFunction**: The function you need to test. It calls a dependency, `dependencyFunction`, which you didn't write and don't need to test.
 - **dependencyFunctionMock**: Mock of the dependency.
@@ -102,7 +106,6 @@ const { name } = someTestFunction()
 // ASSERT
 assert.strictEqual(dependencyFunctionMock.mock.callCount(), 1);
 ```
-
 
 ### [Jest](#tab/test-with-jest)
 
@@ -136,15 +139,13 @@ expect(dependencyFunctionMock).toHaveBeenCalledTimes(1);
 
 ---
 
-
-
-The purpose of the test is to ensure that someTestFunction behaves correctly without actually invoking the dependency code. The test validates that the mock of the dependency was called. 
+The purpose of the test is to ensure that someTestFunction behaves correctly without actually invoking the dependency code. The test validates that the mock of the dependency was called.
 
 ### Mock large versus small dependencies
 
 When you decide to mock a dependency, you can choose to mock just what you need such as:
 
-- A function or two from a **larger dependency**. Jest offers [partial mocks](https://jestjs.io/docs/mock-functions#mocking-partials) for this purpose. 
+- A function or two from a **larger dependency**. Jest offers [partial mocks](https://jestjs.io/docs/mock-functions#mocking-partials) for this purpose.
 - All functions of a **smaller dependency**, as shown in the example in this article.
 
 ### Stubs
@@ -172,7 +173,6 @@ const { name } = someTestFunction()
 // ASSERT
 assert.strictEqual(name, `${fakeDatabaseData.first} ${fakeDatabaseData.last}`);
 ```
-
 
 ### [Jest](#tab/test-with-jest)
 
@@ -209,10 +209,7 @@ const { name } = someTestFunction()
 expect(name).toBe(`${fakeDatabaseData.first} ${fakeDatabaseData.last}`);
 ```
 
-
 ---
-
-
 
 The purpose of the preceding test is to ensure that the work done by `someTestFunction` meets the expected outcome. In this simple example, the function's task is to concatenate the first and family names. By using fake data, you know the expected result and can validate that the function performs the work correctly.
 
@@ -224,7 +221,6 @@ Fakes substitute a functionality that you wouldn't normally use in production, s
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/fake-in-mem-db.test.ts" :::
 
-
 ### [Jest](#tab/test-with-jest)
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/fakes/fake-in-mem-db.spec.ts" :::
@@ -233,10 +229,7 @@ Fakes substitute a functionality that you wouldn't normally use in production, s
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-vitest/tests/fake-in-mem-db.test.ts" :::
 
-
 ---
-
-
 
 The purpose of the preceding test is to ensure that `someTestFunction` correctly interacts with the database. By using a fake in-memory database, you can test the function's logic without relying on a real database, making the tests faster and more reliable.
 
@@ -250,21 +243,17 @@ Cosmos DB is used as an example, however the concepts apply to most of the Azure
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/lib/insert.ts":::
 
-
 ### [Jest](#tab/test-with-jest)
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/mock-function/lib/insert.ts":::
 
 ### [Vitest](#tab/test-with-vitest)
 
-
 :::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/lib/insert.ts":::
 
 ---
 
-
-
-> [!NOTE]
+> [!NOTE]  
 > TypeScript types help define the kinds of data a function uses. While you don't need TypeScript to use Jest or other JavaScript testing frameworks, it's essential for writing type-safe JavaScript.
 
 The functions in this application are:
@@ -284,7 +273,6 @@ The functions in this application are:
 This framework is provided as part of Node.js LTS.
 
 ### [Jest](#tab/test-with-jest)
-
 
 In the root of the application directory, install Jest with the following command:
 
@@ -306,7 +294,6 @@ npm install -D vitest
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-
 Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Test runner looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. This pattern means files named like the following examples are interpreted as test files and run by Test runner:
 
 - ***.test.js**: For example, math.test.js
@@ -321,9 +308,7 @@ Add a script to the *package.json* to support that test file pattern with Test r
 }
 ```
 
-
 ### [Jest](#tab/test-with-jest)
-
 
 Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. This pattern means files named like the following examples are interpreted as test files and run by Jest:
 
@@ -341,10 +326,7 @@ Add a script to the *package.json* to support that test file pattern with Jest:
 
 The TypeScript source code is generated into the `dist` subfolder where Jest finds and runs the `*.spec.js` files.
 
-
 ### [Vitest](#tab/test-with-vitest)
-
-
 
 Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Vitest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. This pattern means files named like the following examples are interpreted as test files and run by Vitest:
 
@@ -362,10 +344,9 @@ Add a script to the *package.json* to support that test file pattern with Vitest
 
 ---
 
+### Set up unit test for Azure SDK
 
-### Set up unit test for Azure SDK 
-
-How can we use mocks, stubs, and fakes to test the **insertDocument** function? 
+How can we use mocks, stubs, and fakes to test the **insertDocument** function?
 
 - Mocks: we need a mock to make sure the **behavior** of the function is tested such as:
   - If the data does pass verification, the call to the Cosmos DB function happened only 1 time
@@ -375,20 +356,19 @@ How can we use mocks, stubs, and fakes to test the **insertDocument** function?
 
 When testing, think in terms of the test setup, the test itself, and the verification. In terms of test vernacular, this functionality uses the following terms:
 
-* Arrange: set up your test conditions
-* Act: call your function to test, also known as the _system under test_ or SUT
-* Assert: validate the results. Results can be behavior or state. 
-    * Behavior indicates functionality in your test function, which can be verified. One example is that some dependency was called.
-    * State indicates the data returned from the function.  
+- Arrange: set up your test conditions
+- Act: call your function to test, also known as the _system under test_ or SUT
+- Assert: validate the results. Results can be behavior or state.
+    - Behavior indicates functionality in your test function, which can be verified. One example is that some dependency was called.
+    - State indicates the data returned from the function.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/boilerplate.test.ts":::
 
-
 ### [Jest](#tab/test-with-jest)
 
-Jest has a test file template to define your test file. 
+Jest has a test file template to define your test file.
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/test-boilerplate/boilerplate.spec.ts":::
 
@@ -398,22 +378,18 @@ Jest has a test file template to define your test file.
 
 ---
 
-
-
-When you use mocks in your tests, that template code needs to use mocking to test the function without calling the underlying dependency used in the function, such as the Azure client libraries. 
+When you use mocks in your tests, that template code needs to use mocking to test the function without calling the underlying dependency used in the function, such as the Azure client libraries.
 
 ## Create the test file
 
-The test file with mocks, to simulate a call to a dependency, has an extra setup. 
-
+The test file with mocks, to simulate a call to a dependency, has an extra setup.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
-
 
 There are several parts to the test file:
 
 - `import`: The import statements allow you to use or mock out any of your test.
-- `mock`: Create the default mock behavior you want. Each test can alter as needed. 
+- `mock`: Create the default mock behavior you want. Each test can alter as needed.
 - `describe`: Test group family for the `insert.ts` file.
 - `it`: Each test for the `insert.ts` file.
 
@@ -422,22 +398,20 @@ There are several parts to the test file:
 There are several parts to the test file:
 
 - `import`: The import statements allow you to use or mock out any of your test.
-- `jest.mock`: Create the default mock behavior you want. Each test can alter as needed. 
+- `jest.mock`: Create the default mock behavior you want. Each test can alter as needed.
 - `describe`: Test group family for the `insert.ts` file.
 - `test`: Each test for the `insert.ts` file.
-
 
 ### [Vitest](#tab/test-with-vitest)
 
 There are several parts to the test file:
 
 - `import`: The import statements allow you to use or mock out any of your test.
-- `vi.spyOn`: Create the default spy then add mock behavior with `.mockReturnValue`. Each test can alter as needed. 
+- `vi.spyOn`: Create the default spy then add mock behavior with `.mockReturnValue`. Each test can alter as needed.
 - `describe`: Test group family for the `insert.ts` file.
 - `it`: Each test for the `insert.ts` file.
 
 ---
-
 
 The test file covers three tests for the `insert.ts` file, which can be divided into two validation types:
 
@@ -446,30 +420,25 @@ The test file covers three tests for the `insert.ts` file, which can be divided 
 |Happy path: `should insert document successfully`|The mocked database method was called, and returned the altered data.|
 |Error path: `should return verification error if input is not verified`|Data failed validation and returned an error.|
 |Error path:`should return error if db insert fails`|The mocked database method was called, and returned an error.|
-
-
 The following test file shows how to test the **insertDocument** function.
-
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/insert.test.ts":::
 
-
 ### [Jest](#tab/test-with-jest)
 
-
 :::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/mock-function/lib/insert.spec.ts":::
-
 
 ### [Vitest](#tab/test-with-vitest)
 
 :::code language="TypeScript" source="~/../node-essentials/test-with-vitest/tests/insert.test.ts":::
 
-
 ---
 
-## Troubleshooting
+<a id="troubleshooting"></a>
+
+## Troubleshoot
 
 Most of the code in this article comes from the [MicrosoftDocs/node-essentials](https://github.com/MicrosoftDocs/node-essentials/) GitHub repository. If you want to insert into a Cosmos DB Cloud resource, [create the resource with this script](https://github.com/MicrosoftDocs/node-essentials/blob/main/scripts/create-cosmos-db-resources.sh).
 
@@ -487,10 +456,9 @@ Most of the code in this article comes from the [MicrosoftDocs/node-essentials](
 
 ---
 
-## Additional information 
+## Additional information
 
 - [Jest Mocking Best Practices](https://devblogs.microsoft.com/ise/jest-mocking-best-practices/)
 - [Vitest mocking](https://vitest.dev/guide/mocking)
 - [Node.js Test runner](https://nodejs.org/en/learn/test-runner/introduction)
 - [The Difference between Mocks and Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs) by Martin Fowler
-
