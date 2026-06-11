@@ -1,25 +1,26 @@
 ---
 title: Azure Test Guide for JavaScript Applications
 description: "Learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs for JavaScript applications to ensure code quality and performance. Start testing today!"
+ms.date: 06/01/2026
 ms.topic: concept-article
-ms.date: 06/09/2025
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
 intent: As a JavaScript developer, new to Azure, you want to learn about test Azure cloud applications.
 ---
 
 # Azure test guide for JavaScript applications
 
-As a JavaScript developer new to Azure, use this Azure test guide to learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs and other resources to ensure your application’s quality, performance, and reliability.
+As a JavaScript developer new to Azure, use this Azure test guide to learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs and other resources to ensure your application's quality, performance, and reliability.
 
 ## Azure Well-Architected Framework
 
 The [Azure Well-Architected Framework](/azure/well-architected) provides a design framework for cloud applications across five pillars:
 
-* **Reliability** – Ensuring your application is resilient to failures and recovers quickly.
-* **Security** – Protecting your applications and data from threats.
-* **Performance Efficiency** – Optimizing how your system uses resources to meet requirements.
-* **Cost Optimization** – Managing costs while delivering value.
-* **Operational Excellence** – Improving processes and monitoring to deliver applications effectively.
+- **Reliability** - Ensuring your application is resilient to failures and recovers quickly.
+- **Security** - Protecting your applications and data from threats.
+- **Performance Efficiency** - Optimizing how your system uses resources to meet requirements.
+- **Cost Optimization** - Managing costs while delivering value.
+- **Operational Excellence** - Improving processes and monitoring to deliver applications effectively.
 
 Testing strategies in this article align primarily with the [**Operational Excellence** pillar](/azure/well-architected/operational-excellence), which emphasizes automation, validation, and continuous improvement of operational processes.
 
@@ -27,18 +28,18 @@ Testing strategies in this article align primarily with the [**Operational Excel
 
 Inner and outer test loops are foundational concepts in software testing, especially for applications deployed on cloud platforms like Azure:
 
-* The *inner loop* refers to a local environment where developers frequently run unit and integration tests during the development phase. This loop focuses on quick feedback and iteration.
+- The *inner loop* refers to a local environment where developers frequently run unit and integration tests during the development phase. This loop focuses on quick feedback and iteration.
 
-* The *outer loop* encompasses tests that developers run in continuous integration and continuous delivery (CI/CD) pipelines, staging, and production environments. These tests often take advantage of Azure DevOps or GitHub Actions.
+- The *outer loop* encompasses tests that developers run in continuous integration and continuous delivery (CI/CD) pipelines, staging, and production environments. These tests often take advantage of Azure DevOps or GitHub Actions.
 
 These tests include end-to-end (E2E), performance, and security tests. They validate the application's behavior in environments that closely mirror or are identical to the final production environment. Efficient testing strategies use both loops to help ensure comprehensive coverage and quality assurance before and after deployment.
 
 Learn more:
 
-* [CI/CD: The what, why, and how](https://resources.github.com/devops/ci-cd/)
-* [A beginner's guide to CI/CD and automation on GitHub](https://github.blog/2022-06-03-a-beginners-guide-to-ci-cd-and-automation-on-github/)
-* [GitHub Actions starter workflows](https://github.com/actions/starter-workflows)
-* [Use cloud-hosted browsers for locally deployed apps](/azure/playwright-testing/how-to-test-local-applications)
+- [CI/CD: The what, why, and how](https://resources.github.com/devops/ci-cd/)
+- [A beginner's guide to CI/CD and automation on GitHub](https://github.blog/2022-06-03-a-beginners-guide-to-ci-cd-and-automation-on-github/)
+- [GitHub Actions starter workflows](https://github.com/actions/starter-workflows)
+- [Use cloud-hosted browsers for locally deployed apps](/azure/playwright-testing/how-to-test-local-applications)
 
 ## Local and cloud-based testing with Azure SDK
 
@@ -52,14 +53,14 @@ Emulators and development containers enhance local development with Azure servic
 
 Emulators include:
 
-* [Azurite (Azure Storage Emulator)](https://www.npmjs.com/package/azurite)
-* [Azure Cosmos DB Emulator](/azure/cosmos-db/how-to-develop-emulator)
-* [Azure SignalR Emulator](/azure/azure-signalr/signalr-howto-emulator)
-* [Azure Event Hubs Emulator](/azure/event-hubs/overview-emulator)
-* [Azure Functions Core Tools (Local Azure Functions Runtime)](/azure/azure-functions/functions-run-local)
-* [Azure Logic Apps Standard (Local Development)](/azure/logic-apps/create-standard-workflows-visual-studio-code)
-* [Azure API Management Self-hosted Gateway](/azure/api-management/self-hosted-gateway-overview)
-* [Azure IoT Edge Runtime](/azure/iot-edge/about-iot-edge)
+- [Azurite (Azure Storage Emulator)](https://www.npmjs.com/package/azurite)
+- [Azure Cosmos DB Emulator](/azure/cosmos-db/how-to-develop-emulator)
+- [Azure SignalR Emulator](/azure/azure-signalr/signalr-howto-emulator)
+- [Azure Event Hubs Emulator](/azure/event-hubs/overview-emulator)
+- [Azure Functions Core Tools (Local Azure Functions Runtime)](/azure/azure-functions/functions-run-local)
+- [Azure Logic Apps Standard (Local Development)](/azure/logic-apps/create-standard-workflows-visual-studio-code)
+- [Azure API Management Self-hosted Gateway](/azure/api-management/self-hosted-gateway-overview)
+- [Azure IoT Edge Runtime](/azure/iot-edge/about-iot-edge)
 
 ### Development containers
 
@@ -73,8 +74,8 @@ Development containers include [Azure SQL Database](https://github.com/microsoft
 
 Learn more:
 
-* [Development Container Specification](https://containers.dev/)
-* [Open Container Initiative](https://opencontainers.org/about/overview/)
+- [Development Container Specification](https://containers.dev/)
+- [Open Container Initiative](https://opencontainers.org/about/overview/)
 
 ## AI and developer productivity tools
 
@@ -88,7 +89,7 @@ For native Node.js tests, stub Azure SDK calls manually without additional libra
 
 For more information, see the [Azure SDK tests](#azure-sdk-tests) section later in this article.
 
-> [!TIP]
+> [!TIP]  
 > **AI developer tools:** Use [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) to generate unit test boilerplate and mock patterns for Azure SDK clients from interface types.
 
 ## Integration tests in JavaScript
@@ -111,9 +112,9 @@ Proper *pipeline configuration* is crucial for efficient CI processes. It includ
 
 Learn more:
 
-* [A beginner's guide to CI/CD and automation on GitHub](https://github.blog/2022-06-03-a-beginners-guide-to-ci-cd-and-automation-on-github/)
-* [GitHub action starter workflows](https://github.com/actions/starter-workflows)
-* [Example Node.js workflows](https://docs.github.com/actions/guides/building-and-testing-nodejs)
+- [A beginner's guide to CI/CD and automation on GitHub](https://github.blog/2022-06-03-a-beginners-guide-to-ci-cd-and-automation-on-github/)
+- [GitHub action starter workflows](https://github.com/actions/starter-workflows)
+- [Example Node.js workflows](https://docs.github.com/actions/guides/building-and-testing-nodejs)
 
 ## Azure Test Plans
 
@@ -129,10 +130,10 @@ End-to-end testing validates the complete operation of an application in an envi
 
 Learn more:
 
-* [Get started with Playwright](https://playwright.dev/docs/intro)
-* [Run end-to-end tests at scale](/azure/playwright-testing/quickstart-run-end-to-end-tests)
+- [Get started with Playwright](https://playwright.dev/docs/intro)
+- [Run end-to-end tests at scale](/azure/playwright-testing/quickstart-run-end-to-end-tests)
 
-> [!TIP]
+> [!TIP]  
 > **AI developer tools:** Use [Azure MCP Server](/azure/developer/azure-mcp-server/overview) tools to verify deployment targets and service health before running E2E tests against live Azure resources.
 
 ## Performance tests
@@ -149,10 +150,10 @@ az load test create --resource-group MyResourceGroup --name MyLoadTest --file lo
 
 Learn more:
 
-* [Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test)
-* [Azure Load Testing documentation](/azure/load-testing/)
-* [Tutorial on identifying performance bottlenecks in a web app](/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
-* [GitHub: Azure Load Testing](https://github.com/microsoft/azure-load-testing)
+- [Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test)
+- [Azure Load Testing documentation](/azure/load-testing/)
+- [Tutorial on identifying performance bottlenecks in a web app](/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
+- [GitHub: Azure Load Testing](https://github.com/microsoft/azure-load-testing)
 
 ## Security tests
 
@@ -160,10 +161,10 @@ Security testing on Azure involves identifying potential vulnerabilities in your
 
 *Vulnerability scanning* tools are essential for automatically detecting security weaknesses in your code or configurations. By integrating [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security) features with traditional Static Application Security Testing (SAST) tools, you can improve the security posture of applications deployed on Azure. Key features include:
 
-* *Code scanning*: Identifies vulnerabilities within the codebase before deployment.
-* *Secret scanning*: Helps prevent the exposure of sensitive data.
-* *Supply chain monitoring*: Helps protect against potentially compromised dependencies.
-  
+- *Code scanning*: Identifies vulnerabilities within the codebase before deployment.
+- *Secret scanning*: Helps prevent the exposure of sensitive data.
+- *Supply chain monitoring*: Helps protect against potentially compromised dependencies.
+
 These integrated security measures can help you identify vulnerabilities early, prevent data breaches, and ensure the integrity of your application's supply chain.
 
 *Penetration testing* simulates cyberattacks against your application to evaluate its security posture. Azure provides guidance and tools for conducting these tests, to help ensure that applications deployed on the platform are secure against threats.
@@ -172,8 +173,8 @@ Recommend integrating CodeQL into your CI pipeline to catch vulnerabilities earl
 
 Learn more:
 
-* [Recommendations for security testing](/azure/well-architected/security/test)
-* [Penetration testing](/azure/security/fundamentals/pen-testing)
+- [Recommendations for security testing](/azure/well-architected/security/test)
+- [Penetration testing](/azure/security/fundamentals/pen-testing)
 
 ## Compliance and governance tests
 
@@ -183,8 +184,8 @@ Azure offers policy and compliance tools, such as Azure Policy and Azure Bluepri
 
 Learn more:
 
-* [Governance, security, and compliance in Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/govern-org-compliance?tabs=AzurePolicy)
-* [Implement compliance testing with Terraform and Azure](/azure/developer/terraform/best-practices-compliance-testing)
+- [Governance, security, and compliance in Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/govern-org-compliance?tabs=AzurePolicy)
+- [Implement compliance testing with Terraform and Azure](/azure/developer/terraform/best-practices-compliance-testing)
 
 ## Accessibility tests
 
@@ -194,9 +195,9 @@ Accessibility testing is essential for making software inclusive and compliant w
 
 A/B testing, or split testing, is a method of comparing two versions of a webpage or app against each other to determine which one performs better. Azure provides the following services that support A/B testing:
 
-* [Azure App Service](/azure/app-service/deploy-staging-slots): Offers deployment slots to allow for staging environments where you can test app versions without affecting the live app.
-  
-* [Azure Container Apps](/azure/container-apps/): Offers a flexible environment for running microservices-based applications. You can implement A/B testing in this environment to test app versions.
+- [Azure App Service](/azure/app-service/deploy-staging-slots): Offers deployment slots to allow for staging environments where you can test app versions without affecting the live app.
+
+- [Azure Container Apps](/azure/container-apps/): Offers a flexible environment for running microservices-based applications. You can implement A/B testing in this environment to test app versions.
 
 Use these services to deploy variations of your applications and then gauge user response and effectiveness.
 
@@ -204,14 +205,14 @@ Use these services to deploy variations of your applications and then gauge user
 
 For developers who work with Azure services, gaining proficiency with the Azure SDKs is essential for crafting robust and scalable applications. The following Azure SDK tests, hosted on GitHub for the JavaScript SDKs, are invaluable resources:
 
-* [Azure Storage](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob/test)
-* [Azure Event Grid](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid/test)
-* [Azure Key Vault](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-secrets/test)
-* [Azure IoT Hub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/test)
+- [Azure Storage](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob/test)
+- [Azure Event Grid](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid/test)
+- [Azure Key Vault](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-secrets/test)
+- [Azure IoT Hub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/test)
 
 Exploring these tests offers insights into seamless Azure service integration, showcases best practices for Azure resource interaction, and aids in ensuring efficient and secure implementations. Explore a broader range of SDK examples for a comprehensive understanding.
 
-> [!TIP]
+> [!TIP]  
 > **AI developer tools:** Use [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) to navigate Azure SDK test patterns and generate test fixtures from SDK interface definitions. [Azure Skills](/azure/developer/azure-skills/overview) can provision test resources matching SDK sample configurations.
 
 ## Additional resources

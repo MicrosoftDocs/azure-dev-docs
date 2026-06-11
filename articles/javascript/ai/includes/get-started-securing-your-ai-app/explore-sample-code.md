@@ -1,11 +1,11 @@
 ---
-ms.custom: devx-track-js, devx-track-ts, 
+ms.date: 06/01/2026
 ms.topic: include
-ms.date: 03/13/2026
-# Used as part of /developer/ai/get-started-securing-your-ai-app
+ms.custom:
+  - devx-track-js, devx-track-ts,
 ---
 
-While OpenAI and Azure OpenAI Service rely on a [openai](https://www.npmjs.com/package/openai) (common JavaScript client library), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample configures keyless authentication with Microsoft Entra ID and communicates with Azure OpenAI.
+While OpenAI and Azure OpenAI Service rely on a [OpenAI](https://www.npmjs.com/package/openai) (common JavaScript client library), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample configures keyless authentication with Microsoft Entra ID and communicates with Azure OpenAI.
 
 ### Keyless authentication for each environment
 
@@ -15,24 +15,25 @@ The Azure Identity client library provides credential classes that implement the
 
 In this sample, the `./src/azure-authentication.ts` provides several functions to provide keyless authentication to Azure OpenAI.
 
-The first function, `getChainedCredential()`, returns the first valid Azure credential found in the chain. 
+The first function, `getChainedCredential()`, returns the first valid Azure credential found in the chain.
 
 ```typescript
 function getChainedCredential() {
 
     return new ChainedTokenCredential(
-        new ManagedIdentityCredential(process.env.AZURE_CLIENT_ID!), 
+        new ManagedIdentityCredential(process.env.AZURE_CLIENT_ID!),
         new AzureDeveloperCliCredential({
             tenantId: process.env.AZURE_TENANT_ID! ? process.env.AZURE_TENANT_ID! : undefined
           })
     );
 }
 ```
-* [ManagedIdentityCredential](/javascript/api/@azure/identity/managedidentitycredential) is attempted first. It's set up with the AZURE_CLIENT_ID environment variable in the production runtime and is capable of authenticating via user-assigned managed identity.
-* [AzureDeveloperCliCredential](/javascript/api/@azure/identity/azuredeveloperclicredential) is attempted second. It's set up when a developer signs in with the Azure Developer CLI by using `azd auth login`.
+- [ManagedIdentityCredential](/javascript/api/@azure/identity/managedidentitycredential) is attempted first. It's set up with the AZURE_CLIENT_ID environment variable in the production runtime and is capable of authenticating via user-assigned managed identity.
 
->[!TIP]
->The order of the credentials is important, as the first valid Microsoft Entra access token is used. For more information, check out the [ChainedTokenCredential Overview](/javascript/api/@azure/identity/tokencredential) article.
+- [AzureDeveloperCliCredential](/javascript/api/@azure/identity/azuredeveloperclicredential) is attempted second. It's set up when a developer signs in with the Azure Developer CLI by using `azd auth login`.
+
+> [!TIP]  
+> The order of the credentials is important, as the first valid Microsoft Entra access token is used. For more information, check out the [ChainedTokenCredential Overview](/javascript/api/@azure/identity/tokencredential) article.
 
 ### Get bearer token for OpenAI
 
@@ -46,11 +47,11 @@ function getTokenProvider(): () => Promise<string> {
 }
 ```
 
-The preceding code snippet uses [`getBearerTokenProvider`](/javascript/api/@azure/identity) to take the credential and the scope, then returns a callback that provides a bearer token. 
+The preceding code snippet uses [`getBearerTokenProvider`](/javascript/api/@azure/identity) to take the credential and the scope, then returns a callback that provides a bearer token.
 
 ### Create authenticated Azure OpenAI client
 
-The third function in `./src/azure-authentication.ts` is `getOpenAiClient()`, which returns the Azure OpenAI client. 
+The third function in `./src/azure-authentication.ts` is `getOpenAiClient()`, which returns the Azure OpenAI client.
 
 ```typescript
 export function getOpenAiClient(): AzureOpenAI | undefined{
@@ -63,9 +64,9 @@ export function getOpenAiClient(): AzureOpenAI | undefined{
             throw new Error("AZURE_OPENAI_CHAT_DEPLOYMENT is required for Azure OpenAI");
         }
 
-        const options = { 
-            azureADTokenProvider: getTokenProvider(), 
-            deployment: process.env.AZURE_OPENAI_CHAT_DEPLOYMENT!, 
+        const options = {
+            azureADTokenProvider: getTokenProvider(),
+            deployment: process.env.AZURE_OPENAI_CHAT_DEPLOYMENT!,
             apiVersion: process.env.AZURE_OPENAI_API_VERSION! || "2024-02-15-preview",
             endpoint: process.env.AZURE_OPENAI_ENDPOINT!
         }
@@ -81,9 +82,9 @@ export function getOpenAiClient(): AzureOpenAI | undefined{
 
 This code takes the options, including the correctly scoped token, and creates the `AzureOpenAI` client
 
-## Stream chat answer with Azure OpenAI 
+## Stream chat answer with Azure OpenAI
 
-Use the following Fastify route handler in `./src/openai-chat-api.ts` to send a message to Azure OpenAI and stream the response. 
+Use the following Fastify route handler in `./src/openai-chat-api.ts` to send a message to Azure OpenAI and stream the response.
 
 ```typescript
 import { FastifyReply, FastifyRequest } from 'fastify';
@@ -132,4 +133,4 @@ export async function chatRoute (request: FastifyRequest<{ Body: ChatRequestBody
 }
 ```
 
-The function gets the chat conversation, including any previous messages, and sends them to Azure OpenAI. As the stream chunks are returned from Azure OpenAI, the are sent to the client. 
+The function gets the chat conversation, including any previous messages, and sends them to Azure OpenAI. As the stream chunks are returned from Azure OpenAI, the are sent to the client.

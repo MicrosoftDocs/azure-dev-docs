@@ -1,15 +1,15 @@
 ---
-ms.custom: devx-track-js, devx-track-ts, 
+ms.date: 06/08/2026
 ms.topic: include
-ms.date: 03/13/2026
-# Used as part of /developer/ai/get-started-securing-your-ai-app
+ms.custom:
+  - devx-track-js, devx-track-ts,
 ---
 
 Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/openai-chat-app-quickstart-javascript`](https://github.com/Azure-Samples/openai-chat-app-quickstart-javascript) GitHub repository.
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-javascript)
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-javascript)
 
 1. On the **Create codespace** page, review and then select **Create new codespace**
 
