@@ -1,14 +1,14 @@
 ---
-title: Install JavaScript Azure SDK library packages
+title: Install JavaScript Azure SDK Library Packages
 description: How to install, uninstall, and verify Azure SDK for JavaScript libraries using npm. Includes details on installing specific versions and preview packages.
-ms.date: 03/12/2026
+ms.date: 06/01/2026
 ms.topic: install-set-up-deploy
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
 adobe-target: true
 ---
 
 # How to install Azure library packages for JavaScript
-
 
 The Azure SDK for JavaScript is composed of many independently versioned libraries that can be installed in standard JavaScript environments. This modular approach allows you to install only the packages you need and manage them individually for better control over dependencies and updates.
 
@@ -16,9 +16,9 @@ The Azure SDK for JavaScript is composed of many independently versioned librari
 
 ## Prerequisites
 
-- [Node.js LTS](https://nodejs.org/).  
-  Learn more about [Node.js compatibility for Azure](../choose-nodejs-version.md).  
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/).  
+- [Node.js LTS](https://nodejs.org/).
+  Learn more about [Node.js compatibility for Azure](../choose-nodejs-version.md).
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/).
   Ensure that your package manager is up-to-date to avoid installation issues.
 
 If you run into problems while installing packages, refer to our [troubleshooting guide](#troubleshooting).
@@ -43,8 +43,7 @@ yarn add <library>
 
 ## Install specific library versions
 
-Sometimes you may need to install a particular version or a preview version of a library for compatibility testing or to gain early access to new features. When you install a specific version, you are **pinning** your dependency, which means that your project will continue using that version and will not automatically receive updates or fixes. While pinning can be useful in certain scenarios, we generally recommend using the latest version whenever possible to benefit from ongoing improvements and security updates.
-
+Sometimes you might need to install a particular version or a preview version of a library for compatibility testing or to gain early access to new features. When you install a specific version, you're **pinning** your dependency, which means that your project will continue using that version and will not automatically receive updates or fixes. While pinning can be useful in certain scenarios, we generally recommend using the latest version whenever possible to benefit from ongoing improvements and security updates.
 
 ### [npm](#tab/npm-install-version)
 
@@ -101,7 +100,9 @@ yarn remove <library>
 
 ---
 
-## Troubleshooting
+<a id="troubleshooting"></a>
+
+## Troubleshoot
 
 - **Installation errors**: Ensure that Node.js and your package manager (npm or yarn) are up-to-date.
 - **Version conflicts**: Check that the version specified is available in the package index.
@@ -110,6 +111,6 @@ yarn remove <library>
 ## Additional resources
 
 - Azure SDK Library Index  [Browse available packages](../azure-sdk-library-package-index.md).
-- Node.js Compatibility for Azure – [Learn about supported Node.js versions](../choose-nodejs-version.md).
-- Troubleshooting [npm](https://docs.npmjs.com/common-errors) and [yarn](https://yarnpkg.com/advanced/error-codes) issues – Common error troubleshooting guidelines.
-- [Azure SDK GitHub repository](https://github.com/Azure/azure-sdk-for-js) – For reporting issues and contributing.
+- Node.js Compatibility for Azure - [Learn about supported Node.js versions](../choose-nodejs-version.md).
+- Troubleshooting [npm](https://docs.npmjs.com/common-errors) and [yarn](https://yarnpkg.com/advanced/error-codes) issues - Common error troubleshooting guidelines.
+- [Azure SDK GitHub repository](https://github.com/Azure/azure-sdk-for-js) - For reporting issues and contributing.

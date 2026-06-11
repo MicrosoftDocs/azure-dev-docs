@@ -1,9 +1,10 @@
 ---
-title: Configure your local JavaScript environment for Azure development
+title: Configure Your Local JavaScript Environment for Azure Development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 03/17/2026
+ms.date: 06/01/2026
 ms.topic: how-to
-ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
+ms.custom:
+  - "devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0"
 ---
 
 # Configure your JavaScript develop environment for Azure
@@ -14,7 +15,7 @@ This article provides setup instructions to create and validate a local developm
 
 ## One-time subscription creation
 
-[Azure resources](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy) are created within a subscription and resource group. 
+[Azure resources](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy) are created within a subscription and resource group.
 
 :::row:::
     :::column span="1":::
@@ -39,10 +40,10 @@ This article provides setup instructions to create and validate a local developm
     :::column span="2":::
         If you already have a subscription, access your existing subscription with:
 
-        * [Azure portal](https://portal.azure.com)
-        * [Azure CLI](/cli/azure/install-azure-cli)
-        * [Azure client libraries for JavaScript](../azure-sdk-library-package-index.md)
-        * [Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)
+        - [Azure portal](https://portal.azure.com)
+        - [Azure CLI](/cli/azure/install-azure-cli)
+        - [Azure client libraries for JavaScript](../azure-sdk-library-package-index.md)
+        - [Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -64,7 +65,7 @@ Azure development with JavaScript on your local workstation, we suggest you inst
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code gives you a great JavaScript integration and coding experience but it isn't required. You can use any code editor.|
 |[Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)|Install any relevant extensions for Azure services you intend to use.|
 
-### Azure hosting runtime 
+### Azure hosting runtime
 
 When you use an Azure resource as the hosting environment for your application, such as an Azure web app or Azure Functions, [verify your local Node.js development environment runtime version of Node.js](what-is-azure-for-javascript-development.md#verify-runtime-for-javascript-apps-hosted-in-azure) matches the Azure resource runtime you plan to use.
 
@@ -93,27 +94,30 @@ To use the same authentication code in local development and the remote Azure ho
 
 [!INCLUDE [create resource group 3-tab](../../includes/create-resource-group.md)]
 
+<a id="working-with-azure-and-the-azure-sdk-client-libraries"></a>
 
-## Working with Azure and the Azure SDK client libraries
+## Work with Azure and the Azure SDK client libraries
 
 The [Azure client libraries](../azure-sdk-library-package-index.md) are provided individually for each service. You install each library based on the Azure service you need to use.
 
 Each new project using Azure should:
 
 - Create Azure resources.
-- Install Azure client libraries from a package manager such as [NPM](https://www.npmjs.com/package/package). 
+- Install Azure client libraries from a package manager such as [NPM](https://www.npmjs.com/package/package).
 - Use [managed identity](../../intro/passwordless-overview.md) to authenticate with the Azure client library, then use configuration information to access specific services.
 
-## Securing configuration information
+<a id="securing-configuration-information"></a>
+
+## Secure configuration information
 
 You have several options to store configuration information:
 
 - Azure [Key Vault](/azure/key-vault/) to create and maintain secrets, keys, and certificates that access cloud resources, which don't yet offer [managed identity access](../../intro/passwordless-overview.md).
-- [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file isn't checked into to source control. 
+- [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file isn't checked into to source control.
 
 ### Create environment variables
 
-To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to environment variables. The following commands set the environment variables for the local workstation. 
+To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to environment variables. The following commands set the environment variables for the local workstation.
 
 In the following examples, the client ID is the service principal ID and service principal secret.
 
@@ -139,7 +143,7 @@ set AZURE_CLIENT_SECRET="<REPLACE-WITH-YOUR-AZURE-CLIENT-SECRET>"
 
 Replace the values in `<>` brackets in these commands with those of your specific environment variable.
 
-### Create `.env` file 
+### Create `.env` file
 
 Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to add the file to the `.gitignore` so you **don't check in** the file to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
 
@@ -169,7 +173,7 @@ For every project, we recommend that you always create a separate folder, and it
 
 ## Use source control with Visual Studio Code
 
-We recommend that you get into the habit of creating a source control repository whenever you start a project. You can do this from Visual Studio Code. 
+We recommend that you get into the habit of creating a source control repository whenever you start a project. You can do this from Visual Studio Code.
 
 1. In Visual Studio Code, select the source control icon to open the **Source Control** explorer, then select **Initialize Repository** to initialize a local Git repository:
 
@@ -179,7 +183,7 @@ We recommend that you get into the habit of creating a source control repository
 
     ![Complete an initial commit to the repository](../media/setup-environment/initial-commit.png)
 
-1. Create a new repository on [GitHub](https://github.com/new) and copy the repository URL for the next few step. 
+1. Create a new repository on [GitHub](https://github.com/new) and copy the repository URL for the next few step.
 
 1. In the Visual Studio integrated terminal, use the following [git](https://git-scm.com/docs) command to add your remote repository to your local repository. Replace `<YOUR-ACCOUNT>` and `<REPOSITORY>` with your own values.
 
@@ -189,7 +193,7 @@ We recommend that you get into the habit of creating a source control repository
 
 Visual Studio Code includes many built-in git features. For more information, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
 
-## Next steps
+## Next step
 
-* [Create and use a service principal](../sdk/authentication/local-development-environment-service-principal.md)
-* [Authenticate with the Azure modules for Node.js](../sdk/authentication/local-development-environment-service-principal.md)
+> [!div class="nextstepaction"]
+> [Authenticate JavaScript apps to Azure services during local development using service principals](../sdk/authentication/local-development-environment-service-principal.md)

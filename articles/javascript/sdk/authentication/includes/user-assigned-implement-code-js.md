@@ -1,7 +1,8 @@
 ---
+ms.date: 06/01/2026
 ms.topic: include
-ms.date: 03/20/2026
 ---
+
 ### Implement the code
 
 In a JavaScript project, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. In a terminal of your choice, navigate to the application project directory and run the following commands:
@@ -35,12 +36,12 @@ The client ID is used to identify a managed identity when configuring applicatio
     ```javascript
     import { BlobServiceClient } from '@azure/storage-blob';
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
-    
+
     function createBlobServiceClient() {
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
         if (!accountName) throw Error('Azure Storage accountName not found');
         const url = `https://${accountName}.blob.core.windows.net`;
-    
+
         if (process.env.NODE_ENV === "production") {
             const clientId = process.env.AZURE_CLIENT_ID;
             if (!clientId) throw Error('AZURE_CLIENT_ID not found for Managed Identity');
@@ -49,21 +50,21 @@ The client ID is used to identify a managed identity when configuring applicatio
             return new BlobServiceClient(url, new DefaultAzureCredential());
         }
     }
-    
+
     async function main() {
         try {
             const blobServiceClient = createBlobServiceClient();
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
             // do something with client
             const properties = await containerClient.getProperties();
-    
+
             console.log(properties);
         } catch (err) {
             console.error("Error retrieving container properties:", err.message);
             throw err;
         }
     }
-    
+
     main().catch((err) => {
         console.error("Error running sample:", err.message);
         process.exit(1);
@@ -92,13 +93,12 @@ Resource IDs can be built by convention, which makes them more convenient when w
     ```javascript
     import { BlobServiceClient } from '@azure/storage-blob';
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
-    
-    
+
     function createBlobServiceClient() {
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
         if (!accountName) throw Error('Azure Storage accountName not found');
         const url = `https://${accountName}.blob.core.windows.net`;
-    
+
         if (process.env.NODE_ENV === "production") {
             const resourceId = process.env.AZURE_RESOURCE_ID;
             if (!resourceId) throw Error('AZURE_RESOURCE_ID not found for Managed Identity');
@@ -107,21 +107,21 @@ Resource IDs can be built by convention, which makes them more convenient when w
             return new BlobServiceClient(url, new DefaultAzureCredential());
         }
     }
-    
+
     async function main() {
         try {
             const blobServiceClient = createBlobServiceClient();
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
             // do something with client
             const properties = await containerClient.getProperties();
-    
+
             console.log(properties);
         } catch (err) {
             console.error("Error retrieving container properties:", err.message);
             throw err;
         }
     }
-    
+
     main().catch((err) => {
         console.error("Error running sample:", err.message);
         process.exit(1);
@@ -146,13 +146,12 @@ A principal ID is another name for an object ID.
     ```javascript
     import { BlobServiceClient } from '@azure/storage-blob';
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
-    
-    
+
     function createBlobServiceClient() {
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
         if (!accountName) throw Error('Azure Storage accountName not found');
         const url = `https://${accountName}.blob.core.windows.net`;
-    
+
         if (process.env.NODE_ENV === "production") {
             const objectId = process.env.AZURE_OBJECT_ID;
             if (!objectId) throw Error('AZURE_OBJECT_ID not found for Managed Identity');
@@ -161,21 +160,21 @@ A principal ID is another name for an object ID.
             return new BlobServiceClient(url, new DefaultAzureCredential());
         }
     }
-    
+
     async function main() {
         try {
             const blobServiceClient = createBlobServiceClient();
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
             // do something with client
             const properties = await containerClient.getProperties();
-    
+
             console.log(properties);
         } catch (err) {
             console.error("Error retrieving container properties:", err.message);
             throw err;
         }
     }
-    
+
     main().catch((err) => {
         console.error("Error running sample:", err.message);
         process.exit(1);

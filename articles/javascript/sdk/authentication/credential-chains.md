@@ -1,9 +1,10 @@
 ---
-title: 'Credential chains in the Azure Identity library for JavaScript'
-description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for JavaScript.'
+title: Credential Chains in the Azure Identity Library for JavaScript
+description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for JavaScript.
+ms.date: 06/01/2026
 ms.topic: concept-article
-ms.date: 10/09/2025
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
 ai-usage: ai-generated
 ---
 
@@ -24,9 +25,9 @@ A chained credential can offer the following benefits:
 - **Environment awareness**: Automatically selects the most appropriate credential based on the environment in which the app is running. Without it, you'd have to write code like this:
 
     ```javascript
-    import { 
-        ManagedIdentityCredential, 
-        AzureCliCredential 
+    import {
+        ManagedIdentityCredential,
+        AzureCliCredential
     } from "@azure/identity";
 
     let credential;
@@ -110,7 +111,7 @@ When a value of `dev` is used, the chain looks as follows:
 To ensure the environment variable is defined and set to a supported string, set the [requiredEnvVars](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) property to `AZURE_TOKEN_CREDENTIALS`:
 
 ```javascript
-const credential = new DefaultAzureCredential({ 
+const credential = new DefaultAzureCredential({
     requiredEnvVars: [ "AZURE_TOKEN_CREDENTIALS" ]
 });
 ```
@@ -127,13 +128,13 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 - `VisualStudioCodeCredential`
 - `WorkloadIdentityCredential`
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `@azure/identity` package versions 4.11.0 and later.
 
 To ensure the environment variable is defined and set to a supported string, set property [requiredEnvVars](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) to `AZURE_TOKEN_CREDENTIALS`:
 
 ```javascript
-const credential = new DefaultAzureCredential({ 
+const credential = new DefaultAzureCredential({
     requiredEnvVars: [ "AZURE_TOKEN_CREDENTIALS" ]
 });
 ```
@@ -143,10 +144,10 @@ const credential = new DefaultAzureCredential({
 [ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
 
 ```javascript
-import { 
-    ChainedTokenCredential, 
-    AzureCliCredential, 
-    VisualStudioCodeCredential 
+import {
+    ChainedTokenCredential,
+    AzureCliCredential,
+    VisualStudioCodeCredential
 } from "@azure/identity";
 
 const credential = new ChainedTokenCredential(
@@ -164,7 +165,7 @@ The preceding code sample creates a tailored credential chain comprised of two d
 
 :::image type="content" source="../media/mermaidjs/chained-token-credential-authentication-developer-flow.svg" alt-text="Diagram of ChainedTokenCredential configuration showing AzureCliCredential as the primary authentication method with VisualStudioCodeCredential as the secondary fallback option.":::
 
-> [!TIP]
+> [!TIP]  
 > For improved performance, optimize credential ordering in `ChainedTokenCredential` from most to least used credential.
 
 ## Usage guidance for DefaultAzureCredential
@@ -206,10 +207,9 @@ if (!storageAccountName) {
     throw new Error("AZURE_STORAGE_ACCOUNT_NAME environment variable is required");
 }
 
-const credential = new DefaultAzureCredential({ 
+const credential = new DefaultAzureCredential({
     requiredEnvVars: [ "AZURE_TOKEN_CREDENTIALS" ]
 });
-
 
 const blobServiceClient = new BlobServiceClient(
     `https://${storageAccountName}.blob.core.windows.net`,
@@ -218,7 +218,7 @@ const blobServiceClient = new BlobServiceClient(
 ```
 
 ```console
-azure:identity:info EnvironmentCredential => Found the following environment variables: 
+azure:identity:info EnvironmentCredential => Found the following environment variables:
 azure:identity:verbose EnvironmentCredential => AZURE_CLIENT_SEND_CERTIFICATE_CHAIN: undefined; sendCertificateChain: false
 azure:identity:info WorkloadIdentityCredential => Found the following environment variables:
 azure:identity:warning DefaultAzureCredential => Skipped createDefaultWorkloadIdentityCredential because of an error creating the credential: CredentialUnavailableError: WorkloadIdentityCredential: is unavailable. clientId is a required parameter. In DefaultAzureCredential and ManagedIdentityCredential, this can be provided as an environment variable - "AZURE_CLIENT_ID".

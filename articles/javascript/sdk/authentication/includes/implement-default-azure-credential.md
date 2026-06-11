@@ -1,9 +1,9 @@
 ---
 author: diberry
+ms.author: diberry
+ms.date: 06/01/2026
 ms.service: azure-javascript
 ms.topic: include
-ms.date: 09/22/2025
-ms.author: diberry
 ---
 
 ## Authenticate to Azure services from your app
@@ -24,7 +24,6 @@ Azure services are accessed using specialized client classes from the various Az
 
 1. Import the `@azure/identity` package.
 1. Create the Azure service client, and pass to it a new instance of `DefaultAzureCredential`.
-
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";

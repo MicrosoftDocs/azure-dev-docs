@@ -1,11 +1,12 @@
 ---
-title: Authenticate Azure-hosted JavaScript apps to Azure resources using a system-assigned managed identity
+title: Authenticate Azure-Hosted JavaScript Apps to Azure Resources Using a System-Assigned Managed Identity
 description: Learn how to authenticate Azure-hosted JavaScript apps to other Azure services using a system-assigned managed identity.
-ms.date: 08/15/2025
+ms.date: 06/01/2026
 ms.topic: how-to
-ms.custom: devx-track-js, devx-track-azurecli
-zone_pivot_group_filename: developer/javascript/javascript-zone-pivot-groups.json
+ms.custom:
+  - devx-track-js, devx-track-azurecli
 zone_pivot_groups: js-ts
+zone_pivot_group_filename: "developer/javascript/javascript-zone-pivot-groups.json"
 ---
 
 # Authenticate Azure-hosted JavaScript apps to Azure resources using a system-assigned managed identity
@@ -24,7 +25,6 @@ The following sections describe the steps to enable and use a system-assigned ma
 [!INCLUDE [Language agnostic system assigned procedures](<../../../includes/authentication/system-assigned-managed-identity.md>)]
 
 [!INCLUDE [JavaScript implement-managed-identity-concepts](includes/implement-managed-identity-concepts.md)]
-
 
 ::: zone pivot="js"
 
@@ -46,33 +46,33 @@ Azure services are accessed using specialized client classes from the various Az
     ```javascript
     import { BlobServiceClient } from '@azure/storage-blob';
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
-    
+
     function createBlobServiceClient() {
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
         if (!accountName) throw Error('Azure Storage accountName not found');
-    
+
         const url = `https://${accountName}.blob.core.windows.net`;
-    
+
         if (process.env.NODE_ENV === "production") {
             return new BlobServiceClient(url, new ManagedIdentityCredential());
         } else {
             return new BlobServiceClient(url, new DefaultAzureCredential());
         }
     }
-    
+
     async function main() {
         try {
             const blobServiceClient = createBlobServiceClient();
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
             const properties = await containerClient.getProperties();
-    
+
             console.log(properties);
         } catch (err) {
             console.error("Error retrieving container properties:", err.message);
             throw err;
         }
     }
-    
+
     main().catch((err) => {
         console.error("Error running sample:", err.message);
         process.exit(1);
@@ -101,32 +101,32 @@ Azure services are accessed using specialized client classes from the various Az
     ```typescript
     import { BlobServiceClient } from '@azure/storage-blob';
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
-    
+
     function createBlobServiceClient(): BlobServiceClient {
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
         if (!accountName) throw Error('Azure Storage accountName not found');
         const url = `https://${accountName}.blob.core.windows.net`;
-    
+
         if (process.env.NODE_ENV === "production") {
             return new BlobServiceClient(url, new ManagedIdentityCredential());
         } else {
             return new BlobServiceClient(url, new DefaultAzureCredential());
         }
     }
-    
+
     async function main(): Promise<void> {
         try {
             const blobServiceClient = createBlobServiceClient();
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME!);
             const properties = await containerClient.getProperties();
-    
+
             console.log(properties);
         } catch (err: any) {
             console.error("Error retrieving container properties:", err.message);
             throw err;
         }
     }
-    
+
     main().catch((err: Error) => {
         console.error("Error running sample:", err.message);
         process.exit(1);

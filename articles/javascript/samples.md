@@ -1,9 +1,10 @@
 ---
 title: Azure JavaScript Samples Catalog
 description: Discover JavaScript and Node.js code samples for Azure services including AI, storage, serverless computing, and web apps.
+ms.date: 06/01/2026
 ms.topic: concept-article
-ms.date: 01/29/2026
-ms.custom: devx-track-js, devx-track-ts
+ms.custom:
+  - devx-track-js, devx-track-ts
 # customer intent: As a JavaScript developer new to Azure, I want to find code samples so that I can quickly start building applications with Azure services.
 ---
 
@@ -33,9 +34,9 @@ Access a curated collection of GitHub samples demonstrating various development 
 
 - [GitHub samples repository](https://github.com/github-samples)
 
-### Azure SDK samples repository    
+### Azure SDK samples repository
 
-Explore the official Azure SDK for JavaScript samples repository on GitHub. This repository contains code samples for a wide range of Azure services, demonstrating how to use the Azure SDK in JavaScript applications.    
+Explore the official Azure SDK for JavaScript samples repository on GitHub. This repository contains code samples for a wide range of Azure services, demonstrating how to use the Azure SDK in JavaScript applications.
 
 - [Azure SDK for JavaScript samples](https://github.com/Azure/azure-sdk-for-js)
 
@@ -44,7 +45,6 @@ Explore the official Azure SDK for JavaScript samples repository on GitHub. This
 Browse a comprehensive collection of JavaScript, Node.js, and TypeScript samples across all Azure services. Use filters to find samples by service, scenario, or programming pattern.
 
 - [Azure samples browser for JavaScript](/samples/browse/?languages=javascript%2cnodejs%2ctypescript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json)
-
 
 ## AI and search
 
@@ -92,7 +92,6 @@ Implement message queuing in your applications using [Azure Queue Storage](/azur
 - [Quickstart: Azure Queue Storage with JavaScript](/azure/storage/queues/storage-quickstart-queues-nodejs)
 - [Sample repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-queue)
 
-
 ## Serverless and compute
 
 ### Azure Functions (JavaScript)
@@ -109,7 +108,9 @@ Deploy containerized Node.js applications to [Azure Container Apps](/azure/conta
 - [Quickstart: Deploy Node.js container](/azure/container-apps/quickstart-code-to-cloud)
 - [Samples](/azure/container-apps/samples)
 
-## Messaging and integration
+<a id="messaging-and-integration"></a>
+
+## Message and integration
 
 ### Azure Event Hubs
 

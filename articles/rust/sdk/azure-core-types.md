@@ -25,31 +25,31 @@ You can replace the default HTTP client (reqwest) with your own implementation b
 
 First, implement the `HttpClient` trait for your custom client:
 
-:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_ureq_client.rs" range="16-47" :::
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_ureq_client.rs" range="16-34" :::
 
 Then, configure the client with your custom HTTP implementation:
 
-:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_ureq_client.rs" range="49-73" :::
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_ureq_client.rs" range="35-72" :::
 
 ### Implement custom HTTP policies
 
 You can customize request and response processing by implementing the `Policy` trait. Policies let you modify requests before they're sent or inspect responses before they're returned. This example shows how to create a policy that removes the request's User-Agent header:
 
-:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="18-38":::
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="14-32":::
 
 Add your custom policy to the client options object:
 
-:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="44-49":::
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="35-43":::
 
 Then construct the client:
 
-:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="58-62":::
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="52-56":::
 
 ## Service error details
 
 You can access detailed errors returned by the Azure service. The following example demonstrates deserializing a standard Azure error response to get more details such as the `error_code` and error details.
 
-:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_error_response.rs" range="19-75" :::
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_error_response.rs" range="38-49" :::
 
 ## Next steps
 

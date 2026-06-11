@@ -1,8 +1,8 @@
 ---
-ms.custom: devx-track-js, devx-track-ts, 
+ms.date: 06/01/2026
 ms.topic: include
-ms.date: 03/13/2026
-# Used as part of /developer/ai/get-started-securing-your-ai-app
+ms.custom:
+  - devx-track-js, devx-track-ts,
 ---
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart-javascript/issues).
