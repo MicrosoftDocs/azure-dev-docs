@@ -3,7 +3,7 @@ title: Configure a pipeline using GitHub Actions
 description: Learn how to create a pipeline and push updates using GitHub Actions and the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/29/2025
+ms.date: 06/12/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023

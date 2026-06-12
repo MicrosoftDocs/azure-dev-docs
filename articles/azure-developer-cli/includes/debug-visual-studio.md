@@ -2,7 +2,7 @@
 author: alexwolfmsft
 ms.service: azure-dev-cli
 ms.topic: include
-ms.date: 08/10/2022
+ms.date: 06/12/2026
 ms.author: alexwolf
 ms.custom: sfi-image-nochange
 ---
@@ -13,28 +13,16 @@ Run and debug apps built on your local machine using [Visual Studio](/visualstud
 
 - [Install azd](../install-azd.md)
 - [Run `azd` with the Node.js template](../get-started.md)
-- [.NET SDK 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
-
-## Install and enable the preview feature
-  
-1. Install [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/) 
-   
-   > [!NOTE]
-   > This is different from Visual Studio. If you have the non-preview version of Visual Studio, you still need to install this. 
-
-1. Open Visual Studio Preview.
-
-1. From the **Tools** menu, select **Options** > **Preview Features**.
-
-1. Make sure **Integration with azd, the Azure Developer CLI** is enabled.
-
-   :::image type="content" source="../media/debug/visual-studio-options.png" alt-text="Screenshot of the Visual Studio option to turn on integration with the Azure Developer CLI.":::
+- [.NET SDK 8.0 or later](https://dotnet.microsoft.com/download/dotnet)
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) version 17.7 or later. The `azd` integration is included by default in current Visual Studio releases.
 
 ## Open the API solution
 
-1. Open the `Todo.Api.sln` solution in the `/src/api` directory.  
+1. Open Visual Studio 2022.
 
-   If you've [enabled the `azd` integration feature](#prerequisites), the `azure.yaml` file is detected. Visual Studio automatically initializes the app model and runs `azd env refresh`.
+1. Open the `Todo.Api.sln` solution in the `/src/api` directory.
+
+   Visual Studio detects the `azure.yaml` file, automatically initializes the app model, and runs `azd env refresh`.
 
 1. Expand **Connected Services** to see all the dependencies.  
 

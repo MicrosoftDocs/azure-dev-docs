@@ -1,7 +1,9 @@
 ---
-ms.prod: azure
+author: alexwolfmsft
+ms.service: azure-dev-cli
 ms.topic: include
-ms.date: 08/01/2022
+ms.date: 06/12/2026
+ms.author: alexwolf
 ---
 
 ## Explore Azure Developer CLI template structure

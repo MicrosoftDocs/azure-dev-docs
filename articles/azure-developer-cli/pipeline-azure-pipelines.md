@@ -3,7 +3,7 @@ title: Configure a pipeline using Azure Pipelines
 description: Learn how to create a pipeline and push updates using Azure Pipelines and the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/12/2025
+ms.date: 06/12/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
