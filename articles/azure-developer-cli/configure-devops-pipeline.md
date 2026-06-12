@@ -3,7 +3,7 @@ title: Explore Azure Developer CLI support for CI/CD pipelines
 description: Learn how work with GitHub Actions or Azure Pipelines using the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/12/2025
+ms.date: 06/12/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom:
