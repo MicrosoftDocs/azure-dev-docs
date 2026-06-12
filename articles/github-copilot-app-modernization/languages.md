@@ -46,6 +46,15 @@ GitHub Copilot modernization can help you [migrate your .NET application to Azur
 
 The tool supports [common scenarios](/dotnet/azure/migration/appmod/predefined-tasks?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) with AI-assisted code changes. It validates code changes by checking compilation and CVE fixes.
 
+## C++
+
+The following section describes the C++ support.
+
+### Upgrade C++ projects
+
+GitHub Copilot modernization can help you [upgrade and modernize your C++ projects](/cpp/porting/github-copilot-modernization-cpp/overview?context=/azure/developer/github-copilot-app-modernization/context/context). It supports MSBuild-based projects (`.sln`, `.vcxproj`) and CMake-based projects, and helps you upgrade to newer MSVC Build Tools versions, resolve upgrade-related build issues, and validate changes.
+
+For more information, see [GitHub Copilot modernization for C++ scenarios and skills](/cpp/porting/github-copilot-modernization-cpp/scenarios-and-skills?context=/azure/developer/github-copilot-app-modernization/context/context).
 ## JavaScript/TypeScript
 
 The following section describes the JavaScript and TypeScript support.

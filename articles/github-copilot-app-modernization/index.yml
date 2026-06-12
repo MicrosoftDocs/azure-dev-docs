@@ -20,8 +20,6 @@ landingContent:
             url: overview.md
           - text: Languages and frameworks supported
             url: languages.md
-          - text: Portfolio assessment integration
-            url: ../java/migration/github-copilot-app-modernization-for-java-portfolio-assessment-integration.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Java overview
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Java FAQ
@@ -30,6 +28,10 @@ landingContent:
             url: /dotnet/core/porting/github-copilot-app-modernization/overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: .NET FAQ
             url: /dotnet/core/porting/github-copilot-app-modernization/faq?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: C++ overview
+            url: /cpp/porting/github-copilot-modernization-cpp/overview?context=/azure/developer/github-copilot-app-modernization/context/context
+          - text: C++ FAQ
+            url: /cpp/porting/github-copilot-modernization-cpp/faq?context=/azure/developer/github-copilot-app-modernization/context/context
           - text: JavaScript/TypeScript overview
             url: javascript-typescript-overview.md
           - text: JavaScript/TypeScript FAQ
@@ -138,6 +140,24 @@ landingContent:
         links:
           - text: Migration sample
             url: /dotnet/azure/migration/appmod/sample?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+  - title: Upgrade C++ projects
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Upgrade C++ projects
+            url: /cpp/porting/github-copilot-modernization-cpp/overview?context=/azure/developer/github-copilot-app-modernization/context/context
+          - text: Install
+            url: /cpp/porting/github-copilot-modernization-cpp/install?context=/azure/developer/github-copilot-app-modernization/context/context
+          - text: FAQ
+            url: /cpp/porting/github-copilot-modernization-cpp/faq?context=/azure/developer/github-copilot-app-modernization/context/context
+      - linkListType: reference
+        links:
+          - text: Scenarios and skills
+            url: /cpp/porting/github-copilot-modernization-cpp/scenarios-and-skills?context=/azure/developer/github-copilot-app-modernization/context/context
+      - linkListType: sample
+        links:
+          - text: Walkthrough - Hilo
+            url: /cpp/porting/github-copilot-modernization-cpp/walkthrough-hilo?context=/azure/developer/github-copilot-app-modernization/context/context
   - title: Upgrade JavaScript/TypeScript projects
     linkLists:
       - linkListType: overview

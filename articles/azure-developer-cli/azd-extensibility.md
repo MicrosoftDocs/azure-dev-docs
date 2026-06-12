@@ -3,10 +3,11 @@ title: Customize your Azure Developer CLI workflows using command and event hook
 description: Explores how to use Azure Developer CLI hooks to customize deployment pipelines
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 01/09/2026
+ms.date: 06/11/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
+ai-usage: ai-assisted
 ---
 
 # Customize your Azure Developer CLI workflows using command and event hooks
@@ -43,13 +44,15 @@ The following service lifecycle event hooks are available:
 
 Hooks are registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
 
-* `shell`: `sh` | `pwsh`
-  * *Note*: PowerShell 7 is required for `pwsh`.
-* `run`: Define an inline script or a path to a file.
+* `shell`: `sh` | `pwsh` (optional). When omitted, `azd` selects a default based on the operating system: `pwsh` on Windows and `sh` on Linux and macOS. `azd` prints a warning when the default is used and recommends setting `shell` explicitly for cross-platform reliability. PowerShell 7 is required for `pwsh`.
+* `run`: Define an inline script or a path to a file. For file paths, `azd` infers the shell from the file extension (for example, `.sh` or `.ps1`).
 * `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
 * `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false).
 * `windows`: Specifies that the nested configurations will only apply on windows OS. If this configuration option is excluded, the hook executes on all platforms.
 * `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS). If this configuration option is excluded, the hook executes on all platforms.
+
+> [!NOTE]
+> Setting `shell` explicitly remains the recommended approach for cross-platform projects, because the default depends on the contributor's operating system. If your inline script uses syntax that's only valid in one shell, declare `shell` to avoid runtime failures.
 
 ## Hook examples
 
@@ -66,7 +69,7 @@ name: todo-nodejs-mongo
 metadata:
   template: todo-nodejs-mongo@0.0.1-beta
 hooks:
-  prerestore: # Example of an inline script. (shell is required for inline scripts)
+  prerestore: # Example of an inline script with an explicit shell
     shell: sh
     run: echo 'Hello'
   preprovision: # Example of external script (Relative path from project root)
@@ -104,7 +107,7 @@ services:
     language: js
     host: appservice
     hooks:
-      prerestore: # Example of an inline script. (shell is required for inline scripts)
+      prerestore: # Example of an inline script with an explicit shell
         shell: sh
         run: echo 'Restoring API service...'
       prepackage: # Example of external script (Relative path from service path)
@@ -138,6 +141,19 @@ services:
     language: js
     host: appservice
 ```
+
+### Cross-platform inline scripts without an explicit shell
+
+When you omit `shell` from an inline hook, `azd` selects a default shell based on the operating system: `pwsh` on Windows and `sh` on Linux and macOS. This option is useful for simple commands that work in both shells, such as printing a status message or invoking a CLI that's already on the user's path.
+
+```yml
+name: example-project
+hooks:
+  prerestore: # No shell specified; azd uses pwsh on Windows and sh on Linux/macOS
+    run: echo 'Restoring dependencies...'
+```
+
+`azd` prints a warning whenever it falls back to the default shell. For inline scripts that rely on shell-specific syntax, set `shell` explicitly or use the `windows` and `posix` configurations to provide both variants.
 
 ### Multiple hooks per event
 
