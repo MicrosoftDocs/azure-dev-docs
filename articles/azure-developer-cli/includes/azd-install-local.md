@@ -2,7 +2,7 @@
 author: alexwolfmsft
 ms.service: azure-dev-cli
 ms.topic: include
-ms.date: 01/11/2023
+ms.date: 06/12/2026
 ms.author: alexwolf
 ---
 

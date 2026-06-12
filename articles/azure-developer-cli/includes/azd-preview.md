@@ -1,7 +1,7 @@
 ---
 ms.prod: azure
 ms.topic: include
-ms.date: 08/01/2022
+ms.date: 06/12/2026
 ---
 
 > [!IMPORTANT]
