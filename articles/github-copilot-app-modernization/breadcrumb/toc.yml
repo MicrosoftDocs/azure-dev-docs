@@ -16,3 +16,6 @@ items:
     - name: GitHub Copilot modernization
       tocHref: /dotnet
       topicHref: /azure/developer/github-copilot-app-modernization/index
+    - name: GitHub Copilot modernization
+      tocHref: /cpp
+      topicHref: /azure/developer/github-copilot-app-modernization/index

@@ -176,6 +176,23 @@ items:
                 href: /dotnet/azure/migration/appmod/coding-agent-support?context=/azure/developer/github-copilot-app-modernization/context/context
               - name: Migration sample
                 href: /dotnet/azure/migration/appmod/sample?context=/azure/developer/github-copilot-app-modernization/context/context
+
+        - name: C++
+          expanded: false
+          items:
+            - name: Overview
+              href: /cpp/porting/github-copilot-modernization-cpp/overview?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: Install
+              href: /cpp/porting/github-copilot-modernization-cpp/install?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: Scenarios and skills reference
+              href: /cpp/porting/github-copilot-modernization-cpp/scenarios-and-skills?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: Walkthrough - Hilo
+              href: /cpp/porting/github-copilot-modernization-cpp/walkthrough-hilo?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: Troubleshooting
+              href: /cpp/porting/github-copilot-modernization-cpp/troubleshooting?context=/azure/developer/github-copilot-app-modernization/context/context
+            - name: FAQ
+              href: /cpp/porting/github-copilot-modernization-cpp/faq?context=/azure/developer/github-copilot-app-modernization/context/context
+
               
         - name: JavaScript/TypeScript
           expanded: false
