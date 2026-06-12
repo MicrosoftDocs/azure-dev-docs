@@ -3,11 +3,11 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/05/2026
+ms.date: 06/11/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
-ai-usage: ai-generated
+ai-usage: ai-assisted
 ---
 
 # Azure Developer CLI schema reference
@@ -619,8 +619,8 @@ A hook can be a single hook object or an array of hook objects. Each hook object
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `run` | Conditional | string | The inline script or relative path of your script. Required when specifying `shell`, `kind`, `dir`, `interactive`, `continueOnError`, `secrets`, or `config`. When specifying an inline script, you also must specify the `shell` to use. The shell is automatically inferred when using file paths. |
-| `shell` | N | string | Type of shell to execute scripts. Default: `sh`. Allowed values: `sh`, `pwsh`. |
+| `run` | Conditional | string | The inline script or relative path of your script. Required when specifying `shell`, `kind`, `dir`, `interactive`, `continueOnError`, `secrets`, or `config`. For file paths, the shell is automatically inferred from the file extension. |
+| `shell` | N | string | Type of shell to execute scripts. Optional. When omitted, `azd` selects a default based on the operating system: `pwsh` on Windows and `sh` on Linux and macOS, and prints a warning recommending an explicit value. Allowed values: `sh`, `pwsh`. |
 | `kind` | N | string | Executor kind for the hook script. When omitted, the kind is auto-detected from the file extension of the `run` path (for example, `.py` becomes `python`, `.ps1` becomes `pwsh`). Allowed values: `sh`, `pwsh`, `js`, `ts`, `python`, `dotnet`. |
 | `dir` | N | string | Working directory for hook execution. Used as the project root for dependency installation and as the working directory when running the script. Relative paths are resolved from the project or service root. When omitted, defaults to the directory containing the script file. |
 | `continueOnError` | N | boolean | Whether a script error halts the `azd` command. Default: `false`. |
