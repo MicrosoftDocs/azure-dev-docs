@@ -1,23 +1,26 @@
 ---
-title: Azure skill for compliance
-description: Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks.
+title: Azure skill for Azure Compliance
+description: The azure-compliance skill helps you run Azure compliance and security audits, combining azqr assessments with Key Vault expiration checks. Use it to find expiring or expired certificates and secrets, detect orphaned resources, and surface policy and best-practice gaps before running azqr scans.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 06/15/2026
+ms.reviewer: skaluvak 
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.3
+ms.custom: devx-track-copilot-skills
+ms.skillversion: 1.1.1
+ai-usage: ai-generated
 ---
 
-# Azure skill for compliance
+# Azure skill for Azure Compliance
 
-Run Azure compliance and security audits with `azqr` plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks.
+This skill helps you run Azure compliance and security audits, combining `azqr` assessments with Key Vault expiration checks. Use it to find expiring or expired certificates and secrets, detect orphaned resources, and surface policy and best-practice gaps before running `azqr` scans.
 
-**Skill:** `azure-compliance` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compliance/SKILL.md)
+**Skill** `azure-compliance` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compliance/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Run Azure compliance and security audits with `azqr` plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks.
+Get a combined compliance and security audit that pairs `azqr` assessments with Key Vault expiration checks to reveal expiring or expired certificates and secrets. Identify orphaned resources and surface policy and best-practice gaps before running `azqr` scans so you can remediate risks and prioritize fixes.
 
 ## Prerequisites
 
@@ -39,19 +42,20 @@ Use this skill when you need to:
 
 Try these prompts to activate this skill:
 
-- "Run `azqr` to check Azure compliance"
-- "Check my Azure subscription for compliance issues"
-- "Perform compliance assessment using Azure Quick Review"
-- "Assess my Azure resources against best practices"
-- "Review my Azure security posture"
-- "Run compliance scan on my Azure subscription"
-- "Identify orphaned resources in Azure"
-- "Find resources that don't comply with best practices"
-- "Show me expired certificates in my Key Vault"
-- "Check what secrets are expiring in the next 30 days"
+- "Run a compliance scan"
+- "Security audit my Azure resources"
+- "Check for expired certificates in Key Vault"
+- "Find expiring secrets"
+- "Detect orphaned resources"
+- "Run Azure best practices assessment"
+- "Check compliance before running azqr"
+- "Find resources missing required policies"
 
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compliance/SKILL.md)
-
+- [Azure compliance offerings](/azure/compliance/)
+- [Azure Policy overview](/azure/governance/policy/overview)
+- [Azure Policy reference](/azure/governance/policy/)
+- [Azure security fundamentals](/azure/security/fundamentals/overview)
