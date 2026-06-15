@@ -131,6 +131,8 @@
       href: tools/azure-deploy.md
     - name: Azure Developer CLI
       href: tools/azure-cli.md
+    - name: Azure Device Registry
+      href: tools/azure-device-registry.md
     - name: Azure Event Grid
       href: tools/azure-event-grid.md
     - name: Azure Event Hubs

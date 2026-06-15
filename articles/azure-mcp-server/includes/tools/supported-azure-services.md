@@ -115,6 +115,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
 | [Azure Cosmos DB](../../tools/azure-cosmos-db.md) | `cosmos` | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
+| [Azure Device Registry](../../tools/azure-device-registry.md) | `deviceregistry` | Manage Azure Device Registry namespaces for organizing IoT device assets. |
 | [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 
