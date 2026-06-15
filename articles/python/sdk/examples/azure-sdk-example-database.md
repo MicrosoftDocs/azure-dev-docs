@@ -68,7 +68,7 @@ export DB_ADMIN_NAME=<DB_Admin_Name> # Change to your preferred admin name
 export DB_ADMIN_PASSWORD=<DB_Admin_Password> # Change to your preferred admin password
 export DB_NAME=<DB_Name> # Change to your preferred database name
 export DB_PORT=3306
-export DB_SERVER_VERSION=EIGHT0_FOUR
+export DB_SERVER_VERSION=EIGHT0_21
 ```
 
 # [PowerShell](#tab/powershell)
@@ -83,7 +83,7 @@ $env:DB_ADMIN_NAME = <DB_Admin_Name> # Change to your preferred admin name
 $env:DB_ADMIN_PASSWORD = <DB_Admin_Password> # Change to your preferred admin password
 $env:DB_NAME = <DB_Name> # Change to your preferred database name
 $env:DB_PORT = 3306
-$env:DB_SERVER_VERSION = "EIGHT0_FOUR"
+$env:DB_SERVER_VERSION = "EIGHT0_21"
 ```
 
 ---
@@ -179,9 +179,9 @@ print(f"Provisioned MySQL database {db_result.name} with ID {db_result.id}")
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure using the Azure CLI to run the sample code. If your account has sufficient permissions to create resource groups and database resources in your Azure subscription, the script runs successfully without additional configuration.
+Later in this article, you sign in to Azure by using the Azure CLI to run the sample code. If your account has sufficient permissions to create resource groups and database resources in your Azure subscription, the script runs successfully without additional configuration.
 
-For production environments, authenticate with a service principal by setting the appropriate environment variables. This approach enables secure, non-interactive access suitable for automation. For setup instructions, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+For production environments, authenticate by using a service principal and set the appropriate environment variables. This approach enables secure, non-interactive access suitable for automation. For setup instructions, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
 Ensure the service principal is assigned a role with adequate permissions, such as the Contributor role at the subscription or resource group level. For details on assigning roles, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
@@ -198,7 +198,7 @@ For PostgreSQL database server, see:
 
 ## 5: Run the script
 
-1. If you haven't already, sign in to Azure using the Azure CLI:
+1. If you didn't already, sign in to Azure by using the Azure CLI:
 
     ```azurecli
     az login
@@ -214,11 +214,11 @@ For PostgreSQL database server, see:
 
 ## 6: Insert a record and query the database
 
-In this step, you create a table in the database and insert a record. You can use the mysql-connector library to connect to the database and run SQL commands.
+In this step, you create a table in the database and insert a record. Use the `mysql-connector` library to connect to the database and run SQL commands.
 
 1. Create a file named *use_db.py* with the following code.
 
-    This code works only for MySQL; you use different libraries for PostgreSQL.
+    This code works only for MySQL. You use different libraries for PostgreSQL.
 
     ```Python
     import os
@@ -274,7 +274,7 @@ In this step, you create a table in the database and insert a record. You can us
     connection.commit()
     ```
 
-    All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
+    All of this code uses the `mysql.connector` API. The only Azure-specific part is the full host domain for MySQL server (`mysql.database.azure.com`).
 
 1. Next, download the root certificate needed to communicate over TLS/SSL with your Azure Database for MySQL server. Azure MySQL Flexible Server uses the DigiCert Global Root G2 certificate. For more information, see [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](/azure/mysql/flexible-server/security-tls-how-to-connect).
 
