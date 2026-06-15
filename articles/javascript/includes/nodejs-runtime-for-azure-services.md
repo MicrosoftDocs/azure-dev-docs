@@ -1,11 +1,11 @@
 ---
-ms.custom: devx-track-js
+ms.date: 06/01/2026
 ms.topic: include
-ms.date: 12/10/2025
+ms.custom:
+  - devx-track-js
 ---
 
-
-When using Azure hosting services, you can select either to deploy a container to the host or select a Node.js version as the runtime for the host. In both cases, you need to align the version of the runtime, the application code, and the dependencies such as the Azure SDKs. 
+When using Azure hosting services, you can select either to deploy a container to the host or select a Node.js version as the runtime for the host. In both cases, you need to align the version of the runtime, the application code, and the dependencies such as the Azure SDKs.
 
 To find runtime information, use the following table:
 
@@ -23,7 +23,7 @@ To find runtime information, use the following table:
       [Azure App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md)
    :::column-end:::
    :::column span="2":::
-      For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.<br>
+      For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.<br />
       <pre><code>az webapp list-runtimes | grep node</code></pre>
    :::column-end:::
 :::row-end:::
@@ -42,7 +42,7 @@ To find runtime information, use the following table:
       [Azure Static Web Apps (SWA)](/azure/static-web-apps/languages-runtimes)
    :::column-end:::
    :::column span="2":::
-      There are two different runtimes to consider: the front end and the API if you are hosting your API in Static Web Apps.
+      There are two different runtimes to consider: the front end and the API if you're hosting your API in Static Web Apps.
    :::column-end:::
 :::row-end:::
 

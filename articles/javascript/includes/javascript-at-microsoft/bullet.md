@@ -1,6 +1,7 @@
 ---
-ms.custom: devx-track-js
+ms.date: 06/01/2026
 ms.topic: include
-ms.date: 04/23/2025
+ms.custom:
+  - devx-track-js
 ---
-* Learn more about [JavaScript at Microsoft](https://developer.microsoft.com/javascript/)
+- Learn more about [JavaScript at Microsoft](https://developer.microsoft.com/javascript/)

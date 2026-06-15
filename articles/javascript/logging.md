@@ -1,10 +1,10 @@
 ---
-title: Monitor JavaScript applications in Azure with logs, metrics, and alerts
+title: Monitor JavaScript Applications in Azure with Logs, Metrics, and Alerts
 description: Learn how to monitor your Azure resources and applications.
+ms.date: 06/01/2026
 ms.topic: concept-article
-ms.date: 04/09/2026
-ms.custom: devx-track-js
-# intent: As a developer new to Azure, I want to understand how to monitor my applications and resources using logs, metrics, and alerts.
+ms.custom:
+  - devx-track-js
 ---
 
 # Monitor your Azure resources and applications
@@ -13,7 +13,7 @@ Use Azure Monitor to collect logs, metrics, and alerts across your JavaScript ap
 
 ## Understand logs, metrics, and alerts
 
-Telemetry is the data collected from your applications and services to monitor their health, performance, and usage. In Azure, telemetry is categorized into logs, metrics, and alerts. 
+Telemetry is the data collected from your applications and services to monitor their health, performance, and usage. In Azure, telemetry is categorized into logs, metrics, and alerts.
 
 Azure offers four kinds of telemetry:
 
@@ -22,21 +22,21 @@ Azure offers four kinds of telemetry:
 | Metrics         | Numeric, time-series data (CPU, memory, etc.)   | **Metrics** in portal or `az monitor metrics` CLI |
 | Alerts          | Proactive notifications when thresholds hit     | **Alerts** in portal or `az monitor metrics alert` CLI |
 | Logs            | Text-based events and diagnostics (web, app)    | App Service **Logs** , Functions **Monitor**, Container Apps **Diagnostics** |
-| Custom logs     | Your own application telemetry via App Insights | Your Application Insights resource’s **Logs (Trace)** table |
+| Custom logs     | Your own application telemetry via App Insights | Your Application Insights resource's **Logs (Trace)** table |
 
 Pick the right telemetry for your question:
 
-| Scenario                                                                               | Use logs…                                         | Use metrics…                                       | Use alerts…                                           |
+| Scenario                                                                               | Use logs...                                         | Use metrics...                                       | Use alerts...                                           |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------- |
-| “Did my web app start and respond?”                                                     | App Service web-server logs (Logs)          | N/A                                                | N/A                                                   |
-| “Is my function timing out or failing?”                                                | Function invocation logs (Monitor)          | Function execution duration metric                 | Alert on “Function Errors >0”                         |
-| “How busy is my service and can it scale?”                                             | N/A                                               | Service throughput/CPU in Metrics             | Autoscale alert on CPU% > 70%                         |
-| “What exceptions is my code throwing?”                                                 | Custom Trace logs in Application Insights         | N/A                                                | Alert on “ServerExceptions >0”                        |
-| “Have I exceeded my transaction or quota limits?”                                      | N/A                                               | Quota-related metrics (Transactions, Throttling)   | Alert on “ThrottlingCount >0”                         |
+| "Did my web app start and respond?"                                                     | App Service web-server logs (Logs)          | N/A                                                | N/A                                                   |
+| "Is my function timing out or failing?"                                                | Function invocation logs (Monitor)          | Function execution duration metric                 | Alert on "Function Errors >0"                         |
+| "How busy is my service and can it scale?"                                             | N/A                                               | Service throughput/CPU in Metrics             | Autoscale alert on CPU% > 70%                         |
+| "What exceptions is my code throwing?"                                                 | Custom Trace logs in Application Insights         | N/A                                                | Alert on "ServerExceptions >0"                        |
+| "Have I exceeded my transaction or quota limits?"                                      | N/A                                               | Quota-related metrics (Transactions, Throttling)   | Alert on "ThrottlingCount >0"                         |
 
 ## Cost optimization
 
-You can significantly reduce your [cost for Azure Monitor](/azure/azure-monitor/fundamentals/cost-usage) by understanding [best practices](/azure/azure-monitor/fundamentals/best-practices-cost) for configuration options and opportunities to reduce the amount of data that it collects. 
+You can significantly reduce your [cost for Azure Monitor](/azure/azure-monitor/fundamentals/cost-usage) by understanding [best practices](/azure/azure-monitor/fundamentals/best-practices-cost) for configuration options and opportunities to reduce the amount of data that it collects.
 
 ## Enable logging and metrics for all Azure resources
 
@@ -181,46 +181,45 @@ To view log data in the Azure portal, navigate to your Log Analytics workspace a
 
 Use the following table to learn more about how to stream logs.
 
-* [Azure Monitor](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
-* [App Service](/azure/app-service/troubleshoot-diagnostic-logs)
-* [Azure Functions](/azure/azure-functions/streaming-logs?tabs=azure-portal)
-* [Azure Container Apps](/azure/container-apps/log-streaming)
+- [Azure Monitor](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
+- [App Service](/azure/app-service/troubleshoot-diagnostic-logs)
+- [Azure Functions](/azure/azure-functions/streaming-logs?tabs=azure-portal)
+- [Azure Container Apps](/azure/container-apps/log-streaming)
 
 ### Azure MCP Server
 
 When developing locally, you can use the [Azure MCP Server](/azure/developer/azure-mcp-server) [**monitor**](/azure/developer/azure-mcp-server/tools/monitor) tool to query logs without leaving your IDE. Once you [install the server](/azure/developer/azure-mcp-server/get-started?tabs=one-click%2Cazure-cli&pivots=mcp-github-copilot#install-the-azure-mcp-server), example Copilot prompts include:
 
-* List workspaces: "Show me all Log Analytics workspaces in my subscription."
-* Find tables: "List all tables in my workspace 'security-logs'"
-* Complex query: "Show me the CPU usage trend for my web servers over the last 24 hours"
-
+- List workspaces: "Show me all Log Analytics workspaces in my subscription."
+- Find tables: "List all tables in my workspace 'security-logs'"
+- Complex query: "Show me the CPU usage trend for my web servers over the last 24 hours"
 
 ## Add logging to your code
 
 For application logging, Application Insights can provide:
 
-* Standard logging in the Azure service and in your source code, depending on the initialization.
-* Custom logging from your deployment pipeline and in your source code.
+- Standard logging in the Azure service and in your source code, depending on the initialization.
+- Custom logging from your deployment pipeline and in your source code.
 
 ### Standard console logging (stdout/stderr)
 
 Azure web apps and Azure Functions automatically provide custom logging to `stdout` and `stderr`, if you use the correct logging functions:
 
-* Web apps use `console.log('your message here')`.
-* Function apps use `context.log('your message here')`.
+- Web apps use `console.log('your message here')`.
+- Function apps use `context.log('your message here')`.
 
 ### Add custom Application Insights logging
 
 You can add richer custom logging by using [Application Insights](/azure/azure-monitor/app/app-insights-overview) in Azure Monitor. Application Insights offers [server](/azure/azure-monitor/app/nodejs) (Node.js) and [client](/azure/azure-monitor/app/javascript) (browser) scenarios:
 
-* Add the Application Insights SDK to your source code.
-* Log from Node.js by using an [npm package](https://www.npmjs.com/package/applicationinsights).
-  * Make sure to configure the Node.js SDK with `enableAutoCollectConsole: true` in order to collect custom console logs.
-* Log from your client code by using an [npm package](https://www.npmjs.com/package/@microsoft/applicationinsights-web).
-* Log from your [Kubernetes cluster](/azure/azure-monitor/insights/container-insights-overview) or [Azure virtual machine](/azure/azure-monitor/insights/vminsights-overview).
-
+- Add the Application Insights SDK to your source code.
+- Log from Node.js by using an [npm package](https://www.npmjs.com/package/applicationinsights).
+  - Make sure to configure the Node.js SDK with `enableAutoCollectConsole: true` in order to collect custom console logs.
+- Log from your client code by using an [npm package](https://www.npmjs.com/package/@microsoft/applicationinsights-web).
+- Log from your [Kubernetes cluster](/azure/azure-monitor/insights/container-insights-overview) or [Azure virtual machine](/azure/azure-monitor/insights/vminsights-overview).
 
 ### Enable SDK pipeline logs (@Azure/logger)
+
 Control SDK verbosity by using the `AZURE_LOG_LEVEL` environment variable or the [`@azure/logger` npm package](https://www.npmjs.com/package/@azure/logger):
 
 ```js
@@ -230,6 +229,7 @@ setLogLevel(process.env.AZURE_LOG_LEVEL || "info");
 ```
 
 ### Configure Application Insights Node.js SDK
+
 Initialize the [Application Insights for Node.js SDK](/azure/azure-monitor/app/nodejs) with sampling, dependency collection, and console log capture:
 
 ```js
@@ -246,6 +246,7 @@ appInsights.defaultClient.commonProperties = { serviceName: "my-service" };
 ```
 
 ### Add correlation and distributed tracing
+
 The Application Insights SDK auto-injects operation and correlation IDs into requests. To add custom correlation or properties:
 
 ```js
@@ -258,6 +259,7 @@ appInsights.defaultClient.trackTrace({
 Learn more: [distributed tracing guidance](/azure/azure-monitor/app/distributed-tracing)
 
 ### Flush telemetry in dev scripts
+
 Ensure logs are sent before process exit during local development:
 
 ```js
@@ -267,6 +269,7 @@ appInsights.defaultClient.flush({
 ```
 
 ### Client-side telemetry setup
+
 For client applications, use the [`@microsoft/applicationinsights-web` package](https://www.npmjs.com/package/@microsoft/applicationinsights-web) :
 
 ```js
@@ -278,10 +281,9 @@ const ai = new ApplicationInsights({ config: {
 ai.loadAppInsights();
 ```
 
-## Next steps
+## Related content
 
-* [Azure Data Explorer (Kusto) overview](/azure/data-explorer/)
-* [Enable diagnostics logging for apps in Azure App Service](/azure/app-service/troubleshoot-diagnostic-logs)
-* [Learn how to work with Azure platform logs](/azure/azure-monitor/platform/platform-logs-overview)
-* [Azure MCP Server monitor tool](/azure/developer/azure-mcp-server/tools/monitor)
-
+- [Azure Data Explorer (Kusto) overview](/azure/data-explorer/)
+- [Enable diagnostics logging for apps in Azure App Service](/azure/app-service/troubleshoot-diagnostic-logs)
+- [Learn how to work with Azure platform logs](/azure/azure-monitor/platform/platform-logs-overview)
+- [Azure MCP Server monitor tool](/azure/developer/azure-mcp-server/tools/monitor)
