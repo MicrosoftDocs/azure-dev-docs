@@ -430,13 +430,13 @@
 | Resource Management - Workloadssapvirtualinstance | NuGet [1.0.0](https://www.nuget.org/packages/Azure.ResourceManager.WorkloadsSapVirtualInstance/1.0.0) | [docs](/dotnet/api/overview/azure/ResourceManager.WorkloadsSapVirtualInstance-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.WorkloadsSapVirtualInstance_1.0.0/sdk/workloadssapvirtualinstance/Azure.ResourceManager.WorkloadsSapVirtualInstance/) |
 | App Configuration Extension | NuGet [8.5.0](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.Functions.Worker/8.5.0)<br>NuGet [8.6.0-preview](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.Functions.Worker/8.6.0-preview) |  |  |
 | App Configuration Provider | NuGet [8.5.0](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore/8.5.0)<br>NuGet [8.6.0-preview](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore/8.6.0-preview) |  |  |
-| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp/1.0.0)<br>NuGet [3.0.0-beta.17](https://www.nuget.org/packages/Azure.Mcp/3.0.0-beta.17) |  |  |
-| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/1.0.0)<br>NuGet [3.0.0-beta.17](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/3.0.0-beta.17) |  |  |
-| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-x64/1.0.0)<br>NuGet [3.0.0-beta.17](https://www.nuget.org/packages/Azure.Mcp.linux-x64/3.0.0-beta.17) |  |  |
-| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/1.0.0)<br>NuGet [3.0.0-beta.17](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/3.0.0-beta.17) |  |  |
-| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-x64/1.0.0)<br>NuGet [3.0.0-beta.17](https://www.nuget.org/packages/Azure.Mcp.osx-x64/3.0.0-beta.17) |  |  |
-| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-arm64/1.0.0)<br>NuGet [3.0.0-beta.17](https://www.nuget.org/packages/Azure.Mcp.win-arm64/3.0.0-beta.17) |  |  |
-| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-x64/1.0.0)<br>NuGet [3.0.0-beta.17](https://www.nuget.org/packages/Azure.Mcp.win-x64/3.0.0-beta.17) |  |  |
+| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp/1.0.0)<br>NuGet [3.0.0-beta.18](https://www.nuget.org/packages/Azure.Mcp/3.0.0-beta.18) |  |  |
+| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/1.0.0)<br>NuGet [3.0.0-beta.18](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/3.0.0-beta.18) |  |  |
+| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-x64/1.0.0)<br>NuGet [3.0.0-beta.18](https://www.nuget.org/packages/Azure.Mcp.linux-x64/3.0.0-beta.18) |  |  |
+| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/1.0.0)<br>NuGet [3.0.0-beta.18](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/3.0.0-beta.18) |  |  |
+| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-x64/1.0.0)<br>NuGet [3.0.0-beta.18](https://www.nuget.org/packages/Azure.Mcp.osx-x64/3.0.0-beta.18) |  |  |
+| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-arm64/1.0.0)<br>NuGet [3.0.0-beta.18](https://www.nuget.org/packages/Azure.Mcp.win-arm64/3.0.0-beta.18) |  |  |
+| Azure MCP | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-x64/1.0.0)<br>NuGet [3.0.0-beta.18](https://www.nuget.org/packages/Azure.Mcp.win-x64/3.0.0-beta.18) |  |  |
 | Azure MCP Types Internal | NuGet [0.2.804](https://www.nuget.org/packages/Microsoft.Azure.Mcp.AzTypes.Internal.Compact/0.2.804) |  |  |
 | Azure.Communication.Administration | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.Administration/1.0.0-beta.3) |  |  |
 | Caching - PostgreSQL | NuGet [1.2.2](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Postgres/1.2.2) |  |  |
@@ -480,7 +480,7 @@
 | MCP Template Server | NuGet [0.0.9](https://www.nuget.org/packages/Microsoft.Template.Mcp.Server.win-x64/0.0.9) |  |  |
 | Microsoft.Azure.DataFactoryTestingFramework.Expressions | NuGet [0.2.7](https://www.nuget.org/packages/Microsoft.Azure.DataFactoryTestingFramework.Expressions/0.2.7) |  |  |
 | Microsoft.Azure.Functions.Worker.OpenTelemetry | NuGet [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.OpenTelemetry/1.2.0) |  |  |
-| OpenTelemetry Profiler | NuGet [1.0.1-beta.3](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Profiler/1.0.1-beta.3) |  |  |
+| OpenTelemetry Profiler | NuGet [1.0.1-beta.4](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Profiler/1.0.1-beta.4) |  |  |
 | Speech CLI | NuGet [1.50.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.CLI/1.50.0) |  |  |
 | Speech Extension Embedded SR | NuGet [1.50.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Embedded.SR/1.50.0) |  |  |
 | Speech Extension Embedded TTS | NuGet [1.50.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Embedded.TTS/1.50.0) |  |  |
