@@ -1,19 +1,18 @@
 ---
-title: GitHub repositories in Visual Studio Code for JavaScript
+title: GitHub Repositories in Visual Studio Code for JavaScript
 description: Open, initialize, branch, commit, and push GitHub repositories for JavaScript in VS Code. Step-by-step guide with activity bar, command palette, and terminal methods.
+ms.date: 06/01/2026
 ms.topic: how-to
-ms.date: 11/03/2025
-ms.custom: devx-track-js
-
+ms.custom:
+  - devx-track-js
 # customer intent: As a JavaScript developer, I want to know how to work with GitHub repositories from Visual Studio Code, so that I can develop and manage my JavaScript applications effectively.
-
 ---
 
 # Manage GitHub repositories for JavaScript development in Visual Studio Code
 
 Visual Studio Code provides comprehensive Git and GitHub integration for JavaScript developers. This guide shows you how to manage GitHub repositories directly from your development environment, streamlining your workflow from code creation to deployment.
 
-You'll learn to open existing repositories, initialize new projects, create feature branches, commit changes, and push to GitHub—all without leaving VS Code. The guide covers multiple approaches for each task, including the activity bar, command palette, status bar, and integrated terminal, so you can choose the methods that work best for your development style.
+You'll learn to open existing repositories, initialize new projects, create feature branches, commit changes, and push to GitHub-all without leaving VS Code. The guide covers multiple approaches for each task, including the activity bar, command palette, status bar, and integrated terminal, so you can choose the methods that work best for your development style.
 
 ## Prerequisites
 
@@ -23,12 +22,12 @@ You'll learn to open existing repositories, initialize new projects, create feat
 
 ## Open your remote repository
 
-Open your remote repository on your local computer. 
+Open your remote repository on your local computer.
 
 ### [Activity bar](#tab/activity-bar)
 
 1. Install the [Remote repository extension](https://marketplace.visualstudio.com/items?itemName=github.remotehub)
-1. Select the remote indicator in the lower left of Visual Studio Code. 
+1. Select the remote indicator in the lower left of Visual Studio Code.
 1. Follow the prompts.
 
 ### [Status bar](#tab/status-bar)
@@ -76,12 +75,12 @@ Alternatively, you can add or update the `git.path` setting directly in your `se
 
 ## Open your local repository
 
-If you have an existing repository on your local computer and want to open it in Visual Studio Code, just open the folder. Visual Studio Code recognizes the `.git` subfolder and displays the relevant information. 
+If you have an existing repository on your local computer and want to open it in Visual Studio Code, just open the folder. Visual Studio Code recognizes the `.git` subfolder and displays the relevant information.
 
 ### [Activity bar](#tab/activity-bar)
 
 1. Select <kbd>Ctrl</kbd> + <kbd>K</kbd> + <kbd>O</kbd>.
-1. Select folder. 
+1. Select folder.
 
 ### [Status bar](#tab/status-bar)
 
@@ -89,7 +88,7 @@ This action isn't available from this feature. Select a different tab.
 
 ### [Command palette](#tab/command-palette)
 
-1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
 1. Filter with `Git`, then select `Open repository`.
 1. Select the folder to select as the root of the repository.
 
@@ -98,17 +97,15 @@ This action isn't available from this feature. Select a different tab.
 1. Open an integrated terminal from **Terminal -> New Terminal**.
 1. Open a new instance of Visual Studio Code for the repository directory:
 
-
     ```bash
     code ../dir1/dir2/my-repo
     ```
-    
 
 ---
 
 ## Initialize new repository
 
-Use the following procedure to create a local source code repository with `git`. 
+Use the following procedure to create a local source code repository with `git`.
 
 ### [Activity bar](#tab/activity-bar)
 
@@ -123,7 +120,7 @@ This action isn't available from this feature. Select a different tab.
 
 ### [Command palette](#tab/command-palette)
 
-1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
 1. Filter with `Git`, then select `Initialize repository`.
 1. Select the folder to select as the root of the repository.
 
@@ -137,8 +134,7 @@ This action isn't available from this feature. Select a different tab.
     ```
 ---
 
-Once the repo is initialized, [create the repository on GitHub](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository). Then add that repository as a remote to your local project from the Command palette: search for `Git: Add remote`. 
-
+Once the repo is initialized, [create the repository on GitHub](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository). Then add that repository as a remote to your local project from the Command palette: search for `Git: Add remote`.
 
 ## Create a branch for changes
 
@@ -165,7 +161,7 @@ Create a new branch to capture changes and isolate from the main or default bran
 
 ### [Command palette](#tab/command-palette)
 
-1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
 1. Search for `git branch` and select `Git: Create Branch`.
 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Screenshot of a search for git branch and select Git Create Branch.":::
@@ -186,7 +182,6 @@ Create a new branch to capture changes and isolate from the main or default bran
 
 ---
 
-
 ## Commit changes locally
 
 Once you make changes to files on your branch, commit the changes.
@@ -202,10 +197,9 @@ Once you make changes to files on your branch, commit the changes.
 
 This action isn't available from this feature. Select a different tab.
 
-
 ### [Command palette](#tab/command-palette)
 
-1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
 1. In the command palette, filter with `Git` then select `Commit`.
 1. Enter your commit message, then press <kbd>Enter</kbd>.
 
@@ -224,7 +218,7 @@ This action isn't available from this feature. Select a different tab.
 
 ### [Activity bar](#tab/activity-bar)
 
-1. Select the Source Control icon from the activity bar. 
+1. Select the Source Control icon from the activity bar.
 1. Select **Publish Branch**. If the repository doesn't exist on GitHub, it creates the repository for you.
 
 ### [Status bar](#tab/status-bar)
@@ -237,10 +231,9 @@ This action isn't available from this feature. Select a different tab.
 
 ### [Command palette](#tab/command-palette)
 
-1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
 1. In the command palette, filter with `Git` then select `Push`.
 1. If you have multiple upstream remotes, select a remote name then press <kbd>Enter</kbd>.
-
 
 ### [Integrated terminal](#tab/integrated-terminal)
 
@@ -273,9 +266,8 @@ Working in Visual Studio Code with a repository uses separate tools.
 |:::image type="icon" source="../../media/how-to-clone-github-repo/github-icon-prs-issues.png" alt-text="Icon for GitHub PRs and Issues":::|[GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension|Activity bar|
 ||[GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension|You can quickly and easily open a GitHub repository either by searching for GitHub Repositories: Open Repository... from the Command Palette, <kbd>F1</kbd>, or by choosing Open GitHub Repository... from the remote indicator (the green button in the lower left corner of the status bar).|
 
-
 ## Related resources
 
-* How to [deploy a web app](../deploy-web-app.md)
-* [Working with GitHub in Visual Studio Code](https://code.visualstudio.com/docs/editor/github)
-* [Using Visual Studio Code with other version control providers](https://code.visualstudio.com/docs/editor/versioncontrol)
+- How to [deploy a web app](../deploy-web-app.md)
+- [Working with GitHub in Visual Studio Code](https://code.visualstudio.com/docs/editor/github)
+- [Using Visual Studio Code with other version control providers](https://code.visualstudio.com/docs/editor/versioncontrol)

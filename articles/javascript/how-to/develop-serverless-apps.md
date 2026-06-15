@@ -1,9 +1,10 @@
 ---
-title: Introduction to Developing Serverless Node.js Apps with Azure Functions
-description: Learn how to develop serverless Node.js applications using Azure Functions. This guide introduces Azure's serverless technologies, enabling you to create scalable, on-demand HTTP endpoints with JavaScript and TypeScript.
+title: "Introduction to Developing Serverless Node.js Apps with Azure Functions"
+description: "Learn how to develop serverless Node.js applications using Azure Functions. This guide introduces Azure's serverless technologies, enabling you to create scalable, on-demand HTTP endpoints with JavaScript and TypeScript."
+ms.date: 06/01/2026
 ms.topic: concept-article
-ms.date: 12/10/2025
-ms.custom: devx-track-js, engagement-fy23, devx-track-ts
+ms.custom:
+  - devx-track-js, engagement-fy23, devx-track-ts
 ai-usage: ai-assisted
 ---
 
@@ -11,54 +12,57 @@ ai-usage: ai-assisted
 
 Azure Functions provides a powerful serverless infrastructure, enabling you to develop scalable, on-demand HTTP endpoints with ease. By using JavaScript or TypeScript, you can create serverless applications that respond to various events, allowing you to focus on writing code without worrying about managing servers. This guide helps you get started with developing serverless Node.js apps using Azure Functions, integrating seamlessly with other Azure services.
 
-* [Azure serverless community library of samples](https://serverlesslibrary.net/)
+- [Azure serverless community library of samples](https://serverlesslibrary.net/)
 
 ## What is a Function resource?
 
 An Azure Function resource is a logical unit for all related functions in a single Azure geographic location. The resource can contain a single function or many functions, which can be independent of each other or related with input or output bindings. You can select from many common functions or create your own.
 
-The function resource settings include typical serverless configurations including environment variables, authentication, logging, and CORS.  
+The function resource settings include typical serverless configurations including environment variables, authentication, logging, and CORS.
 
-## Durable, stateful functions 
+## Durable, stateful functions
 
 [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) retain *state*, or manage long-running functions in Azure. [Create your first durable function in JavaScript](/azure/azure-functions/durable/quickstart-js-vscode).
 
-## Static web apps include functions 
+## Static web apps include functions
 
-When you develop a static front-end client application (such as Angular, React, or Vue), which also need serverless APIs, use [Static Web apps](/azure/static-web-apps/getting-started?tabs=react) with functions to bundle both together. 
+When you develop a static front-end client application (such as Angular, React, or Vue), which also need serverless APIs, use [Static Web apps](/azure/static-web-apps/getting-started?tabs=react) with functions to bundle both together.
 
 ### Proxy from client app to the API
+
 If you intend to deploy your API with your Static web app, you don't need to proxy your client application's API calls. The proxy is established for you when you deploy the Azure Functions app as a managed app.
 
-When you develop locally with a Static Web App and Azure Functions, the [Azure Static Web Apps CLI](https://azure.github.io/static-web-apps-cli/) provides the local proxy. 
+When you develop locally with a Static Web App and Azure Functions, the [Azure Static Web Apps CLI](https://azure.github.io/static-web-apps-cli/) provides the local proxy.
 
 ## Common security settings you need to configure for your Azure Function
 
 The following common settings should be configured to keep your Azure Function secure:
 
-* **Authentication and authorization**:
-  * Use [Microsoft Entra ID](../sdk/authentication/overview.md) (formerly Azure Active Directory) for robust authentication. Configure your function app to require OAuth2 tokens for production workloads.
-  * Avoid using function keys for sensitive applications. Instead, integrate with Microsoft Entra ID or validate JWT tokens in your function code.
-  * Use [managed identities](../sdk/authentication/system-assigned-managed-identity.md) to authenticate your function app with other Azure resources, ensuring each function gets only the access it needs.
-* **Configuration settings**:
-  * Application settings - create Application settings for settings that don't impact security.
-  * Secrets and keys - for any settings that impact security, use this tiered approach:
+- **Authentication and authorization**:
+  - Use [Microsoft Entra ID](../sdk/authentication/overview.md) (formerly Azure Active Directory) for robust authentication. Configure your function app to require OAuth2 tokens for production workloads.
+  - Avoid using function keys for sensitive applications. Instead, integrate with Microsoft Entra ID or validate JWT tokens in your function code.
+  - Use [managed identities](../sdk/authentication/system-assigned-managed-identity.md) to authenticate your function app with other Azure resources, ensuring each function gets only the access it needs.
+- **Configuration settings**:
+  - Application settings - create Application settings for settings that don't impact security.
+  - Secrets and keys - for any settings that impact security, use this tiered approach:
     1. First, use [Microsoft Entra ID](../sdk/authentication/overview.md) for authentication where supported.
     1. For integrations that don't support Entra ID, store secrets in [Azure Key Vault](/azure/key-vault/) and [pull in those settings from your Key Vault](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=azure-cli).
     1. Never embed secrets in code or configuration files.
-  * For other platform security settings, see [Securing Azure Functions](/azure/azure-functions/security-concepts#platform-security).
-* **Network security**:
-  * CORS - configure your client domains. Don't use `*`, indicating all domains.
-  * Virtual network integration - use private endpoints or virtual network integration to limit network exposure and restrict inbound traffic from trusted sources.
-* **HTTPS and encryption**:
-  * TLS/SSL setting for HTTPS - by default, your API accepts HTTP and HTTPS requests. Enable **HTTPS only** in the **TLS/SSL settings**. Because your Function app is hosted on a secure subdomain, you can use it immediately (with `https`) and delay purchasing a domain name, and using a certificate for the domain until you're ready.
-* **Deployment and monitoring**:
-  * Deployment Slots - create a deployment slot, such as `stage` or `preflight` and push to that slot. Swap this stage slot to production when you're ready. Don't get in the habit of manually pushing to production. Your code base should be able to indicate the version or commit that is on a slot.
-  * Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for real-time telemetry, alerting, and anomaly detection to monitor your functions and audit logs for suspicious activity.
+  - For other platform security settings, see [Securing Azure Functions](/azure/azure-functions/security-concepts#platform-security).
+- **Network security**:
+  - CORS - configure your client domains. Don't use `*`, indicating all domains.
+  - Virtual network integration - use private endpoints or virtual network integration to limit network exposure and restrict inbound traffic from trusted sources.
+- **HTTPS and encryption**:
+  - TLS/SSL setting for HTTPS - by default, your API accepts HTTP and HTTPS requests. Enable **HTTPS only** in the **TLS/SSL settings**. Because your Function app is hosted on a secure subdomain, you can use it immediately (with `https`) and delay purchasing a domain name, and using a certificate for the domain until you're ready.
+- **Deployment and monitoring**:
+  - Deployment Slots - create a deployment slot, such as `stage` or `preflight` and push to that slot. Swap this stage slot to production when you're ready. Don't get in the habit of manually pushing to production. Your code base should be able to indicate the version or commit that is on a slot.
+  - Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for real-time telemetry, alerting, and anomaly detection to monitor your functions and audit logs for suspicious activity.
 
-For comprehensive security guidance, see [Securing Azure Functions](/azure/azure-functions/security-concepts). 
+For comprehensive security guidance, see [Securing Azure Functions](/azure/azure-functions/security-concepts).
 
-## Hosting options for Azure Functions
+<a id="hosting-options-for-azure-functions"></a>
+
+## Host options for Azure Functions
 
 You can host Azure Functions in different ways depending on your requirements:
 
@@ -66,10 +70,10 @@ You can host Azure Functions in different ways depending on your requirements:
 
 When you create an Azure Functions resource, you can choose from these hosting plans:
 
-* **Consumption plan**: Pay only for the time your functions run with automatic scaling.
-* **Flex Consumption plan**: Provides enhanced control with always-ready instances to reduce cold starts, virtual network integration, and configurable instance sizes (512 MB to 4 GB). This plan is recommended for new Linux-based workloads requiring enterprise security and performance features. Note that this plan uses execution-based billing similar to the Consumption plan but with additional costs for features like always-ready instances.
-* **Premium plan**: Provides enhanced performance with pre-warmed instances, virtual network connectivity, and longer execution durations.
-* **Dedicated (App Service) plan**: Run functions on dedicated virtual machines for predictable costs and full control over the runtime environment.
+- **Consumption plan**: Pay only for the time your functions run with automatic scaling.
+- **Flex Consumption plan**: Provides enhanced control with always-ready instances to reduce cold starts, virtual network integration, and configurable instance sizes (512 MB to 4 GB). This plan is recommended for new Linux-based workloads requiring enterprise security and performance features. This plan uses execution-based billing similar to the Consumption plan but with additional costs for features like always-ready instances.
+- **Premium plan**: Provides enhanced performance with pre-warmed instances, virtual network connectivity, and longer execution durations.
+- **Dedicated (App Service) plan**: Run functions on dedicated virtual machines for predictable costs and full control over the runtime environment.
 
 For more information about choosing the right hosting plan, see [Azure Functions hosting options](/azure/azure-functions/functions-scale).
 
@@ -79,12 +83,12 @@ Alternatively, you can deploy Azure Functions to an Azure Container Apps resourc
 
 ## Prerequisites for developing Azure Functions
 
-* [Node.js LTS](https://nodejs.org/) - Use the latest Long Term Support (LTS) version for the best compatibility and security updates with Azure Functions.
-* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) - Use the current major version for local development and debugging.
+- [Node.js LTS](https://nodejs.org/) - Use the latest Long Term Support (LTS) version for the best compatibility and security updates with Azure Functions.
+- [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) - Use the current major version for local development and debugging.
 
 ## A simple JavaScript function for HTTP requests
 
-A function is an exported asynchronous function with request and context information. The following partial screenshot from the Azure portal shows the function code. 
+A function is an exported asynchronous function with request and context information. The following partial screenshot from the Azure portal shows the function code.
 
 #### [v4 TypeScript](#tab/v4-ts)
 
@@ -136,23 +140,22 @@ app.http('status', {
 module.exports = status
 ```
 
-
 ---
 
 ## Develop functions locally with Visual Studio Code and extensions
 
 Create your [first function](/azure/azure-functions/functions-create-first-function-vs-code) using Visual Studio Code. Visual Studio Code simplifies many of the details with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
-This extension helps you create JavaScript and TypeScript functions with common templates. 
+This extension helps you create JavaScript and TypeScript functions with common templates.
 
 ## Integrate with other Azure services
 
 Serverless functions remove much of the server configuration and management so you can focus on just the code you need.
 
-* **Low-code functions**: With Azure Functions, you create functions triggered by other Azure services or that output to other Azure services using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). The v4 programming model registers all triggers and bindings directly in your code, making configuration type-safe and intuitive.
-* **High-code functions**: For more control, use the Azure SDKs to coordinate and control other Azure services. Use [managed identities](../sdk/authentication/system-assigned-managed-identity.md) to securely authenticate your functions with other Azure resources without managing credentials.
+- **Low-code functions**: With Azure Functions, you create functions triggered by other Azure services or that output to other Azure services using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). The v4 programming model registers all triggers and bindings directly in your code, making configuration type-safe and intuitive.
+- **High-code functions**: For more control, use the Azure SDKs to coordinate and control other Azure services. Use [managed identities](../sdk/authentication/system-assigned-managed-identity.md) to securely authenticate your functions with other Azure resources without managing credentials.
 
 ## Related content
 
-* [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb?tabs=javascript)
-* [Node.js + Azure Functions samples](/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions)
+- [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb?tabs=javascript)
+- [Node.js + Azure Functions samples](/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions)
