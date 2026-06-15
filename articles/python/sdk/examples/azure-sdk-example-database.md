@@ -1,14 +1,14 @@
 ---
 title: Create an Azure Database for MySQL - Flexible Server instance and database using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to create an Azure Database for MySQL or Azure Database for PostgreSQL database.
-ms.date: 05/21/2025
+ms.date: 06/15/2026
 ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Example: Use the Azure libraries to create a database
 
-This example demonstrates how to use the Azure SDK for Python management libraries to programmatically create an Azure Database for MySQL flexible server and a corresponding database. It also includes a basic script that uses the mysql-connector-python library (not part of the Azure SDK) to connect to and query the database.
+This example demonstrates how to use the Azure SDK for Python management libraries to programmatically create an Azure Database for MySQL flexible server and a corresponding database. It also includes a script that uses the `mysql-connector-python` library (not part of the Azure SDK) to connect to and query the database.
 
 You can adapt this example to create an Azure Database for PostgreSQL flexible server by modifying the relevant SDK imports and API calls.
 
@@ -18,7 +18,7 @@ If you prefer to use the Azure CLI, [Equivalent Azure CLI commands](#for-referen
 * [Create a PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal)
 * [Create a DocumentDB (with MongoDB compatibility) cluster](/azure/documentdb/quickstart-portal)
 
-Unless otherwise specified, all examples and commands work consistently across Linux/macOS bash and Windows command shells.
+Unless otherwise noted, all examples and commands in this article work consistently across Linux/macOS bash and Windows command shells.
 
 ## 1: Set up your local development environment
 
@@ -32,7 +32,7 @@ In this step, you install the Azure SDK libraries needed to create the database.
 
 1. In your console, create a *requirements.txt* file that lists the management libraries used in this example:
 
-    ```azurecli
+    ```text
     azure-mgmt-resource
     azure-mgmt-rdbms
     azure-identity
@@ -40,7 +40,7 @@ In this step, you install the Azure SDK libraries needed to create the database.
     ```
 
     > [!NOTE]
-    > The `mysql-connector-python` library isn't part of the Azure SDK. It's a third-party library that you can use to connect to MySQL databases. You can also use other libraries, such as `PyMySQL` or `SQLAlchemy`, to connect to MySQL databases.
+    > The `mysql-connector-python` library isn't part of the Azure SDK. It's a third-party library you can use to connect to MySQL databases. You can also use other libraries, such as `PyMySQL` or `SQLAlchemy`.
 
 1. In your console with the virtual environment activated, install the requirements:
 
@@ -65,18 +65,15 @@ export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
 export DB_SERVER_NAME=<DB_Server_Name> # Change to your preferred DB server name
 export DB_ADMIN_NAME=<DB_Admin_Name> # Change to your preferred admin name
-export DB_ADMIN_PASSWORD=<DB_Admin_Passwrod> # Change to your preferred admin password
+export DB_ADMIN_PASSWORD=<DB_Admin_Password> # Change to your preferred admin password
 export DB_NAME=<DB_Name> # Change to your preferred database name
 export DB_PORT=3306
-export version=ServerVersion.EIGHT0_21
-
+export DB_SERVER_VERSION=EIGHT0_FOUR
 ```
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-# PowerShell syntax
-$random = Get-Random -Maximum 10000
+```powershell
 $env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
 $env:LOCATION = <Location> # Change to your preferred region
 $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
@@ -86,14 +83,14 @@ $env:DB_ADMIN_NAME = <DB_Admin_Name> # Change to your preferred admin name
 $env:DB_ADMIN_PASSWORD = <DB_Admin_Password> # Change to your preferred admin password
 $env:DB_NAME = <DB_Name> # Change to your preferred database name
 $env:DB_PORT = 3306
-$env:version = "ServerVersion.EIGHT0_21"
+$env:DB_SERVER_VERSION = "EIGHT0_FOUR"
 ```
 
 ---
 
 ## 4: Write code to create and configure a MySQL Flexible Server with a database
 
-In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group, a MySQL flexible server, and a database on that server.
+In this step, you create a Python file named *provision_db.py* with the following code. This script uses the Azure SDK for Python management libraries to create a resource group, a MySQL flexible server, and a database on that server.
 
 ```Python
 import random, os
@@ -121,7 +118,7 @@ rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME
 print(f"Provisioned resource group {rg_result.name}")
 
 # For details on the previous code, see Example: Provision a resource group
-# at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
+# at https://learn.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
 
 
 # Step 2: Provision the database server
@@ -182,11 +179,11 @@ print(f"Provisioned MySQL database {db_result.name} with ID {db_result.id}")
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script should run successfully without additional configuration.
+Later in this article, you sign in to Azure using the Azure CLI to run the sample code. If your account has sufficient permissions to create resource groups and database resources in your Azure subscription, the script runs successfully without additional configuration.
 
-For use in production environments, we recommend that you authenticate with a service principal by setting the appropriate environment variables. This approach enables secure, non-interactive access suitable for automation. For setup instructions, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+For production environments, authenticate with a service principal by setting the appropriate environment variables. This approach enables secure, non-interactive access suitable for automation. For setup instructions, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
-Ensure the service principal is assigned a role with adequate permissions—such as the Contributor role at the subscription or resource group level. For details on assigning roles, refer to [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
+Ensure the service principal is assigned a role with adequate permissions, such as the Contributor role at the subscription or resource group level. For details on assigning roles, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
 ### Reference links for classes used in the code
 
@@ -195,7 +192,7 @@ Ensure the service principal is assigned a role with adequate permissions—such
 * [Server (azure.mgmt.rdbms.mysql_flexibleservers.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.models.server)
 * [ServerVersion (azure.mgmt.rdbms.mysql_flexibleservers.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.models.serverversion)
 
-For PostreSQL database server, see:
+For PostgreSQL database server, see:
 
 * [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql_flexibleservers)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql_flexibleservers.postgresqlmanagementclient)
 
@@ -236,7 +233,7 @@ In this step, you create a table in the database and insert a record. You can us
     
     connection = mysql.connector.connect(user=db_admin_name,
         password=db_admin_password, host=f"{db_server_name}.mysql.database.azure.com",
-        port=db_port, database=db_name, ssl_ca='./BaltimoreCyberTrustRoot.crt.pem')
+        port=db_port, database=db_name, ssl_ca='./DigiCertGlobalRootG2.crt.pem')
     
     cursor = connection.cursor()
     
@@ -279,27 +276,26 @@ In this step, you create a table in the database and insert a record. You can us
 
     All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
 
-1. Next, download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
+1. Next, download the root certificate needed to communicate over TLS/SSL with your Azure Database for MySQL server. Azure MySQL Flexible Server uses the DigiCert Global Root G2 certificate. For more information, see [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](/azure/mysql/flexible-server/security-tls-how-to-connect).
 
     # [Bash](#tab/bash)
 
     ```azurecli
     #!/bin/bash
-    # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
-    CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
-    CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
+    # Download DigiCert Global Root G2 certificate required for Azure MySQL SSL connections
+    CERT_URL="https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem"
+    CERT_FILE="DigiCertGlobalRootG2.crt.pem"
     echo "Downloading SSL certificate..."
     curl -o "$CERT_FILE" "$CERT_URL"
     ```
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
-    # PowerShell syntax
-    # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
-    $CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
-    $CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
-    echo "Downloading SSL certificate..."
+    ```powershell
+    # Download DigiCert Global Root G2 certificate required for Azure MySQL SSL connections
+    $CERT_URL = "https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem"
+    $CERT_FILE = "DigiCertGlobalRootG2.crt.pem"
+    Write-Host "Downloading SSL certificate..."
     Invoke-WebRequest -Uri $CERT_URL -OutFile $CERT_FILE
     ```
 
@@ -311,13 +307,13 @@ In this step, you create a table in the database and insert a record. You can us
     python use_db.py
     ```
 
-If you see an error that your client IP address isn't allowed, check that you defined the environment variable `PUBLIC_IP_ADDRESS` correctly. If you already created the MySQL server with the wrong IP address, you can add another in the [Azure portal](https://portal.azure.com/). In the portal, select the MySQL server, and then select **Connection security**. Add the IP address of your workstation to the list of allowed IP addresses.
+If you see an error that your client IP address isn't allowed, check that you defined the environment variable `PUBLIC_IP_ADDRESS` correctly. If you already created the MySQL server with the wrong IP address, you can add another in the [Azure portal](https://portal.azure.com/). In the portal, select the MySQL server, and then select **Networking**. Add the IP address of your workstation to the list of allowed IP addresses.
 
 ## 7: Clean up resources
 
- Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources created in this example.
+ Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and database resources created in this example.
 
-Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Resource groups don't incur any ongoing charges in your subscription, but resources in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 # [Bash](#tab/bash)
 
@@ -345,7 +341,6 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 
 ```azurecli
 #!/bin/bash
-#!/bin/bash
 
 # Set variables
 export LOCATION=<Location> # Change to your preferred region
@@ -354,7 +349,7 @@ export DB_SERVER_NAME=<DB_Server_Name> # Change to your preferred DB server name
 export DB_ADMIN_NAME=<DB_Admin_Name> # Change to your preferred admin name
 export DB_ADMIN_PASSWORD=<DB_Admin_Password> # Change to your preferred admin password
 export DB_NAME=<DB_Name> # Change to your preferred database name
-export DB_SERVER_VERSION="5.7"
+export DB_SERVER_VERSION="8.4"
 
 # Get public IP address
 export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
@@ -408,7 +403,7 @@ $env:DB_SERVER_NAME = <DB_Server_Name> # Change to your preferred DB server name
 $env:DB_ADMIN_NAME = <DB_Admin_Name> # Change to your preferred admin name
 $env:DB_ADMIN_PASSWORD = <DB_Admin_Password> # Change to your preferred admin password
 $env:DB_NAME = <DB_Name> # Change to your preferred database name
-$env:DB_SERVER_VERSION = "5.7"
+$env:DB_SERVER_VERSION = "8.4"
 
 # Get your public IP
 $env:PUBLIC_IP_ADDRESS = (Invoke-RestMethod -Uri "https://api.ipify.org")
