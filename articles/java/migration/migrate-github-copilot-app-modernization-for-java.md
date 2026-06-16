@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: overview
-ms.date: 06/02/2026
+ms.date: 06/15/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ms.collection: ce-skilling-ai-copilot
@@ -35,6 +35,9 @@ Built on **GitHub Copilot agent mode**, GitHub Copilot modernization offers pred
 - **Containerization and deployment**: Generates Dockerfiles for app containerization and other artifacts to automate deployment to Azure.
 
 GitHub Copilot modernization integrates GitHub Copilot's AI-powered capabilities to automate complex upgrade steps. It supports both Maven and Gradle projects and targets upgrades between Java versions 8, 11, 17, 21, and 25. The tool has a particular focus on modernizing applications that use the Spring Boot framework. The upgrade process keeps you in control and ensures transparency by displaying all logs and outputs.
+
+> [!TIP]
+> Upgrading the Java runtime is only part of modernization. JVM flags that were optimal on an older JDK can become outdated, deprecated, or even harmful to performance on a newer one. After you upgrade, the [Azure Command Launcher for Java](/java/jaz/overview) (`jaz`) can apply JVM flags tailored to the new JDK version and your cloud environment automatically, so you don't carry over stale tuning. Replace the `java` command with `jaz` in your launch script or Dockerfile to benefit.
 
 Start your migration journey with **App Assessments** to get an overview of cloud readiness migration issues, including:
 

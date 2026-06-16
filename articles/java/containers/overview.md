@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.topic: concept-article
-ms.date: 04/13/2022
+ms.date: 06/15/2026
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -14,6 +14,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 This article provides an overview of recommended strategies and settings for containerizing Java applications. When you containerize a Java application, carefully consider how much CPU time the container has available. Then consider how much memory is available both in terms of total amount of memory and the heap size of the Java Virtual Machine (JVM). In containerized environments, applications might have access to all processors and therefore be able to run multiple threads in parallel. It's common, though, that containers have a CPU quota applied that might throttle access to CPUs.
 
 The JVM uses heuristics to determine the number of "available processors" based on CPU quota, which can dramatically influence the performance of Java applications. The memory allocated to the container itself and the size of the heap area for the JVM are as important as the processors. These factors determine the behavior of the garbage collector (GC) and the overall performance of the system.
+
+> [!TIP]
+> If you don't want to tune these settings by hand, the [Azure Command Launcher for Java](/java/jaz/overview) (`jaz`) automatically applies cloud-native JVM defaults for you. It's a drop-in replacement for the `java` command that detects container limits and selects best-fit heap sizing and GC flags. For more information, see [Automatically tune the JVM with the Azure Command Launcher for Java](#automatically-tune-the-jvm-with-the-azure-command-launcher-for-java).
 
 ## Containerize a new application
 
@@ -114,6 +117,39 @@ Use the following JVM parameters:
 -XX:+UseParallelGC -XX:MaxRAMPercentage=75
 ```
 
+## Automatically tune the JVM with the Azure Command Launcher for Java
+
+The preceding sections describe how to choose JVM flags manually based on your container memory, CPU cores, and workload type. If you don't want to maintain these settings yourself, the [Azure Command Launcher for Java](/java/jaz/overview) (`jaz`) applies cloud-native JVM defaults automatically.
+
+The Azure Command Launcher for Java is a lightweight utility that sits between your startup command and the JVM. It detects the cloud environment, including container memory and CPU limits, and then selects best-fit tuning flags for heap sizing, GC selection, and diagnostics. This approach reduces configuration overhead and improves resource utilization out of the box.
+
+To use the tool, replace the `java` command with `jaz` in your launch script or Dockerfile. For example, instead of tuning JVM options manually:
+
+```bash
+java -XX:+UseParallelGC -XX:MaxRAMPercentage=75 -jar myapp.jar
+```
+
+Use `jaz`:
+
+```bash
+jaz -jar myapp.jar
+```
+
+The tool is included in the [container images for the Microsoft Build of OpenJDK](/java/openjdk/containers), so no extra setup is necessary. The following Dockerfile uses `jaz` to run a Java application from a `jar` file:
+
+```dockerfile
+# Use any Microsoft Build of OpenJDK base image
+FROM mcr.microsoft.com/openjdk/jdk:25-ubuntu
+
+# Add your application.jar
+COPY application.jar /application.jar
+
+# Use jaz to launch your Java application
+CMD ["jaz", "-jar", "application.jar"]
+```
+
+For installation options, supported environments, and configuration details, see [Azure Command Launcher for Java](/java/jaz/overview).
+
 ## Containerize an existing on-premises application
 
 If your application is already running on-premises or on a VM in the cloud, start with the following configuration:
@@ -126,6 +162,7 @@ If the vCPU cores or container memory combination isn't available, pick the clos
 
 ## Next steps
 
-Now that you understand the general recommendations for containerizing Java applications, continue to the following article to establish a containerization baseline:
+Now that you understand the general recommendations for containerizing Java applications, continue to the following articles to establish a containerization baseline and simplify JVM tuning:
 
 * [Establish a baseline for containerized Java applications](baseline.md)
+* [Azure Command Launcher for Java](/java/jaz/overview)

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.topic: concept-article
-ms.date: 04/13/2022
+ms.date: 06/15/2026
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -28,3 +28,4 @@ For information on setting up Application Insights, see [Azure Monitor OpenTelem
 Now that you configured Azure Application Insights for your application, the next step is to review the recommendations for the target platform.
 
 * [Containerize your Java applications for Kubernetes](kubernetes.md)
+* [Azure Command Launcher for Java](/java/jaz/overview)

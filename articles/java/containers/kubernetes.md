@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 06/15/2026
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro, devx-track-javaee-wls, devx-track-javaee-wls-aks
 ---
 
@@ -80,9 +80,29 @@ containers:
       value: "-XX:+UseParallelGC -XX:MaxRAMPercentage=75"
 ```
 
+## Simplify JVM tuning with the Azure Command Launcher for Java
+
+The preceding sections set the processor count, heap size, and GC manually through JVM flags. If you don't want to maintain these settings, the [Azure Command Launcher for Java](/java/jaz/overview) (`jaz`) can apply cloud-native defaults for you. It reads the container's cgroup memory and CPU limits at startup and then selects best-fit heap sizing and GC flags automatically.
+
+To use the tool, replace the `java` command with `jaz` in your container's launch command. The tool is included in the [container images for the Microsoft Build of OpenJDK](/java/openjdk/containers), so no extra setup is necessary:
+
+```dockerfile
+# Use any Microsoft Build of OpenJDK base image
+FROM mcr.microsoft.com/openjdk/jdk:25-ubuntu
+
+# Add your application.jar
+COPY application.jar /application.jar
+
+# Use jaz to launch your Java application
+CMD ["jaz", "-jar", "application.jar"]
+```
+
+For installation options, supported environments, and configuration details, see [Azure Command Launcher for Java](/java/jaz/overview).
+
 ## Next steps
 
 - [Java containerization strategies](index.yml)
+- [Azure Command Launcher for Java](/java/jaz/overview)
 - Jakarta EE on Azure container runtimes
   - Oracle WebLogic Server
     - [Azure Kubernetes Service](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
