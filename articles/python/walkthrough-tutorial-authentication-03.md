@@ -1,7 +1,7 @@
 ---
 title: "Walkthrough, Part 3: Authenticate Python apps with Azure services"
 description: An examination of the example third-party API implementation using Azure Functions and how the endpoint is secured with an access key.
-ms.date: 05/28/2025
+ms.date: 06/15/2026
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -10,13 +10,13 @@ ms.custom: devx-track-python
 
 [Previous part: Authentication requirements](walkthrough-tutorial-authentication-02.md)
 
-In our example scenario, the main application consumes a third-party API that is secured with an access key. This section demonstrates the API using Azure Functions, but the same principles apply regardless of how or where the API is implemented—whether you host the application on another cloud provider or a traditional web server.
+In the example scenario, the main application consumes a third-party API that is secured with an access key. This section demonstrates the API using Azure Functions, but the same principles apply regardless of how or where the API is implemented - whether you host the application on another cloud provider or a traditional web server.
 
 The key aspect is that any client requests to the protected endpoint must include the access key, which the app must manage securely. This section provides an overview of how to implement such an API using Azure Functions, but you can adapt the principles to your specific needs.
 
 ## Example third-party API implementation
 
-The example third-party API is a simple endpoint that returns a random number between 1 and 999. The API is secured with an access key, which must be provided in the request to access the endpoint. For demonstration purposes, this API is deployed to the endpoint, `https://msdocs-example-api.azurewebsites.net/api/RandomNumber`. To call the API, however, you must provide the access key `d0c5atM1cr0s0ft` either in a `?code=` URL parameter or in an `'x-functions-key'` property of the HTTP header. For example, after you deploy the app and API, try this URL in  a browser or curl: `https://msdocs-example-api.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft`.
+The example third-party API is a simple endpoint that returns a random number between 1 and 999. The API is secured with an access key, which you must provide in the request to access the endpoint. For demonstration purposes, this API is deployed to the endpoint `https://msdocs-example-api.azurewebsites.net/api/RandomNumber`. To call the API, however, you must provide the access key `d0c5atM1cr0s0ft` either in a `?code=` URL parameter or in an `'x-functions-key'` property of the HTTP header. For example, after you deploy the app and API, try this URL in a browser or curl: `https://msdocs-example-api.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft`.
 
 If the access key is valid, the endpoint returns a JSON response that contains a single property, "value", the value of which is a number between 1 and 999, such as `{"value": 959}`.
 

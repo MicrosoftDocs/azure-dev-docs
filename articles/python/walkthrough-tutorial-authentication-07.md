@@ -1,7 +1,7 @@
 ---
 title: "Walkthrough, Part 7: Authenticate Python apps with Azure services"
 description: An examination of the code for the main app API endpoint, which uses the third-party API endpoint and writes a message to Azure Queue Storage.
-ms.date: 05/28/2025
+ms.date: 06/15/2026
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -68,11 +68,11 @@ Always remember that you need to assign the same roles and access policies to an
 
 In short, having completed this walkthrough, you can apply your knowledge to any number of other Azure services and any number of other external services.
 
-One subject that we haven't touched upon in this tutorial is authentication of *users*. To explore this area for web apps, begin with [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/tutorial-auth-aad?pivots=platform-linux).
+One subject not covered in this tutorial is authentication of *users*. To explore this area for web apps, begin with [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/tutorial-auth-aad?pivots=platform-linux).
 
 ## See also
 
 - [How to authenticate and authorize Python apps on Azure](./sdk/authentication-overview.md)
 - Walkthrough sample: [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication)
-- [Microsoft Entra documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/entra/)
 - [Azure Key Vault documentation](/azure/key-vault)
