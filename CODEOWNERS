@@ -9,8 +9,7 @@
 /CODEOWNERS @KarlErickson @Susan-Potter
 
 # AI
-
-/articles/ai/ @ms-johnalex
+/articles/ai/ @bobtabor-msft
 
 # Intro
 /articles/intro/ @Susan-Potter
@@ -27,8 +26,12 @@
 # Tools
 /articles/azure-developer-cli/ @alexwolfmsft @kristenwomack
 /articles/typespec/ @diberry
-/articles/azure-mcp-server/ @diberry @sandeep-sen
-/articles/azure-mcp-server/get-started @diberry @sandeep-sen @alexwolfmsft
+
+# Azure AI Developer tools
+/articles/ai-developer-tools/ @diberry @yunjchoi @sandeep-sen 
+/articles/azure-mcp-server/ @diberry @sandeep-sen @yunjchoi 
+/articles/azure-mcp-server/get-started @diberry @sandeep-sen @alexwolfmsft @yunjchoi 
+/articles/azure-skills/ @diberry @yunjchoi
 
 # Azure SDK authentication topics
 /articles/go/sdk/authentication/            @sandeep-sen
