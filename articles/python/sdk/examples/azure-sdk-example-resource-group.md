@@ -1,7 +1,7 @@
 ---
 title: Create a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 05/29/2025
+ms.date: 06/16/2026
 ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -22,7 +22,7 @@ If you haven't already, set up an environment where you can run this code. Here 
 
 1. In your console, create a *requirements.txt* file that lists the management libraries used in this example:
 
-    ```azurecli
+    ```text
     azure-mgmt-resource
     azure-identity
     ```
@@ -48,8 +48,7 @@ export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-# PowerShell syntax
+```powershell
 $env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
 $env:LOCATION = <Location> # Change to your preferred region
 $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
@@ -59,18 +58,18 @@ $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
 
 ## 4: Write code to create a resource group
 
-In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group in your Azure subscription.
+In this step, you create a Python file named *provision_rg.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group in your Azure subscription.
 
 Create a Python file named *provision_rg.py* with the following code. The comments explain the details:
 
-```Python
+```python
 # Import the needed credential and management objects from the libraries.
 import os
 
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 
-# Acquire a credential object using DevaultAzureCredential.
+# Acquire a credential object using DefaultAzureCredential.
 credential = DefaultAzureCredential()
 
 # Retrieve subscription ID from environment variable.
@@ -127,9 +126,9 @@ print(f"Updated resource group {rg_result.name} with tags")
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script should run successfully without additional configuration.
+Later in this article, you sign in to Azure by using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script runs successfully without additional configuration.
 
-To use this code in a production environment, authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+To use this code in a production environment, authenticate by using a service principal and set environment variables. This approach enables secure, automated access without relying on interactive sign-in. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
 Ensure that the service principal is assigned a role with sufficient permissions to create resource groups and storage accounts. For example, assigning the Contributor role at the subscription level provides the necessary access. To learn more about role assignments, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
@@ -140,7 +139,7 @@ Ensure that the service principal is assigned a role with sufficient permissions
 
 ## 5: Run the script
 
-1. If you haven't already, sign in to Azure using the Azure CLI:
+1. If you didn't already, sign in to Azure by using the Azure CLI:
 
     ```azurecli
     az login
@@ -169,8 +168,7 @@ You can verify that the resource group exists through the Azure portal or the Az
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
-    # PowerShell syntax
+    ```powershell
     az group show -n $env:AZURE_RESOURCE_GROUP_NAME
     ```
 
@@ -178,7 +176,7 @@ You can verify that the resource group exists through the Azure portal or the Az
 
 ## 7: Clean up resources
 
-Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but resources in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but resources in the resource group might continue to incur charges. It's a good practice to clean up any resource group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 # [Bash](#tab/bash)
 
@@ -189,8 +187,7 @@ az group delete -n $AZURE_RESOURCE_GROUP_NAME --no-wait
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-# PowerShell syntax
+```powershell
 az group delete -n $env:AZURE_RESOURCE_GROUP_NAME --no-wait
 ```
 
