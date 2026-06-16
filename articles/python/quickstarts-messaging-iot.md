@@ -1,18 +1,18 @@
 ---
-title: Getting starting with messaging, events, and IoT for Python apps on Azure
+title: Getting started with messaging, events, and IoT for Python apps on Azure
 description: Index of Python-specific articles in Azure documentation for learning more about messaging, events, and IoT.
-ms.date: 06/02/2025
+ms.date: 06/16/2026
 ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
-# Messaging, Events, and IoT for Python apps on Azure
+# Messaging, events, and IoT for Python apps on Azure
 
 The following articles help you get started with messaging, event ingestion and processing, and Internet of Things (IoT) services in Azure.
 
 ## Messaging
 
-Azure messaging services let different components and apps communicate easily, no matter what language they use or where they're hosted—whether in the same cloud, across multiple clouds, or on-premises.
+Azure messaging services let different components and apps communicate easily, no matter what language they use or where they're hosted. This ease of communication works whether the components are in the same cloud, across multiple clouds, or on-premises.
 
 - **Notifications**
   - [How to use Notification Hubs from Python](/azure/notification-hubs/notification-hubs-python-push-notification-tutorial)
