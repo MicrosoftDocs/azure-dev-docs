@@ -342,7 +342,7 @@ If you plan to build on this tutorial, consider the following next steps:
 [18]: https://cli.github.com/
 [19]: https://docs.github.com/actions/security-guides/encrypted-secrets
 [20]: ../github/github-actions.md
-[21]: /entra/identity/enterprise-apps/app-objects-and-service-principals
+[21]: /entra/architecture/service-accounts-principal
 [22]: /azure/container-apps/scale-app
 [23]: /azure/container-apps/custom-domains-certificates
 [24]: /azure/container-apps/monitor
