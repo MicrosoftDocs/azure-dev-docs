@@ -1,17 +1,14 @@
 ---
 title: Getting started materials for miscellaneous Azure services for Python apps
 description: Index of getting started material in the Azure documentation for miscellaneous services used with Python apps.
-ms.date: 06/11/2025
+ms.date: 06/17/2026
 ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Other services for Python apps on Azure
 
-The services referenced in this article for Python are specialized, each designed to address a specific set of problems. The term *other services* includes Azure offerings beyond the foundational categories of compute, networking, storage, and databases. This article features examples from areas like management and governance, media, genomics, and the Internet of Things (IoT). For a full list of available services [Azure products](https://azure.microsoft.com/products/).
-
-- **Media streaming**:
-  - [Connect to Azure Media Services v3 API](/azure/media-services/latest/configure-connect-python-howto)
+The services referenced in this article for Python are specialized, each designed to address a specific set of problems. The term *other services* includes Azure offerings beyond the foundational categories of compute, networking, storage, and databases. This article features examples from areas like management and governance, and the Internet of Things (IoT). For a full list of available services, see [Azure products](https://azure.microsoft.com/products/).
 
 - **Automation**:
   - [Tutorial: Create a Python runbook](/azure/automation/learn/automation-tutorial-runbook-textual-python-3)
@@ -24,9 +21,6 @@ The services referenced in this article for Python are specialized, each designe
 - **Internet of Things and geographical mapping**:
   - [Tutorial: Route electric vehicles by using Azure Notebooks](/azure/azure-maps/tutorial-ev-routing)
   - [Tutorial: Join sensor data with weather forecast data by using Azure Notebooks](/azure/azure-maps/weather-service-tutorial)
-
-- **Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK)**:
-  - [Quickstart: Run a workflow through the Microsoft Genomics service](/azure/genomics/quickstart-run-genomics-workflow-portal)
 
 - **Resource management**:
   - [Quickstart: Run your first Resource Graph query using Python](/azure/governance/resource-graph/first-query-python)
