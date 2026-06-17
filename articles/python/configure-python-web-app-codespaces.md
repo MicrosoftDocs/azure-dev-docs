@@ -1,7 +1,7 @@
 ---
-title: Create a dev environment in GitHub Codespaces with FastAPI and Postgres.
+title: Create a dev environment in GitHub Codespaces with FastAPI and Postgres
 description: How to set up a Python development environment in GitHub Codespaces with FastAPI and Postgres.
-ms.date: 05/20/2026
+ms.date: 06/17/2026
 ms.topic: how-to
 ms.custom:
   - devx-track-python
@@ -89,11 +89,11 @@ This tutorial introduces one of many possible ways to create and work with GitHu
 
     The SQLTools extension is installed when the container is created. If the SQLTools extension doesn't appear in the Activity Bar, close the codespace and reopen it.
 
-1. Expand the **Local database** node until you find the *restaurants* table, right select **Show Table Records**.
+1. Expand the **Local database** node until you find the *restaurants* table, right-click and select **Show Table Records**.
 
     You see the restaurant you added.
 
-    :::image type="content" source="./media/codespaces-tutorial/codespaces-show-table-records-small.png" alt-text="Screenshot showing how touUse SQLTools extension in Visual Studio Code to connect to Postgres local database and show table records." lightbox="./media/codespaces-tutorial/codespaces-show-table-records.png":::
+    :::image type="content" source="./media/codespaces-tutorial/codespaces-show-table-records-small.png" alt-text="Screenshot showing how to use SQLTools extension in Visual Studio Code to connect to Postgres local database and show table records." lightbox="./media/codespaces-tutorial/codespaces-show-table-records.png":::
 
 ## Clean up
 
