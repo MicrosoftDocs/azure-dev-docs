@@ -2,7 +2,7 @@
 title: "GitHub Actions - Deploy Python app to App Service"
 description: Use CI/CD with GitHub Actions to automatically build, test, and deploy Python web apps to Azure App Service on Linux.
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 06/17/2026
 ms.custom:
   - devx-track-python
   - devx-track-azurecli
@@ -24,7 +24,7 @@ To complete the procedures in this article, you need a Python web app committed 
 - **New app**: If you need a new Python web app, you can fork and clone the https://github.com/Microsoft/python-sample-vscode-flask-tutorial GitHub repository. The sample code supports the [Flask in Visual Studio Code][1] tutorial, and provides a functioning Python application.
 
 > [!NOTE]
-> If your app uses [Django][20] and a [SQLite][21] database, it won't work for these procedures. SQLite is not supported in most cloud-hosted environments due to its local file-based storage limitations. Consider switching to a cloud-compatible database such as PostgreSQL or Azure Cosmos DB. For more information, see [Review Django considerations](#review-django-considerations) later in this article.
+> If your app uses [Django][20] and a [SQLite][21] database, it won't work for these procedures. SQLite isn't supported in most cloud-hosted environments due to its local file-based storage limitations. Consider switching to a cloud-compatible database such as PostgreSQL or Azure Cosmos DB. For more information, see [Review Django considerations](#review-django-considerations) later in this article.
 
 ## Create target App Service instance
 
@@ -69,7 +69,7 @@ The quickest way to create an App Service instance is to use the [Azure command-
 1. In Cloud Shell, use the [az webapp up][2] command to create an App Service instance and do the initial deployment for your app:
 
    ```bash
-   az webapp up --name <app-service-name> --runtime "PYTHON:3.9"
+   az webapp up --name <app-service-name> --runtime "PYTHON:3.12"
    ```
 
    - For the `<app-service-name>` placeholder, specify an App Service name that's unique in Azure. The name must be 3-60 characters long and can contain only letters, numbers, and hyphens. The name must start with a letter and end with a letter or number.
@@ -142,11 +142,11 @@ In the next procedure, you set up continuous delivery (CD), which means a new co
 
 ## Examine GitHub workflow and actions
 
-A workflow definition is specified in a YAML (*.yml*) file in the */.github/workflows/* path in your repository. This YAML file contains the various steps and parameters that make up the workflow, an automated process associated with a GitHub repository. You can build, test, package, release, and deploy any project on GitHub with a workflow.
+You specify a workflow definition in a YAML (*.yml*) file in the */.github/workflows/* path in your repository. This YAML file contains the various steps and parameters that make up the workflow, an automated process associated with a GitHub repository. You can build, test, package, release, and deploy any project on GitHub with a workflow.
 
-Each workflow is made up of one or more jobs, and each job is a set of steps. Each step is a shell script or an action. Each job has an **Action** section in the workflow file.
+Each workflow consists of one or more jobs, and each job is a set of steps. Each step is a shell script or an action. Each job has an **Action** section in the workflow file.
 
-In terms of the workflow set up with your Python code for deployment to Azure App Service, the workflow has the following actions:
+For the workflow that you set up with your Python code for deployment to Azure App Service, the workflow has the following actions:
 
 | Action | Description |
 | --- | --- |
@@ -157,7 +157,7 @@ In terms of the workflow set up with your Python code for deployment to Azure Ap
 
 The workflow template used to create the workflow is [Azure/actions-workflow-samples][11].
 
-The workflow is triggered on push events to the specified branch. The event and branch are defined at the beginning of the workflow file. For example, the following code snippet shows the workflow is triggered on push events to the *main* branch:
+The workflow triggers on push events to the specified branch. You define the event and branch at the beginning of the workflow file. For example, the following code snippet shows the workflow triggers on push events to the *main* branch:
 
 ```yaml
 on:
@@ -176,13 +176,13 @@ To see your authorized apps and revoke permissions under your GitHub accounts, g
 
 ### Workflow publish profile secret
 
-In the *.github/workflows/\<workflow-name>.yml* workflow file added to your repo, there's a placeholder for publish profile credentials required for the deploy job of the workflow. The publish profile information is stored encrypted in the repository.
+In the *.github/workflows/\<workflow-name>.yml* workflow file you add to your repo, there's a placeholder for publish profile credentials required for the deploy job of the workflow. The repository stores the publish profile information encrypted.
 
 To view the secret, go to **Settings** > **Security** > **Secret and variables** > **Actions**:
 
 :::image type="content" source="media/github-actions-app-service/github-repo-action-secrets.png" alt-text="Screenshot that shows how to view action secrets for a repository in GitHub.":::
 
-In this article, the GitHub action authenticates with a publish profile credential. There are other ways to authenticate, such as with a service principal or OpenID Connect. For more information, see [Deploy to App Service using GitHub Actions][12].
+In this article, the GitHub action authenticates by using a publish profile credential. Other ways to authenticate include using a service principal or OpenID Connect. For more information, see [Deploy to App Service using GitHub Actions][12].
 
 ## Run and test workflow
 
@@ -221,7 +221,7 @@ For a failed job, look at the output of job tasks for an indication of the failu
 
 Here are some common issues to investigate:
 
-- If the app fails because of a missing dependency, then your *requirements.txt* file wasn't processed during deployment. This behavior happens if you created the web app directly on the portal rather than by using the `az webapp up` command as shown in this article.
+- If the app fails because of a missing dependency, the deployment process didn't handle your *requirements.txt* file. This behavior happens if you created the web app directly on the portal rather than by using the `az webapp up` command as shown in this article.
 
 - If you provisioned the app service through the portal, the build action `SCM_DO_BUILD_DURING_DEPLOYMENT` setting might not be set. This setting must be set to `true`. The `az webapp up` command sets the build action automatically.
 
@@ -298,7 +298,7 @@ To delete the storage account that maintains the file system for Cloud Shell, wh
 
 ### Update GitHub account and repo
 
-If you delete the Azure resource group, consider making the following modifications to the GitHub account and repo that was connected for continuous deployment:
+If you delete the Azure resource group, consider making the following modifications to the GitHub account and repo that you connected for continuous deployment:
 
 - In the app repository, remove the *.github/workflows/\<workflow-name>.yml* file.
 - In the app repository settings, remove the *AZUREAPPSERVICE\_PUBLISHPROFILE\_* secret key created for the workflow.
@@ -321,7 +321,7 @@ If you delete the Azure resource group, consider making the following modificati
 [10]: https://docs.github.com/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
 [11]: https://github.com/Azure/actions-workflow-samples/blob/master/AppService/python-webapp-on-azure.yml
 [12]: /azure/app-service/deploy-github-actions
-[13]: /azure/app-service/containers/how-to-configure-python#container-startup-process
+[13]: /azure/app-service/configure-language-python#container-startup-process
 [14]: /cli/azure/webapp/deployment/github-actions#az-webapp-deployment-github-actions-remove
 [15]: /cli/azure/what-is-azure-cli
 [16]: /azure/cloud-shell/overview
