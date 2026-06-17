@@ -2,7 +2,7 @@
 title: Configure CI/CD for a Python Web App in Azure Container Apps
 description: Set up CI/CD for a Python web app container in Azure Container Apps by using GitHub Actions triggered on changes (like pull requests) to the main branch of a repo.
 ms.topic: tutorial
-ms.date: 06/18/2025
+ms.date: 06/17/2026
 ms.custom:
   - devx-track-python
   - sfi-image-nochange
@@ -21,7 +21,7 @@ In this tutorial, you:
 > * Troubleshoot problems that you might encounter with configuring continuous deployment.
 > * Remove resources that you don't need when you finish the tutorial series.
 
-Continuous deployment is related the DevOps practice of continuous integration and continuous delivery (CI/CD), which is automation of your app development workflow.
+Continuous deployment is related to the DevOps practice of continuous integration and continuous delivery (CI/CD), which is automation of your app development workflow.
 
 The following diagram highlights the tasks in this tutorial.
 
@@ -65,10 +65,10 @@ export MSYS_NO_PATHCONV=1
     In the command:
 
     * *\<app-name>* is an optional display name for the service principal. If you leave off the `--name` option, a GUID is generated as the display name.
-    * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure. If you don't know your subscription ID, you can run the [az account show](/cli/azure/account#az-account-show) command and copy it from the `id` property in the output.
+    * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure. If you don't know your subscription ID, run the [az account show](/cli/azure/account#az-account-show) command and copy it from the `id` property in the output.
     * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Apps container. Role-based access control (RBAC) is on the resource group level. If you followed the steps in the previous tutorial, the name of the resource group is `pythoncontainer-rg`.
 
-    Save the output of this command for the next step. In  particular, save the client ID (`appId` property), client secret (`password` property), and tenant ID (`tenant` property).
+    Save the output of this command for the next step. In particular, save the client ID (`appId` property), client secret (`password` property), and tenant ID (`tenant` property).
 
 1. Configure GitHub Actions by using the [az containerapp github-action add][11] command:
 
@@ -132,15 +132,15 @@ export MSYS_NO_PATHCONV=1
 
 ---
 
-In the configuration of continuous deployment, a [service principal][21] enables GitHub Actions to access and modify Azure resources. The roles assigned to the service principal restrict access to resources. The service principal was assigned the built-in [Contributor][12] role on the resource group that contains the container app.
+In the configuration of continuous deployment, a [service principal][21] enables GitHub Actions to access and modify Azure resources. The roles assigned to the service principal restrict access to resources. The service principal is assigned the built-in [Contributor][12] role on the resource group that contains the container app.
 
-If you followed the steps for the portal, the service principal was automatically created for you. If you followed the steps for the Azure CLI, you explicitly created the service principal before you configured continuous deployment.
+If you follow the steps for the portal, the service principal is automatically created for you. If you follow the steps for the Azure CLI, you explicitly create the service principal before you configure continuous deployment.
 
 ## Redeploy the web app with GitHub Actions
 
 In this section, you make a change to your forked copy of the sample repository. After that, you can confirm that the change is automatically deployed to the website.
 
-If you haven't already, make a [fork][13] of the sample repository ([Django][1] or [Flask][2]). You can make your code change directly in [GitHub][17] or in your development environment from a command line with [Git][14].
+If you haven't already, [fork][13] the sample repository ([Django][1] or [Flask][2]). You can make your code change directly in [GitHub][17] or in your development environment from a command line with [Git][14].
 
 ### [GitHub](#tab/git-github)
 
@@ -155,15 +155,15 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
 
     :::image type="content" source="media/tutorial-container-apps/github-edit-file.png" alt-text="Screenshot that shows how to make a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-edit-file.png":::
 
-1. On the bottom of the page you're editing, make sure that **Commit directly to the main branch** is selected. Then select the **Commit changes** button.
+1. At the bottom of the page you're editing, make sure that **Commit directly to the main branch** is selected. Then select the **Commit changes** button.
 
     :::image type="content" source="media/tutorial-container-apps/github-commit-change.png" alt-text="Screenshot that shows selections for committing a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-commit-change.png":::
 
-The commit kicks off the GitHub Actions workflow.
+The commit starts the GitHub Actions workflow.
 
 ### [Command line](#tab/git-commandline)
 
-If you haven't already, use `git clone` to pull your forked repository to your development environment and change directory to the repository. Then take the following steps:
+If you didn't already, use `git clone` to pull your forked repository to your development environment and change directory to the repository. Then take the following steps:
 
 1. Start in *main*:
 
@@ -208,7 +208,7 @@ On [GitHub][17], go to your fork of the sample repository and open the **Actions
 
 These steps use the [GitHub CLI][18].
 
-1. Get a summary of your workflow. Run the following command in folder that contains your clone:
+1. Get a summary of your workflow. Run the following command in the folder that contains your clone:
 
     ```console
     gh workflow view
@@ -233,11 +233,11 @@ These steps use the [GitHub CLI][18].
 
 ### Workflow secrets
 
-The *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo includes placeholders for credentials that are needed for the build and container app update jobs of the workflow. The credential information is stored encrypted in the repository's **Settings** area, under **Security** > **Secrets and variables** > **Actions**.
+The *.github/workflows/\<workflow-name>.yml* workflow file that you add to the repo includes placeholders for credentials that the build and container app update jobs of the workflow need. Store the credential information encrypted in the repository's **Settings** area, under **Security** > **Secrets and variables** > **Actions**.
 
 :::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot that shows credentials as GitHub Actions secrets." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
 
-If credential information changes, you can update it here. For example, if the Azure Container Registry passwords are regenerated, you need to update the `REGISTRY_PASSWORD` value. For more information, see [Encrypted secrets][19] in the GitHub documentation.
+If credential information changes, update it here. For example, if the Azure Container Registry passwords are regenerated, update the `REGISTRY_PASSWORD` value. For more information, see [Encrypted secrets][19] in the GitHub documentation.
 
 ### OAuth authorized apps
 
@@ -249,24 +249,24 @@ When you set up continuous deployment, you designate Azure Container Apps as an 
 
 ### You get errors while setting up a service principal via the Azure CLI
 
-This section can help you troubleshoot errors that you get while setting up a service principal by using the Azure CLI `az ad sp create-for-rba` command.
+This section can help you troubleshoot errors that you get while setting up a service principal by using the Azure CLI `az ad sp create-for-rbac` command.
 
 If you get an error that contains "InvalidSchema: No connection adapters were found":
 
-* Check the shell that you're running in. If you're using a Bash shell, set the `MSYS_NO_PATHCONV` variables as `export MSYS_NO_PATHCONV=1`.
+* Check the shell that you're running in. If you're using a Bash shell, set the `MSYS_NO_PATHCONV` variable as `export MSYS_NO_PATHCONV=1`.
 
   For more information, see the GitHub issue [Unable to create service principal with Azure CLI from Git Bash shell][15].
 
 If you get an error that contains "More than one application have the same display name":
 
-* The name is already taken for the service principal. Choose another name, or leave off the `--name` argument. A GUID will be automatically generated as a display name.
+* The name is already taken for the service principal. Choose another name, or leave off the `--name` argument. A GUID is automatically generated as a display name.
 
 ### GitHub Actions workflow failed
 
 To check a workflow's status, go to the **Actions** tab of the repo:
 
-* If there's a failed workflow, drill into the workflow file. There should be two jobs: build and deploy. For a failed job, check the output of the job's tasks to look for problems.
-* If there's an error message that contains "TLS handshake timeout," run the workflow manually. In the repo, on the **Actions** tab, select **Trigger auto deployment** to see if the timeout is a temporary issue.
+* If there's a failed workflow, open the workflow file. You should see two jobs: build and deploy. For a failed job, check the output of the job's tasks to look for problems.
+* If you see an error message that contains "TLS handshake timeout," run the workflow manually. In the repo, on the **Actions** tab, select **Trigger auto deployment** to see if the timeout is a temporary issue.
 * If you set up continuous deployment for the container app as shown in this tutorial, the workflow file (*.github/workflows/\<workflow-name>.yml*) is created automatically for you. You shouldn't need to modify this file for this tutorial. If you did, revert your changes and try the workflow.
 
 ### Website doesn't show changes that you merged in the main branch
@@ -298,7 +298,7 @@ In the Azure portal:
 
 In the Azure CLI:
 
-* Use the [az container app github-action remove][6] command.
+* Use the [az containerapp github-action remove][6] command.
 
 After you disconnect:
 
@@ -316,7 +316,7 @@ Removing a resource group removes all resources in the group and is the fastest 
 
 ## Related content
 
-If you plan to build on this tutorial, here are some next steps that you can take:
+If you plan to build on this tutorial, consider the following next steps:
 
 * [Set scaling rules in Azure Container Apps][22]
 * [Bind custom domain names and certificates in Azure Container Apps][23]
@@ -342,7 +342,7 @@ If you plan to build on this tutorial, here are some next steps that you can tak
 [18]: https://cli.github.com/
 [19]: https://docs.github.com/actions/security-guides/encrypted-secrets
 [20]: ../github/github-actions.md
-[21]: /azure/active-directory/fundamentals/service-accounts-principal
+[21]: /entra/architecture/service-accounts-principal
 [22]: /azure/container-apps/scale-app
 [23]: /azure/container-apps/custom-domains-certificates
 [24]: /azure/container-apps/monitor
