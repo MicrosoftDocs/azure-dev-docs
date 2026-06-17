@@ -2,7 +2,7 @@
 title: Use Azure Managed Disks through the Azure SDK for Python
 description: Use the Azure Python SDK to create, resize, and update Managed Disks standalone, in a virtual machine, or in a Virtual Machine Scale Set.
 ms.topic: concept-article
-ms.date: 06/11/2025
+ms.date: 06/17/2026
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
@@ -66,7 +66,7 @@ You can easily attach a previously provisioned Managed Disk:
 
 Before Azure Managed Disks, you had to manually create a storage account for each VM in your Virtual Machine Scale Set and use the `vhd_containers` parameter to specify those storage accounts in the Scale Set REST API.
 
-With Azure Managed Disks, storage account management is no longer required. As a result, the `storage_profile` for [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) used for Virtual Machine Scale Sets can now match the one used for individual VM creation:
+With Azure Managed Disks, storage account management is no longer required. As a result, the `storage_profile` for [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) can now match the one used for individual VM creation:
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/vm_scale_set.py" range="15-22":::
 
