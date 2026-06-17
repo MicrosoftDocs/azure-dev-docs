@@ -226,7 +226,7 @@
 | Resource Management - Data Catalog | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-datacatalog/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-datacatalog-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datacatalog/arm-datacatalog) |
 | Resource Management - Data Factory | npm [19.0.0](https://www.npmjs.com/package/@azure/arm-datafactory/v/19.0.0)<br>npm [20.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-datafactory/v/20.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-datafactory-readme) | GitHub [19.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory) |
 | Resource Management - Data Lake Analytics | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-datalake-analytics/v/1.1.1)<br>npm [2.0.0-beta.4](https://www.npmjs.com/package/@azure/arm-datalake-analytics/v/2.0.0-beta.4) | [docs](/javascript/api/overview/azure/arm-datalake-analytics-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datalake-analytics/arm-datalake-analytics) |
-| Resource Management - Data Migration | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-datamigration/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-datamigration-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datamigration/arm-datamigration) |
+| Resource Management - Data Migration | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-datamigration/v/3.0.0)<br>npm [4.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-datamigration/v/4.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-datamigration-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datamigration/arm-datamigration) |
 | Resource Management - Data Protection | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-dataprotection/v/4.0.0)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-dataprotection/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-dataprotection-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_4.0.0/sdk/dataprotection/arm-dataprotection/)<br>GitHub [5.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dataprotection_5.0.0-beta.1/sdk/dataprotection/arm-dataprotection/) |
 | Resource Management - Database Watcher | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-databasewatcher/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databasewatcher_1.0.0-beta.1/sdk/databasewatcher/arm-databasewatcher/) |
 | Resource Management - Databricks | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-databricks/v/3.0.0)<br>npm [4.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-databricks/v/4.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-databricks-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databricks/arm-databricks) |
@@ -449,13 +449,13 @@
 | App Configuration Provider | npm [3.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/3.0.1-preview) |  |  |
 | App Configuration Provider | npm [2.4.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.4.2) |  |  |
 | App Configuration Provider File Source | npm [3.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/3.0.1-preview) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp/v/2.0.2)<br>npm [3.0.0-beta.18](https://www.npmjs.com/package/@azure/mcp/v/3.0.0-beta.18) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.2)<br>npm [3.0.0-beta.18](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/3.0.0-beta.18) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.2)<br>npm [3.0.0-beta.18](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/3.0.0-beta.18) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.2)<br>npm [3.0.0-beta.18](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/3.0.0-beta.18) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.2)<br>npm [3.0.0-beta.18](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/3.0.0-beta.18) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.2)<br>npm [3.0.0-beta.18](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/3.0.0-beta.18) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.2)<br>npm [3.0.0-beta.18](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/3.0.0-beta.18) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp/v/2.0.2)<br>npm [3.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp/v/3.0.0-beta.19) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.2)<br>npm [3.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/3.0.0-beta.19) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.2)<br>npm [3.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/3.0.0-beta.19) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.2)<br>npm [3.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/3.0.0-beta.19) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.2)<br>npm [3.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/3.0.0-beta.19) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.2)<br>npm [3.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/3.0.0-beta.19) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.2)<br>npm [3.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/3.0.0-beta.19) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -485,7 +485,7 @@
 | TypeSpec HTTP Client | npm [0.15.1](https://www.npmjs.com/package/@typespec/http-client/v/0.15.1) |  |  |
 | TypeSpec HTTP Client Java | npm [0.9.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.9.0) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.14.1](https://www.npmjs.com/package/@typespec/http-client-js/v/0.14.1) |  |  |
-| TypeSpec HTTP Client Python | npm [0.31.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.31.1) |  |  |
+| TypeSpec HTTP Client Python | npm [0.32.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.32.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.38](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.38) |  |  |
 | TypeSpec MCP | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
 | TypeSpec MCP HTTP Server C# | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
@@ -509,7 +509,7 @@
 | @azure/video-indexer-widgets | npm [1.0.5](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.5) |  |  |
 | Auto Suggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  |  |
 | AutoRest | npm [3.8.0](https://www.npmjs.com/package/autorest/v/3.8.0) |  |  |
-| Azure Functions | npm [4.16.0](https://www.npmjs.com/package/@azure/functions/v/4.16.0) |  | GitHub [4.16.0](https://github.com/Azure/azure-functions-nodejs-library) |
+| Azure Functions | npm [4.16.1](https://www.npmjs.com/package/@azure/functions/v/4.16.1) |  | GitHub [4.16.1](https://github.com/Azure/azure-functions-nodejs-library) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.43.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.43.1) |  | GitHub [1.43.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.34](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.34) |  | GitHub [1.0.0-beta.34](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
