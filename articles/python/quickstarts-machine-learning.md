@@ -1,7 +1,7 @@
 ---
 title: Getting started materials for machine learning for Python apps on Azure
 description: Index of getting started materials in the Azure documentation for machine learning for Python apps.
-ms.date: 06/11/2025
+ms.date: 06/17/2026
 ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -30,7 +30,6 @@ Deploy models for low-latency, real-time machine learning predictions.
 
 Automated ML (AutoML) refers to the process of streamlining machine learning model development by automating its repetitive and time-consuming tasks.
 
-- [Train a regression model with AutoML and Python (SDK v1)](/azure/machine-learning/v1/how-to-auto-train-models-v1)
 - [Set up AutoML training for tabular data with the Azure Machine Learning CLI and Python SDK (v2)](/azure/machine-learning/how-to-configure-auto-train)
 
 ## Data access
