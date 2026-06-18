@@ -22,6 +22,8 @@ items:
             href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json     
     - name: How-tos
       items:
+        - name: Deploy Claude on Foundry
+          href: how-to/deploy-claude-foundry.md
         - name: Extract entities using Azure OpenAI Structured Outputs Mode
           href: how-to/extract-entities-using-structured-outputs.md
         - name: Switch between OpenAI and Azure OpenAI endpoints
