@@ -4,7 +4,7 @@ description: Learn how to install the Azure Toolkit for Eclipse plug-in to creat
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
-ms.date: 11/19/2021
+ms.date: 06/18/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 ---

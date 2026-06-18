@@ -4,7 +4,7 @@ description: This tutorial shows you how to use the Azure Toolkit for Eclipse to
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
-ms.date: 08/25/2020
+ms.date: 06/18/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 ---
