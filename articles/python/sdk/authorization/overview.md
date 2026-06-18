@@ -1,7 +1,7 @@
 ---
 title: Authorization in the Azure SDK libraries for Python
 description: Learn how to implement and troubleshoot authorization when using the Azure SDK for Python.
-ms.date: 7/10/2025
+ms.date: 06/18/2026
 ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -78,16 +78,16 @@ Learn more about this SDK in the official [Build Python apps with Microsoft Grap
 
 ## Diagnose authorization errors
 
-Authorization issues often result in HTTP 403 Forbidden errors, indicating insufficient permissions. To diagnose:
+Authorization problems often cause HTTP 403 Forbidden errors, which indicate insufficient permissions. To diagnose these problems:
 
-- **Check Error Messages**: Review the response for details on missing permissions.
-- **Enable Logging**: Use Python logging to inspect requests and responses:
+- **Check error messages**: Review the response for details on missing permissions.
+- **Enable logging**: Use Python logging to inspect requests and responses.
 
   ```python
   import logging
   logging.basicConfig(level=logging.DEBUG)
   ```
-- **Verify Access**: Use [Azure CLI](/cli/azure/) or the Azure portal to check role assignments:
+- **Verify access**: Use [Azure CLI](/cli/azure/) or the Azure portal to check role assignments.
 
   ```azurecli
   az role assignment list --assignee <principal-id> --scope <scope>
@@ -97,7 +97,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
 
 ## Work with scopes
 
-  Often you'll need to provide a scope, like in the example:
+  Often, you need to provide a scope, like in the following example:
 
   ```azurecli
   az role assignment list \
@@ -129,18 +129,18 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
     --scope /subscriptions/<subscription-id>
   ```
 
-  You can retrieve the object ID (`<principal-id>`) of a user or managed identity using:
+  To retrieve the object ID (`<principal-id>`) of a user or managed identity, use:
 
   ```azurecli
-  az ad user show --id <user-email> --query objectId
+  az ad user show --id <user-email> --query id
   az identity show --name <identity-name> --resource-group <rg-name> --query principalId
   ```
 
 ## Manage access
 
-Manage access through role assignments using:
+Manage access through role assignments by using:
 
-- **Azure portal**: Add roles via the "Access control (IAM)" service menu
+- **Azure portal**: Add roles through the **Access control (IAM)** service menu.
 - **Azure CLI**:
   ```azurecli
   az role assignment create --assignee <principal-id> --role <role-name> --scope <scope>
@@ -148,13 +148,13 @@ Manage access through role assignments using:
 
   Replace `<principal-id>` with the object ID of your user, service principal, or managed identity. Replace `<scope>` with an Azure resource scope, such as a subscription ID, a resource group name, or a resource name. See [Work with scopes](#work-with-scopes).
 
-- **ARM Templates**: For declarative management.
+- **ARM Templates**: Use for declarative management.
 
-For managed identities, assign roles to the identity associated with resources like virtual machines. Use the Azure portal's "Check access" feature or the Azure CLI to verify effective permissions.
+For managed identities, assign roles to the identity associated with resources like virtual machines. Use the Azure portal's **Check access** feature or the Azure CLI to verify effective permissions.
 
 ## Service-specific authorization notes
 
-In the section [Service-specific mechanisms](#service-specific-mechanisms), it was noted that some Azure services offer unique authorization methods. This section provides more detail for each of the three Azure services mentioned.
+In the section [Service-specific mechanisms](#service-specific-mechanisms), you learned that some Azure services offer unique authorization methods. This section provides more detail for each of the three Azure services mentioned.
 
 ### Azure Storage
 
@@ -179,7 +179,7 @@ Replace `<account-name>` with your Azure Storage account name.
 
 ### Azure Key Vault
 
-RBAC is recommended over legacy access policies for consistency. Access policies are still supported but not preferred.
+Use RBAC instead of legacy access policies for consistency. Access policies are still supported but not preferred.
 
 ### Example: Retrieve a secret
 
@@ -202,7 +202,7 @@ Uses OAuth 2.0 scopes for delegated permissions and application permissions for 
 
 ## Best practices
 
-- **Least privilege**: Assign only necessary permissions (for example, Reader instead of Contributor).
+- **Least privilege**: Assign only necessary permissions, such as Reader instead of Contributor.
 - **Prefer RBAC**: Especially for Key Vault, for unified access control.
 - **Use Managed Identities**: Avoid managing credentials in code.
 - **Limit Graph permissions**: Request specific scopes to minimize risks.
