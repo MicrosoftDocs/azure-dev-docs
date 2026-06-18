@@ -2,7 +2,7 @@
 title: Build and Deploy a Python Web App with Azure Container Apps
 description: This tutorial describes how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: tutorial
-ms.date: 02/06/2026
+ms.date: 06/18/2026
 ms.custom:
   - devx-track-python
   - devx-track-azurecli
@@ -55,7 +55,7 @@ If you're running locally, follow these steps to sign in and install the necessa
     ```
 
     > [!NOTE]
-    > To list the extensions installed on your system, you can use the [az extension list](/cli/azure/extension#az-extension-list) command. For example:
+    > To list the extensions installed on your system, use the [az extension list](/cli/azure/extension#az-extension-list) command. For example:
     >
     > ```azurecli
     > az extension list --query [].name --output tsv
@@ -101,7 +101,7 @@ Fork and clone the sample code to your developer environment:
 
 ## Build a container image from web app code
 
-After you follow these steps, you'll have an Azure Container Registry instance that contains a Docker container image built from the sample code.
+After you follow these steps, you have an Azure Container Registry instance that contains a Docker container image built from the sample code.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -177,7 +177,7 @@ These steps require the [Docker extension][6] for VS Code.
 
     Start the **Create Registry** task:
 
-    1. Select the F1 key or CtrlL+Shift+P to open the command palette.
+    1. Select the F1 key or Ctrl+Shift+P to open the command palette.
     1. Type **Azure Container Registry**.
     1. Select the task **Azure Container Registry: Create Registry**.
 
@@ -284,11 +284,11 @@ These steps require the [Docker extension][6] for VS Code.
 
 ## Create a PostgreSQL Flexible Server instance
 
-The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a PostgreSQL database. In these steps, you create the server that will contain the database.
+The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a PostgreSQL database. In these steps, you create the server that contains the database.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes before it finishes.
+1. Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. This command can take a few minutes to run before it finishes.
 
     ```azurecli
     #!/bin/bash
@@ -324,13 +324,13 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
     * *\<admin-password>*: The password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
         > [!IMPORTANT]
-        > When you're creating usernames or passwords, *do not* use the dollar sign ($) character. Later, when you create environment variables with these values, that character has a special meaning within the Linux container that you use to run Python apps.
+        > When you create usernames or passwords, *don't* use the dollar sign ($) character. Later, when you create environment variables with these values, that character has a special meaning within the Linux container that you use to run Python apps.
 
     * `--version`: Use `16`. It specifies the PostgreSQL version to use for the server.
 
     * `--tier`: Use `Burstable`. It specifies the pricing tier for the server. The Burstable tier is a lower-cost option for workloads that don't need the full CPU continuously, and is suitable for the requirements of this tutorial.
 
-    * `--sku-name`: The name of the pricing tier and compute configuration; for example, `Standard_B1ms`. For more information, see [Azure Database for PostgreSQL pricing][24]. To list available tiers, use `az postgres flexible-server list-skus --location <location>`.
+    * `--sku-name`: The name of the pricing tier and compute configuration. For example, `Standard_B1ms`. For more information, see [Azure Database for PostgreSQL pricing][24]. To list available tiers, use `az postgres flexible-server list-skus --location <location>`.
 
     * `--public-access`: Use `0.0.0.0`. It allows public access to the server from any Azure service, such as Container Apps.
 
@@ -340,7 +340,7 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
 
     * `--backup-retention`: Use `7`. It specifies the number of days to retain backups for the server. The minimum is 7 days.
 
-    * `--high-availability`: Use `Disabled`. It disables high availability for the server. High availability is not required for this tutorial.
+    * `--high-availability`: Use `Disabled`. It disables high availability for the server. High availability isn't required for this tutorial.
 
     * `--yes`: It accepts the terms of use for the PostgreSQL server.
 
@@ -565,7 +565,7 @@ Use the [az identity create](/cli/azure/identity#az-identity-create) command to 
 ```azurecli
 UA_MANAGED_IDENTITY_NAME=<managed-identity-name> # Use a unique name for the managed identity, such as-"my-ua-managed-id".
 az identity create \
-    --name $UA_MANAGED_IDENTITY_NAME 
+    --name $UA_MANAGED_IDENTITY_NAME \
     --resource-group $RESOURCE_GROUP_NAME
 ```
 
@@ -701,7 +701,7 @@ You can use the PostgreSQL interactive terminal [psql][15] in your local environ
     > If you haven't yet created the *restaurants_reviews* database, you can do so by using the following command:
     >
     > ```sql
-    > CREATE DATABASE resaurants_reviews
+    > CREATE DATABASE restaurants_reviews
     > ```
 
 1. Grant the user-assigned managed identity the necessary permissions on the *restaurants_reviews* database.
