@@ -1,6 +1,6 @@
 ---
-title: HTTP clients and pipelines in the Azure SDK for Java
-description: Provides an overview of the HTTP client and pipelines functionality in the Azure SDK for Java.
+title: HTTP Clients and Pipelines in the Azure SDK for Java
+description: Learn how to configure HTTP clients and pipelines in the Azure SDK for Java for retries, auth, and transport control. Read this guide to optimize your setup.
 ms.date: 04/01/2025 
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -33,9 +33,9 @@ Although Netty is the default HTTP client, the SDK provides three client impleme
 
 ### Replace the default HTTP client
 
-If you prefer another implementation, you can remove the dependency on Netty by excluding it in the build configuration files. In a Maven **pom.xml** file, you exclude the Netty dependency and include another dependency.
+If you prefer another implementation, remove the dependency on Netty by excluding it in the build configuration files. In a Maven **pom.xml** file, exclude the Netty dependency and include another dependency.
 
-The following example shows you how to exclude the Netty dependency from a real dependency on the `azure-security-keyvault-secrets` library. Be sure to exclude Netty from all appropriate `com.azure` libraries, as shown here:
+The following example shows how to exclude the Netty dependency from a real dependency on the `azure-security-keyvault-secrets` library. Be sure to exclude Netty from all appropriate `com.azure` libraries, as shown in the example:
 
 ```xml
 <dependency>
@@ -70,9 +70,9 @@ The following example shows you how to exclude the Netty dependency from a real 
 
 ### Configure HTTP clients
 
-When you build a service client, it defaults to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex HTTP client, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient` instance. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
+When you build a service client, it defaults to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. If you require a more complex HTTP client, such as a proxy, each implementation offers a builder that you can use to construct a configured `HttpClient` instance. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
 
-The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK HTTP client. These instances proxy through `http://localhost:3128` and authenticate with user `example` with password `weakPassword`.
+The following examples show how to build `HttpClient` instances by using Netty, OkHttp, and the JDK HTTP client. These instances proxy through `http://localhost:3128` and authenticate with user `example` with password `weakPassword`.
 
 ```java
 // Netty
@@ -105,7 +105,7 @@ BlobClient blobClient = new BlobClientBuilder()
     .build();
 ```
 
-For management libraries, you can set the `HttpClient` during Manager configuration.
+For management libraries, set the `HttpClient` during Manager configuration.
 
 ```java
 AzureResourceManager azureResourceManager = AzureResourceManager.configure()
@@ -133,7 +133,7 @@ A pipeline consists of a sequence of steps executed for each HTTP request-respon
 
 The Azure Core framework provides the policy with the necessary request and response data along with any necessary context to execute the policy. The policy can then perform its operation with the given data and pass the control along to the next policy in the pipeline.
 
-![HTTP pipeline diagram](./media/http-pipeline.svg)
+:::image type="content" source="./media/http-pipeline.svg" alt-text="Screenshot of the HTTP pipeline in the Azure SDK for Java, showing transport and policy execution order for requests and responses.":::
 
 ### HTTP pipeline policy position
 
@@ -145,7 +145,7 @@ So, when building the HTTP pipeline, you should understand whether to execute a 
 
 ### Common HTTP pipeline policies
 
-HTTP pipelines for REST-based services have configurations with policies for authentication, retries, logging, telemetry, and specifying the request ID in the header. Azure Core is preloaded with these commonly required HTTP policies that you can add to the pipeline.
+HTTP pipelines for REST-based services have configurations with policies for authentication, retries, logging, telemetry, and specifying the request ID in the header. Azure Core includes these commonly required HTTP policies that you can add to the pipeline.
 
 | Policy                | GitHub link                                                                                                                                                                                       |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -157,9 +157,9 @@ HTTP pipelines for REST-based services have configurations with policies for aut
 
 ### Custom HTTP pipeline policy
 
-The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. You can add custom policies to the pipeline that the user or the client library developer created. When adding the policy to the pipeline, you can specify whether this policy should be executed per-call or per-retry.
+The HTTP pipeline policy provides a convenient mechanism to modify or decorate the request and response. You can add custom policies to the pipeline that you or the client library developer created. When adding the policy to the pipeline, you can specify whether this policy should execute per-call or per-retry.
 
-To create a custom HTTP pipeline policy, you just extend a base policy type and implement some abstract method. You can then plug the policy into the pipeline.
+To create a custom HTTP pipeline policy, extend a base policy type and implement some abstract method. You can then plug the policy into the pipeline.
 
 ### Custom headers in HTTP requests
 
@@ -184,11 +184,11 @@ For more information, see the [AddHeadersFromContextPolicy Class](/java/api/com.
 
 ### Default TLS/SSL library
 
-All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for TLS/SSL operations. The Boring SSL library is an uber JAR containing native libraries for Linux, macOS, and Windows, and provides better performance compared to the default TLS/SSL implementation within the JDK.
+All client libraries use the Tomcat-native Boring SSL library by default. This library provides native-level performance for TLS/SSL operations. The Boring SSL library is an uber JAR that contains native libraries for Linux, macOS, and Windows. It offers better performance compared to the default TLS/SSL implementation within the JDK.
 
 #### Reduce Tomcat-Native TLS/SSL dependency size
 
-By default, the uber JAR of the Tomcat-Native Boring SSL library is used in Azure SDKs for Java. To reduce the size of this dependency, you need to include the dependency with an `os` classifier as per [netty-tcnative](https://netty.io/wiki/forked-tomcat-native.html), as shown in the following example:
+By default, Azure SDKs for Java use the uber JAR of the Tomcat-Native Boring SSL library. To reduce the size of this dependency, include the dependency with an `os` classifier as described in [netty-tcnative](https://netty.io/wiki/forked-tomcat-native.html), as shown in the following example:
 
 ```xml
 <project>
@@ -221,7 +221,7 @@ By default, the uber JAR of the Tomcat-Native Boring SSL library is used in Azur
 
 #### Use JDK TLS/SSL
 
-If you'd rather use the default JDK TLS/SSL instead of Tomcat-Native Boring SSL, then you need to exclude the Tomcat-native Boring SSL library. Be aware that, based on our tests, the performance of JDK TLS/SSL is 30% slower compared to Tomcat-Native Boring SSL. When you use `com.azure:azure-core:1.28.0` or later, the `HttpClient`-implementing library (such as `com.azure:azure-core-http-netty`) manages the dependency on Tomcat-Native Boring SSL. To exclude the dependency, add the following configuration to your POM file:
+If you prefer to use the default JDK TLS/SSL instead of Tomcat-Native Boring SSL, exclude the Tomcat-native Boring SSL library. Based on tests, the performance of JDK TLS/SSL is 30% slower compared to Tomcat-Native Boring SSL. When you use `com.azure:azure-core:1.28.0` or later, the `HttpClient`-implementing library (such as `com.azure:azure-core-http-netty`) manages the dependency on Tomcat-Native Boring SSL. To exclude the dependency, add the following configuration to your POM file:
 
 ```xml
 <project>
