@@ -1,11 +1,11 @@
 ---
 title: Overview of the Python web azd templates
-description: Explore the Python web templates for the Azure Developer CLI (azd), including tasks completed by the templates, 
-ms.date: 06/19/2025
+description: Explore the Python web templates for the Azure Developer CLI (azd), including tasks completed by the templates and how to customize them.
+ms.date: 06/17/2026
 ms.topic: concept-article
 ms.custom: devx-track-python, devx-track-extended-azdevcli
 
-#Customer intent: As a Python web developer, I want to explore how Python web azd templates can me help quickly build and deploy Python web applications to Azure.
+# CustomerIntent: As a Python web developer, I want to explore how Python web azd templates can help me quickly build and deploy Python web applications to Azure.
 ---
 
 # Overview of the Python web azd templates
@@ -40,24 +40,24 @@ These templates reflect proven design patterns and best practices, enabling you 
 
 ### What tasks can I do with the templates?
 
-When you run a Python web `azd` template, you quickly complete several tasks:
+When you run a Python web `azd` template, you complete several tasks quickly:
 
 * **Create starter application**. You build a website for a fictitious company named Relecloud. This starter project includes:
 
   * Well-organized, production-ready code
-  * Best practices for Python web frameworks (such as Flask, Django).
-  * Proper use of dependencies, configuration, and structure.
+  * Best practices for Python web frameworks, such as Flask and Django
+  * Proper use of dependencies, configuration, and structure
 
-  The template is designed to be a starting point—you can freely customize the logic and expand or remove Azure resources to fit your project.
+  The template is designed to be a starting point. You can freely customize the logic and expand or remove Azure resources to fit your project.
 
-* **Provision Azure resources**. Using [Bicep](/azure/azure-resource-manager/bicep/overview), a modern infrastructure-as-code (IaC) language, the template provisions all necessary Azure resources for:
+* **Provision Azure resources**. By using [Bicep](/azure/azure-resource-manager/bicep/overview), a modern infrastructure-as-code (IaC) language, the template provisions all necessary Azure resources for:
 
-  * Hosting your web app (such as App Service, Container Apps)
-  * Connecting to databases (such as PostgreSQL, Cosmos DB)
+  * Hosting your web app, such as App Service and Container Apps
+  * Connecting to databases, such as PostgreSQL and Cosmos DB
 
-  The Bicep files are fully editable—you can add or customize Azure services as your app evolves. Similar to the previous task, you can [modify the Bicep templates](quickstart-python-scale-bicep.md) to add more Azure services, as needed.
+  You can fully edit the Bicep files. Add or customize Azure services as your app evolves. Similar to the previous task, you can [modify the Bicep templates](quickstart-python-scale-bicep.md) to add more Azure services, as needed.
 
-* **Deploy starter app to provisioned Azure resources**. Once resources are provisioned, your application is automatically deployed to the Azure environment. You can now:
+* **Deploy starter app to provisioned Azure resources**. After the template provisions resources, it automatically deploys your application to the Azure environment. You can now:
 
   * See your app running in the cloud within minutes.
   * Test its behavior.
@@ -73,16 +73,16 @@ When you run a Python web `azd` template, you quickly complete several tasks:
 
 ## Where can I access the templates?
 
-Many `azd` templates are available on the [Awesome Azure Developer CLI Templates gallery](https://azure.github.io/awesome-azd/). These templates provide ready-to-use Python web app projects with feature parity across popular combinations of Azure services and Python web frameworks.
+You can find many `azd` templates in the [Awesome Azure Developer CLI Templates gallery](https://azure.github.io/awesome-azd/). These templates provide ready-to-use Python web app projects with feature parity across popular combinations of Azure services and Python web frameworks.
 
 Each template includes:
 
 * A sample application with clean, maintainable code.
-* Pre-configured infrastructure-as-code using Bicep.
+* Preconfigured infrastructure as code using Bicep.
 * Seamless deployment workflows using the Azure Developer CLI.
-* Optional CI/CD integration via GitHub Actions
+* Optional CI/CD integration via GitHub Actions.
 
-The following tables list the Python web `azd` template monikers that are available for use with the `azd init` command. The tables identify the technologies implemented in each template and provide a link to the corresponding GitHub repository, where you can contribute changes.
+The following tables list the Python web `azd` template monikers that you can use with the `azd init` command. The tables identify the technologies implemented in each template and provide a link to the corresponding GitHub repository, where you can contribute changes.
 
    # [Django](#tab/django)
 
@@ -174,29 +174,29 @@ You can also [modify the infrastructure-as-code configuration](quickstart-python
 
 ### Optional template tasks
 
-In addition to the five essential commands, there are optional tasks you can complete with the `azd` templates.
+In addition to the five essential commands, the `azd` templates include optional tasks you can complete.
 
 #### Reprovision and modify Azure resources
 
-After you provision Azure resources with an `azd` template, you can modify and reprovision a resource.
+After you provision Azure resources by using an `azd` template, you can modify and reprovision a resource.
 
-* To modify a provisioned resource, you [edit the appropriate Bicep files](quickstart-python-scale-bicep.md) in the template.
+* To modify a provisioned resource, [edit the appropriate Bicep files](quickstart-python-scale-bicep.md) in the template.
 * To initiate the reprovisioning task, use the `azd provision` command.
 
 #### Set up CI/CD pipeline
 
 The Azure Developer CLI (`azd`) provides an easy way to set up a CI/CD pipeline for your new Python web app. When you merge commits or pull requests into your main branch, the pipeline automatically builds and publishes the changes to your Azure resources.
 
-* To set up the CI/CD pipeline, you designate the GitHub repository and desired settings to enable the pipeline.
+* To set up the CI/CD pipeline, designate the GitHub repository and desired settings to enable the pipeline.
 * To create the pipeline, use the `azd pipeline config` command.
 
-After you configure the pipeline, each time code changes are merged to the *main* branch of the repository, the pipeline deploys the changes to your provisioned Azure services.
+After you configure the pipeline, each time you merge code changes to the *main* branch of the repository, the pipeline deploys the changes to your provisioned Azure services.
 
 ## Alternatives to the templates
 
 <a name="what-are-my-other-options"></a>
 
-If you prefer to not use the Python web `azd` templates, there are alternate methods for deploying Python web apps to Azure and provisioning Azure resources.
+If you don't want to use the Python web `azd` templates, you can deploy Python web apps to Azure and provision Azure resources by using other methods.
 
 You can create many resources and complete the deployment steps by using several tools:
 
@@ -221,12 +221,12 @@ No. The Python web `azd` templates use [Visual Studio Code Dev Containers](https
 
 The contents of each Python web `azd` template can vary depending on the type of project and the underlying technology stack employed. The templates identified in this article follow a common folder and file convention, as described in the following table.
 
-| Folder/file(s) | Purpose | Description |
+| Folder/files | Purpose | Description |
 | --- | --- | --- |
 | **/**                    | Root directory | The root folder for each template contains many different kinds of files and folders for different purposes. |
 | **/.azure**              | `azd` configuration files | The *.azure* folder is created after you run the `azd init` command. The folder stores configuration files for the environment variables used by the `azd` commands. You can change the values of the environment variables to customize the app and the Azure resources. For more information, see [Environment-specific .env file](/azure/developer/azure-developer-cli/manage-environment-variables#environment-specific-env-file).|
 | **/.devcontainer**       | Dev Container configuration files | Dev Containers allow you to create a container-based development environment complete with all of the resources you need for software development inside of Visual Studio Code. The *.devcontainer* folder is created after Visual Studio Code generates a Dev Container configuration file in response to a template command. |
-| **/.github**             | GitHub Actions configuration files | This folder contains configuration settings for the optional GitHub Actions CI/CD pipeline, linting, and tests. If you don't want to set up the GitHub Actions pipeline by using `azd pipeline config` command, you can modify or deleted the *azure-dev.yaml* file. |
+| **/.github**             | GitHub Actions configuration files | This folder contains configuration settings for the optional GitHub Actions CI/CD pipeline, linting, and tests. If you don't want to set up the GitHub Actions pipeline by using `azd pipeline config` command, you can modify or delete the *azure-dev.yaml* file. |
 | **/infra**               | Bicep files | The *infra* folder holds the Bicep configuration files. Bicep allows you to declare the Azure resources you want deployed to your environment. You should only modify the *main.bicep* and *web.bicep* files. For more information, see [Quickstart: Scaling services deployed with the azd Python web templates by using Bicep](quickstart-python-scale-bicep.md). |
 | **/src**                 | Starter project code files | The *src* folder contains various code files required to prepare the starter project. Examples of the files include templates required by the web framework, static files, Python (.py) files for the code logic and data models, a *requirements.txt* file, and more. The specific files depend on the web framework, the data access framework, and so on. You can modify these files to suit your project requirements. |
 | **/.cruft.json**         | Template generation file | The *.cruft* JSON file is used internally to generate the Python web `azd` templates. You can safely delete this file, as needed. |
