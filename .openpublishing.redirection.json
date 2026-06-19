@@ -1,21 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/java/fundamentals/java-diagnostic-tools-on-aks-overview.md",
-      "redirect_url": "/azure/developer/java/fundamentals/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/java/fundamentals/java-diagnostic-tools-spring-boot-admin-quickstart.md",
-      "redirect_url": "/azure/developer/java/fundamentals/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/java/fundamentals/java-diagnostic-tools-java-diagnostic-agent-quickstart.md",
-      "redirect_url": "/azure/developer/java/fundamentals/index",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/mobile-apps/azure-mobile-apps/overview.md",
       "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/overview",
       "redirect_document_id": false
