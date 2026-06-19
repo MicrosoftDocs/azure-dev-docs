@@ -4,7 +4,7 @@ description: Learn how to sign in to Microsoft Azure by using the Azure Toolkit 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
-ms.date: 06/15/2025
+ms.date: 06/18/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---

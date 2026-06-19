@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
 ms.topic: quickstart
-ms.date: 08/08/2025
+ms.date: 06/18/2026
 ms.update-cycle: 180-days
 ms.subservice: intelligent-apps
 ms.collection: ce-skilling-ai-copilot

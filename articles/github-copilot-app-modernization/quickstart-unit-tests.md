@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xinrzhu
 ms.topic: quickstart
-ms.date: 06/02/2026
+ms.date: 06/18/2026
 ms.custom: devx-track-java
 zone_pivot_group_filename: developer/github-copilot-app-modernization/github-copilot-app-modernization-zone-pivot-groups.json
 zone_pivot_groups: java-upgrade

@@ -1,7 +1,7 @@
 ---
 title: Managing Redis Caches using the Azure Explorer for IntelliJ
 description: Learn how to manage your Azure Redis caches by using the Azure Explorer for IntelliJ.
-ms.date: 06/15/2025
+ms.date: 06/18/2026
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
