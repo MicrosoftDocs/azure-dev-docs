@@ -3,9 +3,9 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/22/2026
+ms.date: 06/12/2026
 ms.service: azure-dev-cli
-ms.topic: article
+ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ---
 
@@ -52,6 +52,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd restore](#azd-restore): Restores the project's dependencies.
 * [azd show](#azd-show): Display information about your project and its resources.
 * [azd template](#azd-template): Find and view template details.
+* [azd tool](#azd-tool): Manage Azure development tools.
 * [azd up](#azd-up): Provision and deploy your project to Azure with a single command.
 * [azd update](#azd-update): Updates azd to the latest version.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
@@ -128,6 +129,10 @@ To log in as a service principal, pass --client-id and --tenant-id as well as on
 To log in using a managed identity, pass --managed-identity, which will use the system assigned managed identity.
 To use a user assigned managed identity, pass --client-id in addition to --managed-identity with the client id of
 the user assigned managed identity you wish to use.
+
+When already logged in, azd automatically clears cached authentication data (such as stale tokens)
+before re-authenticating. This ensures a clean login state and prevents issues with expired or
+corrupted cached credentials.
 
 
 ```azdeveloper
@@ -308,8 +313,9 @@ azd completion fig
 ### Options
 
 ```azdeveloper
-      --docs   Opens the documentation for azd completion fig in your web browser.
-  -h, --help   Gets help for fig.
+      --docs                       Opens the documentation for azd completion fig in your web browser.
+  -h, --help                       Gets help for fig.
+      --include-help-subcommands   Include subcommands under the help command in the Fig spec
 ```
 
 ### Options inherited from parent commands
@@ -1809,6 +1815,12 @@ Use --source to explicitly override the registry source for the upgrade. Use
 --all to upgrade all installed extensions in a single batch; failures in one
 extension do not prevent the remaining extensions from being upgraded.
 
+When upgrading an extension that has dependencies, any installed
+dependencies are automatically upgraded too, to the highest version
+satisfying the extension's declared constraints. Use
+--no-dependency-upgrades to opt out and upgrade only the named
+extension.
+
 Use --output json for a structured report of all upgrade results.
 
 ```azdeveloper
@@ -1818,11 +1830,12 @@ azd extension upgrade [extension-id] [flags]
 ### Options
 
 ```azdeveloper
-      --all              Upgrade all installed extensions
-      --docs             Opens the documentation for azd extension upgrade in your web browser.
-  -h, --help             Gets help for upgrade.
-  -s, --source string    The extension source to use for upgrades
-  -v, --version string   The version of the extension to upgrade to
+      --all                      Upgrade all installed extensions
+      --docs                     Opens the documentation for azd extension upgrade in your web browser.
+  -h, --help                     Gets help for upgrade.
+      --no-dependency-upgrades   Do not upgrade dependencies when upgrading an extension that has dependencies
+  -s, --source string            The extension source to use for upgrades
+  -v, --version string           The version of the extension to upgrade to
 ```
 
 ### Options inherited from parent commands
@@ -1962,6 +1975,10 @@ Initialize a new application.
 When used with --template, a new directory is created (named after the template)
 and the project is initialized inside it — similar to git clone.
 Pass "." as the directory to initialize in the current directory instead.
+
+Re-running init in an initialized project is idempotent: the existing environment is
+reused instead of failing. With --no-prompt and no -e, the recorded default environment
+is reused.
 
 ```azdeveloper
 azd init [flags]
@@ -2508,6 +2525,187 @@ azd template source remove <key> [flags]
 ### See also
 
 * [azd template source](#azd-template-source): View and manage template sources. (Beta)
+* [Back to top](#azd)
+
+## azd tool
+
+Manage Azure development tools.
+
+### Synopsis
+
+Discover, install, upgrade, and check status of Azure development tools.
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd tool in your web browser.
+  -h, --help   Gets help for tool.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd tool check](#azd-tool-check): Check for tool updates.
+* [azd tool install](#azd-tool-install): Install specified tools.
+* [azd tool list](#azd-tool-list): List all tools with status.
+* [azd tool show](#azd-tool-show): Show details for a specific tool.
+* [azd tool upgrade](#azd-tool-upgrade): Upgrade installed tools.
+* [Back to top](#azd)
+
+## azd tool check
+
+Check for tool updates.
+
+```azdeveloper
+azd tool check [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd tool check in your web browser.
+  -h, --help   Gets help for check.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd tool](#azd-tool): Manage Azure development tools.
+* [Back to top](#azd)
+
+## azd tool install
+
+Install specified tools.
+
+```azdeveloper
+azd tool install [tool-name...] [flags]
+```
+
+### Options
+
+```azdeveloper
+      --all       Install all recommended tools
+      --docs      Opens the documentation for azd tool install in your web browser.
+      --dry-run   Preview what would be installed without making changes
+  -h, --help      Gets help for install.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd tool](#azd-tool): Manage Azure development tools.
+* [Back to top](#azd)
+
+## azd tool list
+
+List all tools with status.
+
+```azdeveloper
+azd tool list [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd tool list in your web browser.
+  -h, --help   Gets help for list.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd tool](#azd-tool): Manage Azure development tools.
+* [Back to top](#azd)
+
+## azd tool show
+
+Show details for a specific tool.
+
+```azdeveloper
+azd tool show <tool-name> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd tool show in your web browser.
+  -h, --help   Gets help for show.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd tool](#azd-tool): Manage Azure development tools.
+* [Back to top](#azd)
+
+## azd tool upgrade
+
+Upgrade installed tools.
+
+```azdeveloper
+azd tool upgrade [tool-name...] [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs      Opens the documentation for azd tool upgrade in your web browser.
+      --dry-run   Preview what would be upgraded without making changes
+  -h, --help      Gets help for upgrade.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd tool](#azd-tool): Manage Azure development tools.
 * [Back to top](#azd)
 
 ## azd up
