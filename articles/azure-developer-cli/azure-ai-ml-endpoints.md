@@ -3,10 +3,11 @@ title: Deploy to a Microsoft Foundry or Azure Machine Learning studio online end
 description: Learn how to deploy to a Microsoft Foundry or Azure Machine Learning studio online endpoint using the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/27/2026
+ms.date: 06/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
+ai-usage: ai-assisted
 ---
 
 # Deploy to a Microsoft Foundry or Azure Machine Learning studio online endpoint
@@ -149,34 +150,38 @@ AgentSchema supports two primary formats:
 
 ### Example `agent.yaml`
 
-The following example shows an AgentDefinition for a customer support agent:
+The following example shows a hosted `agent.yaml` definition that `azd` can deploy to Microsoft Foundry. The schema annotation at the top tells YAML-aware editors to validate against the published AgentSchema:
 
 ```yaml
-kind: prompt
+# yaml-language-server: $schema=https://raw.githubusercontent.com/microsoft/AgentSchema/refs/heads/main/schemas/v1.0/ContainerAgent.yaml
+
+kind: hosted
 name: customer-support
-displayName: "Customer Support Agent"
-description: "Handles customer inquiries and support requests"
-
-model: gpt-4o
-
-instructions: |
-  You are a helpful customer support agent. Provide clear,
-  professional responses to customer inquiries.
-
-tools:
-  knowledge_base:
-    kind: function
-    description: "Search company knowledge base"
-    parameters:
-      query:
-        kind: string
-        description: "Search query"
-        required: true
+description: Handles customer inquiries and support requests
+protocols:
+  - protocol: responses
+    version: v1
+code_configuration:
+  runtime: python_3_14
+  entry_point: main.py
 ```
+
+This example uses `kind: hosted` with a `code_configuration` block, which tells `azd` to package your source code as a ZIP and let Foundry manage the runtime. To deploy a prebuilt container image instead, replace `code_configuration` with an `image` field that points to an image in Azure Container Registry.
 
 ### Using `agent.yaml` with `azd`
 
-The `azure.yaml` schema supports the `azure.ai.agent` host type for deploying agents to Microsoft Foundry. When `host` is set to `azure.ai.agent`, `azd` uses the agent definition in your project to deploy and manage the agent. For more information, see the [azure.yaml schema reference](azd-schema.md).
+The `azure.yaml` schema supports the `azure.ai.agent` host type for deploying agents to Microsoft Foundry. When you set `host` to `azure.ai.agent`, `azd` reads the `agent.yaml` file in your service directory and uses its `kind` field to determine how to deploy the agent. For more information, see the [azure.yaml schema reference](azd-schema.md).
+
+#### Supported `kind` values
+
+The `kind` field at the top of `agent.yaml` selects the deployment shape. `azd` validates this field against the values in the following table and rejects any other value at deploy time.
+
+| `kind` | What `azd` deploys | When to use |
+|---|---|---|
+| `hosted` | A Foundry-hosted agent. The deployment sub-mode depends on the fields you include in the file: add `code_configuration` for code deploy (ZIP upload, Foundry-managed runtime), or add `image` for container deploy (your prebuilt image from Azure Container Registry). | Most agents created by `azd ai agent init`. Use code deploy when you want Foundry to manage the runtime; use container deploy when you need full control over the image. |
+
+> [!NOTE]
+> AgentSchema is a broader specification than what `azd` deploys today. If you see other `kind` values in the AgentSchema reference (for example, prompt-only agent definitions), those formats aren't supported by `azd` and aren't accepted by `azd deploy`.
 
 For more information about AgentSchema, see the following resources:
 
