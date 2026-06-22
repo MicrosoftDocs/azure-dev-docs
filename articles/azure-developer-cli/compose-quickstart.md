@@ -3,7 +3,7 @@ title: Build a template using the Azure Developer CLI compose feature
 description: Learn how to build a minimal template using the Azure Developer CLI compose feature
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/22/2025
+ms.date: 06/12/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep
