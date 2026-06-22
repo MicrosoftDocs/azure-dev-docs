@@ -3,10 +3,11 @@ title: Use Terraform as an infrastructure as code tool for Azure Developer CLI
 description: How to use Terraform as an infrastructure as code tool for Azure Developer CLI (azd).
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 01/09/2026
+ms.date: 06/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-terraform, build-2023
+ai-usage: ai-assisted
 ---
 
 # Use Terraform as an infrastructure as code tool for Azure Developer CLI
@@ -24,12 +25,42 @@ By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Ter
 
 ## Pre-requisites
 
-- [Install and configure Terraform](../terraform/quickstart-configure.md)
-- [Install and log into Azure CLI (v 2.38.0+)](/cli/azure/install-azure-cli)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js or Python Terraform template](./azd-templates.md#start-with-an-existing-template).
+- [Install and configure Terraform](../terraform/quickstart-configure.md).
+- [Install Azure CLI (v 2.38.0+)](/cli/azure/install-azure-cli).
+- [Review the architecture diagram and the Azure resources you deploy in the Node.js or Python Terraform template](./azd-templates.md#start-with-an-existing-template).
 
-> [!NOTE]
-> While `azd` doesn't rely on an Azure CLI login, Terraform requires Azure CLI. Read more about this requirement from [Terraform's official documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli).
+> [!IMPORTANT]
+> Terraform deployments require an Azure CLI sign-in even when you use `azd`. The Terraform `azurerm` provider authenticates through Azure CLI by default and doesn't read tokens from the `azd` credential cache. If you only run `azd auth login`, `azd up` fails at the provision step with `ERROR: Please run 'az login' to setup account`. See [Authenticate to Azure](#authenticate-to-azure) for the recommended sign-in flow.
+
+## Authenticate to Azure
+
+Because Terraform uses Azure CLI for authentication, you need to be signed in to both `azd` and `az` before you run `azd up`. You can do that in one of two ways.
+
+### Option 1: Sign in once with Azure CLI (recommended)
+
+Configure `azd` to delegate authentication to Azure CLI. This setting lets you sign in once with `az login` and use the same credentials for both tools.
+
+```azdeveloper
+azd config set auth.useAzCliAuth true
+az login
+```
+
+If you work with multiple tenants, include the `--tenant` parameter:
+
+```azurecli
+az login --tenant <tenant-id>
+```
+
+### Option 2: Sign in to each tool separately
+
+If you prefer to keep `azd` and Azure CLI authentication independent, sign in to each tool with its own command:
+
+```azdeveloper
+azd auth login
+az login
+```
+
+You need to refresh both sessions when either token expires.
 
 ## Configure Terraform as the IaC provider
 
