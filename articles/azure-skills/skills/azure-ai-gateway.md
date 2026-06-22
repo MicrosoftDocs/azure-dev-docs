@@ -1,23 +1,26 @@
 ---
-title: Azure skill for AI Gateway
-description: Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents.
+title: Azure skill for Azure AI Gateway
+description: The azure-aigateway skill helps you configure Azure API Management as a centralized AI gateway for AI models, MCP tools, and agents. Use it to set up routing, load balancing, authentication, and rate limiting for AI traffic across multiple backends.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
+ms.reviewer: azaslonov
 ms.service: azure-mcp-server
-ms.custom: skill-version-3.0.1
+ms.custom: devx-track-copilot-skills
+ms.skillversion: 3.0.1
+ai-usage: ai-generated
 ---
 
-# Azure skill for AI Gateway
+# Azure skill for Azure AI Gateway
 
-Configure Azure API Management as an AI Gateway for AI models, Model Context Protocol (MCP) tools, and agents.
+The `azure-aigateway` skill helps you configure Azure API Management as a centralized AI gateway for AI models, MCP tools, and agents. Use it to set up routing, load balancing, authentication, and rate limiting for AI traffic across multiple backends.
 
-**Skill:** `azure-aigateway` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-aigateway/SKILL.md)
+**Skill** `azure-aigateway` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-aigateway/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents.
+You get guidance to configure Azure API Management as a centralized AI gateway that handles routing, load balancing, authentication, and rate limiting for AI traffic across multiple backends — including Azure OpenAI endpoints, custom model deployments, and MCP tool servers.
 
 ## Prerequisites
 
@@ -42,18 +45,21 @@ Use this skill when you need to:
 
 Try these prompts to activate this skill:
 
-- "Set up an AI Gateway for my Azure OpenAI models"
-- "Configure Azure API Management as a gateway for my AI models"
-- "Add a gateway to my MCP server"
-- "Set up APIM for my AI workloads"
-- "Add rate limiting to my model requests"
-- "Limit tokens for my AI API"
-- "How do I ratelimit my MCP server?"
-- "Enable semantic caching for my AI API"
-- "Set up semantic cache for Azure OpenAI in APIM"
-- "Add content safety to my AI endpoint"
+- "Set up semantic caching for my AI gateway"
+- "Configure token limits for Azure OpenAI"
+- "Add content safety policies to my gateway"
+- "Set up load balancing across AI backends"
+- "Configure jailbreak detection"
+- "Add an Azure OpenAI backend to my gateway"
+- "Import OpenAPI spec to my AI gateway"
+- "Configure rate limiting for MCP tools"
+- "Set up AI cost control policies"
+- "Convert my API to MCP"
 
 ## Related content
 
-- [Azure MCP Server overview](/azure/developer/azure-mcp-server/overview)
-
+- [Azure API Management overview](/azure/api-management/api-management-key-concepts)
+- [AI Gateway landing zone](/azure/api-management/ai-gateway-landing-zone-accelerator)
+- [Load balancing Azure OpenAI endpoints](/azure/api-management/azure-openai-enable-semantic-caching)
+- [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-aigateway/SKILL.md)
