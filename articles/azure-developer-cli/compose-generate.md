@@ -3,7 +3,7 @@ title: Generate Bicep from the azd compose feature
 description: Learn how to generate Bicep files from the azd compose feature to further customize your infrastructure
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/21/2025
+ms.date: 06/12/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep
@@ -31,7 +31,7 @@ azd infra gen
 ```
 
 > [!NOTE]
-> The `azd infra synth` command from earlier versions of `azd` is now an alias of azd `infra generate`, and will continue to work. However, a warning message will be displayed and the command might be removed in a future `azd` release.
+> The `azd infra synth` command from earlier versions of `azd` is now an alias of `azd infra generate`, and will continue to work. However, a warning message is displayed and the command might be removed in a future `azd` release.
 
 This command generates the corresponding Bicep files in the `infra` folder of your app.
 

@@ -3,7 +3,7 @@ title: Azure Developer CLI compose feature overview
 description: Learn about the Azure Developer CLI compose feature
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/21/2025
+ms.date: 06/12/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep
@@ -22,7 +22,7 @@ The `azd` compose feature offers a new way to get started with `azd`. Before the
 
 Any further customization required the user to manually modify the Bicep files—until the introduction of the compose feature.
 
-## Project compatability with compose
+## Project compatibility with compose
 
 The `azd` compose feature is designed for projects that don't already use infrastructure as code to manage Azure resources. As a result, compose does *not* support the following scenarios:
 
@@ -81,11 +81,12 @@ The `azd compose` feature supports adding resources for the following Azure serv
 - Storage Account
   - Azure Blob Storage
 
- ## Language Support
- - App Service:
-   - Python
-   - TypeScript
-   - JavaScript
+## Language support
+
+- App Service:
+  - Python
+  - TypeScript
+  - JavaScript
 
 ## Next steps
 
