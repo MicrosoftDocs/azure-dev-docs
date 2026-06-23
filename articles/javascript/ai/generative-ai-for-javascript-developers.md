@@ -113,11 +113,3 @@ Learn which Azure tools and services fit common AI app architectures, including 
 
 Learn more in the [Azure tools and services session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/09-azure-tools.md):
 - [Video](https://www.youtube.com/watch?v=WB6Fpzhwyug&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=10)
-
-## Stream generative AI output with the AI Chat Protocol
-
-Use the AI Chat Protocol to support real-time communication between your AI service and client apps. You can stream responses from the browser or from an AI inference server, depending on your architecture. As you implement streaming, plan for API key protection, data safety, and protocol choice. The protocol client supports methods such as `getCompletion` and `getStreamedCompletion`, as shown in the serverless RAG with LangChain.js example.
-
-Learn more in the [Streaming session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/10-chat-protocol.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/10-chat-protocol/readme.md)
-- [Video](https://www.youtube.com/watch?v=fzDCW-6hMtU&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=11)
