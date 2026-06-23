@@ -63,7 +63,7 @@ Use the following decision flow to determine which tool best fits your scenario.
 | GitHub Copilot CLI | ❌ | ✅ (via `/mcp add`) | ✅ |
 | Claude Code | ❌ | ✅ | ✅ |
 
-Azure MCP Server tools included in Visual Studio are updated via regular Visual Studio updates (Visual Studio Installer), reducing version mismatches. Some tools are specific to Visual Studio 2026 and aren't available in Visual Studio 2022.
+Visual Studio updates (Visual Studio Installer) update Azure MCP Server tools included in Visual Studio, which reduces version mismatches. Some tools are specific to Visual Studio 2026 and aren't available in Visual Studio 2022.
 
 ## Primary scenarios
 
