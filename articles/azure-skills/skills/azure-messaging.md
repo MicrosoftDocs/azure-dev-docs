@@ -1,23 +1,26 @@
 ---
-title: Azure skill for messaging
-description: Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Covers connection failures, authentication errors, message processing issues, and SDK configuration problems.
+title: Azure skill for Azure Messaging
+description: The azure-messaging skill helps you troubleshoot SDK problems for Azure Event Hubs and Azure Service Bus. Use it when your app reports AMQP errors, connection failures, lock expirations, timeouts, or dead-lettered messages. It's focused on SDK-level fixes.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
+ms.reviewer: kashifkhan
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.4
+ms.custom: devx-track-copilot-skills
+ms.skillversion: 1.0.4
+ai-usage: ai-generated
 ---
 
-# Azure skill for messaging
+# Azure skill for Azure Messaging
 
-Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Covers connection failures, authentication errors, message processing issues, and SDK configuration problems.
+The `azure-messaging` skill helps you troubleshoot Azure Event Hubs and Azure Service Bus SDK problems across Python, Java, JavaScript, and .NET. Use it when your application reports AMQP protocol errors, connection failures, lock expirations, timeouts, dead-lettered messages, or SDK configuration issues.
 
-**Skill:** `azure-messaging` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-messaging/SKILL.md)
+**Skill** `azure-messaging` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-messaging/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Covers connection failures, authentication errors, message processing issues, and SDK configuration problems.
+You get language-specific troubleshooting guidance for Azure Event Hubs and Azure Service Bus SDKs covering Python, Java, JavaScript, and .NET. This includes AMQP-level connection and authentication fixes, message lock expiration handling, dead-letter queue diagnostics, and SDK configuration corrections.
 
 ## Prerequisites
 
@@ -54,19 +57,22 @@ Use this skill when you need to:
 
 Try these prompts to activate this skill:
 
-- "event hub SDK error in my Python app"
-- "my event hub consumer isn't receiving messages"
-- "event hub checkpoint store failing"
-- "`eventhub` python connection timeout"
-- "`eventhub` javascript client disconnects"
-- "service bus SDK issue with message lock lost"
-- "service bus queue issue with dead letter"
-- "`servicebus` java send timeout"
-- "`servicebus` dotnet receiver disconnected"
-- "service bus message lock expired during batch processing"
+- "I'm getting an Event Hub SDK error"
+- "Service Bus SDK issue with my connection"
+- "AMQP error in my messaging app"
+- "Message lock lost in Service Bus"
+- "Message lock expired"
+- "Event processor host issue"
+- "Send timeout in Event Hubs"
+- "Receiver disconnected"
+- "Service Bus dead letter queue issue"
+- "Event Hub not receiving messages"
 
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-messaging/SKILL.md)
-
+- [Azure Service Bus documentation](/azure/service-bus-messaging/)
+- [Azure Event Hubs documentation](/azure/event-hubs/)
+- [Azure Messaging SDKs](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus)
+- [AMQP troubleshooting guide](/azure/service-bus-messaging/service-bus-amqp-troubleshoot)
