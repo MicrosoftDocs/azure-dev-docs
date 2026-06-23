@@ -2,7 +2,7 @@
 title: What is the Azure MCP Server?
 description: Learn about the Azure MCP Server, its features, and how it helps developers build and deploy apps to Azure. Discover benefits and get started today.
 #customer intent: As a developer, I want to understand what the Azure MCP Server is so that I can determine if it fits my app development needs.
-ms.date: 05/28/2026
+ms.date: 06/23/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: sandeepsen
@@ -40,7 +40,7 @@ Tool availability reflects your Azure subscription permissions. When you enable 
 You can connect to the Azure MCP Server from popular code editors and tools, including:
 
 - [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
-- [**Visual Studio**](get-started/tools/visual-studio.md) — In Visual Studio 2022 version 17.14.30 or later, Azure MCP tools are included with the Azure development workload. No separate extension is required. Tools receive updates through regular Visual Studio updates via the Visual Studio Installer, avoiding version mismatches between the MCP client integration and tools. For setup details, see [Get started with Visual Studio](get-started/tools/visual-studio.md).
+- [**Visual Studio**](get-started/tools/visual-studio.md) — In Visual Studio 2022 version 17.14.30 or later, Azure MCP tools are included with the Azure development workload. No separate extension is required. Tools receive updates through regular Visual Studio updates via the Visual Studio Installer. For setup details, see [Get started with Visual Studio](get-started/tools/visual-studio.md).
 - [**Eclipse**](get-started/tools/eclipse.md)
 - [**Cursor**](get-started/tools/cursor.md)
 - [**Windsurf**](get-started/tools/windsurf.md)
