@@ -2,14 +2,14 @@
 
 title: Azure MCP Server tools for Azure Database for MySQL
 description: Use Azure MCP Server tools to manage Azure Database for MySQL Flexible Server resources with natural language prompts from your IDE.
-ms.date: 04/07/2026
+ms.date: 06/17/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 tool_count: 6
-mcp-cli.version: 2.0.0-beta.39
+mcp-cli.version: 3.0.0-beta.19
 author: diberry
 ms.author: diberry
-reviewer: mattkohnms 
+ms.reviewer: ramkumarch
 ai-usage: ai-generated
 ms.custom: build-2025
 content_well_notification:
@@ -96,7 +96,6 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group that contains the server. |
 | **Server name** |  Required | The name of the Azure Database for MySQL Flexible Server instance. |
-| **User name** |  Required | The user name to authenticate to the server. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -118,7 +117,6 @@ Example prompts include:
 | **Parameter** |  Required | The MySQL parameter to access. |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 | **Server name** |  Required | The MySQL server to access. |
-| **User name** |  Required | The user name to access MySQL server. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -139,7 +137,6 @@ Example prompts include:
 | **Parameter** |  Required | The MySQL parameter to access. |
 | **Resource group** |  Required | The name of the Azure resource group. This resource group is a logical container for Azure resources. |
 | **Server name** |  Required | The MySQL server to access. |
-| **User name** |  Required | The user name to access MySQL server. |
 | **Value** |  Required | The value to set for the MySQL parameter. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
