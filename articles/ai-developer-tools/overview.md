@@ -3,7 +3,7 @@ title: Azure AI developer tools overview
 description: The Azure AI developer tools help you build, deploy, and manage Azure applications with natural language through GitHub Copilot for Azure, Azure MCP Server, and Azure Skills.
 author: diberry
 ms.author: diberry
-ms.date: 04/02/2026
+ms.date: 06/23/2026
 ms.topic: overview
 ms.collection: ce-skilling-ai-copilot
 ms.custom: build-2025
@@ -49,16 +49,21 @@ Use the following decision flow to determine which tool best fits your scenario.
 
 ## Supported development environments
 
+> [!NOTE]
+> Azure AI developer tools are disabled by default and require a GitHub Copilot subscription and an Azure sign-in. Tool availability reflects your Azure subscription permissions (RBAC).
+
 | Environment | GitHub Copilot for Azure | Azure MCP Server | Azure Skills |
 |---|---|---|---|
 | VS Code | ✅ Extension + MCP Server | ✅ | ✅ |
-| Visual Studio 2022 | ✅ Built-in (with Azure Workload) | ✅ | ❌ |
+| Visual Studio 2022 | ✅ Built-in starting with v17.14.30+ (Azure development workload); no separate GitHub Copilot for Azure extension required | ✅ | ❌ |
 | Visual Studio 2026 | ✅ Built-in (with Azure Workload) | ✅ | ❌ |
 | Cursor | ❌ | ✅ | ✅ |
 | Windsurf | ❌ | ✅ | ✅ |
 | IntelliJ | ❌ | ✅ | ✅ |
 | GitHub Copilot CLI | ❌ | ✅ (via `/mcp add`) | ✅ |
 | Claude Code | ❌ | ✅ | ✅ |
+
+Visual Studio updates (Visual Studio Installer) update Azure MCP Server tools included in Visual Studio. Some tools are specific to Visual Studio 2026 and aren't available in Visual Studio 2022.
 
 ## Primary scenarios
 
