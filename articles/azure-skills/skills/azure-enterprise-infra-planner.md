@@ -1,23 +1,26 @@
 ---
-title: Azure skill for enterprise infrastructure planning
-description: Architect and provision enterprise Azure infrastructure from workload descriptions. For cloud architects and platform engineers planning networking, identity, security, compliance, and multi-resource topologies with waf alignment. Generates Bicep or Terraform directly (no azd).
+title: Azure skill for Azure Enterprise Infrastructure Planning
+description: The azure-enterprise-infra-planner skill helps you architect and provision enterprise-grade Azure infrastructure, applying Azure best practices and the Well-Architected Framework (WAF). Use it to plan networking, identity, security, compliance, and multi-resource topologies, and generate Bicep or Terraform code directly.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
+ms.reviewer: arunrab
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.2
+ms.custom: devx-track-copilot-skills
+ms.skillversion: 1.0.2
+ai-usage: ai-generated
 ---
 
-# Azure skill for enterprise infrastructure planning
+# Azure skill for Azure enterprise infrastructure planning
 
-Architect and provision enterprise Azure infrastructure from workload descriptions. For cloud architects and platform engineers planning networking, identity, security, compliance, and multi-resource topologies with waf alignment. Generates Bicep or Terraform directly (no `azd`).
+The `azure-enterprise-infra-planner` skill helps you architect and provision enterprise-grade Azure infrastructure by applying Azure best practices and the Well-Architected Framework (WAF). Use it to plan networking, identity, security, compliance, and multiresource topologies, and generate Bicep or Terraform code directly.
 
-**Skill:** `azure-enterprise-infra-planner` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-enterprise-infra-planner/SKILL.md)
+**Skill** `azure-enterprise-infra-planner` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-enterprise-infra-planner/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Architect and provision enterprise Azure infrastructure from workload descriptions. For cloud architects and platform engineers planning networking, identity, security, compliance, and multi-resource topologies with waf alignment. Generates Bicep or Terraform directly (no `azd`).
+You get guidance on designing enterprise Azure infrastructure, such as hub-spoke VNet topologies, Azure Firewall and network security group rules, Azure Backup policies, and multiregion disaster recovery patterns. You can also use it to generate Bicep or Terraform for your workload. The skill also fetches insights about your Azure environment and considers them when planning new workloads.
 
 ## Prerequisites
 
@@ -31,8 +34,8 @@ Use this skill when you need to:
 
 - Design enterprise Azure infrastructure from high-level requirements.
 - Architect Azure landing zones with security, governance, and cost controls.
-- Design hub-and-spoke network topologies for multi-region Azure deployments.
-- Plan multi-region disaster recovery topologies.
+- Design hub-and-spoke network topologies for multiregion Azure deployments.
+- Plan multiregion disaster recovery topologies.
 - Configure virtual network security with firewalls and private endpoints.
 - Deploy Bicep templates at subscription scope (for infrastructure-only workflows; use `azure-prepare` for application-centric deployments).
 
@@ -40,7 +43,6 @@ Use this skill when you need to:
 
 Try these prompts to activate this skill:
 
-- "Deploy a geo-redundant backup solution for on-premises SQL servers using Azure Backup, configure encryption-at-rest, and automate monthly DR tests."
 - "Deploy 3-tier architecture with hardened OS images, virtual machine (VM) backups scheduled daily, and application-level redundancy for the business logic tier."
 - "Configure a site recovery plan for disaster failover from East to West Azure region, replicate major VM workloads, and automate DNS failbacks."
 - "Provision a jumpbox VM for secure management, establish NSGs for each tier, and connect tiers using internal Azure Load Balancer."
@@ -53,4 +55,7 @@ Try these prompts to activate this skill:
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-enterprise-infra-planner/SKILL.md)
-
+- [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/)
+- [Cloud Adoption Framework](/azure/cloud-adoption-framework/)
+- [Azure enterprise architecture](/azure/architecture/reference-architectures/enterprise-integration/)
+- [Azure network architecture](/azure/architecture/networking/)
