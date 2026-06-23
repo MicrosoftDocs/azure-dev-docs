@@ -33,7 +33,7 @@ Azure MCP Server tools are disabled by default in supported hosts. To use them, 
 - A **GitHub Copilot subscription**
 - An **Azure account** with appropriate subscription permissions (RBAC)
 
-Tool availability reflects your Azure subscription permissions. Once enabled in a host, the tools remain enabled across sessions.
+Tool availability reflects your Azure subscription permissions. When you enable the tools in a host, they stay enabled across sessions.
 
 ## Supported code editors and tools
 
