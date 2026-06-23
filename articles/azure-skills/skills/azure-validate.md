@@ -1,23 +1,26 @@
 ---
-title: Azure skill for validate
-description: Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure (Bicep or Terraform), RBAC role assignments, managed identity permissions, and prerequisites before deploying.
+title: Azure skill for Azure Validate
+description: The azure-validate skill helps you run pre-deployment validation for Azure Bicep and Terraform templates. Use it to check ARM template syntax, validate RBAC permissions, verify service quotas, and confirm policy compliance before deploying.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
+ms.reviewer: tomescht
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.4
+ms.custom: devx-track-copilot-skills
+ms.skillversion: 1.0.4
+ai-usage: ai-generated
 ---
 
-# Azure skill for validate
+# Azure skill for Azure Validate
 
-Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure (Bicep or Terraform), role-based access control (RBAC) role assignments, managed identity permissions, and prerequisites before deploying.
+The `azure-validate` skill helps you run pre-deployment validation for Azure Bicep and Terraform templates. Use it to check ARM template syntax, validate RBAC permissions, verify service quotas, and confirm policy compliance before deploying.
 
-**Skill:** `azure-validate` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-validate/SKILL.md)
+**Skill** `azure-validate` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-validate/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure (Bicep or Terraform), RBAC role assignments, managed identity permissions, and prerequisites before deploying.
+You get pre-deployment validation for Bicep and Terraform templates, including ARM template syntax checks, what-if analysis, RBAC permission verification, service quota checks, and Azure Policy compliance validation — all before any resources are deployed.
 
 ## Prerequisites
 
@@ -44,16 +47,16 @@ Use this skill when you need to:
 
 Try these prompts to activate this skill:
 
-- "Check if my app is ready to deploy to Azure"
-- "Validate my azure.yaml configuration"
-- "Run preflight checks before Azure deployment"
+- "Validate my app"
+- "Check deployment readiness"
+- "Run preflight checks"
+- "Verify my configuration"
+- "Check if I'm ready to deploy"
+- "Validate my azure.yaml"
+- "Validate my Bicep template"
+- "Test before deploying"
 - "Troubleshoot deployment errors"
-- "Verify my infrastructure configuration before deploying"
-- "Is my app ready for Azure deployment?"
-- "Validate my Bicep configuration"
-- "Validate my Bicep template before deploying to Azure"
-- "Check my deployment permissions before running `azd` up"
-- "Verify my Bicep files are valid before provisioning"
+- "Validate my Azure Functions app"
 
 ## Deployment workflow
 
@@ -69,4 +72,6 @@ This skill is the second step in the deployment workflow:
 - [Azure skill for deploy](azure-deploy.md)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-validate/SKILL.md)
-
+- [ARM template validation](/azure/azure-resource-manager/templates/template-syntax)
+- [Bicep linter](/azure/azure-resource-manager/bicep/linter)
+- [ARM deployment best practices](/azure/azure-resource-manager/templates/best-practices)
