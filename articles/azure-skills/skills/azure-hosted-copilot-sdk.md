@@ -1,26 +1,26 @@
 ---
-title: Azure skill for hosted Copilot SDK
-description: Build and deploy GitHub Copilot SDK apps to Azure.
+title: Azure skill for Azure Hosted Copilot SDK
+description: The azure-hosted-copilot-sdk skill helps you build and deploy GitHub Copilot SDK (@github/copilot-sdk) apps to Azure. Use it to configure CopilotClient, set up BYOM (Bring Your Own Model) with Azure OpenAI, and deploy to Azure Container Apps or App Service.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
+ms.reviewer: tomescht
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.6
+ms.custom: devx-track-copilot-skills
+ms.skillversion: 1.0.6
+ai-usage: ai-generated
 ---
 
-# Azure skill for Hosted Copilot SDK
+# Azure skill for Azure Hosted Copilot SDK
 
-Build and deploy GitHub Copilot SDK apps to Azure.
+The azure-hosted-copilot-sdk skill helps you build and deploy GitHub Copilot SDK (@github/copilot-sdk) apps to Azure. Use it to configure CopilotClient, set up BYOM with Azure OpenAI, deploy to Container Apps or App Service, and integrate with azure-prepare for environment setup.
 
-**Skill:** `azure-hosted-copilot-sdk` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-hosted-copilot-sdk/SKILL.md)
+**Skill** `azure-hosted-copilot-sdk` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-hosted-copilot-sdk/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Build and deploy GitHub Copilot SDK apps to Azure.
-
-> [!NOTE]
-> This skill automatically activates when your codebase contains `@github/copilot-sdk` in `package.json` or `CopilotClient` in source files. When detected, this skill becomes the entry point for deploy, modify, and add-feature workflows instead of the general-purpose azure-prepare skill.
+You get guidance on building Copilot SDK apps with @github/copilot-sdk, configuring CopilotClient, and implementing createSession and sendAndWait workflows. Also covers BYOM (Bring Your Own Model) integration with Azure OpenAI and deployment patterns for Azure Container Apps and App Service.
 
 ## Prerequisites
 
@@ -42,23 +42,35 @@ Use this skill when you need to:
 - Build chat applications using the Copilot SDK service template and the `CopilotClient` library.
 - Implement session management and message handling using the GitHub Models API.
 
+### When not to use this skill
+
+- General Azure app deployment without Copilot SDK (use `azure-prepare` + `azure-deploy`).
+- GitHub Actions or CI/CD pipeline setup (use workflow-specific skills).
+- Azure OpenAI configuration without Copilot SDK integration.
+
 ## Example prompts
 
 Try these prompts to activate this skill:
 
-- "Build a Copilot SDK app and deploy it"
-- "Create a new copilot SDK service"
-- "Scaffold a copilot-powered app on Azure"
-- "Build with the GitHub Copilot SDK and host it"
-- "Build a Copilot SDK app with my own Azure model"
-- "Create a copilot app using my Azure OpenAI model"
-- "Set up a copilot service with `BYOM` and `DefaultAzureCredential`"
-- "Build a copilot app that uses a self-hosted model on Azure"
-- "Deploy a copilot SDK app with my own endpoint"
-- "Create a copilot app and bring your own model from Azure OpenAI"
+- "Build a copilot-powered app"
+- "Set up @github/copilot-sdk in my project"
+- "Add a feature to my copilot app"
+- "Configure CopilotClient"
+- "Set up createSession and sendAndWait"
+- "Bring your own model with Azure OpenAI"
+- "Run azd init copilot"
+- "Prepare my copilot app for deployment"
+- "Modify my copilot app to use BYOM"
+
+## Automatic activation
+
+This skill activates automatically when GitHub Copilot detects you're working in a GitHub Copilot SDK project (project contains `@github/copilot-sdk` dependency). You don't need to explicitly invoke it — Copilot recognizes the SDK context and applies skill guidance automatically.
 
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-hosted-copilot-sdk/SKILL.md)
-
+- [GitHub Copilot SDK documentation](https://docs.github.com/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/using-copilots-llm-for-your-agent)
+- [Azure Container Apps overview](/azure/container-apps/overview)
+- [Azure App Service overview](/azure/app-service/overview)
+- [Bring Your Own Model with Azure OpenAI](/azure/ai-services/openai/how-to/bring-your-own-data-overview)

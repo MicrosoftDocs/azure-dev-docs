@@ -1,19 +1,22 @@
 ---
-title: Azure skill for Entra app registration
-description: Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration.
+title: Azure skill for Microsoft Entra app registration
+description: The entra-app-registration skill guides you through Microsoft Entra ID app registration and OAuth 2.0 authentication, and shows MSAL (Microsoft Authentication Library) integration patterns. It's for when you create app registrations, configure OAuth flows, add API permissions, or generate service principals for console apps and server-side auth.
 ms.topic: reference
-ms.date: 4/2/2026
+ms.date: 06/15/2026
 author: diberry
 ms.author: diberry
+ms.reviewer: chuye 
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.1
+ms.custom: devx-track-copilot-skills
+ms.skillversion: 1.1.1
+ai-usage: ai-generated
 ---
 
-# Azure skill for Entra app registration
+# Azure skill for Microsoft Entra app registration
 
-Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration.
+This skill guides you through Microsoft Entra ID app registration and OAuth 2.0 authentication, and shows MSAL (Microsoft Authentication Library) integration patterns. It's for when you create app registrations, configure OAuth flows, add API permissions, or generate service principals for console apps and server-side auth.
 
-**Skill:** `entra-app-registration` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/entra-app-registration/SKILL.md)
+**Skill** `entra-app-registration` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/entra-app-registration/SKILL.md)
 
 ## What it provides
 
@@ -38,23 +41,30 @@ Use this skill when you need to:
 - Work with generate service principal, MSAL example, console app auth, and Entra ID setup
 - Work with Microsoft Entra ID authentication
 
+### When not to use this skill
+
+- Azure role-based access control (RBAC) or role assignments (use `azure-rbac`)
+- Key Vault secrets (use `azure-keyvault-expiration-audit`)
+- General Azure resource security guidance
+
 ## Example prompts
 
 Try these prompts to activate this skill:
 
-- "How do I create an app registration in Azure?"
-- "Register a Microsoft Entra ID app for my web application"
-- "Configure OAuth authentication for my application"
-- "Set up authentication with Microsoft Entra ID"
-- "Add API permissions to my Entra app registration"
-- "Generate a service principal for Azure authentication"
-- "Show me MSAL examples for Microsoft Entra ID authentication."
-- "Create a console app with Microsoft Entra ID authentication"
-- "Help me set up Entra ID authentication for my app"
-- "Configure Microsoft Entra ID OAuth authentication for my API"
+- "Create an app registration"
+- "Register an Azure AD app"
+- "Configure OAuth for my app"
+- "Set up authentication"
+- "Add API permissions to my app registration"
+- "Generate a service principal"
+- "MSAL example for console app auth"
+- "Set up Entra ID authentication"
 
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/entra-app-registration/SKILL.md)
-
+- [Microsoft Entra ID overview](/entra/identity-platform/)
+- [App registration quickstart](/entra/identity-platform/quickstart-register-app)
+- [Authentication vs authorization](/entra/identity-platform/authentication-vs-authorization)
+- [Security best practices for app registrations](/entra/identity-platform/security-best-practices-for-app-registration)
