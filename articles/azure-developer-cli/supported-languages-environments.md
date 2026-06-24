@@ -3,7 +3,7 @@ title: Supported languages and environments
 description: Details about the Azure Developer CLI's template structure and supported development environments, hosts, and programming languages.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 01/09/2026
+ms.date: 06/24/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
@@ -47,8 +47,31 @@ Currently supported languages and frameworks:
 | Python   | Stable        |
 | .NET     | Stable        |
 | Java     | Stable        |
+| Go       | Preview (Azure Functions only) |
 
 For more information about each feature stage, see [feature versioning and release strategy](./feature-versioning.md)
+
+### Go on Azure Functions (Preview)
+
+`azd` supports deploying Go apps to [Azure Functions](/azure/azure-functions/) on the [Flex Consumption](/azure/azure-functions/flex-consumption-plan) plan. This support builds on the [Azure Functions Go worker](https://github.com/Azure/azure-functions-golang-worker), which is currently in public preview.
+
+To use Go with `azd`, set the service `language` to `go` and the `host` to `function` in your *azure.yaml* file:
+
+```yaml
+services:
+  api:
+    project: .
+    host: function
+    language: go
+```
+
+Keep the following points in mind when targeting Azure Functions with Go:
+
+- Go requires version **1.24 or later**.
+- The function app is compiled locally into a static binary and packaged for deployment. [Remote build](./remote-builds.md) (Oryx) isn't supported for Go function apps, so don't set `remoteBuild: true`.
+- You define functions directly in Go code by using the worker's options API (for example, `app.HTTP(...)`); you don't need *function.json* files.
+
+For end-to-end samples - including HTTP, timer, queue, blob, Cosmos DB, and other triggers - see the [samples directory](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) in the Azure Functions Go worker repository.
 
 ## Next Steps
 - [Install the Azure Developer CLI](./install-azd.md).

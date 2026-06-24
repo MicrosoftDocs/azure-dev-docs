@@ -74,9 +74,6 @@ conceptualContent:
             text: Use RAG with LlamaIndex
             url: ./ai/get-started-app-chat-template-llamaindex.md
           - itemType: quickstart
-            text: Evaluate your chat app
-            url: ./ai/get-started-app-chat-evaluations.md
-          - itemType: quickstart
             text: "Scale with Azure Container Apps"
             url: ./ai/get-started-app-chat-scaling-with-azure-container-apps.md
           - itemType: tutorial

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/python/get-started-app-chat-evaluations.md",
+      "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mobile-apps/azure-mobile-apps/overview.md",
       "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/overview",
       "redirect_document_id": false
@@ -435,8 +440,13 @@
     },
     {
       "source_path": "articles/javascript/get-started-app-chat-evaluations.md",
-      "redirect_url": "/azure/javascript/ai/get-started-app-chat-evaluations"
+      "redirect_url": "/azure/developer/ai"
     },
+    {
+      "source_path": "articles/javascript/ai/get-started-app-chat-evaluations.md",
+      "redirect_url": "/azure/developer/ai"
+    },
+
     {
       "source_path": "articles/javascript/get-started-app-chat-scaling-with-azure-api-management.md",
       "redirect_url": "/azure/javascript/ai/get-started-app-chat-scaling-with-azure-api-management"

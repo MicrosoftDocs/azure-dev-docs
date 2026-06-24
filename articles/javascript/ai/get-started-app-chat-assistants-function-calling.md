@@ -218,4 +218,3 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 ## Related content
 
 - [What is the Azure OpenAI Assistants API?](/azure/ai-services/openai/concepts/assistants)
-- [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)

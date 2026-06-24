@@ -23,9 +23,6 @@
     - name: JavaScript frontend + Python backend
       href: ai/chat-app-with-separate-front-back-end.md
       display: building block, frontend, backend
-    - name: Evaluate your chat app
-      href: ai/get-started-app-chat-evaluations.md
-      display: Azure OpenAI
     - name: Scale Azure OpenAI with Azure Container Apps
       href: ai/get-started-app-chat-scaling-with-azure-container-apps.md
     - name: Build a LangChain.js agent with Azure AI Search
