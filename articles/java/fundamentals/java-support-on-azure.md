@@ -4,7 +4,7 @@ description: This article provides details of support for developing for or depl
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.date: 07/13/2024
+ms.date: 06/24/2026
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
