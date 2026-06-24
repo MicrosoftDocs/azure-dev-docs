@@ -3,7 +3,7 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/11/2026
+ms.date: 06/24/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -158,12 +158,12 @@ _(object)_ Definition of services that comprise the application. Each key is a s
 | `host` | Y | string | The type of Azure resource used for service implementation. See [Host types](#host-types). |
 | `project` | Conditional | string | Path to the service source code directory. Required for most host types. |
 | `image` | Conditional | string | The source image to be used for the container image instead of building from source. Supports environment variable substitution. Only valid for `containerapp` host. |
-| `language` | N | string | Service implementation language. Allowed values: `dotnet`, `csharp`, `fsharp`, `py`, `python`, `js`, `ts`, `java`, `docker`. |
+| `language` | N | string | Service implementation language. Allowed values: `dotnet`, `csharp`, `fsharp`, `py`, `python`, `js`, `ts`, `java`, `go`, `golang`, `docker`. |
 | `module` | N | string | Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI assumes the module name is the same as the service name. |
 | `dist` | N | string | Relative path to service deployment artifacts. |
 | `resourceName` | N | string | Name of the Azure resource that implements the service. By default, the CLI discovers the Azure resource with tag `azd-service-name` set to the current service's name. Supports environment variable substitution. |
 | `resourceGroup` | N | string | Name of the Azure resource group that contains the resource. When specified, the CLI finds the Azure resource within the specified resource group. Supports environment variable substitution. |
-| `remoteBuild` | N | boolean | Whether to use remote build for function app deployment. Only valid when `host` is `function`. When set to `true`, the deployment package is built remotely using Oryx. Defaults to `true` for JavaScript, TypeScript, and Python function apps. |
+| `remoteBuild` | N | boolean | Whether to use remote build for function app deployment. Only valid when `host` is `function`. When set to `true`, the deployment package is built remotely using Oryx. Defaults to `true` for JavaScript, TypeScript, and Python function apps. Remote build isn't supported for Go function apps, which always compile to a static binary locally. |
 | `docker` | N | object | Docker configuration. Only applicable for container-based hosts. See [`docker`](#docker). |
 | `k8s` | N | object | AKS configuration options. Only valid when `host` is `aks`. See [`k8s`](#k8s). |
 | `config` | N | object | Extra configuration options for the service. |

@@ -204,6 +204,8 @@
                             "js",
                             "ts",
                             "java",
+                            "go",
+                            "golang",
                             "docker"
                         ]
                     },
@@ -219,7 +221,7 @@
                     "remoteBuild": {
                         "type": "boolean",
                         "title": "Optional. Whether to use remote build for function app deployment",
-                        "description": "When set to true, the deployment package will be built remotely using Oryx. When set to false, the package is deployed as-is. If omitted, defaults to true for JavaScript, TypeScript, and Python function apps."
+                        "description": "When set to true, the deployment package will be built remotely using Oryx. When set to false, the package is deployed as-is. If omitted, defaults to true for JavaScript, TypeScript, and Python function apps. Remote build is not supported for Go function apps, which always compile to a static binary locally."
                     },
                     "docker": {
                         "$ref": "#/definitions/docker"
