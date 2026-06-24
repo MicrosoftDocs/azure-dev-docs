@@ -1,6 +1,6 @@
 ---
-title: Long-running operations in the Azure SDK for Java
-description: Provides an overview of the Azure SDK for Java concepts related to long-running operations.
+title: Use Long-Running Operations in the Azure SDK for Java
+description: Learn how to monitor and complete long-running operations in the Azure SDK for Java with SyncPoller and PollerFlux, and apply best practices now.
 ms.date: 04/02/2025
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
@@ -11,20 +11,20 @@ ms.reviewer: anuchan
 
 # Long-running operations in the Azure SDK for Java
 
-This article provides an overview of using long-running operations with the Azure SDK for Java.
+This article explains long-running operations in the Azure SDK for Java and shows how to track progress and retrieve final results with less manual polling logic.
 
-Certain operations on Azure may take extended amounts of time to complete. These operations are outside the standard HTTP style of quick request / response flow. For example, copying data from a source URL to a Storage blob, or training a model to recognize forms, are operations that may take a few seconds to several minutes. Such operations are referred to as Long-Running Operations, and are often abbreviated as 'LRO'. An LRO may take seconds, minutes, hours, days, or longer to complete, depending on the operation requested and the process that must be performed on the server side.
+Certain operations on Azure take extended amounts of time to complete. These operations don't follow the standard HTTP style of quick request and response flow. For example, copying data from a source URL to a Storage blob, or training a model to recognize forms, are operations that might take a few seconds to several minutes. These operations are long-running operations, often abbreviated as LRO. An LRO might take seconds, minutes, hours, days, or longer to complete, depending on the operation requested and the process that the server must perform.
 
-In the Java client libraries for Azure, a convention exists that all long-running operations begin with the `begin` prefix. This prefix indicates that this operation is long-running, and that the means of interaction with this operation is slightly different that the usual request / response flow. Along with the `begin` prefix, the return type from the operation is also different than usual, to enable the full range of long-running operation functionality. As with most things in the Azure SDK for Java, there are both synchronous and asynchronous APIs for long-running operations:
+In the Java client libraries for Azure, all long-running operations start with the `begin` prefix. This prefix indicates that the operation is long-running, and that the means of interaction with this operation is slightly different from the usual request and response flow. Along with the `begin` prefix, the return type from the operation is also different than usual, to enable the full range of long-running operation functionality. As with most things in the Azure SDK for Java, long-running operations have both synchronous and asynchronous APIs:
 
-* In synchronous clients, long-running operations will return a `SyncPoller` instance.
-* In asynchronous clients, long-running operations will return a `PollerFlux` instance.
+* In synchronous clients, long-running operations return a `SyncPoller` instance.
+* In asynchronous clients, long-running operations return a `PollerFlux` instance.
 
-Both `SyncPoller` and `PollerFlux` are the client-side abstractions intended to simplify the interaction with long-running server-side operations. The rest of this article outlines best practices when working with these types.
+Both `SyncPoller` and `PollerFlux` are client-side abstractions that simplify interaction with long-running server-side operations. The rest of this article outlines best practices when working with these types.
 
 ## Synchronous long-running operations
 
-Calling any API that returns a `SyncPoller` will immediately start the long-running operation. The API will return the `SyncPoller` immediately, letting you monitor the progress of the long-running operation and retrieve the final result. The following example shows how to monitor the progress of a long-running operation using the `SyncPoller`.
+When you call an API that returns a `SyncPoller`, the long-running operation starts right away. The API returns the `SyncPoller` immediately, so you can monitor the progress of the long-running operation and get the final result. The following example shows how to monitor the progress of a long-running operation by using the `SyncPoller`.
 
 ```java
 SyncPoller<UploadBlobProgress, UploadedBlobProperties> poller = syncClient.beginUploadFromUri(<URI to upload from>);
@@ -38,17 +38,17 @@ do {
 } while (!response.getStatus().isComplete());
 ```
 
-This example uses the `poll()` method on the `SyncPoller` to retrieve information on progress of the long-running operation. This code prints the status to the console, but a better implementation would make relevant decisions based on this status.
+This example uses the `poll()` method on the `SyncPoller` to get information about the progress of the long-running operation. This code prints the status to the console, but a better implementation makes relevant decisions based on this status.
 
-The `getRetryAfter()` method returns information about how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (that is, the commonly used `retry-after` header). If the response doesn't contain the poll delay, then the `getRetryAfter()` method returns the duration given at the time of invoking the long-running operation.
+The `getRetryAfter()` method returns information about how long to wait before the next poll. Most Azure long-running operations return the poll delay as part of their HTTP response (that is, the commonly used `retry-after` header). If the response doesn't contain the poll delay, the `getRetryAfter()` method returns the duration given when invoking the long-running operation.
 
-The example above uses a `do..while` loop to repeatedly poll until the long-running operation is complete. If you aren't interested in these intermediate results, you can instead call `waitForCompletion()`. This call will block the current thread until the long-running operation completes and returns the last poll response:
+The preceding example uses a `do..while` loop to repeatedly poll until the long-running operation finishes. If you aren't interested in these intermediate results, you can instead call `waitForCompletion()`. This call blocks the current thread until the long-running operation finishes and returns the last poll response:
 
 ```java
 PollResponse<UploadBlobProgress> response = poller.waitForCompletion();
 ```
 
-If the last poll response indicates that the long-running operation has completed successfully, you can retrieve the final result using `getFinalResult()`:
+If the last poll response indicates that the long-running operation finishes successfully, you can get the final result by using `getFinalResult()`:
 
 ```java
 if (LongRunningOperationStatus.SUCCESSFULLY_COMPLETED == response.getStatus()) {
@@ -58,24 +58,24 @@ if (LongRunningOperationStatus.SUCCESSFULLY_COMPLETED == response.getStatus()) {
 
 Other useful APIs in `SyncPoller` include:
 
-1. `waitForCompletion(Duration)`: wait for the long-running operation to complete, for the given timeout duration.
-1. `waitUntil(LongRunningOperationStatus)`: wait until the given long-running operation status is received.
-1. `waitUntil(LongRunningOperationStatus, Duration)`: wait until the given long-running operation status is received, or until the given timeout duration expires.
+* `waitForCompletion(Duration)`: wait for the long-running operation to finish, for the given timeout duration.
+* `waitUntil(LongRunningOperationStatus)`: wait until the given long-running operation status is received.
+* `waitUntil(LongRunningOperationStatus, Duration)`: wait until the given long-running operation status is received, or until the given timeout duration expires.
 
 ## Asynchronous long-running operations
 
-The example below shows how the `PollerFlux` lets you observe a long-running operation. In async APIs, the network calls happen in a different thread than the main thread that calls `subscribe()`. What this means is that the main thread may terminate before the result is available. It's up to you to ensure that the application doesn't exit before the async operation has had time to complete.
+The following example shows how `PollerFlux` lets you observe a long-running operation. In async APIs, network calls happen in a different thread than the main thread that calls `subscribe()`. This architecture means that the main thread might terminate before the result is available. You need to ensure that the application doesn't exit before the async operation finishes.
 
-The async API returns a `PollerFlux` immediately, but the long-running operation itself won't start until you subscribe to the `PollerFlux`. This process is how all `Flux`-based APIs operate. The following example shows an async long-running operation:
+The async API returns a `PollerFlux` immediately, but the long-running operation itself doesn't start until you subscribe to the `PollerFlux`. This process is how all `Flux`-based APIs operate. The following example shows an async long-running operation:
 
 ```java
 asyncClient.beginUploadFromUri(...)
     .subscribe(response -> System.out.println("Status of long running upload operation: " + response.getStatus()));
 ```
 
-In the following example, you'll get intermittent status updates on the long-running operation. You can use these updates to determine whether the long-running operation is still operating in the expected fashion. This example prints the status to the console, but a better implementation would make relevant error handling decisions based on this status.
+In the following example, you get intermittent status updates on the long-running operation. You can use these updates to determine whether the long-running operation is still operating in the expected fashion. This example prints the status to the console, but a better implementation would make relevant error handling decisions based on this status.
 
-If you aren't interested in the intermediate status updates and just want to get notified of the final result when it arrives, you can use code similar to the following example:
+If you're not interested in the intermediate status updates and just want to get notified of the final result when it arrives, use code similar to the following example:
 
 ```java
 asyncClient.beginUploadFromUri(...)
@@ -92,7 +92,7 @@ asyncClient.beginUploadFromUri(...)
         () -> countDownLatch.countDown());
 ```
 
-In this code, you retrieve the final result of the long-running operation by calling `last()`. This call tells the `PollerFlux` that you want to wait for all the polling to complete, at which point the long-running operation has reached a terminal state, and you can inspect its status to determine the outcome. If the poller indicates that the long-running operation has completed successfully, you can retrieve the final result and pass it on to the consumer in the subscribe call.
+In this code, you retrieve the final result of the long-running operation by calling `last()`. This call tells the `PollerFlux` that you want to wait for all the polling to complete. At this point, the long-running operation reaches a terminal state, and you can inspect its status to determine the outcome. If the poller indicates that the long-running operation completed successfully, you can retrieve the final result and pass it on to the consumer in the subscribe call.
 
 ## Next steps
 
