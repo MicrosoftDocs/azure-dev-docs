@@ -1,6 +1,6 @@
 ---
-title: Pagination and iteration in the Azure SDK for Java
-description: Provides an overview of the Azure SDK for Java concepts related to pagination and iteration.
+title: Use Pagination and Iteration in Azure SDK for Java
+description: Learn Azure SDK for Java pagination and iteration patterns to handle large result sets in sync and async apps efficiently. Start using these techniques now.
 ms.date: 04/02/2025
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -17,9 +17,9 @@ Many operations provided by the client libraries within the Azure Java SDK retur
 
 - Make it possible to easily iterate over each element in the collection individually, ignoring any need for manual pagination or tracking of continuation tokens. Both `PagedIterable` and `PagedFlux` make this task easy by iterating over a paginated response deserialized into a given type `T`. `PagedIterable` implements the `Iterable` interface, and offers an API to receive a `Stream`, while `PagedFlux` provides a `Flux`. In all cases, the act of pagination is transparent, and iteration continues while there are still results iterate over.
 
-- Make it possible to iterate explicitly page-by-page. Doing so lets you understand more clearly when requests are made, and lets you access per-page response information. Both `PagedIterable` and `PagedFlux` have methods that will return appropriate types to iterate by page, rather than by individual element.
+- Make it possible to iterate explicitly page-by-page. Doing so lets you understand more clearly when requests are made, and lets you access per-page response information. Both `PagedIterable` and `PagedFlux` have methods that return appropriate types to iterate by page, rather than by individual element.
 
-This article is split between the Java Azure SDK synchronous and asynchronous APIs. You'll see the synchronous iteration APIs when you work with synchronous clients, and asynchronous iteration APIs when you work with asynchronous clients.
+This article is split between the Java Azure SDK synchronous and asynchronous APIs. You see the synchronous iteration APIs when you work with synchronous clients, and asynchronous iteration APIs when you work with asynchronous clients.
 
 ## Synchronous pagination and iteration
 
