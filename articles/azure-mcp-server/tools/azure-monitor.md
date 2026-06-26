@@ -1,20 +1,21 @@
 ---
-title: Azure MCP Server tools for Azure Monitor and Workbooks
+title: Azure MCP Server Tools for Azure Monitor and Workbooks
 description: Use Azure MCP Server tools to query Azure Monitor logs and metrics, monitor resource health, and manage Azure Workbooks with natural language prompts from your IDE.
 author: diberry
 ms.author: diberry
-ms.service: azure-mcp-server
+reviewer: jongio
+ms.reviewer: diberry, jong
 ms.date: 05/13/2026
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-generated
+ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.custom: build-2025
+ms.custom:
+  - build-2025
+ai-usage: ai-generated
+content_well_notification:
+  - AI-contribution
 tool_count for monitor: 16
 tool_count for workbooks: 5
-ms.reviewer: diberry, jong
-reviewer: jongio
-mcp-cli.version: 2.0.0-beta.39
+mcp-cli.version: "2.0.0-beta.39"
 ---
 # Azure MCP Server tools for Azure Monitor and Workbooks
 
