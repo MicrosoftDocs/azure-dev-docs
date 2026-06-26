@@ -1,6 +1,6 @@
 ---
-title: Configure proxies in the Azure SDK for Java
-description: Provides an overview of the Azure SDK for Java concepts related to proxying.
+title: Configure Proxies in the Azure SDK for Java
+description: Learn how to configure proxies in the Azure SDK for Java with environment, Configuration, and explicit options to route requests—start now.
 ms.date: 04/01/2025 
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
@@ -11,13 +11,13 @@ ms.reviewer: alzimmer
 
 # Configure proxies in the Azure SDK for Java
 
-This article provides an overview of how to configure the Azure SDK for Java to make proper use of proxies.
+This article shows how to configure proxies in the Azure SDK for Java so you can route client requests through your required network and security boundaries.
 
 ## HTTP proxy configuration
 
 The Azure client libraries for Java offer multiple ways to configure a proxy for an `HttpClient`.
 
-Each method of supplying a proxy has its own pros and cons and provides different levels of encapsulation. When you've configured a proxy for an `HttpClient`, it will use the proxy for the rest of its lifetime. Having the proxy tied to an individual `HttpClient` allows an application to use multiple `HttpClient` instances where each can use a different proxy to fulfill an application's proxying requirements.
+Each method of supplying a proxy has its own pros and cons and provides different levels of encapsulation. When you configure a proxy for an `HttpClient`, it uses the proxy for the rest of its lifetime. By tying the proxy to an individual `HttpClient`, an application can use multiple `HttpClient` instances where each can use a different proxy to fulfill an application's proxying requirements.
 
 The proxy configuration options are:
 
@@ -27,25 +27,25 @@ The proxy configuration options are:
 
 ### Use an environment proxy
 
-By default, HTTP client builders will inspect the environment for proxy configurations. This process makes use of the Azure SDK for Java `Configuration` APIs. When the builder creates a client, it's configured with a copy of the 'global configuration' retrieved by calling `Configuration.getGlobalConfiguration()`. This call will read in any HTTP proxy configuration from the system environment.
+By default, HTTP client builders inspect the environment for proxy configurations. This process makes use of the Azure SDK for Java `Configuration` APIs. When the builder creates a client, it configures the client with a copy of the global configuration retrieved by calling `Configuration.getGlobalConfiguration()`. This call reads any HTTP proxy configuration from the system environment.
 
-When the builder inspects the environment, it will search for the following environment configurations in the order specified:
+When the builder inspects the environment, it searches for the following environment configurations in the order specified:
 
 1. `HTTPS_PROXY`
-2. `HTTP_PROXY`
-3. `https.proxy*`
-4. `http.proxy*`
+1. `HTTP_PROXY`
+1. `https.proxy*`
+1. `http.proxy*`
 
 The `*` represents the well-known Java proxy properties. For more information, see [Java Networking and Proxies](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html) in the Oracle documentation.
 
-If the builder finds any of the environment configurations, it creates a `ProxyOptions` instance by calling `ProxyOptions.fromConfiguration(Configuration.getGlobalConfiguration())`. This article provides more details below about the `ProxyOptions` type.
+If the builder finds any of the environment configurations, it creates a `ProxyOptions` instance by calling `ProxyOptions.fromConfiguration(Configuration.getGlobalConfiguration())`. This article provides more details about the `ProxyOptions` type.
 
 > [!Important]
 > To implicitly use `HTTPS_PROXY` or `HTTP_PROXY`, Java requires you to set the system environment property `java.net.useSystemProxies` to `true`.
 
-You can also create an HTTP client instance that doesn't use any proxy configuration present in the system environment variables. To override the default behavior, you explicitly set a differently-configured `Configuration` in the HTTP client builder. When you set a `Configuration` in the builder, it will no longer call `Configuration.getGlobalConfiguration()`. For example, if you call `configuration(Configuration)` using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
+You can also create an HTTP client instance that doesn't use any proxy configuration present in the system environment variables. To override the default behavior, explicitly set a differently configured `Configuration` in the HTTP client builder. When you set a `Configuration` in the builder, it no longer calls `Configuration.getGlobalConfiguration()`. For example, if you call `configuration(Configuration)` using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
 
-The following example uses the `HTTP_PROXY` environment variable with value `localhost:8888` to use Fiddler as the proxy. This code demonstrates creating a Netty and an OkHttp HTTP client. (For more information on HTTP client configuration, see [HTTP clients and pipelines](http-client-pipeline.md).)
+The following example uses the `HTTP_PROXY` environment variable with value `localhost:8888` to use Fiddler as the proxy. This code demonstrates creating a Netty and an OkHttp HTTP client. For more information on HTTP client configuration, see [HTTP clients and pipelines](http-client-pipeline.md).
 
 ```bash
 export HTTP_PROXY=localhost:8888
@@ -68,9 +68,9 @@ HttpClient okhttpHttpClient = new OkHttpAsyncHttpClientBuilder()
     .build();
 ```
 
-### Use a Configuration proxy
+### Use a configuration proxy
 
-Rather than read from the environment, you can configure HTTP client builders to use a custom `Configuration` with the same proxy settings that are already accepted from the environment. This configuration offers the ability to have reusable configurations that are scoped to a limited use case. When the HTTP client builder is building the `HttpClient`, it will use the `ProxyOptions` returned from `ProxyOptions.fromConfiguration(<Configuration passed into the builder>)`.
+Instead of reading from the environment, configure HTTP client builders to use a custom `Configuration` with the same proxy settings that the environment already accepts. This configuration offers the ability to have reusable configurations that are scoped to a limited use case. When the HTTP client builder builds the `HttpClient`, it uses the `ProxyOptions` returned from `ProxyOptions.fromConfiguration(<Configuration passed into the builder>)`.
 
 The following example uses the `http.proxy*` configurations set in a `Configuration` object to use a proxy that authenticates Fiddler as the proxy.
 
@@ -93,7 +93,7 @@ HttpClient okhttpHttpClient = new OkHttpAsyncHttpClientBuilder()
 
 ### Use an explicit proxy
 
-The Java client libraries ship with a `ProxyOptions` class that acts as the Azure client libraries type for configuring a proxy. You can configure `ProxyOptions` with the network protocol used to send proxy requests, the proxy address, proxy authentication credentials, and non-proxying hosts. Only the proxy network protocol and proxy address are required. When using authentication credentials, you must set both the username and password.
+The Java client libraries include a `ProxyOptions` class that acts as the Azure client libraries type for configuring a proxy. You can configure `ProxyOptions` with the network protocol used to send proxy requests, the proxy address, proxy authentication credentials, and non-proxying hosts. Only the proxy network protocol and proxy address are required. When you use authentication credentials, you must set both the username and password.
 
 The following example creates a simple `ProxyOptions` instance that proxies requests to the default Fiddler address (`localhost:8888`):
 
