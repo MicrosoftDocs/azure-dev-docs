@@ -1,7 +1,7 @@
----  
-title: TypeSpec Resources  
-description: Discover the best learning resources for TypeSpec, including official documentation, an interactive playground, language reference, community support, and instructional videos.   
-ms.date: 12/10/2025  
+---
+title: TypeSpec Resources
+description: Discover the best learning resources for TypeSpec, including official documentation, an interactive playground, language reference, community support, and instructional videos.
+ms.date: 12/10/2025
 ms.topic: concept-article
 ---
 
@@ -52,4 +52,3 @@ Watch videos to see TypeSpec in action. These recordings cover various topics, i
 - [APIs at scale with TypeSpec](https://youtu.be/yfCYrKaojDo) - Overview of TypeSpec's capabilities presented at the 2024 Austin API Summit by Microsoft, demonstrating how Microsoft uses TypeSpec at scale.
 - [TypeSpec 101](https://www.youtube.com/playlist?list=PLYWCCsom5Txglkl_I1XvwzrzM5G3SuVsR) - Comprehensive tutorial series covering setup, modeling, operations, responses, authentication, versioning, and best practices.
 - [Schema-first API design using TypeSpec](https://www.youtube.com/watch?v=xDbC7Mhi9wM) - Introduction to schema-first API design principles with TypeSpec.
-

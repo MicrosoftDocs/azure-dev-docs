@@ -1,11 +1,12 @@
 ---
-title: Overview of TypeSpec - What is TypeSpec?
+title: Overview of TypeSpec - What Is TypeSpec?
 description: Discover how TypeSpec enhances API design with reusable elements, seamless toolchain integration, and a great developer experience.
-ms.topic: overview
 ms.date: 03/10/2026
-ms.custom: devx-track-typespec
+ms.topic: overview
+ms.custom:
+  - devx-track-typespec
 ai-usage: ai-assisted
-#customer intent: As a developer or API designer, I want to use TypeSpec to create consistent, high-quality APIs efficiently and integrate them seamlessly with existing toolchains.
+# customer intent: As a developer or API designer, I want to use TypeSpec to create consistent, high-quality APIs efficiently and integrate them seamlessly with existing toolchains.
 ---
 
 # What is TypeSpec?
