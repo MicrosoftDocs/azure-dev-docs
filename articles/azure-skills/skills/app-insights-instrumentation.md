@@ -1,15 +1,16 @@
 ---
-title: Azure skill for App Insights Instrumentation
+title: Azure Skill for App Insights Instrumentation
 description: The app-insights-instrumentation skill helps you instrument web applications to send telemetry to Azure Application Insights and Azure Monitor. Use it to add SDKs, configure connection strings, set up custom events, and diagnose telemetry gaps.
-ms.topic: reference
-ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: chuye
+ms.date: 06/22/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.0.2
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.0.2"
 ---
 
 # Azure skill for App Insights Instrumentation

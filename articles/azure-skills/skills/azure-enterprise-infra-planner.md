@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure Enterprise Infrastructure Planning
+title: Azure Skill for Azure Enterprise Infrastructure Planning
 description: The azure-enterprise-infra-planner skill helps you architect and provision enterprise-grade Azure infrastructure, applying Azure best practices and the Well-Architected Framework (WAF). Use it to plan networking, identity, security, compliance, and multi-resource topologies, and generate Bicep or Terraform code directly.
-ms.topic: reference
-ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: arunrab
+ms.date: 06/22/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.0.2
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.0.2"
 ---
 
 # Azure skill for Azure enterprise infrastructure planning

@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure AI Gateway
+title: Azure Skill for Azure AI Gateway
 description: The azure-aigateway skill helps you configure Azure API Management as a centralized AI gateway for AI models, MCP tools, and agents. Use it to set up routing, load balancing, authentication, and rate limiting for AI traffic across multiple backends.
-ms.topic: reference
-ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: azaslonov
+ms.date: 06/22/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 3.0.1
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "3.0.1"
 ---
 
 # Azure skill for Azure AI Gateway
