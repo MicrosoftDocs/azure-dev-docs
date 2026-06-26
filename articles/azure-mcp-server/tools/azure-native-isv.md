@@ -4,8 +4,8 @@ description: Learn how to use Azure MCP Server with Azure Native ISV partner sol
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
-ms.topic: concept-article
 ms.service: azure
+ms.topic: concept-article
 ai-usage: ai-assisted
 ---
 
