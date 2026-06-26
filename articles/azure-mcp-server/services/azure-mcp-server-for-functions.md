@@ -3,16 +3,15 @@ title: Manage Azure Functions with Azure MCP Server
 description: Learn how to use the Azure MCP Server to manage function apps, review configurations, and troubleshoot deployments through AI-powered natural language interactions.
 author: diberry
 ms.author: diberry
+ms.date: 12/12/2025
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 12/12/2025
-content_well_notification: 
-  - AI-contribution
+ms.custom:
+  - build-2025
 ai-usage: ai-generated
-ms.custom: build-2025
-
-#customer intent: As an Azure Functions developer, I want to manage function apps using natural language conversations so that I can quickly verify configurations and troubleshoot issues without navigating portals.
-
+content_well_notification:
+  - AI-contribution
+# customer intent: As an Azure Functions developer, I want to manage function apps using natural language conversations so that I can quickly verify configurations and troubleshoot issues without navigating portals.
 ---
 
 # Manage Azure Functions with Azure MCP Server

@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Integrate Azure MCP Server with GitHub Copilot CLI"
 description: Learn how to configure the Azure MCP Server for use with the GitHub Copilot CLI using the /mcp command.
-ms.topic: quickstart
 ms.date: 02/10/2026
+ms.topic: quickstart
 ai-usage: ai-generated
 ---
 

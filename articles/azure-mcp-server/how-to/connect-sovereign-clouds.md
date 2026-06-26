@@ -1,8 +1,8 @@
 ---
-title: Connect Azure MCP Server to sovereign clouds
+title: Connect Azure MCP Server to Sovereign Clouds
 description: Learn how to configure Azure MCP Server for Azure operated by 21Vianet Cloud and Azure US Government.
-ms.topic: how-to
 ms.date: 03/24/2026
+ms.topic: how-to
 ai-usage: ai-generated
 ---
 
