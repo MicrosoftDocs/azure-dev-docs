@@ -1,11 +1,12 @@
 ---
-title: Get started using the Azure MCP Server with .NET
+title: Get Started Using the Azure MCP Server with .NET
 description: Learn how to connect to and consume Azure MCP Server operations with .NET
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 02/27/2026
 ms.topic: get-started
-ms.custom: build-2025
+ms.custom:
+  - build-2025
 ---
 
 # Get started using the Azure MCP Server with .NET
