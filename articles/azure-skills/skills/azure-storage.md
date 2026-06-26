@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure Storage
+title: Azure Skill for Azure Storage
 description: The azure-storage skill helps you configure and manage Azure Storage services including Blob Storage, Azure Files, Queue Storage, Table Storage, and Data Lake Storage Gen2. Use it to set access tiers, configure lifecycle management, and manage storage account security.
-ms.topic: reference
-ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: chuye
+ms.date: 06/22/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.0.0
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.0.0"
 ---
 
 # Azure skill for Azure Storage

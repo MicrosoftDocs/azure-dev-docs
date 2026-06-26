@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure Messaging
+title: Azure Skill for Azure Messaging
 description: "Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Covers connection failures, authentication errors, message processing issues, and SDK configuration problems. WHEN: event hub SDK error, service bus SDK issue, messaging connection failure, AMQP error, event processor host issue, message lock lost, message lock expired, lock renewal, lock renewal batch, send timeout, receiver disconnected, SDK troubleshooting, azure messaging SDK, event hub consumer, service bus queue issue, topic subscription error, enable logging event hub, service bus logging, eventhub python, servicebus java, eventhub javascript, servicebus dotnet, event hub checkpoint, event hub not receiving messages, service bus dead letter, batch processing lock, session lock expired, idle timeout, connection inactive, link detach, slow reconnect, session error, duplicate events, offset reset, receive batch."
-ms.topic: reference
-ms.date: 06/24/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: kashifkhan
+ms.date: 06/24/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.0.4
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.0.4"
 ---
 
 # Azure skill for Azure Messaging

@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure Quotas
+title: Azure Skill for Azure Quotas
 description: The azure-quotas skill helps you check, request, and manage Azure service quotas and limits. Use it to view current usage, request quota increases, compare regional capacity, and plan for scaling across subscriptions.
-ms.topic: reference
-ms.date: 06/15/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: rakal-dyh
+ms.date: 06/15/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.1.2
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.1.2"
 ---
 
 # Azure skill for Azure Quotas
