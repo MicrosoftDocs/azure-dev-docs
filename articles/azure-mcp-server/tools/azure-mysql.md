@@ -1,19 +1,19 @@
 ---
-
-title: Azure MCP Server tools for Azure Database for MySQL
+title: Azure MCP Server Tools for Azure Database for MySQL
 description: Use Azure MCP Server tools to manage Azure Database for MySQL Flexible Server resources with natural language prompts from your IDE.
-ms.date: 06/17/2026
-ms.service: azure-mcp-server
-ms.topic: concept-article
-tool_count: 6
-mcp-cli.version: 3.0.0-beta.19
 author: diberry
 ms.author: diberry
 ms.reviewer: ramkumarch
+ms.date: 06/17/2026
+ms.service: azure-mcp-server
+ms.topic: concept-article
+ms.custom:
+  - build-2025
 ai-usage: ai-generated
-ms.custom: build-2025
 content_well_notification:
   - AI-contribution
+tool_count: 6
+mcp-cli.version: "3.0.0-beta.19"
 ---
 
 # Azure MCP Server tools for Azure Database for MySQL
