@@ -4,6 +4,7 @@ description: How to use Testcontainers for Go to write integration tests against
 ms.date: 06/29/2026
 ms.topic: how-to
 ms.custom: devx-track-go
+ai-usage: ai-generated
 ---
 
 # Testcontainers for Go support for Azure services
@@ -14,9 +15,9 @@ Because the Go SDK client libraries work identically against the emulators, you 
 
 ## Prerequisites
 
-- [Go](https://go.dev/dl/) 1.21 or later
-- [Docker Engine](https://docs.docker.com/engine/install/) running locally (or a remote Docker host)
-- Testcontainers for Go v0.43.0 or later
+- [Go](https://go.dev/dl/) 1.21 or later.
+- [Docker Engine](https://docs.docker.com/engine/install/) running locally or a remote Docker host.
+- Testcontainers for Go v0.43.0 or later.
 
 ## Set up dependencies
 
@@ -551,7 +552,7 @@ go test ./... -p 4 -count=1
 
 ## Next steps
 
-- [Testcontainers for Go documentation](https://golang.testcontainers.org/)
-- [Azure module source and examples](https://github.com/testcontainers/testcontainers-go/tree/main/modules/azure)
-- [Azure SDK for Go](overview.md)
-- [Key Azure services for Go developers](key-azure-services-for-go.md)
+- [Testcontainers for Go documentation](https://golang.testcontainers.org/).
+- [Azure module source and examples](https://github.com/testcontainers/testcontainers-go/tree/main/modules/azure).
+- [Azure SDK for Go](overview.md).
+- [Key Azure services for Go developers](key-azure-services-for-go.md).
