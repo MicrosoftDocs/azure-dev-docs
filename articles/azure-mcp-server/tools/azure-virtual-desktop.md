@@ -4,11 +4,12 @@ description: Learn how to use the Azure MCP Server with Azure Virtual Desktop.
 author: diberry
 ms.author: diberry
 ms.date: 12/06/2025
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
 ms.topic: concept-article
-ms.custom: build-2025
+ms.custom:
+  - build-2025
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
 ---
 
 # Azure Virtual Desktop tools for the Azure MCP Server overview

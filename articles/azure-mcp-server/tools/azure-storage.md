@@ -1,19 +1,19 @@
 ---
-
-title: Azure MCP Server tools for Azure Storage
+title: Azure MCP Server Tools for Azure Storage
 description: Use Azure MCP Server tools to manage Azure Storage resources such as storage accounts, blob containers, blobs, and tables with natural language prompts from your IDE.
-ms.date: 05/11/2026
-ms.service: azure-mcp-server
-ms.topic: concept-article
-tool_count: 7
-mcp-cli.version: 3.0.0-beta.6+34e8edcfb64a98102a133a7a62216f4d7df9face
 author: diberry
 ms.author: diberry
 ms.reviewer: mbaldwin
+ms.date: 05/11/2026
+ms.service: azure-mcp-server
+ms.topic: concept-article
+ms.custom:
+  - build-2025
 ai-usage: ai-generated
-ms.custom: build-2025
 content_well_notification:
   - AI-contribution
+tool_count: 7
+mcp-cli.version: "3.0.0-beta.6+34e8edcfb64a98102a133a7a62216f4d7df9face"
 ---
 
 # Azure MCP Server tools for Azure Storage
@@ -381,4 +381,3 @@ azmcp storage blob upload \
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Storage documentation](/azure/storage/)
-

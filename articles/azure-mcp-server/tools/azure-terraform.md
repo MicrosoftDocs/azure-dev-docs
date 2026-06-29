@@ -1,17 +1,17 @@
 ---
-title: Azure MCP Server tools for Azure Terraform
+title: Azure MCP Server Tools for Azure Terraform
 description: Use Azure MCP Server tools to retrieve Terraform provider documentation, Azure Verified Modules information, export Azure resources to Terraform, and validate configurations against policies.
+author: diberry
+ms.author: diberry
+ms.reviewer: yunliu1
+ms.date: 05/13/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 05/13/2026
-author: diberry
-ms.reviewer: yunliu1
-ms.author: diberry
+ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-ai-usage: ai-assisted
 tool_count: 10
-mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
+mcp-cli.version: "3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30"
 ---
 
 # Azure MCP Server tools for Azure Terraform overview
