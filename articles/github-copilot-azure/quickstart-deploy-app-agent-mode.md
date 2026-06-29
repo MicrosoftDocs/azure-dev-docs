@@ -1,17 +1,19 @@
 ---
 title: Quickstart - Deploy Your Application to Azure with Agent Mode in GitHub Copilot for Azure
 description: This article demonstrates how to use agent mode in GitHub Copilot for the Azure to deploy an application to Azure.
-keywords: github, copilot, ai, azure
 author: diberry
 ms.author: diberry
+ms.date: 06/22/2026
 ms.service: github-copilot-for-azure
 ms.topic: quickstart
-ms.date: 12/19/2025
-ms.collection: ce-skilling-ai-copilot
-ms.custom: sfi-image-nochange
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - sfi-image-nochange
+keywords: github, copilot, ai, azure
 ---
 
-# Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure
+# Quickstart: Deploy your application to Azure by using agent mode in GitHub Copilot for Azure
 
 In this quickstart, you learn how to use agent mode in GitHub Copilot for Azure to bring your existing application to Azure. It demonstrates how agent mode helps you define Azure infrastructure, deploy your application to Azure, and create a CI/CD pipeline.
 
@@ -32,7 +34,7 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
    ```bash
    git clone https://github.com/Azure-Samples/storage-blob-upload-from-webapp.git
    ```
-   
+
 1. In Visual Studio Code, on the Title Bar, select the **Open Chat** icon (the GitHub Copilot logo) to open the chat pane in the Secondary side bar. To start a new chat session, select the plus icon (**+**) on the pane's title bar. Then select **Agent** under the chat text box.
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/ask-copilot.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
@@ -43,10 +45,10 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
    Help me deploy my project to Azure
    ```
 
-   > [!IMPORTANT]
-   > Each time GitHub Copilot for Azure answers the prompt the response's wording and potentially its approach is different due to how large language models (LLMs) generate responses and its approach. It's possible your experience might vary from this article. Take the time to read GitHub Copilot's responses and choose the correct course of action. If you're unsure how to proceed, ask GitHub Copilot what it intends to do and why.
+   > [!IMPORTANT]  
+   > Each time GitHub Copilot for Azure answers the prompt, the response's wording and potentially its approach is different due to how large language models (LLMs) generate responses. It's possible your experience might vary from this article. Take the time to read GitHub Copilot's responses and choose the correct course of action. If you're unsure how to proceed, ask GitHub Copilot what it intends to do and why.
 
-In general, Copilot agent analyzes your project and generates the necessary deployment files. 
+In general, Copilot agent analyzes your project and generates the necessary deployment files.
 
 Copilot agent uses command line tools like `azd` to perform many tasks, including a predeployment check, dependency checks, and ultimately the deployment itself using the `azd up` command. The `azd up` command runs in Visual Studio Code's terminal and prompts you for input like an environment name, a resource group, and more.
 

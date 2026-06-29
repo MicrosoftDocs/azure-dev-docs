@@ -1,8 +1,8 @@
 ---
-author: rotabor
+author: diberry
+ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: include
-ms.date: 05/18/2026
 ---
 
 If you work with multiple tenants and subscriptions, make sure you're signed in to the correct one:

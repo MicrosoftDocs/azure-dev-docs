@@ -1,15 +1,15 @@
 ---
-title: "Quickstart: Create and deploy an app using Azure Cache for Redis using GitHub Copilot for Azure and Azure MCP Server"
-description: "Create a prompt in GitHub Copilot for Azure that creates and deploys an instance of Azure Cache for Redis, and a Python app that writes and reads from it."
+title: "Quickstart: Create and Deploy an App Using Azure Cache for Redis Using GitHub Copilot for Azure and Azure MCP Server"
+description: Create a prompt in GitHub Copilot for Azure that creates and deploys an instance of Azure Cache for Redis, and a Python app that writes and reads from it.
 author: diberry
 ms.author: diberry
+ms.date: 06/22/2026
 ms.service: github-copilot-for-azure
-ms.topic: quickstart  #Don't change
-ms.date: 02/28/2026
-zone_pivot_group_filename: developer/github-copilot-azure/github-copilot-azure-zone-pivot-groups.json
+ms.topic: quickstart
 zone_pivot_groups: ide-options
+zone_pivot_group_filename: "developer/github-copilot-azure/github-copilot-azure-zone-pivot-groups.json"
 ---
-  
+
 # Quickstart: Create and deploy an app using Azure Cache for Redis by using GitHub Copilot for Azure and Azure MCP Server
 
 This quickstart shows you how to create a simple Python app that:
@@ -27,17 +27,22 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
 ::: zone pivot="visual-studio-code"
 [!INCLUDE [prerequisites](./includes/prerequisites.md)]
-::: zone-end  
+
+::: zone-end
 
 ::: zone pivot="visual-studio-2022"  
 [!INCLUDE [prerequisites-vs2022](./includes/prerequisites-2022.md)]
+
 ::: zone-end
 
 ::: zone pivot="visual-studio-2026"  
 [!INCLUDE [prerequisites-vs2026](./includes/prerequisites-2026.md)]
+
 ::: zone-end
 
-## Building the app
+<a id="building-the-app"></a>
+
+## Build the app
 
 Follow these steps described in this article:
 
@@ -48,42 +53,42 @@ Follow these steps described in this article:
 1. Validate the app works.
 1. Clean up the resources in Azure.
 
-### Ensure you have the right tools selected
+### Ensure you select the right tools
 
-You must have both Azure MCP Server installed and GitHub Copilot for Azure installed.
+You must install both Azure MCP Server and GitHub Copilot for Azure.
 
 ::: zone pivot="visual-studio-code"
 
 1. Select the **Configure tools...** icon in the chat pane.
-1. **Configure tools** is displayed in the Command Palette. Make sure the top nodes for "Azure MCP" and "GitHub Copilot for Azure" are both selected.
+1. **Configure tools** appears in the Command Palette. Make sure the top nodes for "Azure MCP" and "GitHub Copilot for Azure" are both selected.
 
 ::: zone-end
 
-::: zone pivot="visual-studio-2022"  
+::: zone pivot="visual-studio-2022"
 
 1. Select the **Select tools...** icon in the chat pane.
-1. **Select tools** menu is displayed. Make sure the "Azure MCP Server" top node is selected.
+1. The **Select tools** menu appears. Make sure the "Azure MCP Server" top node is selected.
 
 ::: zone-end
 
-::: zone pivot="visual-studio-2026"  
+::: zone pivot="visual-studio-2026"
 
 1. Select the **Select tools** icon in the chat pane.
-1. The **Select tools** menu is displayed. Make sure the top nodes for "Azure" and "Azure MCP" are both selected.
+1. The **Select tools** menu appears. Make sure the top nodes for "Azure" and "Azure MCP" are both selected.
 
 ::: zone-end
 
 ### Create local environment variables
 
-A common development practice is to store important keys and other settings as environment variables in a `.env` file in your workspace folder. This keeps all configuration self-contained within the project.
+Store important keys and other settings as environment variables in a `.env` file in your workspace folder. This practice keeps all configuration self-contained within the project.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Make sure your `.gitignore` file includes `.env` so you don't accidentally commit secrets to source control.
 
-In this step, create a `.env` file in your workspace by using a prompt like the following:
+Create an `.env` file in your workspace by using a prompt like the following example:
 
 ```prompt
-Create a .env file in this workspace with the following environment variables filled in:
+Create an `.env` file in this workspace with the following environment variables filled in:
 
 AZURE_SUBSCRIPTION_ID
 AZURE_TENANT_ID
@@ -112,9 +117,9 @@ Open GitHub Copilot Chat and paste the following prompt:
 
    ```prompt
    You have access to Azure MCP tools.
-  
+
    Use the variables in the `.env` file in this workspace to create an Azure Cache for Redis instance.
-   
+
    Tasks:
    1. Ensure the resource group exists.
    2. Create Azure Cache for Redis:
@@ -126,7 +131,7 @@ Open GitHub Copilot Chat and paste the following prompt:
        REDIS_PORT=6380
        REDIS_PASSWORD (primary key)
        REDIS_SSL=true
-  
+
    Important:
    - Use Azure MCP to create resources and fetch keys.
    ```
@@ -207,7 +212,7 @@ Project requirements:
 5. Keep the code simple and beginner-friendly:
 - Single file
 - No classes
-- About 40–60 lines
+- About 40-60 lines
 
 After editing the files:
 - Show a summary of what you changed.
@@ -221,20 +226,19 @@ After editing the files:
 1. Inspect the `main.py` file to ensure that it retrieves values from the `.env` file, imports the `redis` package, and connects to Azure Cache for Redis. Check that it writes and reads the cache. You might see code that resembles the following code:
 
    ```python
-   
    import os
    from datetime import datetime
    from dotenv import load_dotenv
    import redis
-   
+
    # Load local environment variables
    load_dotenv()
-   
+
    host = os.getenv("REDIS_HOST")
    port = int(os.getenv("REDIS_PORT", "6380"))
    password = os.getenv("REDIS_PASSWORD")
    ssl_enabled = os.getenv("REDIS_SSL", "true").lower() == "true"
-   
+
    try:
        client = redis.Redis(
            host=host,
@@ -242,28 +246,28 @@ After editing the files:
            password=password,
            ssl=ssl_enabled,
            decode_responses=True
-       ) 
-   
+       )
+
        # Verify connection
        client.ping()
        print("Connected to Redis")
-   
+
        # Write current time
        now = datetime.now().isoformat()
        client.set("demo:timestamp", now)
        print(f"WROTE: {now}")
-   
+
        # Read value back
        value = client.get("demo:timestamp")
        print(f"READ : {value}")
-   
+
    except Exception as ex:
        print("Connection failed.")
        print(ex)
    ```
 
-   >[!IMPORTANT]
-   >AI-assisted software development is non-deterministic, meaning you don't get the same code generated twice. However, in a simple application like this one, the basic approach, syntax, and end result should be close though not exactly the same.
+   > [!IMPORTANT]  
+   > AI-assisted software development is non-deterministic, meaning you don't get the same code generated twice. However, in a simple application like this one, the basic approach, syntax, and end result should be close though not exactly the same.
 
 ### Run the app
 
@@ -274,7 +278,7 @@ In the terminal, run the app:
    pip install -r requirements.txt
    python main.py
    ```
-  
+
    You should see output similar to this:
 
    ```output
@@ -293,9 +297,9 @@ I am finished with this instance. Please remove the Azure Cache for Redis that y
 
 ## Related content
 
-- [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
-- Follow the [quickstart](quickstart-deploy-app-agent-mode.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
-- See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
-- See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
-- See example prompts for [deploying your application to Azure](deploy-examples.md).
-- See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
+- [What is GitHub Copilot for Azure?](introduction.md)
+- [Quickstart](quickstart-deploy-app-agent-mode.md)
+- [Learn more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md)
+- [Design and develop applications for Azure](design-develop-examples.md)
+- [Deploy your application to Azure](deploy-examples.md)
+- [Troubleshoot your Azure resources](troubleshoot-examples.md)

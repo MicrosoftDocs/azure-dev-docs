@@ -1,6 +1,6 @@
 # YamlMime:ZonePivotGroups
 groups:
-# Owner: rotabor
+# Owner: diberry
 - id: ide-options
   title: IDE options
   prompt: Choose an IDE
