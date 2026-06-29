@@ -1,7 +1,7 @@
 ---
 title: "Get started sample: Chat using your data in Python"
 description: Search your own data with a chat app sample in Python, and get started with Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search.
-ms.date: 01/15/2025
+ms.date: 06/26/2026
 ms.update-cycle: 180-days
 ms.topic: how-to
 ms.subservice: intelligent-apps
@@ -42,8 +42,8 @@ The following diagram shows a simple architecture of the chat app.
 
 Key components of the architecture include:
 
-* A web application that hosts the interactive chat interface (usually built with Python Flask or JavaScript/React) and sends user questions to the backend for processing.
-* An Azure AI Search resource that performs intelligent search over indexed documents (PDFs, Word files, etc.) and returns relevant document excerpts (chunks) for use in responses.
+* A web application that hosts the interactive chat interface (built with Python Flask or JavaScript/React) and sends user questions to the backend for processing.
+* An Azure AI Search resource that performs intelligent search over indexed documents (PDFs, Word files, and other formats) and returns relevant document excerpts (chunks) for use in responses.
 * An Azure OpenAI Service instance that:
   * Converts documents and user questions into vector representations for semantic similarity search.
   * Extracts important keywords to refine Azure AI Search queries.
@@ -53,16 +53,16 @@ The typical flow of the chat app is as follows:
 
 * **User submits a question**: A user enters a natural language question through the web app interface.
 * **Azure OpenAI processes the question**: The backend uses Azure OpenAI to:
-  * Generate an embedding of the question using the text-embedding-ada-002 model.
-  * Optionally extract keywords to refine search relevance
-* **Azure AI Search retrieves relevant data**: The embedding or keywords are used to to perform a semantic search over indexed content (such as, PDFs) in Azure AI Search.
+  * Generate an embedding of the question using an embedding model, such as `text-embedding-3-large`.
+  * Optionally extract keywords to refine search relevance.
+* **Azure AI Search retrieves relevant data**: The embedding or keywords are used to perform a semantic search over indexed content, such as PDFs, in Azure AI Search.
 * **Combine results with the question**: The most relevant document excerpts (chunks) are combined with the user’s original question.
-* **Azure OpenAI generates a response**: The combined input is passed to a GPT model (such as, gpt-35-turbo or gpt-4), which generates a context-aware answer.
+* **Azure OpenAI generates a response**: The combined input is passed to a GPT model, such as `GPT-4o mini`, which generates a context-aware answer.
 * **The response is returned to the user**: The generated answer is displayed in the chat interface.
 
 ## Prerequisites
 
-A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
+You need a [development container](https://containers.dev/) environment with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
 To use this article, you need the following prerequisites:
 
@@ -90,7 +90,7 @@ To use this article, you need the following prerequisites:
 
 * Content filter or abuse modifications (optional). To create custom content filters, change severity levels, or support abuse monitoring, you need formal access approval. You can apply for access by completing the necessary registration forms. For more information, see [Registration for modified content filters and/or abuse monitoring](https://aka.ms/oai/access).
 
-* The [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli). For installation instructions, see [Install or update the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
+* The [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli) version 1.23.6 or later. For installation instructions, see [Install or update the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd). Run `azd version` to verify.
 
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/). Make sure Docker Desktop is installed and running before beginning.
 
@@ -100,9 +100,9 @@ To use this article, you need the following prerequisites:
 
 ### Usage cost for sample resources
 
-Most resources used in this architecture fall under basic or consumption-based pricing tiers. This means you only pay for what you use, and charges are typically minimal during development or testing.
+Most resources used in this architecture fall under basic or consumption-based pricing tiers. This pricing model means you only pay for what you use, and charges are typically minimal during development or testing.
 
-To complete this sample, there may be a small cost incurred from using services like Azure OpenAI, AI Search, and storage. Once you're done evaluating or deploying the app, you can delete all provisioned resources to avoid ongoing charges.
+To complete this sample, you might incur a small cost from using services like Azure OpenAI, AI Search, and storage. When you're done evaluating or deploying the app, delete all provisioned resources to avoid ongoing charges.
 
 For a detailed breakdown of expected costs, see the [Cost estimation](https://github.com/Azure-Samples/azure-search-openai-demo#cost-estimation) in the GitHub repository for the sample.
 
@@ -121,7 +121,7 @@ Begin by setting up a development environment that has all the dependencies inst
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 * [Azure Developer CLI](/azure/developer/azure-developer-cli).
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/). * [Docker Desktop](https://www.docker.com/products/docker-desktop/). Make sure Docker Desktop is installed and running before beginning.
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/). Make sure Docker Desktop is installed and running before beginning.
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
@@ -146,11 +146,11 @@ Using Codespaces ensures:
 
 1. To begin working with the sample project, create a new GitHub codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
-   Right-click the **GitHub Codespaces - Open** option at the top of the repository page and select **Open link in new window**. This ensures that the development container is launched in a full-screen, dedicated browser tab, giving you access to both the source code and the built-in documentation.
+   Right-click the **GitHub Codespaces - Open** option at the top of the repository page and select **Open link in new window**. This action ensures that the development container launches in a full-screen, dedicated browser tab, giving you access to both the source code and the built-in documentation.
 
    [![Image of the 'Open in GitHub Codespaces' option.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
 
-1. On the **Create a new codespace** page, review the codespace configuration settings, and then select **Create codespace**:
+1. On **Create a new codespace**, review the codespace configuration settings, and then select **Create codespace**:
 
    :::image type="content" source="./media/get-started-app-chat-template/github-create-codespace.png" alt-text="Screenshot of the confirmation screen to create a new GitHub codespace for the sample.":::
 
@@ -236,7 +236,7 @@ The sample repository includes everything you need to deploy a Chat with your ow
 Use the following steps to deploy the app with the Azure Developer CLI (azd).
 
 > [!IMPORTANT]
-> Azure resources created in this section—especially Azure AI Search—can begin accruing charges immediately upon provisioning, even if the deployment is interrupted before completion. To avoid unexpected charges, monitor your Azure usage and delete unused resources promptly after testing.
+> Azure resources created in this section - especially Azure AI Search - can begin accruing charges immediately upon provisioning, even if the deployment is interrupted before completion. To avoid unexpected charges, monitor your Azure usage and delete unused resources promptly after testing.
 
 1. In the Visual Studio Code Terminal pane, create the Azure resources and deploy the source code by running the following `azd` command:
 
@@ -252,9 +252,9 @@ Use the following steps to deploy the app with the Azure Developer CLI (azd).
 
    * **Location**: This region location is used for most resources, including hosting. Select a region location near you geographically.
 
-   * **Location for OpenAI model or Document Intelligence resource**: Select the location nearest you geographically. If the region you selected for your **Location** is available for this setting, select the same region.
+   * **Location for the OpenAI model**: Select the location nearest you geographically. If the region you selected for your **Location** is available for this setting, select the same region.
 
-   It take can take some time for the app to deploy. Wait for the deployment to complete before continuing.
+   It can take some time for the app to deploy (typically 15–25 minutes). Wait for the deployment to complete before continuing.
 
 1. After the app successfully deploys, the Terminal pane displays an endpoint URL:
 
@@ -286,7 +286,7 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
    | --- | --- |
    | **Thought Process**    | Displays a script of the question/answer interactions in the chat. You can view the content provided by the chat app `system`, questions entered by the `user`, and clarifications made by the system `assistant`. |
    | **Supporting Content** | Lists the information used to answer your question and the source material. The number of source material citations is specified by the **Developer settings**. The default number of citations is **3**. |
-   | **Citation**           | Shows the original source contain for the selected citation. |
+   | **Citation**           | Shows the original source content for the selected citation. |
 
 1. When you're done, select the currently selected tab in the right pane. The right pane closes.
 
@@ -300,7 +300,6 @@ The specific OpenAI model determines the intelligence of the chat and the settin
 | --- | --- |
 | **Override prompt template** | Overrides the prompt used to generate the answer based on the question and search results. |
 | **Temperature** | Sets the temperature of the request to the large language model (LLM) that generates the answer. Higher temperatures result in more creative responses, but they might be less grounded. |
-| **Seed** | Sets a seed to improve the reproducibility of the model's responses. The seed can be any integer. |
 | **Minimum search score** | Sets a minimum score for search results returned from Azure AI Search. The score range depends on whether you use [Hybrid (default), Vectors only, or Text only](/azure/search/hybrid-search-ranking#scores-in-a-hybrid-search-results) for the **Retrieval mode** setting. |
 | **Minimum reranker score** | Sets a minimum score for search results returned from the semantic reranker. The score always ranges between 0-4. The higher the score, the more semantically relevant the result is to the question. |
 | **Retrieve this many search results** | Sets the number of search results to retrieve from Azure AI Search. More results can increase the likelihood of finding the correct answer, but might lead to the model getting 'lost in the middle.' You can see the returned sources in the **Thought Process** and **Supporting Content** tabs of the **Citation** pane. |
@@ -332,19 +331,19 @@ The following steps walk you through the process of changing the settings.
 
 1. Ask the same question again, and notice the difference in the answer from the chat app.
 
-   **With the Semantic ranker**: "During a performance review at Contoso Electronics, your supervisor will discuss your performance over the past year and provide feedback on areas for improvement. You will also have the opportunity to discuss your goals and objectives for the upcoming year. The review is a two-way dialogue between managers and employees, and it is encouraged for employees to be honest and open during the process (1). The feedback provided during the review should be positive and constructive, aimed at helping employees develop and grow in their roles. Employees will receive a written summary of their performance review, which will include a rating of their performance, feedback, and goals and objectives for the upcoming year (1)."
+   **With the Semantic ranker**: "During a performance review at Contoso Electronics, your supervisor will discuss your performance over the past year and provide feedback on areas for improvement. You will also have the opportunity to discuss your goals and objectives for the upcoming year. The review is a two-way dialogue between managers and employees, and it is encouraged for employees to be honest and open during the process (1). The feedback provided during the review should be positive and constructive, aimed at helping employees develop and grow in their roles. Employees receive a written summary of their performance review, which includes a rating of their performance, feedback, and goals and objectives for the upcoming year (1)."
 
-   **Without the Semantic ranker**: "During a performance review at Contoso Electronics, your supervisor will discuss your performance over the past year and provide feedback on areas for improvement. It is a two-way dialogue where you are encouraged to be honest and open (1). The feedback provided during the review should be positive and constructive, aimed at helping you develop and grow in your role. You will receive a written summary of the review, including a rating of your performance, feedback, and goals for the upcoming year (1)."
+   **Without the Semantic ranker**: "During a performance review at Contoso Electronics, your supervisor discusses your performance over the past year and provides feedback on areas for improvement. It's a two-way dialogue where you're encouraged to be honest and open (1). The feedback provided during the review should be positive and constructive, aimed at helping you develop and grow in your role. You receive a written summary of the review, including a rating of your performance, feedback, and goals for the upcoming year (1)."
 
 ## Clean up resources
 
-After you complete the exercise, it's a best practice to remove any resources that are no longer required.
+After you complete the exercise, remove any resources that you no longer need.
 
 ### Clean up Azure resources
 
-The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
+The Azure resources that you created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
-Delete the Azure resources and remove the source code by running the following `azd` command:
+To delete the Azure resources and remove the source code, run the following `azd` command:
 
 ```bash
 azd down --purge --force
@@ -352,21 +351,21 @@ azd down --purge --force
 
 The command switches include:
 
-* `purge`: Deleted resources are immediately purged. This option allows you to reuse the Azure OpenAI tokens per minute (TPM) metric.
+* `purge`: The command immediately purges deleted resources. This option allows you to reuse the Azure OpenAI tokens per minute (TPM) metric.
 * `force`: The deletion happens silently, without requiring user consent.
 
 ### Clean up GitHub Codespaces
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
-Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement that you get for your account.
+When you delete the GitHub Codespaces environment, you make the most of the free per-core hours entitlement for your account.
 
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces - Monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Sign in to the [GitHub Codespaces dashboard](https://github.com/codespaces).
 
-1. On the dashboard, locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository:
+1. On the dashboard, find your currently running codespaces that come from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository:
 
    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" lightbox="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running GitHub Codespaces, including their status and templates.":::
 
@@ -376,14 +375,14 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+You don't need to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
 * Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**:
 
    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment in Visual Studio Code.":::
 
 > [!TIP]
-> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. To free up more space on your local machine, you can delete the container instance, container image, and volumes from Docker.
 
 ---
 
