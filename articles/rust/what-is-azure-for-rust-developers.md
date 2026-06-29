@@ -1,11 +1,12 @@
 ---
 title: "Azure for Rust Developers: Build and Deploy Cloud Applications"
 description: Learn how Azure empowers Rust developers to build, deploy, and manage cloud applications with high performance and reliability.
-ms.topic: overview
 ms.date: 05/18/2026
-ms.custom: devx-track-rust
 ms.service: azure-rust
-#customer intent: As a Rust developer, I want to understand how Azure supports Rust applications so that I can build and deploy high-performance cloud solutions. 
+ms.topic: overview
+ms.custom:
+  - devx-track-rust
+# customer intent: As a Rust developer, I want to understand how Azure supports Rust applications so that I can build and deploy high-performance cloud solutions.
 ---
 
 # Azure for Rust developers: Build cloud applications

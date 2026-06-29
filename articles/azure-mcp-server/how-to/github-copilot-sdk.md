@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Integrate Azure MCP Server with GitHub Copilot SDK"
 description: Learn how to configure the GitHub Copilot SDK to use Azure MCP tools for interacting with Azure resources programmatically.
-ms.topic: quickstart
 ms.date: 02/10/2026
+ms.topic: quickstart
 ai-usage: ai-generated
 ---
 

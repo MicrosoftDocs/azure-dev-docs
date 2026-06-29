@@ -1,12 +1,12 @@
 ---
 title: Azure Bicep Schema Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Bicep Schema to retrieve the latest API versions and properties for Azure resources in Bicep templates.
-ms.service: azure-mcp-server
 ms.date: 12/05/2025
+ms.service: azure-mcp-server
 ms.topic: concept-article
-content_well_notification: 
-  - AI-contribution
 ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
 ---
 
 # Azure Bicep Schema tools for the Azure MCP Server overview

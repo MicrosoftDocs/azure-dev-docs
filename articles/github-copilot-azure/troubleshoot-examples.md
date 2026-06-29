@@ -1,13 +1,14 @@
 ---
-title: Troubleshoot Azure applications with GitHub Copilot for Azure
+title: Troubleshoot Azure Applications with GitHub Copilot for Azure
 description: Use GitHub Copilot for Azure prompt examples to diagnose errors, analyze logs, and resolve performance issues across Azure services.
-keywords: github, copilot, ai, azure, troubleshooting, logs, diagnostics
 author: diberry
 ms.author: diberry
+ms.date: 06/22/2026
 ms.service: github-copilot-for-azure
 ms.topic: best-practice
-ms.date: 05/20/2026
-ms.collection: ce-skilling-ai-copilot
+ms.collection:
+  - ce-skilling-ai-copilot
+keywords: github, copilot, ai, azure, troubleshooting, logs, diagnostics
 ai-usage: ai-assisted
 ---
 
@@ -21,17 +22,17 @@ For the best troubleshooting experience, use [best practices](introduction.md#be
 
 - Use **Agent** mode for interactive troubleshooting. Avoid **Ask** mode.
 - Include the word "Azure" in your prompt so Copilot calls the right tools from the Azure MCP Server.
-- If using Visual Studio Code, select **Configure Tools** and enable both **Azure MCP** and **GitHub Copilot for Azure**. For details, see [the Tool calling section's Visual Studio Code tab](introduction.md#tool-calling).
+- If you're using Visual Studio Code, select **Configure Tools** and enable both **Azure MCP** and **GitHub Copilot for Azure**. For details, see [the Tool calling section's Visual Studio Code tab](introduction.md#tool-calling).
 
 ## General troubleshooting prompts
 
 ### Diagnose errors and failures
 
 - "Why did my last Azure deployment fail?"
-- "I'm seeing errors with my app — check the Azure logs to find out why."
+- "I'm seeing errors with my app - check the Azure logs to find out why."
 - "Why am I seeing a 500 error when opening my Azure website?"
 - "Are there any 501 errors in my Azure app logs?"
-- "I'm getting an xxx error code in Azure — what could be the reasons?"
+- "I'm getting an xxx error code in Azure - what could be the reasons?"
 - "Show me all the 4xx errors in my Azure logs from the last 6 hours."
 
 ### Investigate performance issues
@@ -64,7 +65,7 @@ For the best troubleshooting experience, use [best practices](introduction.md#be
 - "Help me diagnose slow performance in my Azure web app."
 - "My Azure App Service container won't start."
 - "Is there anything wrong with my Azure bakery-api web app?"
-- "Troubleshoot why my Azure web app is not responding."
+- "Troubleshoot why my Azure web app isn't responding."
 - "Help me collect a memory dump from Azure App Service."
 - "Look into whether my Azure web app is having any downtime."
 
@@ -108,7 +109,7 @@ For the best troubleshooting experience, use [best practices](introduction.md#be
 
 ### Azure SignalR Service
 
-- "My Azure SignalR client is not receiving messages. Why?"
+- "My Azure SignalR client isn't receiving messages. Why?"
 - "Why are my Azure SignalR clients being disconnected so often?"
 - "Where can I find metrics and logs for my Azure SignalR app?"
 
@@ -124,18 +125,18 @@ For the best troubleshooting experience, use [best practices](introduction.md#be
 
 ### Azure SDK
 
-- "The npm Azure Resource Manager SDK is failing to install. What should I do?"
+- "The npm Azure Resource Manager SDK isn't installing. What should I do?"
 - "I'm getting authentication errors with the Azure SDK. Help me fix it."
 
 ### Azure Web PubSub
 
-- "My Azure Web PubSub client is not receiving messages. Why?"
+- "My Azure Web PubSub client isn't receiving messages. Why?"
 
 ## Related content
 
-- [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
-- Follow the [quickstart](quickstart-deploy-app-agent-mode.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
-- See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
-- See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
-- See example prompts for [deploying your application to Azure](deploy-examples.md).
+- [What is GitHub Copilot for Azure?](introduction.md)
+- [Get started with GitHub Copilot for Azure](get-started.md)
+- [Quickstart](quickstart-deploy-app-agent-mode.md)
+- [Learn more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md)
+- [Design and develop applications for Azure](design-develop-examples.md)
+- [Deploy your application to Azure](deploy-examples.md)

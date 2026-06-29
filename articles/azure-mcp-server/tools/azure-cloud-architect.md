@@ -1,17 +1,17 @@
 ---
-title: Azure MCP Server tools for Azure Cloud Architect
+title: Azure MCP Server Tools for Azure Cloud Architect
 description: Use Azure MCP Server tools to design cloud architectures through guided requirements gathering and receive optimal Azure solution recommendations from your IDE.
 author: diberry
 ms.author: diberry
+reviewer: msalaman
+ms.date: 03/27/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 03/27/2026
-reviewer: msalaman
+ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-ai-usage: ai-assisted
 tool_count: 1
-mcp-cli.version: 2.0.0-beta.39
+mcp-cli.version: "2.0.0-beta.39"
 ---
 
 # Azure MCP Server tools for Azure Cloud Architect

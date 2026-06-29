@@ -1,5 +1,5 @@
 ---
-title: "Authenticate Node.js Apps to Azure Using Developer Accounts"
+title: Authenticate Node.js Apps to Azure Using Developer Accounts
 description: Learn how to authenticate your application to Azure services when using the Azure SDK for Node.js during local development using developer accounts.
 ms.date: 06/01/2026
 ms.topic: how-to

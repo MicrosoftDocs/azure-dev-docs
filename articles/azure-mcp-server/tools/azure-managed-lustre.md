@@ -1,16 +1,16 @@
 ---
 title: Azure Managed Lustre Tools for Azure MCP Server
 description: Learn how to use Azure MCP Server tools with Azure Managed Lustre to manage, create, update, and analyze scalable Lustre file systems for AI and HPC workloads.
-ai-usage: ai-assisted
-content_well_notification: 
-  - AI-contribution
 author: diberry
 ms.author: diberry
+ms.reviewer: wdesalvador
+ms.date: 02/08/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 02/08/2026
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
 tool_count: 18
-ms.reviewer: wdesalvador
 ---
 
 # Azure Managed Lustre tools for Azure MCP Server overview

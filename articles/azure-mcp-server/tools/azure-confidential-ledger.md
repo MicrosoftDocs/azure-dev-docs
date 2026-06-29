@@ -4,12 +4,13 @@ description: Learn how to use the Azure MCP Server with Azure Confidential Ledge
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
 ms.topic: concept-article
-ms.custom: build-2025
---- 
+ms.custom:
+  - build-2025
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
+---
 
 # Azure Confidential Ledger tools for the Azure MCP Server overview
 

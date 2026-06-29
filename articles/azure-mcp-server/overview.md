@@ -1,16 +1,17 @@
 ---
-title: What is the Azure MCP Server?
+title: What Is the Azure MCP Server?
 description: Learn about the Azure MCP Server, its features, and how it helps developers build and deploy apps to Azure. Discover benefits and get started today.
-#customer intent: As a developer, I want to understand what the Azure MCP Server is so that I can determine if it fits my app development needs.
-ms.date: 06/23/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: sandeepsen
+ms.date: 06/02/2026
 ms.topic: overview
-content_well_notification: 
-  - AI-contribution
+ms.custom:
+  - build-2025
 ai-usage: ai-assisted
-ms.custom: build-2025
+content_well_notification:
+  - AI-contribution
+# customer intent: As a developer, I want to understand what the Azure MCP Server is so that I can determine if it fits my app development needs.
 ---
 
 # What is the Azure MCP Server?
@@ -70,7 +71,7 @@ The Azure MCP Server implements a set of [tools](./tools/index.md) per the Model
 
 You can find step-by-step instructions for common tasks, including:
 
-- [Connect GitHub Copilot coding agent to Azure MCP Server](how-to/github-copilot-coding-agent.md)
+- [Connect GitHub Copilot cloud agent to Azure MCP Server](how-to/github-copilot-coding-agent.md)
 - [Deploy a self-hosted Azure MCP Server (Microsoft Foundry)](how-to/deploy-remote-mcp-server-microsoft-foundry.md)
 - [Deploy a self-hosted Azure MCP Server (Copilot Studio)](how-to/deploy-remote-mcp-server-copilot-studio.md)
 

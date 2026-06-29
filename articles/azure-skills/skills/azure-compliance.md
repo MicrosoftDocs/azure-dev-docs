@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure Compliance
+title: Azure Skill for Azure Compliance
 description: The azure-compliance skill helps you run Azure compliance and security audits, combining azqr assessments with Key Vault expiration checks. Use it to find expiring or expired certificates and secrets, detect orphaned resources, and surface policy and best-practice gaps before running azqr scans.
-ms.topic: reference
-ms.date: 06/15/2026
-ms.reviewer: skaluvak 
 author: diberry
 ms.author: diberry
+ms.reviewer: skaluvak
+ms.date: 06/15/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.1.1
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.1.1"
 ---
 
 # Azure skill for Azure Compliance

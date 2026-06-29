@@ -1,17 +1,17 @@
 ---
-title: Azure best practices tools - Azure MCP Server
+title: Azure Best Practices Tools - Azure MCP Server
 description: Use the Azure best practices tools in Azure MCP Server to get guidance on Azure Functions development, deployment, and Azure SDK usage.
-ms.service: azure-mcp-server
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
-ms.topic: concept-article
-ms.date: 03/02/2026
 author: diberry
 ms.author: diberry
-tool_count: 2
-mcp-cli.version: 2.0.0-beta.23+535bd1649379f0596f18dc7d95987f8197de342d
 ms.reviewer: conniey
+ms.date: 06/02/2026
+ms.service: azure-mcp-server
+ms.topic: concept-article
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
+tool_count: 2
+mcp-cli.version: "2.0.0-beta.23+535bd1649379f0596f18dc7d95987f8197de342d"
 ---
 
 # Azure best practices tools for the Azure MCP Server overview
@@ -46,20 +46,20 @@ This tool returns a list of best practices for code generation, operations, and 
 
 Example prompts include:
 
-- "Get the latest Azure coding agent best practices?"
+- "Get the latest Azure cloud agent best practices?"
 - "Get the latest Azure operations best practices?"
 - "Get the latest general Azure best practices?"
 - "Get the latest Azure Static Web Apps code generation best practices?"
 - "Get the latest Azure Static Web Apps deployment best practices?"
 - "Get the latest Azure Static Web Apps best practices?"
 - "Get the latest Azure Functions all best practices?"
-- "What are coding agent best practices?"
-- "Configure Azure MCP for my coding agent project?"
+- "What are cloud agent best practices?"
+- "Configure Azure MCP for my cloud agent project?"
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Action** | Required | The action type for the best practices. Options: `all`, `code-generation`, `deployment`. Note: `static-web-app` and `coding-agent` resources only support `all`. |
-| **Resource** | Required | The Azure resource type for which to get best practices. Options: `general` (general Azure), `azurefunctions` (Azure Functions), `static-web-app` (Azure Static Web Apps), `coding-agent` (Coding Agent). |
+| **Action** | Required | The action type for the best practices. Options: `all`, `code-generation`, `deployment`. Note: the `static-web-app` and `coding-agent` resource values only support `all`. |
+| **Resource** | Required | The Azure resource type for which to get best practices. Options: `general` (general Azure), `azurefunctions` (Azure Functions), `static-web-app` (Azure Static Web Apps), `coding-agent` (the resource value for Copilot cloud agent scenarios). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌

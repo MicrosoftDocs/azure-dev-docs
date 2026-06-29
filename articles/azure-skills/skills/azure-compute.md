@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure Compute
+title: Azure Skill for Azure Compute
 description: The azure-compute skill helps you manage Azure VMs and virtual machine scale sets (VMSS). Use it for VM size recommendations, pricing estimates, autoscale and orchestration options, connectivity troubleshooting, capacity reservations, and Essential Machine Management (EMM) enrollment.
-ms.topic: reference
-ms.date: 06/18/2026
 author: diberry
 ms.author: diberry
-ms.reviewer: alex-thompson, yinghuidong, jobanerj, 
+ms.reviewer: alex-thompson, yinghuidong, jobanerj
+ms.date: 06/18/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 2.4.3
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "2.4.3"
 ---
 
 # Azure Compute
@@ -63,4 +64,3 @@ Try these prompts to activate this skill:
 - [Virtual Machines overview](/azure/virtual-machines/)
 - [VM quickstart](/azure/virtual-machines/windows/quick-create-portal)
 - [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
-- [VM sizing and performance](/azure/virtual-machines/sizing-guidance)

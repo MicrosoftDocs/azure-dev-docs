@@ -4,10 +4,11 @@ description: Learn how to manage Azure Redis instances using the Azure MCP Serve
 author: diberry
 ms.author: diberry
 ms.date: 05/13/2026
-ms.topic: concept-article
 ms.service: azure
+ms.topic: concept-article
+ms.custom:
+  - build-2025
 ai-usage: ai-assisted
-ms.custom: build-2025
 ---
 
 # Azure Redis tools for Azure MCP Server overview

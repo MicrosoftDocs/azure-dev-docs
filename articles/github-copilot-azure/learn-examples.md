@@ -1,13 +1,14 @@
 ---
-title: GitHub Copilot for Azure prompt engineering examples to learn about using Azure for your application
+title: GitHub Copilot for Azure Prompt Engineering Examples to Learn About Using Azure for Your Application
 description: This article provides example prompts that can help you learn how to use Azure and deploy your application to the cloud.
-keywords: github, copilot, ai, azure
 author: diberry
 ms.author: diberry
+ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: best-practice
-ms.date: 12/16/2025
-ms.collection: ce-skilling-ai-copilot
+ms.collection:
+  - ce-skilling-ai-copilot
+keywords: github, copilot, ai, azure
 ---
 
 # Example prompts for learning about Azure and your application with GitHub Copilot for Azure
@@ -17,7 +18,6 @@ If you're unfamiliar with Azure or you just want the tooling and AI to do most o
 - Use "Agent" mode for the best experience. Avoid "Ask" mode.
 - Include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 - If using Visual Studio Code, make sure you use "Configure Tools ..." and include both "Azure MCP" and "GitHub Copilot for Azure". [See the Tool calling section's Visual Studio Code tab](introduction.md#tool-calling) for more details.
-
 
 ## Example prompts to learn about Azure
 
@@ -30,9 +30,9 @@ Use GitHub Copilot to recommend Azure services to use for your project.
 - "What services should I use with my Azure app?"
 - "Please recommend Azure services for my project."
 
-When asked to recommend an Azure service, GitHub Copilot for Azure scans the current application in the workspace and provides recommendations for Azure services and service bindings. 
+When you ask for an Azure service recommendation, GitHub Copilot for Azure scans the current application in the workspace and provides recommendations for Azure services and service bindings.
 
-You can work in an iterative manner asking GitHub Copilot for Azure to update the recommendations to use a different Azure service or change the bindings information. Example prompts: 
+You can work in an iterative manner by asking GitHub Copilot for Azure to update the recommendations to use a different Azure service or change the bindings information. Example prompts:
 
 - "I'd like to use Azure App Service instead of Container Apps for my API project."
 - "Add an Azure Cosmos DB to my project."
@@ -88,7 +88,7 @@ You can follow up by asking more detailed questions based on GitHub Copilot for 
 |Azure Virtual Network|<ul><li>"How do I balance inbound network traffic to my Azure application?"</li></ul>|
 |Azure OpenAI Service|<ul><li>"What services does Azure OpenAI provide?"</li><li>"Where is GPT-4o mini available in Azure?"</li><li>"What are the prerequisites for integrating Azure OpenAI?"</li><li>"Create a guide for creating and using Azure OpenAI resources."</li><li>"What are the available Azure OpenAI model types?"</li></ul>|
 |Azure SDK|<ul><li>"Can I use Azure SDKs in the browser?"</li><li>"Does the Azure C# Storage SDK support chunked blob uploads and downloads?"</li></ul>|
-|Azure SignalR Service|<ul><li>"How do I host and scale SignalR on multiple servers in Azure?"</li><li>"How do I do real-time communication in .NET with Azure?"</li><li>"How do I push real-time updates to clients using Azure?"</li><li>"How do I synchronize data across clients in Azure SignalR Service?"</li><li>"How do I stream data to clients in Azure?"</li><li>"How do I manage and scale WebSocket connections in Azure?"</li><li>"How do I host and scale Socket.IO in Azure?"</li><li>"What do I need to configure my SignalR code to work with Azure SignalR Service?"</li><li>"Evaluate my SignalR setup — is it following Azure’s best security practices?"</li><li>"How do I stress test Azure SignalR?"</li><li>"How do I configure networking in Azure SignalR Service?"</li><li>"How do I configure an Azure Web PubSub event handler?"</li></ul>|
+|Azure SignalR Service|<ul><li>"How do I host and scale SignalR on multiple servers in Azure?"</li><li>"How do I do real-time communication in .NET with Azure?"</li><li>"How do I push real-time updates to clients using Azure?"</li><li>"How do I synchronize data across clients in Azure SignalR Service?"</li><li>"How do I stream data to clients in Azure?"</li><li>"How do I manage and scale WebSocket connections in Azure?"</li><li>"How do I host and scale Socket.IO in Azure?"</li><li>"What do I need to configure my SignalR code to work with Azure SignalR Service?"</li><li>"Evaluate my SignalR setup - is it following Azure's best security practices?"</li><li>"How do I stress test Azure SignalR?"</li><li>"How do I configure networking in Azure SignalR Service?"</li><li>"How do I configure an Azure Web PubSub event handler?"</li></ul>|
 |Azure SQL|<ul><li>"Create a Terraform configuration to deploy an Azure SQL database."</li><li>"Design a strategy for migrating on-premises SQL Server databases to Azure SQL Managed Instance."</li></ul>|
 |Azure Static Web Apps|<ul><li>"Does Azure Static Web Apps support static IP addresses?"</li></ul>|
 |Azure Storage|<ul><li>"Why would I use Azure Blob Storage?"</li><li>"How do I pull data from an Azure Storage blob in React?"</li><li>"Outline steps to secure Azure Blob Storage with private endpoints and Azure Private Link."</li><li>"Generate an Azure CLI script to create a new storage account."</li><li>"Give me the CLI code to create a new Azure Storage account."</li><li>"Can you help me choose the right Azure Storage solution?"</li></ul>|
@@ -96,9 +96,9 @@ You can follow up by asking more detailed questions based on GitHub Copilot for 
 
 ## Related content
 
-- [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
-- Follow the [quickstart](quickstart-deploy-app-agent-mode.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
-- See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
-- See example prompts for [deploying your application to Azure](deploy-examples.md).
-- See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
+- [What is GitHub Copilot for Azure?](introduction.md)
+- [Get started with GitHub Copilot for Azure](get-started.md)
+- [Quickstart](quickstart-deploy-app-agent-mode.md)
+- [Design and develop applications for Azure](design-develop-examples.md)
+- [Deploy your application to Azure](deploy-examples.md)
+- [Troubleshoot your Azure resources](troubleshoot-examples.md)

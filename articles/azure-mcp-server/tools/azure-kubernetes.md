@@ -1,15 +1,16 @@
 ---
 title: Azure Kubernetes Service Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Kubernetes Service (AKS) to manage your Kubernetes clusters and containers.
+author: diberry
+ms.author: diberry
+ms.date: 05/13/2026
+ms.service: azure-mcp-server
+ms.topic: concept-article
+ms.custom:
+  - build-2025
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-author: diberry
-ms.author: diberry
-ms.service: azure-mcp-server
-ms.topic: concept-article
-ms.date: 05/13/2026
-ms.custom: build-2025
 ---
 # Azure Kubernetes Service tools for the Azure MCP Server overview
 

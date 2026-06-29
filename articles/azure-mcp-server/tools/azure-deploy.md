@@ -1,19 +1,19 @@
 ---
-
-title: Azure MCP Server tools for Azure Deploy
+title: Azure MCP Server Tools for Azure Deploy
 description: Use Azure MCP Server tools to manage deployments and deployment pipelines for Azure applications and infrastructure with natural language prompts from your IDE.
-ms.date: 04/06/2026
-ms.service: azure-mcp-server
-ms.topic: concept-article
-tool_count: 5
-mcp-cli.version: 2.0.0-beta.39+0410ff6ade5c70a207a8e7c7a7c78be69f7f1d76
 author: diberry
 ms.author: diberry
 reviewer: qianwens
+ms.date: 04/06/2026
+ms.service: azure-mcp-server
+ms.topic: concept-article
+ms.custom:
+  - build-2025
 ai-usage: ai-generated
-ms.custom: build-2025
 content_well_notification:
   - AI-contribution
+tool_count: 5
+mcp-cli.version: "2.0.0-beta.39+0410ff6ade5c70a207a8e7c7a7c78be69f7f1d76"
 ---
 
 # Azure MCP Server tools for Azure Deploy

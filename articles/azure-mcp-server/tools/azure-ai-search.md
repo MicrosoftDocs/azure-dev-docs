@@ -1,17 +1,17 @@
 ---
-title: Azure MCP Server tools for Azure AI Search
+title: Azure MCP Server Tools for Azure AI Search
 description: Use Azure MCP Server tools to manage search services, indexes, knowledge sources, and knowledge bases with natural language prompts from your IDE.
 author: diberry
 ms.author: diberry
+reviewer: pablocastro
+ms.date: 03/27/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 03/27/2026
+ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-ai-usage: ai-assisted
-reviewer: pablocastro
 tool_count: 6
-mcp-cli.version: 2.0.0-beta.33
+mcp-cli.version: "2.0.0-beta.33"
 ---
 
 # Azure MCP Server tools for Azure AI Search

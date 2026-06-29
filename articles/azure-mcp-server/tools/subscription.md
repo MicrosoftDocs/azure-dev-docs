@@ -1,16 +1,16 @@
 ---
-title: Azure MCP Server tools for Azure Subscriptions
+title: Azure MCP Server Tools for Azure Subscriptions
 description: Use Azure MCP Server tools to list and identify Azure subscriptions with natural language prompts from your IDE.
 author: diberry
 ms.author: diberry
+ms.date: 03/27/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 03/27/2026
+ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-ai-usage: ai-assisted
 tool_count: 1
-mcp-cli.version: 2.0.0-beta.33
+mcp-cli.version: "2.0.0-beta.33"
 ---
 
 # Azure MCP Server tools for Azure Subscriptions

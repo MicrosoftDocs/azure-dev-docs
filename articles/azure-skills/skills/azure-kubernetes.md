@@ -1,12 +1,13 @@
 ---
-title: Azure skill for Kubernetes
+title: Azure Skill for Kubernetes
 description: Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure cni Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost analysis).
-ms.topic: reference
-ms.date: 4/2/2026
 author: diberry
 ms.author: diberry
+ms.date: 4/2/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.4
+ms.topic: reference
+ms.custom:
+  - "skill-version-1.0.4"
 ---
 
 # Azure skill for Kubernetes
@@ -112,4 +113,3 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure MCP Server overview](/azure/developer/azure-mcp-server/overview)
-

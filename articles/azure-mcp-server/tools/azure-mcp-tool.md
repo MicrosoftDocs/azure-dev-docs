@@ -4,12 +4,13 @@ description: Learn how to use the Azure MCP Server to discover and manage availa
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
 ms.topic: concept-article
-ms.custom: build-2025
---- 
+ms.custom:
+  - build-2025
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
+---
 # Azure MCP tools management for the Azure MCP Server overview
 
 The Azure MCP Server provides tools to discover and manage the available Azure tools within the server. You can list all available tools using natural language prompts without remembering specific command syntax.

@@ -1,15 +1,16 @@
 ---
-title: Azure MCP Server tools for Azure SRE Agent
+title: Azure MCP Server Tools for Azure SRE Agent
 description: Use Azure MCP Server tools to manage Azure SRE Agent resources, including agents, skills, connectors, incidents, and workflows.
 author: diberry
 ms.author: diberry
 ms.date: 05/28/2026
+ms.topic: concept-article
+ms.custom:
+  - build-2025
+ai-usage: ai-generated
 content_well_notification:
   - AI-contribution
-ai-usage: ai-generated
-ms.topic: concept-article
-ms.custom: build-2025
-mcp-cli.version: 3.0.0-beta.13+cd8d1e8f9924440b33e3e908c390c1599700ccba
+mcp-cli.version: "3.0.0-beta.13+cd8d1e8f9924440b33e3e908c390c1599700ccba"
 ---
 # Azure MCP Server tools for Azure SRE Agent
 
@@ -2392,8 +2393,3 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-
-
-
-
-

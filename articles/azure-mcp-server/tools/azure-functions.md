@@ -1,18 +1,19 @@
 ---
-title: Azure MCP Server tools for Azure Functions
+title: Azure MCP Server Tools for Azure Functions
 description: Use Azure MCP Server tools to manage Azure Functions app resources and generate Azure Functions code with natural language prompts from your IDE.
-keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
-ms.date: 05/13/2026
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-generated
-ms.topic: concept-article
-ms.custom: build-2025
-tool_count: 4
-mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
 ms.reviewer: manvkaur
+ms.date: 05/13/2026
+ms.topic: concept-article
+ms.custom:
+  - build-2025
+keywords: azure mcp server, azmcp, function apps
+ai-usage: ai-generated
+content_well_notification:
+  - AI-contribution
+tool_count: 4
+mcp-cli.version: "3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30"
 ---
 
 # Azure MCP Server tools for Azure Functions

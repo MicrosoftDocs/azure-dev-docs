@@ -1,6 +1,6 @@
 ---
 title: Training with Azure and JavaScript
-description: "Use Microsoft's training platform to expand your understanding of Azure with JavaScript."
+description: Use Microsoft's training platform to expand your understanding of Azure with JavaScript.
 ms.date: 06/01/2026
 ms.topic: how-to
 ms.custom:

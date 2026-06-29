@@ -1,14 +1,15 @@
 ---
-title: Azure MCP Server tools
+title: Azure MCP Server Tools
 description: Learn how to use the Azure MCP Server tools for consuming servers.
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
 ms.topic: overview
-content_well_notification: 
-  - AI-contribution
+ms.custom:
+  - build-2025
 ai-usage: ai-assisted
-ms.custom: build-2025
+content_well_notification:
+  - AI-contribution
 ---
 
 # What are the Azure MCP Server tools?

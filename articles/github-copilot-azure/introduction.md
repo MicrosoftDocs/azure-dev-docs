@@ -1,13 +1,14 @@
 ---
-title: What is GitHub Copilot for Azure?
-description: This article describes the purpose and capabilities of the GitHub Copilot for Azure Visual Studio Code extension, and how it fits into a developer's workflow.
-keywords: github, copilot, ai, azure
+title: What Is GitHub Copilot for Azure?
+description: "This article describes the purpose and capabilities of the GitHub Copilot for Azure Visual Studio Code extension, and how it fits into a developer's workflow."
 author: diberry
 ms.author: diberry
+ms.date: 06/22/2026
 ms.service: github-copilot-for-azure
 ms.topic: overview
-ms.date: 05/28/2026
-ms.collection: ce-skilling-ai-copilot
+ms.collection:
+  - ce-skilling-ai-copilot
+keywords: github, copilot, ai, azure
 ---
 
 # What is GitHub Copilot for Azure?
@@ -31,7 +32,7 @@ GitHub Copilot is designed to help developers, including developers new to Azure
 
 GitHub Copilot for Azure supplements the general knowledge of the latest foundational large language models (LLMs) with tool calling by using the **Azure Model Context Protocol (MCP) Server**. This server enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf. Dozens of [Azure services](../azure-mcp-server/tools/index.md) are already available, and more services and capabilities are being added regularly. See the [full list of tools](../azure-mcp-server/tools/index.md) for details. Learn more about the capabilities of [Azure MCP Server](../azure-mcp-server/overview.md).
 
-[Azure Skills](../azure-skills/overview.md) — including `azure-prepare`, `azure-validate`, and `azure-deploy` — are also included and install automatically with the extension, enabling structured multi-step workflows for common Azure tasks.
+[Azure Skills](../azure-skills/overview.md) - including `azure-prepare`, `azure-validate`, and `azure-deploy` - are also included and install automatically with the extension, enabling structured multi-step workflows for common Azure tasks.
 
 ## Supported development environments
 
@@ -43,8 +44,7 @@ You can use GitHub Copilot for Azure in the following supported development envi
 |Visual Studio 2022|Surfaces built-in Azure MCP Server tools via the GitHub Copilot user interface. Available in Visual Studio 2022 v17.14.30+; no separate GitHub Copilot for Azure extension is required. Tools are installed with the Azure development workload and receive updates via regular Visual Studio updates (Visual Studio Installer). Tools are disabled by default and must be enabled once; after enabling, they remain enabled across sessions. Requires a GitHub Copilot subscription and Azure sign-in. Tool availability reflects Azure subscription permissions.|Public preview|The tools are available upon installation of the [Azure development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
 |Visual Studio 2026|Surfaces built-in GitHub Copilot for Azure and Azure MCP Server tools via GitHub Copilot user interface.|General availability|The tools are available upon installation of the [Azure and AI development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
 |Claude Code|Surfaces GitHub Copilot for Azure via the Claude Code AI assistant. Provides Azure skills and Azure MCP Server tools.|General availability|Run `/plugin install azure@claude-plugins-official` in Claude Code, or run `/plugin` and search for "azure" in the marketplace.|
-|GitHub Copilot CLI|Surfaces GitHub Copilot for Azure from the command line. Enables Azure skills and Azure MCP Server tools in terminal workflows.|General availability|Install the [GitHub Copilot CLI](https://docs.github.com/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli) and authenticate with your GitHub account.|
-|IntelliJ (JetBrains)|Surfaces GitHub Copilot for Azure in JetBrains IDEs via the GitHub Copilot plugin. Provides Azure MCP Server tools and Azure skills.|General availability|Install the [GitHub Copilot plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) from the JetBrains Marketplace.|
+|Intellij (JetBrains)|Surfaces GitHub Copilot for Azure in JetBrains IDEs via the GitHub Copilot plugin. Provides Azure MCP Server tools and Azure skills.|General availability|Install the [GitHub Copilot plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) from the JetBrains Marketplace.|
 
 ## Primary scenarios
 
@@ -56,9 +56,7 @@ GitHub Copilot for Azure currently enables four primary scenarios:
 |Design and develop|Ask for guidance and help when building apps for the cloud.|<ul><li>"Can you help me build a RAG application with Python to deploy to Azure?"</li><li>"Use azd to undeploy my project in Azure."</li><li>"We're a pizza company and want to create an online customized pizza delivery solution. Create an API to accept pizza orders on Azure."</li></ul>|
 |Deploy|Create Azure resources and deploy apps.|<ul><li>"Can you help me deploy my application to Azure?"</li><li>"I need a CI/CD pipeline so I can get my app deployed to Azure."</li><li>"Use azd to undeploy my project from Azure."</li></ul>|
 |Troubleshoot|Diagnose and troubleshoot application and resource problems.|<ul><li>"What is using up my GPT-5 model quota on Azure?"</li><li>"Find out why my Kubernetes cluster is running slow on Azure."</li><li>"Why am I seeing 500 errors when opening my website on Azure?"</li></ul>|
-
-
-> [!Note]
+> [!NOTE]  
 > Make sure the word "Azure" is somewhere in the prompt so that the LLM calls the appropriate tool from Azure MCP Server.
 
 The documentation provides a quickstart and example prompts to help you start using GitHub Copilot for Azure as quickly as possible.
@@ -90,7 +88,7 @@ When working in agent mode, you can create longer prompts, however it's importan
 - **Command** - "Don't take any action until I authorize it." Prevent the copilot from taking action before you validate its understanding of the prompt.
 - **Describe** - Express what you want to happen. Here, you describe the work like you would to a coworker in sufficient detail for your coworker to be successful.
 - **Ask** - "Do you have any clarifying questions to ask me before you begin?" - Give the copilot an opportunity to identify unclear instructions.
-- **Iterate** - Iterate with the copilot until it understands what you are asking it to do. The copilot might require several iterations before it has everything it needs to be successful.
+- **Iterate** - Iterate with the copilot until it understands what you're asking it to do. The copilot might require several iterations before it has everything it needs to be successful.
 - **Request** - "Create a step-by-step checklist plan that I can review before I authorize you to execute the plan." This not only forces the copilot to think ahead of its actions and explain its approach, it also follows these steps and provides a status.
 - **Review** - At some point, you might trust the copilot and not closely review its work. However, it's always best to make sure you review the plan and clarify what you want.
 - **Authorize** - "I reviewed the plan and you're authorized to begin."
@@ -113,10 +111,9 @@ Here's a list of all the tools currently supported by GitHub Copilot for Azure. 
 |azure_get_azure_verified_module|Fetches verified Bicep modules for a resource type.<br /><ul><li>"Get Bicep module for storage account"</li><li>"Find verified module for virtual machine"</li></ul>|Planned|
 |azure_generate_azure_cli_command|Generates Azure CLI commands based on user intent.<br /><ul><li>"Create a new resource group using Azure CLI"</li><li>"List all VMs in a resource group"</li></ul>|Complete|
 |azure_recommend_custom_modes|Captures Azure-related intent and suggests modes to enhance workflows.<br /><ul><li>"I want to build an Azure Function"</li><li>"Help me deploy to Azure"</li></ul>|N/A|
-|azure_get_dotnet_template_tags|Lists tags for filtering .NET templates	"What .NET template tags are available?"</li><li>"Show me template categories for Azure projects"</li></ul>|N/A|
-|azure_dotnet_templates_for_tag|Retrieves the list of .NET project templates matching a given tag for dotnet new commands.<br /><ul><li>"Show me Azure Function templates", "Get web API templates"</li></ul>|N/A|
+|azure_get_dotnet_template_tags|Lists tags for filtering .NET templates.<br /><ul><li>"What .NET template tags are available?"</li><li>"Show me template categories for Azure projects"</li></ul>|N/A|
+|azure_dotnet_templates_for_tag|Retrieves the list of .NET project templates matching a given tag for dotnet new commands.<br /><ul><li>"Show me Azure Function templates"</li><li>"Get web API templates"</li></ul>|N/A|
 |azure_query_azure_resource_graph|Queries Azure Resource Graph for resources, subscriptions, or resource groups.<br /><ul><li>"List all my virtual machines"</li><li>"Show me resources in my resource group"</li></ul>|Planned|
-
 
 # [Visual Studio 2022](#tab/vs2022)
 
@@ -124,7 +121,7 @@ GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](.
 
 # [Visual Studio 2026](#tab/vs2026)
 
-GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md) behind the scenes to perform all operations. In addition to Azure MCP Server tools, the following Visual Studio–specific tools are also available. These tools are available in Visual Studio 2026 only and aren't available in Visual Studio 2022, which uses Azure MCP Server tools exclusively.
+GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md) behind the scenes to perform all operations. In addition to Azure MCP Server tools, the following Visual Studio-specific tools are also available.
 
 |Tool|Description|Example Prompts|
 |---|---|---|
@@ -139,17 +136,12 @@ GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](.
 
 ---
 
-## Next steps
-
-Pick a path based on what you want to do:
-
-- **Start using it** - [Install and set up GitHub Copilot for Azure](get-started.md).
-- **Deploy an app** - [Follow the quickstart to deploy, monitor, and troubleshoot your application](quickstart-deploy-app-agent-mode.md).
-- **Generate infrastructure** - [Use natural language to create Bicep files](bicep-generate-edit.md).
-
 ## Related content
 
-- [Prompt examples for learning about Azure](learn-examples.md)
-- [Prompt examples for designing and developing applications](design-develop-examples.md)
-- [Prompt examples for deploying your application](deploy-examples.md)
-- [Prompt examples for troubleshooting your Azure resources](troubleshoot-examples.md)
+- [Example prompts for learning about Azure and your application with GitHub Copilot for Azure](learn-examples.md)
+- [Example prompts for designing and developing your application with GitHub Copilot for Azure](design-develop-examples.md)
+- [Example prompts for deploying your application with GitHub Copilot for Azure](deploy-examples.md)
+- [Troubleshoot Azure applications with GitHub Copilot for Azure](troubleshoot-examples.md)
+- [Get started with GitHub Copilot for Azure](get-started.md)
+- [Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure](quickstart-deploy-app-agent-mode.md)
+- [Generate Bicep files using GitHub Copilot for Azure](bicep-generate-edit.md)

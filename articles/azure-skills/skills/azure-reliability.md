@@ -1,12 +1,13 @@
 ---
-title: Azure skill for reliability
+title: Azure Skill for Reliability
 description: Assess and improve the reliability posture of Azure Functions with zone redundancy, zone-redundant storage, health probes, and multi-region failover guidance.
-ms.topic: reference
-ms.date: 5/26/2026
 author: diberry
 ms.author: diberry
+ms.date: 5/26/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.1
+ms.topic: reference
+ms.custom:
+  - "skill-version-1.0.1"
 ai-usage: ai-assisted
 ---
 

@@ -1,13 +1,12 @@
 ---
-title: "Quickstart: Create a new API project with TypeSpec and TypeScript"
+title: "Quickstart: Create a New API Project with TypeSpec and TypeScript"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
-ms.topic: quickstart
 ms.date: 03/10/2026
-ms.custom: devx-track-typespec, devx-track-js, devx-track-ts
+ms.topic: quickstart
+ms.custom:
+  - devx-track-typespec, devx-track-js, devx-track-ts
 ai-usage: ai-assisted
-#zone_pivot_groups: typespec-quickstart-on-azure-languages
-#zone_pivot_group_filename: developer/typespec/zone-pivot-groups.json
-#customer intent: As a developer or API designer, I want to create an TypeSpec API and deploy it to Azure so that I can learn the entire end to end development and deployment cycle.
+# customer intent: As a developer or API designer, I want to create an TypeSpec API and deploy it to Azure so that I can learn the entire end to end development and deployment cycle.
 ---
 
 # Quickstart: Create a new API project with TypeSpec and TypeScript
