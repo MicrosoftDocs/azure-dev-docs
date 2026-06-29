@@ -1,14 +1,15 @@
 ---
-title: Azure skill for AI Runway AKS Setup
+title: Azure Skill for AI Runway AKS Setup
 description: Set up AI Runway on Azure Kubernetes Service (AKS), from validating a bare cluster to installing the AI Runway controller. Assess GPU readiness, configure providers, and deploy your first model for inference on AKS.
-ms.topic: reference
-ms.date: 05/29/2026
 author: diberry
 ms.author: diberry
+ms.date: 05/29/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.0.1
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.0.1"
 ---
 
 # Azure skill for AI Runway AKS Setup

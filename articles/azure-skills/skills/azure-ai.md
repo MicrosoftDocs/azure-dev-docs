@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure AI Services
+title: Azure Skill for Azure AI Services
 description: The azure-AI skill helps you integrate Azure AI search, speech, OpenAI, and Document Intelligence into applications. Use it to configure Cognitive Services, manage endpoints, and set quotas for AI-powered features.
-ms.topic: reference
-ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: JasonYeMSFT
+ms.date: 06/22/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.0.1
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.0.1"
 ---
 
 # Azure skill for Azure AI Services

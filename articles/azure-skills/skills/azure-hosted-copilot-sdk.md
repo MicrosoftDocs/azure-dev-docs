@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure Hosted Copilot SDK
+title: Azure Skill for Azure Hosted Copilot SDK
 description: The azure-hosted-copilot-sdk skill helps you build and deploy GitHub Copilot SDK (@github/copilot-sdk) apps to Azure. Use it to configure CopilotClient, set up BYOM (Bring Your Own Model) with Azure OpenAI, and deploy to Azure Container Apps or App Service.
-ms.topic: reference
-ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: tomescht
+ms.date: 06/22/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.0.6
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.0.6"
 ---
 
 # Azure skill for Azure Hosted Copilot SDK
@@ -73,4 +74,3 @@ This skill activates automatically when GitHub Copilot detects you're working in
 - [GitHub Copilot SDK documentation](https://docs.github.com/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/using-copilots-llm-for-your-agent)
 - [Azure Container Apps overview](/azure/container-apps/overview)
 - [Azure App Service overview](/azure/app-service/overview)
-- [Bring Your Own Model with Azure OpenAI](/azure/ai-services/openai/how-to/bring-your-own-data-overview)

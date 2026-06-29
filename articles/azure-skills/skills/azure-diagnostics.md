@@ -1,12 +1,13 @@
 ---
-title: Azure skill for diagnostics
+title: Azure Skill for Diagnostics
 description: Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. Also covers App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
-ms.topic: reference
-ms.date: 5/26/2026
 author: diberry
 ms.author: diberry
+ms.date: 5/26/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.1.6
+ms.topic: reference
+ms.custom:
+  - "skill-version-1.1.6"
 ---
 
 # Azure skill for diagnostics
@@ -72,4 +73,3 @@ Try these prompts to activate this skill:
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-diagnostics/SKILL.md)
-
