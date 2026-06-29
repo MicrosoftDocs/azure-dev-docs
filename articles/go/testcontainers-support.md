@@ -425,7 +425,7 @@ import (
 func TestKeyVaultSecrets(t *testing.T) {
     ctx := context.Background()
 
-    ctr, err := lowkeyvault.Run(ctx, "nagyesta/lowkey-vault:2.6.1")
+    ctr, err := lowkeyvault.Run(ctx, "nagyesta/lowkey-vault:7.0.9-ubi10-minimal")
     testcontainers.CleanupContainer(t, ctr)
     require.NoError(t, err)
 
