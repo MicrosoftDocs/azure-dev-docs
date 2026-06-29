@@ -72,7 +72,7 @@ items:
         - name: Connect
           expanded: true
           items:
-          - name: GitHub Copilot coding agent
+          - name: GitHub Copilot cloud agent
             href: ../azure-mcp-server/how-to/github-copilot-coding-agent.md?context=/azure/developer/ai-developer-tools/context/context
           - name: GitHub Copilot CLI
             href: ../azure-mcp-server/how-to/github-copilot-cli.md?context=/azure/developer/ai-developer-tools/context/context

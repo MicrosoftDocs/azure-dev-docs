@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 12/12/2025
+ms.date: 06/02/2026
 ---
 
 The Azure MCP Server works in three primary contexts:
@@ -17,7 +17,7 @@ Get started with:
 * [Visual Studio](../get-started/tools/visual-studio.md)
 * [Visual Studio Code](../get-started/tools/visual-studio-code.md)
 * [Windsurf](../get-started/tools/windsurf.md)
-* [GitHub Copilot coding agent](../how-to/github-copilot-coding-agent.md)
+* [GitHub Copilot cloud agent](../how-to/github-copilot-coding-agent.md)
 
 ### In programmatic applications
 

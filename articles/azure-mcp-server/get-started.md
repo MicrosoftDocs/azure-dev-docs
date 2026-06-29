@@ -1,14 +1,15 @@
 ---
-title: Get started with the Azure MCP Server
+title: Get Started with the Azure MCP Server
 description: Overview of the options for using the Azure MCP Server with tools and languages
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 03/27/2026
+ms.date: 06/02/2026
 ms.topic: get-started
-content_well_notification: 
-  - AI-contribution
+ms.custom:
+  - build-2025
 ai-usage: ai-assisted
-ms.custom: build-2025
+content_well_notification:
+  - AI-contribution
 ---
 
 # Get started with the Azure MCP Server
@@ -49,11 +50,11 @@ Azure MCP Server works with AI-powered code editors and tools that support the M
 
 ### Use GitHub Copilot tools
 
-Connect to Azure MCP Server using other tools and services, such as GitHub Copilot coding agent and Docker. Learn how to get started:
+Connect to Azure MCP Server using other tools and services, such as GitHub Copilot cloud agent and Docker. Learn how to get started:
 
 - [**GitHub Copilot CLI**](how-to/github-copilot-cli.md)
 - [**GitHub Copilot SDK**](how-to/github-copilot-sdk.md)
-- [**GitHub Copilot coding agent**](/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent)
+- [**GitHub Copilot cloud agent**](how-to/github-copilot-coding-agent.md)
 
 ### Use a Docker container
 

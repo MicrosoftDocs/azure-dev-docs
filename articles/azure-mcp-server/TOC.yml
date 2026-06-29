@@ -40,7 +40,7 @@
     - name: Connect
       expanded: true
       items:
-      - name: GitHub Copilot coding agent
+      - name: GitHub Copilot cloud agent
         href: how-to/github-copilot-coding-agent.md
       - name: GitHub Copilot CLI
         href: how-to/github-copilot-cli.md
