@@ -23,7 +23,24 @@ Because the Go SDK client libraries work identically against the emulators, you 
 All Azure sub-packages ship under a single Go module. Add it to your project with:
 
 ```bash
-go get github.com/testcontainers/testcontainers-go/modules/azure
+go get github.com/testcontainers/testcontainers-go/modules/azure@v0.43.0
+```
+
+The testcontainers-go Azure module is tested against specific versions of the Azure SDK for Go. Pin these versions in your `go.mod` to ensure compatibility with the emulator images shown in this article:
+
+```
+require (
+    github.com/testcontainers/testcontainers-go/modules/azure v0.43.0
+    github.com/Azure/azure-sdk-for-go/sdk/azcore             v1.21.0
+    github.com/Azure/azure-sdk-for-go/sdk/azidentity         v1.13.1
+    github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos     v1.4.1
+    github.com/Azure/azure-sdk-for-go/sdk/data/aztables      v1.3.0
+    github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs  v1.3.0
+    github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus v1.8.0
+    github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets v1.4.0
+    github.com/Azure/azure-sdk-for-go/sdk/storage/azblob     v1.6.0
+    github.com/Azure/azure-sdk-for-go/sdk/storage/azqueue    v1.0.0
+)
 ```
 
 This gives you access to the following import paths, each covering a different Azure service:
@@ -413,8 +430,10 @@ import (
     "context"
     "testing"
 
-    "github.com/Azure/azure-sdk-for-go/sdk/azcore"
+    "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+    "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
     "github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+    "github.com/Azure/azure-sdk-for-go/sdk/azcore/tracing"
     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     "github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets"
     "github.com/stretchr/testify/require"
@@ -446,7 +465,19 @@ func TestKeyVaultSecrets(t *testing.T) {
     require.NoError(t, err)
 
     secretsClient, err := azsecrets.NewClient(vaultURL, cred, &azsecrets.ClientOptions{
-        ClientOptions: azcore.ClientOptions{Transport: httpClient},
+        ClientOptions: struct {
+            APIVersion                      string
+            Cloud                           cloud.Configuration
+            InsecureAllowCredentialWithHTTP bool
+            Logging                         policy.LogOptions
+            Retry                           policy.RetryOptions
+            Telemetry                       policy.TelemetryOptions
+            TracingProvider                 tracing.Provider
+            Transport                       policy.Transporter
+            PerCallPolicies                 []policy.Policy
+            PerRetryPolicies                []policy.Policy
+        }{Transport: &httpClient},
+        DisableChallengeResourceVerification: true,
     })
     require.NoError(t, err)
 
