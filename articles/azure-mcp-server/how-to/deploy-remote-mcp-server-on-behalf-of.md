@@ -1,5 +1,5 @@
 ---
-title: Deploy the Azure MCP Server with on-behalf-of authentication
+title: Deploy the Azure MCP Server with On-Behalf-Of Authentication
 description: Learn how to deploy the Azure MCP Server as a remote MCP server that uses the on-behalf-of flow to call Azure services on behalf of a signed-in user.
 author: alexwolfmsft
 ms.author: alexwolf
