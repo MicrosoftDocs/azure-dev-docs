@@ -4,11 +4,12 @@ description: Learn to use Azure MCP Server tools to manage Event Hubs resources 
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
+ms.topic: concept-article
+ms.custom:
+  - build-2025
+ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-ai-usage: ai-assisted
-ms.topic: concept-article
-ms.custom: build-2025
 ---
 # Azure Event Hubs tools for the Azure MCP Server overview
 

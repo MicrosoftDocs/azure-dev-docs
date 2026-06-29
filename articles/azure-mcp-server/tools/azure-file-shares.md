@@ -1,18 +1,19 @@
 ---
-title: Azure MCP Server tools for Azure File Shares
+title: Azure MCP Server Tools for Azure File Shares
 description: Use Azure MCP Server tools to manage Azure File Shares with natural language prompts from your IDE.
+author: diberry
+ms.author: diberry
+reviewer: ankushbindlish2
 ms.date: 05/26/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-tool_count: 14
-mcp-cli.version: 3.0.0-beta.12+d6e43aeae7450e7b68c5b1252e2a5c6e7bab1938
-author: diberry
-ms.author: diberry
+ms.custom:
+  - build-2025
 ai-usage: ai-generated
-ms.custom: build-2025
 content_well_notification:
   - AI-contribution
-reviewer: ankushbindlish2
+tool_count: 14
+mcp-cli.version: "3.0.0-beta.12+d6e43aeae7450e7b68c5b1252e2a5c6e7bab1938"
 ---
 
 # Azure MCP Server tools for Azure File Shares

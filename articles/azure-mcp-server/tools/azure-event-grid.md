@@ -1,14 +1,15 @@
 ---
-title: Azure Event Grid tools for the Azure MCP Server overview
+title: Azure Event Grid Tools for the Azure MCP Server Overview
 description: Learn about the tools in Azure Event Grid for managing topics, subscriptions, and events as part of the Azure MCP Server.
 ms.reviewer: anannyapatra
 ms.date: 05/29/2026
-ai-usage: ai-assisted
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.custom: build-2025
+ms.custom:
+  - build-2025
+ai-usage: ai-assisted
 tool_count: 3
-mcp-cli.version: 3.0.0-beta.14
+mcp-cli.version: "3.0.0-beta.14"
 ---
 
 # Azure Event Grid tools for the Azure MCP Server overview
