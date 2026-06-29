@@ -1,17 +1,17 @@
 ---
 title: Azure Policy Tools for Azure MCP Server
 description: Manage Azure Policy assignments effortlessly with Azure MCP Server. Learn how to simplify compliance and governance using natural language prompts.
-#customer intent: As a compliance officer, I want to filter policy assignments by scope so that I can focus on policies relevant to a particular management group.
 author: diberry
 ms.author: diberry
+reviewer: msalaman
 ms.reviewer: diberry
 ms.date: 01/23/2026
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
 ms.topic: concept-article
-reviewer: msalaman
---- 
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
+# customer intent: As a compliance officer, I want to filter policy assignments by scope so that I can focus on policies relevant to a particular management group.
+---
 
 # Azure Policy tools for Azure MCP Server overview
 

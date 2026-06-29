@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric tools for the Azure MCP Server overview
+title: Azure Service Fabric Tools for the Azure MCP Server Overview
 description: Learn about the tools available in Azure Service Fabric for managing microservices and containerized applications as part of the Azure MCP Server.
+ms.reviewer: anuchan
+ms.date: 02/18/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 02/18/2026
-content_well_notification: 
-  - AI-contribution
 ai-usage: ai-assisted
-ms.reviewer: anuchan
+content_well_notification:
+  - AI-contribution
 tool_count: 2
-mcp-cli.version: 2.0.0-beta.20+6836f5da0f4b4aac4abadd186fbcf8c4dd7743f9
+mcp-cli.version: "2.0.0-beta.20+6836f5da0f4b4aac4abadd186fbcf8c4dd7743f9"
 ---
 
 # Azure Service Fabric tools for the Azure MCP Server overview

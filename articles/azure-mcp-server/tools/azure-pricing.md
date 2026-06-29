@@ -1,12 +1,12 @@
 ---
-title: Azure pricing tools overview for the MCP Server
+title: Azure Pricing Tools Overview for the MCP Server
 description: Discover Azure pricing tools for MCP Server to manage cost estimates and billing. Start optimizing your Azure costs today.
-#customer intent: As a system administrator, I want to analyze pricing for Azure services like Virtual Machines and Storage so that I can recommend the best configurations for my organization.
-ms.date: 05/28/2026
 ms.reviewer: anannyapatra
+ms.date: 05/28/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 tool_count: 1
+# customer intent: As a system administrator, I want to analyze pricing for Azure services like Virtual Machines and Storage so that I can recommend the best configurations for my organization.
 ---
 
 # Azure pricing tools for the Azure MCP Server
