@@ -1,13 +1,14 @@
 ---
-title: Get started using the Azure MCP Server with Visual Studio
+title: Get Started Using the Azure MCP Server with Visual Studio
 description: Learn how to connect to and consume Azure MCP Server operations with Visual Studio
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 02/27/2026
 ms.topic: get-started
-ms.custom: build-2025
-zone_pivot_group_filename: developer/pivots.yml
+ms.custom:
+  - build-2025
 zone_pivot_groups: pivot-visual-studio
+zone_pivot_group_filename: "developer/pivots.yml"
 ---
 
 # Get started with the Azure MCP Server using Visual Studio
