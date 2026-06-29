@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Azure Validate
+title: Azure Skill for Azure Validate
 description: The azure-validate skill helps you run pre-deployment validation for Azure Bicep and Terraform templates. Use it to check ARM template syntax, validate RBAC permissions, verify service quotas, and confirm policy compliance before deploying.
-ms.topic: reference
-ms.date: 06/22/2026
 author: diberry
 ms.author: diberry
 ms.reviewer: tomescht
+ms.date: 06/22/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.0.4
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.0.4"
 ---
 
 # Azure skill for Azure Validate

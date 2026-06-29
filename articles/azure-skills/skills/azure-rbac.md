@@ -1,12 +1,13 @@
 ---
-title: Azure skill for role-based access control (RBAC)
+title: Azure Skill for Role-Based Access Control (RBAC)
 description: Helps users find the right Azure RBAC role for an identity with least privilege access, then generate CLI commands and Bicep code to assign it. Also provides guidance on permissions required to grant roles.
-ms.topic: reference
-ms.date: 4/2/2026
 author: diberry
 ms.author: diberry
+ms.date: 4/2/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.2
+ms.topic: reference
+ms.custom:
+  - "skill-version-1.0.2"
 ---
 
 # Azure skill for role-based access control (RBAC)
@@ -59,4 +60,3 @@ Try these prompts to activate this skill:
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-rbac/SKILL.md)
-

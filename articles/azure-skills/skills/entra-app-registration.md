@@ -1,15 +1,16 @@
 ---
-title: Azure skill for Microsoft Entra app registration
+title: Azure Skill for Microsoft Entra App Registration
 description: The entra-app-registration skill guides you through Microsoft Entra ID app registration and OAuth 2.0 authentication, and shows MSAL (Microsoft Authentication Library) integration patterns. It's for when you create app registrations, configure OAuth flows, add API permissions, or generate service principals for console apps and server-side auth.
-ms.topic: reference
-ms.date: 06/15/2026
 author: diberry
 ms.author: diberry
-ms.reviewer: chuye 
+ms.reviewer: chuye
+ms.date: 06/15/2026
 ms.service: azure-mcp-server
-ms.custom: devx-track-copilot-skills
-ms.skillversion: 1.1.1
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
 ai-usage: ai-generated
+ms.skillversion: "1.1.1"
 ---
 
 # Azure skill for Microsoft Entra app registration
