@@ -16,11 +16,11 @@ Because the Go SDK client libraries work identically against the emulators, you 
 
 - [Go](https://go.dev/dl/) 1.21 or later
 - [Docker Engine](https://docs.docker.com/engine/install/) running locally (or a remote Docker host)
-- Testcontainers for Go v0.36.0 or later
+- Testcontainers for Go v0.43.0 or later
 
-## Install the Azure module
+## Set up dependencies
 
-All Azure sub-packages ship under a single Go module. Add it to your project with:
+All Azure emulator sub-packages ship under a single Go module:
 
 ```bash
 go get github.com/testcontainers/testcontainers-go/modules/azure@v0.43.0
@@ -43,7 +43,7 @@ require (
 )
 ```
 
-This gives you access to the following import paths, each covering a different Azure service:
+The following import paths are available, each covering a different Azure service:
 
 | Import path | Emulated service |
 |---|---|
@@ -53,7 +53,9 @@ This gives you access to the following import paths, each covering a different A
 | `github.com/testcontainers/testcontainers-go/modules/azure/servicebus` | Azure Service Bus |
 | `github.com/testcontainers/testcontainers-go/modules/azure/lowkeyvault` | Azure Key Vault (via Lowkey Vault) |
 
-Each package follows the same pattern:
+## Use Testcontainers
+
+Each package follows the same pattern: call the module's `Run` function, register cleanup immediately, then check the error:
 
 ```go
 container, err := someservice.Run(ctx, "image:tag", opts...)
@@ -61,15 +63,13 @@ testcontainers.CleanupContainer(t, container)
 require.NoError(t, err)
 ```
 
-`CleanupContainer` is registered with `t.Cleanup` immediately after `Run` — **before** the error check — so the container is always terminated even when `Run` returns a partial error. The container exposes a `ConnectionString(ctx)` or service-specific URL method that you pass directly to the regular Azure SDK for Go client constructor.
+`CleanupContainer` is registered with `t.Cleanup` immediately after `Run` — **before** the error check — so the container is always terminated even when `Run` returns a partial error alongside a non-nil container. The container exposes a `ConnectionString(ctx)` or service-specific URL method that you pass directly to the regular Azure SDK for Go client constructor.
 
-## Azure Storage (Azurite)
+### Azure Storage (Azurite)
 
 [Azurite](https://github.com/Azure/Azurite) is the official Microsoft emulator for Azure Blob, Queue, and Table Storage. The `azurite` package starts an Azurite container and exposes per-service URLs you can pass directly to the Azure SDK for Go client libraries.
 
-### Default credentials
-
-Azurite ships with well-known testing credentials that the module exposes as constants:
+Azurite ships with well-known testing credentials exposed as constants:
 
 ```go
 azurite.AccountName // "devstoreaccount1"
@@ -78,7 +78,7 @@ azurite.AccountKey  // the well-known base64-encoded test key
 
 These values are identical to the [official Azurite documentation](https://github.com/Azure/Azurite#default-storage-account).
 
-### Blob Storage
+#### Blob Storage
 
 ```go
 import (
@@ -123,7 +123,7 @@ func TestBlobStorage(t *testing.T) {
 
 `WithEnabledServices` restricts Azurite to only the storage service you need, reducing exposed ports and startup time. `WithInMemoryPersistence` keeps data in memory rather than writing to disk.
 
-### Queue Storage
+#### Queue Storage
 
 ```go
 import (
@@ -164,7 +164,7 @@ func TestQueueStorage(t *testing.T) {
 }
 ```
 
-### Table Storage
+#### Table Storage
 
 ```go
 import (
@@ -202,7 +202,7 @@ func TestTableStorage(t *testing.T) {
 }
 ```
 
-## Azure Cosmos DB
+### Azure Cosmos DB
 
 The `cosmosdb` package starts the [Azure Cosmos DB Linux Emulator](https://learn.microsoft.com/azure/cosmos-db/how-to-develop-emulator). The `vnext-preview` image exposes an HTTP endpoint and handles TLS internally, so Go tests don't need a JVM truststore or custom certificate loading.
 
@@ -244,14 +244,12 @@ func TestCosmosDB(t *testing.T) {
 
 `ConnectionString` returns a value in the form `AccountEndpoint=<host>:<port>;AccountKey=<key>;` — the same format accepted by the production `azcosmos` client.
 
-## Azure Event Hubs
+### Azure Event Hubs
 
 > [!IMPORTANT]
 > The Azure Event Hubs emulator requires you to accept a license agreement. Pass `eventhubs.WithAcceptEULA()` to `Run`. The container fails to start without it.
 
 The `eventhubs` package starts the [Azure Event Hubs emulator](https://learn.microsoft.com/azure/event-hubs/test-locally-with-event-hub-emulator). Event Hubs requires Azure Storage for checkpoint state, so **the module automatically creates a private Docker network and an Azurite container** alongside the Event Hubs container. Both are torn down when you call `Terminate`.
-
-### Configure entities with a typed config builder
 
 The emulator enforces hard limits (1 namespace, up to 10 entities, 1–32 partitions, up to 20 consumer groups per entity). Use `eventhubs.NewConfig` to build and validate the configuration before the container starts:
 
@@ -294,8 +292,18 @@ func TestEventHubs(t *testing.T) {
     require.NoError(t, err)
     defer producer.Close(ctx)
 
-    batch, err := producer.NewEventDataBatch(ctx, nil)
-    require.NoError(t, err)
+    // Retry because event hub entity creation from config is asynchronous.
+    var (
+        batch *azeventhubs.EventDataBatch
+        batchErr error
+    )
+    for range 3 {
+        batch, batchErr = producer.NewEventDataBatch(ctx, nil)
+        if batchErr == nil {
+            break
+        }
+    }
+    require.NoError(t, batchErr)
 
     err = batch.AddEventData(&azeventhubs.EventData{Body: []byte("hello")}, nil)
     require.NoError(t, err)
@@ -305,12 +313,7 @@ func TestEventHubs(t *testing.T) {
 }
 ```
 
-> [!NOTE]
-> The emulator creates event hub entities from the config file asynchronously after startup. If `NewEventDataBatch` or `SendEventDataBatch` returns an error on the first attempt, retry with a short delay. The examples in the testcontainers-go repository show a simple retry loop for this pattern.
-
-### Bring your own Azurite container
-
-If your test already manages an Azurite container (for example, to test both Storage and Event Hubs in the same suite), pass it to the Event Hubs container with `WithAzuriteContainer`. The Event Hubs container will use that Azurite instance instead of creating its own:
+If your test already manages an Azurite container, pass it to the Event Hubs container with `WithAzuriteContainer` instead of letting the module create its own. When this option is used, `Terminate` on the Event Hubs container does **not** stop the Azurite container or the network — the caller manages their lifecycle:
 
 ```go
 eventHubsCtr, err := eventhubs.Run(
@@ -323,9 +326,7 @@ testcontainers.CleanupContainer(t, eventHubsCtr)
 require.NoError(t, err)
 ```
 
-When `WithAzuriteContainer` is used, `Terminate` on the Event Hubs container does **not** stop the Azurite container or the network — the caller manages their lifecycle.
-
-## Azure Service Bus
+### Azure Service Bus
 
 > [!IMPORTANT]
 > The Azure Service Bus emulator requires you to accept a license agreement. Pass `servicebus.WithAcceptEULA()` to `Run`. The container fails to start without it.
@@ -413,7 +414,7 @@ func TestServiceBus(t *testing.T) {
 
 `ConnectionString` returns a value in the form `Endpoint=sb://<host>:<port>;SharedAccessKeyName=…;SharedAccessKey=…;UseDevelopmentEmulator=true;` — compatible with the production `azservicebus` client.
 
-## Azure Key Vault
+### Azure Key Vault
 
 > [!NOTE]
 > The `lowkeyvault` package uses [Lowkey Vault](https://github.com/nagyesta/lowkey-vault), a community open-source Key Vault emulator, not an official Microsoft emulator. It supports the Secrets, Keys, and Certificates APIs and does not require EULA acceptance.
@@ -457,6 +458,9 @@ func TestKeyVaultSecrets(t *testing.T) {
     vaultURL, err := ctr.ConnectionURL(ctx, lowkeyvault.Local)
     require.NoError(t, err)
 
+    // Client returns an *http.Client pre-configured to trust the emulator's
+    // self-signed certificate. It is passed as the Transport so that the
+    // Azure SDK uses it for all requests to the vault.
     httpClient, err := ctr.Client(ctx)
     require.NoError(t, err)
 
@@ -464,6 +468,10 @@ func TestKeyVaultSecrets(t *testing.T) {
     cred, err := azidentity.NewDefaultAzureCredential(nil)
     require.NoError(t, err)
 
+    // The verbose ClientOptions struct literal is required by azsecrets v1.4.0,
+    // which embeds azcore.ClientOptions as an anonymous struct rather than a named type.
+    // DisableChallengeResourceVerification skips the production vault URI check
+    // that would otherwise reject a localhost URL.
     secretsClient, err := azsecrets.NewClient(vaultURL, cred, &azsecrets.ClientOptions{
         ClientOptions: struct {
             APIVersion                      string
@@ -491,8 +499,6 @@ func TestKeyVaultSecrets(t *testing.T) {
     require.Equal(t, "s3cr3t", *resp.Value)
 }
 ```
-
-`ctr.Client(ctx)` returns an `*http.Client` pre-configured to trust the emulator's self-signed certificate. Pass it as the `Transport` in the Azure SDK client options so TLS verification succeeds.
 
 ## CI/CD considerations
 
