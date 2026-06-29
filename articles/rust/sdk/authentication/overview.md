@@ -1,9 +1,9 @@
 ---
-title: Authenticate Rust apps to Azure using the Azure Identity crate
+title: Authenticate Rust Apps to Azure Using the Azure Identity Crate
 description: Authenticate Rust apps with Azure services using the Azure Identity crate for local development and production managed identities.
 ms.date: 05/18/2026
-ms.topic: overview
 ms.service: azure-rust
+ms.topic: overview
 ms.custom:
   - devx-track-rust
 ---
