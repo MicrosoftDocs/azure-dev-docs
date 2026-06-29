@@ -1,6 +1,6 @@
 ---
 title: JavaScript Developer Tools for Azure
-description: "Install individual tools for Node.js and JavaScript development on Azure"
+description: Install individual tools for Node.js and JavaScript development on Azure
 ms.date: 06/01/2026
 ms.topic: concept-article
 ms.custom:

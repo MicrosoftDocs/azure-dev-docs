@@ -1,6 +1,6 @@
 ---
-title: "Introduction to Developing Serverless Node.js Apps with Azure Functions"
-description: "Learn how to develop serverless Node.js applications using Azure Functions. This guide introduces Azure's serverless technologies, enabling you to create scalable, on-demand HTTP endpoints with JavaScript and TypeScript."
+title: Introduction to Developing Serverless Node.js Apps with Azure Functions
+description: Learn how to develop serverless Node.js applications using Azure Functions. This guide introduces Azure's serverless technologies, enabling you to create scalable, on-demand HTTP endpoints with JavaScript and TypeScript.
 ms.date: 06/17/2026
 ms.topic: concept-article
 ms.custom:

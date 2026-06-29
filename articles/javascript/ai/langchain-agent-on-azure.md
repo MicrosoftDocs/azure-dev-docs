@@ -1,5 +1,5 @@
 ---
-title: "Build a LangChain.js Agent for Azure"
+title: Build a LangChain.js Agent for Azure
 description: Create a LangChain.js agent with LangChain.js that queries HR documents using Azure AI Search and Azure OpenAI for intelligent document search and question answering.
 author: diberry
 ms.author: diberry

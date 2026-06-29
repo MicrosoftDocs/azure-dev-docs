@@ -1,5 +1,5 @@
 ---
-title: "Get Started with Serverless AI Chat Using LangChain.js"
+title: Get Started with Serverless AI Chat Using LangChain.js
 description: Use LangChain.js to simplify the interaction between the Azure OpenAI and Azure AI Search to answer a chat answer.
 ms.date: 06/01/2026
 ms.subservice: intelligent-apps

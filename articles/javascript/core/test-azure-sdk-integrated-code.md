@@ -1,6 +1,6 @@
 ---
 title: Azure Test Guide for JavaScript Applications
-description: "Learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs for JavaScript applications to ensure code quality and performance. Start testing today!"
+description: Learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs for JavaScript applications to ensure code quality and performance. Start testing today!
 ms.date: 06/01/2026
 ms.topic: concept-article
 ms.custom:
