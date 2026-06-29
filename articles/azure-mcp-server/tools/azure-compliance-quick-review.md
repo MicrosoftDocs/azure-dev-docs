@@ -3,13 +3,14 @@ title: Azure Quick Review CLI Tools
 description: Learn how to use the Azure MCP Server with the Azure Quick Review CLI Tools.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
-ms.topic: concept-article
-ms.custom: build-2025
 ms.reviewer: wabrez
+ms.date: 02/27/2026
+ms.topic: concept-article
+ms.custom:
+  - build-2025
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
 ---
 # Azure Quick Review CLI tools for the Azure MCP Server overview
 

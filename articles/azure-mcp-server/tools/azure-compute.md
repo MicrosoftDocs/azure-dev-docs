@@ -1,13 +1,13 @@
 ---
-title: Azure MCP Server tools for Azure Compute
+title: Azure MCP Server Tools for Azure Compute
 description: Discover Azure Compute tools for managing virtual machines, virtual machine scale sets, and disks in Azure MCP Server. Explore features and start optimizing your resources.
-#customer intent: As a system admin, I want to list all Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
+ms.reviewer: audreytoney
 ms.date: 05/24/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.reviewer: audreytoney
 tool_count: 13
-mcp-cli.version: 3.0.0-beta.11
+mcp-cli.version: "3.0.0-beta.11"
+# customer intent: As a system admin, I want to list all Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
 ---
 
 # Azure MCP Server tools for Azure compute overview
@@ -487,4 +487,3 @@ Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Virtual Machines documentation](/azure/virtual-machines/)
-
