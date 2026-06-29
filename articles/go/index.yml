@@ -65,6 +65,12 @@ landingContent:
         links:
           - text: Build and containerize a Go app
             url: deploy-container-apps.md
+  - title: Testing
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Integration testing with Testcontainers for Go
+            url: testcontainers-support.md
   - title: Open source
     linkLists:
       - linkListType: reference
