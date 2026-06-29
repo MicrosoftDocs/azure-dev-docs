@@ -74,4 +74,3 @@ This skill activates automatically when GitHub Copilot detects you're working in
 - [GitHub Copilot SDK documentation](https://docs.github.com/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/using-copilots-llm-for-your-agent)
 - [Azure Container Apps overview](/azure/container-apps/overview)
 - [Azure App Service overview](/azure/app-service/overview)
-- [Bring Your Own Model with Azure OpenAI](/azure/ai-services/openai/how-to/bring-your-own-data-overview)

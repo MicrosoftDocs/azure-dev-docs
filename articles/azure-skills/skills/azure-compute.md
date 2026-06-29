@@ -64,4 +64,3 @@ Try these prompts to activate this skill:
 - [Virtual Machines overview](/azure/virtual-machines/)
 - [VM quickstart](/azure/virtual-machines/windows/quick-create-portal)
 - [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
-- [VM sizing and performance](/azure/virtual-machines/sizing-guidance)

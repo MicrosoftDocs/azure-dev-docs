@@ -60,7 +60,6 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure API Management overview](/azure/api-management/api-management-key-concepts)
-- [AI Gateway landing zone](/azure/api-management/ai-gateway-landing-zone-accelerator)
 - [Load balancing Azure OpenAI endpoints](/azure/api-management/azure-openai-enable-semantic-caching)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-aigateway/SKILL.md)
