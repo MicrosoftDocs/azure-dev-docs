@@ -4,12 +4,13 @@ description: Learn how to use Azure Model Context Protocol (MCP) Server to inter
 author: diberry
 ms.author: diberry
 ms.date: 03/04/2026
+ms.service: azure-mcp-server
 ms.topic: how-to
-ms.custom: mcp-integration, devx-track-ai
-content_well_notification: 
-  - AI-contribution
+ms.custom:
+  - mcp-integration, devx-track-ai
 ai-usage: ai-generated
-ms.service: azure-ai-speech
+content_well_notification:
+  - AI-contribution
 ---
 
 # Use Azure MCP Server with Azure Speech in Foundry Tools

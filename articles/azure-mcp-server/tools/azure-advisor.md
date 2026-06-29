@@ -1,14 +1,14 @@
 ---
-title: Azure Advisor tools for the Azure MCP Server overview
+title: Azure Advisor Tools for the Azure MCP Server Overview
 description: Learn about the tools in Azure Advisor for managing resource optimization and recommendations as part of the Azure MCP Server.
-#customer intent: As an Azure admin, I want to learn how to use Azure Advisor tools so I can optimize resource performance and costs in the Azure MCP Server.
-ms.date: 05/29/2026
 ms.reviewer: ankiga
+ms.date: 05/29/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ai-usage: ai-assisted
 tool_count: 2
-mcp-cli.version: 3.0.0-beta.14
+mcp-cli.version: "3.0.0-beta.14"
+# customer intent: As an Azure admin, I want to learn how to use Azure Advisor tools so I can optimize resource performance and costs in the Azure MCP Server.
 ---
 
 # Azure Advisor tools for the Azure MCP Server overview

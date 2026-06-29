@@ -1,17 +1,17 @@
 ---
-title: Azure MCP Server tools for Azure App Service
+title: Azure MCP Server Tools for Azure App Service
 description: Use Azure MCP Server tools to manage Azure App Service resources, including web apps and APIs, with natural language prompts from your IDE.
 author: diberry
 ms.author: diberry
 ms.reviewer: arthurma, kaghiya, weidxu
+ms.date: 05/13/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 05/13/2026
+ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-ai-usage: ai-assisted
 tool_count: 8
-mcp-cli.version: 3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30
+mcp-cli.version: "3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30"
 ---
 
 # Azure MCP Server tools for Azure App Service
@@ -227,4 +227,3 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure App Service documentation](/azure/app-service/)
-

@@ -1,18 +1,19 @@
 ---
-title: Azure MCP Server tools for Azure Backup
+title: Azure MCP Server Tools for Azure Backup
 description: Use Azure MCP Server tools to manage Azure Backup resources, including vaults, policies, protected items, and governance settings, with natural language prompts from your IDE.
-ms.service: azure-mcp-server
-ms.topic: concept-article
-tool_count: 19
-mcp-cli.version: 3.0.0-beta.15+a1e1192261fcf727c3bb284346423b37e8bd6e17
 author: diberry
 ms.author: diberry
 ms.reviewer: shrja
 ms.date: 05/13/2026
+ms.service: azure-mcp-server
+ms.topic: concept-article
+ms.custom:
+  - build-2025
 ai-usage: ai-generated
-ms.custom: build-2025
 content_well_notification:
   - AI-contribution
+tool_count: 19
+mcp-cli.version: "3.0.0-beta.15+a1e1192261fcf727c3bb284346423b37e8bd6e17"
 ---
 
 # Azure MCP Server tools for Azure Backup

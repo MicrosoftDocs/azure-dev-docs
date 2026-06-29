@@ -1,15 +1,16 @@
 ---
-title: Application Insights Tools 
-description: "Use Azure MCP Server with Application Insights to list resources and code optimization recommendations using natural language prompts."
+title: Application Insights Tools
+description: Use Azure MCP Server with Application Insights to list resources and code optimization recommendations using natural language prompts.
 author: diberry
 ms.author: diberry
 ms.date: 02/27/2026
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
 ms.topic: concept-article
-ms.custom: build-2025
---- 
+ms.custom:
+  - build-2025
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
+---
 # Application Insights tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to list Application Insights resources using natural language prompts.

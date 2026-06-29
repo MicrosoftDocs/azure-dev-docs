@@ -1,15 +1,16 @@
 ---
-title: Azure App Configuration Tools 
-description: "Learn how to use Azure MCP Server tools to manage Azure App Configuration stores, key-value settings, and feature flags with natural language prompts."
+title: Azure App Configuration Tools
+description: Learn how to use Azure MCP Server tools to manage Azure App Configuration stores, key-value settings, and feature flags with natural language prompts.
 author: diberry
 ms.author: diberry
 ms.date: 12/05/2025
-content_well_notification: 
-  - AI-contribution
-ai-usage: ai-assisted
 ms.topic: concept-article
-ms.custom: build-2025
---- 
+ms.custom:
+  - build-2025
+ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
+---
 # Azure App Configuration tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure resources, including App Configuration stores using natural language prompts. This allows you to quickly manage configuration settings and feature flags without remembering complex syntax.
