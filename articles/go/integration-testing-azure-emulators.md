@@ -204,7 +204,7 @@ func TestTableStorage(t *testing.T) {
 
 ### Azure Cosmos DB
 
-The `cosmosdb` package starts the [Azure Cosmos DB Linux Emulator](https://learn.microsoft.com/azure/cosmos-db/how-to-develop-emulator). The `vnext-preview` image exposes an HTTP endpoint and handles TLS internally, so Go tests don't need a JVM truststore or custom certificate loading.
+The `cosmosdb` package starts the [Azure Cosmos DB Linux Emulator](/azure/cosmos-db/how-to-develop-emulator). The `vnext-preview` image exposes an HTTP endpoint and handles TLS internally, so Go tests don't need a JVM truststore or custom certificate loading.
 
 The module ships a `NewContainerPolicy` helper that returns a client policy configured to trust the emulator's self-signed certificate:
 
@@ -249,7 +249,7 @@ func TestCosmosDB(t *testing.T) {
 > [!IMPORTANT]
 > The Azure Event Hubs emulator requires you to accept a license agreement. Pass `eventhubs.WithAcceptEULA()` to `Run`. The container fails to start without it.
 
-The `eventhubs` package starts the [Azure Event Hubs emulator](https://learn.microsoft.com/azure/event-hubs/test-locally-with-event-hub-emulator). Event Hubs requires Azure Storage for checkpoint state, so **the module automatically creates a private Docker network and an Azurite container** alongside the Event Hubs container. Both are torn down when you call `Terminate`.
+The `eventhubs` package starts the [Azure Event Hubs emulator](/azure/event-hubs/test-locally-with-event-hub-emulator). Event Hubs requires Azure Storage for checkpoint state, so **the module automatically creates a private Docker network and an Azurite container** alongside the Event Hubs container. Both are torn down when you call `Terminate`.
 
 The emulator enforces hard limits (1 namespace, up to 10 entities, 1–32 partitions, up to 20 consumer groups per entity). Use `eventhubs.NewConfig` to build and validate the configuration before the container starts:
 
@@ -331,7 +331,7 @@ require.NoError(t, err)
 > [!IMPORTANT]
 > The Azure Service Bus emulator requires you to accept a license agreement. Pass `servicebus.WithAcceptEULA()` to `Run`. The container fails to start without it.
 
-The `servicebus` package starts the [Azure Service Bus emulator](https://learn.microsoft.com/azure/service-bus-messaging/overview-emulator). Service Bus requires SQL Server for state storage, so **the module automatically creates a private Docker network and a Microsoft SQL Server container** alongside the Service Bus container. Both are torn down when you call `Terminate`.
+The `servicebus` package starts the [Azure Service Bus emulator](/azure/service-bus-messaging/overview-emulator). Service Bus requires SQL Server for state storage, so **the module automatically creates a private Docker network and a Microsoft SQL Server container** alongside the Service Bus container. Both are torn down when you call `Terminate`.
 
 ```go
 import (

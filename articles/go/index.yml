@@ -70,7 +70,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Integration testing with Testcontainers for Go
-            url: testcontainers-support.md
+            url: integration-testing-azure-emulators.md
   - title: Open source
     linkLists:
       - linkListType: reference

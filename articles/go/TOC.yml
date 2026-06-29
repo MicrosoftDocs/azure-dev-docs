@@ -59,7 +59,7 @@ items:
         - name: Deploy a Go app to Container Apps
           href: deploy-container-apps.md
     - name: Integration testing with Testcontainers
-      href: testcontainers-support.md
+      href: integration-testing-azure-emulators.md
     - name: SDK examples
       href: https://github.com/azure-samples/azure-sdk-for-go-samples
     - name: Migration guides
