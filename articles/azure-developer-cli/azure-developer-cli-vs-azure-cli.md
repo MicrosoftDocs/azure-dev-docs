@@ -3,7 +3,7 @@ title: Azure Developer CLI vs Azure CLI Overview
 description: Understand the differences between the Azure Developer CLI and the Azure CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/10/2025
+ms.date: 06/30/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
