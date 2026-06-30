@@ -62,7 +62,7 @@ Your project now contains the core structure and assets of an `azd` template. Ho
         tags: union(tags, { 'azd-service-name': 'web' })
         appServicePlanId: appServicePlan.outputs.id
         runtimeName: 'python'
-        runtimeVersion: '3.8'
+        runtimeVersion: '3.11'
         scmDoBuildDuringDeployment: true
       }
     }
