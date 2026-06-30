@@ -12,7 +12,7 @@ ms.reviewer: jogiles
 
 # Troubleshoot development environment authentication
 
-This article provides guidance on troubleshooting development environment authentication issues encountered when authenticating Azure SDK for Java applications running locally on developer machines, through various `TokenCredential` implementations. For more information, see [Azure authentication in Java development environments](authentication/dev-env.md).
+This article provides guidance on troubleshooting development environment authentication problems that you encounter when authenticating Azure SDK for Java applications running locally on developer machines through various `TokenCredential` implementations. For more information, see [Azure authentication in Java development environments](authentication/dev-env.md).
 
 ## Troubleshoot AzureCliCredential
 
