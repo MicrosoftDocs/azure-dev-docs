@@ -58,6 +58,8 @@ items:
           href: deploy-azure-resource-manager-template.md
         - name: Deploy a Go app to Container Apps
           href: deploy-container-apps.md
+    - name: Integration testing with Testcontainers
+      href: integration-testing-azure-emulators.md
     - name: SDK examples
       href: https://github.com/azure-samples/azure-sdk-for-go-samples
     - name: Migration guides

@@ -27,3 +27,6 @@ For the full list of Azure products and services, see the [Azure documentation h
 
 > [!div class="nextstepaction"]
 > [What is the Azure SDK for Go?](overview.md)
+
+> [!div class="nextstepaction"]
+> [Integration testing with Testcontainers for Go](integration-testing-azure-emulators.md)
