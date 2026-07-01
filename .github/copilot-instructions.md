@@ -68,6 +68,12 @@ Follow [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-g
 
 New Markdown files: lowercase with hyphens, omit filler words (the, a, etc.).
 
+## Files to ignore
+
+- Don't modify or use as context the following files:
+
+- `articles/azure-developer-cli/reference.md` — auto-generated reference content.
+
 ## General Guidance
 
 - Always check for and follow the latest instructions in `.github/instructions/`.
