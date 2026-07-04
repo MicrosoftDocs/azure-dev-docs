@@ -359,7 +359,7 @@ When testing, think in terms of the test setup, the test itself, and the verific
 - Arrange: set up your test conditions
 - Act: call your function to test, also known as the _system under test_ or SUT
 - Assert: validate the results. Results can be behavior or state.
-  - Behavior indicates functionality in your test function, which can be verified. One example is that some dependency was called.
+  - Behavior indicates functionality in your test function, which you can verify. One example is that some dependency was called.
   - State indicates the data returned from the function.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
@@ -417,9 +417,9 @@ The test file covers three tests for the `insert.ts` file, which can be divided 
 
 | Validation type | Test |
 | --- | --- |
-| Happy path: `should insert document successfully` | The mocked database method was called, and returned the altered data. |
-| Error path: `should return verification error if input is not verified` | Data failed validation and returned an error. |
-| Error path:`should return error if db insert fails` | The mocked database method was called, and returned an error. |
+| Happy path: `should insert document successfully` | The mocked database method is called and returns the altered data. |
+| Error path: `should return verification error if input is not verified` | Data fails validation and returns an error. |
+| Error path:`should return error if db insert fails` | The mocked database method is called and returns an error. |
 
 The following test file shows how to test the **insertDocument** function.
 
