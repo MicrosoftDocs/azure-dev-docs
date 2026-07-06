@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot dependency version conflicts when you use the Azure SDK for Java
-description: Provides an overview of how to troubleshoot dependency version conflicts related to using the Azure SDK for Java.
+title: "Troubleshoot dependency version conflicts: Azure SDK for Java"
+description: "Learn how to diagnose and fix dependency version conflicts in the Azure SDK for Java. Use this guide to resolve runtime errors and keep your app stable."
 ms.date: 04/02/2025 
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
@@ -30,13 +30,13 @@ The following sections describe methods on how to diagnose version mismatch issu
 
 ### Use the Azure SDK for Java build tool
 
-The Azure SDK for Java build tool, introduced in [Get started with Azure SDK and Apache Maven](get-started-maven.md), helps to identify commonly encountered issues. We recommend that you add this build tool to your project and run it by adding the `azure:run` Maven target to your regular build process. With the appropriate configuration, you can identify and resolve dependency conflicts more proactively, before they become issues at runtime.
+The Azure SDK for Java build tool, introduced in [Get started with Azure SDK and Apache Maven](get-started-maven.md), helps to identify commonly encountered issues. Add this build tool to your project and run it by adding the `azure:run` Maven target to your regular build process. With the appropriate configuration, you can identify and resolve dependency conflicts more proactively, before they become issues at runtime.
 
 ### View a dependency tree
 
-Run `mvn dependency:tree` or `gradle dependencies --scan` to show the full dependency tree for your application, with version numbers. `mvn dependency:tree -Dverbose` gives more information, but may be misleading. For more information, see [Apache Maven Dependency Tree](https://maven.apache.org/shared/maven-dependency-tree/) in the Maven documentation. For each library that you suspect has a version conflict, note its version number and determine which components depend on it.
+Run `mvn dependency:tree` or `gradle dependencies --scan` to show the full dependency tree for your application, with version numbers. `mvn dependency:tree -Dverbose` gives more information, but it can be misleading. For more information, see [Apache Maven Dependency Tree](https://maven.apache.org/shared/maven-dependency-tree/) in the Maven documentation. For each library that you suspect has a version conflict, note its version number and determine which components depend on it.
 
-Dependency resolution in development and production environments may work differently. [Apache Spark](https://spark.apache.org/docs/latest/), [Apache Flink](https://nightlies.apache.org/flink/flink-docs-release-1.13/), [Databricks](https://databricks.com/), and IDE plugins need extra configuration for custom dependencies. They can also bring their own versions of Azure Client libraries or common components. For more information, see the following articles:
+Dependency resolution in development and production environments might work differently. [Apache Spark](https://spark.apache.org/docs/latest/), [Apache Flink](https://nightlies.apache.org/flink/flink-docs-release-1.13/), [Databricks](https://databricks.com/), and IDE plugins need extra configuration for custom dependencies. They can also bring their own versions of Azure Client libraries or common components. For more information, see the following articles:
 
 - [Bundling Your Application’s Dependencies](https://spark.apache.org/docs/latest/submitting-applications.html#bundling-your-applications-dependencies) for Apache Spark
 - [Project Configuration](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/dev/datastream/project-configuration/) for Apache Flink
@@ -51,17 +51,17 @@ The internal dependency version on Azure Functions (running Java 8 only) takes p
 To solve this problem, set the `FUNCTIONS_WORKER_JAVA_LOAD_APP_LIBS` environment variable to `true` or `1`. Be sure to update the Azure Function Tools (v2 or v3) to the latest version.
 
 > [!NOTE]
-> This configuration applies to Azure Functions running Java 8 only, Functions running Java 11 don't need special configuration.
+> This configuration applies to Azure Functions running Java 8 only. Functions running Java 11 don't need special configuration.
 
 ### Configure Apache Spark
 
-The Azure SDK for Java supports multiple versions of Jackson, but issues can sometimes arise depending on your build tooling and its dependency resolution ordering. A good example of this problem is with Apache Spark, version 3.0.0 and later, which depends on Jackson 2.10. While it's compatible with the Azure SDK for Java, developers often discover that a more recent version of Jackson is used instead, which results in incompatibilities. To mitigate this problem, you should pin a specific version of Jackson (one that is compatible with Spark). For more information, see the [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section in this article.
+The Azure SDK for Java supports multiple versions of Jackson, but issues can sometimes arise depending on your build tooling and its dependency resolution ordering. A good example of this problem is with Apache Spark, version 3.0.0 and later, which depends on Jackson 2.10. While it's compatible with the Azure SDK for Java, developers often discover that a more recent version of Jackson is used instead, which results in incompatibilities. To mitigate this problem, pin a specific version of Jackson (one that is compatible with Spark). For more information, see the [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section in this article.
 
 If you use earlier versions of Spark, or if another library you use requires an even earlier version of Jackson that the Azure SDK for Java doesn't support, continue reading this article for possible mitigation steps.
 
 ### Detect Jackson runtime version
 
-In Azure Core 1.21.0, we added runtime detection and better diagnostics of the Jackson runtime version.
+In Azure Core 1.21.0, the library adds runtime detection and better diagnostics for the Jackson runtime version.
 
 If you see `LinkageError` (or any of its subclasses) related to the Jackson API, check the message of the exception for runtime version information. For example: `com.azure.core.implementation.jackson.JacksonVersionMismatchError: com/fasterxml/jackson/databind/cfg/MapperBuilder Package versions: jackson-annotations=2.9.0, jackson-core=2.9.0, jackson-databind=2.9.0, jackson-dataformat-xml=2.9.0, jackson-datatype-jsr310=2.9.0, azure-core=1.19.0-beta.2`
 
@@ -90,16 +90,16 @@ Remove dependencies if you can. Sometimes, an application has dependencies on mu
 
 If switching to the latest Azure SDK BOM doesn't help, identify the libraries causing conflicts and the components that use them. (For more information, see the [View a dependency tree](#view-a-dependency-tree) section earlier in this article.) Try updating to a newer version, which protects against security vulnerabilities, and often brings new features, performance improvements, and bug fixes.
 
-Avoid downgrading the Azure SDK version because it may expose your application to known vulnerabilities and issues.
+Avoid downgrading the Azure SDK version because it might expose your application to known vulnerabilities and issues.
 
 ### Shade libraries
 
 Sometimes there's no combination of libraries that work together, and shading comes as the last resort.
 
 > [!NOTE]
-> Shading has significant drawbacks: it increases package size and number of classes on the classpath, it makes code navigation and debugging hard, doesn't relocate JNI code, breaks reflection, and may violate code licenses among other things. It should be used only after other options are exhausted.
+> Shading has significant drawbacks: it increases package size and number of classes on the classpath, it makes code navigation and debugging hard, it doesn't relocate JNI code, it breaks reflection, and it might violate code licenses among other things. Use it only after other options are exhausted.
 
-Shading enables you to include dependencies within a JAR at build time, then rename packages and update application code to use the code in the shaded location. Diamond dependency conflict is no longer an issue because there are two different copies of a dependency. You may shade a library that has a conflicting transitive dependency or a direct application dependency, as described in the following list:
+Shading enables you to include dependencies within a JAR at build time, then rename packages and update application code to use the code in the shaded location. Diamond dependency conflict is no longer an issue because there are two different copies of a dependency. You can shade a library that has a conflicting transitive dependency or a direct application dependency, as described in the following list:
 
 - **Transitive dependency conflict**: For example, third-party library `A` requires Jackson 2.9, which Azure SDKs don't support, and it's not possible to update `A`. Create a new module, which includes `A` and shades (relocates) Jackson 2.9 and, optionally, other dependencies of `A`.
 - **Application dependency conflict**: Your application uses Jackson 2.9 directly. While you're working on updating your code, you can shade and relocate Jackson 2.9 into a new module with relocated Jackson classes instead.
@@ -109,7 +109,7 @@ Shading enables you to include dependencies within a JAR at build time, then ren
 
 ### Create a fat JAR
 
-Environments like Databricks or Apache Spark have custom dependency management and provide common libraries like Jackson. To avoid conflict with provided libraries, you may want to build a fat JAR that contains all the dependencies. For more information, see [Apache Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin). In many cases, relocating Jackson classes (`com.fasterxml.jackson`) mitigates the issue. Sometimes such environments also bring their own version of Azure SDKs, so you might be compelled to relocate `com.azure` namespace to work around version conflicts.
+Environments like Databricks or Apache Spark have custom dependency management and provide common libraries like Jackson. To avoid conflict with provided libraries, you might want to build a fat JAR that contains all the dependencies. For more information, see [Apache Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin). In many cases, relocating Jackson classes (`com.fasterxml.jackson`) mitigates the issue. Sometimes such environments also bring their own version of Azure SDKs, so you might need to relocate `com.azure` namespace to work around version conflicts.
 
 ## Understand compatible dependency versions
 
@@ -129,7 +129,7 @@ The Azure SDK for Java supports working with a range of Jackson versions. The lo
 Applications can downgrade Jackson versions (to 2.10.0 or higher) without breaking Azure SDK for Java client libraries.
 
 > [!NOTE]
-> Using old versions of Jackson may expose applications to known vulnerabilities and issues. For more information, see the [list of known vulnerabilities for Jackson libraries](https://www.cvedetails.com/product-list/vendor_id-15866/Fasterxml.html).
+> Using old versions of Jackson might expose applications to known vulnerabilities and issues. For more information, see the [list of known vulnerabilities for Jackson libraries](https://www.cvedetails.com/product-list/vendor_id-15866/Fasterxml.html).
 
 When pinning a specific version of Jackson, make sure to do it for all modules used by Azure SDK, which are shown in the following list:
 
@@ -141,9 +141,9 @@ When pinning a specific version of Jackson, make sure to do it for all modules u
 
 ### Migration from Jackson to azure-json
 
-Azure client libraries for Java are in the process of migration to [azure-json](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/serialization/azure-json), which doesn't depend on any 3rd party components, and offers shared primitives, abstractions, and helpers for JSON.
+Azure client libraries for Java are migrating to [azure-json](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/serialization/azure-json), which doesn't depend on any third-party components. It offers shared primitives, abstractions, and helpers for JSON.
 
-Environments like Apache Spark, Apache Flink, and Databricks might bring older versions of `azure-core` that don't yet depend on `azure-json`. As a result, when using newer versions of Azure libraries in such environments, you might get errors similar to `java.lang.NoClassDefFoundError: com/azure/json/JsonSerializable`. You can mitigate this error by adding an explicit dependency on `azure-json`.
+Environments like Apache Spark, Apache Flink, and Databricks might bring older versions of `azure-core` that don't yet depend on `azure-json`. As a result, when you use newer versions of Azure libraries in such environments, you might get errors similar to `java.lang.NoClassDefFoundError: com/azure/json/JsonSerializable`. Add an explicit dependency on `azure-json` to mitigate this error.
 
 ## Next steps
 
