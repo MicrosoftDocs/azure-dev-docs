@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot Azure Event Hubs
+title: Troubleshoot Azure Event Hubs errors and exceptions
 titleSuffix: Azure SDK for Java
-description: Helps you troubleshoot Events Hubs issues when you use the Azure SDK for Java.
+description: "Troubleshoot Azure Event Hubs errors, exceptions, and connectivity issues with the Azure SDK for Java. Find mitigation steps and fixes for common problems."
 ms.date: 04/02/2025 
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
@@ -12,7 +12,7 @@ ms.reviewer: jogiles
 
 # Troubleshoot Azure Event Hubs
 
-This article covers failure investigation techniques, common errors for the credential types in the Event Hubs library, and mitigation steps to resolve these errors. In addition to the general troubleshooting techniques and guidance that apply regardless of the Event Hubs use case, the following articles cover specific features of the Event Hubs library:
+This article covers how to troubleshoot Azure Event Hubs failures, including common errors for credential types in the Event Hubs library and mitigation steps to resolve them. In addition to the general troubleshooting techniques and guidance that apply regardless of the Event Hubs use case, the following articles cover specific features of the Event Hubs library:
 
 * [Troubleshoot Azure Event Hubs producer](troubleshooting-messaging-event-hubs-producer.md)
 * [Troubleshoot Azure Event Hubs event processor](troubleshooting-messaging-event-hubs-processor.md)
@@ -37,13 +37,13 @@ An [AmqpException](/java/api/com.azure.core.amqp.exception.amqpexception) contai
   * [SessionErrorContext](/java/api/com.azure.core.amqp.exception.sessionerrorcontext): Errors that occur in the session.
   * [AmqpErrorContext](/java/api/com.azure.core.amqp.exception.amqperrorcontext): Errors that occur in the connection or a general AMQP error.
 
-### Commonly encountered exceptions
+### Commonly encountered Event Hubs exceptions
 
 #### amqp:connection:forced and amqp:link:detach-forced
 
-When the connection to Event Hubs is idle, the service disconnects the client after some time. This issue isn't a problem because the clients re-establish a connection when a service operation is requested. For more information, see [AMQP errors in Azure Service Bus](/azure/service-bus-messaging/service-bus-amqp-troubleshoot).
+When the connection to Event Hubs is idle, the service disconnects the client after some time. This behavior isn't a problem because the clients re-establish a connection when a service operation is requested. For more information, see [AMQP errors in Azure Service Bus](/azure/service-bus-messaging/service-bus-amqp-troubleshoot).
 
-## Permission issues
+## Resolve Event Hubs permission issues
 
 An `AmqpException` with an [AmqpErrorCondition](/java/api/com.azure.core.amqp.exception.amqperrorcondition) of `amqp:unauthorized-access` means that the provided credentials don't allow for performing the action (receiving or sending) with Event Hubs. To resolve this issue, try the following tasks:
 
@@ -52,7 +52,7 @@ An `AmqpException` with an [AmqpErrorCondition](/java/api/com.azure.core.amqp.ex
 
 For other possible solutions, see [Troubleshoot authentication and authorization issues with Event Hubs](/azure/event-hubs/troubleshoot-authentication-authorization).
 
-## Connectivity issues
+## Resolve Event Hubs connectivity issues
 
 ### Timeout when connecting to service
 
@@ -68,13 +68,13 @@ To resolve timeout issues, try the following tasks:
 
 ### TLS/SSL handshake failures
 
-This error can occur when an intercepting proxy is used. To verify, we recommend testing in your hosting environment with the proxy disabled.
+This error can occur when you use an intercepting proxy. To verify, test in your hosting environment with the proxy disabled.
 
 ### Socket exhaustion errors
 
-Applications should prefer treating the Event Hubs clients as a singleton, creating and using a single instance through the lifetime of their application. This recommendation is important because each client type manages its connection. When you create a new Event Hubs client, it results in a new AMQP connection, which uses a socket. Additionally, it's essential that clients inherit from `java.io.Closeable`, so your application is responsible for calling `close()` when it's finished using a client.
+Treat the Event Hubs clients as a singleton. Create and use a single instance through the lifetime of your application. This recommendation is important because each client type manages its connection. When you create a new Event Hubs client, you create a new AMQP connection, which uses a socket. Additionally, it's essential that clients inherit from `java.io.Closeable`, so your application is responsible for calling `close()` when it's finished using a client.
 
-To use the same AMQP connection when creating multiple clients, you can use the `EventHubClientBuilder.shareConnection()` flag, hold a reference to that `EventHubClientBuilder`, and create new clients from that same builder instance.
+To use the same AMQP connection when creating multiple clients, use the `EventHubClientBuilder.shareConnection()` flag, hold a reference to that `EventHubClientBuilder`, and create new clients from that same builder instance.
 
 ### Connect using an IoT connection string
 
@@ -87,7 +87,7 @@ For more information, see the following articles:
 
 ### Can't add components to the connection string
 
-The legacy Event Hubs clients allowed customers to add components to the connection string retrieved from the Azure portal. The legacy clients are in packages [com.microsoft.azure:azure-eventhubs](https://central.sonatype.com/artifact/com.microsoft.azure/azure-eventhubs/) and [com.microsoft.azure:azure-eventhubs-eph](https://central.sonatype.com/artifact/com.microsoft.azure/azure-eventhubs-eph). The current generation supports connection strings only in the form published by the Azure portal.
+The legacy Event Hubs clients allowed you to add components to the connection string retrieved from the Azure portal. The legacy clients are in packages [com.microsoft.azure:azure-eventhubs](https://central.sonatype.com/artifact/com.microsoft.azure/azure-eventhubs/) and [com.microsoft.azure:azure-eventhubs-eph](https://central.sonatype.com/artifact/com.microsoft.azure/azure-eventhubs-eph). The current generation supports connection strings only in the form published by the Azure portal.
 
 #### Add "TransportType=AmqpWebSockets"
 
@@ -97,11 +97,11 @@ To use web sockets, see the [PublishEventsWithSocketsAndProxy.java][PublishEvent
 
 To authenticate with Managed Identity, see the sample [PublishEventsWithAzureIdentity.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/PublishEventsWithAzureIdentity.java).
 
-For more information about the `Azure.Identity` library, check out our [Authentication and the Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk) blog post.
+For more information about the `Azure.Identity` library, check out the [Authentication and the Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk) blog post.
 
-## Enable and configure logging
+## Enable and configure logging for Event Hubs
 
-Azure SDK for Java offers a consistent logging story to help in troubleshooting application errors and to help expedite their resolution. The logs produced capture the flow of an application before reaching the terminal state to help locate the root issue. For guidance on logging, see [Configure logging in the Azure SDK for Java](logging-overview.md) and [Troubleshooting overview](troubleshooting-overview.md).
+Azure SDK for Java offers a consistent logging story to help in troubleshooting application errors and to help expedite their resolution. The logs you produce capture the flow of an application before reaching the terminal state to help locate the root issue. For guidance on logging, see [Configure logging in the Azure SDK for Java](logging-overview.md) and [Troubleshooting overview](troubleshooting-overview.md).
 
 In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` provides insights into the library's state. The following sections show sample log4j2 and logback configurations to reduce the excessive messages when verbose logging is enabled.
 
@@ -109,7 +109,7 @@ In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` p
 
 Use the following steps to configure Log4J 2:
 
-1. Add the dependencies in your **pom.xml** using the ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for Log4j2" section.
+1. Add the dependencies in your **pom.xml** by using the ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for Log4j2" section.
 1. Add [log4j2.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/log4j2.xml) to your **src/main/resources** folder.
 
 ### Configure logback
@@ -152,7 +152,7 @@ When you submit a bug, the log messages from classes in the following packages a
 
 ## Next steps
 
-If the troubleshooting guidance in this article doesn't help to resolve issues when you use the Azure SDK for Java client libraries, we recommended that you [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
+If the troubleshooting guidance in this article doesn't help resolve issues when you use the Azure SDK for Java client libraries, [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
 
 <!-- LINKS -->
 [LoggingPom]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/pom.xml
