@@ -97,8 +97,8 @@
         }
       },
       "author": {
-        "**/*.md": "Susan-Potter",
-        "**/*.yml": "Susan-Potter",
+        "**/*.md": "nitinme",
+        "**/*.yml": "nitinme",
         "ansible/**/*.md": "TomArcherMsft",
         "ansible/**/*.yml": "TomArcherMsft",
         "azure-developer-cli/**/*.md": "alexwolfmsft",
@@ -141,14 +141,14 @@
         "ai-developer-tools/**/*.yml": "diberry"
       },
       "manager":{
-        "**/*.md": "susanpotter",
-        "**/*.yml": "susanpotter",
+        "**/*.md": "nitinme",
+        "**/*.yml": "nitinme",
         "terraform/**/*.md": "jasongroce",
         "terraform/**/*.yml": "jasongroce"
       },
       "ms.author": {
-        "**/*.md": "susanpotter",
-        "**/*.yml": "susanpotter",
+        "**/*.md": "nitinme",
+        "**/*.yml": "nitinme",
         "ansible/**/*.md": "tarcher",
         "ansible/**/*.yml": "tarcher",
         "azure-developer-cli/**/*.md": "alexwolf",

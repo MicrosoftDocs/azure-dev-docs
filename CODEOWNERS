@@ -1,18 +1,16 @@
-# Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
-
 # Global owner
-* @Susan-Potter
+* @nitinme
 
 # Config
-/articles/docfx.json @KarlErickson @Susan-Potter
-/.openpublishing.publish.config.json @KarlErickson @Susan-Potter
-/CODEOWNERS @KarlErickson @Susan-Potter
+/articles/docfx.json @KarlErickson
+/.openpublishing.publish.config.json @KarlErickson
+/CODEOWNERS @KarlErickson
 
 # AI
 /articles/ai/ @bobtabor-msft
 
 # Intro
-/articles/intro/ @Susan-Potter
+/articles/intro/ @PatAltimore
 
 # DevEx
 /articles/python/ @PatAltimore
