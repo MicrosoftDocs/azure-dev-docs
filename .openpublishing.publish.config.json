@@ -20,12 +20,10 @@
   "notification_subscribers": [
     "brendm@microsoft.com",
     "karler@microsoft.com",
-    "susanpotter@microsoft.com",
     "diberry@microsoft.com"
   ],
   "sync_notification_subscribers": [
-    "karler@microsoft.com",
-    "susanpotter@microsoft.com"
+    "karler@microsoft.com"
   ],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-dev-docs",
