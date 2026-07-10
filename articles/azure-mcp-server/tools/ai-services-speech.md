@@ -1,9 +1,9 @@
 ---
-title: Azure Speech in Foundry Tools
-description: Learn how to use the Azure MCP Server with Azure Speech in Foundry Tools.
+title: Azure AI Speech tools
+description: Learn how to use the Azure MCP Server with Azure AI Speech.
 author: diberry
 ms.author: diberry
-ms.date: 12/05/2025
+ms.date: 07/10/2026
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -11,9 +11,9 @@ ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
 ---
-# Azure Speech in Foundry Tools for the Azure MCP Server overview
+# Azure AI Speech tools for the Azure MCP Server overview
 
-Use the Azure MCP Server to manage Azure Speech in Foundry Tools functionalities such as speech-to-text (STT) and text-to-speech (TTS) with natural language prompts.
+Use the Azure MCP Server to manage Azure AI Speech capabilities such as speech to text (STT) and text to speech (TTS) with natural language prompts.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -23,11 +23,11 @@ Use the Azure MCP Server to manage Azure Speech in Foundry Tools functionalities
 <!-- speech stt recognize -->
 
 
-Recognize speech from an audio file using [Speech](/azure/ai-services/speech-service/speech-to-text). This command takes an audio file and converts it to text using advanced speech recognition capabilities. Supported audio formats include WAV, MP3, OPUS/OGG, FLAC, ALAW, MULAW, MP4, M4A, and AAC. Compressed formats require GStreamer to be installed on the system.
+Recognize speech from an audio file using [Azure AI Speech](/azure/ai-services/speech-service/speech-to-text). This command takes an audio file and converts it to text using advanced speech recognition capabilities. Supported audio formats include WAV, MP3, OPUS/OGG, FLAC, ALAW, MULAW, MP4, M4A, and AAC. Compressed formats require GStreamer to be installed on the system.
 
 Example prompts include:
 
-- **Basic conversion**: "Convert the audio file ./meeting-recording.wav to text using endpoint `https://myservice.cognitiveservices.azure.com/` with Azure Speech Services"
+- **Basic conversion**: "Convert the audio file ./meeting-recording.wav to text using endpoint `https://myservice.cognitiveservices.azure.com/` with Azure AI Speech"
 - **With language detection**: "Recognize speech from file ./recording.mp3 using endpoint `https://myservice.cognitiveservices.azure.com/` with language detection"
 - **With profanity filtering**: "Transcribe speech from file ./interview.wav using endpoint `https://myservice.cognitiveservices.azure.com/` with profanity option removed"
 - **Specify endpoint**: "Convert speech to text from file ./audio.wav using endpoint `https://myservice.cognitiveservices.azure.com/`"
@@ -57,12 +57,12 @@ Example prompts include:
 
 <!-- speech tts synthesize -->
 
-Convert text to speech using Speech. This command takes text input and generates an audio file using advanced neural text-to-speech capabilities.
+Convert text to speech using Azure AI Speech. This command takes text input and generates an audio file using advanced neural text-to-speech capabilities.
 
 Example prompts include:
 
-- **Basic synthesis**: "Convert the text 'Hello, welcome to Foundry Tools' to speech using endpoint `https://myservice.cognitiveservices.azure.com/` and save to output.wav"
-- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my custom voice my-custom-voice under service `https://myservice.cognitiveservices.azure.com/` and endpoint "guid-endpoint"
+- **Basic synthesis**: "Convert the text 'Hello, welcome to Azure AI Speech' to speech using endpoint `https://myservice.cognitiveservices.azure.com/` and save to output.wav"
+- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my custom voice my-custom-voice under service `https://myservice.cognitiveservices.azure.com/` and endpoint ID `guid-endpoint`"
 - **Different language**: "Generate Spanish speech for 'Bienvenido a Azure' and save to welcome-es.wav using my speech endpoint https://myresource.cognitiveservices.azure.com/ in es-ES language"
 
 | Parameter |  Required or optional | Description |
@@ -85,4 +85,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Foundry Tools](/azure/ai-services)
+- [Azure AI services](/azure/ai-services)
