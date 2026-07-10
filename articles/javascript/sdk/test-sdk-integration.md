@@ -38,7 +38,7 @@ The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) 
 
 ### [Vitest](#tab/test-with-vitest)
 
-[Vitest](https://main.vitest.dev/)
+[Vitest](https://vitest.dev/)
 
 ---
 
@@ -219,15 +219,15 @@ Fakes substitute a functionality that you wouldn't normally use in production, s
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/fake-in-mem-db.test.ts" :::
+:::code language="typescript" source="~/../node-essentials/test-with-node-testrunner/test/fake-in-mem-db.test.ts":::
 
 ### [Jest](#tab/test-with-jest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/fakes/fake-in-mem-db.spec.ts" :::
+:::code language="typescript" source="~/../node-essentials/test-with-jest/src/fakes/fake-in-mem-db.spec.ts":::
 
 ### [Vitest](#tab/test-with-vitest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/tests/fake-in-mem-db.test.ts" :::
+:::code language="typescript" source="~/../node-essentials/test-with-vitest/tests/fake-in-mem-db.test.ts":::
 
 ---
 
@@ -241,15 +241,15 @@ Cosmos DB is used as an example, however the concepts apply to most of the Azure
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/lib/insert.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-node-testrunner/src/lib/insert.ts":::
 
 ### [Jest](#tab/test-with-jest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/mock-function/lib/insert.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-jest/src/mock-function/lib/insert.ts":::
 
 ### [Vitest](#tab/test-with-vitest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/lib/insert.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-vitest/src/lib/insert.ts":::
 
 ---
 
@@ -262,7 +262,7 @@ The functions in this application are:
 | --- | --- |
 | **insertDocument** | Inserts a document into the database. **This is what we want to test**. |
 | **inputVerified** | Verifies the input data against a schema. Ensures data is in the correct format (for example, valid email addresses, correctly formatted URLs). |
-| **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). **This is what we want to mock**. It already has its own tests maintained by the package owners. We need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
+| **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](/javascript/api/@azure/cosmos). **This is what we want to mock**. It already has its own tests maintained by the package owners. We need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
 
 ### Install test framework dependency
 
@@ -364,17 +364,17 @@ When testing, think in terms of the test setup, the test itself, and the verific
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/boilerplate.test.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-node-testrunner/test/boilerplate.test.ts":::
 
 ### [Jest](#tab/test-with-jest)
 
 Jest has a test file template to define your test file.
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/test-boilerplate/boilerplate.spec.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-jest/src/test-boilerplate/boilerplate.spec.ts":::
 
 ### [Vitest](#tab/test-with-vitest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/tests/boilerplate.test.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-vitest/tests/boilerplate.test.ts":::
 
 ---
 
@@ -419,21 +419,21 @@ The test file covers three tests for the `insert.ts` file, which can be divided 
 | --- | --- |
 | Happy path: `should insert document successfully` | The mocked database method is called and returns the altered data. |
 | Error path: `should return verification error if input is not verified` | Data fails validation and returns an error. |
-| Error path:`should return error if db insert fails` | The mocked database method is called and returns an error. |
+| Error path: `should return error if db insert fails` | The mocked database method is called and returns an error. |
 
 The following test file shows how to test the **insertDocument** function.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/insert.test.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-node-testrunner/test/insert.test.ts":::
 
 ### [Jest](#tab/test-with-jest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/mock-function/lib/insert.spec.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-jest/src/mock-function/lib/insert.spec.ts":::
 
 ### [Vitest](#tab/test-with-vitest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/tests/insert.test.ts":::
+:::code language="typescript" source="~/../node-essentials/test-with-vitest/tests/insert.test.ts":::
 
 ---
 
