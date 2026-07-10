@@ -1,12 +1,13 @@
 ---
-title: Azure skill for deploy
+title: Azure Skill for Deploy
 description: Execute Azure deployments for already-prepared applications that have existing .azure/deployment-plan.md and infrastructure files.
-ms.topic: reference
-ms.date: 4/2/2026
 author: diberry
 ms.author: diberry
+ms.date: 4/2/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.19
+ms.topic: reference
+ms.custom:
+  - "skill-version-1.0.19"
 ---
 
 # Azure skill for deploy
@@ -65,3 +66,4 @@ This skill is the final step in the deployment workflow:
 - [Azure skill for validate](azure-validate.md)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-deploy/SKILL.md)
+- [Azure skill to deploy Python apps to Azure App Service on Linux](python-app-service-deploy.md)

@@ -63,3 +63,5 @@
     href: skills/entra-app-registration.md
   - name: Microsoft Foundry
     href: skills/microsoft-foundry.md
+  - name: Python App Service Deployment
+    href: skills/python-app-service-deploy.md
