@@ -258,10 +258,10 @@ Cosmos DB is used as an example, however the concepts apply to most of the Azure
 
 The functions in this application are:
 
-| Function | Description  |
-|--|--|
-| **insertDocument**      | Inserts a document into the database. **This is what we want to test**. |
-| **inputVerified**       | Verifies the input data against a schema. Ensures data is in the correct format (for example, valid email addresses, correctly formatted URLs).|
+| Function | Description |
+| --- | --- |
+| **insertDocument** | Inserts a document into the database. **This is what we want to test**. |
+| **inputVerified** | Verifies the input data against a schema. Ensures data is in the correct format (for example, valid email addresses, correctly formatted URLs). |
 | **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). **This is what we want to mock**. It already has its own tests maintained by the package owners. We need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
 
 ### Install test framework dependency
@@ -359,8 +359,8 @@ When testing, think in terms of the test setup, the test itself, and the verific
 - Arrange: set up your test conditions
 - Act: call your function to test, also known as the _system under test_ or SUT
 - Assert: validate the results. Results can be behavior or state.
-    - Behavior indicates functionality in your test function, which can be verified. One example is that some dependency was called.
-    - State indicates the data returned from the function.
+  - Behavior indicates functionality in your test function, which you can verify. One example is that some dependency was called.
+  - State indicates the data returned from the function.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
@@ -415,11 +415,12 @@ There are several parts to the test file:
 
 The test file covers three tests for the `insert.ts` file, which can be divided into two validation types:
 
-|Validation type|Test|
-|--|--|
-|Happy path: `should insert document successfully`|The mocked database method was called, and returned the altered data.|
-|Error path: `should return verification error if input is not verified`|Data failed validation and returned an error.|
-|Error path:`should return error if db insert fails`|The mocked database method was called, and returned an error.|
+| Validation type | Test |
+| --- | --- |
+| Happy path: `should insert document successfully` | The mocked database method is called and returns the altered data. |
+| Error path: `should return verification error if input is not verified` | Data fails validation and returns an error. |
+| Error path:`should return error if db insert fails` | The mocked database method is called and returns an error. |
+
 The following test file shows how to test the **insertDocument** function.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
