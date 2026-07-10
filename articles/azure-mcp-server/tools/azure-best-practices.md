@@ -36,7 +36,9 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
+|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
+| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
 ## Get Azure best practices
 
@@ -62,7 +64,10 @@ Example prompts include:
 | **Resource** | Required | The Azure resource type for which to get best practices. Options: `general` (general Azure), `azurefunctions` (Azure Functions), `static-web-app` (Azure Static Web Apps), `coding-agent` (the resource value for Copilot cloud agent scenarios). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
+|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
+| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
 ## Related resources
 
