@@ -5,7 +5,7 @@ author: diberry
 ms.author: diberry
 reviewer: jongio
 ms.reviewer: diberry, jong
-ms.date: 05/13/2026
+ms.date: 07/13/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -212,21 +212,43 @@ Example prompts include:
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Health: Get entity health
+## Health models: List health models
 
-<!-- @mcpcli monitor healthmodels entity get -->
+<!-- @mcpcli monitor healthmodels list -->
 
-This tool retrieves the health status and recent health events for a specific entity in an Azure Monitor health model. The Model Context Protocol (MCP) tool reports application-level health based on custom health models, not basic resource availability. For basic resource availability, use Azure Resource Health or the `azmcp_resourcehealth_availability-status_get` tool. To query logs in a Log Analytics workspace, use `azmcp_monitor_workspace_log_query`. To query logs for a specific Azure resource, use `azmcp_monitor_resource_log_query`.
+Lists all health models in an Azure Monitor health model resource. This tool helps you discover available health models for monitoring application-level health. The Model Context Protocol (MCP) tool reports application-level health based on custom health models, not basic resource availability. For basic resource availability, use Azure Resource Health. To query logs in a Log Analytics workspace, use `azmcp_monitor_workspace_log_query`. To query logs for a specific Azure resource, use `azmcp_monitor_resource_log_query`.
 
 Example prompts include:
 
-- "Show me the health status of entity 'order-service' using the health model 'app-health-v1' in resource group 'rg-prod'."
+- "List all health models in the health model resource 'app-health-monitor' in resource group 'rg-prod'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Entity name** | Required | The entity to get health for. |
-| **Health model** | Required | The name of the health model for which to get the health. |
+| **Health model** | Required | The name of the health model resource to list models from. |
 | **Resource group** | Required | The name of the Azure resource group. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+## Health models: Get health model
+
+<!-- @mcpcli monitor healthmodels get -->
+
+Retrieves a specific health model by name from an Azure Monitor health model resource. This tool returns the health status and recent health events for a specific health model. The Model Context Protocol (MCP) tool reports application-level health based on custom health models, not basic resource availability. For basic resource availability, use Azure Resource Health. To query logs in a Log Analytics workspace, use `azmcp_monitor_workspace_log_query`. To query logs for a specific Azure resource, use `azmcp_monitor_resource_log_query`.
+
+Example prompts include:
+
+- "Get the health model 'order-service-health' from health model resource 'app-health-monitor' in resource group 'rg-prod'."
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Health model** | Required | The name of the health model resource containing the health model. |
+| **Health model name** | Required | The name of the specific health model to retrieve. |
+| **Resource group** | Required | The name of the Azure resource group. |
+
+> [!NOTE]
+> **Migration from 3.0.0-beta.24 and earlier:** The `monitor healthmodels entity get` command has been removed in 3.0.0-beta.25. Use `monitor healthmodels list` to list all health models, or `monitor healthmodels get` to retrieve a specific health model by name.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
