@@ -13,9 +13,9 @@ ms.custom:
 ai-usage: ai-generated
 content_well_notification:
   - AI-contribution
-tool_count for monitor: 16
+tool_count for monitor: 17
 tool_count for workbooks: 5
-mcp-cli.version: "2.0.0-beta.39"
+mcp-cli.version: "3.0.0-beta.25"
 ---
 # Azure MCP Server tools for Azure Monitor and Workbooks
 
