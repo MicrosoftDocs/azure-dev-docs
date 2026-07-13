@@ -1,14 +1,12 @@
 | Name | Package | Docs | Source |
 | ---- | ------- | ---- | ------ |
-| Core | crate [1.0.0](https://crates.io/crates/azure_core/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@1.0.0/sdk/core/azure_core) |
-| Core - AMQP | crate [1.0.0](https://crates.io/crates/azure_core_amqp/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@1.0.0/sdk/core/azure_core_amqp) |
+| Core | crate [1.1.0](https://crates.io/crates/azure_core/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core@1.1.0/sdk/core/azure_core) |
+| Core - AMQP | crate [1.1.0](https://crates.io/crates/azure_core_amqp/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_amqp@1.1.0/sdk/core/azure_core_amqp) |
 | Core - Macros | crate [1.0.0](https://crates.io/crates/azure_core_macros/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_macros@1.0.0/sdk/core/azure_core_macros) |
 | Core - OpenTelemetry | crate [1.0.0](https://crates.io/crates/azure_core_opentelemetry/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_opentelemetry@1.0.0/sdk/core/azure_core_opentelemetry) |
-| Core Test | crate [0.1.0](https://crates.io/crates/azure_core_test/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_test@0.1.0/sdk/core/azure_core_test) |
-| Core Test Macros | crate [0.1.0](https://crates.io/crates/azure_core_test_macros/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_core_test_macros@0.1.0/sdk/core/azure_core_test_macros) |
-| Cosmos DB | crate [0.35.0](https://crates.io/crates/azure_data_cosmos/0.35.0) |  | GitHub [0.35.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.35.0/sdk/cosmos/azure_data_cosmos) |
-| Cosmos DB Client Driver | crate [0.4.0](https://crates.io/crates/azure_data_cosmos_driver/0.4.0) |  | GitHub [0.4.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_driver@0.4.0/sdk/cosmos/azure_data_cosmos_driver) |
-| Cosmos DB SDK Macros | crate [0.1.0](https://crates.io/crates/azure_data_cosmos_macros/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_macros@0.1.0/sdk/cosmos/azure_data_cosmos_macros) |
+| Cosmos DB | crate [0.36.0](https://crates.io/crates/azure_data_cosmos/0.36.0) |  | GitHub [0.36.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos@0.36.0/sdk/cosmos/azure_data_cosmos) |
+| Cosmos DB Client Driver | crate [0.5.0](https://crates.io/crates/azure_data_cosmos_driver/0.5.0) |  | GitHub [0.5.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_driver@0.5.0/sdk/cosmos/azure_data_cosmos_driver) |
+| Cosmos DB SDK Macros | crate [0.2.0](https://crates.io/crates/azure_data_cosmos_macros/0.2.0) |  | GitHub [0.2.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_data_cosmos_macros@0.2.0/sdk/cosmos/azure_data_cosmos_macros) |
 | Event Hubs | crate [0.15.0](https://crates.io/crates/azure_messaging_eventhubs/0.15.0) |  | GitHub [0.15.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs@0.15.0/sdk/eventhubs/azure_messaging_eventhubs) |
 | EventHubs Checkpoint Store for Azure Blob Storage | crate [0.9.0](https://crates.io/crates/azure_messaging_eventhubs_checkpointstore_blob/0.9.0) |  | GitHub [0.9.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_messaging_eventhubs_checkpointstore_blob@0.9.0/sdk/eventhubs/azure_messaging_eventhubs_checkpointstore_blob) |
 | Identity | crate [1.0.0](https://crates.io/crates/azure_identity/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_identity@1.0.0/sdk/identity/azure_identity) |
@@ -16,6 +14,6 @@
 | Key Vault - Keys | crate [1.0.0](https://crates.io/crates/azure_security_keyvault_keys/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@1.0.0/sdk/keyvault/azure_security_keyvault_keys) |
 | Key Vault - Secrets | crate [1.0.0](https://crates.io/crates/azure_security_keyvault_secrets/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@1.0.0/sdk/keyvault/azure_security_keyvault_secrets) |
 | Storage - Blobs | crate [1.0.0](https://crates.io/crates/azure_storage_blob/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@1.0.0/sdk/storage/azure_storage_blob) |
-| TypeSpec Client Core | crate [1.0.0](https://crates.io/crates/typespec_client_core/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@1.0.0/sdk/core/typespec_client_core) |
-| TypeSpec Core | crate [1.0.0](https://crates.io/crates/typespec/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@1.0.0/sdk/core/typespec) |
+| TypeSpec Client Core | crate [1.1.0](https://crates.io/crates/typespec_client_core/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@1.1.0/sdk/core/typespec_client_core) |
+| TypeSpec Core | crate [1.1.0](https://crates.io/crates/typespec/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@1.1.0/sdk/core/typespec) |
 | TypeSpec Core Macros | crate [1.0.0](https://crates.io/crates/typespec_macros/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@1.0.0/sdk/core/typespec_macros) |
