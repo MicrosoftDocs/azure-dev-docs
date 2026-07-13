@@ -3,9 +3,9 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/12/2026
+ms.date: 07/09/2026
 ms.service: azure-dev-cli
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-azdevcli
 ---
 
@@ -462,6 +462,7 @@ The configuration directory can be overridden by specifying a path in the AZD_CO
 * [azd config reset](#azd-config-reset): Resets configuration to default.
 * [azd config set](#azd-config-set): Sets a configuration.
 * [azd config show](#azd-config-show): Show all the configuration values.
+* [azd config sub-filter](#azd-config-sub-filter): Manage subscription filters for tenant-scoped subscription prompts.
 * [azd config unset](#azd-config-unset): Unsets a configuration.
 * [Back to top](#azd)
 
@@ -689,6 +690,105 @@ azd config show [flags]
 ### See also
 
 * [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [Back to top](#azd)
+
+## azd config sub-filter
+
+Manage subscription filters for tenant-scoped subscription prompts.
+
+### Synopsis
+
+Manage per-tenant subscription filters that control which subscriptions are shown during interactive prompts.
+Filters are stored locally in your user configuration and apply per-device.
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd config sub-filter in your web browser.
+  -h, --help   Gets help for sub-filter.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
+* [azd config sub-filter remove](#azd-config-sub-filter-remove): Remove a saved subscription filter for a tenant.
+* [azd config sub-filter set](#azd-config-sub-filter-set): Set a subscription filter for a tenant.
+* [Back to top](#azd)
+
+## azd config sub-filter remove
+
+Remove a saved subscription filter for a tenant.
+
+### Synopsis
+
+Remove the subscription filter for a tenant so that all subscriptions are shown during prompts.
+
+```azdeveloper
+azd config sub-filter remove [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd config sub-filter remove in your web browser.
+  -h, --help   Gets help for remove.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd config sub-filter](#azd-config-sub-filter): Manage subscription filters for tenant-scoped subscription prompts.
+* [Back to top](#azd)
+
+## azd config sub-filter set
+
+Set a subscription filter for a tenant.
+
+### Synopsis
+
+Select which subscriptions to include when prompted for a subscription under a specific tenant.
+If a filter already exists, the previously selected subscriptions are pre-checked.
+
+```azdeveloper
+azd config sub-filter set [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd config sub-filter set in your web browser.
+  -h, --help   Gets help for set.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd config sub-filter](#azd-config-sub-filter): Manage subscription filters for tenant-scoped subscription prompts.
 * [Back to top](#azd)
 
 ## azd config unset
@@ -1521,18 +1621,32 @@ Manage azd extensions.
 
 Installs specified extensions.
 
+### Synopsis
+
+Installs one or more extensions by id from a registered extension source.
+
+The --source flag also accepts a registry location (URL or file path). When a
+location is given, azd registers it as a source (prompting for a name, and
+confirming first for a URL) and then installs from it. If the location is already
+registered, azd reuses that source.
+
+You can also pass the path to a self-contained extension bundle (.zip): azd
+extracts it and installs the bundled extension. Bundled extensions aren't
+tracked for updates; reinstall from a newer bundle to update.
+
 ```azdeveloper
-azd extension install <extension-id> [flags]
+azd extension install <extension-id|extension-bundle.zip> [flags]
 ```
 
 ### Options
 
 ```azdeveloper
-      --docs             Opens the documentation for azd extension install in your web browser.
-  -f, --force            Force installation, including downgrades and reinstalls
-  -h, --help             Gets help for install.
-  -s, --source string    The extension source to use for installs
-  -v, --version string   The version of the extension to install
+      --docs              Opens the documentation for azd extension install in your web browser.
+  -f, --force             Force installation, including downgrades and reinstalls
+  -h, --help              Gets help for install.
+      --no-dependencies   Install only the specified extension(s) without installing their declared dependencies
+  -s, --source string     The extension source to use for installs. Accepts a registered source name or a registry location (URL or file path) to register and install from.
+  -v, --version string    The version of the extension to install
 ```
 
 ### Options inherited from parent commands
@@ -1553,6 +1667,14 @@ azd extension install <extension-id> [flags]
 
 List available extensions.
 
+### Synopsis
+
+List available extensions from registered extension sources.
+
+The --source flag accepts a registered source name or registry location (URL or
+file path). Locations are queried read-only and are not registered. Extensions
+from an unregistered location show the location itself in the SOURCE column.
+
 ```azdeveloper
 azd extension list [--installed] [flags]
 ```
@@ -1563,7 +1685,7 @@ azd extension list [--installed] [flags]
       --docs            Opens the documentation for azd extension list in your web browser.
   -h, --help            Gets help for list.
       --installed       List installed extensions
-      --source string   Filter extensions by source
+  -s, --source string   Filter extensions by registered source name or registry location (URL or file path).
       --tags strings    Filter extensions by tags
 ```
 
@@ -1585,6 +1707,13 @@ azd extension list [--installed] [flags]
 
 Show details for a specific extension.
 
+### Synopsis
+
+Show details for a specific extension from a registered extension source.
+
+The --source flag accepts a registered source name or registry location (URL or
+file path). Locations are queried read-only and are not registered.
+
 ```azdeveloper
 azd extension show <extension-id> [flags]
 ```
@@ -1594,7 +1723,7 @@ azd extension show <extension-id> [flags]
 ```azdeveloper
       --docs            Opens the documentation for azd extension show in your web browser.
   -h, --help            Gets help for show.
-  -s, --source string   The extension source to use.
+  -s, --source string   The registered source name or registry location (URL or file path) to use.
 ```
 
 ### Options inherited from parent commands
@@ -1643,6 +1772,12 @@ View and manage extension sources
 ## azd extension source add
 
 Add an extension source with the specified name
+
+### Synopsis
+
+Add an extension source with the specified name.
+
+`azd extension install --source` and `azd extension upgrade --source` also accept a registry URL or file path directly.
 
 ```azdeveloper
 azd extension source add [flags]
@@ -1811,9 +1946,12 @@ source is unavailable, falls back to the main (azd) registry. Extensions that
 were installed from a non-main registry (e.g., dev) are automatically promoted
 to the main registry when a newer version is available there.
 
-Use --source to explicitly override the registry source for the upgrade. Use
---all to upgrade all installed extensions in a single batch; failures in one
-extension do not prevent the remaining extensions from being upgraded.
+Use --source to override the registry source for the upgrade. It accepts a
+registered source name or registry location (URL or file path); locations are
+registered first and the upgraded extension's stored source is updated. Because
+registration is interactive, locations are rejected under --no-prompt. Use --all
+to upgrade all installed extensions in a single batch; failures in one extension
+do not prevent the remaining extensions from being upgraded.
 
 When upgrading an extension that has dependencies, any installed
 dependencies are automatically upgraded too, to the highest version
@@ -1834,7 +1972,7 @@ azd extension upgrade [extension-id] [flags]
       --docs                     Opens the documentation for azd extension upgrade in your web browser.
   -h, --help                     Gets help for upgrade.
       --no-dependency-upgrades   Do not upgrade dependencies when upgrading an extension that has dependencies
-  -s, --source string            The extension source to use for upgrades
+  -s, --source string            The registered source name or registry location (URL or file path) to use for upgrades.
   -v, --version string           The version of the extension to upgrade to
 ```
 
@@ -2557,6 +2695,7 @@ Discover, install, upgrade, and check status of Azure development tools.
 * [azd tool install](#azd-tool-install): Install specified tools.
 * [azd tool list](#azd-tool-list): List all tools with status.
 * [azd tool show](#azd-tool-show): Show details for a specific tool.
+* [azd tool uninstall](#azd-tool-uninstall): Uninstall installed tools.
 * [azd tool upgrade](#azd-tool-upgrade): Upgrade installed tools.
 * [Back to top](#azd)
 
@@ -2600,10 +2739,11 @@ azd tool install [tool-name...] [flags]
 ### Options
 
 ```azdeveloper
-      --all       Install all recommended tools
-      --docs      Opens the documentation for azd tool install in your web browser.
-      --dry-run   Preview what would be installed without making changes
-  -h, --help      Gets help for install.
+      --all            Install all recommended tools
+      --docs           Opens the documentation for azd tool install in your web browser.
+      --dry-run        Preview what would be installed without making changes
+  -h, --help           Gets help for install.
+      --host strings   Install the skill for the specified agent host(s): copilot, claude. Use --host all for every detected host (skill tools only)
 ```
 
 ### Options inherited from parent commands
@@ -2678,6 +2818,38 @@ azd tool show <tool-name> [flags]
 * [azd tool](#azd-tool): Manage Azure development tools.
 * [Back to top](#azd)
 
+## azd tool uninstall
+
+Uninstall installed tools.
+
+```azdeveloper
+azd tool uninstall [tool-name...] [flags]
+```
+
+### Options
+
+```azdeveloper
+      --all            Uninstall all installed tools
+      --docs           Opens the documentation for azd tool uninstall in your web browser.
+      --dry-run        Preview what would be uninstalled without making changes
+  -h, --help           Gets help for uninstall.
+      --host strings   Uninstall the skill from the specified agent host(s): copilot, claude. Use --host all (or omit --host) to remove the skill from every host it is installed through (skill tools only)
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string           Sets the current working directory.
+      --debug                Enables debugging and diagnostics logging.
+  -e, --environment string   The name of the environment to use.
+      --no-prompt            Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically.
+```
+
+### See also
+
+* [azd tool](#azd-tool): Manage Azure development tools.
+* [Back to top](#azd)
+
 ## azd tool upgrade
 
 Upgrade installed tools.
@@ -2689,9 +2861,10 @@ azd tool upgrade [tool-name...] [flags]
 ### Options
 
 ```azdeveloper
-      --docs      Opens the documentation for azd tool upgrade in your web browser.
-      --dry-run   Preview what would be upgraded without making changes
-  -h, --help      Gets help for upgrade.
+      --docs           Opens the documentation for azd tool upgrade in your web browser.
+      --dry-run        Preview what would be upgraded without making changes
+  -h, --help           Gets help for upgrade.
+      --host strings   Upgrade the skill for the specified agent host(s): copilot, claude. Use --host all for every detected host (skill tools only)
 ```
 
 ### Options inherited from parent commands
