@@ -48,9 +48,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Knowledge: Get index schema
 
@@ -71,9 +69,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## OpenAI: Create chat completions
 
@@ -97,9 +93,9 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Name of the resource group. |
-| **Resource name** |  Required | The name of the Azure OpenAI resource. |
+| **Resource name** |  Required | The name of the Microsoft Foundry resource. |
 | **Deployment** |  Required | The name of the Foundry model deployment. |
-| **Message array** |  Required | Array of messages in the conversation (JSON format). Each message should have `role` and `content` properties. |
+| **Message array** |  Required | JSON array of messages in the conversation. Each message should have `role` and `content` properties. |
 | **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
 | **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
 | **Top p** |  Optional | Controls diversity via nucleus sampling (0.0 to 1.0). Default is `1.0`. |
@@ -113,9 +109,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## OpenAI: Create embeddings
 
@@ -140,7 +134,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Resource name** |  Required | The name of the Azure OpenAI resource. |
+| **Resource name** |  Required | The name of the Microsoft Foundry resource. |
 | **Deployment** |  Required | The name of the Foundry model deployment. |
 | **Input text** |  Required | The input text to generate embeddings for. |
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
@@ -149,9 +143,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## OpenAI: Create completions
 
@@ -170,7 +162,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** | Required | The name of the Azure resource group where the AI resource is hosted. |
-| **Resource name** |  Required | The name of the Azure OpenAI resource. |
+| **Resource name** |  Required | The name of the Microsoft Foundry resource. |
 | **Deployment** |  Required | The name of the deployment. |
 | **Prompt text** |  Required | The prompt text to send to the completion model. |
 | **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
@@ -178,9 +170,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## OpenAI: List models and deployments
 
@@ -205,22 +195,17 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Resource name** |  Required | The name of the Azure OpenAI resource. |
+| **Resource name** |  Required | The name of the Microsoft Foundry resource. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Resources: Get Foundry resource
 
 <!-- @mcpcli foundryextensions resource get -->
 
-Get detailed information about Foundry resources, including endpoint URL, 
-location, SKU, and all deployed models with their configuration. If a specific resource name is provided, 
-returns details for that resource only. If no resource name is provided, lists all Foundry resources 
-in the subscription or resource group. 
+List or get Microsoft Foundry resources and return resource-level details such as endpoint URL, location, SKU, kind, and provisioning state. If you provide a resource name with a resource group, the tool returns that single resource. Otherwise, it returns the resource inventory in scope. For model deployment inventory inside a Foundry resource, use the OpenAI models list tool.
 
 Example prompts include:
 
@@ -230,13 +215,12 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource name** |  Optional | The name of the Azure OpenAI resource. |
+| **Resource name** |  Optional | The name of the Microsoft Foundry resource. |
+| **Resource group** |  Optional | The name of the Azure resource group. This is a logical container for Azure resources. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 
