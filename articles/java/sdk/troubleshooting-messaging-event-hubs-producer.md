@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Event Hubs producer
+title: Troubleshoot Azure Event Hubs Producer
 titleSuffix: Azure SDK for Java
 description: Helps you troubleshoot Events Hubs producer issues when you use the Azure SDK for Java.
 ms.date: 04/02/2025 
@@ -12,18 +12,18 @@ ms.reviewer: jogiles
 
 # Troubleshoot Azure Event Hubs producer
 
-This article provides solutions to common problems that you might encounter when you use the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. If you're looking for solutions to other common problems that you might encounter when you use Event Hubs, see [Troubleshoot Azure Event Hubs](troubleshooting-messaging-event-hubs-overview.md).
+Use this article to troubleshoot Azure Event Hubs producer issues when you use the `EventHubsProducerClient` and `EventHubsProducerAsyncClient` types. For broader Event Hubs troubleshooting, see [Troubleshoot Azure Event Hubs](troubleshooting-messaging-event-hubs-overview.md).
 
 ## Can't set multiple partition keys for events in EventDataBatch
 
-When the Event Hubs service publishes messages, it supports a single partition key for each `EventDataBatch`. You should consider using the buffered producer client `EventHubBufferedProducerClient` if you want that capability. Otherwise, you have to manage your batches.
+When the Event Hubs service publishes messages, it supports a single partition key for each `EventDataBatch`. Consider using the buffered producer client `EventHubBufferedProducerClient` if you want that capability. Otherwise, you need to manage your batches.
 
 ## Setting partition key on EventData isn't set in Kafka consumer
 
 The partition key of the Event Hubs event is available in the Kafka record headers. The protocol-specific key is `x-opt-partition-key` in the header.
 
-By design, Event Hubs doesn't promote the Kafka message key to be the Event Hubs partition key nor the reverse because with the same value, the Kafka client and the Event Hubs client likely send the message to two different partitions. It might cause some confusion if we set the value in the cross-protocol communication case. Exposing the properties with a protocol specific key to the other protocol client should be good enough.
+By design, Event Hubs doesn't promote the Kafka message key to be the Event Hubs partition key nor the reverse. With the same value, the Kafka client and the Event Hubs client likely send the message to two different partitions. It might cause some confusion if you set the value in the cross-protocol communication case. Exposing the properties with a protocol specific key to the other protocol client is good enough.
 
 ## Next steps
 
-If the troubleshooting guidance in this article doesn't help to resolve issues when you use the Azure SDK for Java client libraries, we recommended that you [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
+If the troubleshooting guidance in this article doesn't help resolve issues when you use the Azure SDK for Java client libraries, [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
