@@ -36,7 +36,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Location** |  Required | The Azure region or location name (for example, `EastUS`, `WestEurope`). |
 | **Tags** |  Optional | Tags to assign to the service, in the format `tag1=value1 tag2=value2`. |
@@ -64,7 +64,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -115,7 +115,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Incoming traffic policy** |  Optional | Incoming traffic policy for the service (`AllowAllTraffic` or `AllowVirtualNetworksOnly`). |
 | **Tags** |  Optional | Tags to assign to the service (space-separated key=value pairs). |
@@ -144,7 +144,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Server ID** |  Optional | The ID/name of the registered server. |
 
@@ -172,7 +172,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Server ID** |  Required | The ID/name of the registered server. |
 
@@ -199,7 +199,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Server ID** |  Required | The ID/name of the registered server. |
 
@@ -225,7 +225,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 
@@ -251,7 +251,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 
@@ -277,7 +277,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Optional | The name of the sync group. |
 
@@ -286,7 +286,6 @@ Example prompts include:
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
 
 
 ## Cloud endpoint: Change detection
@@ -305,7 +304,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Service name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
@@ -338,7 +337,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
@@ -369,7 +368,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
@@ -397,7 +396,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Optional | The name of the cloud endpoint. |
@@ -426,7 +425,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
@@ -456,7 +455,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Server endpoint name** |  Required | The name of the server endpoint. |
@@ -491,7 +490,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Server endpoint name** |  Required | The name of the server endpoint. |
@@ -519,7 +518,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Server endpoint name** |  Optional | The name of the server endpoint. |
@@ -547,7 +546,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Server endpoint name** |  Required | The name of the server endpoint. |
