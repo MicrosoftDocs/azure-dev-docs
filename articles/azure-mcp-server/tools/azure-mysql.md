@@ -52,12 +52,6 @@ Example prompts include:
 
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-Examples
-
-- List all Azure Database for MySQL servers in subscription 'contoso-subscription'.
-- List databases on server 'mysql-prod-01' in resource group 'prod-rg' using user name 'dbadmin'.
-- List tables in database 'salesdb' on server 'mysql-prod-01' in resource group 'prod-rg' using user name 'dbadmin'.
-
 ## Query MySQL database
 
 <!-- @mcpcli mysql database query -->
