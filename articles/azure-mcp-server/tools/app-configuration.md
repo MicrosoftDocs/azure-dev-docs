@@ -35,15 +35,13 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Key-value: Delete setting
 
 <!-- appconfig kv delete -->
 
-The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store.
+Delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. If you specify a label, the tool deletes only that labeled version. If you omit a label, the tool deletes the key-value with the default label.
 
 Example prompts include:
 
@@ -58,13 +56,10 @@ Example prompts include:
 | **Account** |  Required | The name of the App Configuration store (for example, my-appconfig). |
 | **Key** |  Required | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
-| **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Key-value: Get key-values
 
@@ -100,9 +95,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Key-value: Set lock on key-value
 
@@ -127,9 +120,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Key-value: Set key-value setting
 
@@ -156,9 +147,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 
