@@ -68,9 +68,7 @@ azmcp sreagent agents create \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Agents: Delete a subagent
 
@@ -115,9 +113,7 @@ azmcp sreagent agents delete \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Agents: Get configuration details
 
@@ -156,9 +152,7 @@ azmcp sreagent agents get \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Agents: List resources
 
@@ -190,9 +184,7 @@ azmcp sreagent agents list \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Agents tools: Create or update custom tool
 
@@ -254,9 +246,7 @@ azmcp sreagent agents tools create \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Agents tools: Get custom tool definition
 
@@ -296,9 +286,7 @@ azmcp sreagent agents tools get \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Agents tools: List tools
 
@@ -335,9 +323,7 @@ azmcp sreagent agents tools list \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Architecture: Plan an architecture
 
@@ -385,9 +371,7 @@ azmcp sreagent architecture plan \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Common prompts: Create or update a prompt
 
@@ -406,7 +390,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Content** |  Required | The prompt content. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -416,13 +400,13 @@ azmcp sreagent commonprompts create \
   --name <name> \
   --content <content> \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--content` | string | Yes | Skill content. |
 
@@ -430,9 +414,7 @@ azmcp sreagent commonprompts create \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Common prompts: Delete a prompt
 
@@ -450,7 +432,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -460,14 +442,14 @@ Example prompts include:
 azmcp sreagent commonprompts delete \
   --name <name> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
 
@@ -475,9 +457,7 @@ azmcp sreagent commonprompts delete \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Common prompts: Get prompt text
 
@@ -495,7 +475,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -504,22 +484,20 @@ Example prompts include:
 azmcp sreagent commonprompts get \
   --name <name> \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Common prompts: List prompts
 
@@ -536,7 +514,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Search** |  Optional | Optional search filter. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -545,23 +523,21 @@ Example prompts include:
 ```console
 azmcp sreagent commonprompts list \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   [--search <search>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--search` | string | No | Optional search filter. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Connectors: Create or update Kusto connector
 
@@ -607,9 +583,7 @@ azmcp sreagent connectors create kusto \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Connectors: Create or update connector
 
@@ -676,9 +650,7 @@ azmcp sreagent connectors create mcp \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ✅ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
 ## Connectors: Delete connector
 
@@ -720,9 +692,7 @@ azmcp sreagent connectors delete \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Connectors: Get connector details
 
@@ -762,9 +732,7 @@ azmcp sreagent connectors get \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Connectors: List connectors
 
@@ -802,9 +770,7 @@ azmcp sreagent connectors list \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Connectors: Test connector
 
@@ -845,9 +811,7 @@ azmcp sreagent connectors test \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ✅ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ✅ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Documentation: Get reference documentation
 
@@ -882,9 +846,7 @@ azmcp sreagent docs get \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Documentation memories: Add document to knowledge base
 
@@ -903,7 +865,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Content** |  Required | The document content to add to the knowledge base. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -913,13 +875,13 @@ azmcp sreagent docs memories add \
   --name <name> \
   --content <content> \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--content` | string | Yes | Skill content. |
 
@@ -927,9 +889,7 @@ azmcp sreagent docs memories add \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Documentation memories: Delete knowledge base document
 
@@ -947,7 +907,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -957,14 +917,14 @@ Example prompts include:
 azmcp sreagent docs memories delete \
   --name <name> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
 
@@ -972,9 +932,7 @@ azmcp sreagent docs memories delete \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Documentation memories: List indexed knowledge base documents
 
@@ -991,7 +949,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -999,21 +957,19 @@ Example prompts include:
 ```console
 azmcp sreagent docs memories list \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Documentation memories: Reindex knowledge base
 
@@ -1030,7 +986,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1038,21 +994,19 @@ Example prompts include:
 ```console
 azmcp sreagent docs memories reindex \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Documentation memories: Search knowledge base
 
@@ -1069,8 +1023,8 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Query** |  Optional | The search query used to find relevant knowledge base documents. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
+| **Query** |  Required | The search query used to find relevant knowledge base documents. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1078,23 +1032,21 @@ Example prompts include:
 ```console
 azmcp sreagent docs memories search \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--query <query>]
+  --agent <agent> \
+  --query <query>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--query` | string | No | The search query used to find relevant knowledge base documents. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--query` | string | Yes | The search query used to find relevant knowledge base documents. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Hooks: Delete hook
 
@@ -1137,9 +1089,7 @@ azmcp sreagent hooks delete \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Hooks: Get details
 
@@ -1179,9 +1129,7 @@ azmcp sreagent hooks get \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Hooks: List hooks
 
@@ -1218,9 +1166,7 @@ azmcp sreagent hooks list \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Hooks: Activate hook thread
 
@@ -1263,9 +1209,7 @@ azmcp sreagent hooks thread activate \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Hooks: Deactivate hook thread
 
@@ -1308,9 +1252,7 @@ azmcp sreagent hooks thread deactivate \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Hooks: List hook thread state
 
@@ -1350,9 +1292,7 @@ azmcp sreagent hooks thread list \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Incidents: List active incidents
 
@@ -1369,7 +1309,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1377,21 +1317,19 @@ Example prompts include:
 ```console
 azmcp sreagent incidents active list \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Incidents: Create incident
 
@@ -1412,7 +1350,7 @@ Example prompts include:
 | **Services** |  Required | Affected service names. |
 | **Severity** |  Required | Incident severity: critical, high, medium, or low. |
 | **Title** |  Required | Incident title. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1424,13 +1362,13 @@ azmcp sreagent incidents create \
   --description <description> \
   --services <services> \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--severity` | string | Yes | Incident severity: critical, high, medium, or low. |
 | `--title` | string | Yes | Incident title. |
 | `--description` | string | Yes | A description for the SRE Agent item. |
@@ -1440,9 +1378,7 @@ azmcp sreagent incidents create \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Incidents: Create plan
 
@@ -1464,7 +1400,7 @@ Example prompts include:
 | **Severity** |  Required | Incident severity: critical, high, medium, or low. |
 | **Steps** |  Required | Incident response steps. |
 | **Trigger condition** |  Required | Text that triggers the incident response plan. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Agent mode** |  Optional | Agent mode: autonomous or review. |
 | **Escalation** |  Optional | Escalation procedure. |
 | **Runbook URL** |  Optional | Runbook URL. |
@@ -1480,7 +1416,7 @@ azmcp sreagent incidents plans create \
   --services <services> \
   --steps <steps> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   [--escalation <escalation>] \
   [--runbook-url <runbook-url>] \
   [--agent-mode <agent-mode>]
@@ -1489,7 +1425,7 @@ azmcp sreagent incidents plans create \
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--severity` | string | Yes | Incident severity: critical, high, medium, or low. |
 | `--trigger-condition` | string | Yes | Text that triggers the incident response plan. |
@@ -1503,9 +1439,7 @@ azmcp sreagent incidents plans create \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Incidents: List plans
 
@@ -1522,7 +1456,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1530,21 +1464,19 @@ Example prompts include:
 ```console
 azmcp sreagent incidents plans list \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Incidents: Connect agent to PagerDuty
 
@@ -1563,7 +1495,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **API key env** |  Required | Environment variable containing the API key. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Subdomain** |  Optional | PagerDuty subdomain. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -1574,14 +1506,14 @@ azmcp sreagent incidents setup pagerduty \
   --name <name> \
   --api-key-env <api-key-env> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   [--subdomain <subdomain>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--api-key-env` | string | Yes | Environment variable containing the API key. |
 | `--subdomain` | string | No | PagerDuty subdomain. |
@@ -1590,9 +1522,7 @@ azmcp sreagent incidents setup pagerduty \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
 ## Incidents: Set up ServiceNow connector
 
@@ -1612,7 +1542,7 @@ Example prompts include:
 | **Auth type** |  Required | The HTTP MCP connector authentication type. |
 | **Instance URL** |  Required | ServiceNow instance URL. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Password env** |  Optional | Environment variable containing password. |
 | **Token env** |  Optional | Environment variable containing bearer token. |
 | **Username env** |  Optional | Environment variable containing username. |
@@ -1626,7 +1556,7 @@ azmcp sreagent incidents setup servicenow \
   --instance-url <instance-url> \
   --auth-type <auth-type> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   [--token-env <token-env>] \
   [--username-env <username-env>] \
   [--password-env <password-env>]
@@ -1635,7 +1565,7 @@ azmcp sreagent incidents setup servicenow \
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--instance-url` | string | Yes | ServiceNow instance URL. |
 | `--auth-type` | string | Yes | The HTTP MCP connector authentication type. |
@@ -1647,9 +1577,7 @@ azmcp sreagent incidents setup servicenow \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ✅ | Local Required: ❌
 
 ## Scheduled tasks: Create scheduled task
 
@@ -1669,7 +1597,7 @@ Example prompts include:
 | **Cron expression** |  Required | The cron expression for the schedule. |
 | **Message** |  Required | The prompt the agent runs on the defined schedule. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Description** |  Optional | A description for the SRE Agent item. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -1681,14 +1609,14 @@ azmcp sreagent scheduledtasks create \
   --cron-expression <cron-expression> \
   --message <message> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   [--description <description>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--cron-expression` | string | Yes | The cron expression for the schedule. |
 | `--message` | string | Yes | The prompt the agent runs on the defined schedule. |
@@ -1698,9 +1626,7 @@ azmcp sreagent scheduledtasks create \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Scheduled tasks: Delete scheduled task
 
@@ -1718,7 +1644,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -1728,14 +1654,14 @@ Example prompts include:
 azmcp sreagent scheduledtasks delete \
   --task-id <task-id> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
 
@@ -1743,9 +1669,7 @@ azmcp sreagent scheduledtasks delete \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Scheduled tasks: Get scheduled task
 
@@ -1763,7 +1687,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1772,22 +1696,20 @@ Example prompts include:
 azmcp sreagent scheduledtasks get \
   --task-id <task-id> \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Scheduled tasks: List scheduled tasks
 
@@ -1804,7 +1726,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1812,21 +1734,19 @@ Example prompts include:
 ```console
 azmcp sreagent scheduledtasks list \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Scheduled tasks: Pause scheduled task
 
@@ -1844,7 +1764,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1853,22 +1773,20 @@ Example prompts include:
 azmcp sreagent scheduledtasks pause \
   --task-id <task-id> \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Scheduled tasks: Resume scheduled task
 
@@ -1886,7 +1804,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -1895,22 +1813,20 @@ Example prompts include:
 azmcp sreagent scheduledtasks resume \
   --task-id <task-id> \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Skills: Create skill
 
@@ -1956,9 +1872,7 @@ azmcp sreagent skills create \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Skills: Delete skill
 
@@ -2001,9 +1915,7 @@ azmcp sreagent skills delete \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Skills: List skills
 
@@ -2040,9 +1952,7 @@ azmcp sreagent skills list \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Threads: Create thread
 
@@ -2060,7 +1970,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Message** |  Required | The message to send. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -2069,22 +1979,20 @@ Example prompts include:
 azmcp sreagent threads create \
   --message <message> \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Threads: Delete thread
 
@@ -2101,9 +2009,9 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Confirm** |  Required | Confirm a destructive operation. |
-| **Thread ID** |  Optional | The SRE Agent thread ID. |
+| **Thread ID** |  Required | The SRE Agent thread ID. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -2111,25 +2019,23 @@ Example prompts include:
 ```console
 azmcp sreagent threads delete \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--thread-id <thread-id>] \
+  --agent <agent> \
+  --thread-id <thread-id> \
   --confirm <confirm>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--thread-id` | string | No | The SRE Agent thread ID. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Threads: Get messages
 
@@ -2146,8 +2052,8 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Thread ID** |  Optional | The SRE Agent thread ID. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
+| **Thread ID** |  Required | The SRE Agent thread ID. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -2155,23 +2061,21 @@ Example prompts include:
 ```console
 azmcp sreagent threads get \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--thread-id <thread-id>]
+  --agent <agent> \
+  --thread-id <thread-id>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--thread-id` | string | No | The SRE Agent thread ID. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--thread-id` | string | Yes | The SRE Agent thread ID. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Threads: YOLO mode
 
@@ -2189,7 +2093,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Message** |  Required | The message to send. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Max iterations** |  Optional | The maximum number of automatic follow-up iterations. |
 | **Timeout seconds** |  Optional | The investigation timeout in seconds. |
 
@@ -2200,7 +2104,7 @@ Example prompts include:
 azmcp sreagent threads investigate yolo \
   --message <message> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   [--max-iterations <max-iterations>] \
   [--timeout-seconds <timeout-seconds>]
 ```
@@ -2208,7 +2112,7 @@ azmcp sreagent threads investigate yolo \
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
 | `--max-iterations` | string | No | The maximum number of automatic follow-up iterations. |
 | `--timeout-seconds` | string | No | The investigation timeout in seconds. |
@@ -2217,9 +2121,7 @@ azmcp sreagent threads investigate yolo \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Threads: Investigate incident
 
@@ -2237,7 +2139,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Message** |  Required | The message to send. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Max iterations** |  Optional | The maximum number of automatic follow-up iterations. |
 | **Timeout seconds** |  Optional | The investigation timeout in seconds. |
 
@@ -2248,7 +2150,7 @@ Example prompts include:
 azmcp sreagent threads investigate \
   --message <message> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
+  --agent <agent> \
   [--max-iterations <max-iterations>] \
   [--timeout-seconds <timeout-seconds>]
 ```
@@ -2256,7 +2158,7 @@ azmcp sreagent threads investigate \
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
 | `--max-iterations` | string | No | The maximum number of automatic follow-up iterations. |
 | `--timeout-seconds` | string | No | The investigation timeout in seconds. |
@@ -2265,9 +2167,7 @@ azmcp sreagent threads investigate \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Threads: List agent chat threads
 
@@ -2284,7 +2184,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -2292,21 +2192,19 @@ Example prompts include:
 ```console
 azmcp sreagent threads list \
   [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Threads: Send message to thread
 
@@ -2324,8 +2222,8 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Message** |  Required | The message to send. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Thread ID** |  Optional | The SRE Agent thread ID. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
+| **Thread ID** |  Required | The SRE Agent thread ID. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -2334,24 +2232,22 @@ Example prompts include:
 azmcp sreagent threads send message \
   --message <message> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--thread-id <thread-id>]
+  --agent <agent> \
+  --thread-id <thread-id>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--thread-id` | string | No | The SRE Agent thread ID. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--message` | string | Yes | The message to send. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Workflows: Apply and deploy workflow
 
@@ -2369,8 +2265,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **YAML content** |  Required | YAML content. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Source name** |  Optional | Optional source name. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -2379,24 +2274,20 @@ Example prompts include:
 azmcp sreagent workflows apply \
   --yaml-content <yaml-content> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--source-name <source-name>]
+  --agent <agent>
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--yaml-content` | string | Yes | YAML content. |
-| `--source-name` | string | No | Optional source name. |
 
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Workflows: Generate workflow definition
 
@@ -2458,9 +2349,7 @@ azmcp sreagent workflows generate \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Workflows: Validate workflow
 
@@ -2495,9 +2384,7 @@ azmcp sreagent workflows validate \
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Related content
 
