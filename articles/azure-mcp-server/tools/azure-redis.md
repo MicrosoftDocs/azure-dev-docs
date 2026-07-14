@@ -6,9 +6,11 @@ ms.author: diberry
 ms.date: 05/13/2026
 ms.service: azure
 ms.topic: concept-article
+ms.reviewer: philon
 ms.custom:
   - build-2025
 ai-usage: ai-assisted
+mcp-cli.version: "3.0.0-beta.21+76f73ff9c7a9a9cf5012710e1d2c1007b87724bb"
 ---
 
 # Azure Redis tools for Azure MCP Server overview
@@ -25,7 +27,7 @@ The Azure Redis tools support both [Azure Managed Redis](/azure/redis/overview) 
 
 <!-- redis create -->
 
-Create a new Azure Managed Redis resource in Azure. Use this command to provision a new Redis resource in your subscription.
+Create a new Azure Managed Redis resource in Azure. Use this command to provision a new Redis resource in your subscription. Provisioning is asynchronous and typically takes several minutes. The command returns immediately with status `Creating` while the resource is still being created. Poll `provisioningState` until it shows `Succeeded` before connecting.
 
 Example prompts include:
 
