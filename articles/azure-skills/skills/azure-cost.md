@@ -1,23 +1,23 @@
 ---
-title: Azure skill for cost optimization
-description: "Unified Azure cost management: query historical costs, forecast future spending, and optimize to reduce waste."
-ms.topic: reference
-ms.date: 4/2/2026
+title: Azure Skill for Azure Cost Management
+description: The azure-cost skill helps you analyze Azure spending and find cost optimization opportunities. Use it to query actual and amortized costs, view cost forecasts, identify underutilized resources, and get cost visibility across namespaces and workloads.
 author: diberry
 ms.author: diberry
+ms.reviewer: skaluvak
+ms.date: 06/22/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.1.0
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
+ai-usage: ai-generated
+ms.skillversion: "1.2.2"
 ---
 
-# Azure skill for cost optimization
+# Azure skill for Azure Cost Management
 
-Analyze and optimize your Azure spending with historical cost queries, spending forecasts, and actionable cost-reduction recommendations.
+The `azure-cost` skill helps you analyze Azure spending and find cost optimization opportunities. You get access to Azure cost data including actual and amortized costs, cost forecasts, and spending trends. Query costs by subscription, resource group, service, or tag. Identify underutilized resources, view reserved instance recommendations, and get AKS cost visibility across namespaces and workloads.
 
-**Skill:** `azure-cost` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-cost/SKILL.md)
-
-## What it provides
-
-This skill gives GitHub Copilot access to Azure Cost Management APIs and optimization best practices. It can analyze your current spending, project future costs, and suggest specific ways to reduce waste.
+**Skill** `azure-cost` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-cost/SKILL.md)
 
 ## Prerequisites
 
@@ -25,17 +25,6 @@ This skill gives GitHub Copilot access to Azure Cost Management APIs and optimiz
 - **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 - **Azure roles**: Your account must have the [Cost Management Reader](/azure/role-based-access-control/built-in-roles#cost-management-reader), [Monitoring Reader](/azure/role-based-access-control/built-in-roles#monitoring-reader), and [Reader](/azure/role-based-access-control/built-in-roles#reader) roles on the target subscription or resource group.
-- **[Azure Kubernetes Service](/azure/aks/learn/quick-kubernetes-deploy-portal)**: An AKS cluster for container orchestration.
-
-### Related tools
-
-| Tool | Command | Purpose |
-|------|---------|---------|
-| `azure__documentation` | Search Azure documentation | Search for relevant Azure documentation by keyword |
-| `azure__extension_cli_generate` | Generate Azure CLI commands | Generate Azure CLI commands from a natural-language description |
-| `azure__get_azure_bestpractices` | Get Azure best practices | Retrieve best practices for a specific optimization scenario |
-| `azure__extension_azqr` | Run Azure Quick Review | Run a compliance scan against a subscription or resource group |
-| `azure__aks` | Azure Kubernetes Service operations | Manage Azure Kubernetes Service clusters and workloads |
 
 ## When to use this skill
 
@@ -51,8 +40,23 @@ Use this skill when you need to:
 - Find opportunities to reduce cloud spending.
 - Discover cost-saving recommendations tailored to your infrastructure.
 
+## Example prompts
+
+Try these prompts to activate this skill:
+
+- "How much am I spending on Azure?"
+- "Show me my Azure cost breakdown by service."
+- "What are my top cost drivers this month?"
+- "Forecast my end-of-month Azure spending."
+- "Find orphaned resources I can delete to save money."
+- "Optimize my Azure costs and reduce waste."
+- "Show cost trends for my subscription over the last 3 months."
+- "Analyze my AKS cluster costs by namespace."
+
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-cost/SKILL.md)
-
+- [Azure Cost Management overview](/azure/cost-management-billing/cost-management-billing-overview)
+- [Analyze costs with cost analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis)
+- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
