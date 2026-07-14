@@ -39,13 +39,12 @@ Example prompts include:
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Location** |  Required | The Azure region or location name (for example, `EastUS`, `WestEurope`). |
+| **Tags** |  Optional | Tags to assign to the service, in the format `tag1=value1 tag2=value2`. |
 
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Storage Sync service: Delete service
 
@@ -68,9 +67,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Storage Sync service: Get service
 
@@ -93,9 +90,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Storage Sync service: Update service
 
@@ -122,9 +117,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 
 ## Registered server: Get registered server
@@ -150,9 +143,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Registered server: Unregister registered server
 
@@ -178,9 +169,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Registered server: Update registered server
 
@@ -204,9 +193,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Sync group: Create sync group
 
@@ -230,9 +217,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Sync group: Delete sync group
 
@@ -256,9 +241,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Sync group: Get sync group
 
@@ -282,9 +265,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 
 
@@ -314,9 +295,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 
 ## Cloud endpoint: Create cloud endpoint 
@@ -347,9 +326,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Cloud endpoint: Delete cloud endpoint
 
@@ -376,9 +353,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Cloud endpoint: Get cloud endpoint
 
@@ -404,9 +379,36 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
+## Cloud endpoint: Trigger change detection
+
+<!-- @mcpcli storagesync cloudendpoint triggerchangedetection -->
+
+Trigger change detection on a cloud endpoint to sync file changes.
+
+Example prompts include:
+
+Example prompts include:
+
+- "Trigger change detection for cloud endpoint 'endpointOne' in sync group 'SyncGroupA' of storage sync service 'SyncService123' within resource group 'rg-storage-sync'"
+- "Can you start the change detection on cloud endpoint 'filesBackup' for sync group 'PrimaryGroup' under storage sync service 'FileSyncService' in resource group 'rg-prod-sync'?"
+- "Initiate cloud endpoint change detection named 'BackupEndpoint' in storage sync service 'DataSync' and sync group 'MainSync' within resource group 'rg-data-sync'"
+- "I need to trigger the change detection process on cloud endpoint 'archiveEndpoint' under sync group 'GroupOne' of storage sync service 'StorageSync01' located in 'rg-sync-resources'"
+- "Please activate change detection for cloud endpoint 'cloudEndpointX' in sync group 'GroupX' for storage sync service 'SyncServiceX' inside resource group 'rg-sync-project'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
+| **Sync group name** |  Required | The name of the sync group. |
+| **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
+
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
+
 
 ## Server endpoint: Create server endpoint
 
@@ -439,9 +441,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Server endpoint: Delete server endpoint
 
@@ -468,9 +468,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 ## Server endpoint: Get server endpoint
 
@@ -496,9 +494,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
 ## Server endpoint: Update server endpoint
 
@@ -528,9 +524,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Destructive: ❌ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌
 
 
 ## Related content
