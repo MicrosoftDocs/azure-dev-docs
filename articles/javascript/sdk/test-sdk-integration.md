@@ -262,7 +262,7 @@ The functions in this application are:
 | --- | --- |
 | **insertDocument** | Inserts a document into the database. **This is what we want to test**. |
 | **inputVerified** | Verifies the input data against a schema. Ensures data is in the correct format (for example, valid email addresses, correctly formatted URLs). |
-| **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](/javascript/api/@azure/cosmos). **This is what we want to mock**. It already has its own tests maintained by the package owners. We need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
+| **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](/javascript/api/@azure/cosmos). **This is what you want to mock**. It already has its own tests maintained by the package owners. You need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
 
 ### Install test framework dependency
 
