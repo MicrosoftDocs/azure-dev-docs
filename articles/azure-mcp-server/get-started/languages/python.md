@@ -3,7 +3,7 @@ title: Get Started Using the Azure MCP Server with Python
 description: Learn how to connect to and consume Azure MCP Server operations with Python
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/10/2026
+ms.date: 12/11/2025
 ms.topic: get-started
 ms.custom:
   - build-2025
@@ -42,7 +42,7 @@ Complete the following steps to create a Python app (host app). The app connects
     mcp
     azure-identity
     openai
-    python-dotenv
+    logging
     ```
 
 1. In the same folder, create a new file named `.env` and add the following environment variables:
