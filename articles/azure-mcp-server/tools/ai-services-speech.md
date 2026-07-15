@@ -4,6 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Speech in Foundry 
 author: diberry
 ms.author: diberry
 ms.date: 07/10/2026
+ms.reviewer: dilin
 ms.topic: concept-article
 ms.custom:
   - build-2025
