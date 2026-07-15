@@ -53,6 +53,19 @@ This method is the easiest for local development and testing.
 
    You see your subscription details in the terminal. Azure Skills detects this authentication.
 
+### [Visual Studio sign-in](#tab/visual-studio-signin)
+
+If you use Visual Studio, Azure Skills can reuse the Azure account you used to sign in to Visual Studio.
+
+1. **Open Visual Studio** and go to **File** > **Account Settings**.
+1. Under **All Accounts**, select **Add**. Select either a **Microsoft account** or **Work or school account** and sign in with your Azure credentials.
+1. Confirm the account appears in the list and shows the correct Azure tenant.
+
+When you run Azure Skills from Visual Studio, it discovers the signed-in Azure account automatically. If you're signed in to multiple accounts, Visual Studio uses the account you selected as the default for Azure services.
+
+> [!TIP]
+> If Azure Skills can't find your Azure credentials in Visual Studio, run `az login` from a terminal as a fallback. Azure Skills checks Azure CLI credentials as well.
+
 ### [Environment variables](#tab/environment-variables)
 
 Use environment variables for scripts or pipelines where the Azure CLI isn't available. Create a [service principal](/cli/azure/create-an-azure-service-principal-azure-cli) first.
@@ -125,6 +138,28 @@ The Azure MCP extension installs a companion extension that brings Azure Skills 
 
 > [!NOTE]
 > The skills extension requires **Git CLI** to be installed on your machine.
+
+### [Visual Studio](#tab/visual-studio)
+
+Visual Studio installs Azure Skills alongside the Azure MCP Server. When you install the **Azure and AI development** workload through the Visual Studio Installer, Visual Studio automatically includes both the Azure MCP Server and the full Azure Skills experience.
+
+#### Prerequisites
+
+Visual Studio 2026 version 18.8 or later.
+
+#### Install through the Visual Studio Installer
+
+1. Open the **Visual Studio Installer**.
+1. Select **Modify** on your Visual Studio installation to view available workloads.
+1. On the **Workloads** tab, select **Azure and AI development**.
+1. On the **Installation details** panel, expand the workload and verify that **Azure Skills** is selected.
+1. Select **Install while downloading** (or **Modify**) to complete the installation.
+
+    :::image type="content" source="media/workload-install-azure-skills.png" alt-text="A screenshot showing how to install GitHub Copilot and Azure MCP Server components through Visual Studio workloads.":::
+
+Azure MCP tools and Azure Skills receive updates through regular Visual Studio updates via the Visual Studio Installer. No separate extension or manual configuration is required.
+
+For more information about the underlying Azure MCP Server setup, see [Get started with Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md).
 
 ### [Claude Code](#tab/claude-code)
 
