@@ -23,11 +23,11 @@ Use the Azure MCP Server to manage Azure Speech in Foundry Tools functionalities
 <!-- speech stt recognize -->
 
 
-Recognize speech from an audio file using [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/speech-to-text). This command takes an audio file and converts it to text using advanced speech recognition capabilities. Supported audio formats include WAV, MP3, OPUS/OGG, FLAC, ALAW, MULAW, MP4, M4A, and AAC. Compressed formats require GStreamer to be installed on the system.
+Recognize speech from an audio file by using [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/speech-to-text). This command takes an audio file and converts it to text by using advanced speech recognition capabilities. Supported audio formats include WAV, MP3, OPUS/OGG, FLAC, ALAW, MULAW, MP4, M4A, and AAC. Compressed formats require GStreamer to be installed on the system.
 
 Example prompts include:
 
-- **Basic conversion**: "Convert the audio file ./meeting-recording.wav to text using endpoint `https://myservice.cognitiveservices.azure.com/` with Azure Speech in Foundry Tools"
+- **Basic conversion**: "Convert the audio file ./meeting-recording.wav to text by using endpoint `https://myservice.cognitiveservices.azure.com/` with Azure Speech in Foundry Tools."
 - **With language detection**: "Recognize speech from file ./recording.mp3 using endpoint `https://myservice.cognitiveservices.azure.com/` with language detection"
 - **With profanity filtering**: "Transcribe speech from file ./interview.wav using endpoint `https://myservice.cognitiveservices.azure.com/` with profanity option removed"
 - **Specify endpoint**: "Convert speech to text from file ./audio.wav using endpoint `https://myservice.cognitiveservices.azure.com/`"
@@ -57,12 +57,12 @@ Example prompts include:
 
 <!-- speech tts synthesize -->
 
-Convert text to speech using Azure Speech in Foundry Tools. This command takes text input and generates an audio file using advanced neural text-to-speech capabilities.
+Convert text to speech by using Azure Speech in Foundry Tools. This command takes text input and generates an audio file by using advanced neural text-to-speech capabilities.
 
 Example prompts include:
 
 - **Basic synthesis**: "Convert the text 'Hello, welcome to Foundry Tools' to speech using endpoint `https://myservice.cognitiveservices.azure.com/` and save to output.wav"
-- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my custom voice my-custom-voice under service `https://myservice.cognitiveservices.azure.com/` and endpoint ID `guid-endpoint`"
+- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 by using my custom voice my-custom-voice under service `https://myservice.cognitiveservices.azure.com/` and endpoint ID `guid-endpoint`"
 - **Different language**: "Generate Spanish speech for 'Bienvenido a Azure' and save to welcome-es.wav using my speech endpoint https://myresource.cognitiveservices.azure.com/ in es-ES language"
 
 | Parameter |  Required or optional | Description |

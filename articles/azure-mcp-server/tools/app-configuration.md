@@ -13,7 +13,7 @@ content_well_notification:
 ---
 # Azure App Configuration tools for the Azure MCP Server overview
 
-The Azure MCP Server allows you to manage Azure resources, including App Configuration stores, using natural language prompts. You can quickly manage configuration settings and feature flags without remembering complex syntax.
+The Azure MCP Server enables you to manage Azure resources, including App Configuration stores, by using natural language prompts. You can quickly manage configuration settings and feature flags without needing to remember complex syntax.
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their access in one place.
 
@@ -88,15 +88,15 @@ Example prompts include:
 - **API configuration**: "Show the content for the key 'ApiSettings:Endpoint' in App Configuration store 'api-config'"
 - **Database settings**: "List all key-value settings with key name starting with 'Database' in App Configuration store 'backend-config'"
 - **Feature flags**: "Show me the key-value settings with label 'features' in App Configuration store 'feature-config'"
-- **Service endpoint**: "Show the content for the key 'Endpoints:ApiBaseUrl' in App Configuration store 'service-config'"
+- **Service endpoint**: "Show the content for the key 'Endpoints:ApiBaseUrl' in App Configuration store 'service-config'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Account** |  Required | The name of the App Configuration store (for example, `my-appconfig`). |
 | **Key** |  Optional | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
-| **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a key of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `App*`). If omitted, all keys are retrieved. |
-| **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a label of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `Prod*`). This filter is case-sensitive. If omitted, all labels are retrieved. |
+| **Key filter** |  Optional | Specifies the key filter to use when retrieving key-values. The filter can be an exact match, such as `foo`, which gets all key-values with a key of `foo`. Or, the filter can include a `*` character at the end of the string for wildcard searches, such as `App*`. If omitted, all keys are retrieved. |
+| **Label filter** |  Optional | Specifies the label filter to use when retrieving key-values. The filter can be an exact match, such as `foo`, which gets all key-values with a label of `foo`. Or, the filter can include a `*` character at the end of the string for wildcard searches, such as `Prod*`. This filter is case-sensitive. If omitted, all labels are retrieved. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
