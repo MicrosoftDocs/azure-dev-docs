@@ -1,23 +1,27 @@
 ---
-title: Azure skill for resource visualizer
-description: Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources.
-ms.topic: reference
-ms.date: 4/2/2026
+title: Azure Skill for Azure Resource Visualizer
+description: The azure-resource-visualizer skill helps you generate Mermaid architecture diagrams from Azure resource groups. Use it to visualize resource topology, discover dependencies, assess deployment impact, and understand your Azure architecture.
 author: diberry
 ms.author: diberry
+ms.reviewer: tomescht
+ms.date: 06/15/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.1
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
+ai-usage: ai-generated
+ms.skillversion: "1.1.2"
 ---
 
-# Azure skill for resource visualizer
+# Azure skill for Azure Resource Visualizer
 
-Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources.
+The `azure-resource-visualizer` skill helps you generate Mermaid architecture diagrams from Azure resource groups. Use it to visualize resource topology, discover dependencies, assess deployment change impact, and understand your current Azure architecture.
 
-**Skill:** `azure-resource-visualizer` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-resource-visualizer/SKILL.md)
+**Skill** `azure-resource-visualizer` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-resource-visualizer/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources.
+You get Mermaid diagram generation for Azure resource groups, showing resource topology, network connections, and service dependencies. Visualize how resources relate, assess the impact of planned changes, and produce architecture diagrams for documentation or review.
 
 ## Prerequisites
 
@@ -29,29 +33,29 @@ This skill provides GitHub Copilot with specialized knowledge. Analyze Azure res
 
 Use this skill when you need to:
 
-- Create architecture diagram in Azure
-- Visualize Azure resources
-- Work with generate Mermaid diagram
-- Analyze resource group in Azure
-- Work with diagram my resources, architecture visualization, resource topology, and map Azure infrastructure
+- Resource Group Discovery: List available resource groups when not specified
+- Deep Resource Analysis: Examine all resources, their configurations, and interdependencies
+- Relationship Mapping: Identify and document all connections between resources
+- Diagram Generation: Create detailed, accurate Mermaid diagrams
+- Resource Documentation Creation: Produce clear markdown files with embedded diagrams
 
 ## Example prompts
 
 Try these prompts to activate this skill:
 
-- "Create an architecture diagram for my Azure resource group"
-- "Generate a Mermaid diagram of my resource group"
+- "Create an architecture diagram"
 - "Visualize my Azure resources"
-- "Visualize the architecture of my Azure resources"
-- "Architecture visualization for my Azure infrastructure"
-- "Show me the relationships between my Azure resources"
 - "Show resource relationships"
-- "How are my Azure resources connected?"
+- "Generate a Mermaid diagram for my resource group"
 - "Analyze my resource group"
-- "Analyze resource group architecture"
+- "Diagram my resources"
+- "Show resource topology"
+- "Map my Azure infrastructure"
 
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-resource-visualizer/SKILL.md)
-
+- [Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal)
+- [Visualize Azure resources](/azure/azure-resource-manager/management/resource-graph-samples)
+- [Azure topology visualization](/azure/network-watcher/network-insights-topology)

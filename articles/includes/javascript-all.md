@@ -447,9 +447,9 @@
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | @typespec/bundler | npm [0.6.0](https://www.npmjs.com/package/@typespec/bundler/v/0.6.0) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.9](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.9) |  |  |
-| @typespec/playground | npm [0.15.1](https://www.npmjs.com/package/@typespec/playground/v/0.15.1) |  |  |
-| @typespec/tspd | npm [0.75.0](https://www.npmjs.com/package/@typespec/tspd/v/0.75.0) |  |  |
-| @typespec/xml | npm [0.83.0](https://www.npmjs.com/package/@typespec/xml/v/0.83.0) |  |  |
+| @typespec/playground | npm [0.16.0](https://www.npmjs.com/package/@typespec/playground/v/0.16.0) |  |  |
+| @typespec/tspd | npm [0.76.0](https://www.npmjs.com/package/@typespec/tspd/v/0.76.0) |  |  |
+| @typespec/xml | npm [0.84.0](https://www.npmjs.com/package/@typespec/xml/v/0.84.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
 | App Configuration Provider | npm [3.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/3.0.1-preview) |  |  |
 | App Configuration Provider | npm [2.5.1](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.5.1) |  |  |
@@ -484,21 +484,21 @@
 | OpenAPI Validator Core | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | tmlanguage-generator | npm [0.6.8](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.8) |  |  |
 | TypeSpec Asset Emitter | npm [0.79.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.79.1) |  |  |
-| TypeSpec Emitter Framework | npm [0.18.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.18.0) |  |  |
-| TypeSpec Events | npm [0.83.0](https://www.npmjs.com/package/@typespec/events/v/0.83.0) |  |  |
+| TypeSpec Emitter Framework | npm [0.19.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.19.0) |  |  |
+| TypeSpec Events | npm [0.84.0](https://www.npmjs.com/package/@typespec/events/v/0.84.0) |  |  |
 | TypeSpec HTTP Canonicalization | npm [0.16.1](https://www.npmjs.com/package/@typespec/http-canonicalization/v/0.16.1) |  |  |
-| TypeSpec HTTP Client | npm [0.15.1](https://www.npmjs.com/package/@typespec/http-client/v/0.15.1) |  |  |
+| TypeSpec HTTP Client | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-client/v/0.16.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.9.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.9.0) |  |  |
-| TypeSpec HTTP Client JavaScript | npm [0.15.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.15.0) |  |  |
+| TypeSpec HTTP Client JavaScript | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.16.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.34.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.34.1) |  |  |
-| TypeSpec HTTP Specs | npm [0.1.0-alpha.38](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.38) |  |  |
+| TypeSpec HTTP Specs | npm [0.1.0-alpha.39](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.39) |  |  |
 | TypeSpec MCP | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
 | TypeSpec MCP HTTP Server C# | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
 | TypeSpec MCP Server C# | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp-server-csharp/v/0.0.0-104) |  |  |
 | TypeSpec MCP Server JS | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-104) |  |  |
 | TypeSpec Mutator Framework | npm [0.17.0](https://www.npmjs.com/package/@typespec/mutator-framework/v/0.17.0) |  |  |
-| TypeSpec SSE | npm [0.83.0](https://www.npmjs.com/package/@typespec/sse/v/0.83.0) |  |  |
-| TypeSpec Streams | npm [0.83.0](https://www.npmjs.com/package/@typespec/streams/v/0.83.0) |  |  |
+| TypeSpec SSE | npm [0.84.0](https://www.npmjs.com/package/@typespec/sse/v/0.84.0) |  |  |
+| TypeSpec Streams | npm [0.84.0](https://www.npmjs.com/package/@typespec/streams/v/0.84.0) |  |  |
 | Unknown Display Name | npm [0.1.0-beta.1](https://www.npmjs.com/package/@azure-tools/dataflow-dev/v/0.1.0-beta.1) |  |  |
 | Unknown Display Name | npm [0.1.0-preview](https://www.npmjs.com/package/@azure/azure-connectors/v/0.1.0-preview) |  |  |
 | Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/bicep-rpc-client/v/0.2.1) |  |  |

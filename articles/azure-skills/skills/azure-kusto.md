@@ -1,29 +1,23 @@
 ---
-title: Azure skill for Kusto (Azure Data Explorer)
-description: Query and analyze data in Azure Data Explorer (Kusto/ADX) using KQL for log analytics, telemetry, and time series analysis.
-ms.topic: reference
-ms.date: 5/6/2026
+title: Azure Skill for Azure Kusto (Data Explorer)
+description: The azure-kusto skill helps you write and optimize Kusto Query Language (KQL) queries for Azure Data Explorer (ADX) and Azure Monitor Log Analytics. Use it to analyze telemetry, build KQL queries, and manage ADX clusters.
 author: diberry
 ms.author: diberry
+ms.reviewer: skaluvak
+ms.date: 06/29/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.1.1
-ai-usage: ai-assisted
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
+ai-usage: ai-generated
+ms.skillversion: "1.1.1"
 ---
 
-# Azure skill for Kusto (Data Explorer)
+# Azure skill for Azure Kusto (Data Explorer)
 
-Execute KQL queries and manage Azure Data Explorer resources for fast, scalable big data analytics on log, telemetry, and time series data.
+The `azure-kusto` skill helps you write and optimize KQL queries for Azure Data Explorer (ADX) and Azure Monitor Log Analytics. Use it to analyze telemetry, build complex queries with joins and aggregations, manage ADX clusters, and configure ingestion pipelines.
 
-**Skill:** `azure-kusto` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-kusto/SKILL.md)
-
-## What it provides
-
-This skill lets GitHub Copilot query and manage Azure Data Explorer (Kusto) resources. Key capabilities include:
-
-- **Query execution**: Run KQL queries against massive datasets.
-- **Schema exploration**: Discover tables, columns, and data types.
-- **Resource management**: List clusters and databases.
-- **Analytics**: Aggregations, time series, anomaly detection, machine learning.
+**Skill** `azure-kusto` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-kusto/SKILL.md)
 
 ## Prerequisites
 
@@ -35,28 +29,28 @@ This skill lets GitHub Copilot query and manage Azure Data Explorer (Kusto) reso
 
 Use this skill when you need to:
 
-- Query data in Azure Data Explorer using KQL.
-- Explore schemas and discover tables in a Kusto database.
-- List Azure Data Explorer clusters and databases in your subscription.
-- Analyze logs, telemetry, time series data, or IoT data.
-- Perform aggregations, anomaly detection, or security analytics.
+- Write KQL queries to analyze logs, telemetry data, and time-series information in Azure Data Explorer clusters.
+- Perform log analytics, analyze time-series data from IoT devices, and detect anomalies.
 
 ## Example prompts
 
 Try these prompts to activate this skill:
 
-- "Query my Kusto database for events in the last hour"
-- "Show me events in the last hour from Azure Data Explorer"
-- "Analyze logs in my ADX cluster"
-- "Run a KQL query on my database"
+- "Query my Kusto database for [data pattern]."
+- "Show me events in the last hour from Azure Data Explorer."
+- "Analyze logs in my ADX cluster."
+- "Run a KQL query on [database]."
 - "What tables are in my Kusto database?"
-- "Show me the schema for my events table"
-- "List my Azure Data Explorer clusters"
-- "Aggregate telemetry data by service"
-- "Create a time series chart from my logs"
+- "Show me the schema for [table]."
+- "List my Azure Data Explorer clusters."
+- "Aggregate telemetry data by [dimension]."
+- "Create a time series chart from my logs."
 
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-kusto/SKILL.md)
-
+- [KQL quick reference](/azure/data-explorer/kusto/query/kql-quick-reference)
+- [Azure Data Explorer overview](/azure/data-explorer/data-explorer-overview)
+- [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/)
+- [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial)
