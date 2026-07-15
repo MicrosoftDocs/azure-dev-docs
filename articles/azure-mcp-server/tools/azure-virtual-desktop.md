@@ -5,6 +5,7 @@ author: diberry
 ms.author: diberry
 ms.date: 07/10/2026
 ms.topic: concept-article
+ms.reviewer: vladimis
 ms.custom:
   - build-2025
 ai-usage: ai-assisted
