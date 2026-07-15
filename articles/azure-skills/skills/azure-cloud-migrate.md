@@ -1,23 +1,23 @@
 ---
-title: Azure skill for cloud migration
-description: Assess and migrate cross-cloud workloads to Azure with migration reports and code conversion guidance. Supports AWS, GCP, and other providers.
-ms.topic: reference
-ms.date: 4/2/2026
+title: Azure Skill for Azure Cloud Migrate
+description: The azure-cloud-migrate skill helps you migrate workloads from AWS, GCP, and Heroku to Azure. Use it to get migration guidance for containers, VMs, and application code including Spring Boot and containerized apps.
 author: diberry
 ms.author: diberry
+ms.reviewer: skaluvak, mabhar
+ms.date: 06/29/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.0.2
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
+ai-usage: ai-generated
+ms.skillversion: "1.2.1"
 ---
 
-# Azure skill for cloud migration
+# Azure skill for Azure Cloud Migrate
 
-Assess and migrate cross-cloud workloads to Azure with migration reports and code conversion guidance. Supports AWS, GCP, and other providers.
+The azure-cloud-migrate skill helps you migrate workloads from AWS, GCP, and Heroku to Azure. Use it to get migration guidance for hosting scenarios and containerized apps.
 
-**Skill:** `azure-cloud-migrate` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-cloud-migrate/SKILL.md)
-
-## What it provides
-
-This skill provides GitHub Copilot with specialized knowledge. Assess and migrate cross-cloud workloads to Azure with migration reports and code conversion guidance. Supports AWS, GCP, and other providers.
+**Skill** `azure-cloud-migrate` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-cloud-migrate/SKILL.md)
 
 ## Prerequisites
 
@@ -27,35 +27,42 @@ This skill provides GitHub Copilot with specialized knowledge. Assess and migrat
 
 ## When to use this skill
 
-Use this skill when you need to:
+This skill covers the following migration scenarios:
 
-- Migrate AWS Lambda functions to Azure Functions.
-- Migrate GCP Cloud Run services to Azure Container Apps.
-- Plan and execute migrations of AWS or GCP infrastructure to Azure.
-- Perform readiness assessments for Lambda function or Cloud Run migrations.
-- Convert AWS serverless architectures to Azure Compute services.
-- Generate migration readiness reports.
-- Execute migrations from AWS to Azure Cloud.
-- Execute migrations from Google Cloud Platform to Azure.
-- Plan migrations across multiple cloud providers to Azure.
+| Source | Target | 
+|--------|--------|
+| AWS Lambda | [Azure Functions](/azure/azure-functions/) |
+| AWS Elastic Beanstalk | [Azure App Service](/azure/app-service/) |
+| Heroku | [Azure App Service](/azure/app-service/) |
+| Google App Engine | [Azure App Service](/azure/app-service/) |
+| AWS Fargate (ECS) | [Azure Container Apps](/azure/container-apps/) |
+| Kubernetes (GKE/EKS/Self-hosted) | [Azure Container Apps](/azure/container-apps/) |
+| GCP Cloud Run | [Azure Container Apps](/azure/container-apps/) |
+| Spring Boot (Azure Spring Apps/VMs) | [Azure Container Apps](/azure/container-apps/) |
+
 
 ## Example prompts
 
 Try these prompts to activate this skill:
 
-- "How do I migrate my AWS Lambda functions to Azure Functions?"
-- "I want to migrate from AWS to Azure"
-- "Can you do a Lambda migration assessment for my project?"
-- "Convert my serverless functions to Azure"
-- "Generate a migration readiness report for my Lambda functions"
-- "Help me migrate code to Azure Functions"
-- "Assess my AWS Lambda project for Azure migration"
-- "I need to move my Lambda workloads to Azure Functions"
-- "Migrate my GCP Cloud Run services to Azure Container Apps"
-- "How do I move from Cloud Run to Azure?"
+- "Migrate my Lambda functions to Azure Functions"
+- "Migrate from AWS to Azure"
+- "Migrate my Beanstalk app"
+- "Migrate from Heroku to Azure"
+- "Migrate my App Engine app"
+- "Migrate Cloud Run to Azure"
+- "Migrate Fargate to Azure Container Apps"
+- "Migrate EKS to Container Apps"
+- "Migrate Spring Boot to Container Apps"
+- "Cross-cloud migration"
 
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-cloud-migrate/SKILL.md)
-
+- [Azure Migrate overview](/azure/migrate/migrate-services-overview)
+- [Cloud migration strategies](/azure/cloud-adoption-framework/migrate/)
+- [Azure migration best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices/)
+- [Azure Functions](/azure/azure-functions/)
+- [Azure App Service](/azure/app-service/)
+- [Azure Container Apps](/azure/container-apps/)
