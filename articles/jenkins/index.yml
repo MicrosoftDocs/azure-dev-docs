@@ -9,8 +9,8 @@ metadata:
   services: azure
   ms.service: jenkins
   ms.topic: landing-page
-  author: TomArcherMsft
-  ms.author: tarcher
+  author: vranade-microsoft
+  ms.author: vranade
   ms.date: 12/16/2020
   ms.custom: devx-track-jenkins
 
