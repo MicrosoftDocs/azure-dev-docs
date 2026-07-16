@@ -228,7 +228,6 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Optional | The name of the Microsoft Foundry resource. |
-| **Resource group** |  Optional | The name of the Azure resource group. This is a logical container for Azure resources. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
