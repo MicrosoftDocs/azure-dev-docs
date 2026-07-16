@@ -191,7 +191,13 @@ items:
     - name: Create and configure a managed identity on Azure hosting services
       href: create-and-configure-managed-identity.md
     - name: Deploy applications to Azure hosting services
-      href: deploy-applications-to-azure-hosting-environments.md
+      items:
+      - name: Overview
+        href: deploy-applications-to-azure-hosting-environments.md
+      - name: Deploy a Spring Boot app to Azure Kubernetes Service
+        href: deploy-spring-boot-java-app-on-kubernetes.md
+      - name: Deploy a Spring Boot web app to Linux on Azure App Service
+        href: deploy-spring-boot-java-app-on-linux.md
   - name: Reference
     items:
     - name: Application properties
