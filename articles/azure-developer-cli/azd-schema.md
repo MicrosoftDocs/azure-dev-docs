@@ -3,7 +3,7 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/24/2026
+ms.date: 07/13/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -89,7 +89,7 @@ _(object)_ Provides additional configuration for Azure infrastructure provisioni
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `provider` | N | string | The infrastructure provisioning provider used to provision the Azure resources for the application. Default: `bicep`. Allowed values: `bicep`, `terraform`. |
+| `provider` | N | string | The infrastructure provisioning provider used to provision the Azure resources for the application. Built-in values are `bicep` and `terraform`. Extensions can register additional named providers (for example, `microsoft.foundry`). Default: `bicep`. |
 | `path` | N | string | The relative folder path to the Azure provisioning templates for the specified provider. Default: `infra`. |
 | `module` | N | string | The name of the default module within the Azure provisioning templates. Default: `main`. |
 | `layers` | N | array | Layers for Azure infrastructure provisioning. See [`infra.layers`](#infralayers). |
@@ -163,7 +163,7 @@ _(object)_ Definition of services that comprise the application. Each key is a s
 | `dist` | N | string | Relative path to service deployment artifacts. |
 | `resourceName` | N | string | Name of the Azure resource that implements the service. By default, the CLI discovers the Azure resource with tag `azd-service-name` set to the current service's name. Supports environment variable substitution. |
 | `resourceGroup` | N | string | Name of the Azure resource group that contains the resource. When specified, the CLI finds the Azure resource within the specified resource group. Supports environment variable substitution. |
-| `remoteBuild` | N | boolean | Whether to use remote build for function app deployment. Only valid when `host` is `function`. When set to `true`, the deployment package is built remotely using Oryx. Defaults to `true` for JavaScript, TypeScript, and Python function apps. Remote build isn't supported for Go function apps, which always compile to a static binary locally. |
+| `remoteBuild` | N | boolean | Whether to use remote build for function app deployment. Only valid when `host` is `function`. When set to `true`, the deployment package is built remotely using Oryx. Defaults to `true` for JavaScript, TypeScript, and Python function apps. |
 | `docker` | N | object | Docker configuration. Only applicable for container-based hosts. See [`docker`](#docker). |
 | `k8s` | N | object | AKS configuration options. Only valid when `host` is `aks`. See [`k8s`](#k8s). |
 | `config` | N | object | Extra configuration options for the service. |
@@ -181,20 +181,35 @@ The `host` property determines the type of Azure resource used for service imple
 
 | Host value | Description | Requires `project` | Supports `image` | Supports `docker` | Supports `k8s` | Supports `env` | Supports `apiVersion` |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `appservice` | Azure App Service | Y | N | N | N | N | N |
+| `appservice` | Azure App Service | N | Y | Y | N | Y | N |
 | `containerapp` | Azure Container Apps | `project` or `image` (not both) | Y | Y | N | Y | Y |
 | `function` | Azure Functions | Y | N | N | N | N | N |
 | `staticwebapp` | Azure Static Web Apps | Y | N | N | N | N | N |
 | `springapp` | Azure Spring Apps | Y | N | N | N | N | N |
 | `aks` | Azure Kubernetes Service | N | N | Y | Y | N | N |
 | `ai.endpoint` | Azure AI online endpoint | Y | N | Y | N | N | N |
-| `azure.ai.agent` | Azure AI Agent | Y | N | Y | N | N | N |
+| `azure.ai.agent` | Azure AI Agent | Y | Y | Y | N | Y | N |
+| `microsoft.foundry` | Microsoft Foundry (legacy) | N | N | N | N | N | N |
+| `azure.ai.project` | Microsoft Foundry project | N | N | N | N | N | N |
+| `azure.ai.connection` | Microsoft Foundry connection | N | N | N | N | N | N |
+| `azure.ai.toolbox` | Microsoft Foundry toolbox | N | N | N | N | N | N |
+| `azure.ai.skill` | Microsoft Foundry skill | N | N | N | N | N | N |
+| `azure.ai.routine` | Microsoft Foundry routine | N | N | N | N | N | N |
 
 > [!NOTE]
 > `springapp` support requires opt-in to alpha features. For more information, see [Alpha features](./feature-versioning.md#alpha-features).
 
 > [!NOTE]
 > When `host` is `containerapp`, you must provide either `image` or `project`, but not both. If `image` is set, the container is deployed from the specified image. If `project` is set, the container image is built from source.
+
+> [!NOTE]
+> When `host` is `appservice`, you can deploy from source by setting `project`, or from a container by setting `image` and `docker`.
+
+> [!NOTE]
+> When `host` is `azure.ai.agent`, the `config` property is deprecated. Agent settings moved to the service level, but the previous `config` shape remains valid.
+
+> [!NOTE]
+> The `microsoft.foundry`, `azure.ai.project`, `azure.ai.connection`, `azure.ai.toolbox`, `azure.ai.skill`, and `azure.ai.routine` hosts are declarative Microsoft Foundry resource hosts. You don't build or deploy application code for them. Instead, each one declares a supporting Foundry resource that `azd` provisions and configures. Their configuration comes from the corresponding `azd` extensions rather than from source code, so properties like `project`, `image`, and `docker` don't apply. Use `azure.ai.project` for new projects; `microsoft.foundry` is a legacy compatibility host. For property details, see [Microsoft Foundry hosts](#microsoft-foundry-hosts).
 
 #### `ai.endpoint` config
 
@@ -242,7 +257,7 @@ services:
 
 #### `docker`
 
-_(object)_ Docker configuration for a service. Only applicable for hosts that support containers (`containerapp`, `aks`, `ai.endpoint`, `azure.ai.agent`).
+_(object)_ Docker configuration for a service. Only applicable for hosts that support containers (`appservice`, `containerapp`, `aks`, `ai.endpoint`, `azure.ai.agent`).
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
@@ -320,6 +335,134 @@ _(object)_ Azure Kubernetes Service (AKS) configuration options. Only valid when
 | `dir` | N | string | The relative path to the kustomize directory. Supports environment variable substitution. |
 | `edits` | N | array of strings | The kustomize edits to apply before deployment. Supports environment variable substitution. |
 | `env` | N | object | Environment key/value pairs used to generate a `.env` file in the kustomize directory. Values support environment variable substitution. |
+
+#### Microsoft Foundry hosts
+
+The `azure.ai.agent` host and the declarative Foundry resource hosts (`microsoft.foundry`, `azure.ai.project`, `azure.ai.connection`, `azure.ai.toolbox`, `azure.ai.skill`, and `azure.ai.routine`) work with Microsoft Foundry resources. The `azure.ai.agent` host deploys application code you build from a `project` folder, while the declarative hosts don't involve any code you build. Each declarative host describes a supporting Foundry resource that `azd` provisions and configures. Unlike `ai.endpoint`, which nests settings under `config`, these hosts define their host-specific properties as flat siblings of `host`. Each host's properties come from an `azd` extension schema rather than the core `azure.yaml` schema, so the extension must be installed for the properties to validate. For the declarative hosts, the service key is the resource name (for example, the connection, toolbox, skill, or routine name).
+
+#### `azure.ai.agent` config
+
+_(properties at the service level, when `host` is `azure.ai.agent`)_ Configure a hosted Microsoft Foundry agent. The service also requires `project`. The full property set is defined by the [`azure.ai.agent` extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json).
+
+| Property | Required | Type | Description |
+| --- | --- | --- | --- |
+| `name` | N | string | The agent name. |
+| `displayName` | N | string | A human-friendly display name for the agent. |
+| `description` | N | string | A description of the agent. |
+| `kind` | N | string | The agent kind. Only `hosted` is supported. |
+| `env` | N | object | Environment variables as key/value pairs. |
+| `deployments` | N | array | Model deployments for the agent. See [Agent model deployments](#agent-model-deployments). |
+| `codeConfiguration` | N | object | Deploy the agent from source instead of a container image. See [Agent code configuration](#agent-code-configuration). |
+| `container` | N | object | Container resource settings for the agent. See [Agent container resources](#agent-container-resources). |
+| `startupCommand` | N | string | The command that starts the agent server locally, for example `python main.py`. Used by `azd ai agent run`. |
+| `resources` | N | array | External resources for agent execution. Each item has a `resource` identifier and a `connectionName`. |
+| `toolConnections` | N | array | Connections to external services (MCP tools, A2A, custom APIs) created during provisioning. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
+| `toolboxes` | N | array | Toolboxes (Foundry Toolsets) to deploy. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
+| `connections` | N | array | Project connections to create via Bicep provisioning. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
+| `memoryStores` | N | array | Foundry memory stores that let the agent retain context across sessions. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
+| `policies` | N | array | Governance policies attached to the agent, such as Responsible AI. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
+| `protocols` | N | array | Invocation protocols the agent implements, for example `responses`, `invocations`, or `a2a`. |
+| `agentEndpoint` | N | object | Agent endpoint configuration, such as protocols, version selection, and auth. |
+| `agentCard` | N | object | A2A discovery metadata for the agent. |
+| `metadata` | N | object | Metadata key/value pairs for the agent. |
+| `inputSchema` | N | object | An input schema for the agent. |
+| `outputSchema` | N | object | An output schema for the agent. |
+
+##### Agent model deployments
+
+Each item in `deployments` upserts a model deployment.
+
+| Property | Required | Type | Description |
+| --- | --- | --- | --- |
+| `name` | Y | string | The name of the model deployment. |
+| `model` | Y | object | The model configuration: `name`, `format`, and `version` (all required). |
+| `sku` | Y | object | The SKU configuration: `name` and `capacity` (both required). |
+
+##### Agent code configuration
+
+When `codeConfiguration` is present, the agent is deployed from source (ZIP) instead of a container image.
+
+| Property | Required | Type | Description |
+| --- | --- | --- | --- |
+| `runtime` | Y | string | The runtime identifier, for example `python_3_12` or `dotnet_9`. |
+| `entryPoint` | Y | string | The entry point for the agent source. |
+| `dependencyResolution` | N | string | The dependency resolution mode, for example `bundled` or `remote_build`. |
+
+##### Agent container resources
+
+The `container` object sets compute resources through a nested `resources` object.
+
+| Property | Required | Type | Description |
+| --- | --- | --- | --- |
+| `cpu` | N | string | The CPU allocation, for example `1` or `500m`. |
+| `memory` | N | string | The memory allocation, for example `1Gi` or `512Mi`. |
+
+```yaml
+services:
+  myagent:
+    project: ./src/agent
+    host: azure.ai.agent
+    language: python
+    name: support-agent
+    displayName: Support Agent
+    kind: hosted
+    env:
+      LOG_LEVEL: info
+    deployments:
+      - name: gpt-4o
+        model:
+          name: gpt-4o
+          format: OpenAI
+          version: "2024-08-06"
+        sku:
+          name: GlobalStandard
+          capacity: 50
+    codeConfiguration:
+      runtime: python_3_12
+      entryPoint: main.py
+      dependencyResolution: remote_build
+    container:
+      resources:
+        cpu: "1"
+        memory: 2Gi
+```
+
+#### Other Microsoft Foundry hosts
+
+The following declarative hosts take their properties from `azd` extension schemas. You don't build or deploy code for them. Each one declares a supporting Foundry resource that `azd` provisions. The service key is the resource name. For the complete property set, see each host's schema.
+
+| Host | Key properties | Schema |
+| --- | --- | --- |
+| `microsoft.foundry` (legacy) | `endpoint`, `deployments`, `connections`, `toolboxes`, `skills`, `routines`, `agents` | [microsoft.foundry.json](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/microsoft.foundry.json) |
+| `azure.ai.project` | `endpoint`, `deployments`, `network` | [azure.ai.project.json](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.projects/schemas/azure.ai.project.json) |
+| `azure.ai.connection` | `category`, `target`, `authType`, `credentials`, `metadata` | [azure.ai.connection.json](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.connections/schemas/azure.ai.connection.json) |
+| `azure.ai.toolbox` | `description`, `tools` | [azure.ai.toolbox.json](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.toolboxes/schemas/azure.ai.toolbox.json) |
+| `azure.ai.skill` | `description`, `instructions`, `tools` | [azure.ai.skill.json](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.skills/schemas/azure.ai.skill.json) |
+| `azure.ai.routine` | `description`, `enabled`, `triggers`, `action` | [azure.ai.routine.json](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.routines/schemas/azure.ai.routine.json) |
+
+```yaml
+services:
+  # Foundry project that owns model deployments
+  project:
+    host: azure.ai.project
+    deployments:
+      - name: gpt-4o
+        model:
+          name: gpt-4o
+          format: OpenAI
+          version: "2024-08-06"
+        sku:
+          name: GlobalStandard
+          capacity: 50
+  # Connection referenced by tools (service key is the connection name)
+  my-search:
+    host: azure.ai.connection
+    uses:
+      - project
+    category: CognitiveSearch
+    target: https://my-search.search.windows.net
+    authType: ApiKey
+```
 
 #### Service hooks
 

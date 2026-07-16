@@ -12,12 +12,32 @@ The JSON schema published at <https://aka.ms/azure.yaml.json> (source: `https://
 
 A local copy is kept at `articles/azure-developer-cli/source-schema.json` to serve as a baseline for diffing against newer versions.
 
+### Microsoft Foundry extension schemas
+
+The Foundry host types (`host: azure.ai.agent` and the code-less hosts) resolve their properties from separate extension schemas rather than the core `azure.yaml.json`. The core schema only `$ref`s them, so the core diff won't catch changes to Foundry host properties. Treat these upstream files as additional sources of truth for the `#### Microsoft Foundry hosts`, `#### azure.ai.agent config`, and `#### Other Microsoft Foundry hosts` subsections:
+
+| Host | Extension schema |
+| --- | --- |
+| `azure.ai.agent` | `https://raw.githubusercontent.com/Azure/azure-dev/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json` |
+| `microsoft.foundry` | `https://raw.githubusercontent.com/Azure/azure-dev/main/cli/azd/extensions/azure.ai.agents/schemas/microsoft.foundry.json` |
+| `azure.ai.project` | `https://raw.githubusercontent.com/Azure/azure-dev/main/cli/azd/extensions/azure.ai.projects/schemas/azure.ai.project.json` |
+| `azure.ai.connection` | `https://raw.githubusercontent.com/Azure/azure-dev/main/cli/azd/extensions/azure.ai.connections/schemas/azure.ai.connection.json` |
+| `azure.ai.toolbox` | `https://raw.githubusercontent.com/Azure/azure-dev/main/cli/azd/extensions/azure.ai.toolboxes/schemas/azure.ai.toolbox.json` |
+| `azure.ai.skill` | `https://raw.githubusercontent.com/Azure/azure-dev/main/cli/azd/extensions/azure.ai.skills/schemas/azure.ai.skill.json` |
+| `azure.ai.routine` | `https://raw.githubusercontent.com/Azure/azure-dev/main/cli/azd/extensions/azure.ai.routines/schemas/azure.ai.routine.json` |
+
+Diff depth per host:
+
+- `azure.ai.agent`: full diff. The `#### azure.ai.agent config` table documents every top-level property, plus the `Agent model deployments`, `Agent code configuration`, and `Agent container resources` sub-tables. Deeply nested objects (`toolConnections`, `connections`, `memoryStores`, `policies`, `toolboxes`) are intentionally summarized with a link to the extension schema rather than fully expanded — keep them that way unless a change materially affects the top-level shape.
+- The other six hosts: lightweight diff. The `#### Other Microsoft Foundry hosts` table lists only each host's key top-level properties and a link to its schema. Update a row only when a host gains or loses a top-level property, or when its schema URL changes.
+
 ## Update workflow
 
 1. Fetch the latest schema from `https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json`.
 1. Diff it against the local `articles/azure-developer-cli/source-schema.json` to identify changes (added properties, removed enum values, updated descriptions, new definitions).
 1. Apply only the corresponding targeted edits to `azd-schema.md`. Don't regenerate the entire file.
 1. Replace `source-schema.json` with the fetched version so it stays current for future diffs.
+1. Fetch the seven [Microsoft Foundry extension schemas](#microsoft-foundry-extension-schemas) and diff them at the depth described in that section. Apply targeted edits to the Foundry subsections when top-level properties change.
 1. Preserve all existing structure, heading hierarchy, and section ordering.
 
 ## Page structure (do not reorder)
@@ -29,6 +49,7 @@ A local copy is kept at `articles/azure-developer-cli/source-schema.json` to ser
 1. `## Top-level properties` — summary table with anchor links
 1. One `## {propertyName}` section per top-level property, in the order they appear in the schema's `properties` object: `name`, `resourceGroup`, `metadata`, `infra`, `services`, `resources`, `pipeline`, `hooks`, `requiredVersions`, `state`, `platform`, `workflows`, `cloud`
 1. Within `## services`, include `#### docker` and `#### k8s` subsections for the shared Docker and AKS definitions (from the schema's `definitions` section). These are service-level properties nested under `### Service properties`, not top-level.
+1. Within `## services`, include the `#### Microsoft Foundry hosts`, `#### azure.ai.agent config`, and `#### Other Microsoft Foundry hosts` subsections for the Foundry host types, sourced from the [Microsoft Foundry extension schemas](#microsoft-foundry-extension-schemas). Place them after `#### k8s` and before `#### Service hooks`.
 1. Include footer and `## Next steps`
 
 ## Section template
