@@ -165,7 +165,7 @@ configuration:
           label: ansible
       - assignTo:
           users:
-          - 'TomArcherMsft '
+          - 'vranade-microsoft'
       description: 
     - if:
       - payloadType: Issues
@@ -179,7 +179,7 @@ configuration:
           label: jenkins
       - assignTo:
           users:
-          - TomArcherMsft
+          - vranade-microsoft
       description: 
     - if:
       - payloadType: Issues

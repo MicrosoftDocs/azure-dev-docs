@@ -1,5 +1,5 @@
 ---
-ms.author: tarcher
+ms.author: vranade
 ms.topic: include
 ms.date: 10/23/2024
 ms.custom: devx-track-terraform

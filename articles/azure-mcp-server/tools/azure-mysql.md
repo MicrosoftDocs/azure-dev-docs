@@ -3,7 +3,7 @@ title: Azure MCP Server Tools for Azure Database for MySQL
 description: Use Azure MCP Server tools to manage Azure Database for MySQL Flexible Server resources with natural language prompts from your IDE.
 author: diberry
 ms.author: diberry
-ms.reviewer: ramkumarch
+ms.reviewer: matthewkohn, ramkumarch
 ms.date: 06/17/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
@@ -29,13 +29,13 @@ Azure Database for MySQL is a managed relational database service based on the M
 
 <!-- @mcpcli mysql list -->
 
-List Azure Database for MySQL servers, databases, or tables in your subscription. By default, this tool returns all servers. Specify the `server` parameter to list databases on a server, or specify both the `server` and `database` parameters to list tables in a database.
+List Azure Database for MySQL servers, databases, or tables in your subscription. By default, this tool returns all servers in the subscription. Specify the `resource-group` parameter to return servers in a resource group. Specify the `server` parameter to list databases on a server, or specify both the `server` and `database` parameters to list tables in a database.
 
 Example prompts include:
 
-- "List all MySQL servers in resource group 'rg-prod' with user name 'dbadmin'."
-- "Show me my MySQL servers for resource group 'web-rg' using user name 'mysqluser'."
-- "What MySQL servers are in resource group 'rg-staging' for user name 'adminuser'?"
+- "List all MySQL servers in my subscription."
+- "Show me my MySQL servers in resource group 'web-rg'."
+- "What MySQL servers are in resource group 'rg-staging'?"
 - "List all MySQL databases in server 'mysql-server-01' within resource group 'rg-prod' using user name 'dbadmin'."
 - "Show me the MySQL databases on server 'mysql-dbserver' for resource group 'rg-dev' with user name 'mysqluser'."
 - "List all tables in MySQL database 'salesdb' on server 'mysql-server-01' in resource group 'rg-prod' using user name 'dbadmin'."
@@ -43,9 +43,9 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group that contains the resources. |
-| **User name** |  Required | The user name to access the Azure Database for MySQL server. |
-| **Database name** |  Optional | The name of the Azure Database for MySQL database to list tables from. Requires the Server name parameter. |
+| **Resource group** |  Optional | The name of the Azure resource group that contains the resources. Omit this parameter to list all servers in the subscription. |
+| **User name** |  Optional | The user name to access the Azure Database for MySQL server. Required when you specify the **Server name** parameter to list databases or tables. |
+| **Database name** |  Optional | The name of the Azure Database for MySQL database to list tables from. Requires the **Server name** parameter. |
 | **Server name** |  Optional | The name of the Azure Database for MySQL server to list databases from. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -53,12 +53,6 @@ Example prompts include:
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
-Examples
-
-- List all Azure Database for MySQL servers in subscription 'contoso-subscription' and resource group 'prod-rg'.
-- List databases on server 'mysql-prod-01' in resource group 'prod-rg'.
-- List tables in database 'salesdb' on server 'mysql-prod-01' in resource group 'prod-rg'.
 
 ## Query MySQL database
 

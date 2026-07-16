@@ -1,9 +1,9 @@
 ---
- author: tomarchermsft
+ author: vranade-microsoft
  ms.service: ansible
  ms.topic: include
  ms.date: 04/22/2019
- ms.author: tarcher
+ ms.author: vranade
 ---
 
 [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is an enterprise [integration](https://azure.microsoft.com/product-categories/integration/) message broker. Service bus supports two types of communication: queues and topics. 

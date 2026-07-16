@@ -8,8 +8,8 @@ metadata:
   title: Get started with Infrastructure as Code (IaC)
   description: Learn how to use Infrastructure-as-Code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
   ms.service: azure
-  author: TomArcherMsft
-  ms.author: tarcher
+  author: vranade-microsoft
+  ms.author: vranade
   ms.topic: hub-page
   ms.date: 02/14/2025
 
