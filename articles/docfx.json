@@ -121,8 +121,8 @@
         "github-copilot-app-modernization/**/*.yml": "KarlErickson",
         "python/**/*.md": "PatAltimore",
         "python/**/*.yml": "PatAltimore",
-        "terraform/**/*.md": "TomArcherMsft",
-        "terraform/**/*.yml": "TomArcherMsft",
+        "terraform/**/*.md": "vranade-microsoft",
+        "terraform/**/*.yml": "vranade-microsoft",
         "typespec/**/*.md": "diberry",
         "typespec/**/*.yml": "diberry",
         "rust/**/*.md": "diberry",
@@ -145,8 +145,8 @@
       "manager":{
         "**/*.md": "nitinme",
         "**/*.yml": "nitinme",
-        "terraform/**/*.md": "jasongroce",
-        "terraform/**/*.yml": "jasongroce"
+        "terraform/**/*.md": "akashdubey",
+        "terraform/**/*.yml": "akashdubey"
       },
       "ms.author": {
         "**/*.md": "nitinme",
@@ -173,8 +173,8 @@
         "github-copilot-app-modernization/**/*.yml": "karler",
         "python/**/*.md": "patricka",
         "python/**/*.yml": "patricka",
-        "terraform/**/*.md": "tarcher",
-        "terraform/**/*.yml": "tarcher",
+        "terraform/**/*.md": "vranade",
+        "terraform/**/*.yml": "vranade",
         "typespec/**/*.md": "diberry",
         "typespec/**/*.yml": "diberry",
         "rust/**/*.md": "diberry",
@@ -301,7 +301,7 @@
         "github-copilot-azure/**/*.md": "GitHub Copilot for Azure",
         "github-copilot-azure/**/*.yml": "GitHub Copilot for Azure",
         "typespec/**/*.md": "TypeSpec",
-        "typespec/**/*.md": "TypeSpec",
+        "typespec/**/*.yml": "TypeSpec",
         "rust/**/*.md": "Rust on Azure",
         "rust/**/*.yml": "Rust on Azure",
         "azure-mcp-server/**/*.md": "Azure MCP Server",

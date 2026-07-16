@@ -193,7 +193,7 @@ configuration:
           label: terraform
       - assignTo:
           users:
-          - TomArcherMsft
+          - vranade-microsoft
       description: 
     - if:
       - payloadType: Issues
