@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: tomarchermsft
+author: vranade-microsoft
 ms.service: terraform
 ms.topic: include
 ms.date: 07/22/2021
-ms.author: tarcher
+ms.author: vranade
 ---
 
 1. If you already have a Cloud Shell session open, you can skip to the next section.

@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/09/2026
+ms.date: 07/15/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -2691,7 +2691,7 @@ Discover, install, upgrade, and check status of Azure development tools.
 
 ### See also
 
-* [azd tool check](#azd-tool-check): Check for tool updates.
+* [azd tool check](#azd-tool-check): Check for tool upgrades.
 * [azd tool install](#azd-tool-install): Install specified tools.
 * [azd tool list](#azd-tool-list): List all tools with status.
 * [azd tool show](#azd-tool-show): Show details for a specific tool.
@@ -2701,7 +2701,7 @@ Discover, install, upgrade, and check status of Azure development tools.
 
 ## azd tool check
 
-Check for tool updates.
+Check for tool upgrades.
 
 ```azdeveloper
 azd tool check [flags]
@@ -2739,11 +2739,11 @@ azd tool install [tool-name...] [flags]
 ### Options
 
 ```azdeveloper
-      --all            Install all recommended tools
-      --docs           Opens the documentation for azd tool install in your web browser.
-      --dry-run        Preview what would be installed without making changes
-  -h, --help           Gets help for install.
-      --host strings   Install the skill for the specified agent host(s): copilot, claude. Use --host all for every detected host (skill tools only)
+      --agent strings   Install the skill for the specified agent(s): copilot, claude. Use --agent all for every detected agent (skill tools only)
+      --all             Install all recommended tools
+      --docs            Opens the documentation for azd tool install in your web browser.
+      --dry-run         Preview what would be installed without making changes
+  -h, --help            Gets help for install.
 ```
 
 ### Options inherited from parent commands
@@ -2829,11 +2829,11 @@ azd tool uninstall [tool-name...] [flags]
 ### Options
 
 ```azdeveloper
-      --all            Uninstall all installed tools
-      --docs           Opens the documentation for azd tool uninstall in your web browser.
-      --dry-run        Preview what would be uninstalled without making changes
-  -h, --help           Gets help for uninstall.
-      --host strings   Uninstall the skill from the specified agent host(s): copilot, claude. Use --host all (or omit --host) to remove the skill from every host it is installed through (skill tools only)
+      --agent strings   Uninstall the skill from the specified agent(s): copilot, claude. Use --agent all (or omit --agent) to remove the skill from every agent it is installed through (skill tools only)
+      --all             Uninstall all installed tools
+      --docs            Opens the documentation for azd tool uninstall in your web browser.
+      --dry-run         Preview what would be uninstalled without making changes
+  -h, --help            Gets help for uninstall.
 ```
 
 ### Options inherited from parent commands
@@ -2861,10 +2861,11 @@ azd tool upgrade [tool-name...] [flags]
 ### Options
 
 ```azdeveloper
-      --docs           Opens the documentation for azd tool upgrade in your web browser.
-      --dry-run        Preview what would be upgraded without making changes
-  -h, --help           Gets help for upgrade.
-      --host strings   Upgrade the skill for the specified agent host(s): copilot, claude. Use --host all for every detected host (skill tools only)
+      --agent strings   Upgrade the skill for the specified agent(s): copilot, claude. Use --agent all for every detected agent (skill tools only)
+      --all             Upgrade all installed tools
+      --docs            Opens the documentation for azd tool upgrade in your web browser.
+      --dry-run         Preview what would be upgraded without making changes
+  -h, --help            Gets help for upgrade.
 ```
 
 ### Options inherited from parent commands
