@@ -94,8 +94,8 @@ Example prompts include:
 | **Account** |  Required | The name of the App Configuration store (for example, `my-appconfig`). |
 | **Key** |  Optional | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
-| **Key filter** |  Optional | Specifies the key filter to use when retrieving key-values. The filter can be an exact match, such as `foo`, which gets all key-values with a key of `foo`. Or, the filter can include a `*` character at the end of the string for wildcard searches, such as `App*`. If omitted, all keys are retrieved. |
-| **Label filter** |  Optional | Specifies the label filter to use when retrieving key-values. The filter can be an exact match, such as `foo`, which gets all key-values with a label of `foo`. Or, the filter can include a `*` character at the end of the string for wildcard searches, such as `Prod*`. This filter is case-sensitive. If omitted, all labels are retrieved. |
+| **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a key of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `App*`). If omitted all keys is retrieved. |
+| **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a label of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `Prod*`). This filter is case-sensitive. If omitted, all labels is retrieved. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
