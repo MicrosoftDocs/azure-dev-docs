@@ -3,7 +3,8 @@ title: Azure App Configuration Tools
 description: Learn how to use Azure MCP Server tools to manage Azure App Configuration stores, key-value settings, and feature flags with natural language prompts.
 author: diberry
 ms.author: diberry
-ms.date: 12/05/2025
+ms.reviewer: conniey, joncarde
+ms.date: 07/10/2026
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -13,7 +14,7 @@ content_well_notification:
 ---
 # Azure App Configuration tools for the Azure MCP Server overview
 
-The Azure MCP Server allows you to manage Azure resources, including App Configuration stores using natural language prompts. This allows you to quickly manage configuration settings and feature flags without remembering complex syntax.
+The Azure MCP Server enables you to manage Azure resources, including App Configuration stores, by using natural language prompts. You can quickly manage configuration settings and feature flags without needing to remember complex syntax.
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their access in one place.
 
@@ -43,7 +44,7 @@ Example prompts include:
 
 <!-- appconfig kv delete -->
 
-The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store.
+Delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. If you specify a label, the tool deletes only that labeled version. If you omit a label, the tool deletes the key-value with the default label.
 
 Example prompts include:
 
@@ -51,14 +52,13 @@ Example prompts include:
 - **Delete a labeled setting**: "Delete the 'AppName:FeatureFlag' setting with label 'test' from App Configuration store 'myappconfigstore'"
 - **Remove configuration**: "Delete the key 'ProductionEndpointUrl' from App Configuration store 'contoso-appconfig'"
 - **Clean up settings**: "Delete the key 'TestSettings' with label 'deprecated' from App Configuration store 'myappconfigstore'"
-- **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
+- **Purge config**: "Delete the temporary setting 'TempConfig' from app-config-dev"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Account** |  Required | The name of the App Configuration store (for example, my-appconfig). |
 | **Key** |  Required | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
-| **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -88,7 +88,7 @@ Example prompts include:
 - **API configuration**: "Show the content for the key 'ApiSettings:Endpoint' in App Configuration store 'api-config'"
 - **Database settings**: "List all key-value settings with key name starting with 'Database' in App Configuration store 'backend-config'"
 - **Feature flags**: "Show me the key-value settings with label 'features' in App Configuration store 'feature-config'"
-- **Application secrets**: "Show the content for the key 'Secrets:ApiKey' in App Configuration store 'secure-config'"
+- **Service endpoint**: "Show the content for the key 'Endpoints:ApiBaseUrl' in App Configuration store 'service-config'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -113,9 +113,9 @@ Sets the lock state of a key-value in an App Configuration store. This command c
 Example prompts include:
 
 - **Lock a setting**: "Lock the key 'AppName:ConnectionString' in App Configuration store 'myappconfigstore'."
-- **Lock a labeled setting**: "Lock the key 'AppName:ApiKey' with label 'production' in App Configuration store 'contoso-appconfig'."
+- **Lock a labeled setting**: "Lock the key 'AppName:ApiEndpoint' with label 'production' in App Configuration store 'contoso-appconfig'."
 - **Unlock a setting**: "Unlock the key 'AppName:ConnectionString' in App Configuration store 'myappconfigstore'."
-- **Unlock a labeled setting**: "Unlock the key 'AppName:ApiKey' with label 'production' in App Configuration store 'contoso-appconfig'."
+- **Unlock a labeled setting**: "Unlock the key 'AppName:ApiEndpoint' with label 'production' in App Configuration store 'contoso-appconfig'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
