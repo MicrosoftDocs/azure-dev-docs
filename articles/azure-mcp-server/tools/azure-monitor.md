@@ -224,8 +224,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Health model** | Required | The name of the health model resource to list models from. |
-| **Resource group** | Required | The name of the Azure resource group. |
+| **Resource group** | Optional | The name of the Azure resource group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -243,8 +242,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Health model** | Required | The name of the health model resource containing the health model. |
-| **Health model name** | Required | The name of the specific health model to retrieve. |
+| **Health model** | Required | The name of the health model to retrieve. |
 | **Resource group** | Required | The name of the Azure resource group. |
 
 > [!NOTE]
