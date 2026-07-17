@@ -41,7 +41,7 @@
       expanded: true
       items:
       - name: GitHub Copilot cloud agent
-        href: how-to/github-copilot-coding-agent.md
+        href: how-to/github-copilot-cloud-agent.md
       - name: GitHub Copilot CLI
         href: how-to/github-copilot-cli.md
       - name: GitHub Copilot SDK

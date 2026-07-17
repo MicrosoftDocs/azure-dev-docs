@@ -54,7 +54,7 @@ Connect to Azure MCP Server using other tools and services, such as GitHub Copil
 
 - [**GitHub Copilot CLI**](how-to/github-copilot-cli.md)
 - [**GitHub Copilot SDK**](how-to/github-copilot-sdk.md)
-- [**GitHub Copilot cloud agent**](how-to/github-copilot-coding-agent.md)
+- [**GitHub Copilot cloud agent**](how-to/github-copilot-cloud-agent.md)
 
 ### Use a Docker container
 

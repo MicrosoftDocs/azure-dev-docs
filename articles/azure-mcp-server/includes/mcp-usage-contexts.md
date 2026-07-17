@@ -17,7 +17,7 @@ Get started with:
 * [Visual Studio](../get-started/tools/visual-studio.md)
 * [Visual Studio Code](../get-started/tools/visual-studio-code.md)
 * [Windsurf](../get-started/tools/windsurf.md)
-* [GitHub Copilot cloud agent](../how-to/github-copilot-coding-agent.md)
+* [GitHub Copilot cloud agent](../how-to/github-copilot-cloud-agent.md)
 
 ### In programmatic applications
 

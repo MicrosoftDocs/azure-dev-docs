@@ -63,7 +63,7 @@
         href: extensions/quickstart-ai-extension.md
       - name: Extensions
         items:
-        - name: Copilot coding agent extension
+        - name: Copilot cloud agent extension
           href: extensions/copilot-coding-agent-extension.md
         - name: Microsoft Foundry agent extension
           href: extensions/azure-ai-foundry-extension.md
