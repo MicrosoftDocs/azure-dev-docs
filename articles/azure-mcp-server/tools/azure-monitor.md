@@ -222,9 +222,12 @@ Example prompts include:
 
 - "List all health models in the health model resource 'app-health-monitor' in resource group 'rg-prod'."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** | Optional | The name of the Azure resource group. |
+**Example CLI command**
+
+```console
+azmcp monitor healthmodels list \
+  [--resource-group <resource-group>]
+```
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
