@@ -26,7 +26,7 @@ landingContent:
           - text: Install with a package manager
             url: get-started.md#install-azure-mcp-server-using-a-package-manager
           - text: Connect GitHub Copilot cloud agent to the Azure MCP Server
-            url: how-to/github-copilot-coding-agent.md
+            url: how-to/github-copilot-cloud-agent.md
       - linkListType: quickstart
         links:
           - text: Connect from Cline
@@ -50,7 +50,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Connect GitHub Copilot cloud agent to the Azure MCP Server
-            url: how-to/github-copilot-coding-agent.md
+            url: how-to/github-copilot-cloud-agent.md
           - text: Connect Azure MCP Server to sovereign clouds
             url: how-to/connect-sovereign-clouds.md
           - text: Deploy remote MCP Server with Copilot Studio

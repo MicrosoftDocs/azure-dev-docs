@@ -56,7 +56,7 @@ The `azd` coding-agent extension simplifies the steps required to securely set u
 
    - Merge the branch containing the generated GitHub Actions workflow setup file.
    - Configure Copilot cloud agent's managed identity roles in the Azure portal. By default, the "Reader" role is assigned. However, you might want to give it other permissions based on what you want the cloud agent to do autonomously.
-   - Visit the link to set up the MCP configuration. To go there manually, in GitHub go to **Settings** > **Copilot** > **cloud agent** > **MCP configuration** and paste in the JSON snippet provided. Here's an example:
+   - Visit the link to set up the MCP configuration. To go there manually, in GitHub go to **Settings** > **Copilot** > **Cloud agent** > **MCP configuration** and paste in the JSON snippet provided. Here's an example:
 
    ```json
    {

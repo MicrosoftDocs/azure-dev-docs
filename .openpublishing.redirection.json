@@ -1990,6 +1990,11 @@
       "source_path": "articles/github-copilot-app-modernization/framework-upgrade.md",
       "redirect_url": "/azure/developer/github-copilot-app-modernization/quickstart-upgrade",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-mcp-server/how-to/github-copilot-coding-agent.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/how-to/github-copilot-cloud-agent",
+      "redirect_document_id": false
     }
   ]
 }

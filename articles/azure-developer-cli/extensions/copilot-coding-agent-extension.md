@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Enable Copilot Coding Agent Azure access with the azd extension
-description: Install and use the Azure Developer CLI coding agent extension to configure a GitHub Copilot Coding Agent with Azure managed identity access.
+title: Quickstart - Enable Copilot Cloud Agent Azure access with the azd extension
+description: Install and use the Azure Developer CLI extension to configure GitHub Copilot cloud agent with Azure managed identity access.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 10/21/2025
@@ -12,9 +12,9 @@ ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Connect GitHub Copilot coding agent with Azure MCP Server using azd extensions
+# Connect GitHub Copilot cloud agent with Azure MCP Server using azd extensions
 
-Use the Azure Developer CLI (`azd`) coding agent extension (`azure.coding-agent`) to give GitHub Copilot coding agent secure and scoped Azure access with a managed identity. The extension creates the managed identity, configures the federated credential, and sets up the GitHub Actions workflow in your repository.
+Use the Azure Developer CLI (`azd`) extension (`azure.coding-agent`) to give GitHub Copilot cloud agent secure and scoped Azure access with a managed identity. The extension creates the managed identity, configures the federated credential, and sets up the GitHub Actions workflow in your repository.
 
 See [Extensions overview](overview.md) to learn how extensions add capabilities to `azd`.
 
@@ -22,14 +22,14 @@ See [Extensions overview](overview.md) to learn how extensions add capabilities 
 
 - Install Azure Developer CLI (`azd`). See [installation instructions](https://github.com/Azure/azure-dev/blob/main/README.md#installupgrade-azure-developer-cli).
 - Azure subscription that lets you create resource groups and managed identities.
-- Local clone of the GitHub repository you enable for Copilot Coding Agent.
+- Local clone of the GitHub repository you enable for Copilot cloud agent.
 - Repository permissions to:
    - Update the `copilot` GitHub environment.
-   - Configure Copilot Coding Agent settings.
+   - Configure Copilot cloud agent settings.
    - Push changes to the `.github/workflows` folder.
 - At least one configured Git remote for the repository (required for federated credentials).
 
-## Install or upgrade the Copilot coding agent extension
+## Install or upgrade the Copilot cloud agent extension
 
 1. Install for the first time
 
@@ -51,9 +51,9 @@ See [Extensions overview](overview.md) to learn how extensions add capabilities 
 
     You should see `azure.coding-agent` in the list.
 
-## Use the Copilot coding agent extension
+## Use the Copilot cloud agent extension
 
-The Copilot coding agent extension automates configuring Azure access via a managed identity for the Copilot coding agent. You also need to perform a few manual steps to complete the setup.
+The Copilot cloud agent extension automates configuring Azure access through a managed identity for the Copilot cloud agent. You also need to perform a few manual steps to complete the setup.
 
 ### Enable Azure access
 
@@ -84,11 +84,11 @@ The Copilot coding agent extension automates configuring Azure access via a mana
 
 1. In GitHub, open the **Settings** > **Environments** > **copilot** environment, and confirm the federated credential entry referencing the managed identity (subject issuer should reflect GitHub).
 
-### Configure Azure MCP Server for the Copilot coding agent
+### Configure Azure MCP Server for the Copilot cloud agent
 
-1. The `azd coding agent` extension creates a pull request for a branch with the new GitHub workflow file at `origin/azd-enable-copilot-coding-agent-with-azure`. If you want to use the Azure MCP Server connection in your `main` branch, merge this PR.
+1. The `azd coding-agent` extension creates a pull request for a branch with the new GitHub workflow file at `origin/azd-enable-copilot-coding-agent-with-azure`. If you want to use the Azure MCP Server connection in your `main` branch, merge this PR.
 
-    The pull request description and the extension output logs in the console both include a JSON configuration snippet you can use to configure Azure MCP Server for the Copilot coding agent:
+    The pull request description and the extension output logs in the console both include a JSON configuration snippet you can use to configure Azure MCP Server for the Copilot cloud agent:
 
     ```json
     {
@@ -111,33 +111,33 @@ The Copilot coding agent extension automates configuring Azure access via a mana
     ```
 
 1. To configure the Azure MCP Server, go to the **Settings** page of your repository.
-1. Select **Copilot -> Coding agent** on the left navigation.
+1. Select **Copilot** > **Cloud agent** on the left navigation.
 1. Paste the JSON snippet from the PR into the **MCP configuration** box and select **Save MCP configuration**.
 
-    :::image type="content" source="../media/extensions/configure-azure-mcp-server.png" alt-text="A screenshot showing how to configure Azure MCP Server for the Copilot coding agent.":::
+    :::image type="content" source="../media/extensions/configure-azure-mcp-server.png" alt-text="A screenshot showing how to configure Azure MCP Server for the Copilot cloud agent.":::
 
-## Test the Copilot coding agent extension
+## Test the Copilot cloud agent extension
 
 1. Navigate to your repository in GitHub.
 1. Select the **Open agents panels** icon on the top right navigation bar.
 1. In the flyout panel, select the repository and branch that you used for the `azd` command. If you merged the generated pull request into `main`, select `main`.
-1. Enter a prompt that specifically instructs the Copilot coding agent to use the Azure MCP Server you configured, such as:
+1. Enter a prompt that specifically instructs the Copilot cloud agent to use the Azure MCP Server you configured, such as:
 
     ```output
     Use the Azure MCP Server to list the resource groups in my subscription.
     Do not traverse or analyze the repository at all. Use only the Azure MCP Server.
     ```
 
-    Press Enter to run the prompt and instruct Copilot coding agent to create and run a new task.
+    Press Enter to run the prompt and instruct Copilot cloud agent to create and run a new task.
 
     > [!NOTE]
-    > You can also run Copilot coding agent tasks on a branch other than `main` by selecting that branch in the flyout panel.
+    > You can also run Copilot cloud agent tasks on a branch other than `main` by selecting that branch in the flyout panel.
 
 1. Select the task that appears at the bottom of the panel to navigate to the task details page.
 
-    :::image type="content" source="../media/extensions/create-copilot-coding-agent-task.png" alt-text="A screenshot showing how to create a new task for Copilot coding agent.":::
+    :::image type="content" source="../media/extensions/create-copilot-coding-agent-task.png" alt-text="A screenshot showing how to create a new task for Copilot cloud agent.":::
 
-1. Scan through the output to see Copilot coding agent:
+1. Scan through the output to see Copilot cloud agent:
 
     - Start the Azure MCP Server:
 
@@ -153,7 +153,7 @@ The Copilot coding agent extension automates configuring Azure access via a mana
 
 ### Configure permissions on the managed identity
 
-The `azd coding agent` extension creates an Azure managed identity that the Azure MCP Server uses to access your resources. This setup enables you to assign different roles to the managed identity in order to control the capabilities and permissions of Azure MCP Server.
+The `azd coding-agent` extension creates an Azure managed identity that the Azure MCP Server uses to access your resources. This setup enables you to assign different roles to the managed identity to control the capabilities and permissions of Azure MCP Server.
 
 By default, the extension assigns only the `Reader` role to the resource group scope. Assign additional roles or widen the scope if the agent needs more capabilities. [See built-in roles](/azure/role-based-access-control/built-in-roles).
 
@@ -178,7 +178,7 @@ git fetch origin
 
 ### Must have admin rights to Repository
 
-Configuring a GitHub repository for the coding agent **requires** admin rights. Without these rights, you won't be able to update the Copilot environment to use managed identity credentials, or update the MCP configuration for the repository.
+Configuring a GitHub repository for Copilot cloud agent **requires** admin rights. Without these rights, you can't update the Copilot environment to use managed identity credentials, or update the MCP configuration for the repository.
 
 If you see this error, you'll need to elevate your rights.
 
