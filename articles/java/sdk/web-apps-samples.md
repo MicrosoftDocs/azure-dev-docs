@@ -1,6 +1,6 @@
 ---
-title: Azure management libraries for Java web app samples
-description: Get sample code for creating and updating Azure web apps hosted in App Service using the Azure management libraries for Java.
+title: Azure Management Libraries for Java Web App Samples
+description: Explore Java web app samples that use Azure management libraries to create and update web apps in App Service. Get the code.
 author: bmitchell287
 ms.author: brendm
 ms.reviewer: jogiles
@@ -9,9 +9,9 @@ ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Azure management libraries for Java - Web app samples 
+# Azure management libraries for Java - web app samples
 
-The following table links to Java source you can use to create and configure web apps.
+The following table links to Java source code you can use to create and configure web apps.
 
 | Sample | Description |
 |---|---|
