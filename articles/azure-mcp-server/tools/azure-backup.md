@@ -395,6 +395,7 @@ Example prompts include:
 | **AKS snapshot resource group** |  Optional | Resource group used to store AKS volume snapshots created by Backup. DPP AKS only. |
 | **Container name** |  Optional | The Recovery Services vault protection container name.  Applies to Recovery Services vaults only. |
 | **Datasource type** |  Optional | The workload type hint. Supported Recovery Services vault types include `VM`, `SQL`, `SAPHANA`, `SAPASE`, and `AzureFileShare`. Supported Backup vault (DPP) types include `AzureDisk`, `AzureBlob`, `AKS`, `ElasticSAN`, `PostgreSQLFlexible`, `ADLS`, and `CosmosDB`. The parameter also accepts common aliases such as `AzureVM` and `SQLDatabase`. |
+| **Protected item** |  Optional | The name of the protected item or backup instance. |
 | **Vault type** |  Optional | The type of backup vault: `rsv` for a Recovery Services vault or `dpp` for a Backup vault (Data Protection Platform). Required when you create a vault, but optional elsewhere. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
