@@ -3,7 +3,7 @@ title: Create a custom pipeline definition file for GitHub Actions or Azure Pipe
 description: Learn how to create a pipeline definition file for GitHub Actions or Azure Pipelines.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/12/2026
+ms.date: 07/20/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
@@ -68,7 +68,7 @@ jobs:
 
       # using the install-azd action
       - name: Install azd
-        uses: Azure/setup-azd@v1.0.0
+        uses: Azure/setup-azd@v2.3.0
 
       # # If you want to use azd-daily build, or install it from a PR, you can remove previous step and
       # # use the next one:
@@ -151,42 +151,42 @@ steps:
       azd config set auth.useAzCliAuth "true"
     displayName: Configure AZD to Use AZ CLI Authentication.
 
-   - task: AzureCLI@2
-      displayName: Provision Infrastructure
-      inputs:
-         # azconnection is created by azd pipeline config
-         azureSubscription: azconnection
-         scriptType: bash
-         scriptLocation: inlineScript
-         inlineScript: |
-         azd provision --no-prompt
-      env:
-         # azd build-in variables.
-         AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
-         AZURE_ENV_NAME: $(AZURE_ENV_NAME)
-         AZURE_LOCATION: $(AZURE_LOCATION)
-         # # uncomment this if you are using infrastructure parameters
-         # AZD_INITIAL_ENVIRONMENT_CONFIG: ${{ secrets.AZD_INITIAL_ENVIRONMENT_CONFIG }}
-         # # Define the additional variables or secrets that are required only for provision 
-         # ADDITIONAL_VARIABLE_PLACEHOLDER: ${{ variables.ADDITIONAL_VARIABLE_PLACEHOLDER }}
-         # ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}
+  - task: AzureCLI@2
+    displayName: Provision Infrastructure
+    inputs:
+      # azconnection is created by azd pipeline config
+      azureSubscription: azconnection
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: |
+        azd provision --no-prompt
+    env:
+      # azd built-in variables.
+      AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+      AZURE_ENV_NAME: $(AZURE_ENV_NAME)
+      AZURE_LOCATION: $(AZURE_LOCATION)
+      # # uncomment this if you are using infrastructure parameters
+      # AZD_INITIAL_ENVIRONMENT_CONFIG: $(AZD_INITIAL_ENVIRONMENT_CONFIG)
+      # # Define the additional variables or secrets that are required only for provision
+      # ADDITIONAL_VARIABLE_PLACEHOLDER: $(ADDITIONAL_VARIABLE_PLACEHOLDER)
+      # ADDITIONAL_SECRET_PLACEHOLDER: $(ADDITIONAL_SECRET_PLACEHOLDER)
 
-   - task: AzureCLI@2
-      displayName: Deploy Application
-      inputs:
-         azureSubscription: azconnection
-         scriptType: bash
-         scriptLocation: inlineScript
-         inlineScript: |
-         azd deploy --no-prompt
-      env:
-         # azd build-in variables.
-         AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
-         AZURE_ENV_NAME: $(AZURE_ENV_NAME)
-         AZURE_LOCATION: $(AZURE_LOCATION)
-         # # Define the additional variables or secrets that are required only for deploy 
-         # ADDITIONAL_VARIABLE_PLACEHOLDER: ${{ variables.ADDITIONAL_VARIABLE_PLACEHOLDER }}
-         # ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}
+  - task: AzureCLI@2
+    displayName: Deploy Application
+    inputs:
+      azureSubscription: azconnection
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: |
+        azd deploy --no-prompt
+    env:
+      # azd built-in variables.
+      AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+      AZURE_ENV_NAME: $(AZURE_ENV_NAME)
+      AZURE_LOCATION: $(AZURE_LOCATION)
+      # # Define the additional variables or secrets that are required only for deploy
+      # ADDITIONAL_VARIABLE_PLACEHOLDER: $(ADDITIONAL_VARIABLE_PLACEHOLDER)
+      # ADDITIONAL_SECRET_PLACEHOLDER: $(ADDITIONAL_SECRET_PLACEHOLDER)
 ```
 
 [!INCLUDE [request-help](includes/request-help.md)]
