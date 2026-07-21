@@ -3,7 +3,7 @@ title: Configure a pipeline using Azure Pipelines
 description: Learn how to create a pipeline and push updates using Azure Pipelines and the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/12/2026
+ms.date: 07/20/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
@@ -40,7 +40,7 @@ This example uses the [Hello-AZD](https://github.com/azure-samples/hello-azd) te
 
 ### Create or use an Azure Pipelines organization
 
-To use Azure Pipelines, you need an organization. Create one at https://dev.azure.com if you don't already have one.
+To use Azure Pipelines, you need an organization. Create one at <https://dev.azure.com> if you don't already have one.
 
 ### Create a Personal Access Token (PAT)
 
@@ -90,22 +90,22 @@ The Azure Developer CLI requires a Personal Access Token (PAT) to configure Azur
    - **Would you  like to commit and push your local changes to start the configured CI pipeline?**
       - Yes
 
-1. To verify the build, go to your project in the Azure Pipelines portal (https://dev.azure.com).
+1. To verify the build, go to your project in the Azure Pipelines portal (<https://dev.azure.com>).
 
 ## Make and push a code change
 
 1. In the `/src/components/pages` directory, open `Home.razor`.
-2. Change the `Hello AZD!` header text to `Hello, pipeline!` and save the file.
-3. Create a branch and commit your change. The `main` branch is protected, so push your changes from a new branch and create a Pull Request in Azure Pipelines. The pull request triggers the pipeline and blocks merging if the pipeline fails.
-4. Approve and merge your pull request to start the pipeline again.
+1. Change the `Hello AZD!` header text to `Hello, pipeline!` and save the file.
+1. Create a branch and commit your change. The `main` branch is protected, so push your changes from a new branch and create a pull request in Azure Pipelines. The pull request triggers the pipeline and blocks merging if the pipeline fails.
+1. Approve and merge your pull request to start the pipeline again.
 
    :::image type="content" source="media/configure-devops-pipeline/commit-changes-to-github.png" alt-text="Screenshot of steps required to make and commit change to test file.":::
 
-5. In your browser, open your project's repository to see your commit and the Azure Pipeline run.
+1. In your browser, open your project's repository to see your commit and the Azure Pipeline run.
 
    :::image type="content" source="media/configure-devops-pipeline/azure-devops-pipeline-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
-6. Visit the web frontend URL to inspect the update.
+1. Visit the web frontend URL to inspect the update.
 
 ## Use `azd` as an Azure Pipelines task
 
@@ -114,7 +114,7 @@ Add [`azd` as an Azure Pipelines task](https://aka.ms/azd-azdo-task) to install 
 ```yaml
 trigger:
   - main
-  - branch
+  - master
 
 pool:
   vmImage: ubuntu-latest

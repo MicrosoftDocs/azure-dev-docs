@@ -3,7 +3,7 @@ title: Configure advanced features for Azure Pipelines with the Azure Developer 
 description: Learn how to configure advanced Azure Pipelines features using the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/12/2026
+ms.date: 07/20/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
@@ -45,11 +45,11 @@ You can reference these variables and secrets in your `azure-dev.yaml` pipeline 
 
 ```yaml
 - name: Provision Infrastructure
-   run: azd provision --no-prompt
-   env:
-      KEY_VAULT_NAME: ${{ variables.KEY_VAULT_NAME }}
-      STORAGE_NAME: ${{ variables.STORAGE_NAME }}
-      CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
+  run: azd provision --no-prompt
+  env:
+    KEY_VAULT_NAME: ${{ vars.KEY_VAULT_NAME }}
+    STORAGE_NAME: ${{ vars.STORAGE_NAME }}
+    CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
 ```
 
 > [!NOTE]
@@ -70,9 +70,9 @@ If the `BlobStorageConnection` parameter has no default value, `azd` prompts you
 
 ```yaml
 - name: Provision Infrastructure
-   run: azd provision --no-prompt
-   env:
-      AZD_INITIAL_ENVIRONMENT_CONFIG: ${{ secrets.AZD_INITIAL_ENVIRONMENT_CONFIG }}
+  run: azd provision --no-prompt
+  env:
+    AZD_INITIAL_ENVIRONMENT_CONFIG: ${{ secrets.AZD_INITIAL_ENVIRONMENT_CONFIG }}
 ```
 
 When the pipeline runs, `azd` uses the secret to supply parameter values, eliminating the need for interactive prompts.
