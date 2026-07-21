@@ -1,6 +1,6 @@
 ---
-title: Developers Guide for using Spring Cloud Azure App Configuration
-description: This developer guide walks you through using Spring Cloud Azure App Configuration.
+title: Developer Guide for Using Spring Cloud Azure App Configuration
+description: Learn how to load, select, and refresh Spring Cloud Azure App Configuration settings and feature flags in Spring Boot apps. Start building configurable apps today.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: mametcal
@@ -49,7 +49,7 @@ Confirm your configurations before loading them. You can upload YAML files by ch
 
 ## Library usage
 
-To use the feature in an application, you can build it as a Spring Boot application. The most convenient way to add the dependency is with the Spring Boot starter `com.azure.spring:spring-cloud-azure-starter-appconfiguration-config`. The following example **pom.xml** file uses Azure App Configuration:
+To use the feature in an application, build it as a Spring Boot application. The most convenient way to add the dependency is by using the Spring Boot starter `com.azure.spring:spring-cloud-azure-starter-appconfiguration-config`. The following example **pom.xml** file uses Azure App Configuration:
 
 ```xml
 <parent>
@@ -124,31 +124,31 @@ spring.cloud.azure.appconfiguration.stores[0].endpoint=${CONFIG_STORE_ENDPOINT}
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
-By default, if no configurations are set, the configurations starting with `/application/` are loaded with a default label of `(No Label)` unless a Spring Profile is set, in which case the default label is your Spring Profile.
+By default, if you don't set any configurations, the configurations starting with `/application/` load with a default label of `(No Label)` unless you set a Spring Profile, in which case the default label is your Spring Profile.
 
-A property source named `/application/https://<name-of-your-store>.azconfig.io/` is created containing the properties of that store. The label used in the request is appended to the end of the name. If no label is set, the character `\0` is present as an empty space.
+A property source named `/application/https://<name-of-your-store>.azconfig.io/` is created containing the properties of that store. The label used in the request is appended to the end of the name. If you don't set a label, the character `\0` is present as an empty space.
 
 ## Loading configuration
 
-The library supports the loading of one or multiple App Configuration stores. In the situation where a key is duplicated across multiple stores, the last one wins.
+The library supports loading one or multiple App Configuration stores. If a key is duplicated across multiple stores, the last one wins.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint=[first-store-endpoint]
 spring.cloud.azure.appconfiguration.stores[1].endpoint=[second-store-endpoint]
 ```
 
-In this example, if both the stores have the same configuration key, then the configuration in the second store has the highest priority.
+In this example, if both stores have the same configuration key, the configuration in the second store has the highest priority.
 
 > [!NOTE]
 > You can use Azure App Configuration settings like any other Spring Configuration. For more information, see [Core Features](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html) in the Spring Boot documentation or [Quickstart: Create a Java Spring app with Azure App Configuration](/azure/azure-app-configuration/quickstart-java-spring-app).
 
 ### Selecting configurations
 
-The library loads configurations using their key and label, or snapshot. When no method of selection is used, the library loads all keys with the prefix `/application/` and the label `\0`, which appears as `(No Label)` in the Azure portal.
+The library loads configurations by using their key and label, or snapshot. When you don't use a method of selection, the library loads all keys with the prefix `/application/` and the label `\0`, which appears as `(No Label)` in the Azure portal.
 
-The default key filter is `/application/*`. The default label filter is `\0`, which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profile, which is `${spring.profiles.active}`.
+The default key filter is `/application/*`. The default label filter is `\0`, which appears as `(No Label)` in the Azure portal. If you set a Spring profile and don't provide a label, the default label is your Spring Profile, which is `${spring.profiles.active}`.
 
-In addition, you can load configurations from a specific snapshot. A snapshot is a static view of the configuration at a given point in time. When you load from a snapshot, you load the configurations as they were at the time of the snapshot creation, and they don't update until you create a new snapshot and load from it. The snapshot needs to be of the composition type `Key`, and you can specify the snapshot to load from by using the `snapshot` property:
+You can also load configurations from a specific snapshot. A snapshot is a static view of the configuration at a given point in time. When you load from a snapshot, you load the configurations as they were at the time of the snapshot creation, and they don't update until you create a new snapshot and load from it. The snapshot needs to be of the composition type `Key`. You can specify the snapshot to load from by using the `snapshot` property:
 
 ```properties
 
@@ -200,7 +200,7 @@ spring:
 >
 > When you use `*` in the label filter, and multiple configurations with the same key are loaded, they're loaded in alphabetical order, and the label last in alphabetical order is used.
 
-### Spring Profiles
+### Spring profiles
 
 By default, `spring.profiles.active` is set as the default `label-filter` for all selected configurations. You can override this functionality by using `label-filter`. You can use the Spring Profiles in the `label-filter` by using `${spring.profiles.active}`, as shown in the following example:
 
