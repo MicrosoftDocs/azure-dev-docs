@@ -1,23 +1,27 @@
 ---
-title: Azure skill for prepare
-description: Prepare Azure apps for deployment (infra Bicep/Terraform, azure.yaml, Dockerfiles).
-ms.topic: reference
-ms.date: 4/2/2026
+title: Azure Skill for Azure Prepare
+description: The azure-prepare skill helps you prepare Azure environments for app deployment. Use it to generate Bicep or Terraform templates and a deployment plan that define resource groups, app settings, and services for Container Apps, App Service, Functions, and related services.
 author: diberry
 ms.author: diberry
+ms.reviewer: tomescht
+ms.date: 06/29/2026
 ms.service: azure-mcp-server
-ms.custom: skill-version-1.1.15
+ms.topic: reference
+ms.custom:
+  - devx-track-copilot-skills
+ai-usage: ai-generated
+ms.skillversion: "1.2.14"
 ---
 
-# Azure skill for prepare
+# Azure skill for Azure Prepare
 
-Prepare Azure apps for deployment (infra Bicep/Terraform, azure.yaml, Dockerfiles).
+The `azure-prepare` skill helps you prepare Azure environments for app deployment. Use it to generate Bicep or Terraform templates and a deployment plan that define resource groups, app settings, and services for Container Apps, App Service, Functions, and related services. After you generate and approve the deployment plan, the skill suggests a handoff to the [azure-validate](azure-validate.md) skill.
 
-**Skill:** `azure-prepare` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-prepare/SKILL.md)
+**Skill** `azure-prepare` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-prepare/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Prepare Azure apps for deployment (infra Bicep/Terraform, azure.yaml, Dockerfiles).
+You get guided setup for Azure app deployment. The skill generates the infrastructure as code and a deployment plan that define resource groups, app settings, managed identity, and services, using Bicep or Terraform templates for Container Apps, App Service, Functions, Key Vault, and other services.
 
 ## Prerequisites
 
@@ -45,16 +49,16 @@ Use this skill when you need to:
 
 Try these prompts to activate this skill:
 
-- "Create a dad joke generator and deploy to Azure"
-- "Build a web app and host it on Azure"
-- "I want to deploy my application to Azure"
-- "Set up Azure infrastructure for my project"
-- "Prepare my app for Azure deployment"
-- "Create an API and run it on Azure"
-- "Migrate my application to Azure"
-- "Configure Azure hosting for my app"
-- "Create a serverless HTTP API using Azure Functions and deploy to Azure"
-- "Create an event-driven function app to process messages and deploy to Azure Functions"
+- "Create an app"
+- "Build a web app"
+- "Create an API"
+- "Create a serverless HTTP API"
+- "Host my app on Azure"
+- "Deploy to Azure Container Apps"
+- "Deploy to Azure App Service using Terraform"
+- "Generate Bicep for my app"
+- "Create a function app with a timer trigger"
+- "Prepare my Azure application to use Key Vault"
 
 ## Deployment workflow
 
@@ -70,4 +74,5 @@ This skill is the first step in the deployment workflow:
 - [Azure skill for deploy](azure-deploy.md)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-prepare/SKILL.md)
-
+- [Azure Container Apps overview](/azure/container-apps/overview)
+- [Azure App Service documentation](/azure/app-service/)
