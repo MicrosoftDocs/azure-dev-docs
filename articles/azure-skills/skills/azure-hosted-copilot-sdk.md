@@ -71,6 +71,6 @@ This skill activates automatically when GitHub Copilot detects you're working in
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-hosted-copilot-sdk/SKILL.md)
-- [GitHub Copilot SDK documentation](https://docs.github.com/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/using-copilots-llm-for-your-agent)
+- [GitHub Copilot SDK documentation](https://docs.github.com/copilot)
 - [Azure Container Apps overview](/azure/container-apps/overview)
 - [Azure App Service overview](/azure/app-service/overview)

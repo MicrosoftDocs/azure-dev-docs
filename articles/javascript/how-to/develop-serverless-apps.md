@@ -55,7 +55,7 @@ The following common settings should be configured to keep your Azure Function s
 - **HTTPS and encryption**:
   - TLS/SSL setting for HTTPS - by default, your API accepts HTTP and HTTPS requests. Enable **HTTPS only** in the **TLS/SSL settings**. Because your Function app is hosted on a secure subdomain  (`*.azurewebsites.net`), you can use it immediately (with `https`) and delay purchasing a domain name, and using a certificate for the domain until you're ready.
 - **Deployment and monitoring**:
-  - Deployment Slots - create a deployment slot, such as `stage` or `preflight`, and push to that slot. Swap this stage slot to production when you're ready. Don't get in the habit of manually pushing to production. Your code base should be able to indicate the version or commit that is on a slot. If you're using Flex Consumption, use [zero downtime deployments](https://github.com/azure/azure-functions/flex-consumption-plan#zero-downtime-deployments) instead of slots.
+  - Deployment Slots - create a deployment slot, such as `stage` or `preflight`, and push to that slot. Swap this stage slot to production when you're ready. Don't get in the habit of manually pushing to production. Your code base should be able to indicate the version or commit that is on a slot. If you're using Flex Consumption, use [zero downtime deployments](https://github.com/azure/azure-functions/) instead of slots.
   - Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for real-time telemetry, alerting, and anomaly detection to monitor your functions and audit logs for suspicious activity.
 
 For comprehensive security guidance, see [Securing Azure Functions](/azure/azure-functions/security-concepts).
