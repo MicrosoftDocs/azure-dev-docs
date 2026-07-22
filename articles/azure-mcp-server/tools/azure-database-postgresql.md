@@ -1,19 +1,20 @@
 ---
-title: Azure Database for PostgreSQL Tools
-description: Learn how to use the Azure MCP Server to manage Azure Database for PostgreSQL resources with natural language prompts. Query databases, list tables, and retrieve schemas easily.
+title: Azure MCP Server Tools for Azure Database for PostgreSQL
+description: Learn how to use Azure MCP Server tools to manage Azure Database for PostgreSQL resources, query databases, list tables, and retrieve schemas.
 author: diberry
 ms.author: diberry
-ms.reviewer: diberry
-ms.date: 05/13/2026
+ms.reviewer: kkravi, mluk, shaithal, xiangyan
+ms.date: 07/14/2026
+ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
   - build-2025
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-mcp-cli.version: "3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30"
+mcp-cli.version: "3.0.0-beta.21+76f73ff9c7a9a9cf5012710e1d2c1007b87724bb"
 ---
-# Azure Database for PostgreSQL tools for the Azure MCP Server overview
+# Azure MCP Server tools for Azure Database for PostgreSQL
 
 The Azure MCP Server allows you to manage Azure Database for PostgreSQL resources using natural language prompts. You can query databases, list tables, retrieve schemas, and more without remembering complex query syntax.
 
@@ -25,7 +26,7 @@ The Azure MCP Server allows you to manage Azure Database for PostgreSQL resource
 
 <!-- postgres list -->
 
-List Azure Database for PostgreSQL servers, databases, or tables. By default, this tool returns all servers in the specified resource group. Specify the `Server` to list databases, or specify both `Server` and `Database` to list tables. Results are returned at the level you specify: server, database, or table.
+List Azure Database for PostgreSQL servers, databases, or tables. By default, this tool returns all servers in the subscription, optionally scoped to a resource group. Specify the `Server` to list databases, or specify both `Server` and `Database` to list tables. Results are returned at the level you specify: server, database, or table. When listing databases or tables on large servers, the tool caps results at 10,000 entries. If the response is truncated, `resultsTruncated` is `true`.
 
 Example prompts include:
 
@@ -36,10 +37,11 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **User** | Optional | The user name to access PostgreSQL server. |
-| **Auth type** | Optional | Authentication type to use for the connection. |
+| **Auth type** | Optional | The authentication type to access the PostgreSQL server. Supported values are `MicrosoftEntra` or `PostgreSQL`. By default, `MicrosoftEntra` is used. |
 | **Password** | Optional | Password for database authentication. |
-| **Server** | Optional | The PostgreSQL server to be accessed. When not specified, lists all servers in the resource group. Specify this parameter to list databases, or combine with `Database` to list tables. |
-| **Database** | Optional | The PostgreSQL database to be accessed. Requires `Server` to be specified. When provided, lists tables within this database. |
+| **Server** | Optional | The PostgreSQL server to list databases from. |
+| **Database** | Optional | The PostgreSQL database to list tables from. Requires `Server`. |
+| **Schema** | Optional | The PostgreSQL schema to list tables from when listing tables. Defaults to `public`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -47,7 +49,7 @@ Example prompts include:
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
-## Database: Execute database query
+## Database: execute database query
 
 <!-- postgres database query -->
 
@@ -58,17 +60,16 @@ Example prompts include:
 - **Run query**: "Execute 'SELECT * FROM users LIMIT 10' in my PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
 - **Query data**: "Run a query to get recent orders from PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
 - **Fetch data**: "Get user information from my PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group' with query"
-- **Extract data**: "Query customer data from my PostgreSQL server 'my-pg-server' in resource group 'my-resource-group'"
-- **Retrieve records**: "Select top sales records from PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
+- **Extract data**: "Query customer data from my PostgreSQL server 'my-pg-server'"
+- **Retrieve records**: "Select top sales records from PostgreSQL database 'my-db' on server 'my-pg-server'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Query** | Required | Query to be executed against a PostgreSQL database. |
-| **Auth type** | Optional | Authentication type to use for the connection. |
+| **Auth type** | Required | Authentication type to use for the connection. |
 | **Password** | Optional | Password for database authentication. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -77,7 +78,7 @@ Example prompts include:
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
-## Table: Get table schema
+## Table: get table schema
 
 <!-- postgres table schema get -->
 
@@ -85,20 +86,19 @@ The Azure MCP Server can get the schema of a specific table in a PostgreSQL data
 
 Example prompts include:
 
-- **View schema**: "Show me the schema of the 'users' table in my PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
-- **Get structure**: "What columns does the 'products' table have in my PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'?"
-- **Check schema**: "Check if my schema has a not null constraint on the id column in database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
-- **View columns**: "Show columns and types for 'customers' table in PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
-- **Examine table**: "Get the structure of 'transactions' table in my PostgreSQL database 'my-db' on server 'my-pg-server' in resource group 'my-resource-group'"
+- **View schema**: "Show me the schema of the 'users' table in my PostgreSQL database 'my-db' on server 'my-pg-server'"
+- **Get structure**: "What columns does the 'products' table have in my PostgreSQL database 'my-db' on server 'my-pg-server'?"
+- **Check schema**: "Check if my schema has a not null constraint on the id column in database 'my-db' on server 'my-pg-server'"
+- **View columns**: "Show columns and types for 'customers' table in PostgreSQL database 'my-db' on server 'my-pg-server'"
+- **Examine table**: "Get the structure of 'transactions' table in my PostgreSQL database 'my-db' on server 'my-pg-server'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Table** | Required | The PostgreSQL table to be accessed. |
-| **Auth type** | Optional | Authentication type to use for the connection. |
+| **Auth type** | Required | Authentication type to use for the connection. |
 | **Password** | Optional | Password for database authentication. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -107,7 +107,7 @@ Example prompts include:
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
-## Server: Get server configuration
+## Server: get server configuration
 
 <!-- postgres server config get -->
 
@@ -133,7 +133,7 @@ Example prompts include:
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
-## Server: Get server parameter
+## Server: get server parameter
 
 <!-- postgres server param get -->
 
@@ -160,7 +160,7 @@ Example prompts include:
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
-## Server: Set server parameter
+## Server: set server parameter
 
 <!-- postgres server param set -->
 

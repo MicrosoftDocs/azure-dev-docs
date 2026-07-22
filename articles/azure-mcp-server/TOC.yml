@@ -143,6 +143,8 @@
       href: tools/azure-file-sync.md
     - name: Azure Functions
       href: tools/azure-functions.md
+    - name: Azure Insights
+      href: tools/azure-insights.md
     - name: Azure Key Vault
       href: tools/azure-key-vault.md
     - name: Azure Kubernetes Service
