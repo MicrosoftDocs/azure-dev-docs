@@ -6,6 +6,7 @@ ms.author: diberry
 ms.date: 07/10/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
+ms.reviewer: diberry
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution

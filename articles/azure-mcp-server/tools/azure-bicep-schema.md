@@ -4,6 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Bicep Schema to re
 ms.date: 07/10/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
+ms.reviewer: diberry
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution

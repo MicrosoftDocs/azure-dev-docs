@@ -6,6 +6,7 @@ ms.author: diberry
 ms.date: 07/10/2026
 ms.service: azure-managed-redis
 ms.topic: how-to
+ms.reviewer: diberry
 ms.custom:
   - build-2025
 ai-usage: ai-generated
