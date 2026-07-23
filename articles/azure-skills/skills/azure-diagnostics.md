@@ -3,6 +3,7 @@ title: Azure Skill for Diagnostics
 description: Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage. Also covers Azure VMs, App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
 author: diberry
 ms.author: diberry
+ms.reviewer: alex-thompson, yinghuidong, jobanerj
 ms.date: 07/22/2026
 ms.service: azure-mcp-server
 ms.topic: reference
