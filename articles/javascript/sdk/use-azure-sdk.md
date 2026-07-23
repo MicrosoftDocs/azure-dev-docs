@@ -60,9 +60,9 @@ The following code example uses `DefaultAzureCredential` and the [`@azure/arm-re
 
 An SDK method can return an asynchronous iterator, [PagedAsyncIterableIterator](/javascript/api/@azure/core-paging/pagedasynciterableiterator), to allow for asynchronous results. The results might use paging and continuation tokens to break up result sets.
 
-The following [JavaScript example](https://github.com/Azure-Samples/js-e2e/blob/main/storage/blob-paging/blob-paging.js) demonstrates asynchronous paging. The code sets an artificially short paging size of 2 in order to quickly and visually demonstrate the process when you run the sample code in debug.
+The following [TypeScript example](https://github.com/Azure-Samples/azure-sdk-for-js-docs/blob/main/samples/storage/blob-paging/src/blob-paging.ts) demonstrates asynchronous paging. The code sets an artificially short paging size of 2 in order to quickly and visually demonstrate the process when you run the sample code in debug.
 
-:::code language="JavaScript" source="~/../js-e2e/storage/blob-paging/blob-paging.js" highlight="21-41":::
+:::code language="TypeScript" source="~/../azure-sdk-for-js-docs/samples/storage/blob-paging/src/blob-paging.ts" highlight="32-42":::
 
 Learn more about paging and iterators on Azure:
 
@@ -75,9 +75,9 @@ An SDK method can return a long running operation (LRO) [raw response](/javascri
 - Your request completed
 - Your request is still in process
 
-The following [JavaScript example](https://github.com/Azure-Samples/js-e2e/blob/main/storage/upload-url-to-blob-poll-until-done/upload-url-to-blob-poll-until-done.js) demonstrates how to wait for an LRO to complete, with `.pollUntildone()`, before continuing.
+The following [TypeScript example](https://github.com/Azure-Samples/azure-sdk-for-js-docs/blob/main/samples/storage/upload-url-to-blob-poll-until-done/src/upload-url-to-blob-poll-until-done.ts) demonstrates how to wait for an LRO to complete, with `.pollUntilDone()`, before continuing.
 
-:::code language="JavaScript" source="~/../js-e2e/storage/upload-url-to-blob-poll-until-done/upload-url-to-blob-poll-until-done.js" highlight="38-44":::
+:::code language="TypeScript" source="~/../azure-sdk-for-js-docs/samples/storage/upload-url-to-blob-poll-until-done/src/upload-url-to-blob-poll-until-done.ts" highlight="58-62":::
 
 Learn more about long running operations on Azure:
 
