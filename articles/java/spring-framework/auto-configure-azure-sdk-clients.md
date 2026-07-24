@@ -1,6 +1,6 @@
 ---
-title: Spring Cloud Azure Auto-configure Azure SDK clients
-description: This reference doc contains Spring Cloud Azure how to Auto-configure Azure SDK clients.
+title: Spring Cloud Azure Auto-Configure Azure SDK Clients
+description: Learn how to auto-configure Azure SDK clients with Spring Cloud Azure starters to simplify authentication and setup. Follow this guide to get started.
 ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
@@ -34,11 +34,11 @@ spring:
 >
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-These properties are optional and, if not specified, Spring Boot will try to automatically find them for you. For details on how Spring Boot finds these properties, refer to the documentation.
+These properties are optional. If you don't specify them, Spring Boot tries to automatically find them for you. For details on how Spring Boot finds these properties, refer to the documentation.
 
 ## Dependency setup
 
-There are two ways to use Spring Cloud Azure starters. The first way is to use Azure SDKs with the `spring-cloud-azure-starter` dependency as shown in the following example:
+You can use Spring Cloud Azure starters in two ways. The first way is to use Azure SDKs with the `spring-cloud-azure-starter` dependency as shown in the following example:
 
 ```xml
 <dependency>
@@ -51,7 +51,7 @@ There are two ways to use Spring Cloud Azure starters. The first way is to use A
 </dependency>
 ```
 
-The second way is to avoid adding Azure SDK dependencies and instead include the Spring Cloud Azure Starter for each Service directly. For example, with Azure Cosmos DB, you would add the following dependency:
+The second way is to avoid adding Azure SDK dependencies and instead include the Spring Cloud Azure Starter for each service directly. For example, with Azure Cosmos DB, you add the following dependency:
 
 ```xml
 <dependency>
@@ -66,16 +66,16 @@ The second way is to avoid adding Azure SDK dependencies and instead include the
 ## Configuration
 
 > [!NOTE]
-> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id).
+> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, make sure the security principal has sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id).
 
-Configuration properties for each Azure service are under prefix `spring.cloud.azure.<azure-service>`.
+Configuration properties for each Azure service are under the prefix `spring.cloud.azure.<azure-service>`.
 
 > [!TIP]
 > For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](configuration-properties-all.md).
 
 ## Basic usage
 
-Adding the following properties to your **application.yaml** file will autoconfigure the Azure Cosmos DB client for you.
+Add the following properties to your **application.yaml** file to autoconfigure the Azure Cosmos DB client.
 
 ```yaml
 spring:
@@ -88,7 +88,7 @@ spring:
         connection-mode: direct
 ```
 
-Then, both `CosmosClient` and `CosmosAsyncClient` are available in the context and can be autowired, as shown in the following example:
+Then, both `CosmosClient` and `CosmosAsyncClient` are available in the context and you can autowire them, as shown in the following example:
 
 ```java
 class Demo {
