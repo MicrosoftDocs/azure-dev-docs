@@ -1,7 +1,7 @@
 ---
 title: "Troubleshoot dependency version conflicts: Azure SDK for Java"
 description: "Learn how to diagnose and fix dependency version conflicts in the Azure SDK for Java. Use this guide to resolve runtime errors and keep your app stable."
-ms.date: 04/02/2025 
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

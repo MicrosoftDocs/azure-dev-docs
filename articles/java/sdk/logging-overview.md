@@ -1,7 +1,7 @@
 ---
 title: "Configure logging in the Azure SDK for Java"
 description: "Learn how to enable logging in the Azure SDK for Java using SLF4J or the built-in logger for debugging purposes."
-ms.date: 04/01/2025 
+ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

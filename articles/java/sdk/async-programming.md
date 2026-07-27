@@ -1,7 +1,7 @@
 ---
 title: Asynchronous programming in the Azure SDK for Java
 description: Provides an overview of asynchronous programming model in the Azure SDK for Java.
-ms.date: 02/14/2025
+ms.date: 07/27/2026
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

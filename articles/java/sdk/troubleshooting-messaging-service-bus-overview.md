@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Service Bus issues
 titleSuffix: Azure SDK for Java
 description: Learn how to troubleshoot Azure Service Bus issues in the Azure SDK for Java. Diagnose errors, configure logging, and resolve common failures.
-ms.date: 02/23/2024
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

@@ -1,7 +1,7 @@
 ---
 title: Use Pagination and Iteration in Azure SDK for Java
 description: Learn Azure SDK for Java pagination and iteration patterns to handle large result sets in sync and async apps efficiently. Start using these techniques now.
-ms.date: 04/02/2025
+ms.date: 07/27/2026
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

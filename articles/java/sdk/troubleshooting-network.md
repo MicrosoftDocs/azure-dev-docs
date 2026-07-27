@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Networking Issues with the Azure SDK for Java
 description: Troubleshoot networking issues with the Azure SDK for Java by using Fiddler and Wireshark to isolate failures and fix connectivity problems—start diagnosing now.
-ms.date: 04/02/2025
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

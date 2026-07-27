@@ -1,7 +1,7 @@
 ---
 title: Use Long-Running Operations in the Azure SDK for Java
 description: Learn how to monitor and complete long-running operations in the Azure SDK for Java with SyncPoller and PollerFlux, and apply best practices now.
-ms.date: 04/02/2025
+ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

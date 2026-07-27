@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Event Hubs errors and exceptions
 titleSuffix: Azure SDK for Java
 description: "Troubleshoot Azure Event Hubs errors, exceptions, and connectivity issues with the Azure SDK for Java. Find mitigation steps and fixes for common problems."
-ms.date: 04/02/2025 
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

@@ -1,7 +1,7 @@
 ---
 title: "Configure tracing in Azure SDK for Java"
 description: "Learn how to configure tracing in the Azure SDK for Java using OpenTelemetry. Enable monitoring and observability for your Java applications."
-ms.date: 04/01/2025 
+ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

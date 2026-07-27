@@ -4,7 +4,7 @@ description: Install Azure extensions for IntelliJ and Eclipse to set up your Ja
 author: bmitchell287
 ms.author: brendm
 ms.reviewer: jogiles
-ms.date: 04/01/2025 
+ms.date: 07/27/2026
 ms.topic: get-started
 ms.custom:
   - devx-track-java

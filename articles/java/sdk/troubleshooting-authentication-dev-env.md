@@ -2,7 +2,7 @@
 title: "Troubleshoot development environment authentication issues"
 titleSuffix: Azure SDK for Java
 description: "Learn how to troubleshoot development environment authentication issues in Azure SDK for Java, including fixes for AzureCliCredential, AzurePowerShellCredential, and more."
-ms.date: 04/02/2025 
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

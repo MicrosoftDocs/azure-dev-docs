@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting Azure SDK for Java Issues
 description: Learn how to troubleshoot Azure SDK for Java issues with logging, tracing, and exception handling. Review the guides to find fixes and resolve errors.
-ms.date: 02/14/2025
+ms.date: 07/27/2026
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

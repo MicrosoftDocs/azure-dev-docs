@@ -2,7 +2,7 @@
 title: Troubleshoot service principal authentication
 titleSuffix: Azure SDK for Java
 description: Provides an overview of how to troubleshoot service principal authentication issues.
-ms.date: 04/02/2025
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

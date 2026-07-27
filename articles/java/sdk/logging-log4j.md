@@ -1,7 +1,7 @@
 ---
 title: Log With the Azure SDK for Java and Log4j
 description: Learn how to configure Log4j with the Azure SDK for Java to capture and manage application logs. Follow the steps to enable logging in your app.
-ms.date: 04/02/2025 
+ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287
