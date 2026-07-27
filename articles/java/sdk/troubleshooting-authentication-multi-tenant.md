@@ -2,7 +2,7 @@
 title: Troubleshoot Multi-Tenant Authentication
 titleSuffix: Azure SDK for Java
 description: Learn how to troubleshoot multi-tenant authentication errors in Azure SDK for Java, resolve tenant token issues faster, and apply the fixes now.
-ms.date: 04/02/2025
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

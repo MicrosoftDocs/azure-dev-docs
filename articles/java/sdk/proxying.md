@@ -1,7 +1,7 @@
 ---
 title: Configure Proxies in the Azure SDK for Java
 description: Learn how to configure proxies in the Azure SDK for Java with environment, Configuration, and explicit options to route requests—start now.
-ms.date: 04/01/2025 
+ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

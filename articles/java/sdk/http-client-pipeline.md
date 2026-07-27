@@ -1,7 +1,7 @@
 ---
 title: HTTP Clients and Pipelines in the Azure SDK for Java
 description: Learn how to configure HTTP clients and pipelines in the Azure SDK for Java for retries, auth, and transport control. Read this guide to optimize your setup.
-ms.date: 04/01/2025 
+ms.date: 07/27/2026
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287
@@ -25,7 +25,7 @@ The Azure SDK for Java is implemented using an `HttpClient` abstraction. This ab
 Although Netty is the default HTTP client, the SDK provides three client implementations, depending on which dependencies you already have in your project. These implementations are for:
 
 * [Netty](https://netty.io)
-* [OkHttp](https://square.github.io/okhttp/)
+* [OkHttp](https://github.com/lysine-dev/okhttp)
 * [HttpClient](https://openjdk.java.net/groups/net/httpclient/intro.html) introduced in JDK 11
 
 > [!NOTE]

@@ -2,7 +2,7 @@
 title: Troubleshoot Azure-hosted application authentication
 titleSuffix: Azure SDK for Java
 description: Provides an overview of how to troubleshoot Azure-hosted authentication issues.
-ms.date: 04/02/2025 
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 author: bmitchell287
 ms.author: brendm

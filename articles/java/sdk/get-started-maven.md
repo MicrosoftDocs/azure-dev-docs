@@ -4,7 +4,7 @@ description: Learn how to build Java applications with Azure SDK using Maven and
 author: bmitchell287
 ms.author: brendm
 ms.reviewer: jogiles
-ms.date: 02/14/2025
+ms.date: 07/27/2026
 ms.topic: get-started
 ms.custom: devx-track-java, devx-track-extended-java
 ---

@@ -1,7 +1,7 @@
 ---
 title: Log with Azure SDK for Java and java.util.logging
 description: Learn how to integrate java.util.logging with the Azure SDK for Java. This guide shows you how to add logging to your applications.
-ms.date: 04/01/2025 
+ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287

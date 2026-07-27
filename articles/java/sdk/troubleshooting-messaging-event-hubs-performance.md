@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Event Hubs Performance
 titleSuffix: Azure SDK for Java
 description: Helps you troubleshoot Events Hubs performance issues when you use the Azure SDK for Java.
-ms.date: 04/02/2025 
+ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: bmitchell287
