@@ -15,8 +15,6 @@
   - name: Secure your chat endpoint
     href: get-started-app-chat-private-endpoint.md
     display: Azure OpenAI
-  - name: Scale Azure OpenAI with Azure Container Apps
-    href: get-started-app-chat-scaling-with-azure-container-apps.md
   - name: Scale Azure OpenAI with Azure API Management
     href: get-started-app-chat-scaling-with-azure-api-management.md
   - name: Load test with Locust
