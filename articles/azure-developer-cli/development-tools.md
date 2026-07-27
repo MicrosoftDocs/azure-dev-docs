@@ -3,7 +3,7 @@ title: Manage Azure development tools with azd tool
 description: Learn how to use the azd tool command group to discover, install, upgrade, and check the status of common Azure development tools directly from the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/03/2026
+ms.date: 07/27/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -67,7 +67,6 @@ The following options control prompting behavior:
 
 - `--no-prompt`: Suppresses interactive prompts. Useful in scripts.
 - `AZD_NON_INTERACTIVE=true`: Environment variable equivalent to `--no-prompt`.
-- `AZD_SKIP_FIRST_RUN=true`: Disables the first-run tool-check prompt.
 
 ## Sample use case: bootstrap a development machine
 
@@ -152,8 +151,6 @@ Run `azd tool check` to scan installed tools for available updates:
 azd tool check
 ```
 
-`azd` also runs a periodic background update check and surfaces non-intrusive notifications when newer versions of registered tools are available.
-
 ## Upgrade tools
 
 Upgrade specific tools by passing their `id` values:
@@ -176,13 +173,13 @@ azd tool upgrade --all --dry-run
 
 ## First-run experience
 
-The first time a workflow command such as `azd init`, `azd up`, or `azd deploy` runs, `azd` performs a one-time tool check and prompts to review or install recommended tools.
+To discover and install recommended Azure development tools, run `azd tool` explicitly. Unlike previous versions, workflow commands such as `azd init`, `azd up`, and `azd deploy` no longer trigger an automatic tool-check prompt.
 
-Use any of the following options to skip or disable the first-run prompt:
+Use any of the following options to skip interactive prompts when running `azd tool` commands:
 
-- Pass `--no-prompt` on the workflow command.
-- Set the environment variable `AZD_SKIP_FIRST_RUN=true`.
-- Run in a detected CI environment. `azd` automatically bypasses the prompt when `CI`, `TF_BUILD`, or `GITHUB_ACTIONS` is set.
+- Pass `--no-prompt` on the command.
+- Set the environment variable `AZD_NON_INTERACTIVE=true`.
+- Run in a detected CI environment. `azd` automatically bypasses interactive prompts when `CI`, `TF_BUILD`, or `GITHUB_ACTIONS` is set.
 
 ## CI and non-interactive scenarios
 
@@ -191,7 +188,7 @@ The `azd tool` command group supports pipelines and scripts through the followin
 - Use positional `id` arguments with `install` and `upgrade` to avoid interactive selection.
 - Add `--no-prompt` or set `AZD_NON_INTERACTIVE=true` to suppress prompts.
 - Use `--output json` to capture structured results for downstream steps.
-- Rely on CI auto-detection, which suppresses the first-run prompt and background update notifications.
+- Rely on CI auto-detection, which suppresses interactive prompts when `CI`, `TF_BUILD`, or `GITHUB_ACTIONS` is set.
 
 The following example installs the Azure CLI and the Bicep extension in a pipeline step:
 
