@@ -1,6 +1,6 @@
 ---
-title: Spring Cloud Azure configuration
-description: This reference doc contains all Spring Cloud Azure common configuration.
+title: Spring Cloud Azure configuration reference
+description: "Learn about Spring Cloud Azure configuration properties for HTTP and AMQP-based Azure SDKs. Configure authentication, retry options, proxy settings, and more across Azure services."
 ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
@@ -14,9 +14,9 @@ appliesto:
 - ✅ Version 7.3.0
 ---
 
-# Spring Cloud Azure configuration
+# Spring Cloud Azure configuration reference
 
-This article describes all the Spring Cloud Azure common configuration properties.
+This article describes all the Spring Cloud Azure common configuration properties, including settings for authentication, client transport, proxy options, retry behavior, and cloud environment configuration across HTTP-based and AMQP-based Azure service SDKs.
 
 ## Configuration for each Azure Service SDK
 
