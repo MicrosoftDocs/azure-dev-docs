@@ -4,6 +4,6 @@
 | [Create and manage SQL databases][1] | Create SQL databases, set performance levels, and configure firewalls.|
 | [Manage SQL databases across multiple regions][2] | Create a master SQL database and read-only databases from the master in multiple regions. Connect VMs to their nearest SQL database instance with a virtual network and firewall rules. | 
 
-[1]: https://github.com/Azure-Samples/sql-database-java-manage-db/
-[2]: https://github.com/Azure-Samples/sql-database-java-manage-sql-databases-across-regions
+[1]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/resourcemanager/azure-resourcemanager/src/samples/java/com/azure/resourcemanager/sql/samples/ManageSqlDatabase.java
+[2]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/resourcemanager/azure-resourcemanager/src/samples/java/com/azure/resourcemanager/sql/samples/ManageSqlDatabasesAcrossRegions.java
 [3]: /azure/sql-database/sql-database-connect-query-java
