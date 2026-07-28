@@ -37,7 +37,7 @@ This article provides the process to perform load testing on a Python chat appli
         
     ---
 
-* [Python chat app with RAG](get-started-app-chat-template.md). If you configured your chat app to use one of the load balancing solutions, this article helps you test the load balancing. The load balancing solutions include [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
+* [Python chat app with RAG](get-started-app-chat-template.md).
 
 ## Open the load test sample app
 

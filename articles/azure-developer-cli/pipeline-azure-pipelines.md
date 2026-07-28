@@ -62,7 +62,7 @@ The Azure Developer CLI requires a Personal Access Token (PAT) to configure Azur
    ```
 
    > [!NOTE]
-   > By default, `azd pipeline config` for Azure Pipelines uses client credentials. OIDC/federated credentials are not currently supported.
+   > By default, `azd pipeline config` for Azure Pipelines uses OIDC (federated) credentials, so it doesn't create or store a client secret. To use client credentials instead, pass `--auth-type client-credentials`.
    > [Learn more about OIDC support in `azd`.](./tooling-environment-faq.md#what-is-openid-connect-oidc-and-is-it-supported)
 
 1. Respond to the prompts:
