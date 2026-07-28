@@ -16,7 +16,6 @@ The following table links to Java source code you can use to create and configur
 | Sample | Description |
 |---|---|
 | **Create an app** ||
-| [Create a web app and deploy from FTP or GitHub][1] | Deploy web apps from local Git, FTP, and continuous integration from GitHub. |
 | [Create a web app and manage deployment slots][2] | Create a web app and deploy to staging slots, and then swap deployments between slots. |
 | **Configure an app** ||
 | [Create a web app and configure a custom domain][3] | Create a web app with a custom domain and self-signed SSL certificate. |
@@ -26,9 +25,8 @@ The following table links to Java source code you can use to create and configur
 | [Connect a web app to a storage account][5] | Create an Azure storage account and add the storage account connection string to the app settings. |
 | [Connect a web app to a SQL database][6] | Create a web app and SQL database, and then add the SQL database connection string to the app settings. |
 
-[1]: ./index.yml
-[2]: https://github.com/Azure-Samples/app-service-java-manage-staging-and-production-slots-for-web-apps/
-[3]: https://github.com/Azure-Samples/app-service-java-manage-web-apps-with-custom-domains/
-[4]: https://github.com/Azure-Samples/app-service-java-scale-web-apps-on-linux
-[5]: https://github.com/Azure-Samples/app-service-java-manage-storage-connections-for-web-apps/
-[6]: https://github.com/Azure-Samples/app-service-java-manage-data-connections-for-web-apps/
+[2]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/resourcemanager/azure-resourcemanager/src/samples/java/com/azure/resourcemanager/appservice/samples/ManageWebAppSlots.java
+[3]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/resourcemanager/azure-resourcemanager/src/samples/java/com/azure/resourcemanager/appservice/samples/ManageWebAppWithCustomDomain.java
+[4]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/resourcemanager/azure-resourcemanager/src/samples/java/com/azure/resourcemanager/appservice/samples/ScaleWebAppWithTrafficManager.java
+[5]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/resourcemanager/azure-resourcemanager/src/samples/java/com/azure/resourcemanager/appservice/samples/ConnectWebAppToStorageAccount.java
+[6]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/resourcemanager/azure-resourcemanager/src/samples/java/com/azure/resourcemanager/appservice/samples/ConnectWebAppToSqlDatabase.java
