@@ -6,8 +6,6 @@ items:
       href: azure-ai-for-java-developers.md
     - name: Enterprise chat using RAG
       href: get-started-app-chat-template.md
-    - name: Scale chat using RAG with Azure Container Apps
-      href: get-started-app-chat-scaling-with-azure-container-apps.md
     - name: Chat using your own data
       href: /azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-spring&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: GPT-35-Turbo and GPT-4 with IntelliJ

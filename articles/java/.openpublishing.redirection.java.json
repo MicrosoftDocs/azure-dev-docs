@@ -564,7 +564,7 @@
         },
         {
             "source_path": "quickstarts/get-started-app-chat-scaling-with-azure-container-apps.md",
-            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-scaling-with-azure-container-apps"
+            "redirect_url": "/azure/developer/java/ai/index"
         },
         {
             "source_path": "azure-ai/index.yml",
@@ -576,7 +576,7 @@
         },
         {
             "source_path": "azure-ai/get-started-app-chat-scaling-with-azure-container-apps.md",
-            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-scaling-with-azure-container-apps"
+            "redirect_url": "/azure/developer/java/ai/index"
         },
         {
             "source_path": "azure-ai/get-started-app-chat-template.md",
@@ -741,6 +741,10 @@
             "source_path": "sdk/authentication/service-principal.md",
             "redirect_url": "/azure/developer/java/sdk/authentication/local-development-service-principal",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "ai/get-started-app-chat-scaling-with-azure-container-apps.md",
+            "redirect_url": "/azure/developer/java/ai/index"
         }
     ]
 }
