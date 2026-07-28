@@ -236,9 +236,9 @@ The command stores four secrets in GitHub: `AZURE_CREDENTIALS`, `AZURE_ENV_NAME`
 
 With [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect), your workflows can exchange short-lived tokens directly from Azure.
 
-While OIDC is supported as the default for GitHub Actions and Azure Pipeline (set as **federated**), it isn't supported for Azure DevOps or Terraform.
+While GitHub Actions and Azure Pipelines / Azure DevOps support OIDC as the default (set as **federated**), Terraform doesn't support it.
 
-- For Azure DevOps, explicitly calling out `--auth-type` as `federated` will result in an error.
+- For Azure DevOps (`--provider azdo`), OIDC (federated) credentials are the default. `azd pipeline config` creates a workload identity federation service connection and the matching federated credential on the app registration, so no client secret is stored. To use client credentials instead, pass `--auth-type client-credentials`.
 - For Terraform:
   - If `--auth-type` isn't defined, it will fall back to `clientcredentials` and will result in a warning.
   - If `--auth-type` is explicitly set to `federated`, it will result in an error.

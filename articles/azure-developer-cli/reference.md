@@ -2309,7 +2309,7 @@ azd pipeline config [flags]
 
 ```azdeveloper
   -m, --applicationServiceManagementReference string   Service Management Reference. References application or service contact information from a Service or Asset Management database. This value must be a Universally Unique Identifier (UUID). You can set this value globally by running azd config set pipeline.config.applicationServiceManagementReference <UUID>.
-      --auth-type string                               The authentication type used between the pipeline provider and Azure for deployment (Only valid for GitHub provider). Valid values: federated, client-credentials.
+      --auth-type string                               The authentication type used between the pipeline provider and Azure for deployment. Valid values: federated, client-credentials. Both the github and azdo providers default to federated (OIDC) credentials.
       --docs                                           Opens the documentation for azd pipeline config in your web browser.
   -e, --environment string                             The name of the environment to use.
   -h, --help                                           Gets help for config.
