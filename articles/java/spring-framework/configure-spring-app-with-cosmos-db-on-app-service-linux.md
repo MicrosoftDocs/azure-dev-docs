@@ -1,6 +1,6 @@
 ---
-title: Use Spring Data with Azure Cosmos DB for Apache Cassandra API
-description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
+title: Spring Data with Azure Cosmos DB Cassandra
+description: "Learn to build and deploy Java apps with Spring Data and Azure Cosmos DB for Apache Cassandra API. Configure, deploy, and scale your applications on Azure App Service Linux."
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -31,9 +31,9 @@ The following prerequisites are required in order to follow the steps in this ar
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
-## Clone the Sample Java Web App Repository
+## Clone the sample Java application repository
 
-For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Azure Cosmos DB](./configure-spring-boot-starter-java-app-with-cosmos-db.md) and [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction).
+For this exercise, use the Spring Todo app, which is a Java application built by using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Azure Cosmos DB](./configure-spring-boot-starter-java-app-with-cosmos-db.md), and [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction).
 
 1. Clone the Spring Todo app and copy the contents of the **.prep** folder to initialize the project:
 
@@ -58,11 +58,11 @@ For this exercise you'll be using the Spring Todo app, which is a Java applicati
    cd initial\spring-todo-app
    ```
 
-## Create an Azure Cosmos DB from Azure CLI
+## Create an Azure Cosmos DB account from Azure CLI
 
-The following procedure creates Azure Cosmos DB database using CLI.
+The following procedure creates an Azure Cosmos DB account by using Azure CLI.
 
-1. Sign in to your Azure CLI, and set your subscription ID.
+1. Sign in to Azure CLI and set your subscription ID.
 
    ```azurecli
    az login
@@ -74,7 +74,7 @@ The following procedure creates Azure Cosmos DB database using CLI.
    az account set -s <your-subscription-id>
    ```
 
-1. Create an Azure resource group, and save aside the resource group name for later use.
+1. Create an Azure resource group, and save the resource group name for later use.
 
    ```azurecli
    az group create \
@@ -82,8 +82,8 @@ The following procedure creates Azure Cosmos DB database using CLI.
        --location <your-resource-group-region>
    ```
 
-1. Create the Azure Cosmos DB and specify the type as GlobalDocumentDB.
-The name of the Azure Cosmos DB must use only lower case letters. Make sure to note the `documentEndpoint` field in the response. You need this value later.
+1. Create the Azure Cosmos DB account and specify the type as `GlobalDocumentDB`.
+The name of the Azure Cosmos DB account must use only lowercase letters. Make sure to note the `documentEndpoint` field in the response. You need this value later.
 
    ```azurecli
    az cosmosdb create \
@@ -92,7 +92,7 @@ The name of the Azure Cosmos DB must use only lower case letters. Make sure to n
        --kind GlobalDocumentDB
    ```
 
-1. Get your Azure Cosmos DB keys, record the `primaryMasterKey` value for later use.
+1. Get your Azure Cosmos DB keys, and record the `primaryMasterKey` value for later use.
 
    ```azurecli
    az cosmosdb keys list \
@@ -100,7 +100,7 @@ The name of the Azure Cosmos DB must use only lower case letters. Make sure to n
        --name <your-azure-COSMOSDB-name>
    ```
 
-## Build and Run the App Locally
+## Build and run the app locally
 
 The following procedure runs the application on the development computer.
 
@@ -131,7 +131,7 @@ The following procedure runs the application on the development computer.
    ```
 
    > [!NOTE]
-   > If you'd like to provision these variables with a script, there is a template for Bash in the .prep directory that you can copy and use as a starting point.
+   > If you'd like to provision these variables with a script, there's a template for Bash in the `.prep` directory that you can copy and use as a starting point.
 
 1. Change the directory by using the following command:
 
@@ -145,7 +145,7 @@ The following procedure runs the application on the development computer.
    mvn package spring-boot:run
    ```
 
-1. Once the application has started, you can validate the deployment by accessing the Spring Todo app here: `http://localhost:8080/`.
+1. Once the application starts, you can validate the deployment by accessing the Spring Todo app here: `http://localhost:8080/`.
 
    ![Spring app running locally][SCDB01]
 
@@ -153,7 +153,7 @@ The following procedure runs the application on the development computer.
 
 The following procedure deploys the application to Linux on Azure.
 
-1. Open the **pom.xml** file that you previously copied to the **initial/spring-todo-app** directory of the repository. Ensure that the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) is included as seen in the following **pom.xml** file. If the version isn't set to **1.14.0**, then update the value.
+1. Open the **pom.xml** file that you previously copied to the **initial/spring-todo-app** directory of the repository. Ensure that the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) is included as seen in the following **pom.xml** file. If the version isn't set to **1.14.0**, update the value.
 
    ```xml
    <plugins> 
@@ -215,7 +215,7 @@ The following procedure deploys the application to Linux on Azure.
    </plugins>
    ```
 
-1. Deploy to Java SE in App Service Linux
+1. Deploy to Java SE in App Service Linux.
 
    ```bash
    mvn azure-webapp:deploy
@@ -261,7 +261,7 @@ The following procedure deploys the application to Linux on Azure.
 
 The following procedure opens log files on Azure.
 
-1. Configure logs for the deployed Java Web app in Azure App Service in Linux:
+1. Configure logs for the deployed Java Web app in Azure App Service in Linux.
 
    ```azurecli
    az webapp log config \
@@ -340,7 +340,7 @@ For more information about using Spring Boot applications on Azure, see the foll
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 
-The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
+The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more popular projects that's built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
 
 <!-- URL List -->
 
