@@ -1,31 +1,32 @@
 ---
 title: Azure Skill for Diagnostics
-description: Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. Also covers App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
+description: Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage. Also covers Azure VMs, App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
 author: diberry
 ms.author: diberry
-ms.date: 5/26/2026
+ms.reviewer: alex-thompson, yinghuidong, jobanerj
+ms.date: 07/22/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
-  - "skill-version-1.1.6"
+  - "skill-version-1.1.104"
 ---
 
 # Azure skill for diagnostics
 
-Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage. Also covers App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
+Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage. Also covers Azure VMs, App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
 
 **Skill:** `azure-diagnostics` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-diagnostics/SKILL.md)
 
 ## What it provides
 
-This skill provides GitHub Copilot with specialized knowledge. Debug Azure production issues on Azure using AppLens, Azure Monitor, resource health, and safe triage.
+This skill provides GitHub Copilot with specialized knowledge to debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage. Use it for VM connectivity and access issues, App Service and Azure Functions failures, AKS issues, container app issues, and Azure Messaging SDK connection problems.
 
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
 - **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
-- **Azure compute resources**: This skill supports Azure Container Apps, Azure Functions, Azure Kubernetes Service (AKS), and other Azure compute services.
+- **Azure compute resources**: This skill supports Azure Virtual Machines, Azure Container Apps, Azure Functions, Azure Kubernetes Service (AKS), and other Azure compute services.
 
 ## When to use this skill
 
@@ -34,6 +35,7 @@ Use this skill when you need to:
 - Debug production issues in Azure
 - Troubleshoot container apps in Azure
 - Troubleshoot functions in Azure
+- Troubleshoot VM connectivity and access issues, such as RDP, SSH, refused ports, black screen, or password reset
 - Troubleshoot AKS in Azure
 - Work with kubectl can't connect, kube-system/CoreDNS failures, pod pending, and crashloop
 - Work with node not ready
@@ -60,6 +62,8 @@ Try these prompts to activate this skill:
 - "Fix image pull failures in Container Apps"
 - "My container app has image pull errors"
 - "Resolve cold start issues"
+- "I can't connect to my VM"
+- "Troubleshoot port 3389"
 - "Troubleshoot App Service high CPU"
 - "My App Service deployment is failing"
 - "Troubleshoot my Azure Function App invocation failures"
