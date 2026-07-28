@@ -289,7 +289,7 @@ The AzAPI provider block accepts several settings that apply globally across all
 
 | Option | Description |
 |---|---|
-| `enable_preflight` | Enables preflight validation at plan time. Defaults to `false`. See [Enable preflight validation in the AzAPI Terraform provider](how-to-use-azapi-preflight-validation.md) for details. |
+| `enable_preflight` | Enables preflight validation at plan time. Defaults to `false`. See [Enable preflight validation in the AzAPI Terraform provider](how-to-use-preflight-validation.md#enable-preflight-validation-in-the-azapi-provider) for details. |
 | `ignore_no_op_changes` | Suppresses plan-time noise from no-op differences between the configuration and normalized API responses. Defaults to `true`. |
 | `disable_default_output` | When set to `true`, disables automatic output of read-only properties when `response_export_values` isn't specified. Defaults to `false`. |
 | `default_location` | Sets a default `location` for all resources that don't specify one explicitly. |
@@ -298,7 +298,7 @@ The AzAPI provider block accepts several settings that apply globally across all
 
 For a full list of provider configuration options, see the [AzAPI provider schema](https://registry.terraform.io/providers/Azure/azapi/latest/docs).
 
-For a walkthrough of enabling preflight, see [Enable preflight validation in the AzAPI Terraform provider](how-to-use-azapi-preflight-validation.md).
+For a walkthrough of enabling preflight, see [Enable preflight validation in the AzAPI Terraform provider](how-to-use-preflight-validation.md#enable-preflight-validation-in-the-azapi-provider).
 
 ### Provider functions
 
@@ -432,7 +432,7 @@ This wouldn't trigger a replace if a different resource's SKU changes.
 - [Perform resource actions with the AzAPI provider](get-started-azapi-resource-action-mutation.md)
 - [Manage Azure data plane resources with AzAPI](get-started-azapi-data-plane-resource.md)
 - [List Azure resources with the AzAPI provider](get-started-azapi-resource-list.md)
-- [Enable preflight validation](how-to-use-azapi-preflight-validation.md)
+- [Enable preflight validation](how-to-use-preflight-validation.md#enable-preflight-validation-in-the-azapi-provider)
 - [Use AzAPI provider functions](how-to-use-azapi-provider-functions.md)
 - [Migration paths between Azure, AzureRM, and AzAPI](how-to-migrate-between-azurerm-and-azapi.md)
 - [Visit the provider registry](https://registry.terraform.io/providers/Azure/azapi/latest/docs)

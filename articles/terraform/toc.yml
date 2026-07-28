@@ -422,10 +422,10 @@
       href: comparing-terraform-and-bicep.md
 - name: How-to guides
   items:
+    - name: Enable preflight validation
+      href: how-to-use-preflight-validation.md
     - name: AzAPI provider
       items:
-        - name: Enable preflight validation
-          href: how-to-use-azapi-preflight-validation.md
         - name: Use AzAPI provider functions
           href: how-to-use-azapi-provider-functions.md
         - name: Migration paths between Azure, AzureRM, and AzAPI

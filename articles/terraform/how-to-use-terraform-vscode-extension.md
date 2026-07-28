@@ -108,7 +108,7 @@ The extension integrates with the `aztfpreflight` tool to validate your Terrafor
 1. Select an existing plan file, or let the extension generate a new one.
 1. The extension runs `aztfpreflight` against the plan and displays results in the terminal.
 
-Preflight catches errors such as invalid property values, quota violations, and policy compliance failures before any resources are created or modified. For details on enabling preflight directly in the AzAPI provider configuration, see [Enable preflight validation in the AzAPI Terraform provider](how-to-use-azapi-preflight-validation.md).
+Preflight catches errors such as invalid property values, unsupported configurations, and policy compliance failures before any resources are created or modified. For details on enabling preflight directly in the AzAPI provider configuration, see [Enable preflight validation in the AzAPI Terraform provider](how-to-use-preflight-validation.md#enable-preflight-validation-in-the-azapi-provider).
 
 ## Generate required permissions
 
@@ -149,5 +149,5 @@ All standard Terraform commands are available from the Command Palette and run i
 ## Additional reading
 
 - [Install the Microsoft Terraform Visual Studio Code extension](configure-vs-code-extension-for-terraform.md)
-- [Enable preflight validation in the AzAPI Terraform provider](how-to-use-azapi-preflight-validation.md)
+- [Enable preflight validation in the AzAPI Terraform provider](how-to-use-preflight-validation.md#enable-preflight-validation-in-the-azapi-provider)
 - [Azure Export for Terraform overview](./azure-export-for-terraform/export-terraform-overview.md)

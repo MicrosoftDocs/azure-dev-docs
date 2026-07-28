@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/terraform/how-to-use-azapi-preflight-validation.md",
+      "redirect_url": "/azure/developer/terraform/how-to-use-preflight-validation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/python/get-started-app-chat-evaluations.md",
       "redirect_url": "/azure/developer/ai/",
       "redirect_document_id": false
