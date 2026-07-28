@@ -9,15 +9,15 @@ ms.custom: devx-track-terraform
 
 # Overview of the Azure Terraform Resource Provider
 
-The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform workflows like exporting in the Azure portal. Currently, only an export workflow is supported, but planned additions to the resource provider accelerate deployment workflows in Terraform on Azure. This resource provider is only available in the Azure public cloud.
+The Azure Terraform Resource Provider (preview) enables Azure Terraform workflows like exporting in the Azure portal. Currently, it supports only an export workflow, but planned additions to the resource provider accelerate deployment workflows in Terraform on Azure. This resource provider is only available in the Azure public cloud.
 
 ## Registration
 
-Registration may take a few minutes to complete. Check your registration status with `az provider show -n Microsoft.AzureTerraform`.
+Registration might take a few minutes to complete. Check your registration status by using `az provider show -n Microsoft.AzureTerraform`.
 
 ### Terraform
 
-Utilize the `azurerm_provider_registration` resource:
+Use the `azurerm_provider_registration` resource:
 
 ```hcl
 resource "azurerm_resource_provider_registration" "azureterraform" {
@@ -25,50 +25,54 @@ resource "azurerm_resource_provider_registration" "azureterraform" {
 }
 ```
 
-You need to have your `azurerm` provider configured as well for the run to succeed.
+You need to configure your `azurerm` provider as well for the run to succeed.
 
 ### Terminal
 
-Register the provider with `az provider register -n Microsoft.AzureTerraform`. 
+Register the provider by using `az provider register -n Microsoft.AzureTerraform`. Wait until the `az provider show -n Microsoft.AzureTerraform` result shows the `registrationState` is `Registered`.
 
 ### Portal
 
-Register the provider using the [Azure Resource Manager guide](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal). Search for `Microsoft.AzureTerraform` in step 5.
+Register the provider by using the [Azure Resource Manager guide](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal). Search for `Microsoft.AzureTerraform` in step 5.
 
 ## Export
 
-Export functionality is based on the preexisting [Azure Export for Terraform tool](../azure-export-for-terraform/export-terraform-overview.md). These capabilities are exposed through the resource provider. To export resources, choose your tool of choice:
+Export functionality is based on the preexisting [Azure Export for Terraform tool](../azure-export-for-terraform/export-terraform-overview.md). The resource provider exposes these capabilities. To export resources, choose your tool of choice:
 
 ### Portal
 
-Follow the [quickstart article to export resources to Terraform using Azure portal](./get-started-export-resources-portal.md)
+To export resources to Terraform, see the [quickstart article to export resources to Terraform using Azure portal](./get-started-export-resources-portal.md).
 
 ### Azure CLI
 
-Follow the [Azure CLI guide](/cli/azure/terraform).
+See the [Azure CLI guide](/cli/azure/terraform).
 
 ### Azure PowerShell
 
-Follow the [Azure PowerShell guide](/powershell/module/az.terraform/).
+See the [Azure PowerShell guide](/powershell/module/az.terraform/).
 
 ### REST
 
-Follow the [REST API reference](/rest/api/terraform/terraform/).
+See the [REST API reference](/rest/api/terraform/terraform/).
 
 ### Go SDK
 
-Follow the [Go SDK reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/terraform/armterraform).
+See the [Go SDK reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/terraform/armterraform).
 
 ### Export Limitations
 
 As the export experience is based on [Azure Export for Terraform `aztfexport`](../azure-export-for-terraform/export-terraform-overview.md), its limitations are nearly identical to the binary. Refer to the [limitations section of the binary documentation](../azure-export-for-terraform/export-terraform-concepts.md).
 
-However, there are also specific resources not supported by the resource provider. These resources aren't supported to ensure security from a usage standpoint. Two types of roles aren't supported:
+However, there are some additional limitations for the resource provider as listed below.
 
-- POST roles. They're mostly used for listing credentials.
-- Data plane roles. These roles are used to access user content.
+- Some specific resources not supported by the resource provider. These resources aren't supported to ensure security from a usage standpoint. Two types of roles aren't supported:
 
-We're planning to keep these limitations in place to ensure security for users. If customers wish to export these types of resources, use the [`aztfexport`](https://github.com/Azure/aztfexport) tool instead.
+    - POST roles. They're mostly used for listing credentials.
+    - Data plane roles. These roles are used to access user content.
+
+    We're planning to keep these limitations in place to ensure security for users. If customers wish to export these types of resources, use the [`aztfexport`](https://github.com/Azure/aztfexport) tool instead.
+
+- There's a limit of 1000 resources in the resource group when exporting in the resource group mode. In this case, you can use `.excludeAzureResource` and/or `.excludeTerraformResource` to filter out uninterested resources.
 
 ## Next steps
 
