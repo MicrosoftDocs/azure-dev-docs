@@ -7,7 +7,6 @@ ms.service: azure
 
 | Building block | Description |
 |----------------|-------------|
-| [Load balance with Azure Container Apps](../../javascript/ai/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) | Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints. |
 | [Load balance with API Management](../../javascript/ai/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) | Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure API Management to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints. |
 
 <!--

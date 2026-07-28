@@ -47,7 +47,7 @@ The GitHub Copilot CLI supports MCP servers through the `/mcp` command family.
    | **Tools** | `*` |
 
    > [!NOTE]
-   > If you prefer using .NET, set the **Command** to `dotnet dnx -p Azure.Mcp server start`.
+   > If you prefer using .NET, set the **Command** to `dotnet dnx Azure.Mcp server start`.
 
 1. Press **Ctrl+S** (or **Cmd+S** on macOS) to save the server configuration.
 1. When you've finished, press `esc` to close the server configuration.

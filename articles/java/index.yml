@@ -45,9 +45,6 @@ conceptualContent:
         - text: Enterprise chat using RAG
           itemType: get-started
           url: ai/get-started-app-chat-template.md
-        - text: Scale chat using RAG with Azure Container Apps
-          itemType: get-started
-          url: ai/get-started-app-chat-scaling-with-azure-container-apps.md
       footerLink:
         text: See more
         url: ai/index.yml

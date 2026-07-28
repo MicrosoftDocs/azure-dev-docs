@@ -97,8 +97,6 @@ items:
                   href: ../python/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
                 - name: JavaScript
                   href: ../javascript/ai/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-                - name: Java
-                  href: ../java/ai/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
                 - name: .NET
                   href: /dotnet/ai/get-started-app-chat-scaling-with-azure-container-apps?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Load balance with Azure API Management
