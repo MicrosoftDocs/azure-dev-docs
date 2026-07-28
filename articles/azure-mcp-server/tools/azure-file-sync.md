@@ -3,7 +3,7 @@ title: Azure File Sync Tools
 description: Learn how to use Azure MCP Server with Azure File Sync tools to manage storage sync services, sync groups, cloud endpoints, and server endpoints using natural language prompts.
 author: diberry
 ms.author: diberry
-ms.reviewer: ankushb
+ms.reviewer: ankushb, kszobi
 ms.date: 05/13/2026
 ms.topic: concept-article
 ai-usage: ai-generated
@@ -39,6 +39,7 @@ Example prompts include:
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Name** |  Required | The name of the storage sync service. |
 | **Location** |  Required | The Azure region or location name (for example, `EastUS`, `WestEurope`). |
+| **Tags** |  Optional | Tags to assign to the service, in the format `tag1=value1 tag2=value2`. |
 
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
