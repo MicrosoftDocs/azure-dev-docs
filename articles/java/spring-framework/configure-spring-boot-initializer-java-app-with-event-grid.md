@@ -1,6 +1,6 @@
 ---
-title: Use Azure Event Grid in Spring
-description: Configure a Spring Boot application created with the Spring Initializr to use the Azure Event Grid.
+title: "Use Azure Event Grid in Spring"
+description: "Learn to configure a Spring Boot application with Azure Event Grid. Integrate Event Grid for pub-sub messaging in your Spring apps today."
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
-# Use Azure Event Grid in Spring
+# Use Azure Event Grid in Spring Boot
 
 This article shows you how to use Azure Event Grid to send an event to a topic and use Service Bus Queue as an [Event Handler](/azure/event-grid/event-handlers) to receive in a Spring Boot application.
 
@@ -41,7 +41,7 @@ Use the following steps to create an event subscription to tell the Event Grid t
 
 ## Send an event by Azure Event Grid and receive by Azure Service Bus Queue
 
-With an Azure Event Grid resource, you can send an event using Spring Cloud Azure Event Grid. With an Azure Service Bus Queue resource as an event handler, you can receive the event using Spring Cloud Azure Stream Binder for Service Bus.
+By using an Azure Event Grid resource, you can send an event by using Spring Cloud Azure Event Grid. By using an Azure Service Bus Queue resource as an event handler, you can receive the event by using Spring Cloud Azure Stream Binder for Service Bus.
 
 To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud Azure Stream Binder Service Bus module, add the following dependencies to your **pom.xml** file:
 
@@ -83,7 +83,7 @@ To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud
 
 ## Code the application
 
-Use the following steps to configure your application to send an event by using Event Grid and receive by using Service Bus Queue.
+Use the following steps to configure your application to send an event by using Event Grid and receive it by using Service Bus Queue.
 
 1. Configure Azure Event Grid and Service Bus credentials in the **application.yaml** configuration file, as shown in the following example:
 
