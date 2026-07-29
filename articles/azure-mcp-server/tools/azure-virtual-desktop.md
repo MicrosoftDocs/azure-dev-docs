@@ -3,8 +3,9 @@ title: Azure Virtual Desktop Tools
 description: Learn how to use the Azure MCP Server with Azure Virtual Desktop.
 author: diberry
 ms.author: diberry
-ms.date: 12/06/2025
+ms.date: 07/10/2026
 ms.topic: concept-article
+ms.reviewer: vladimis
 ms.custom:
   - build-2025
 ai-usage: ai-assisted
@@ -16,7 +17,7 @@ content_well_notification:
 
 The Azure MCP Server enables you to manage Azure Virtual Desktop resources by using natural language prompts. You can list host pools, view session hosts, monitor user sessions, and manage your virtual desktop infrastructure without needing to remember complex command syntax.
 
-[Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud. It provides a full Windows experience with optimized Office 365 ProPlus, and supports Remote Desktop Services environments.
+[Azure Virtual Desktop](/azure/virtual-desktop/overview) is a desktop and app virtualization service that runs on the cloud. It provides a full Windows experience with optimized Microsoft 365 Apps for enterprise and supports Remote Desktop Services environments.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 

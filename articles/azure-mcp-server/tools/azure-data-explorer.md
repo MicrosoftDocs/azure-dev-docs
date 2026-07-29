@@ -3,8 +3,9 @@ title: Azure Data Explorer
 description: Learn how to use the Azure MCP Server with Azure Data Explorer. Query data, list clusters, and manage databases using natural language prompts. You can also include KQL syntax in your prompts if needed.
 author: diberry
 ms.author: diberry
-ms.date: 12/05/2025
+ms.date: 07/10/2026
 ms.topic: concept-article
+ms.reviewer: diberry
 ms.custom:
   - build-2025
 ai-usage: ai-assisted
@@ -13,7 +14,7 @@ content_well_notification:
 ---
 # Azure Data Explorer tools for the Azure MCP Server overview
 
-The Azure MCP Server allows you to manage Azure Data Explorer resources using natural language prompts. You can list clusters, view databases, query data with natural language. You can also use specific KQL queries for targeted responses.
+The Azure MCP Server enables you to manage Azure Data Explorer resources by using natural language prompts. You can list clusters, view databases, and query data by using natural language. You can also use specific KQL queries for targeted responses.
 
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. Azure Data Explorer helps you analyze large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more.
 
