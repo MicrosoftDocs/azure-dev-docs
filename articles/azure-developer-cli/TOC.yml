@@ -59,8 +59,24 @@
       items:
       - name: Overview
         href: extensions/overview.md
-      - name: Quickstart - Use the demo extension
+      - name: Quickstart- Use the demo extension
         href: extensions/quickstart-ai-extension.md
+      - name: Develop extensions
+        items:
+        - name: Extension development concepts
+          href: extensions/develop/extension-development-concepts.md
+        - name: "Quickstart- Build a sample azd extension"
+          href: extensions/develop/quickstart-build-extension.md
+        - name: Define the extension manifest
+          href: extensions/develop/extension-manifest.md
+        - name: Add extension capabilities
+          href: extensions/develop/extension-capabilities.md
+        - name: Communicate with azd by using the SDK
+          href: extensions/develop/extension-sdk.md
+        - name: Add an MCP server
+          href: extensions/develop/extension-mcp-server.md
+        - name: Publish an extension
+          href: extensions/develop/publish-extensions.md
       - name: Extensions
         items:
         - name: Copilot cloud agent extension
