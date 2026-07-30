@@ -12,7 +12,7 @@ zone_pivot_groups: redis-type
 
 # Connect a Spring Boot application to Azure Cache for Redis
 
-This tutorial shows how to use [Azure Cache for Redis](/azure/azure-cache-for-redis/) to store and retrieve data in a Spring Boot application, improving performance and scalability for applications that rely heavily on backend data stores.
+This tutorial shows how to use [Azure Cache for Redis](/azure/azure-cache-for-redis/) to store and retrieve data in a Spring Boot application. By using Azure Cache for Redis, you can improve performance and scalability for applications that rely heavily on backend data stores.
 
 In this tutorial, we include two authentication methods: Microsoft Entra authentication and Redis authentication. The Passwordless tab shows the Microsoft Entra authentication and the Password tab shows the Redis authentication.
 
