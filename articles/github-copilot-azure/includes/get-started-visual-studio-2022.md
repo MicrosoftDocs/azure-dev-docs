@@ -48,12 +48,12 @@ Azure MCP is built in to Visual Studio 2022. No separate GitHub Copilot for Azur
 
 1. If prompted, sign in to your Azure account.
 
-1. In the chat area, select the Select tools button (two wrenches icon) to display a list of available tools. If you installed the Azure and related .NET workloads, built-in Azure and related .NET skills/tools also appear in this picker. Enable all Azure tools by checking the top nodes for **Azure MCP Server v.x.x.x**.
+1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. If you installed the Azure and related .NET workloads, built-in Azure and related .NET skills and tools also appear in this picker. Enable all Azure tools by checking the top nodes for **Azure MCP Server v.x.x.x**.
 
    :::image type="content" source="../media/get-started/visual-studio-2022-select-tools-mcp-server.png" alt-text="Screenshot that shows the select tools dialog with the Azure MCP Server node checked.":::
 
 > [!NOTE]  
-> Azure MCP tools and workload-based Azure/.NET skills are off by default in Visual Studio 2022 and need to be manually enabled before first use. Once enabled from the Select tools dialog, your selections persist across sessions. Visual Studio 2026-specific tools aren't available in Visual Studio 2022.
+> Azure MCP tools and workload-based Azure/.NET skills are off by default in Visual Studio 2022. You need to manually enable them before first use. Once you enable them from the **Select tools** dialog, your selections persist across sessions. Visual Studio 2026-specific tools aren't available in Visual Studio 2022.
 
 ## Write your first prompt
 

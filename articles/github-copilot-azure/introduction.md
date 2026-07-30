@@ -32,7 +32,7 @@ GitHub Copilot is designed to help developers, including developers new to Azure
 
 GitHub Copilot for Azure supplements the general knowledge of the latest foundational large language models (LLMs) with tool calling by using the **Azure Model Context Protocol (MCP) Server**. This server enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf. Dozens of [Azure services](../azure-mcp-server/tools/index.md) are already available, and more services and capabilities are being added regularly. See the [full list of tools](../azure-mcp-server/tools/index.md) for details. Learn more about the capabilities of [Azure MCP Server](../azure-mcp-server/overview.md).
 
-[Azure Skills](../azure-skills/overview.md) - including `azure-prepare`, `azure-validate`, and `azure-deploy` - are also available to enable structured multi-step workflows for common Azure tasks. In extension-based environments such as Visual Studio Code, they install automatically with GitHub Copilot for Azure. In Visual Studio 2022 and Visual Studio 2026, Azure and related .NET skills/tools surface through installed workloads and appear in the Copilot tools/skills picker, where they're off by default until you enable them.
+[Azure Skills](../azure-skills/overview.md) - including `azure-prepare`, `azure-validate`, and `azure-deploy` - are also available to enable structured multistep workflows for common Azure tasks. In extension-based environments such as Visual Studio Code, they install automatically with GitHub Copilot for Azure. In Visual Studio 2022 and Visual Studio 2026, Azure and related .NET skills and tools surface through installed workloads and appear in the Copilot tools and skills picker, where they're off by default until you enable them.
 
 ## Supported development environments
 
@@ -117,11 +117,11 @@ Here's a list of all the tools currently supported by GitHub Copilot for Azure. 
 
 # [Visual Studio 2022](#tab/vs2022)
 
-GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md) behind the scenes to perform all operations. The tools and skills appear in the Copilot tools/skills picker and are off by default until you enable them.
+GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md) behind the scenes to perform all operations. The tools and skills appear in the Copilot tools and skills picker and are off by default until you enable them.
 
 # [Visual Studio 2026](#tab/vs2026)
 
-GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md) behind the scenes to perform all operations. The tools and skills appear in the Copilot tools/skills picker and are off by default until you enable them. In addition to Azure MCP Server tools, the following Visual Studio-specific tools are also available.
+GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md) behind the scenes to perform all operations. The tools and skills appear in the Copilot tools and skills picker and are off by default until you enable them. In addition to Azure MCP Server tools, the following Visual Studio-specific tools are also available.
 
 |Tool|Description|Example Prompts|
 |---|---|---|
