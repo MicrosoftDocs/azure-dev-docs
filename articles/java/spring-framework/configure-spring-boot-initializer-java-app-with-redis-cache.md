@@ -1,5 +1,5 @@
 ---
-title: Use Azure Redis Cache in Spring
+title: Connect Spring Boot to Azure Cache for Redis
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Cache for Redis.
 author: KarlErickson
 ms.author: karler
@@ -10,11 +10,9 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 zone_pivot_groups: redis-type
 ---
 
-# Use Azure Redis Cache in Spring
+# Connect a Spring Boot application to Azure Cache for Redis
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/) provides an in-memory data store based on the Redis software. [Redis](https://redis.io/) improves the performance and scalability of an application that uses backend data stores heavily.
-
-This tutorial demonstrates how to use a Redis cache to store and retrieve data in a Spring Boot application.
+This tutorial shows how to use [Azure Cache for Redis](/azure/azure-cache-for-redis/) to store and retrieve data in a Spring Boot application, improving performance and scalability for applications that rely heavily on backend data stores.
 
 In this tutorial, we include two authentication methods: Microsoft Entra authentication and Redis authentication. The Passwordless tab shows the Microsoft Entra authentication and the Password tab shows the Redis authentication.
 
@@ -36,9 +34,9 @@ Redis authentication uses passwords in Redis. If you choose to use passwords as 
 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**  and **Spring Data Reactive Redis** dependencies, and then select Java version 8 or higher.
 
-## Caching Data to Azure Cache for Redis
+## Cache data in Azure Cache for Redis
 
-With an Azure Cache for Redis instance, you can cache data using Spring Cloud Azure.
+By using an Azure Cache for Redis instance, you can cache data by using Spring Cloud Azure.
 
 To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add the following dependencies to your **pom.xml** file:
 
@@ -72,7 +70,7 @@ To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add th
   ```
 
   > [!NOTE]
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This configuration ensures that all Spring Cloud Azure dependencies are using the same version. For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+  > Configure this Bill of Material (BOM) in the `<dependencyManagement>` section of your **pom.xml** file. This configuration ensures that all Spring Cloud Azure dependencies use the same version. For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 ### Code the application
 
