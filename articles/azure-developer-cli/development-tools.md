@@ -65,8 +65,11 @@ The following flags are available on `install` and `upgrade`:
 
 The following options control prompting behavior:
 
-- `--no-prompt`: Suppresses interactive prompts. Useful in scripts.
-- `AZD_NON_INTERACTIVE=true`: Environment variable equivalent to `--no-prompt`.
+- `azd` can automatically run in non-interactive mode when it detects a CI/CD or AI agent environment.
+- `--no-prompt`: Explicitly suppresses interactive prompts.
+- `AZD_NON_INTERACTIVE=true`: Explicitly suppresses interactive prompts.
+- `AZD_NON_INTERACTIVE=false`: Explicitly keeps prompting enabled, even in detected CI/CD or AI agent environments.
+- Explicit `--no-prompt` and `AZD_NON_INTERACTIVE` values override environment auto-detection.
 
 ## Sample use case: bootstrap a development machine
 
@@ -179,16 +182,19 @@ Use any of the following options to skip interactive prompts when running `azd t
 
 - Pass `--no-prompt` on the command.
 - Set the environment variable `AZD_NON_INTERACTIVE=true`.
-- Run in a detected CI environment. `azd` automatically bypasses interactive prompts when `CI`, `TF_BUILD`, or `GITHUB_ACTIONS` is set.
+- Run in a detected CI/CD or AI agent environment. `azd` can automatically bypass interactive prompts.
+
+To keep prompting enabled in a detected CI/CD or AI agent environment, set `AZD_NON_INTERACTIVE=false`. Explicit `--no-prompt` and `AZD_NON_INTERACTIVE` values override auto-detection.
 
 ## CI and non-interactive scenarios
 
 The `azd tool` command group supports pipelines and scripts through the following options:
 
 - Use positional `id` arguments with `install` and `upgrade` to avoid interactive selection.
-- Add `--no-prompt` or set `AZD_NON_INTERACTIVE=true` to suppress prompts.
+- Add `--no-prompt`, set `AZD_NON_INTERACTIVE=true`, or rely on auto-detection in CI/CD or AI agent environments to suppress prompts.
+- Set `AZD_NON_INTERACTIVE=false` to opt out of auto-detection and keep prompting enabled in CI/CD or AI agent environments.
+- Explicit `--no-prompt` and `AZD_NON_INTERACTIVE` values override auto-detection.
 - Use `--output json` to capture structured results for downstream steps.
-- Rely on CI auto-detection, which suppresses interactive prompts when `CI`, `TF_BUILD`, or `GITHUB_ACTIONS` is set.
 
 The following example installs the Azure CLI and the Bicep extension in a pipeline step:
 
