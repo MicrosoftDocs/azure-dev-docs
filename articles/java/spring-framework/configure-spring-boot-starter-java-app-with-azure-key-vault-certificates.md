@@ -1,6 +1,6 @@
 ---
-title: "Enable HTTPS in Spring Boot with Azure Key Vault certificates"
-description: In this tutorial, you secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
+title: "Enable HTTPS in Spring Boot with Azure Key Vault Certificates"
+description: Secure Spring Boot apps with HTTPS using TLS/SSL certificates from Azure Key Vault and managed identities. Follow this tutorial to get started.
 ms.date: 08/19/2025
 ms.topic: tutorial
 author: KarlErickson
@@ -15,16 +15,16 @@ ms.custom:
 
 # Enable HTTPS in Spring Boot with Azure Key Vault certificates
 
-This tutorial shows you how to secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
+This tutorial shows you how to secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates by using Azure Key Vault and managed identities for Azure resources.
 
 Production-grade Spring Boot applications, whether in the cloud or on-premises, require end-to-end encryption for network traffic using standard TLS protocols. Most TLS/SSL certificates you come across are discoverable from a public root certificate authority (CA). Sometimes, however, this discovery isn't possible. When certificates aren't discoverable, the app must have some way to load such certificates, present them to inbound network connections, and accept them from outbound network connections.
 
 Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. With Spring on Azure, certificates aren't installed locally. Instead, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and managed identity for Azure resources.
 
-:::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-key-vault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
+:::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-key-vault-certificates.svg" alt-text="Screenshot of a diagram showing a Spring Boot app using Azure Key Vault certificates for inbound and outbound TLS connections." border="false":::
 
 > [!IMPORTANT]
-> Currently, Spring Cloud Azure Certificate starter version 4.x or higher don't support TLS/mTLS, they only auto-configure the Key Vault certificate client. Therefore, if you want to use TLS/mTLS, you cannot migrate to version 4.x.
+> Currently, Spring Cloud Azure Certificate starter version 4.x or higher doesn't support TLS/mTLS. It only auto-configures the Key Vault certificate client. Therefore, if you want to use TLS/mTLS, don't migrate to version 4.x.
 
 ## Prerequisites
 
@@ -58,13 +58,13 @@ This tutorial uses a self-signed certificate. To set the certificate, see [Quick
 
 ## Secure connection through TLS/SSL certificate
 
-You now have a VM and a Key Vault instance and have granted the VM access to Key Vault. The following sections show how to connect securely via TLS/SSL certificates from Azure Key Vault in the Spring Boot application. This tutorial demonstrates the following two scenarios:
+You now have a VM and a Key Vault instance and grant the VM access to Key Vault. The following sections show how to connect securely via TLS/SSL certificates from Azure Key Vault in the Spring Boot application. This tutorial demonstrates the following two scenarios:
 
-- Run a Spring Boot application with secure inbound connections
-- Run a Spring Boot application with secure outbound connections
+- Run a Spring Boot application with secure inbound connections.
+- Run a Spring Boot application with secure outbound connections.
 
 > [!TIP]
-> In the following steps, the code will be packaged into an executable file and uploaded to the VM. Don't forget to install [OpenJDK](https://openjdk.org/install/) in the VM.
+> In the following steps, you package the code into an executable file and upload it to the VM. Be sure to install [OpenJDK](https://openjdk.org/install/) in the VM.
 
 ### Run a Spring Boot application with secure inbound connections
 

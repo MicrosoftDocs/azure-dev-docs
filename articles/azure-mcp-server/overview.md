@@ -89,6 +89,7 @@ In advanced scenarios, you might create your own MCP servers to offer custom too
 
 ## Related content
 
+- [Security considerations for Azure MCP Server](security.md)
 - [Get started using the Azure MCP Server](get-started.md)
 - [Azure MCP Server tools](./tools/index.md)
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/introduction)

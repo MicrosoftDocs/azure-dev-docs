@@ -1,7 +1,7 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns in the Azure SDK libraries for Python
-ms.date: 05/28/2025
+ms.date: 07/30/2026
 ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -116,7 +116,7 @@ To specify a proxy, use environment variables or optional arguments. For more in
 
 ## Optional arguments for client objects and methods
 
-In the library reference documentation, you often see a `**kwargs` or `**operation_config` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question might support other named arguments. Typically, the reference documentation lists the specific arguments you can use. The following sections describe some general arguments that are often supported.
+In the library reference documentation, you often see a `**kwargs` or `**operation_config` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method might support other named arguments. Typically, the reference documentation lists the specific arguments you can use. The following sections describe some general arguments that are often supported.
 
 ### Arguments for libraries based on azure.core
 

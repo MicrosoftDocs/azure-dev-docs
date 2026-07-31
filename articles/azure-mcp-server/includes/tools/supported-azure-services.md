@@ -134,6 +134,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Pricing](../../tools/azure-pricing.md) | `pricing` | Get Azure retail pricing, cost estimates, and billing details for services, SKUs, and regions. |
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | `extension` | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | `quota` | Manage Azure resource quotas and limits. |
+| [Azure Resilience](../../tools/azure-resilience.md) | `resilience` | Get resilience goal assignments, goal templates, recovery plans, recovery jobs, and usage plans for Azure Resilience. |
 | [Azure Resource Health](../../tools/azure-resource-health.md) | `resourcehealth` | Check availability status, view health events, and track service-impacting issues for Azure resources. |
 | [Azure Well-Architected Framework](../../tools/azure-well-architected-framework.md) | `wellarchitectedframework` | Get architectural best practices, design patterns, and recommendations for Azure services based on the five Well-Architected Framework pillars. |
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
