@@ -494,7 +494,7 @@
 | TypeSpec HTTP Client | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-client/v/0.16.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.9.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.9.0) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.16.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.35.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.35.0) |  |  |
+| TypeSpec HTTP Client Python | npm [0.35.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.35.1) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.40](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.40) |  |  |
 | TypeSpec MCP | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
 | TypeSpec MCP HTTP Server C# | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
