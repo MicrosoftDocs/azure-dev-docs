@@ -34,6 +34,8 @@
         href: get-started/languages/dotnet.md
 - name: Concepts
   href: concepts.md
+- name: Security
+  href: security.md
 - name: How to
   expanded: true
   items:
