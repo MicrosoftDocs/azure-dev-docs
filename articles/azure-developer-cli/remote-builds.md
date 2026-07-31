@@ -3,7 +3,7 @@ title: Learn how to use the remote builds feature of the Azure Developer CLI.
 description: Learn how to use remote builds with Azure Container Registries and the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/03/2025
+ms.date: 07/30/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
