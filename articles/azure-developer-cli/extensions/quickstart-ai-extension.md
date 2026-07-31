@@ -3,7 +3,7 @@ title: Explore the demo extension
 description: Use the demo extension to explore Azure Developer CLI extension capabilities.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/27/2025
+ms.date: 07/30/2026
 ms.service: azure-dev-cli
 ms.topic: quickstart
 ms.custom: devx-track-azdevcli, devx-track-bicep
@@ -12,6 +12,9 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 # Quickstart: Explore the demo extension
 
 In this Quickstart, you install the Azure Developer CLI (`azd`) demo extension and use it to explore `azd` extension framework capabilities. [Extensions](overview.md) provide a way to add new capabilities, automate workflows, and integrate other services with `azd`. The demo extension provides examples of how to implement various features in an extension, such as how to prompt the user for input or display information about the project.
+
+> [!NOTE]
+> `azd` extensions are currently in beta.
 
 ## Initialize the project
 
@@ -24,12 +27,6 @@ azd init -t hello-azd
 ## Install the extension
 
 Complete the following steps to install the demo extension:
-
-1. Ensure that extensions are enabled in your `azd` configuration:
-
-    ```azdeveloper
-    azd config set alpha.extensions on
-    ```
 
 1. Install the demo extension from the official registry:
 

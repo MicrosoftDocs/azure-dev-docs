@@ -3,7 +3,7 @@ title: Explore Azure Developer CLI Template Galleries
 description: Learn about Azure Developer CLI templates and the available template galleries, including Awesome AZD and the AI Template Gallery.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/10/2025
+ms.date: 07/30/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
