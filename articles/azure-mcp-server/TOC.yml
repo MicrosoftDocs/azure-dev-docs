@@ -177,6 +177,8 @@
       href: tools/azure-rbac.md
     - name: Azure Redis
       href: tools/azure-redis.md    
+    - name: Azure Resilience
+      href: tools/azure-resilience.md
     - name: Azure Resource Health
       href: tools/azure-resource-health.md
     - name: Azure Service Bus
