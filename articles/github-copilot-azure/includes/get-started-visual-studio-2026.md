@@ -13,9 +13,6 @@ To complete the steps in this article, make sure that you have:
 
 By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. For more information, see [Manage access to Microsoft Copilot in Azure](/azure/copilot/manage-access).
 
-> [!NOTE]
-> GitHub organization owners can define organization-level custom instructions in GitHub. Visual Studio automatically applies these instructions in repositories from that organization, and Copilot might show them as referenced instructions during interactions. If your organization allows it, you can disable these instructions in Visual Studio settings.
-
 ## Install GitHub Copilot for Azure
 
 1. If you already installed Visual Studio 2026 and want to add GitHub Copilot for Azure after initial install, open Visual Studio Installer and select the **Modify** button, which displays the available workloads.
@@ -38,7 +35,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 
 1. If prompted, sign in to your Azure account.
 
-1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. If you installed the **Azure AI development** and related .NET workloads, built-in Azure and related .NET skills and tools also appear in this picker. Enable all Azure tools by checking the top nodes for **Azure**.
+1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. If you installed the **Azure AI development** workload, built-in Azure skills and tools also appear in this picker. Enable all Azure tools by checking the top nodes for **Azure**.
 
    :::image type="content" source="../media/get-started/visual-studio-2026-select-tools.png" alt-text="Screenshot that shows the select tools dialog with the Azure node checked.":::
 
@@ -47,7 +44,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
    :::image type="content" source="../media/get-started/visual-studio-2026-select-tools-mcp-server.png" alt-text="Screenshot that shows the select tools dialog with the Azure MCP Server node checked.":::
 
 > [!NOTE]
-> Azure MCP tools and workload-based Azure/.NET skills are off by default in Visual Studio 2026. You need to manually enable them before first use. Once you enable them from the **Select tools** dialog, your selections persist across sessions.
+> Azure MCP tools and Azure skills are off by default in Visual Studio 2026. You need to manually enable them before first use. Once you enable them from the **Select tools** dialog, your selections persist across sessions.
 
 ## Write your first prompt
 
