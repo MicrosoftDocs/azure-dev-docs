@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to manage Azure Backup resources, includ
 author: diberry
 ms.author: diberry
 ms.reviewer: shrja
-ms.date: 05/13/2026
+ms.date: 08/03/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -13,12 +13,12 @@ ai-usage: ai-generated
 content_well_notification:
   - AI-contribution
 tool_count: 19
-mcp-cli.version: "3.0.0-beta.15+a1e1192261fcf727c3bb284346423b37e8bd6e17"
+mcp-cli.version: "3.0.0-beta.31+2aa161acf58c99752bc9f53dff086b1dba3bd5e9"
 ---
 
 # Azure MCP Server tools for Azure Backup
 
-When you use Azure MCP Server, you can manage Azure Backup resources through natural language prompts by using the Model Context Protocol (MCP). You can create and configure backup vaults, define and update backup policies, and protect and undelete items. You can also manage governance settings like soft delete and immutability, configure multiuser authorization (MUA), and monitor backup jobs and recovery points.
+When you use the Azure Model Context Protocol (MCP) Server, you can manage Azure Backup resources through natural language prompts. You can create and configure backup vaults, define and update backup policies, and protect and undelete items. You can also manage governance settings like soft delete and immutability, configure multiuser authorization (MUA), and monitor backup jobs and recovery points.
 
 Azure Backup provides cloud-based capabilities for your applications. For more information, see the [Azure Backup documentation](/azure/backup/).
 
@@ -79,7 +79,9 @@ Example prompts include:
 
 <!-- @mcpcli azurebackup governance find-unprotected -->
 
-This tool scans your subscription and lists Azure resources that aren't protected by any Azure Backup policy. You can filter results by resource type, resource group, or tags. For example, find unprotected resources in the resource group `rg-prod`, or find unprotected VMs with the tag `environment=production`.
+This tool scans your subscription and lists Azure resources that aren't protected by any Azure Backup policy. It uses two discovery paths: ARM resource enumeration finds top-level unprotected resources, and Recovery Services vault discovery finds protectable sub-resources that a vault discovered but doesn't yet protect. Results include a `discoverySource` value (`arm` or `vault`), and vault-discovered items include `protectionState` so you can distinguish never-protected items from items where protection stopped.
+
+You can filter results by resource type, resource group, or tags. Tag filtering applies only to ARM-discovered resources because vault-discovered sub-resources don't carry ARM tags. Coverage includes IaaS VMs, SQL in IaaS VMs, SAP HANA in IaaS VMs, Azure File Shares, Blob Storage, ADLS Gen2, AKS, Managed Disks, PostgreSQL Flexible Server, Cosmos DB, and Elastic SAN.
 
 Example prompts include:
 
@@ -92,6 +94,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource type filter** |  Optional | Resource types to filter, comma-separated. |
+| **Resource group** |  Optional | The name of the Azure resource group that contains the resources you want to inspect. |
 | **Tag filter** |  Optional | Tag-based filter in key=value format (for example, `environment=production`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
