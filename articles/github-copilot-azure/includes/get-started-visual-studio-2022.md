@@ -18,9 +18,6 @@ To complete the steps in this article, make sure that you have:
 
 By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. For more information, see [Manage access to Microsoft Copilot in Azure](/azure/copilot/manage-access).
 
-> [!NOTE]
-> GitHub organization owners can define organization-level custom instructions in GitHub. Visual Studio automatically applies these instructions in repositories from that organization, and Copilot might show them as referenced instructions during interactions. If your organization allows it, you can disable these instructions in Visual Studio settings.
-
 ## Install GitHub Copilot for Azure
 
 Azure MCP is built in to Visual Studio 2022. No separate GitHub Copilot for Azure extension is required; the Azure MCP tools are included with the Azure development workload.
@@ -37,7 +34,7 @@ Azure MCP is built in to Visual Studio 2022. No separate GitHub Copilot for Azur
 
 1. Select the **Install** button to complete the installation.
 
-> [!NOTE]
+> [!NOTE]  
 > Azure MCP tools are serviced with regular Visual Studio updates. To get updates, use the Visual Studio Installer (**Modify** or **Update**) and ensure you're on the latest Visual Studio 2022 version.
 
 1. Launch Visual Studio 2022 and create or load a project.
@@ -48,12 +45,12 @@ Azure MCP is built in to Visual Studio 2022. No separate GitHub Copilot for Azur
 
 1. If prompted, sign in to your Azure account.
 
-1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. Enable all Azure tools by checking the top nodes for **Azure MCP Server v.x.x.x**.
+1. In the chat area, select the Select tools button (two wrenches icon) to display a list of available tools. Enable all Azure tools by checking the top nodes for **Azure MCP Server v.x.x.x**.
 
    :::image type="content" source="../media/get-started/visual-studio-2022-select-tools-mcp-server.png" alt-text="Screenshot that shows the select tools dialog with the Azure MCP Server node checked.":::
 
 > [!NOTE]  
-> Azure MCP tools are off by default in Visual Studio 2022. You need to manually enable them before first use. Once you enable them from the **Select tools** dialog, your selections persist across sessions. Azure Skills and Visual Studio 2026-specific tools aren't available in Visual Studio 2022.
+> The Azure MCP tools are disabled by default in Visual Studio 2022 and need to be manually enabled before use. Once enabled from the Select tools dialog, your Azure MCP tool selections persist across sessions. Visual Studio 2026-specific tools aren't available in Visual Studio 2022.
 
 ## Write your first prompt
 
