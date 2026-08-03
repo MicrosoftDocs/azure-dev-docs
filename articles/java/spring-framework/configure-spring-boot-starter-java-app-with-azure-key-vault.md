@@ -1,6 +1,6 @@
 ---
-title: "Load a secret from Azure Key Vault in a Spring Boot application"
-description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Apps.
+title: "Load a Secret from Azure Key Vault in a Spring Boot Application"
+description: Learn how to load a secret from Azure Key Vault in a Spring Boot application, then deploy the app to Azure App Service or Azure Spring Apps.
 ms.date: 08/19/2025
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
@@ -11,7 +11,7 @@ ms.reviewer: seal
 
 # Load a secret from Azure Key Vault in a Spring Boot application
 
-This tutorial shows you how to use Key Vault in Spring Boot applications to secure sensitive configuration data and retrieve configuration properties from Key Vault. [Key Vault](/azure/key-vault/general/overview) provides secure storage of generic secrets, such as passwords and database connection strings.
+This tutorial shows you how to load a secret from [Azure Key Vault](/azure/key-vault/general/overview) in a Spring Boot application to secure sensitive configuration data. Azure Key Vault provides secure storage for secrets such as passwords and database connection strings.
 
 ## Prerequisites
 
@@ -29,14 +29,14 @@ This tutorial shows you how to use Key Vault in Spring Boot applications to secu
 
 This tutorial describes how to read database credentials from Key Vault in a Spring Boot application. To read the credentials from Key Vault, you should first store database credentials in Key Vault.
 
-To store the URL of an H2 database as a new secret in Key Vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal). In this tutorial, you'll set a secret with name `h2url` and value `jdbc:h2:~/testdb;user=sa;password=password`.
+To store the URL of an H2 database as a new secret in Key Vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal). In this tutorial, you set a secret with name `h2url` and value `jdbc:h2:~/testdb;user=sa;password=password`.
 
 > [!NOTE]
 > After setting the secret, grant your app access to Key Vault by following the instructions in [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 
 ## Read a secret from Azure Key Vault
 
-Now that database credentials have been stored in Key Vault, you can retrieve them with Spring Cloud Azure.
+After you store database credentials in Key Vault, you can retrieve them by using Spring Cloud Azure.
 
 To install the Spring Cloud Azure Key Vault Starter module, add the following dependencies to your **pom.xml** file:
 
@@ -67,7 +67,7 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
   </dependency>
   ```
 
-Spring Cloud Azure has several methods for reading secrets from Key Vault. You can use the following methods independently or combine them for different use cases:
+Spring Cloud Azure provides several methods for reading secrets from Key Vault. You can use the following methods independently or combine them for different use cases:
 
 - Use Azure SDK for Key Vault.
 - Use Spring KeyVault `PropertySource`.
@@ -76,9 +76,9 @@ Spring Cloud Azure has several methods for reading secrets from Key Vault. You c
 
 Azure SDK for Key Vault provides `SecretClient` to manage secrets in Key Vault.
 
-The following code example will show you how to use `SecretClient` to retrieve H2 database credentials from Azure Key Vault.
+The following code example shows how to use `SecretClient` to retrieve H2 database credentials from Azure Key Vault.
 
-To read a secret using Azure SDK from Key Vault, configure the application by following these steps:
+To read a secret from Key Vault by using Azure SDK, configure the application by following these steps:
 
 1. Configure a Key Vault endpoint in the **application.properties** configuration file.
 
@@ -117,13 +117,13 @@ To read a secret using Azure SDK from Key Vault, configure the application by fo
 
    [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
-1. Start the application. You'll see logs similar to the following example:
+1. Start the application. You see logs similar to the following example:
 
    ```output
    h2url: jdbc:h2:~/testdb;user=sa;password=password
    ```
 
-You can build the `SecretClient` bean by yourself, but the process is complicated. In Spring Boot applications, you have to manage properties, learn the builder pattern, and register the client to your Spring application context. The following code example shows how you build a `SecretClient` bean:
+You can build the `SecretClient` bean yourself, but the process is complicated. In Spring Boot applications, you have to manage properties, learn the builder pattern, and register the client to your Spring application context. The following code example shows how you build a `SecretClient` bean:
 
 ```java
 import com.azure.identity.DefaultAzureCredentialBuilder;
@@ -150,9 +150,9 @@ The following list shows some of the reasons why this code isn't flexible or gra
 
 - The Key Vault endpoint is hard coded.
 - If you use `@Value` to get configurations from the Spring environment, you can't have IDE hints in your **application.properties** file.
-- If you have a microservice scenario, the code must be duplicated in each project, and it's easy to make mistakes and hard to be consistent.
+- If you have a microservice scenario, you must duplicate the code in each project. It's easy to make mistakes and hard to be consistent.
 
-Fortunately, building the `SecretClient` bean by yourself isn't necessary with Spring Cloud Azure. Instead, you can directly inject `SecretClient` and use the configuration properties that you're already familiar with to configure Key Vault. For more information, see [Configuration examples](configuration.md#configuration-examples).
+Fortunately, Spring Cloud Azure simplifies building the `SecretClient` bean. Instead of manually creating the bean, you can directly inject `SecretClient` and use the configuration properties that you're already familiar with to configure Key Vault. For more information, see [Configuration examples](configuration.md#configuration-examples).
 
 Spring Cloud Azure also provides the following global configurations for different scenarios. For more information, see the [Global configuration for Azure Service SDKs](configuration.md#global-configuration-for-azure-service-sdks) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
@@ -164,11 +164,11 @@ You can also connect to different Azure clouds. For more information, see [Conne
 
 ### Use Spring Key Vault PropertySource
 
-The previous sections showed you how to use `SecretClient` in the `CommandLineRunner` to read the secret after the application started. In Spring Boot applications, however, reading secrets is required before the application starts. For example, the datasource password property is required before the application starts. The previous scenario won't work if you want to store the datasource password in Key Vault and still use the Spring auto-configuration to get a datasource.
+The previous sections show how to use `SecretClient` in the `CommandLineRunner` to read the secret after the application starts. In Spring Boot applications, however, you need to read secrets before the application starts. For example, the datasource password property is required before the application starts. The previous scenario doesn't work if you want to store the datasource password in Key Vault and still use the Spring auto-configuration to get a datasource.
 
 In this case, Spring Cloud Azure provides Spring environment integration to load secrets from Key Vault before building the application context. You can use the secret to construct and configure the bean during Spring application context initialization. This approach is a transparent way for you to access secrets from Key Vault, and no code changes are required.
 
-The following code example shows you how to use `PropertySource` to retrieve H2 database credentials to build the datasource from Azure Key Vault.
+The following code example shows how to use `PropertySource` to retrieve H2 database credentials to build the datasource from Azure Key Vault.
 
 To retrieve the URL of an H2 database from Key Vault and store data from the H2 database using Spring Data JPA, configure the application by following these steps:
 
@@ -187,9 +187,9 @@ To retrieve the URL of an H2 database from Key Vault and store data from the H2 
    > [!TIP]
    > For examples of Spring Cloud Azure property configuration, see the [Configuration examples](configuration.md#configuration-examples) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
    >
-   > This example is a simple database scenario using an H2 database. We recommend using Azure Database for MySQL or Azure Database for PostgreSQL in a production environment and storing database URL, user name, and password in Azure Key Vault. If you want to avoid the password, passwordless connections is a good choice. For more information, see [Passwordless connections for Azure services](../../intro/passwordless-overview.md).
+   > This example is a simple database scenario using an H2 database. Use Azure Database for MySQL or Azure Database for PostgreSQL in a production environment and store database URL, user name, and password in Azure Key Vault. If you want to avoid the password, passwordless connections is a good choice. For more information, see [Passwordless connections for Azure services](../../intro/passwordless-overview.md).
 
-1. Create a new `Todo` Java class. This class is a domain model mapped onto the `todo` table that will be automatically created by JPA. The following code ignores the `getters` and `setters` methods.
+1. Create a new `Todo` Java class. This class is a domain model mapped onto the `todo` table that JPA automatically creates. The following code ignores the `getters` and `setters` methods.
 
    ```java
    import jakarta.persistence.Entity;
@@ -255,7 +255,7 @@ To retrieve the URL of an H2 database from Key Vault and store data from the H2 
    }
    ```
 
-1. Start the application. The application will retrieve the URL of the H2 database from Key Vault, then connect to the H2 database, and store data to the database. You'll see logs similar to the following example:
+1. Start the application. The application retrieves the URL of the H2 database from Key Vault, then connects to the H2 database, and stores data to the database. You see logs similar to the following example:
 
    ```output
    2023-01-13 15:51:35.498 DEBUG 5616 --- [main] org.hibernate.SQL: insert into todo (description, details, done, id) values (?, ?, ?, ?)
