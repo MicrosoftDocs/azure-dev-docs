@@ -18,7 +18,7 @@ mcp-cli.version: "3.0.0-beta.31+2aa161acf58c99752bc9f53dff086b1dba3bd5e9"
 
 # Azure MCP Server tools for Azure Backup
 
-When you use the Azure Model Context Protocol (MCP) Server, you can manage Azure Backup resources through natural language prompts. You can create and configure backup vaults, define and update backup policies, and protect and undelete items. You can also manage governance settings like soft delete and immutability, configure multiuser authorization (MUA), and monitor backup jobs and recovery points.
+When you use the Azure MCP Server, you can manage Azure Backup resources through natural language prompts. You can create and configure backup vaults, define and update backup policies, and protect and undelete items. You can also manage governance settings like soft delete and immutability, configure multiuser authorization (MUA), and monitor backup jobs and recovery points.
 
 Azure Backup provides cloud-based capabilities for your applications. For more information, see the [Azure Backup documentation](/azure/backup/).
 
