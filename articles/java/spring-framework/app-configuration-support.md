@@ -64,7 +64,7 @@ To use the feature in an application, build it as a Spring Boot application. The
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>7.3.0</version>
+      <version>7.4.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>

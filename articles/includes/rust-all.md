@@ -18,3 +18,5 @@
 | TypeSpec Client Core | crate [1.1.0](https://crates.io/crates/typespec_client_core/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@1.1.0/sdk/core/typespec_client_core) |
 | TypeSpec Core | crate [1.1.0](https://crates.io/crates/typespec/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@1.1.0/sdk/core/typespec) |
 | TypeSpec Core Macros | crate [1.0.0](https://crates.io/crates/typespec_macros/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@1.0.0/sdk/core/typespec_macros) |
+| Unknown Display Name | crate [1.0.0-beta.6653148](https://crates.io/crates/azure_canary/1.0.0-beta.6653148) |  |  |
+| Unknown Display Name | crate [1.0.0-beta.6653148](https://crates.io/crates/azure_canary_core/1.0.0-beta.6653148) |  |  |
