@@ -94,7 +94,6 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource type filter** |  Optional | Resource types to filter, comma-separated. |
-| **Resource group** |  Optional | The name of the Azure resource group that contains the resources you want to inspect. |
 | **Tag filter** |  Optional | Tag-based filter in key=value format (for example, `environment=production`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
