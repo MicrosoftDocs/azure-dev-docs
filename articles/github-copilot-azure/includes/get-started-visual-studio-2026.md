@@ -35,7 +35,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 
 1. If prompted, sign in to your Azure account.
 
-1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. If you installed the **Azure AI development** workload, built-in Azure skills and tools also appear in this picker. Enable all Azure tools by checking the top nodes for **Azure**.
+1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. If you installed the **Azure and AI development** workload, built-in Azure skills and tools also appear in this picker. Enable all Azure tools by checking the top nodes for **Azure**.
 
    :::image type="content" source="../media/get-started/visual-studio-2026-select-tools.png" alt-text="Screenshot that shows the select tools dialog with the Azure node checked.":::
 
