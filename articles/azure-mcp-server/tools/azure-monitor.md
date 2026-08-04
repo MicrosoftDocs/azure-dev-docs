@@ -249,7 +249,7 @@ Example prompts include:
 | **Resource group** | Required | The name of the Azure resource group. |
 
 > [!NOTE]
-> **Migration from 3.0.0-beta.24 and earlier:** The `monitor healthmodels entity get` command has been removed in 3.0.0-beta.25. Use `monitor healthmodels list` to list all health models, or `monitor healthmodels get` to retrieve a specific health model by name.
+> **Migration from 3.0.0-beta.24 and earlier:** The `monitor healthmodels entity get` command is removed in 3.0.0-beta.25. Use `monitor healthmodels list` to list all health models, or `monitor healthmodels get` to retrieve a specific health model by name.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
