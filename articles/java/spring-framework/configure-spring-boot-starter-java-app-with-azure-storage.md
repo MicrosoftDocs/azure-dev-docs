@@ -1,6 +1,6 @@
 ---
-title: Use Spring Boot to upload a file to Azure Blob Storage
-description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
+title: Use Spring Boot to Upload a File to Azure Blob Storage
+description: Learn how to use Spring Boot with Azure Blob Storage to upload and read blobs from a container. Follow the tutorial to get started.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -36,7 +36,7 @@ First, create a container named `testcontainer` by following the instructions in
 
 ## Upload and read blobs from Azure Storage account container
 
-Now that you have an Azure Storage account and container, you can upload and read files from blobs with Spring Cloud Azure.
+After you create an Azure Storage account and container, you can use Spring Cloud Azure to upload and read files from blobs.
 
 To install the Spring Cloud Azure Storage Blob Starter module, add the following dependencies to your **pom.xml** file:
 
@@ -78,7 +78,7 @@ To upload and read files from blobs by using the Spring Cloud Azure Storage Blob
    spring.cloud.azure.storage.blob.endpoint=${AZURE_STORAGE_ACCOUNT_ENDPOINT}
    ```
 
-1. Create a new `BlobController` Java class as shown in the following example. This class is used to upload and read files from the container blob in the Azure Storage account.
+1. Create a new `BlobController` Java class as shown in the following example. Use this class to upload and read files from the container blob in the Azure Storage account.
 
    ```java
    package com.example.demo;
@@ -127,7 +127,7 @@ To upload and read files from blobs by using the Spring Cloud Azure Storage Blob
       curl http://localhost:8080/blob/writeBlobFile -d "new message" -H "Content-Type: text/plain"
       ```
 
-      You should see a response that says `file was updated`.
+      You see a response that says `file was updated`.
 
    1. Send a GET request to verify the file's contents by using the following command:
 
@@ -135,7 +135,7 @@ To upload and read files from blobs by using the Spring Cloud Azure Storage Blob
       curl -X GET http://localhost:8080/blob/readBlobFile
       ```
 
-      You should see the "new message" text that you posted.
+      You see the "new message" text that you posted.
 
 [!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 
