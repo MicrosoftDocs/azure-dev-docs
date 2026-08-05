@@ -3,7 +3,7 @@ title: Manage Azure development tools with azd tool
 description: Learn how to use the azd tool command group to discover, install, upgrade, and check the status of common Azure development tools directly from the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/27/2026
+ms.date: 08/04/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -53,15 +53,30 @@ The `azd tool` command group includes the following subcommands.
 | `azd tool check` | Checks installed tools for available updates. |
 | `azd tool install [ids...]` | Installs one or more tools by `id`. |
 | `azd tool upgrade [ids...]` | Upgrades one or more installed tools. |
+| `azd tool uninstall [ids...]` | Removes one or more tools. Omit `ids` to select tools interactively. Supports bulk removal, `--dry-run`, and `--output json`. |
 
 All commands support `--output json` for machine-readable output suitable for scripts and pipelines.
+
+For tool skills, JSON output lists each skill for each agent and includes an `agent` field. For example:
+
+```json
+{
+  "skills": [
+    {
+      "id": "my-skill",
+      "agent": "copilot"
+    }
+  ]
+}
+```
 
 ### Common flags
 
 The following flags are available on `install` and `upgrade`:
 
 - `--all`: Installs or upgrades every eligible tool. For `install`, this command includes all recommended tools. For `upgrade`, this command includes all installed tools that have updates available.
-- `--dry-run`: Previews the actions `azd` would take without making any changes.
+
+The `install`, `upgrade`, and `uninstall` commands support `--dry-run` to preview actions without making changes.
 
 The following options control prompting behavior:
 
@@ -174,6 +189,28 @@ Preview the upgrade plan without applying it:
 azd tool upgrade --all --dry-run
 ```
 
+## Uninstall tools
+
+Remove one or more tools by passing their `id` values.
+
+```bash
+azd tool uninstall az-cli azure-mcp-server
+```
+
+Preview a removal without making changes:
+
+```bash
+azd tool uninstall vscode-bicep --dry-run
+```
+
+Run `azd tool uninstall` without tool IDs to select tools interactively. To remove a skill from a specific AI agent, use `--agent`.
+
+```bash
+azd tool uninstall my-skill --agent copilot
+```
+
+Add `--output json` when you need the removal result in a script or pipeline.
+
 ## First-run experience
 
 To discover and install recommended Azure development tools, run `azd tool` explicitly. Unlike previous versions, workflow commands such as `azd init`, `azd up`, and `azd deploy` no longer trigger an automatic tool-check prompt.
@@ -190,7 +227,7 @@ To keep prompting enabled in a detected CI/CD or AI agent environment, set `AZD_
 
 The `azd tool` command group supports pipelines and scripts through the following options:
 
-- Use positional `id` arguments with `install` and `upgrade` to avoid interactive selection.
+- Use positional `id` arguments with `install`, `upgrade`, and `uninstall` to avoid interactive selection.
 - Add `--no-prompt`, set `AZD_NON_INTERACTIVE=true`, or rely on auto-detection in CI/CD or AI agent environments to suppress prompts.
 - Set `AZD_NON_INTERACTIVE=false` to opt out of auto-detection and keep prompting enabled in CI/CD or AI agent environments.
 - Explicit `--no-prompt` and `AZD_NON_INTERACTIVE` values override auto-detection.
