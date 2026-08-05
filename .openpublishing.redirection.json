@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-skills/skills/azure-hosted-copilot-sdk.md",
+      "redirect_url": "/azure/developer/azure-skills/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/python/get-started-app-chat-evaluations.md",
       "redirect_url": "/azure/developer/ai/",
       "redirect_document_id": false

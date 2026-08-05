@@ -31,8 +31,6 @@
     href: skills/azure-diagnostics.md
   - name: Azure Enterprise Infrastructure Planner
     href: skills/azure-enterprise-infra-planner.md
-  - name: Azure Hosted Copilot SDK
-    href: skills/azure-hosted-copilot-sdk.md
   - name: Azure Kubernetes
     href: skills/azure-kubernetes.md
   - name: Azure Kusto (Data Explorer)
