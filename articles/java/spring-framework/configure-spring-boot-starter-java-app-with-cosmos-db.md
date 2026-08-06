@@ -1,6 +1,6 @@
 ---
-title: Access data with Azure Cosmos DB NoSQL API
-description: Learn how to configure an application created with the Spring Boot Initializer with Azure Cosmos DB for NoSQL.
+title: Access Data with Azure Cosmos DB NoSQL API
+description: Learn how to configure a Spring Boot app with Azure Cosmos DB for NoSQL to store and retrieve data. Follow the steps to build your app.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -15,9 +15,9 @@ ms.custom:
 
 # Access data with Azure Cosmos DB NoSQL API
 
-This article shows you how to add the [Spring Cloud Azure Starter for Spring Data for Azure Cosmos DB] to a custom application. This starter enables you to store data in and retrieve data from your Azure Cosmos DB database by using Spring Data and Azure Cosmos DB for NoSQL. The article starts by showing you how to create an Azure Cosmos DB via the Azure portal. Then, the article shows you how to use [Spring Initializr] to create a custom Spring Boot application that you can use with the Spring Boot Starter.
+This article shows you how to add the [Spring Cloud Azure Starter for Spring Data for Azure Cosmos DB] to a custom application. By using this starter, you can store and retrieve data in your Azure Cosmos DB database by using Spring Data and Azure Cosmos DB for NoSQL. The article starts by showing you how to create an Azure Cosmos DB account in the Azure portal. Then, it shows you how to use [Spring Initializr] to create a custom Spring Boot application that you can use with the Spring Boot Starter.
 
-Azure Cosmos DB is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB for NoSQL.
+Azure Cosmos DB is a globally distributed database service that developers can use to work with data through various standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB for NoSQL.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
@@ -29,11 +29,11 @@ Use the following steps to create an Azure Cosmos DB instance:
 
 1. Select **Databases**, and then select **Azure Cosmos DB**.
 
-1. On the **Create an Azure Cosmos DB account** screen, select **Azure Cosmos DB for NoSQL**.
+1. On **Create an Azure Cosmos DB account**, select **Azure Cosmos DB for NoSQL**.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/azure-cosmos-db-nosql.png" alt-text="Screenshot of the Azure portal that shows the Create an Azure Cosmos DB account page with Azure Cosmos DB for NoSQL option highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/azure-cosmos-db-nosql.png":::
 
-1. On the **Azure Cosmos DB** page, enter the following information:
+1. On **Azure Cosmos DB**, enter the following information:
 
    * Choose the **Subscription** you want to use for your database.
    * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
@@ -46,7 +46,7 @@ Use the following steps to create an Azure Cosmos DB instance:
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/create-azure-cosmos-db-account.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Cosmos DB Account page with Azure Cosmos DB for NoSQL settings." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/create-azure-cosmos-db-account.png":::
 
-1. When your database has been created, it's listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. To create a database and a container for a newly created Azure Cosmos DB, see the [Add a database and a container](/azure/cosmos-db/nosql/quickstart-portal#create-container-database) section of [Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal](/azure/cosmos-db/nosql/quickstart-portal). You can select your database for any of those locations to open the properties page for your cache.
+1. When your database is created, it's listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. To create a database and a container for a newly created Azure Cosmos DB, see the [Add a database and a container](/azure/cosmos-db/nosql/quickstart-portal#create-container-database) section of [Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal](/azure/cosmos-db/nosql/quickstart-portal). You can select your database from any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database. You use these values in your Spring Boot application.
 
@@ -55,7 +55,7 @@ Use the following steps to create an Azure Cosmos DB instance:
 > [!IMPORTANT]
 > In your newly created Azure Cosmos DB, assign the `Owner` role to the Azure account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-## Create a Spring Boot application with the Spring Initializr
+## Create a Spring Boot application by using the Spring Initializr
 
 Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [`spring-cloud-azure-data-cosmos-sample`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [`azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
 
@@ -64,17 +64,17 @@ Use the following steps to create a new Spring Boot application project with Azu
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify your **Spring Boot** version to **2.7.11**.
+   * Specify your **Spring Boot** version as **2.7.11**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **17** for the Java version.
    * Add **Azure Support** in the dependencies.
 
    > [!NOTE]
-   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: `com.example.wingtiptoysdata`.
+   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name. For example: `com.example.wingtiptoysdata`.
    >
-   > The version of Spring Boot may be higher than the version supported by Azure Support. After the project is automatically generated, you can manually change the Spring Boot version to the highest version supported by Azure, which you can find in [`Spring-Versions-Mapping`](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
+   > The version of Spring Boot might be higher than the version supported by Azure Support. After the project is automatically generated, you can manually change the Spring Boot version to the highest version supported by Azure, which you can find in [`Spring-Versions-Mapping`](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
 
-1. When you've specified the options listed previously, select **GENERATE**.
+1. When you specify the options, select **GENERATE**.
 
 1. When prompted, download the project to a path on your local computer and extract the files.
 
@@ -82,7 +82,7 @@ Your simple Spring Boot application is now ready for editing.
 
 ## Configure your Spring Boot application to use the Azure Spring Boot Starter
 
-1. Locate the **pom.xml** file in the directory of your app; for example:
+1. Locate the **pom.xml** file in the directory of your app. For example:
 
    **C:\SpringBoot\wingtiptoysdata\pom.xml**
 
@@ -90,7 +90,7 @@ Your simple Spring Boot application is now ready for editing.
 
    **/users/example/home/wingtiptoysdata/pom.xml**
 
-1. Open the **pom.xml** file in a text editor, and add the following to the `<dependencies>` element:
+1. Open the **pom.xml** file in a text editor, and add the following code to the `<dependencies>` element:
 
    ```xml
    <dependency>
@@ -106,7 +106,7 @@ Your simple Spring Boot application is now ready for editing.
 
 ## Configure your Spring Boot application to use your Azure Cosmos DB
 
-1. Locate the **application.properties** file in the **resources** directory of your app; for example:
+1. Locate the **application.properties** file in the **resources** directory of your app. For example:
 
    **C:\SpringBoot\wingtiptoysdata\src\main\resources\application.properties**
 
@@ -114,7 +114,7 @@ Your simple Spring Boot application is now ready for editing.
 
    **/users/example/home/wingtiptoysdata/src/main/resources/application.properties**
 
-1. Open the **application.properties** file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties for your database:
+1. Open the **application.properties** file in a text editor. Add the following lines to the file, and replace the sample values with the appropriate properties for your database:
 
    ```properties
    # Specify the DNS URI of your Azure Cosmos DB.
@@ -136,7 +136,7 @@ In this section, you create two Java classes for storing user data. Then, you mo
 
 1. Create a new file named **User.java** in the same directory as your main application Java file.
 
-1. Open the **User.java** file in a text editor, and add the following lines to the file to define a generic user class that stores and retrieve values in your database:
+1. Open the **User.java** file in a text editor. Add the following lines to define a generic user class that stores and retrieves values in your database:
 
    ```java
    package com.example.wingtiptoysdata;
@@ -210,7 +210,7 @@ In this section, you create two Java classes for storing user data. Then, you mo
 
 1. Create a new file named **UserRepository.java** in the same directory as your main application Java file.
 
-1. Open the **UserRepository.java** file in a text editor, and add the following lines to the file to define a user repository interface that extends the default `ReactiveCosmosRepository` interface:
+1. Open the **UserRepository.java** file in a text editor, and add the following lines to define a user repository interface that extends the default `ReactiveCosmosRepository` interface:
 
    ```java
    package com.example.wingtiptoysdata;
@@ -308,7 +308,7 @@ In this section, you create two Java classes for storing user data. Then, you mo
 
 ## Build and test your app
 
-1. Open a command prompt and navigate to the folder where your **pom.xml** file is located; for example:
+1. Open a command prompt and go to the folder where your **pom.xml** file is located. For example:
 
    `cd C:\SpringBoot\wingtiptoysdata`
 
@@ -342,7 +342,7 @@ In this section, you create two Java classes for storing user data. Then, you mo
 
 ## Clean up resources
 
-If you're not going to continue to use this application, be sure to delete the resource group containing the Azure Cosmos DB you created earlier. You can delete the resource group from the Azure portal.
+If you don't plan to continue using this application, be sure to delete the resource group containing the Azure Cosmos DB you created earlier. You can delete the resource group from the Azure portal.
 
 ## Next steps
 
@@ -371,7 +371,7 @@ For more information about using Spring Boot applications on Azure, see the foll
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 
-The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
+The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more popular projects that's built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
 
 <!-- URL List -->
 
