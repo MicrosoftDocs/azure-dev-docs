@@ -27,7 +27,7 @@ When you run the `azd pipeline config` command, `azd` performs the following ste
 - **Set up service principal**: Automatically creates and configures a service principal for secure deployment.
 - **Configure authentication**:
   - For GitHub: Sets up OpenID Connect (OIDC) or client credentials.
-  - For Azure Pipelines: Sets up client credentials and requests a Personal Access Token (PAT).
+  - For Azure Pipelines: Supports `--auth-type federated` (default) or `--auth-type client-credentials`, and requests a Personal Access Token (PAT).
 - **Provision pipeline files**: Copies the appropriate pipeline definition files (`azure-dev.yml`) from the template to your repository.
 - **Set pipeline variables and secrets**: Configures required variables and secrets for deployment.
 - **Commit and push changes**: Commits and pushes the pipeline configuration to your repository.
@@ -48,7 +48,8 @@ The `azd pipeline config` command supports both GitHub Actions and Azure Pipelin
 
 - Works with repositories hosted in Azure Pipelines.
 - Uses the `.azuredevops/pipelines` or `.azdo/pipelines` directory for the `azure-dev.yml` configuration file.
-- Uses client credentials for authentication (OIDC not currently supported).
+- Supports OIDC (federated) authentication by default with `azd pipeline config --provider azdo`.
+- Supports client credentials when you set `--auth-type client-credentials`.
 - Requires a Personal Access Token (PAT) with specific scopes.
 - Supports protected main branches through pull request workflows.
 
