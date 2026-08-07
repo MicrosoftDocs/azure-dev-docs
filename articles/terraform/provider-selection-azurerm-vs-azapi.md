@@ -98,9 +98,9 @@ Most teams should start with an AzureRM-primary strategy and adopt AzAPI as need
 | Built-in property validation | Yes | Partial (via preflight) |
 | IDE autocomplete for properties | Yes | Yes (with VS Code extension) |
 | Response export / JMESPath filtering | No | Yes |
-| Data plane resource management | Yes (selected resource types) | Yes (selected resource types) |
+| Data plane resource management | Yes | Yes (selected resource types) |
 | Provider functions for ID construction | No | Yes (v2.0 and later) |
-| Preflight validation at plan time | Yes | Yes—[Enable preflight validation](how-to-use-azapi-preflight-validation.md) |
+| Preflight validation at plan time | Yes (selected resource types) | Yes—[Enable preflight validation](how-to-use-azapi-preflight-validation.md) |
 
 ## Next steps
 
