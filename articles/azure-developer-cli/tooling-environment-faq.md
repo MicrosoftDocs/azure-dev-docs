@@ -240,7 +240,7 @@ While GitHub Actions and Azure Pipelines / Azure DevOps support OIDC as the defa
 
 - For Azure DevOps (`--provider azdo`), OIDC (federated) credentials are the default. `azd pipeline config` creates a workload identity federation service connection and the matching federated credential on the app registration, so no client secret is stored. To use client credentials instead, pass `--auth-type client-credentials`.
 - For Terraform:
-  - If `--auth-type` isn't defined, it will fall back to `clientcredentials` and will result in a warning.
+  - If you don't define `--auth-type`, the command falls back to `client-credentials` and returns a warning.
   - If `--auth-type` is explicitly set to `federated`, it will result in an error.
 
 ### How do I reset the Azure service principal that's stored in GitHub Actions?

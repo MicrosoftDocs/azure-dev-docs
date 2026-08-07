@@ -3,7 +3,7 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/13/2026
+ms.date: 08/07/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -350,7 +350,7 @@ _(properties at the service level, when `host` is `azure.ai.agent`)_ Configure a
 | `displayName` | N | string | A human-friendly display name for the agent. |
 | `description` | N | string | A description of the agent. |
 | `kind` | N | string | The agent kind. Only `hosted` is supported. |
-| `env` | N | object | Environment variables as key/value pairs. |
+| `env` | N | object | Environment variables as key/value pairs. Variable names must match `^[A-Za-z_][A-Za-z0-9_]*$`. |
 | `deployments` | N | array | Model deployments for the agent. See [Agent model deployments](#agent-model-deployments). |
 | `codeConfiguration` | N | object | Deploy the agent from source instead of a container image. See [Agent code configuration](#agent-code-configuration). |
 | `container` | N | object | Container resource settings for the agent. See [Agent container resources](#agent-container-resources). |
@@ -854,7 +854,7 @@ _(object)_ Provides additional configuration for required versions of `azd` and 
 requiredVersions:
   azd: ">= 0.6.0-beta.3"
   extensions:
-    azure.ai.agents: ">=1.0.0"
+    azure.ai.agents: ">=1.0.0-beta.8"
     my-extension: latest
 ```
 
