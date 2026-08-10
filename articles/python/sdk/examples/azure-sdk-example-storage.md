@@ -192,7 +192,7 @@ Ensure that the service principal is assigned a role with sufficient permissions
 
 1. If you want to try using these resources from application code, continue with [Example: Use Azure Storage](azure-sdk-example-storage-use.md).
 
-For another example of using the Azure Storage management library, see the [Manage Python Storage sample](/samples/azure-samples/azure-samples-python-management/storage/).
+For another example of using the Azure Storage management library, see the [Manage Python Storage sample](/azure/storage/common/storage-samples-python).
 
 ## 7: Clean up resources
 
