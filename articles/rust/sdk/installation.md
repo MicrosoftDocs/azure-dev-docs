@@ -38,19 +38,19 @@ You can find available crate names in the [crate index for Azure][Crates].
 
 ## Install a specific Azure SDK crate version
 
-Sometimes you need to install a particular [version of a crate][Rust docs - crate version syntax] for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
+Sometimes you need to use a specific [version requirement for a crate][Rust docs - crate version syntax] for compatibility testing or to maintain consistency across environments. Cargo resolves the requirement to a compatible version and records the exact resolved version in `Cargo.lock`.
 
 ```console
-cargo add <crate_name>@<version_number>
+cargo add <crate_name>@1
 ```
 
-For example, to pin to a stable 1.x release:
+For example, to use the latest stable 1.x release:
 
 ```console
-cargo add azure_storage_blob@1.0.0
+cargo add azure_storage_blob@1
 ```
 
-You can also specify version requirements in your `Cargo.toml` file. For more information on version requirement syntax, see the [Rust documentation][Rust docs - dependency].
+For more information on version requirement syntax, see the [Rust documentation][Rust docs - dependency].
 
 ## Update Azure SDK crates
 
@@ -104,7 +104,7 @@ Or specify features in your `Cargo.toml`:
 
 [!INCLUDE [common resources](../includes/resources.md)]
 
-[Rust docs - dependency]: https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html
+[Rust docs - dependency]: https://doc.rust-lang.org/cargo/reference/resolver.html
 [Rust docs - crate version syntax]: https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax
 
 [Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
