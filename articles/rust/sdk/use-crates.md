@@ -34,7 +34,7 @@ The Azure crates need credentials to authenticate to Microsoft Entra ID. Azure s
 
 ## Client objects
 
-You use client objects to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Ref doc - secret - SecretClient] is used to interact with Azure Key Vault secrets. You can also use [`QueueClient`][Ref doc - queue], [`KeyClient`][Ref doc - key], and [`CertificateClient`][Ref doc - certificate] for Azure Queue Storage, Azure Key Vault keys, and Azure Key Vault certificates.
+Use client objects to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, use [`azure_security_keyvault_secrets::SecretClient`][Ref doc - secret - SecretClient] to interact with Azure Key Vault secrets. You can also use [`QueueClient`][Ref doc - queue], [`KeyClient`][Ref doc - key], and [`CertificateClient`][Ref doc - certificate] for Azure Queue Storage, Azure Key Vault keys, and Azure Key Vault certificates.
 
 When you create the client objects, you can provide a [`ClientOptions`][Ref doc - core - ClientOptions] parameter for customizing the interactions with the service. Use `ClientOptions` to set things like timeouts, retry policies, and other configurations.
 
