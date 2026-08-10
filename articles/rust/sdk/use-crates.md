@@ -14,6 +14,9 @@ The Azure SDK for Rust crates help you access Azure services from Rust applicati
 
 [Crates] | [API reference documentation] | [Source code]
 
+> [!IMPORTANT]
+> Use the latest stable 1.x Azure SDK for Rust crate releases for new development. Each crate versions independently, so use the latest stable 1.x release for each crate that your application depends on.
+
 ## Prerequisites to develop with crates
 
 - Rust 1.85 or later. The version is specified in the Azure SDK for Rust crates [Cargo.toml][Azure SDK main Cargo.toml].
@@ -31,7 +34,7 @@ The Azure crates need credentials to authenticate to Microsoft Entra ID. Azure s
 
 ## Client objects
 
-You use client objects to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Ref doc - secret - SecretClient] is used to interact with Azure Key Vault secrets.
+You use client objects to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Ref doc - secret - SecretClient] is used to interact with Azure Key Vault secrets. You can also use [`QueueClient`][Ref doc - queue], [`KeyClient`][Ref doc - key], and [`CertificateClient`][Ref doc - certificate] for Azure Queue Storage, Azure Key Vault keys, and Azure Key Vault certificates.
 
 When you create the client objects, you can provide a [`ClientOptions`][Ref doc - core - ClientOptions] parameter for customizing the interactions with the service. Use `ClientOptions` to set things like timeouts, retry policies, and other configurations.
 
@@ -69,6 +72,9 @@ The code shown in this article is available on <https://github.com/azure-samples
 
 [Azure SDK main Cargo.toml]: https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml
 
+[Ref doc - queue]: https://docs.rs/azure_storage_queue/latest/azure_storage_queue/
+[Ref doc - key]: https://docs.rs/azure_security_keyvault_keys/latest/azure_security_keyvault_keys/
+[Ref doc - certificate]: https://docs.rs/azure_security_keyvault_certificates/latest/azure_security_keyvault_certificates/
 [Ref doc - secret - SecretClient]: https://docs.rs/azure_security_keyvault_secrets/latest/azure_security_keyvault_secrets/
 [Ref doc - core - ClientOptions]: https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
 [Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/response/struct.Response.html

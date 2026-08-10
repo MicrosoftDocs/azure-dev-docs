@@ -12,6 +12,8 @@ ms.custom:
 
 Azure SDK for Rust crates enable Rust applications to access Azure services. These client libraries provide a consistent, idiomatic experience, making it easier to build secure and scalable cloud solutions with Rust and Azure.
 
+The current stable Azure SDK for Rust crates are 1.x releases. Each crate versions independently, so the latest stable version can differ from one crate to another.
+
 [Crates] | [API reference documentation] | [Source code] 
 
 ## Key concepts for Azure SDK for Rust crates
@@ -42,7 +44,7 @@ Use the following information to understand when to use each type of access.
   * Working with services that don't have Azure crates available yet. Migrate your code to use Azure SDK crates when the crates become available.
   * Wanting to make REST calls directly because you don't want to use the entire crate to use a single REST API or you want deeper control over the HTTP requests.
 
-## Rust version
+## Service coverage
 
 The Azure SDK crates support the most commonly used Azure services, and we regularly add more based on [community feedback][AZURE SDK FOR RUST issues] and demand.
 

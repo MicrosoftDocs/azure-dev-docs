@@ -19,17 +19,22 @@ The Azure SDK for Rust lets you access Azure services in your Rust projects by i
 
 Get Azure SDK crates from [crates.io][Crates]. Install the individual crates that you need. 
 
+The latest Azure SDK for Rust crate release means the latest stable 1.x release for that crate.
+
 ```console
 cargo add <crate_name>
 ```
 
-Replace `<crate_name>` with the name of the Azure crate you want to install. For example, to install the Azure Identity and Key Vault secrets crates:
+Replace `<crate_name>` with the name of the Azure crate you want to install. For example, to install the current stable Azure Identity and Key Vault secrets crates:
 
 ```console
 cargo add azure_identity azure_security_keyvault_secrets
 ```
 
 You can find available crate names in the [crate index for Azure][Crates].
+
+> [!IMPORTANT]
+> Use stable 1.x Azure SDK for Rust crate releases for production workloads. Preview and beta releases are available for some crates, but `cargo add <crate_name>` resolves to the latest stable release by default.
 
 ## Install a specific Azure SDK crate version
 
@@ -39,10 +44,10 @@ Sometimes you need to install a particular [version of a crate][Rust docs - crat
 cargo add <crate_name>@<version_number>
 ```
 
-For example:
+For example, to pin to a stable 1.x release:
 
 ```console
-cargo add azure_storage_blob@0.20.0
+cargo add azure_storage_blob@1.0.0
 ```
 
 You can also specify version requirements in your `Cargo.toml` file. For more information on version requirement syntax, see the [Rust documentation][Rust docs - dependency].
@@ -92,7 +97,7 @@ Or specify features in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-<crate_name> = { version = "0.17", features = ["<feature_name_1>", "<feature_name_2>"] }
+<crate_name> = { version = "1", features = ["<feature_name_1>", "<feature_name_2>"] }
 ```
 
 ## Additional resources
