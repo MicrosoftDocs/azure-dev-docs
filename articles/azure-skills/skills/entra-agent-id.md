@@ -3,6 +3,7 @@ title: Azure Skill for Entra Agent ID
 description: Provisions Microsoft Entra Agent Identity Blueprints, BlueprintPrincipals, and per-instance Agent Identities via Microsoft Graph, and configures OAuth 2.0 token exchange.
 author: diberry
 ms.author: diberry
+ms.reviewer: chuye
 ms.date: 05/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
@@ -49,7 +50,6 @@ Use this skill when you need to:
 ### When not to use this skill
 
 - Standard Entra app registration — use [entra-app-registration](entra-app-registration.md).
-- Azure RBAC — use [azure-rbac](azure-rbac.md).
 - Microsoft Foundry agent authoring — use [microsoft-foundry](microsoft-foundry.md).
 
 ## Suggested workflow

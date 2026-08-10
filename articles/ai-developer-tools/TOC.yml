@@ -277,8 +277,6 @@ items:
         href: ../azure-skills/skills/azure-prepare.md?context=/azure/developer/ai-developer-tools/context/context
       - name: Azure Quotas
         href: ../azure-skills/skills/azure-quotas.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure RBAC
-        href: ../azure-skills/skills/azure-rbac.md?context=/azure/developer/ai-developer-tools/context/context
       - name: Azure Resource Lookup
         href: ../azure-skills/skills/azure-resource-lookup.md?context=/azure/developer/ai-developer-tools/context/context
       - name: Azure Resource Visualizer
