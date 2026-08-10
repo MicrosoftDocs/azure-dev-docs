@@ -1,10 +1,10 @@
 ---
-title: Develop Python apps that use Foundry Tools
+title: Develop AI apps with Python
 description: Review an organized list of resources about Foundry Tools scenarios for Python developers, including documentation and code samples.
 keywords: ai, azure openai service
 ms.subservice: intelligent-apps
 ms.topic: overview
-ms.date: 01/30/2026
+ms.date: 08/10/2026
 ms.update-cycle: 180-days
 ms.custom: overview, devx-track-python, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
