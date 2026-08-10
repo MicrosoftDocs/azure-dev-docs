@@ -1,7 +1,7 @@
 ---
 title: Use Azure SDK for Rust Crates to Access Azure Services
 description: Get started with Azure SDK for Rust crates. Learn authentication, explore supported Azure services, and follow best practices with code examples.
-ms.date: 06/01/2026
+ms.date: 08/10/2026
 ms.service: azure-rust
 ms.topic: concept-article
 ms.custom:
