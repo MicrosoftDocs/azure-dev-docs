@@ -1,7 +1,7 @@
 ---
 title: Install and Manage Azure SDK for Rust Crates
 description: Install, update, and manage Azure SDK for Rust crates using Cargo. Learn how to keep your Rust projects up to date with Azure services.
-ms.date: 05/18/2026
+ms.date: 08/10/2026
 ms.service: azure-rust
 ms.topic: how-to
 ms.custom:
@@ -19,11 +19,13 @@ The Azure SDK for Rust lets you access Azure services in your Rust projects by i
 
 Get Azure SDK crates from [crates.io][Crates]. Install the individual crates that you need. 
 
+The latest Azure SDK for Rust crate release is the latest stable 1.x release for that crate.
+
 ```console
 cargo add <crate_name>
 ```
 
-Replace `<crate_name>` with the name of the Azure crate you want to install. For example, to install the Azure Identity and Key Vault secrets crates:
+Replace `<crate_name>` with the name of the Azure crate you want to install. For example, to install the current stable Azure Identity and Key Vault secrets crates:
 
 ```console
 cargo add azure_identity azure_security_keyvault_secrets
@@ -31,21 +33,24 @@ cargo add azure_identity azure_security_keyvault_secrets
 
 You can find available crate names in the [crate index for Azure][Crates].
 
+> [!IMPORTANT]
+> Use stable 1.x Azure SDK for Rust crate releases for production workloads. Preview and beta releases are available for some crates, but `cargo add <crate_name>` resolves to the latest stable release by default.
+
 ## Install a specific Azure SDK crate version
 
-Sometimes you need to install a particular [version of a crate][Rust docs - crate version syntax] for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
+Sometimes you need to use a specific [version requirement for a crate][Rust docs - crate version syntax] for compatibility testing or to maintain consistency across environments. Cargo resolves the requirement to a compatible version and records the exact resolved version in `Cargo.lock`.
 
 ```console
-cargo add <crate_name>@<version_number>
+cargo add <crate_name>@1
 ```
 
-For example:
+For example, to use the latest stable 1.x release:
 
 ```console
-cargo add azure_storage_blob@0.20.0
+cargo add azure_storage_blob@1
 ```
 
-You can also specify version requirements in your `Cargo.toml` file. For more information on version requirement syntax, see the [Rust documentation][Rust docs - dependency].
+For more information on version requirement syntax, see the [Rust documentation][Rust docs - dependency].
 
 ## Update Azure SDK crates
 
@@ -92,14 +97,14 @@ Or specify features in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-<crate_name> = { version = "0.17", features = ["<feature_name_1>", "<feature_name_2>"] }
+<crate_name> = { version = "1", features = ["<feature_name_1>", "<feature_name_2>"] }
 ```
 
 ## Additional resources
 
 [!INCLUDE [common resources](../includes/resources.md)]
 
-[Rust docs - dependency]: https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html
+[Rust docs - dependency]: https://doc.rust-lang.org/cargo/reference/resolver.html
 [Rust docs - crate version syntax]: https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax
 
 [Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
