@@ -19,7 +19,7 @@ The Azure SDK for Rust lets you access Azure services in your Rust projects by i
 
 Get Azure SDK crates from [crates.io][Crates]. Install the individual crates that you need. 
 
-The latest Azure SDK for Rust crate release means the latest stable 1.x release for that crate.
+The latest Azure SDK for Rust crate release is the latest stable 1.x release for that crate.
 
 ```console
 cargo add <crate_name>
