@@ -417,6 +417,7 @@
 | Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-mgmt-networksecurity/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0](https://pypi.org/project/azure-mgmt-offazure/0.0.0) |  |  |
 | Unknown Display Name | PyPI [0.0.0](https://pypi.org/project/azure-mgmt-privatetrafficmanager/0.0.0) |  |  |
+| Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-mgmt-redhatopenshifthcp/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-mgmt-resourcenotifications/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-mgmt-reviews/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-mgmt-scom/0.0.0b1) |  |  |
