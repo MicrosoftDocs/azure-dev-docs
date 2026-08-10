@@ -11,7 +11,7 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 
 # Spring Cloud Stream with Azure Event Hubs
 
-This tutorial demonstrates how to send and receive messages using Azure Event Hubs and Spring Cloud Stream Binder Eventhubs in a Spring Boot application.
+This tutorial demonstrates how to send and receive messages by using Azure Event Hubs and Spring Cloud Stream Binder Eventhubs in a Spring Boot application.
 
 ## Prerequisites
 
@@ -30,14 +30,14 @@ This tutorial demonstrates how to send and receive messages using Azure Event Hu
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** and **Azure Support** dependencies, then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to resources, in Azure Event Hubs, assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` role to the Microsoft Entra account you're currently using. Then, in the Azure Storage account, assign the `Storage Blob Data Contributor` role to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authorize access to Event Hubs resources using Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory).
+> To grant your account access to resources in Azure Event Hubs, assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` roles to the Microsoft Entra account you're currently using. Then, in the Azure Storage account, assign the `Storage Blob Data Contributor` role to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authorize access to Event Hubs resources using Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this tutorial.
 
 ## Send and receive messages from Azure Event Hubs
 
-With an Azure Storage Account and an Azure Event hub, you can send and receive messages using Spring Cloud Azure Stream Binder Event Hubs.
+By using an Azure Storage Account and an Azure Event Hubs, you can send and receive messages by using Spring Cloud Azure Stream Binder Event Hubs.
 
 To install the Spring Cloud Azure Stream Binder Event Hubs module, add the following dependencies to your **pom.xml** file:
 
@@ -70,9 +70,9 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
 
 ### Code the application
 
-Use the following steps to configure your application to produce and consume messages using Azure Event Hubs.
+Use the following steps to configure your application to produce and consume messages by using Azure Event Hubs.
 
-1. Configure the Event hub credentials by adding the following properties to your **application.properties** file.
+1. Configure the Event Hubs credentials by adding the following properties to your **application.properties** file.
 
    ```properties
     spring.cloud.azure.eventhubs.namespace=${AZURE_EVENTHUBS_NAMESPACE}
@@ -91,14 +91,14 @@ Use the following steps to configure your application to produce and consume mes
 
    | Field                                                                          | Description                                                                                   |
    |--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-   | `spring.cloud.azure.eventhubs.namespace`                                       | Specify the namespace you obtained in your event hub from the Azure portal.                   |
+   | `spring.cloud.azure.eventhubs.namespace`                                       | Specify the namespace you got for your event hub from the Azure portal.                   |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name`         | Specify the storage account you created in this tutorial.                                     |
    | `spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name`       | Specify the container of your storage account.                                                |
    | `spring.cloud.stream.bindings.consume-in-0.destination`                        | Specify the event hub you used in this tutorial.                                              |
-   | `spring.cloud.stream.bindings.consume-in-0.group`                              | Specify the Consumer groups in your Event Hubs Instance.                                      |
+   | `spring.cloud.stream.bindings.consume-in-0.group`                              | Specify the consumer groups in your Event Hubs instance.                                      |
    | `spring.cloud.stream.bindings.supply-out-0.destination`                        | Specify the same event hub you used in this tutorial.                                         |
    | `spring.cloud.stream.eventhubs.bindings.consume-in-0.consumer.checkpoint.mode` | Specify `MANUAL`.                                                                             |
-   | `spring.cloud.function.definition`                                             | Specify which functional bean to bind to the external destination(s) exposed by the bindings. |
+   | `spring.cloud.function.definition`                                             | Specify which functional bean to bind to the external destinations exposed by the bindings. |
    | `spring.cloud.stream.poller.initial-delay`                                     | Specify initial delay for periodic triggers. The default value is `0`.                        |
    | `spring.cloud.stream.poller.fixed-delay`                                       | Specify fixed delay for default poller in milliseconds. The default value is `1000 L`.        |
 
@@ -169,7 +169,7 @@ Use the following steps to configure your application to produce and consume mes
 
    [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
-1. Start the application. Messages like this will be posted in your application log, as shown in the following example output:
+1. Start the application. Messages like this post in your application log, as shown in the following example output:
 
    ```output
    New message received: 'Hello World', partition key: 107207233, sequence number: 458, offset: 94256, enqueued time: 2023-02-17T08:27:59.641Z
