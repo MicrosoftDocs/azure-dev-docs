@@ -44,7 +44,6 @@ Use this skill when you need to:
 
 ### When not to use this skill
 
-- Azure role-based access control (RBAC) or role assignments (use `azure-rbac`)
 - Key Vault secrets (use `azure-keyvault-expiration-audit`)
 - General Azure resource security guidance
 
