@@ -1,6 +1,6 @@
 ---
 title: Use Spring Kafka with Azure Event Hubs for Kafka API
-description: Shows you how to configure a Java-based Spring Cloud Stream Binder to use Apache Kafka with Azure Event Hubs.
+description: Learn how to configure Spring Kafka with Azure Event Hubs to send and receive messages in a Java Spring Cloud Stream application. Follow this tutorial.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
@@ -11,13 +11,13 @@ ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-ex
 
 # Use Spring Kafka with Azure Event Hubs for Kafka API
 
-This tutorial shows you how to configure a Java-based Spring Cloud Stream Binder to use Azure Event Hubs for Kafka for sending and receiving messages with Azure Event Hubs. For more information, see [Use Azure Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+This tutorial shows you how to configure a Java-based Spring Cloud Stream Binder to use Azure Event Hubs for Kafka for sending and receiving messages with Azure Event Hubs. For more information, see [Use Azure Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview).
 
-In this tutorial, we'll include two authentication methods: [Microsoft Entra authentication](/azure/event-hubs/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/event-hubs/authenticate-shared-access-signature). The **Passwordless** tab shows the Microsoft Entra authentication and the **Connection string** tab shows the SAS authentication.
+In this tutorial, we include two authentication methods: [Microsoft Entra authentication](/azure/event-hubs/authenticate-application) and [Shared Access Signatures (SAS) authentication](/azure/event-hubs/authenticate-shared-access-signature). The **Passwordless** tab shows the Microsoft Entra authentication and the **Connection string** tab shows the SAS authentication.
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-SAS authentication uses the connection string of your Azure Event Hubs namespace for the delegated access to Event Hubs for Kafka. If you choose to use Shared Access Signatures as credentials, you need to manage the connection string by yourself.
+SAS authentication uses the connection string of your Azure Event Hubs namespace for the delegated access to Event Hubs for Kafka. If you choose to use Shared Access Signatures as credentials, you need to manage the connection string yourself.
 
 ## Prerequisites
 
@@ -42,12 +42,12 @@ SAS authentication uses the connection string of your Azure Event Hubs namespace
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
-Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources. With Microsoft Entra ID, you can use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal.
+Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources. By using Microsoft Entra ID, you can use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which can be a user or an application service principal.
 
-If you want to run this sample locally with Microsoft Entra authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
+If you want to run this sample locally with Microsoft Entra authentication, ensure your user account authenticates through Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, ensure the account has sufficient permissions.
 
 > [!NOTE]
-> When using passwordless connections, you need to grant your account access to resources. In Azure Event Hubs, assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` role to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authorize access to Event Hubs resources using Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory).
+> When using passwordless connections, you need to grant your account access to resources. In Azure Event Hubs, assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` roles to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authorize access to Event Hubs resources using Microsoft Entra ID](/azure/event-hubs/authorize-access-azure-active-directory).
 
 #### [Connection string](#tab/connection-string)
 
@@ -66,7 +66,7 @@ az eventhubs namespace authorization-rule keys list \
 
 ## Send and receive messages from Azure Event Hubs
 
-With an Azure Event hub, you can send and receive messages using Spring Cloud Azure.
+By using an Azure Event Hubs namespace, you can send and receive messages by using Spring Cloud Azure.
 
 To install the Spring Cloud Azure Starter module, add the following dependencies to your **pom.xml** file:
 
@@ -99,9 +99,9 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
 
 ## Code the application
 
-Use the following steps to configure your application to produce and consume messages using Azure Event Hubs.
+Use the following steps to configure your application to produce and consume messages by using Azure Event Hubs.
 
-1. Configure the Event hub credentials by adding the following properties to your **application.properties** file.
+1. Configure the Event Hubs credentials by adding the following properties to your **application.properties** file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -114,9 +114,9 @@ Use the following steps to configure your application to produce and consume mes
    ```
 
    > [!TIP]
-   > If you're using version `spring-cloud-azure-dependencies:4.3.0`, then you should add the property `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources` with the value `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`.
+   > If you're using version `spring-cloud-azure-dependencies:4.3.0`, add the property `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources` with the value `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`.
    >
-   > Since `4.4.0`, this property will be added automatically, so there's no need to add it manually.
+   > Since `4.4.0`, this property is added automatically, so you don't need to add it manually.
 
    The following table describes the fields in the configuration:
 
@@ -124,7 +124,7 @@ Use the following steps to configure your application to produce and consume mes
    |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `spring.cloud.stream.kafka.binder.brokers`              | Specifies the Azure Event Hubs endpoint.                                                                                                                                                     |
    | `spring.cloud.stream.bindings.consume-in-0.destination` | Specifies the input destination event hub, which for this tutorial is the hub you created earlier.                                                                                           |
-   | `spring.cloud.stream.bindings.consume-in-0.group `      | Specifies a Consumer Group from Azure Event Hubs, which you can set to `$Default` in order to use the basic consumer group that was created when you created your Azure Event Hubs instance. |
+   | `spring.cloud.stream.bindings.consume-in-0.group `      | Specifies a Consumer Group from Azure Event Hubs. Set this value to `$Default` to use the basic consumer group that Azure Event Hubs creates when you create your instance. |
    | `spring.cloud.stream.bindings.supply-out-0.destination` | Specifies the output destination event hub, which for this tutorial is the same as the input destination.                                                                                    |
 
    #### [Connection string](#tab/connection-string)
@@ -139,7 +139,7 @@ Use the following steps to configure your application to produce and consume mes
    ```
 
    > [!TIP]
-   > We recommend that you don't use connection strings to connect to Azure Event Hubs for Kafka in version 4.3.0 or higher. This functionality is being removed in the future, so you should consider using passwordless connections instead.
+   > Don't use connection strings to connect to Azure Event Hubs for Kafka in version 4.3.0 or higher. This functionality is being removed in future versions, so consider using passwordless connections instead.
    >
    > If you're using Spring Cloud Azure version 4.x, update the `spring.cloud.stream.binders.kafka.environment.spring.main.sources` property value to `com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`.
 
@@ -149,10 +149,10 @@ Use the following steps to configure your application to produce and consume mes
    |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `spring.cloud.azure.eventhubs.connection-string`        | Specifies the connection string of your Azure Event Hubs namespace.                                                                                                                          |
    | `spring.cloud.stream.bindings.consume-in-0.destination` | Specifies the input destination event hub, which for this tutorial is the hub you created earlier.                                                                                           |
-   | `spring.cloud.stream.bindings.consume-in-0.group `      | Specifies a Consumer Group from Azure Event Hubs, which you can set to `$Default` in order to use the basic consumer group that was created when you created your Azure Event Hubs instance. |
+   | `spring.cloud.stream.bindings.consume-in-0.group `      | Specifies a Consumer Group from Azure Event Hubs. Set this value to `$Default` to use the basic consumer group that Azure Event Hubs creates when you create your instance. |
    | `spring.cloud.stream.bindings.supply-out-0.destination` | Specifies the output destination event hub, which for this tutorial is the same as the input destination.                                                                                    |
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule. -->
     ---
 
    > [!NOTE]
@@ -207,7 +207,7 @@ Use the following steps to configure your application to produce and consume mes
 
    [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
-1. Start the application. Messages like the following example will be posted in your application log:
+1. Start the application. Messages like the following example are posted in your application log:
 
    ```output
    Kafka version: 3.0.1
