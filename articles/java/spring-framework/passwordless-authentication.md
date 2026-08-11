@@ -35,7 +35,7 @@ Spring Cloud Azure builds upon Azure Identity Extensions to offer a higher-level
 
 - [AzureJdbcAutoConfiguration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jdbc/AzureJdbcAutoConfiguration.java)
 - [AzureRedisCredentials](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/data/redis/lettuce/AzureRedisCredentials.java)
-- [ServiceBusJmsConnectionFactoryFactory](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/implementation/jms/ServiceBusJmsConnectionFactoryFactory.java)
+- [ServiceBusJmsConnectionFactoryFactory](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/jms/AzureServiceBusJmsConnectionFactoryFactory.java)
 
 ### Implementation guides
 
