@@ -1,6 +1,6 @@
 ---
 title: Spring Cloud Stream with Azure Service Bus
-description: This article demonstrates how to use Spring Cloud Stream Binder to send messages to and receive messages from Azure Service Bus.
+description: Learn how to use Spring Cloud Stream Binder with Azure Service Bus queues and topics to send and receive messages in Spring Boot apps—start building now.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -11,9 +11,9 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 
 # Spring Cloud Stream with Azure Service Bus
 
-This article demonstrates how to use the Spring Cloud Stream Binder to send messages to and receive messages from Service Bus `queues` and `topics`.
+This article shows how to use the Spring Cloud Stream Binder to send and receive messages with Azure Service Bus `queues` and `topics` in a Spring Boot application.
 
-Azure provides an asynchronous messaging platform called [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. Service Bus can be used across the range of supported Azure platforms.
+Azure provides an asynchronous messaging platform called [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. You can use Service Bus across the range of supported Azure platforms.
 
 ## Prerequisites
 
@@ -30,14 +30,14 @@ Azure provides an asynchronous messaging platform called [Azure Service Bus](/az
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web** and **Azure Support** dependencies, then select Java version 8 or higher.
 
 > [!NOTE]
-> To grant your account access to your Azure Service Bus resources, assign the `Azure Service Bus Data Sender` and `Azure Service Bus Data Receiver` role to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](/azure/service-bus-messaging/authenticate-application).
+> To grant your account access to your Azure Service Bus resources, assign the `Azure Service Bus Data Sender` and `Azure Service Bus Data Receiver` roles to the Microsoft Entra account you're currently using. For more information about granting access roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](/azure/service-bus-messaging/authenticate-application).
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Send and receive messages from Azure Service Bus
 
-With a queue or topic for Azure Service Bus, you can send and receive messages using Spring Cloud Azure Stream Binder Service Bus.
+By using a queue or topic for Azure Service Bus, you can send and receive messages by using Spring Cloud Azure Stream Binder Service Bus.
 
 To install the Spring Cloud Azure Stream Binder Service Bus module, add the following dependencies to your **pom.xml** file:
 
@@ -128,7 +128,7 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is `1000 L`. The recommended value is `60000`.                                                                                 |
    | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is `0`.                                                                                                  |
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule. -->
     ---
 
 1. Edit the startup class file to show the following content.
@@ -189,7 +189,7 @@ Use the following steps to configure your application to use a Service Bus queue
 
    [!INCLUDE [spring-default-azure-credential-overview.md](includes/spring-default-azure-credential-overview.md)]
 
-1. Start the application. Messages like the following example will be posted in your application log:
+1. Start the application. Messages like the following example are posted in your application log:
 
    ```output
    New message received: 'Hello World'
