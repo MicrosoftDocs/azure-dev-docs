@@ -270,7 +270,7 @@
 | Resource Management - Event Grid | npm [14.2.0](https://www.npmjs.com/package/@azure/arm-eventgrid/v/14.2.0)<br>npm [15.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-eventgrid/v/15.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-eventgrid-readme) | GitHub [14.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
 | Resource Management - Event Hubs | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-eventhub/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-eventhub-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub) |
 | Resource Management - Extended Location | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-extendedlocation/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-extendedlocation-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.3/sdk/extendedlocation/arm-extendedlocation/) |
-| Resource Management - Fabric | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-fabric/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-fabric-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-fabric_1.0.0/sdk/fabric/arm-fabric/) |
+| Resource Management - Fabric | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-fabric/v/1.0.0)<br>npm [1.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-fabric/v/1.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-fabric-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-fabric_1.0.0/sdk/fabric/arm-fabric/)<br>GitHub [1.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-fabric_1.1.0-beta.1/sdk/fabric/arm-fabric/) |
 | Resource Management - Features | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-features/v/3.1.0) | [docs](/javascript/api/overview/azure/arm-features-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/features/arm-features) |
 | Resource Management - File Shares | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-fileshares/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-fileshares-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-fileshares_1.0.0-beta.1/sdk/fileshares/arm-fileshares/) |
 | Resource Management - Fluid Relay | npm [1.0.1](https://www.npmjs.com/package/@azure/arm-fluidrelay/v/1.0.1) | [docs](/javascript/api/overview/azure/arm-fluidrelay-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-fluidrelay_1.0.1/sdk/fluidrelay/arm-fluidrelay/) |
@@ -294,7 +294,7 @@
 | Resource Management - Informatica Data Management | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-informaticadatamanagement/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-informaticadatamanagement-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-informaticadatamanagement_1.0.0/sdk/informatica/arm-informaticadatamanagement/) |
 | Resource Management - IoT Central | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-iotcentral/v/6.0.0)<br>npm [7.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-iotcentral/v/7.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-iotcentral-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotcentral/arm-iotcentral) |
 | Resource Management - IoT Firmware Defense | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-iotfirmwaredefense/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-iotfirmwaredefense-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotfirmwaredefense_2.0.0/sdk/iotfirmwaredefense/arm-iotfirmwaredefense/) |
-| Resource Management - IoT Hub | npm [6.3.0](https://www.npmjs.com/package/@azure/arm-iothub/v/6.3.0)<br>npm [7.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-iothub/v/7.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-iothub-readme) | GitHub [6.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub) |
+| Resource Management - IoT Hub | npm [6.3.0](https://www.npmjs.com/package/@azure/arm-iothub/v/6.3.0)<br>npm [7.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-iothub/v/7.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-iothub-readme) | GitHub [6.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub) |
 | Resource Management - IoT Operations | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-iotoperations/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-iotoperations-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotoperations_2.1.0/sdk/iotoperations/arm-iotoperations/) |
 | Resource Management - Key Vault | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-keyvault/v/5.0.0) | [docs](/javascript/api/overview/azure/arm-keyvault-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault) |
 | Resource Management - Kubernetes Configuration | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-kubernetesconfiguration/v/6.1.0) | [docs](/javascript/api/overview/azure/arm-kubernetesconfiguration-readme) | GitHub [6.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration/arm-kubernetesconfiguration) |
@@ -338,7 +338,7 @@
 | Resource Management - MySQL | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-mysql/v/5.1.0) | [docs](/javascript/api/overview/azure/arm-mysql-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql) |
 | Resource Management - MySQL Flexible | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/3.1.0)<br>npm [4.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/4.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-mysql-flexible-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_3.1.0/sdk/mysql/arm-mysql-flexible/)<br>GitHub [4.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_4.0.0-beta.5/sdk/mysql/arm-mysql-flexible/) |
 | Resource Management - Napster Omni Agent API | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-napsteromniagentapi/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-napsteromniagentapi-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-napsteromniagentapi_1.0.0-beta.1/sdk/napsteromniagentapi/arm-napsteromniagentapi/) |
-| Resource Management - NetApp Files | npm [24.2.0](https://www.npmjs.com/package/@azure/arm-netapp/v/24.2.0)<br>npm [25.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-netapp/v/25.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-netapp-readme) | GitHub [24.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
+| Resource Management - NetApp Files | npm [24.2.0](https://www.npmjs.com/package/@azure/arm-netapp/v/24.2.0)<br>npm [25.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-netapp/v/25.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-netapp-readme) | GitHub [24.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
 | Resource Management - Network | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-network/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network-rest) |
 | Resource Management - Network | npm [37.0.0](https://www.npmjs.com/package/@azure/arm-network/v/37.0.0) | [docs](/javascript/api/overview/azure/arm-network-readme) | GitHub [37.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network) |
 | Resource Management - Network Cloud | npm [1.3.0](https://www.npmjs.com/package/@azure/arm-networkcloud/v/1.3.0)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-networkcloud/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-networkcloud-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.3.0/sdk/networkcloud/arm-networkcloud/)<br>GitHub [2.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_2.0.0-beta.2/sdk/networkcloud/arm-networkcloud/) |
@@ -454,20 +454,20 @@
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | @typespec/bundler | npm [0.6.0](https://www.npmjs.com/package/@typespec/bundler/v/0.6.0) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.9](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.9) |  |  |
-| @typespec/playground | npm [0.16.0](https://www.npmjs.com/package/@typespec/playground/v/0.16.0) |  |  |
-| @typespec/tspd | npm [0.76.0](https://www.npmjs.com/package/@typespec/tspd/v/0.76.0) |  |  |
-| @typespec/xml | npm [0.84.0](https://www.npmjs.com/package/@typespec/xml/v/0.84.0) |  |  |
+| @typespec/playground | npm [0.17.0](https://www.npmjs.com/package/@typespec/playground/v/0.17.0) |  |  |
+| @typespec/tspd | npm [0.77.0](https://www.npmjs.com/package/@typespec/tspd/v/0.77.0) |  |  |
+| @typespec/xml | npm [0.85.0](https://www.npmjs.com/package/@typespec/xml/v/0.85.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
 | App Configuration Provider | npm [3.0.2-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/3.0.2-preview) |  |  |
 | App Configuration Provider | npm [2.6.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.6.0) |  |  |
 | App Configuration Provider File Source | npm [3.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/3.0.1-preview) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp/v/2.0.2)<br>npm [3.0.0-beta.33](https://www.npmjs.com/package/@azure/mcp/v/3.0.0-beta.33) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.2)<br>npm [3.0.0-beta.33](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/3.0.0-beta.33) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.2)<br>npm [3.0.0-beta.33](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/3.0.0-beta.33) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.2)<br>npm [3.0.0-beta.33](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/3.0.0-beta.33) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.2)<br>npm [3.0.0-beta.33](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/3.0.0-beta.33) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.2)<br>npm [3.0.0-beta.33](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/3.0.0-beta.33) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.2)<br>npm [3.0.0-beta.33](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/3.0.0-beta.33) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp/v/2.0.2)<br>npm [3.0.0-beta.34](https://www.npmjs.com/package/@azure/mcp/v/3.0.0-beta.34) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.2)<br>npm [3.0.0-beta.34](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/3.0.0-beta.34) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.2)<br>npm [3.0.0-beta.34](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/3.0.0-beta.34) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.2)<br>npm [3.0.0-beta.34](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/3.0.0-beta.34) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.2)<br>npm [3.0.0-beta.34](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/3.0.0-beta.34) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.2)<br>npm [3.0.0-beta.34](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/3.0.0-beta.34) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.2)<br>npm [3.0.0-beta.34](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/3.0.0-beta.34) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -487,7 +487,7 @@
 | Functions Extensions Connectors | npm [0.0.2-preview](https://www.npmjs.com/package/@azure/functions-extensions-connectors/v/0.0.2-preview) |  |  |
 | Functions Extensions Express | npm [0.1.1-preview](https://www.npmjs.com/package/@azure/functions-extensions-express/v/0.1.1-preview) |  |  |
 | Functions Extensions Service Bus | npm [0.5.1](https://www.npmjs.com/package/@azure/functions-extensions-servicebus/v/0.5.1) |  |  |
-| Functions Skills | npm [0.0.5-preview](https://www.npmjs.com/package/@azure/functions-skills/v/0.0.5-preview) |  |  |
+| Functions Skills | npm [0.0.6-preview](https://www.npmjs.com/package/@azure/functions-skills/v/0.0.6-preview) |  |  |
 | IoT Operations Data Flow CLI | npm [0.1.0-beta.1](https://www.npmjs.com/package/@azure-tools/dataflow-dev/v/0.1.0-beta.1) |  |  |
 | MCP Server TypeSpec | npm [0.0.0-104](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-104) |  |  |
 | MCP Template | npm [0.0.12-alpha.6621500](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.6621500) |  |  |
@@ -500,22 +500,22 @@
 | OpenAPI Validator Core | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | tmlanguage-generator | npm [0.6.8](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.8) |  |  |
 | TypeSpec Asset Emitter | npm [0.79.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.79.1) |  |  |
-| TypeSpec Emitter Framework | npm [0.19.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.19.0) |  |  |
-| TypeSpec Events | npm [0.84.0](https://www.npmjs.com/package/@typespec/events/v/0.84.0) |  |  |
-| TypeSpec GraphQL | npm [0.1.0](https://www.npmjs.com/package/@typespec/graphql/v/0.1.0) |  |  |
-| TypeSpec HTTP Canonicalization | npm [0.16.2](https://www.npmjs.com/package/@typespec/http-canonicalization/v/0.16.2) |  |  |
+| TypeSpec Emitter Framework | npm [0.20.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.20.0) |  |  |
+| TypeSpec Events | npm [0.85.0](https://www.npmjs.com/package/@typespec/events/v/0.85.0) |  |  |
+| TypeSpec GraphQL | npm [0.2.0](https://www.npmjs.com/package/@typespec/graphql/v/0.2.0) |  |  |
+| TypeSpec HTTP Canonicalization | npm [0.16.3](https://www.npmjs.com/package/@typespec/http-canonicalization/v/0.16.3) |  |  |
 | TypeSpec HTTP Client | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-client/v/0.16.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.9.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.9.0) |  |  |
-| TypeSpec HTTP Client JavaScript | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.16.0) |  |  |
+| TypeSpec HTTP Client JavaScript | npm [0.16.1](https://www.npmjs.com/package/@typespec/http-client-js/v/0.16.1) |  |  |
 | TypeSpec HTTP Client Python | npm [0.35.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.35.1) |  |  |
-| TypeSpec HTTP Specs | npm [0.1.0-alpha.40](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.40) |  |  |
+| TypeSpec HTTP Specs | npm [0.1.0-alpha.41](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.41) |  |  |
 | TypeSpec MCP | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
 | TypeSpec MCP HTTP Server C# | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
 | TypeSpec MCP Server C# | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp-server-csharp/v/0.0.0-104) |  |  |
 | TypeSpec MCP Server JS | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-104) |  |  |
 | TypeSpec Mutator Framework | npm [0.17.0](https://www.npmjs.com/package/@typespec/mutator-framework/v/0.17.0) |  |  |
-| TypeSpec SSE | npm [0.84.0](https://www.npmjs.com/package/@typespec/sse/v/0.84.0) |  |  |
-| TypeSpec Streams | npm [0.84.0](https://www.npmjs.com/package/@typespec/streams/v/0.84.0) |  |  |
+| TypeSpec SSE | npm [0.85.0](https://www.npmjs.com/package/@typespec/sse/v/0.85.0) |  |  |
+| TypeSpec Streams | npm [0.85.0](https://www.npmjs.com/package/@typespec/streams/v/0.85.0) |  |  |
 | Web PubSub Chat Client | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/web-pubsub-chat-client/v/1.0.0-beta.2) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.12](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.12) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
