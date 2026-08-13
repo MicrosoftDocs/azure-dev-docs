@@ -83,6 +83,8 @@
           href: extensions/copilot-coding-agent-extension.md
         - name: Microsoft Foundry agent extension
           href: extensions/azure-ai-foundry-extension.md
+        - name: Microsoft Foundry evaluations extension
+          href: extensions/foundry-evaluations-extension.md
   - name: Deployment and operations
     items:
       - name: CI/CD
