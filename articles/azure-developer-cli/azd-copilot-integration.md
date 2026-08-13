@@ -32,6 +32,9 @@ The following example demonstrates how to use Copilot-powered init to scaffold a
 
 Before making any changes, the flow runs preflight checks. It verifies your git working directory is clean so no uncommitted work is at risk. It also prompts for Model Context Protocol (MCP) server tool consent upfront so you can review what tools Copilot accesses.
 
+> [!NOTE]
+> When `azd` runs from GitHub Copilot in Visual Studio Code agent mode, it runs noninteractively. The **Set up with GitHub Copilot (Preview)** prompt doesn't appear. To choose this option, run `azd init` in an interactive terminal session.
+
 1. Run `azd init` and select **Set up with GitHub Copilot (Preview)**:
 
     ```bash
@@ -75,6 +78,9 @@ When a command fails, `azd` displays an interactive prompt with four options. Us
 ```
 
 Copilot uses your project configuration, the command that failed, and the error details to provide suggestions specific to your situation.
+
+> [!NOTE]
+> When `azd` runs from GitHub Copilot in Visual Studio Code agent mode, it runs noninteractively and doesn't display this prompt. Run the command in an interactive terminal to choose an option, or configure a default error handling behavior.
 
 ### Set a default error handling behavior
 

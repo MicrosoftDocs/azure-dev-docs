@@ -136,6 +136,7 @@ The `azdext` SDK exposes the following gRPC services through the client:
 | Event | Subscribes to lifecycle events. |
 | Compose | Reads and modifies the composed set of services and resources. |
 | Workflow | Runs `azd` workflows. |
+| Telemetry | Reports extension usage by using `azdClient.Telemetry().ReportUsage`. |
 
 For the complete list of services and message definitions, see the [proto files in the azure-dev repository](https://github.com/Azure/azure-dev/tree/main/cli/azd/grpc/proto) and the [extension framework reference](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extensions/extension-framework.md).
 

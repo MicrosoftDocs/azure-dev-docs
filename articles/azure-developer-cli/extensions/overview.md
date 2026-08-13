@@ -7,6 +7,7 @@ ms.date: 07/30/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep
+ai-usage: ai-generated
 ---
 
 # Azure Developer CLI extensions overview
@@ -28,6 +29,10 @@ You can discover, install, and update extensions as your requirements grow. Exte
 
 - The **official extension source registry** is preconfigured in `azd` and is hosted at [https://aka.ms/azd/extensions/registry](https://aka.ms/azd/extensions/registry).
 - The **development extension registry** can also be added to your `azd` configuration. This opt-in registry contains experimental extensions for internal testing that might become official extensions.
+
+Custom extension source names must contain 1 to 64 lowercase ASCII letters or digits. You can include hyphens (`-`) and underscores (`_`) between letters or digits. Names must start and end with a letter or digit. `azd` returns an error for invalid names; it doesn't normalize them. The names `azd` and `bundle` are reserved and can't be used for custom sources.
+
+The preconfigured `azd` source is the official registry. You can't remove it or change its location.
 
 To opt in to the development registry, run the following command:
 
@@ -56,7 +61,7 @@ azd extension source add -n <name> -t url -l <registry-url>
 ```
 
 - `-l, --location`: The location of the extension source.
-- `-n, --name`: The name of the extension source.
+- `-n, --name`: The name of the extension source. Use a valid custom source name.
 - `-t, --type`: The type of extension source. Supported types are file and url.
 
 **Remove an extension source**
@@ -64,6 +69,10 @@ azd extension source add -n <name> -t url -l <registry-url>
 ```azdeveloper
 azd extension source remove <name>
 ```
+
+You can't remove the preconfigured `azd` source.
+
+If an upgrade reports a source load error caused by a legacy invalid source name in `~/.azd/config.json`, remove the offending source with `azd extension source remove`, then add it again with a valid name.
 
 ## Manage extensions
 
@@ -76,7 +85,7 @@ azd extension list [flags]
 ```
 
 - `--installed` Displays a list of installed extensions.
-- `--source` Only lists extensions from the specified source.
+- `--source` Only lists extensions from the specified source. The source name must be a valid registered source name.
 - `--tags` Filters extensions by tags, such as AI or test.
 
 **Install an extension**
@@ -88,7 +97,7 @@ azd extension install <extension-names> [flags]
 Replace `<extension-name>` with the name of the extension you want to install.
 
 - `-v, --version` Specifies the version constraint to apply when installing extensions.
-- `-s, --source` Specifies the extension source used for installations.
+- `-s, --source` Specifies the extension source used for installations. The source name must be a valid registered source name.
 
 **Upgrade an extension**
 
@@ -98,7 +107,7 @@ azd extension upgrade <extension-name>
 
 - `--all` Upgrades all previously installed extensions when specified.
 - `-v, --version` Upgrades a specified extension using a version constraint, if provided.
-- `-s, --source` Specifies the extension source used for installations.
+- `-s, --source` Specifies the extension source used for installations. The source name must be a valid registered source name.
 
 **Uninstall an extension**
 
