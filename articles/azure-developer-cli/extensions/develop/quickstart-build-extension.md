@@ -3,7 +3,7 @@ title: "Quickstart: Build a sample azd extension"
 description: Use the Azure Developer CLI (azd) developer extension to scaffold, build, and run your first custom extension in Go.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/10/2026
+ms.date: 08/13/2026
 ms.service: azure-dev-cli
 ms.topic: quickstart
 ms.custom: devx-track-azdevcli
@@ -17,7 +17,7 @@ In this quickstart, you build a sample Azure Developer CLI (`azd`) extension nam
 To learn the concepts behind extension development before you start, see [Extension development concepts](extension-development-concepts.md).
 
 > [!NOTE]
-> `azd` extensions are currently in beta.
+> The `azd` extension framework is generally available. Individual extensions or capabilities might have their own preview status.
 
 ## Prerequisites
 
@@ -25,21 +25,16 @@ To learn the concepts behind extension development before you start, see [Extens
 - [Install Go 1.26 or later](https://go.dev/dl/).
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-## Add the dev registry
+`azd` includes the official extension source by default. You can also install extensions from URL-based or file-based sources, local development registries, opt-in development or nightly registries, and portable `.zip` bundles. For details, see [Extension development concepts](extension-development-concepts.md#extension-registries).
 
-The developer extension is distributed through the development registry. Add the registry to your `azd` configuration:
-
-1. Add the development registry to your `azd` configuration:
-
-    ```azdeveloper
-    azd extension source add -n dev -t url -l "https://aka.ms/azd/extensions/registry/dev"
-    ```
+> [!TIP]
+> If an `azd` project depends on extension-provided hosts, providers, validation, lifecycle handlers, or commands, declare those required extensions in `azure.yaml` with version constraints. For details, see [`requiredVersions`](../../azd-schema.md#requiredversions).
 
 ## Install the developer extension
 
 The `azd` developer extension (`microsoft.azd.extensions`) provides the `azd x` commands you use to build extensions.
 
-1. Install the developer extension from the dev registry:
+1. Install the developer extension from the official extension source:
 
     ```azdeveloper
     azd extension install microsoft.azd.extensions
