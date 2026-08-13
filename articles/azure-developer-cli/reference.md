@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/05/2026
+ms.date: 08/12/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -1614,7 +1614,7 @@ Manage azd extensions.
 * [azd extension show](#azd-extension-show): Show details for a specific extension.
 * [azd extension source](#azd-extension-source): View and manage extension sources
 * [azd extension uninstall](#azd-extension-uninstall): Uninstall specified extensions.
-* [azd extension upgrade](#azd-extension-upgrade): Upgrade installed extensions to the latest version.
+* [azd extension update](#azd-extension-update): Update installed extensions to the latest version.
 * [Back to top](#azd)
 
 ## azd extension install
@@ -1630,9 +1630,10 @@ location is given, azd registers it as a source (prompting for a name, and
 confirming first for a URL) and then installs from it. If the location is already
 registered, azd reuses that source.
 
-You can also pass the path to a self-contained extension bundle (.zip): azd
-extracts it and installs the bundled extension. Bundled extensions aren't
-tracked for updates; reinstall from a newer bundle to update.
+You can also pass a self-contained extension bundle (.zip), either as a local
+path or an https URL: azd downloads (when remote) and extracts it, then installs
+the bundled extension. Bundled extensions aren't tracked for updates; reinstall
+from a newer bundle to update.
 
 ```azdeveloper
 azd extension install <extension-id|extension-bundle.zip> [flags]
@@ -1777,7 +1778,9 @@ Add an extension source with the specified name
 
 Add an extension source with the specified name.
 
-`azd extension install --source` and `azd extension upgrade --source` also accept a registry URL or file path directly.
+Names must contain 1-64 lowercase ASCII letters, digits, hyphens, or underscores, and must begin and end with a letter or digit. The name 'bundle' is reserved.
+
+`azd extension install --source` and `azd extension update --source` also accept a registry URL or file path directly.
 
 ```azdeveloper
 azd extension source add [flags]
@@ -1789,7 +1792,7 @@ azd extension source add [flags]
       --docs              Opens the documentation for azd extension source add in your web browser.
   -h, --help              Gets help for add.
   -l, --location string   The location of the extension source
-  -n, --name string       The name of the extension source
+  -n, --name string       The source name: 1-64 lowercase letters, digits, hyphens, or underscores.
   -t, --type string       The type of the extension source. Supported types are 'file' and 'url'
 ```
 
@@ -1933,47 +1936,47 @@ azd extension uninstall [extension-id] [flags]
 * [azd extension](#azd-extension): Manage azd extensions.
 * [Back to top](#azd)
 
-## azd extension upgrade
+## azd extension update
 
-Upgrade installed extensions to the latest version.
+Update installed extensions to the latest version.
 
 ### Synopsis
 
-Upgrade one or more installed extensions.
+Update one or more installed extensions.
 
 By default, uses the stored registry source for each extension. If the stored
 source is unavailable, falls back to the main (azd) registry. Extensions that
 were installed from a non-main registry (e.g., dev) are automatically promoted
 to the main registry when a newer version is available there.
 
-Use --source to override the registry source for the upgrade. It accepts a
+Use --source to override the registry source for the update. It accepts a
 registered source name or registry location (URL or file path); locations are
-registered first and the upgraded extension's stored source is updated. Because
+registered first and the updated extension's stored source is updated. Because
 registration is interactive, locations are rejected under --no-prompt. Use --all
-to upgrade all installed extensions in a single batch; failures in one extension
-do not prevent the remaining extensions from being upgraded.
+to update all installed extensions in a single batch; failures in one extension
+do not prevent the remaining extensions from being updated.
 
-When upgrading an extension that has dependencies, any installed
-dependencies are automatically upgraded too, to the highest version
+When updating an extension that has dependencies, any installed
+dependencies are automatically updated too, to the highest version
 satisfying the extension's declared constraints. Use
---no-dependency-upgrades to opt out and upgrade only the named
+--no-dependency-updates to opt out and update only the named
 extension.
 
-Use --output json for a structured report of all upgrade results.
+Use --output json for a structured report of all update results.
 
 ```azdeveloper
-azd extension upgrade [extension-id] [flags]
+azd extension update [extension-id] [flags]
 ```
 
 ### Options
 
 ```azdeveloper
-      --all                      Upgrade all installed extensions
-      --docs                     Opens the documentation for azd extension upgrade in your web browser.
-  -h, --help                     Gets help for upgrade.
-      --no-dependency-upgrades   Do not upgrade dependencies when upgrading an extension that has dependencies
-  -s, --source string            The registered source name or registry location (URL or file path) to use for upgrades.
-  -v, --version string           The version of the extension to upgrade to
+      --all                     Update all installed extensions
+      --docs                    Opens the documentation for azd extension update in your web browser.
+  -h, --help                    Gets help for update.
+      --no-dependency-updates   Do not update dependencies when updating an extension that has dependencies
+  -s, --source string           The registered source name or registry location (URL or file path) to use for updates.
+  -v, --version string          The version of the extension to update to
 ```
 
 ### Options inherited from parent commands
@@ -2671,7 +2674,7 @@ Manage Azure development tools.
 
 ### Synopsis
 
-Discover, install, upgrade, and check status of Azure development tools.
+Discover, install, update, and check status of Azure development tools.
 
 ### Options
 
@@ -2691,17 +2694,17 @@ Discover, install, upgrade, and check status of Azure development tools.
 
 ### See also
 
-* [azd tool check](#azd-tool-check): Check for tool upgrades.
+* [azd tool check](#azd-tool-check): Check for tool updates.
 * [azd tool install](#azd-tool-install): Install specified tools.
 * [azd tool list](#azd-tool-list): List all tools with status.
 * [azd tool show](#azd-tool-show): Show details for a specific tool.
 * [azd tool uninstall](#azd-tool-uninstall): Uninstall installed tools.
-* [azd tool upgrade](#azd-tool-upgrade): Upgrade installed tools.
+* [azd tool update](#azd-tool-update): Update installed tools.
 * [Back to top](#azd)
 
 ## azd tool check
 
-Check for tool upgrades.
+Check for tool updates.
 
 ```azdeveloper
 azd tool check [flags]
@@ -2850,22 +2853,22 @@ azd tool uninstall [tool-name...] [flags]
 * [azd tool](#azd-tool): Manage Azure development tools.
 * [Back to top](#azd)
 
-## azd tool upgrade
+## azd tool update
 
-Upgrade installed tools.
+Update installed tools.
 
 ```azdeveloper
-azd tool upgrade [tool-name...] [flags]
+azd tool update [tool-name...] [flags]
 ```
 
 ### Options
 
 ```azdeveloper
-      --agent strings   Upgrade the skill for the specified agent(s): copilot, claude. Use --agent all for every detected agent (skill tools only)
-      --all             Upgrade all installed tools
-      --docs            Opens the documentation for azd tool upgrade in your web browser.
-      --dry-run         Preview what would be upgraded without making changes
-  -h, --help            Gets help for upgrade.
+      --agent strings   Update the skill for the specified agent(s): copilot, claude. Use --agent all for every detected agent (skill tools only)
+      --all             Update all installed tools
+      --docs            Opens the documentation for azd tool update in your web browser.
+      --dry-run         Preview what would be updated without making changes
+  -h, --help            Gets help for update.
 ```
 
 ### Options inherited from parent commands
