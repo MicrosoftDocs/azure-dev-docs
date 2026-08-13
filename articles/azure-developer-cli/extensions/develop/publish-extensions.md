@@ -3,7 +3,7 @@ title: Publish an extension
 description: Learn how to package, release, and publish an Azure Developer CLI (azd) extension to a registry so others can install it.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/10/2026
+ms.date: 08/13/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -15,16 +15,19 @@ ai-usage: ai-generated
 After you build an Azure Developer CLI (`azd`) extension, package and publish it to a registry so others can install it. This article shows you how to publish the Contoso Resource Tagger sample extension from the [Build a sample extension quickstart](quickstart-build-extension.md). You can apply the same steps to any extension.
 
 > [!NOTE]
-> `azd` extensions are currently in beta.
+> The `azd` extension framework is generally available. Individual extensions or capabilities might have their own preview status.
 
 ## Choose a registry
 
-`azd` supports two registries for publishing extensions:
+`azd` can resolve extensions from the official registry, custom URL-based registry manifests, file-based registry manifests, and portable bundle files. Choose the distribution approach that matches how users install your extension:
 
-- **Development registry**: An experimental registry for unsigned extensions. Use it to share work in progress and test the publish flow. Extensions in this registry aren't signed or verified.
 - **Official registry**: The registry that ships with `azd`. To publish here, submit a pull request to a fork of the [azure/azure-dev](https://github.com/Azure/azure-dev) repository.
+- **Custom URL-based registry**: A remote registry manifest that your team hosts for public or private distribution.
+- **File-based registry**: A local registry manifest for development, testing, offline use, or private distribution.
+- **Development or nightly registry**: An opt-in registry for work-in-progress or automatically built first-party extensions. Extensions in the dev registry are unsigned, not covered by Azure support, and can change or be removed without notice.
+- **Portable bundle**: A self-contained `.zip` package that users install directly from a local path or HTTPS URL without adding a registry source.
 
-This article uses the development registry.
+This article uses the development registry to demonstrate publishing to a shared test source. For source and version resolution details, see the [Extension framework reference](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extensions/extension-resolution-and-versioning.md).
 
 ## Prerequisites
 
@@ -49,7 +52,9 @@ Use the `azd x pack` command to build platform-specific binaries and package the
 azd x pack
 ```
 
-The command creates artifacts for each supported platform in your output directory. Packaging also runs any snapshot tests to verify the extension behaves as expected before you publish.
+The command creates artifacts for each supported platform in your output directory. `azd x release` uploads these artifacts, and `azd x publish` updates the registry metadata. Packaging also runs snapshot tests to verify the extension behaves as expected before you publish.
+
+If you want to distribute an extension directly instead of publishing it through a registry, create a self-contained bundle with `azd x pack --bundle`. The bundle is a portable `.zip` that contains the registry metadata and artifacts needed for installation from a file path or HTTPS URL.
 
 ## Release the extension
 
@@ -59,7 +64,7 @@ Use the `azd x release` command to create a GitHub release and upload the packag
 azd x release
 ```
 
-The command creates a release in your GitHub repository, uploads the packaged binaries, and generates release notes from your changelog.
+The command creates a release in your GitHub repository, uploads the packaged binaries, and generates release notes from your changelog. Registry-based publishing uses these release artifacts as the downloadable extension packages. Direct bundle distribution doesn't require this release step unless you want to host the bundle in GitHub.
 
 > [!TIP]
 > Store your GitHub PAT in an environment variable rather than passing it on the command line. Check the command help by running `azd x release --help` for the supported authentication options.

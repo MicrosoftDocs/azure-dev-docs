@@ -7,6 +7,7 @@ ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
+ai-usage: ai-generated
 ---
 
 # Configure and consume template sources
@@ -48,7 +49,7 @@ For a full example, see [this JSON file](https://github.com/Azure/azure-dev/blob
 
 `azd` allows you to enable multiple template sources at a time. The following template source options are currently available to choose from:
 
-- **awesome-azd** - A list of the templates from the [Awesome AZD gallery](https://azure.github.io/awesome-azd) that is enabled by default.
+- **awesome-azd** - A list of standard templates from the [Awesome AZD gallery](https://azure.github.io/awesome-azd) that's enabled by default. Standard templates have an empty or absent `templateType`.
 - **default** - A small set of curated templates to demonstrate different tech stacks.
 - **file** -  A local/network path that points to a template source JSON configuration file.
 - **url** - An HTTP(S) addressable path that points to a template source JSON configuration file.
@@ -105,6 +106,8 @@ After you configure your template sources, use the `azd template list` command t
 azd template list
 ```
 
+The `azd template list` command includes only standard templates that have an empty or absent `templateType`. It excludes extension-specific templates, such as templates with `templateType` set to `extension.ai.agent`. To initialize an extension-specific template, follow the extension or template documentation.
+
 For example, a default installation of `azd` lists the following templates from the **awesome-azd** template source:
 
 ```output
@@ -129,7 +132,7 @@ Include the `--source` flag to only list templates from a specific source:
 azd template list --source <source-name>
 ```
 
-To initialize a template from the displayed list, run the `azd init` command and provide the repository path of the template:
+To initialize a standard template from the displayed list, run the `azd init` command and provide the repository path of the template:
 
 ```azdeveloper
 azd init --template <path-value>

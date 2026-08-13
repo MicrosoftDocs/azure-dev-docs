@@ -10,6 +10,7 @@ ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-languages-set
+ai-usage: ai-generated
 ---
 
 # Quickstart: Deploy an Azure Developer CLI template
@@ -37,6 +38,8 @@ For the steps ahead, you'll use the following template to provision and deploy a
 ::: zone-end
 
 You can also select a template that matches your preferences from the [Awesome AZD](https://azure.github.io/awesome-azd/) template gallery site. Regardless of which template you use, you'll end up with the template code in your development environment and be able to run commands to build, redeploy, and monitor the app in Azure.
+
+The standard `azd init` flow and template picker only show standard templates. Extension-specific templates in the Awesome AZD gallery don't appear in those lists. To initialize an extension-specific template, follow the extension or template documentation.
 
 Select your preferred environment to continue:
 

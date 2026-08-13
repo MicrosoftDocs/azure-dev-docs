@@ -3,7 +3,7 @@ title: Extension development concepts
 description: Learn the core concepts for developing Azure Developer CLI (azd) extensions, including the developer extension, the azdext SDK, and the gRPC communication model.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/10/2026
+ms.date: 08/13/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
@@ -15,7 +15,7 @@ ai-usage: ai-generated
 Azure Developer CLI (`azd`) [extensions](../overview.md) add new commands, automate workflows, and integrate other services with `azd`. This article explains the concepts you need to understand before you build an extension, such as the developer tooling, the software development kit (SDK), and how `azd` communicates with a running extension. To learn what extensions are from a user perspective, see the [extensions overview](../overview.md).
 
 > [!NOTE]
-> `azd` extensions are currently in beta.
+> The `azd` extension framework is generally available. Individual extensions or capabilities might have their own preview status.
 
 ## The developer extension
 
@@ -32,6 +32,8 @@ The fastest way to build extensions is to use the `azd` developer extension (`mi
 
 The [Build a sample extension quickstart](quickstart-build-extension.md) shows you how to install the developer extension and scaffold your first extension.
 
+The developer extension supports registry-based publishing workflows and portable bundle distribution. Use `azd x pack` to create platform artifacts for release and registry publication, or create a self-contained `.zip` bundle when you need to share an extension without hosting a registry. For step-by-step guidance, see [Publish an extension](publish-extensions.md).
+
 ## The extension framework and gRPC
 
 `azd` and extensions run as separate processes that communicate through [gRPC](https://grpc.io/). When you invoke an extension command, the following steps occur:
@@ -43,6 +45,19 @@ The [Build a sample extension quickstart](quickstart-build-extension.md) shows y
 1. `azd` waits for the command to complete and reports a nonzero exit code as an error.
 
 This model lets extensions interact with `azd` in a consistent, secure way without directly accessing internal `azd` state.
+
+## Project-level extension requirements
+
+Projects can declare the extensions they require in `azure.yaml`. Use the `requiredVersions.extensions` section to list extension IDs and version constraints so `azd` can resolve the versions that satisfy the project.
+
+```yaml
+requiredVersions:
+  extensions:
+    azure.ai.agents: ">=1.0.0"
+    contoso.azd.tagger: "^2.0.0"
+```
+
+Declare required extensions when a project depends on extension-provided hosts, providers, lifecycle handlers, validation, or commands. For the exact schema and supported version syntax, see [`requiredVersions`](../../azd-schema.md#requiredversions).
 
 ## The azdext SDK
 
@@ -85,10 +100,12 @@ For extensions authored in languages other than Go, you can generate gRPC client
 
 ## Extension registries
 
-You distribute extensions through extension source registries. As you develop extensions, you typically work with the following registries:
+You distribute extensions through extension sources. Extension sources are URL-based or file-based manifests that describe available extensions and their artifacts. `azd` also supports portable bundle files for direct installation when you don't want to host a registry.
 
-- The **development registry** hosts experimental and in-progress extensions. Add it to test extensions before they ship to the official registry. Extensions in the dev registry are unsigned and come with no stability guarantees.
 - The **official registry** is preconfigured in `azd` and hosts vetted, first-party extensions. Official extensions are developed in a fork of the [azure/azure-dev](https://github.com/azure/azure-dev) repository.
+- **URL-based sources** let you install from remote public or private registry manifests.
+- **File-based sources** let you install from local registry manifests for development, testing, or offline scenarios.
+- The **development** and **nightly** registries are opt-in sources for work-in-progress and automatically built first-party extensions. Extensions in the dev registry are unsigned, not covered by Azure support, and can change or be removed without notice.
 
 To learn how to publish an extension to a registry, see [Publish an extension](publish-extensions.md).
 
