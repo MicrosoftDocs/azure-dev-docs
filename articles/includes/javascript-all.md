@@ -131,6 +131,7 @@
 | TypeSpec HTTP Runtime | npm [0.3.8](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.3.8) |  | GitHub [0.3.8](https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.8/sdk/core/ts-http-runtime) |
 | unknown | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-discovery/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-discovery_1.0.0/sdk/discovery/ai-discovery/) |
 | unknown | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-translation-document/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-translation-document_1.0.0/sdk/translation/ai-translation-document/) |
+| unknown | npm [1.0.0](https://www.npmjs.com/package/@azure/core-process/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-process_1.0.0/sdk/core/core-process/) |
 | Voice Live | npm [1.1.0](https://www.npmjs.com/package/@azure/ai-voicelive/v/1.1.0) | [docs](/javascript/api/overview/azure/ai-voicelive-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.1.0/sdk/voicelive/ai-voicelive/) |
 | VS Code Authentication Plugin | npm [2.2.0](https://www.npmjs.com/package/@azure/identity-vscode/v/2.2.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [2.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_2.2.0/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.2.0](https://www.npmjs.com/package/@azure/web-pubsub/v/1.2.0) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.2.0/sdk/web-pubsub/web-pubsub/) |
@@ -507,7 +508,7 @@
 | TypeSpec HTTP Client | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-client/v/0.16.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.9.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.9.0) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.16.1](https://www.npmjs.com/package/@typespec/http-client-js/v/0.16.1) |  |  |
-| TypeSpec HTTP Client Python | npm [0.35.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.35.1) |  |  |
+| TypeSpec HTTP Client Python | npm [0.36.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.36.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.41](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.41) |  |  |
 | TypeSpec MCP | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
 | TypeSpec MCP HTTP Server C# | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
