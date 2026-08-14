@@ -3,7 +3,7 @@ title: Layered provisioning with the Azure Developer CLI
 description: Learn how to use layered provisioning with the Azure Developer CLI (azd) to solve complex infrastructure dependency scenarios.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 02/12/2026
+ms.date: 08/14/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
@@ -12,7 +12,7 @@ ai-usage: ai-generated
 
 # Layered provisioning
 
-Azure Developer CLI (`azd`) supports layered provisioning, which you can use to define multiple provisioning layers in your `azure.yaml` file. Each layer points to its own set of Infrastructure as Code (IaC) templates. The CLI provisions layers sequentially in the order you define them. You can also provision or tear down individual layers independently.
+Azure Developer CLI (`azd`) supports layered provisioning, which you can use to define multiple provisioning layers in your `azure.yaml` file. Each layer points to its own set of Infrastructure as Code (IaC) templates. The CLI provisions layers one at a time, ordered by the dependencies between them. You can also provision or tear down individual layers independently.
 
 This feature solves complex dependency scenarios where resources in one layer depend on resources from another layer. Instead of mixing IaC with imperative hook scripts, layered provisioning keeps everything declarative.
 
@@ -49,7 +49,7 @@ services:
 ```
 
 > [!IMPORTANT]
-> **Layer processing order:** `azd provision` processes layers **top to bottom** in the order they're listed in `azure.yaml`. `azd down` processes layers in **reverse order** (bottom to top). Define your layers so that foundational resources appear first, followed by layers that depend on them. This order ensures you create dependencies before the resources that need them, and remove dependencies after those resources.
+> **Layer processing order:** `azd provision` processes layers based on their dependencies. For Bicep layers and custom or extension providers, `azd` infers dependencies by scanning parameter files (`*.bicepparam` and `*.parameters.json`) for environment variable and layer output references, and it orders layers accordingly instead of strictly following the order listed in `azure.yaml`. Layers that have no inferred or declared dependencies run in the order they're listed. `azd down` follows the corresponding reverse order, so dependent layers are removed before the layers they depend on. Use the `dependsOn` property to declare ordering that `azd` can't infer.
 
 ### Layer properties
 
@@ -61,6 +61,7 @@ Each layer supports the following properties:
 | `path` | Yes | The relative path to the directory containing the IaC templates for this layer. |
 | `module` | No | The name of the module within the layer's directory. Defaults to `main`. |
 | `provider` | No | The IaC provider for this layer (`bicep` or `terraform`). Inherits from the root `infra.provider` if you don't specify it. |
+| `dependsOn` | No | The names of other layers that this layer depends on. Use this property when ordering matters but `azd` can't infer the dependency from parameter references. |
 
 > [!IMPORTANT]
 > When you define `infra.layers`, you can't declare other properties on the `infra` section (`path`, `module`, `deploymentStacks`) at the root level. You must specify all infrastructure configuration within each layer.
@@ -90,13 +91,13 @@ You can provision all layers at once or target a specific layer by name. The fol
 
 ### Provision all layers
 
-Run `azd provision` without arguments to provision all layers sequentially in the order they're defined in `azure.yaml`:
+Run `azd provision` without arguments to provision all layers:
 
 ```bash
 azd provision
 ```
 
-`azd` processes each layer one at a time, ensuring the first layer completes before the second layer begins. This process guarantees that dependent resources exist before layers that reference them are deployed.
+`azd` processes each layer one at a time, ensuring that a layer completes before any layer that depends on it begins. For Bicep layers and custom or extension providers, `azd` infers dependencies from environment variable and layer output references in `*.bicepparam` and `*.parameters.json` files, so the execution order can differ from the order listed in `azure.yaml`. Layers with no inferred or declared dependencies run in the listed order. This process guarantees that dependent resources exist before layers that reference them are deployed.
 
 ### Provision a specific layer
 
@@ -114,7 +115,7 @@ This command deploys only the resources defined in the `networking` layer. Provi
 
 ### Tear down all layers
 
-Run `azd down` without arguments to tear down resources from all layers. When multiple layers exist, `azd` processes them in **reverse order**, so dependent resources are removed before the foundational resources they depend on:
+Run `azd down` without arguments to tear down resources from all layers. When multiple layers exist, `azd` processes them in the **reverse** of the provisioning order, so dependent resources are removed before the foundational resources they depend on:
 
 ```bash
 azd down
@@ -232,15 +233,32 @@ infra:
       provider: terraform
 ```
 
+The built-in non-Bicep providers (Terraform, Pulumi, ARM, and the test provider) are opaque to dependency inference, because `azd` can't analyze their inputs for references to other layers. Use an explicit `dependsOn` property whenever ordering between those layers, or between those layers and other layers, matters:
+
+```yaml
+name: my-app
+infra:
+  layers:
+    - name: networking
+      path: ./infra/networking
+      provider: bicep
+    - name: application
+      path: ./infra/application
+      provider: terraform
+      dependsOn:
+        - networking
+```
+
 ## Considerations and limitations
 
-- When provisioning all layers, `azd` processes them sequentially in the order you define.  Plan your layer order so that foundational resources are provisioned first.
-- When tearing down all layers, `azd` processes them in reverse order.
+- When you provision all layers, `azd` processes them one at a time based on their dependencies. For Bicep layers and custom or extension providers, `azd` infers dependencies from environment variable and layer output references in `*.bicepparam` and `*.parameters.json` files. Layers without inferred or declared dependencies run in the order you define.
+- The built-in non-Bicep providers (Terraform, Pulumi, ARM, and the test provider) are opaque for dependency inference. Use an explicit `dependsOn` property when ordering involving those layers matters.
+- Explicit `dependsOn` is also required when ordering matters but `azd` can't infer the dependency from parameter references. For example, use `dependsOn` when one layer's `postprovision` hook produces a value that another layer consumes, because hook-produced values don't appear as output references in `*.bicepparam` or `*.parameters.json` files.
+- When you tear down all layers, `azd` processes them in the reverse of the provisioning order.
   - If multiple layers deploy resources into the same Azure resource group and you use the default resource-group–based deletion behavior, shared resources may be deleted when running azd down.
-  - To allow independent tracking and deletion of layered infrastructure, enable deployment stacks using the command `azd config set alpha.deployment.stacks on`
-Deployment stacks allow azd to track resources per layer instead of relying solely on resource group deletion.
+  - To allow independent tracking and deletion of layered infrastructure, enable deployment stacks by running the command `azd config set alpha.deployment.stacks on`.
 - You can't use the `--preview` flag when provisioning multiple layers at once. Specify a `<layer>` name to use preview mode.
-- Layers operate independently in terms of IaC. To reference outputs from one layer in another layer, use environment variables that `azd` sets after each layer's deployment.
+- Layers operate independently in terms of IaC. To reference outputs from one layer in another layer, use environment variables that `azd` sets after each layer's deployment. Referencing those environment variables from a `*.bicepparam` or `*.parameters.json` file also lets `azd` infer the ordering between the layers.
 - All standard `azd` provisioning features (deployment state caching, hooks, parameters, Bicep, or Terraform) work within each individual layer.
   - Command-level hooks (for example, `preprovision`, `postprovision`) are invoked once per layer. When multiple layers are defined, hooks run for each layer in the order layers are processed.
 
