@@ -25,6 +25,8 @@ Azure Device Registry is part of Azure IoT Operations that provides a unified re
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List Azure Device Registry namespaces
+#### [MCP Server](#tab/mcp-server)
+
 
 <!-- @mcpcli deviceregistry namespace list -->
 
@@ -46,6 +48,21 @@ Example prompts include:
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp deviceregistry namespace list \
+  [--resource-group <resource-group>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `resource-group` | string | No | The Azure resource group name. |
+
+---
 
 ## Related content
 
