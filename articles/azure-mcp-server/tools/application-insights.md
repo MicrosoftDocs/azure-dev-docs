@@ -20,6 +20,8 @@ The Azure MCP Server allows you to list Application Insights resources using nat
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List recommendations
+#### [MCP Server](#tab/mcp-server)
+
 
 <!-- applicationinsights recommendation list -->
 
@@ -36,6 +38,21 @@ Example prompts include:
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp applicationinsights recommendation list \
+  [--resource-group <resource-group>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `resource-group` | string | No | The Azure resource group name. |
+
+---
 
 ## Related content
 
