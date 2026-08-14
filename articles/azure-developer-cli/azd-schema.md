@@ -3,7 +3,7 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/07/2026
+ms.date: 08/14/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -106,8 +106,11 @@ _(array of objects)_ Defines provisioning layers for Azure infrastructure. Each 
 | `name` | Y | string | The name of the provisioning layer. |
 | `path` | Y | string | The relative folder path to the Azure provisioning templates for the specified provider. |
 | `module` | N | string | The name of the Azure provisioning module used when provisioning resources. Default: `main`. |
-| `dependsOn` | N | array of strings | Names of other layers this layer depends on. Use to declare hook-mediated dependencies (for example, when a `postprovision` hook in another layer writes an env var that this layer's bicepparam reads at provision time) that `azd`'s static analyzer can't infer from `.bicep` / `.bicepparam` / `.parameters.json` contents. |
+| `dependsOn` | N | array of strings | Names of other layers this layer depends on. Use to declare dependencies that `azd`'s static analyzer can't infer, such as hook-mediated dependencies (for example, when a `postprovision` hook in another layer writes an environment variable that this layer's bicepparam reads at provision time). |
 | `hooks` | N | object | Provisioning layer hooks. Supports `preprovision` and `postprovision` hooks. When specifying paths, they should be relative to the layer path. See [Hook definition](#hook-definition). |
+
+> [!NOTE]
+> `azd` infers layer dependencies automatically for Bicep layers and for custom or extension providers (such as `microsoft.foundry`) by scanning `.bicep`, `.bicepparam`, and `.parameters.json` files for environment variable and layer output references. The built-in non-Bicep providers (Terraform, Pulumi, ARM, and the test provider) are opaque to this analysis, so add an explicit `dependsOn` whenever ordering matters for those layers. Explicit `dependsOn` is also required when a dependency can't be inferred from parameter references, such as a value another layer produces through a hook.
 
 ```yaml
 infra:
