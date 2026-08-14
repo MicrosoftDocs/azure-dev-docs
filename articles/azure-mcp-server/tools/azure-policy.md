@@ -22,6 +22,8 @@ Azure MCP Server enables you to view Azure Policy assignments, definitions, and 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Policy: list assignments
+#### [MCP Server](#tab/mcp-server)
+
 
 <!-- @mcpcli policy assignment list -->
 
@@ -47,6 +49,20 @@ Example prompts include:
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp policy assignment list \
+  [--scope <scope>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `scope` | string | No | The scope of the policy assignment (e.g., /subscriptions/{subscriptionId}, /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}). |
+
+---
 
 ## Related content
 
