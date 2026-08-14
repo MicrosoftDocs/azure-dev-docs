@@ -26,6 +26,8 @@ Azure Container Apps is a fully managed serverless container platform for buildi
 
 
 ## List container apps
+#### [MCP Server](#tab/mcp-server)
+
 
 <!-- @mcpcli containerapps list -->
 
@@ -44,6 +46,21 @@ Example prompts include:
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp containerapps list \
+  [--resource-group <resource-group>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `resource-group` | string | No | The Azure resource group name. |
+
+---
 
 ## Related content
 
