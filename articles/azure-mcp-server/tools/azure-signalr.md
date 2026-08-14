@@ -20,6 +20,8 @@ The Azure MCP Server lets you manage Azure resources, including Azure SignalR re
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Runtime: Get or list runtime information
+#### [MCP Server](#tab/mcp-server)
+
 
 <!-- signalr runtime get -->
 
@@ -49,6 +51,23 @@ Example prompts include:
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp signalr runtime get \
+  [--signalr <signalr>] \
+  [--resource-group <resource-group>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `signalr` | string | No | The name of the SignalR runtime |
+| `resource-group` | string | No | The Azure resource group name. |
+
+---
 
 ## Related content
 
