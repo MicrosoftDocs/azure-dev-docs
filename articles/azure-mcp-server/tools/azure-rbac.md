@@ -16,6 +16,8 @@ Azure RBAC tools in the Azure MCP Server allow you to manage Azure role-based ac
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List role assignments
+#### [MCP Server](#tab/mcp-server)
+
 
 <!-- role assignment list -->
 
@@ -42,6 +44,21 @@ Example prompts include:
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp role assignment list \
+  --scope <scope>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `scope` | string | Yes | Scope at which the role assignment or definition applies to, e.g., /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333, /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup, or /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM. |
+
+---
 
 ## Related content
 
