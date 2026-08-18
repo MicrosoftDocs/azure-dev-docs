@@ -228,5 +228,5 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Manage Azure Key Vault with Azure MCP Server](../services/azure-mcp-server-for-key-vault.md)
+- [Manage Azure Key Vault with Azure MCP Server](../azure-services/azure-mcp-server-for-key-vault.md)
 - [Azure Key Vault documentation](/azure/key-vault/general/overview)

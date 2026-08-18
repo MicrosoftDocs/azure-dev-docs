@@ -1,0 +1,14 @@
+- name: Azure MCP Server
+  href: /azure/developer/azure-mcp-server/
+- name: Azure App Service
+  href: azure-mcp-server-for-app-service.md
+- name: Azure Functions
+  href: azure-mcp-server-for-functions.md
+- name: Azure Key Vault
+  href: azure-mcp-server-for-key-vault.md
+- name: Azure Redis
+  href: azure-mcp-server-for-redis.md
+- name: Azure AI Search
+  href: azure-mcp-server-for-search.md
+- name: Azure Speech in Foundry Tools
+  href: azure-mcp-speech-foundry-tools.md
