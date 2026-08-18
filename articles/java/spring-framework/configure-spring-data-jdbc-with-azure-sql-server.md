@@ -1,6 +1,6 @@
 ---
-title: Use Spring Data JDBC with Azure SQL Database
-description: Learn how to use Spring Data JDBC with an Azure SQL Database.
+title: Use Spring Data JDBC with SQL Database
+description: Learn how to use Spring Data JDBC to store data in Azure SQL Database and choose between passwordless and password authentication methods.
 ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
@@ -17,9 +17,9 @@ This tutorial demonstrates how to store data in [Azure SQL Database](/azure/sql-
 
 In this tutorial, we include two authentication methods: Microsoft Entra authentication and SQL Database authentication. The Passwordless tab shows the Microsoft Entra authentication and the Password tab shows the SQL Database authentication.
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Database for SQL Database using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for SQL Database using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-SQL Database authentication uses accounts stored in SQL Database. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the user table. Because these passwords are stored in SQL Database, you need to manage the rotation of the passwords by yourself.
+SQL Database authentication uses accounts stored in SQL Database. If you choose to use passwords as credentials for the accounts, you store these credentials in the user table. Because these passwords are stored in SQL Database, you need to manage the rotation of the passwords.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 - [sqlcmd Utility](/sql/tools/sqlcmd/sqlcmd-utility).
@@ -28,15 +28,15 @@ SQL Database authentication uses accounts stored in SQL Database. If you choose 
 
 - If you don't have one, create an Azure SQL Server instance named `sqlservertest` and a database named `demo`. For instructions, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
-- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **MS SQL Server Driver** dependencies, and then select Java version 8 or higher.
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **MS SQL Server Driver** dependencies. Then select Java version 8 or higher.
 
 ## See the sample application
 
-In this tutorial, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server).
+In this tutorial, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server).
 
 [!INCLUDE [spring-data-sql-server-setup.md](includes/spring-data-sql-server-setup.md)]
 
-## Store data from Azure SQL Database
+## Store data in Azure SQL Database
 
 With an Azure SQL Database instance, you can store data by using Spring Cloud Azure.
 
@@ -70,13 +70,13 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
   ```
 
   > [!NOTE]
-  > As this is a dependency, it should be added in the `<dependencies>` section of the **pom.xml**. Its version is not configured here, as it is managed by the BOM that we added previously.
+  > As this artifact is a dependency, add it in the `<dependencies>` section of the **pom.xml**. Don't configure its version because the BOM you added previously manages it.
 
 ### Configure Spring Boot to use Azure SQL Database
 
-To store data from Azure SQL Database using Spring Data JDBC, follow these steps to configure the application:
+To store data in Azure SQL Database by using Spring Data JDBC, follow these steps to configure the application:
 
-1. Configure an Azure SQL Database credentials in the **application.properties** configuration file.
+1. Configure an Azure SQL Database credential in the **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -100,14 +100,14 @@ To store data from Azure SQL Database using Spring Data JDBC, follow these steps
    spring.sql.init.mode=always
    ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule. The following note isn't properly indented. -->
     ---
 
    > [!WARNING]
-   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the **schema.sql** file that you'll create next, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
+   > The configuration property `spring.sql.init.mode=always` means that Spring Boot automatically generates a database schema by using the **schema.sql** file that you create next each time the server starts. This feature is great for testing, but it deletes your data at each restart. Don't use this feature in production.
 
-<!-- NOTE: The numbering must start with 2 here to continue the sequence after the previous step, otherwise the numbering will reset to 1. -->
-2. Create the **src/main/resources/schema.sql** configuration file to configure the database schema, then add the following contents.
+<!-- NOTE: The numbering must start with 2 here to continue the sequence after the previous step. Otherwise, the numbering resets to 1. -->
+2. Create the **src/main/resources/schema.sql** configuration file to configure the database schema, and then add the following contents.
 
    ```sql
    DROP TABLE IF EXISTS todo;
