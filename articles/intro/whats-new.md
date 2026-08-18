@@ -282,6 +282,12 @@ Updated articles:
 
 New articles:
 
+- [Azure MCP Server concepts](../azure-mcp-server/concepts.md)
+- [Azure Policy tools for Azure MCP Server overview](../azure-mcp-server/tools/azure-policy.md)
+- [Manage Azure Functions with Azure MCP Server](../azure-mcp-server/azure-services/azure-mcp-server-for-functions.md)
+- [Manage Azure Key Vault with Azure MCP Server](../azure-mcp-server/azure-services/azure-mcp-server-for-key-vault.md)
+- [Manage Azure Redis with Azure MCP Server](../azure-mcp-server/azure-services/azure-mcp-server-for-redis.md)
+- [Azure File Sync Tools](../azure-mcp-server/tools/azure-file-sync.md)
 - [Azure MCP Server tools for Azure Backup](../azure-mcp-server/tools/azure-backup.md)
 - [Azure MCP Server tools for Azure Device Registry](../azure-mcp-server/tools/azure-device-registry.md)
 

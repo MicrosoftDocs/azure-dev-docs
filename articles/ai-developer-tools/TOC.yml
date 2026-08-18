@@ -89,21 +89,6 @@ items:
           href: ../azure-mcp-server/how-to/deploy-remote-mcp-server-copilot-studio.md?context=/azure/developer/ai-developer-tools/context/context
         - name: Azure Container Apps with on-behalf-of authentication
           href: ../azure-mcp-server/how-to/deploy-remote-mcp-server-on-behalf-of.md?context=/azure/developer/ai-developer-tools/context/context
-    - name: Use with Azure services
-      expanded: true
-      items:
-        - name: Azure App Service
-          href: ../azure-mcp-server/services/azure-mcp-server-for-app-service.md?context=/azure/developer/ai-developer-tools/context/context
-        - name: Azure Functions
-          href: ../azure-mcp-server/services/azure-mcp-server-for-functions.md?context=/azure/developer/ai-developer-tools/context/context
-        - name: Azure Key Vault
-          href: ../azure-mcp-server/services/azure-mcp-server-for-key-vault.md?context=/azure/developer/ai-developer-tools/context/context
-        - name: Azure Redis
-          href: ../azure-mcp-server/services/azure-mcp-server-for-redis.md?context=/azure/developer/ai-developer-tools/context/context
-        - name: Azure AI Search
-          href: ../azure-mcp-server/services/azure-mcp-server-for-search.md?context=/azure/developer/ai-developer-tools/context/context
-        - name: Azure Speech in Foundry Tools
-          href: ../azure-mcp-server/services/azure-mcp-speech-foundry-tools.md?context=/azure/developer/ai-developer-tools/context/context
     - name: Tools
       expanded: true
       items:
