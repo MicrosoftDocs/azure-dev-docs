@@ -17,6 +17,10 @@
     href: skills/azure-ai-gateway.md
   - name: Azure AI Services
     href: skills/azure-ai.md
+  - name: Azure App Onboard
+    href: skills/azure-app-onboard.md
+  - name: Azure App Onboard Prereq
+    href: skills/azure-app-onboard-prereq.md
   - name: Azure Cloud Migration
     href: skills/azure-cloud-migrate.md
   - name: Azure Compliance
