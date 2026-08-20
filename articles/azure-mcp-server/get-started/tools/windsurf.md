@@ -1,12 +1,13 @@
 ---
-title: Get Started Using the Azure MCP Server with Windsurf
-description: Learn how to connect to and consume Azure MCP Server operations with Windsurf
+title: Get started with the Azure MCP Server in Windsurf
+description: Learn how to install and configure the Azure MCP Server in Windsurf to interact with your Azure resources using AI prompts.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 02/27/2026
+ms.date: 08/11/2026
 ms.topic: get-started
 ms.custom:
   - build-2025
+ai-usage: ai-assisted
 ---
 
 # Get started with the Azure MCP Server in Windsurf
@@ -57,19 +58,19 @@ To install and configure Azure MCP Server in Windsurf:
 
 ## Use prompts to test the Azure MCP Server
 
-1. Open Windsurf's AI chat interface by pressing `Ctrl+L` or clicking the chat icon in the sidebar.
-2. Enter a prompt that utilizes Azure MCP Server capabilities, such as:
+1. Open Windsurf's AI chat interface by pressing `Ctrl+L` or by selecting the chat icon in the sidebar.
+1. Enter a prompt that uses Azure MCP Server capabilities, such as:
 
     ```text
     List my Azure storage accounts
     ```
 
-3. If you're prompted to authenticate to Azure, run the suggested auth tool to sign-in through the browser.
+1. If you're prompted to authenticate to Azure, run the suggested auth tool to sign in through the browser.
 
     > [!NOTE]
-    > Windsurf doesn't prompt you to sign in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
+    > Windsurf doesn't prompt you to sign in to Azure if you're already authenticated through other local tooling such as the Azure CLI.
 
-4. Windsurf prompts you to run a tool to retrieve the storage accounts, such as `storage account list`. Select **Run tool** to continue.
+1. Windsurf prompts you to run a tool to retrieve the storage accounts, such as `storage account list`. Select **Run tool** to continue.
 
     The output should resemble the following text:
 
@@ -85,7 +86,7 @@ To install and configure Azure MCP Server in Windsurf:
     Let me know if you need further details or actions related to any of these resource groups!
     ```
 
-5. Explore more Azure MCP operations using other relevant prompts, such as:
+1. Explore more Azure MCP operations by using other relevant prompts, such as:
 
     ```text
     List all of the storage accounts in my subscription
