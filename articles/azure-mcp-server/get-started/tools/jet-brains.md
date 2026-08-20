@@ -1,10 +1,11 @@
 ---
 title: Get Started Using the Azure MCP Server with IntelliJ
-description: Learn how to connect to and consume Azure MCP Server operations with IntelliJ
+description: Learn how to connect to and consume Azure MCP Server operations with IntelliJ.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 02/27/2026
+ms.date: 08/11/2026
 ms.topic: get-started
+ai-usage: ai-generated
 ---
 
 # Get started with the Azure MCP Server in IntelliJ
@@ -13,16 +14,16 @@ ms.topic: get-started
 
 In this article, you learn how to complete the following tasks:
 
-- Install and authenticate to the Azure MCP Server
-- Connect to Azure MCP Server using IntelliJ's AI-powered tools
-- Run prompts to test Azure MCP Server operations and interact with Azure resources
+- Install and authenticate to the Azure MCP Server.
+- Connect to Azure MCP Server using IntelliJ's AI-powered tools.
+- Run prompts to test Azure MCP Server operations and interact with Azure resources.
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
-- [IntelliJ](https://cursor.sh/) installed
-- [Node.js](https://nodejs.org/) LTS installed
-- [GitHub Copilot for IntelliJ](https://plugins.jetbrains.com/plugin/17718-github-copilot) extension installed
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription.
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/) installed.
+- [Node.js](https://nodejs.org/) LTS installed.
+- [GitHub Copilot for IntelliJ](https://plugins.jetbrains.com/plugin/17718-github-copilot) extension installed.
 
 ## Install the Azure MCP Server
 
@@ -45,7 +46,7 @@ To install and configure Azure MCP Server in IntelliJ, choose one of the followi
 ### [Manual install](#tab/manual-install)
 
 1. Navigate to **File > Settings**.
-1. On the **Settings** dialog, select **Tools > AI Assistant > Model Context Protocol (MPC)**.
+1. On the **Settings** dialog, select **Tools** > **AI Assistant** > **Model Context Protocol (MCP)**.
 1. Select the **+** icon to open the **New MCP Server** dialog.
 
     :::image type="content" source="../../media/jet-brains-configure-mcp-server.png" alt-text="A screenshot showing how to configure an MCP Server in IntelliJ.":::

@@ -1,16 +1,16 @@
 ---
 title: "Quickstart: Integrate Azure MCP Server with GitHub Copilot SDK"
 description: Learn how to configure the GitHub Copilot SDK to use Azure MCP tools for interacting with Azure resources programmatically.
-ms.date: 02/10/2026
+ms.date: 08/11/2026
 ms.topic: quickstart
 ai-usage: ai-generated
 ---
 
 # Quickstart: Integrate Azure MCP Server with GitHub Copilot SDK
 
-This guide explains how to configure the [GitHub Copilot SDK](https://github.com/github/copilot-sdk) to use Azure Model Context Protocol (MCP) tools for interacting with Azure resources.
+In this quickstart, you configure the [GitHub Copilot SDK](https://github.com/github/copilot-sdk) to use Azure Model Context Protocol (MCP) tools so that your applications can interact with Azure resources through natural language.
 
-Azure MCP provides a set of tools that enable AI assistants to interact with Azure resources directly. When integrated with the Copilot SDK, you can build applications that leverage natural language to manage Azure subscriptions, resource groups, storage accounts, and more.
+Azure MCP provides tools that let AI assistants interact with Azure resources directly. When you integrate these tools with the Copilot SDK, you can build applications that use natural language to manage Azure subscriptions, resource groups, storage accounts, and more.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Azure MCP provides a set of tools that enable AI assistants to interact with Azu
 
 ## Azure MCP Server configuration example
 
-Regardless of the programming SDK you use, Azure MCP server must be configured in the app context for tools to be available. The essential configuration resembles the following:
+Regardless of the programming SDK you use, you must configure Azure MCP Server in the app context so that its tools are available. The essential configuration looks like the following example:
 
 ```json
 {
@@ -37,7 +37,7 @@ Regardless of the programming SDK you use, Azure MCP server must be configured i
 }
 ```
 
-The `tools: ["*"]` parameter is essential - it enables all tools from the MCP server for the session.
+The `tools: ["*"]` parameter is essential—it enables all tools from the MCP server for the session.
 
 ## Integration examples
 
@@ -132,6 +132,8 @@ Install the Node.js SDK package using npm.
 ```bash
 npm install @github/copilot-sdk
 ```
+
+### Sample code
 
 The following code demonstrates a complete flow:
 
@@ -369,3 +371,9 @@ The preceding code:
 - Sends a prompt to list Azure resource groups.
 
 ---
+
+## Related content
+
+- [GitHub Copilot SDK](https://github.com/github/copilot-sdk)
+- [Azure MCP Server tools](../tools/index.md)
+- [What is the Model Context Protocol (MCP)?](../overview.md)

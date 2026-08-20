@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Integrate Azure MCP Server with GitHub Copilot CLI"
-description: Learn how to configure the Azure MCP Server for use with the GitHub Copilot CLI using the /mcp command.
-ms.date: 02/10/2026
+description: Learn how to configure the Azure MCP Server for the GitHub Copilot CLI by using the /mcp command to interact with Azure resources from your terminal.
+ms.date: 08/11/2026
 ms.topic: quickstart
 ai-usage: ai-generated
 ---
 
 # Quickstart: Integrate Azure MCP Server with GitHub Copilot CLI
 
-In this quickstart, you learn how to connect the Azure Model Context Protocol (MCP) Server to the GitHub Copilot CLI. This integration allows GitHub Copilot to interact with your Azure resources directly from your terminal.
+In this quickstart, you learn how to connect the Azure Model Context Protocol (MCP) Server to the GitHub Copilot CLI. By using this integration, GitHub Copilot can interact with your Azure resources directly from your terminal.
 
 ## Prerequisites
 
@@ -43,14 +43,14 @@ The GitHub Copilot CLI supports MCP servers through the `/mcp` command family.
    | **Server Name** | `azure-mcp` |
    | **Server Type** | `1` (Local) |
    | **Command** | `npx -y @azure/mcp@latest server start` |
-   | **Environment Variables** | *(leave blank - utilizes Azure CLI authentication)* |
+   | **Environment Variables** | *(leave blank — uses Azure CLI authentication)* |
    | **Tools** | `*` |
 
    > [!NOTE]
    > If you prefer using .NET, set the **Command** to `dotnet dnx Azure.Mcp server start`.
 
 1. Press **Ctrl+S** (or **Cmd+S** on macOS) to save the server configuration.
-1. When you've finished, press `esc` to close the server configuration.
+1. When you're finished, press **Esc** to close the server configuration.
 
 ## Verify the connection
 
@@ -74,7 +74,7 @@ Confirm that you configured the Azure MCP Server correctly and that the GitHub C
 
 ## Use Azure MCP Server
 
-Once connected, you can use natural language to interact with your Azure resources.
+After you connect the server, you can use natural language to interact with your Azure resources.
 
 1. In the GitHub Copilot CLI session, type a prompt that requires Azure context. For example:
 

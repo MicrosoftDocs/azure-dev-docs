@@ -1,34 +1,37 @@
 ---
 title: Azure Native ISV Tools for Azure MCP Server
-description: Learn how to use Azure MCP Server with Azure Native ISV partner solutions like Datadog for monitoring and managing Azure resources using natural language prompts.
+description: Use Azure MCP Server tools with Azure Native ISV partner solutions like Datadog to manage integrated third-party services with natural language prompts.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
-ms.service: azure
+ms.date: 08/11/2026
+ms.service: azure-mcp-server
 ms.topic: concept-article
 ai-usage: ai-assisted
+content_well_notification:
+  - AI-contribution
 ---
 
 # Azure Native ISV tools for Azure MCP Server overview
 
-The Azure MCP Server allows you to manage Azure resources, including Azure Native ISV partner solutions, using natural language prompts. This enables you to quickly manage third-party services that are natively integrated with Azure without remembering complex syntax, improving productivity and reducing operational overhead.
+The Azure MCP Server lets you manage Azure resources, including Azure Native ISV partner solutions, with natural language prompts. You can quickly manage third-party services that are natively integrated with Azure without remembering complex syntax, which improves productivity and reduces operational overhead.
 
-[Azure Native Integrations](/azure/partner-solutions/partners) enable you to easily provision, manage, and tightly integrate software and services from partner companies on Azure. Microsoft and partner organizations develop these services and manage them together, providing a seamless experience through the Azure portal.
+By using [Azure Native Integrations](/azure/partner-solutions/partners), you can provision, manage, and tightly integrate software and services from partner companies on Azure. Microsoft and partner organizations develop these services and manage them together to provide a seamless experience through the Azure portal.
+
+This article describes the Azure Native ISV tools that Azure MCP Server exposes, the example prompts you can use, and the parameters each tool accepts.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## ISV partners
 
-* [Datadog](#datadog-monitored-resources) - A monitoring and analytics platform for large-scale applications that encompasses infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring.
-
+- [Datadog](#datadog-monitored-resources): A monitoring and analytics platform for large-scale applications that includes infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring.
 
 ## Datadog monitored resources
 
 <!-- datadog monitoredresources list -->
 
-The Azure MCP Server can list monitored resources in Datadog. [Datadog](/azure/partner-solutions/datadog/overview) is a monitoring and analytics platform for large-scale applications that encompasses infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring.
+The Azure MCP Server can list monitored resources in Datadog. [Datadog](/azure/partner-solutions/datadog/overview) is a monitoring and analytics platform for large-scale applications that includes infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring.
 
-Datadog's Azure Native Integration allows you to manage Datadog directly in the Azure console as an integrated service. This streamlined workflow covers everything from procurement to configuration, making it easy to start monitoring the health and performance of your applications across Azure, hybrid, or multicloud environments.
+The Datadog Azure Native Integration lets you manage Datadog directly in the Azure portal as an integrated service. This streamlined workflow covers everything from procurement to configuration, so you can quickly start monitoring the health and performance of your applications across Azure, hybrid, or multicloud environments.
 
 Example prompts include:
 

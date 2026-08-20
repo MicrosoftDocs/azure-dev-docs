@@ -3,7 +3,7 @@ title: Get Started Using the Azure MCP Server with .NET
 description: Learn how to connect to and consume Azure MCP Server operations with .NET
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 02/27/2026
+ms.date: 08/11/2026
 ms.topic: get-started
 ms.custom:
   - build-2025
@@ -12,6 +12,7 @@ ms.custom:
 # Get started using the Azure MCP Server with .NET
 
 [!INCLUDE [get-started-intro](../../includes/get-started-intro.md)]
+
 In this article, you learn how to complete the following tasks:
 
 - Install and authenticate to the Azure MCP Server
@@ -162,7 +163,7 @@ Complete the following steps to test your .NET host app:
       2. **rg-testing** (Location: `centralus`)
       3. **rg-azd** (Location: `eastus2`)
       4. **msdocs-sample** (Location: `southcentralus`)
-      14. **ai-testing** (Location: `eastus2`)
+      5. **ai-testing** (Location: `eastus2`)
       
       Let me know if you need further details or actions related to any of these resource groups!
       ```

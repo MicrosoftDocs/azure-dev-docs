@@ -3,7 +3,7 @@ title: Azure Container Registry Tools
 description: Learn how to use the Azure MCP Server with Azure Container Registry.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 08/11/2026
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -25,10 +25,9 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Cont
 
 <!-- acr registry list -->
 
-List accounts in a subscription. Optionally filter by resource group. 
+List accounts in a subscription. Optionally filter by resource group.
 
-Example prompts include: 
-
+Example prompts include:
 
 - **List registries**: "List all Azure Container Registries in my subscription."
 - **Show registries**: "What container registries do I have?"
@@ -47,7 +46,7 @@ Example prompts include:
 
 <!-- acr registry repository list -->
 
-List repositories in Azure Container Registries. By default, the command lists repositories for all registries in the subscription.
+List repositories in Azure Container Registries. By default, the tool lists repositories for all registries in the subscription.
 
 Example prompts include:
 
