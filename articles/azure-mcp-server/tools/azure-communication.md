@@ -1,9 +1,10 @@
 ---
 title: Azure Communication Services Tools
-description: Send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
+description: Learn how to use Azure MCP Server with Azure Communication Services to send emails and SMS messages using natural language prompts.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 08/11/2026
+ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -14,9 +15,9 @@ content_well_notification:
 
 # Azure Communication Services tools for the Azure MCP Server overview
 
-The Azure MCP Server lets you manage Azure Communication Services using natural language prompts. Learn how to send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
+The Azure MCP Server lets you manage Azure Communication Services by using natural language prompts. You can send emails and SMS messages without remembering complex command syntax, which makes communication automation more accessible and efficient.
 
-[Azure Communication Services](/azure/communication-services/) is a set of rich communication APIs that enable developers to build intelligent communication solutions. These solutions include voice and video calling, chat, SMS, and telephony capabilities in applications.
+[Azure Communication Services](/azure/communication-services/) is a set of rich communication APIs that you can use to build intelligent communication solutions. These solutions include voice and video calling, chat, SMS, and telephony capabilities in applications.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -24,7 +25,7 @@ The Azure MCP Server lets you manage Azure Communication Services using natural 
 
 <!-- communication email send -->
 
-Send an email message using Azure Communication Services.
+Send an email message by using Azure Communication Services.
 
 Example prompts include:
 
@@ -51,13 +52,13 @@ Example prompts include:
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 
 ## SMS: Send SMS message
 
 <!-- communication sms send -->
 
-Sends SMS messages to one or more recipients using Azure Communication Services.
+Send SMS messages to one or more recipients by using Azure Communication Services.
 
 Example prompts include:
 
@@ -78,7 +79,7 @@ Example prompts include:
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
 
 ## Related content
 

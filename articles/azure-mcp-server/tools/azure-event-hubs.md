@@ -3,7 +3,7 @@ title: Azure Event Hubs Tools
 description: Learn to use Azure MCP Server tools to manage Event Hubs resources with natural language prompts. Create, update, and delete namespaces and consumer groups.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 08/11/2026
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -102,11 +102,11 @@ Example prompts include:
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 
-## Event Hub: Delete Event Hub    
+## Event Hub: Delete Event Hub
 
 <!-- eventhubs eventhub delete -->
 
-Delete an event hub from an Azure Event Hubs namespace. This action permanently deletes all messages and consumer groups in the Event Hub.
+Delete an event hub from an Azure Event Hubs namespace. This action permanently deletes all messages and consumer groups in the event hub.
 
 Example prompts include:
 
@@ -167,7 +167,7 @@ You can configure these properties:
 - Partition count (number of partitions for parallel processing)
 - Message retention time (how long messages are retained, in hours)
 
-Some properties like partition count can't be changed after creation. This is a potentially long-running operation that waits for completion.
+Some properties like partition count can't be changed after creation. This operation might take some time to complete.
 
 Example prompts include:
 
@@ -240,7 +240,7 @@ Example prompts include:
 
 <!-- eventhubs namespace update -->
 
-Create or update a namespace within the specified resource group. This tool creates a new namespace or updates an existing one. The tool might modify existing configurations and is considered destructive. This tool might take a long time.
+Create or update a namespace in the specified resource group. This tool creates a new namespace or updates an existing one. The tool can modify existing configurations, is considered destructive, and might take some time to complete.
 
 When updating an existing namespace, provide only the properties you want to change. Unspecified properties keep their existing values. You must provide at least one update property.
 
@@ -283,4 +283,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure Event Hubs tools](/azure/event-hubs)
+- [Azure Event Hubs documentation](/azure/event-hubs)

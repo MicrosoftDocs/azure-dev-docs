@@ -1,33 +1,31 @@
 ---
-title: Get Started Using the Azure MCP Server with Visual Studio
-description: Learn how to connect to and consume Azure MCP Server operations with Visual Studio
+title: Get started with Azure MCP Server using Visual Studio
+description: Learn how to install, authenticate to, and use Azure MCP Server operations from GitHub Copilot agent mode in Visual Studio.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 02/27/2026
+ms.date: 08/11/2026
 ms.topic: get-started
-ms.custom:
-  - build-2025
 zone_pivot_groups: pivot-visual-studio
 zone_pivot_group_filename: "developer/pivots.yml"
 ---
 
-# Get started with the Azure MCP Server using Visual Studio
+# Get started with Azure MCP Server using Visual Studio
 
 [!INCLUDE [get-started-intro](../../includes/get-started-intro.md)]
 
 In this article, you learn how to complete the following tasks:
 
-- Install and authenticate to the Azure MCP Server.
+- Install and authenticate to Azure MCP Server.
 - Connect to Azure MCP Server using GitHub Copilot agent mode in Visual Studio.
 - Run prompts to test Azure MCP Server operations and interact with Azure resources.
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
-- [Visual Studio](https://visualstudio.microsoft.com)
-- [.NET 10](https://dotnet.microsoft.com/download) OR [Node.js](https://nodejs.org/) LTS installed
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription.
+- [Visual Studio](https://visualstudio.microsoft.com).
+- [.NET 10](https://dotnet.microsoft.com/download) or [Node.js](https://nodejs.org/) LTS installed.
 
-## Install the Azure MCP Server
+## Install Azure MCP Server
 
 :::zone target="docs" pivot="visual-studio-2022"
 
@@ -40,12 +38,12 @@ Visual Studio uses a file named `mcp.json` to check for MCP Server configuration
 1. `<SOLUTIONDIR>\.cursor\mcp.json`: Scoped to the repository/solution and typically not included in source control.
 
 > [!NOTE]
-> Some of these locations require .mcp.json while others require mcp.json.
+> Some of these locations require `.mcp.json` (with a leading dot) while others require `mcp.json`.
 
 Azure MCP Server is available as a NuGet package or as an NPM package. The following options demonstrate two of the most common approaches to connect to Azure MCP Server from Visual Studio.
 
 > [!NOTE]
-> Alternatively, you can use the [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022) extension to install Azure MCP
+> Alternatively, you can use the [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022) extension to install Azure MCP Server.
 
 ## [Solution install](#tab/manual)
 
@@ -181,14 +179,14 @@ Visual Studio 2026 includes Azure MCP Server tools with the Azure and AI develop
 
 1. Open GitHub Copilot and select Agent Mode.
 1. Enter a prompt that causes the agent to use Azure MCP Server tools, such as *List my Azure resource groups*.
-1. In order to authenticate Azure MCP Server, Copilot prompts you to sign-in to Azure using the browser.
+1. To authenticate to Azure MCP Server, Copilot prompts you to sign in to Azure by using the browser.
 
     > [!NOTE]
-    > Copilot doesn't prompt you to sign-in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
+    > Copilot doesn't prompt you to sign in to Azure if you're already authenticated through other local tooling, such as the Azure CLI.
 
-1. Copilot requests permission to run the necessary Azure MCP Server operation for your prompt. Select **Allow this time** or use the arrow to select a more specific behavior:
-    - **Always allow** sets the operation to always run for any GitHub Copilot Agent Mode session or any Visual Studio Code workspace.
-    - **Allow in this session** always runs the operation in the current GitHub Copilot Agent Mode session.
+1. Copilot requests permission to run the necessary Azure MCP Server operation for your prompt. Select **Allow this time**, or use the arrow to select a more specific behavior:
+    - **Always allow** sets the operation to always run for any GitHub Copilot agent mode session in any Visual Studio solution.
+    - **Allow in this session** always runs the operation in the current GitHub Copilot agent mode session.
 
     :::image type="content" source="../../media/github-copilot-run-command.png" alt-text="A screenshot showing how to run Azure MCP Server tools in Visual Studio.":::
 
