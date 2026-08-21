@@ -62,7 +62,7 @@ New articles:
 
 Updated articles:
 
-- [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md) - Replaced the Service Connector-based setup with an explicit system-assigned managed identity workflow, including Microsoft Entra admin and database-role configuration steps.
+- [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](/azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database) - Replaced the Service Connector-based setup with an explicit system-assigned managed identity workflow, including Microsoft Entra admin and database-role configuration steps.
 
 ### Azure for JavaScript developers
 
@@ -366,7 +366,7 @@ New articles:
 
 Updated articles:
 
-- [Create hosted agent workflows in the Microsoft Foundry Toolkit for Visual Studio Code extension](https://github.com/MicrosoftDocs/azure-ai-docs-pr/blob/main/articles/foundry/agents/how-to/vs-code-agents-workflow-pro-code.md) - Added a hosted agent workflow tutorial for the Microsoft Foundry Toolkit in Visual Studio Code, including project creation, local testing, and deployment to Foundry Agent Service.
+- [Create hosted agent workflows in the Microsoft Foundry Toolkit for Visual Studio Code extension](/azure/foundry/agents/how-to/vs-code-agents-workflow-pro-code) - Added a hosted agent workflow tutorial for the Microsoft Foundry Toolkit in Visual Studio Code, including project creation, local testing, and deployment to Foundry Agent Service.
 
 ### Azure Developer CLI (azd)
 
@@ -508,7 +508,7 @@ Updated articles:
 Updated articles:
 
 - [GitHub Copilot modernization agent overview](../github-copilot-app-modernization/modernization-agent/overview.md) - Removed the public preview reference from the modernization agent overview.
-- [AppCAT 7 release notes](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/migrate/appcat/appcat-7-release-notes.md) - Added AppCAT 7 release notes entries.
+- [AppCAT 7 release notes](/azure/migrate/appcat/appcat-7-release-notes) - Added AppCAT 7 release notes entries.
 
 ### Introduction to Azure for developers
 
