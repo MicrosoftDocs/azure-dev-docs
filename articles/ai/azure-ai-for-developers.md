@@ -4,7 +4,7 @@ description: Overview article introducing the resources available in this conten
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
-ms.date: 11/25/2025
+ms.date: 08/24/2026
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, build-2024-intelligent-apps
 content_well_notification: 
   - AI-contribution

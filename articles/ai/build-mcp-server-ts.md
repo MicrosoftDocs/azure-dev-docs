@@ -1,7 +1,7 @@
 ---
 title: "Build a TypeScript MCP server using Azure Container Apps"
 description: "Learn how to build a remote TypeScript Model Context Protocol (MCP) server using Azure Container Apps."
-ms.date: 09/12/2025
+ms.date: 08/24/2026
 ms.topic: get-started 
 ms.subservice: intelligent-apps
 content_well_notification: 

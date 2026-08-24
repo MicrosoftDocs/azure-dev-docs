@@ -1,7 +1,7 @@
 ---
 title: "Build Agents using Model Context Protocol on Azure"
 description: "This article explains how to build AI agents using the Model Context Protocol (MCP) on Azure to create intelligent, scalable applications."
-ms.date: 09/04/2025
+ms.date: 08/24/2026
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 content_well_notification: 
