@@ -1,7 +1,7 @@
 ---
 title: "Get started with multimodal chat apps using Azure OpenAI"
 description: "Learn how to effectively use Azure OpenAI multimodal models to generate responses to user messages and uploaded images. Easily deploy with Azure Developer CLI."
-ms.date: 10/31/2025
+ms.date: 08/24/2026
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
