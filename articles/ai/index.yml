@@ -13,19 +13,6 @@ metadata:
   ms.collection: collection
 
 landingContent:
-  - title: Fundamentals of generative AI
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Introduction to generative AI
-            url: introduction-build-generative-ai-solutions.md
-          - text: Concepts and considerations
-            url: gen-ai-concepts-considerations-developers.md
-          - text: Augment LLMs with RAG And Fine-tuning
-            url: augment-llm-rag-fine-tuning.md
-          - text: Advanced Retrieval-Augmented Generation
-            url: advanced-retrieval-augmented-generation.md
-
   - title: AI app templates
     linkLists:
       - linkListType: overview

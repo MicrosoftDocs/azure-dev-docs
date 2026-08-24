@@ -5,21 +5,9 @@ items:
     - name: Overview
       href: azure-ai-for-developers.md
     - name: Concepts
-      items:
-      - name: Generative AI concepts and introduction
-        items: 
-          - name: Introduction to generative AI
-            href: introduction-build-generative-ai-solutions.md      
-          - name: Concepts and considerations
-            href: gen-ai-concepts-considerations-developers.md
-          - name: Augment LLMs with RAG and fine-tuning
-            href: augment-llm-rag-fine-tuning.md
-          - name: Advanced RAG
-            href: advanced-retrieval-augmented-generation.md
-      - name: Security concepts
-        items: 
-          - name: Security planning for LLM-based applications
-            href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json     
+      items: 
+        - name: Security planning for LLM-based applications
+          href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json     
     - name: How-tos
       items:
         - name: Deploy Claude on Foundry
