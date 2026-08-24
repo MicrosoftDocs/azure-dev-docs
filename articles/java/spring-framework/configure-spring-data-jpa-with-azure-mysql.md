@@ -1,5 +1,5 @@
 ---
-title: Use Spring Data JPA with Azure Database for MySQL
+title: "Spring Data JPA with Azure Database for MySQL"
 description: Learn how to use Spring Data JPA with an Azure Database for MySQL database.
 author: KarlErickson
 ms.date: 08/19/2025
@@ -13,20 +13,20 @@ zone_pivot_groups: passwordless-mysql
 
 # Use Spring Data JPA with Azure Database for MySQL
 
-This tutorial demonstrates how to store data in [Azure Database for MySQL](/azure/mysql/) database using [Spring Data JPA](https://spring.io/projects/spring-data-jpa).
+This tutorial demonstrates how to store data in an [Azure Database for MySQL](/azure/mysql/) database using [Spring Data JPA](https://spring.io/projects/spring-data-jpa). You'll learn to use either passwordless Microsoft Entra authentication or MySQL authentication to connect your Spring application.
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
 In this tutorial, we include two authentication methods: Microsoft Entra authentication and MySQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the MySQL authentication.
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL by using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-MySQL authentication uses accounts stored in MySQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in MySQL, you need to manage the rotation of the passwords by yourself.
+MySQL authentication uses accounts stored in MySQL. If you choose to use passwords as credentials for the accounts, you store these credentials in the `user` table. Because these passwords are stored in MySQL, you need to manage the rotation of the passwords yourself.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 - [MySQL command line client](https://dev.mysql.com/downloads/).
 
-- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JPA**, and **MySQL Driver** dependencies, and then select Java version 8 or higher.
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JPA**, and **MySQL Driver** dependencies. Then select Java version 8 or higher.
 
 ::: zone pivot="mysql-passwordless-flexible-server"
 
@@ -37,13 +37,13 @@ MySQL authentication uses accounts stored in MySQL. If you choose to use passwor
 
 ## See the sample application
 
-In this tutorial, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql).
+In this tutorial, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql).
 
 [!INCLUDE [spring-data-azure-mysql-flexible-server-setup.md](includes/spring-data-azure-mysql-flexible-server-setup.md)]
 
 ### Configure Spring Boot to use Azure Database for MySQL
 
-To store data from Azure Database for MySQL using Spring Data JPA, follow these steps to configure the application:
+To store data from Azure Database for MySQL by using Spring Data JPA, follow these steps to configure the application:
 
 1. Configure Azure Database for MySQL credentials by adding the following properties to your **application.properties** configuration file.
 
@@ -73,11 +73,11 @@ To store data from Azure Database for MySQL using Spring Data JPA, follow these 
    spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
    ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule. -->
     ---
 
    > [!WARNING]
-   > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server wouldn't use the same date format as the database, which would result in an error.
+   > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server doesn't use the same date format as the database, which results in an error.
 
 ::: zone-end
 
@@ -90,13 +90,13 @@ To store data from Azure Database for MySQL using Spring Data JPA, follow these 
 
 ## See the sample application
 
-In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql).
+In this article, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-mysql).
 
 [!INCLUDE [spring-data-azure-mysql-single-server-setup.md](includes/spring-data-azure-mysql-single-server-setup.md)]
 
 ### Configure Spring Boot to use Azure Database for MySQL
 
-To store data from Azure Database for MySQL using Spring Data JPA, follow these steps to configure the application:
+To store data from Azure Database for MySQL by using Spring Data JPA, follow these steps to configure the application:
 
 1. Configure Azure Database for MySQL credentials by adding the following properties to your **application.properties** configuration file.
 
@@ -126,11 +126,11 @@ To store data from Azure Database for MySQL using Spring Data JPA, follow these 
    spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
    ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule, and the following note isn't properly indented. -->
     ---
 
    > [!WARNING]
-   > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server wouldn't use the same date format as the database, which would result in an error.
+   > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server doesn't use the same date format as the database, which results in an error.
 
 ::: zone-end
 
