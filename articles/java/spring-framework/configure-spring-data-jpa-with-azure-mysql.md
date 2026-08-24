@@ -13,7 +13,7 @@ zone_pivot_groups: passwordless-mysql
 
 # Use Spring Data JPA with Azure Database for MySQL
 
-This tutorial demonstrates how to store data in an [Azure Database for MySQL](/azure/mysql/) database using [Spring Data JPA](https://spring.io/projects/spring-data-jpa). You'll learn to use either passwordless Microsoft Entra authentication or MySQL authentication to connect your Spring application.
+This tutorial demonstrates how to store data in an [Azure Database for MySQL](/azure/mysql/) database by using [Spring Data JPA](https://spring.io/projects/spring-data-jpa). You learn to use either passwordless Microsoft Entra authentication or MySQL authentication to connect your Spring application.
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
