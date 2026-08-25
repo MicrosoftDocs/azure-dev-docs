@@ -1,15 +1,15 @@
 ---
 title: HTTP Pipelines and Retries in the Azure SDK for C++
-description: Understand how HTTP pipelines and retry mechanisms are implemented in the Azure SDK for C++. Learn to customize and troubleshoot request processing and failure recovery in their Azure applications. 
-ms.topic: overview
-ms.date: 5/08/2025
+description: Understand how HTTP pipelines and retry mechanisms are implemented in the Azure SDK for C++. Learn to customize and troubleshoot request processing and failure recovery in your Azure applications.
+ms.topic: concept-article
+ms.date: 08/25/2026
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.
 
 ---
 
-# HTTP Pipelines and retries in the Azure SDK for C++
+# HTTP pipelines and retries in the Azure SDK for C++
 
 The Azure SDK for C++ uses an HTTP pipeline architecture to process HTTP requests to Azure services. This document explains how HTTP pipelines work, how retry policies are implemented, and how you can customize them for your application needs.
 
@@ -27,8 +27,8 @@ An HTTP pipeline is a stack of HTTP policies that get applied sequentially to pr
 
 The pipeline is split into two main parts:
 
-1. **Per-call policies** - Execute once per API operation
-2. **Per-retry policies** - Execute for each retry attempt
+- **Per-call policies**: Execute once per API operation.
+- **Per-retry policies**: Execute for each retry attempt.
 
 This structure ensures that appropriate policies (like authentication) only execute once per operation, while others (like logging) execute for each retry attempt.
 
@@ -36,14 +36,14 @@ This structure ensures that appropriate policies (like authentication) only exec
 
 A typical HTTP pipeline in the Azure SDK for C++ includes the following policies in order:
 
-1. **Telemetry Policy** (per-call) - Adds Azure SDK telemetry information
-2. **Request ID Policy** (per-call) - Ensures each request has a unique ID
-3. **Service-specific Per-Call Policies** - Custom policies specific to a service
-4. **Retry Policy** (per-call) - Implements retry logic
-5. **Service-specific Per-Retry Policies** - Custom policies specific to a service that run on each retry
-6. **Request Activity Policy** (per-retry) - Manages distributed tracing
-7. **Log Policy** (per-retry) - Handles logging requests and responses
-8. **Transport Policy** (per-retry) - Handles the actual sending of the HTTP request
+1. **Telemetry Policy** (per-call): Adds Azure SDK telemetry information.
+1. **Request ID Policy** (per-call): Ensures each request has a unique ID.
+1. **Service-specific Per-Call Policies**: Custom policies specific to a service.
+1. **Retry Policy** (per-call): Implements retry logic.
+1. **Service-specific Per-Retry Policies**: Custom policies specific to a service that run on each retry.
+1. **Request Activity Policy** (per-retry): Manages distributed tracing.
+1. **Log Policy** (per-retry): Handles logging requests and responses.
+1. **Transport Policy** (per-retry): Handles the actual sending of the HTTP request.
 
 :::image type="content" source="../media/http-pipeline.svg" alt-text="A diagram that shows the policy phases of the Azure SDK for C++ HTTP Pipeline." :::
 
@@ -51,12 +51,12 @@ A typical HTTP pipeline in the Azure SDK for C++ includes the following policies
 
 ### How retries work
 
-The retry policy is designed to handle transient failures that may occur when making HTTP requests to Azure services. When a request fails due to a transient error, the retry policy will:
+The retry policy is designed to handle transient failures that might occur when making HTTP requests to Azure services. When a request fails due to a transient error, the retry policy does the following:
 
-1. Determine if the failure is retryable
-2. Calculate an appropriate delay
-3. Wait for that delay
-4. Retry the request
+1. Determines if the failure is retryable.
+1. Calculates an appropriate delay.
+1. Waits for that delay.
+1. Retries the request.
 
 The policy supports retrying on both transport-level failures (network issues) and certain HTTP status codes.
 
@@ -74,27 +74,27 @@ The retry delay uses an exponential backoff strategy with jitter:
 - First retry: ~800 ms
 - Second retry: ~1,600 ms
 - Third retry: ~3,200 ms
-- And so on, until max retry delay is reached
+- The delay keeps doubling until it reaches the maximum retry delay.
 
 ### When retries happen
 
 The retry policy attempts to retry a request in the following scenarios:
 
-1. **Transport failures**:
-   - Network connectivity issues
-   - Connection time-outs
-   - DNS (Domain Name System) resolution failures
+- **Transport failures**:
+  - Network connectivity issues
+  - Connection timeouts
+  - DNS (Domain Name System) resolution failures
 
-2. **HTTP status codes**:
-   - 408 (Request time-out)
-   - 429 (Too Many Requests)
-   - 500 (Internal Server Error)
-   - 502 (Bad Gateway)
-   - 503 (Service Unavailable)
-   - 504 (Gateway time-out)
+- **HTTP status codes**:
+  - 408 (Request timeout)
+  - 429 (Too Many Requests)
+  - 500 (Internal Server Error)
+  - 502 (Bad Gateway)
+  - 503 (Service Unavailable)
+  - 504 (Gateway timeout)
 
-3. **Service-specific retry logic**:
-   - Some services like Storage implement specialized retry logic for failover scenarios
+- **Service-specific retry logic**:
+  - Some services like Storage implement specialized retry logic for failover scenarios
 
 ## Customizing retry behavior
 
@@ -212,29 +212,20 @@ When a retry occurs, log entries appear like:
 
 ## Best practices
 
-1. **Use default retry settings when possible**
-   - The default settings are tuned for most scenarios and include best practices like exponential backoff
-
-2. **Be careful with non-idempotent operations**
-   - Consider limiting retries for operations that aren't safe to retry (like nonidempotent POST requests)
-
-3. **Consider circuit breaker patterns**
-   - For high-volume applications, implement circuit breaker patterns to prevent overwhelming services that are responding with errors
-
-4. **Test retry scenarios**
-   - Test your application's behavior when retries occur to ensure proper handling
-
-5. **Monitor retry telemetry**
-   - High retry rates might indicate underlying issues that should be addressed
+- **Use default retry settings when possible.** The default settings work well for most scenarios and include best practices like exponential backoff.
+- **Be careful with nonidempotent operations.** Consider limiting retries for operations that aren't safe to retry, like nonidempotent POST requests.
+- **Consider circuit breaker patterns.** For high-volume applications, implement circuit breaker patterns to prevent overwhelming services that respond with errors.
+- **Test retry scenarios.** Test your application's behavior when retries occur to ensure proper handling.
+- **Monitor retry telemetry.** High retry rates might indicate underlying issues that should be addressed.
 
 ## Advanced: pipeline internals
 
 The HTTP pipeline is implemented in the `Azure::Core::Http::_internal::HttpPipeline` class, which manages the sequence of policy execution. When a request is made, the pipeline:
 
-1. Starts with the first policy in the pipeline
-2. Each policy processes the request and then passes it to the next policy
-3. The last policy is typically the transport policy, which actually sends the request
-4. The response then flows back through the policies in reverse order
+1. Starts with the first policy in the pipeline.
+1. Each policy processes the request and then passes it to the next policy.
+1. The last policy is typically the transport policy, which sends the request.
+1. The response then flows back through the policies in reverse order.
 
 The retry policy is special in that it can repeat the entire sequence of policies that come after it in the pipeline.
 
@@ -242,20 +233,11 @@ The retry policy is special in that it can repeat the entire sequence of policie
 
 If you're experiencing issues with retries:
 
-1. **Enable informational logging**
-   - Set the `AZURE_LOG_LEVEL` environment variable to `Informational` to see retry attempts
-
-2. **Check for transport errors**
-   - Network issues often manifest as transport exceptions
-
-3. **Verify service health**
-   - Persistent 500-level errors may indicate an Azure service issue
-
-4. **Review request IDs**
-   - Each request has a unique ID that can be used when working with Azure Support
-
-5. **Check timeout settings**
-   - Ensure your application's time-outs are compatible with the retry policy
+- **Enable informational logging.** Set the `AZURE_LOG_LEVEL` environment variable to `Informational` to see retry attempts.
+- **Check for transport errors.** Network issues often manifest as transport exceptions.
+- **Verify service health.** Persistent 500-level errors might indicate an Azure service issue.
+- **Review request IDs.** Each request has a unique ID that you can use when you work with Azure Support.
+- **Check timeout settings.** Ensure your application's timeouts are compatible with the retry policy.
 
 ## Related content
 
