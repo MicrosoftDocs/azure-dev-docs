@@ -101,7 +101,6 @@ azd up
 |----------|-----------|----------|----------|-----|-----|------------|
 | React + Python + MongoDB | React on App Service | Python (Flask/FastAPI) on App Service | Azure Cosmos DB (MongoDB) | Bicep | - | [todo-python-mongo](https://github.com/Azure-Samples/todo-python-mongo) |
 | React + Python + MongoDB (Container Apps) | React on Container Apps | Python on Container Apps | Azure Cosmos DB (MongoDB) | Bicep | ✅ | [todo-python-mongo-aca](https://github.com/Azure-Samples/todo-python-mongo-aca) |
-| React + Python + MongoDB (Terraform) | React on App Service | Python on App Service | Azure Cosmos DB (MongoDB) | Terraform | - | [todo-python-mongo-terraform](https://github.com/Azure-Samples/todo-python-mongo-terraform) |
 | React + Python + MongoDB (Static Web Apps) | React on Static Web Apps | Python on Azure Functions | Azure Cosmos DB (MongoDB) | Bicep | - | [todo-python-mongo-swa-func](https://github.com/Azure-Samples/todo-python-mongo-swa-func) |
 
 ## Java templates

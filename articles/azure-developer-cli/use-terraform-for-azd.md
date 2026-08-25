@@ -75,7 +75,7 @@ You need to refresh both sessions when either token expires.
 1. Run `azd up`. 
 
 > [!NOTE] 
-> Check out these two azd templates with Terraform as IaC Provider: [Node.js and Terraform](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform) and [Python and Terraform](https://github.com/Azure-Samples/todo-python-mongo-terraform). 
+> Check out this azd template with Terraform as IaC Provider: [Node.js and Terraform](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform). 
 
 ## `azd pipeline config` for Terraform
 

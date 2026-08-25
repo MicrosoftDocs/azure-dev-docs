@@ -1,10 +1,10 @@
 ---
 title: Azure Quick Review CLI Tools - Azure MCP Server
-description: Generate compliance and security reports for Azure resources by using the Azure MCP Server with the Azure Quick Review CLI (azqr) tools.
+description: Use Azure MCP Server tools with natural language prompts or Azure MCP CLI commands to generate Azure Quick Review compliance and security reports.
 author: diberry
 ms.author: diberry
 ms.reviewer: wabrez
-ms.date: 08/11/2026
+ms.date: 08/24/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -12,20 +12,40 @@ ms.custom:
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.37"
 ---
 # Azure Quick Review CLI tools for the Azure MCP Server overview
 
-By using the Azure MCP Server, you can run Azure Quick Review (azqr) commands by using natural language prompts. You can generate compliance and security reports for your Azure resources to identify non-compliant configurations and areas for improvement, without needing to remember specific command syntax.
+By using the Azure MCP Server, you can run Azure Quick Review (azqr) commands by using natural language prompts. You can generate compliance and security reports for your Azure resources to identify noncompliant configurations and areas for improvement, without needing to remember specific command syntax.
 
-[Azure Quick Review CLI (azqr)](https://github.com/Azure/azqr) is a command-line interface (CLI) tool that analyzes Azure resources for alignment with Azure best practices and recommendations. It gives you a comprehensive overview of your Azure resources so you can identify non-compliant configurations or areas for improvement.
+[Azure Quick Review CLI (azqr)](https://github.com/Azure/azqr) is a command-line interface (CLI) tool that analyzes Azure resources for alignment with Azure best practices and recommendations. It gives you a comprehensive overview of your Azure resources so you can identify noncompliant configurations or areas for improvement.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Generate compliance report
 
-<!-- extension azqr -->
+The Azure MCP Server runs Azure Quick Review CLI commands to scan an Azure subscription or resource group for compliance issues. It generates a compliance and security assessment report. The report identifies noncompliant configurations and recommends improvements. The tool returns the generated report file paths in XLSX and JSON formats.
 
-The Azure MCP Server can run Azure Quick Review CLI commands to generate compliance and security reports for Azure resources. These reports help you identify non-compliant configurations and areas for improvement in your Azure environment.
+> [!NOTE]
+> Azure Quick Review (azqr) is different from Azure CLI (`az`), Azure Policy assignments, and Azure Advisor recommendations.
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp extension azqr \
+  [--resource-group <resource-group>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `resource-group` | string | No | The Azure resource group name. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli extension azqr -->
 
 **Example prompts** include:
 
@@ -37,7 +57,9 @@ The Azure MCP Server can run Azure Quick Review CLI commands to generate complia
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource group** | Optional | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** | Optional | The Azure resource group name. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -48,5 +70,5 @@ The Azure MCP Server can run Azure Quick Review CLI commands to generate complia
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../get-started.md)
+- [Get started by using Azure MCP Server](../get-started.md)
 - [Azure Quick Review CLI GitHub repository](https://github.com/Azure/azqr)
