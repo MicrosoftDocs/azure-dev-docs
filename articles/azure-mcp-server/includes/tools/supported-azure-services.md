@@ -118,6 +118,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Device Registry](../../tools/azure-device-registry.md) | `deviceregistry` | Manage Azure Device Registry namespaces for organizing IoT device assets. |
 | [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
+| [Azure IoT Hub](../../tools/azure-iot-hub.md) | `iothub` | List devices and get details for Azure IoT Hub resources. |
 
 ### Management and governance
 
@@ -201,4 +202,3 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure Marketplace](../../tools/azure-marketplace.md) | `marketplace` | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | No namespace | Discover and manage available Azure MCP Server tools. |
-
