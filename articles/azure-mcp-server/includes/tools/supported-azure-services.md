@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 03/11/2026
+ ms.date: 08/21/2026
 ---
 
 ## Available tools
@@ -123,7 +123,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | Get recommendations to optimize Azure resources and improve performance. |
+| [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | List and summarize Azure Advisor recommendations, explore recommendation metadata, and apply recommendations to infrastructure-as-code files. |
 | [Azure Backup](../../tools/azure-backup.md) | `azurebackup` | Manage backup vaults, policies, protected items, governance, disaster recovery, and security for Azure Backup. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | `cloudarchitect` | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Insights](../../tools/azure-insights.md) | `insights` | Analyze deployed Azure resources across a subscription or tenant and generate infrastructure insights. |
@@ -164,7 +164,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure App Configuration](../../tools/app-configuration.md) | `appconfig` | Manage centralized application settings and feature flags. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
-| [Azure Key Vault](../../tools/azure-key-vault.md) | `keyvault` | List and create keys, secrets, certificates in Azure Key Vault. |
+| [Azure Key Vault](../../tools/azure-key-vault.md) | `keyvault` | List and create keys, secrets, and certificates in Azure Key Vault. |
 
 ### Storage
 
