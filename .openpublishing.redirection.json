@@ -2067,6 +2067,16 @@
       "source_path": "articles/ai/advanced-retrieval-augmented-generation.md",
       "redirect_url": "/azure/developer/ai/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/intro-agents-mcp.md",
+      "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/build-mcp-server-ts.md",
+      "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
     }
   ]
 }

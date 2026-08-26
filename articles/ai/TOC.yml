@@ -32,10 +32,6 @@ items:
           href: /azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Agents with Model Context Protocol (MCP)
       items:
-        - name: Build Agents using Model Context Protocol on Azure
-          href: intro-agents-mcp.md
-        - name: Build a TypeScript MCP server using Azure Container Apps servers
-          href: build-mcp-server-ts.md
         - name: Create OpenAI-powered agents using MCP
           href: build-openai-mcp-server-dotnet.md
         - name: Build AI agent tools using remote MCP with Azure Functions
