@@ -132,6 +132,8 @@
       href: tools/azure-functions.md
     - name: Azure Insights
       href: tools/azure-insights.md
+    - name: Azure IoT Hub
+      href: tools/azure-iot-hub.md
     - name: Azure Key Vault
       href: tools/azure-key-vault.md
     - name: Azure Kubernetes Service
@@ -201,4 +203,3 @@
   href: tools/index.md
 - name: Troubleshooting
   href: https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/TROUBLESHOOTING.md
-
