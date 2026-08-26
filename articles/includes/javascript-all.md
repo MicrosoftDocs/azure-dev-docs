@@ -263,7 +263,7 @@
 | Resource Management - Dynatrace | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-dynatrace/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-dynatrace-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_3.0.0/sdk/dynatrace/arm-dynatrace/) |
 | Resource Management - Edge Actions | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-edgeactions/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-edgeactions-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgeactions_1.0.0-beta.1/sdk/edgeactions/arm-edgeactions/) |
 | Resource Management - Edge Order | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-edgeorder/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-edgeorder-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgeorder_1.0.0/sdk/edgeorder/arm-edgeorder/) |
-| Resource Management - Edge Zones | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-edgezones/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-edgezones-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgezones_1.0.0-beta.3/sdk/edgezones/arm-edgezones/) |
+| Resource Management - Edge Zones | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-edgezones/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-edgezones-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgezones_1.0.0/sdk/edgezones/arm-edgezones/) |
 | Resource Management - Education | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-education/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-education-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-education_1.0.0-beta.3/sdk/education/arm-education/) |
 | Resource Management - Elastic | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-elastic/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-elastic-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elastic_3.0.0/sdk/elastic/arm-elastic/) |
 | Resource Management - Elastic SAN | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-elasticsan/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-elasticsan-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_2.0.0/sdk/elasticsans/arm-elasticsan/) |
@@ -462,13 +462,13 @@
 | App Configuration Provider | npm [3.0.2-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/3.0.2-preview) |  |  |
 | App Configuration Provider | npm [2.6.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.6.0) |  |  |
 | App Configuration Provider File Source | npm [3.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/3.0.1-preview) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp/v/2.0.2)<br>npm [3.0.0-beta.37](https://www.npmjs.com/package/@azure/mcp/v/3.0.0-beta.37) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.2)<br>npm [3.0.0-beta.37](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/3.0.0-beta.37) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.2)<br>npm [3.0.0-beta.37](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/3.0.0-beta.37) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.2)<br>npm [3.0.0-beta.37](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/3.0.0-beta.37) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.2)<br>npm [3.0.0-beta.37](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/3.0.0-beta.37) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.2)<br>npm [3.0.0-beta.37](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/3.0.0-beta.37) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.2)<br>npm [3.0.0-beta.37](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/3.0.0-beta.37) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp/v/2.0.2)<br>npm [3.0.0-beta.38](https://www.npmjs.com/package/@azure/mcp/v/3.0.0-beta.38) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.2)<br>npm [3.0.0-beta.38](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/3.0.0-beta.38) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.2)<br>npm [3.0.0-beta.38](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/3.0.0-beta.38) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.2)<br>npm [3.0.0-beta.38](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/3.0.0-beta.38) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.2)<br>npm [3.0.0-beta.38](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/3.0.0-beta.38) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.2)<br>npm [3.0.0-beta.38](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/3.0.0-beta.38) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.2)<br>npm [3.0.0-beta.38](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/3.0.0-beta.38) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -527,7 +527,7 @@
 | AutoRest | npm [3.8.0](https://www.npmjs.com/package/autorest/v/3.8.0) |  |  |
 | Azure Functions | npm [4.16.2](https://www.npmjs.com/package/@azure/functions/v/4.16.2) |  | GitHub [4.16.2](https://github.com/Azure/azure-functions-nodejs-library) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.43.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.43.1) |  | GitHub [1.43.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.46.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.46.1) |  | GitHub [1.46.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.34](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.34) |  | GitHub [1.0.0-beta.34](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |

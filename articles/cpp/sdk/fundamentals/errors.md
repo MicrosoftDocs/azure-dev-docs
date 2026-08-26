@@ -1,8 +1,8 @@
 ---
 title: Error Handling in the Azure SDK for C++
-description: Understand how to handle errors effectively when using the Azure SDK for C++. 
-ms.topic: overview
-ms.date: 5/08/2025
+description: Understand how to handle errors effectively when using the Azure SDK for C++.
+ms.topic: concept-article
+ms.date: 08/25/2026
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.
@@ -44,7 +44,7 @@ Different Azure services extend the base exception types to provide service-spec
    - Details about the failed storage operation
 
 2. **`Azure::Messaging::EventHubs::EventHubsException`** - An exception specific to Event Hubs operations. It includes:
-   - Error condition (symbolic value from AMQP (Advanced Message Queuing Protocol))
+   - Error condition (a symbolic value from Advanced Message Queuing Protocol (AMQP))
    - Error description
    - Status code
    - Information about whether the error is transient
@@ -153,11 +153,11 @@ catch (Azure::Messaging::EventHubs::EventHubsException& e) {
 }
 ```
 
-The SDK implements internal retry policies for transient failures, but you want to handle specific cases in your application code.
+The SDK implements internal retry policies for transient failures, but you might still want to handle specific cases in your application code.
 
 ### Service-specific error handling
 
-For storage services (Blobs, Files, Queues, etc.), you can handle errors based on both error codes and HTTP status codes:
+For storage services such as Blobs, Files, and Queues, you can handle errors based on both error codes and HTTP status codes:
 
 ```cpp
 try {

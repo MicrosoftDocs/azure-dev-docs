@@ -111,6 +111,8 @@
           href: publishing-workflows.md
         - name: Azure App Service deployment slots
           href: app-service-slots.md
+        - name: App Service container deployments
+          href: app-service-containers.md
         - name: Docker support as a language
           href: docker-language-support.md
         - name: Metadata configuration
