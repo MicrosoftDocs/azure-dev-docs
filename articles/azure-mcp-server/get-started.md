@@ -43,6 +43,7 @@ Azure MCP Server works with AI-powered code editors and tools that support the M
 
 - [**Cline**](get-started/tools/cline.md)
 - [**Cursor**](get-started/tools/cursor.md)
+- [**Google Antigravity**](get-started/tools/anti-gravity.md)
 - [**IntelliJ**](get-started/tools/jet-brains.md)
 - [**Visual Studio**](get-started/tools/visual-studio.md)
 - [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
