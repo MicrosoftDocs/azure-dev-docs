@@ -127,7 +127,7 @@ Projects can declare required extensions in `azure.yaml` so `azd` can resolve an
 ```yaml
 requiredVersions:
   extensions:
-    azure.ai.agents: ">=1.0.0"
+    azure.ai.agents: "latest"
     contoso.azd.tagger: "^2.0.0"
 ```
 
