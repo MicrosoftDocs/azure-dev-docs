@@ -63,6 +63,9 @@ azd publish --all
 | `--from-package <image>` | Uses an existing local image or package instead of building from source. |
 | `--to <image-ref>` | Specifies the target image reference (for example, `<your-registry>.azurecr.io/my-app:v1`). Overrides default naming in `azure.yaml`. |
 
+> [!NOTE]
+> For services configured with `services.<name>.docker.imagePassthrough: true`, `azd publish` doesn't build or push an image. It reuses the configured remote image instead, and it rejects the `--from-package` and `--to` flags for that service.
+
 ### Examples
 
 **Publish a specific service to a custom tag:**
@@ -82,6 +85,8 @@ azd publish api-service --from-package local-api:dev --to <your-registry>.azurec
 ## Scenario: Build once, deploy everywhere
 
 A common production workflow involves building an image once and promoting it through multiple environments such as Dev -> Test -> Prod. Achieve this using a combination of `azd publish` and `azd deploy`.
+
+This scenario doesn't apply to services configured with `services.<name>.docker.imagePassthrough: true`, because `azd publish` doesn't build or push an image for those services.
 
 1. **Publish the image**:
 
@@ -121,6 +126,8 @@ A common production workflow involves building an image once and promoting it th
 
 > [!NOTE]
 > The default behavior of `azd up` remains unchanged. It still orchestrates the full end-to-end process. However, you can customize your workflows in `azure.yaml` to use `azd publish` if needed.
+>
+> For services configured with `services.<name>.docker.imagePassthrough: true`, `azd publish` and `azd publish --from-package` don't apply. `azd` reuses the configured remote image instead of building or pushing one.
 
 ## Configuration in `azure.yaml`
 
@@ -139,6 +146,24 @@ services:
 ```
 
 With this configuration, running `azd publish api` would push to `docker.io/myusername/my-api:latest`.
+
+### Reuse a remote image with `imagePassthrough`
+
+If your service already has a published image that `azd` shouldn't build, push, or otherwise manage, set `services.<name>.docker.imagePassthrough: true`. When you enable this option:
+
+* Set `services.<name>.image` to the final, fully qualified remote image reference, including an explicit registry.
+* You can't combine `docker.imagePassthrough` with `docker.remoteBuild`.
+* `azd publish` doesn't build or push an image for the service, and it rejects the `--from-package` and `--to` flags for that service.
+
+```yaml
+name: my-app
+services:
+  api:
+    host: containerapp
+    docker:
+      imagePassthrough: true
+    image: docker.io/myusername/my-api:v1.0.0
+```
 
 ## Next steps
 

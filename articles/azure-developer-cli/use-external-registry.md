@@ -13,6 +13,8 @@ ms.custom: devx-track-azdevcli
 
 Azure Developer CLI (`azd`) supports external third-party container registries for deployment. To use this feature, you need to manually authenticate to the external container registry before calling `azd` deploy.
 
+Docker-based authentication is only required when `azd` manages image operations for you, such as pulling, building, tagging, or pushing images. If a service is configured with `services.<name>.docker.imagePassthrough: true`, `azd` reuses the configured remote image as-is. In that case, `azd` doesn't require Docker or Podman and doesn't perform any registry authentication or image lifecycle steps for that service.
+
 ## Authentication
 
 Run `docker login` and authenticate to your external container registry. You may need to follow more setup or configuration steps for your specific registry provider.
@@ -41,6 +43,26 @@ services:
 
 > [!NOTE]
 > Your containerapp infra configuration must configure credentials when pulling containers from private container registries.
+
+To deploy a remote image without requiring Docker or Podman, set `services.<name>.docker.imagePassthrough: true` and provide the fully qualified image, including the registry, in `services.<name>.image`:
+
+```yml
+name: todo-nodejs-mongo-aca
+metadata:
+  template: todo-nodejs-mongo-aca@0.0.1-beta
+services:
+  nginx:
+    image: docker.io/<username>/nginx:latest
+    host: containerapp
+    docker:
+      imagePassthrough: true
+```
+
+`imagePassthrough` has the following constraints:
+
+* It requires `services.<name>.image` to be set.
+* It can't be combined with `docker.remoteBuild`.
+* It doesn't support the `azd publish` image override flags, `--from-package` and `--to`, for that service.
 
 ### Pull, tag & push to external registry
 
