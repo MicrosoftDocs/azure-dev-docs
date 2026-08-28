@@ -201,7 +201,7 @@ You should now be able to start your application by using the provided Maven wra
 
 Here's a screenshot of the application running for the first time:
 
-:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/spring-data-r2dbc-azure-database-mysql-application-running.png" alt-text="Screenshot of terminal output showing the Spring Boot application running for the first time.":::
+:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png" alt-text="Screenshot of terminal output showing the Spring Boot application running for the first time." lightbox="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-01.png":::
 
 ## Create the database schema
 
@@ -220,7 +220,7 @@ Stop the running application, and start it again. The application now uses the `
 
 Here's a screenshot of the database table as it's being created:
 
-:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/spring-data-r2dbc-azure-database-mysql-create-todo-table.png" alt-text="Screenshot of terminal output showing the todo database table being created by the Spring Boot application.":::
+:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png" alt-text="Screenshot of terminal output showing the todo database table being created by the Spring Boot application." lightbox="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-02.png":::
 
 ## Code the application
 
@@ -230,7 +230,7 @@ Next, add the Java code that uses R2DBC to store and retrieve data from your MyS
 
 Here's a screenshot of these cURL requests:
 
-:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/spring-data-r2dbc-curl-test-requests-responses.png" alt-text="Screenshot of cURL requests and responses used to test the reactive Spring Boot application.":::
+:::image type="content" source="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png" alt-text="Screenshot of cURL requests and responses used to test the reactive Spring Boot application." lightbox="media/configure-spring-data-r2dbc-with-azure-mysql/create-mysql-03.png":::
 
 Congratulations! You created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure Database for MySQL.
 
