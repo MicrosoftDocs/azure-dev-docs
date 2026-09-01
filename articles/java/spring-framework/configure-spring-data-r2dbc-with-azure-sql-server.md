@@ -1,6 +1,6 @@
 ---
 title: Use Spring Data R2DBC with Azure SQL Database
-description: Learn how to use Spring Data R2DBC with an Azure SQL Database.
+description: Learn how to use Spring Data R2DBC with Azure SQL Database to build a reactive Spring Boot application. Follow the steps to get started.
 ms.author: karler
 ms.reviewer: seal
 ms.date: 08/19/2025
@@ -17,7 +17,7 @@ ms.custom:
 
 # Use Spring Data R2DBC with Azure SQL Database
 
-This article demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure SQL Database](/azure/sql-database/) by using the R2DBC implementation for Microsoft SQL Server from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
+This article shows how to create a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in [Azure SQL Database](/azure/sql-database/) by using the R2DBC implementation for Microsoft SQL Server from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
 
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 
@@ -28,7 +28,7 @@ This article demonstrates creating a sample application that uses [Spring Data R
 
 ## See the sample application
 
-In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-sql-server).
+In this article, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-r2dbc-sql-server).
 
 ## Prepare the working environment
 
@@ -48,7 +48,7 @@ export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_DATABASE_NAME>`: The name of your Azure SQL Database server, which should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but configure a region closer to where you live. See the full list of available regions by using `az account list-locations`.
 - `<AZ_SQL_SERVER_ADMIN_PASSWORD>` and `<AZ_SQL_SERVER_NON_ADMIN_PASSWORD>`: The password of your Azure SQL Database server, which should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
@@ -68,7 +68,7 @@ az group create \
 Next, create a managed Azure SQL Database server instance by running the following command.
 
 > [!NOTE]
-> The MS SQL password has to meet specific criteria, and setup will fail with a non-compliant password. For more information, see [Password Policy](/sql/relational-databases/security/password-policy/).
+> The MS SQL password must meet specific criteria, and setup fails with a non-compliant password. For more information, see [Password Policy](/sql/relational-databases/security/password-policy/).
 
 ```azurecli
 az sql server create \
@@ -82,7 +82,7 @@ az sql server create \
 
 ## Configure a firewall rule for your Azure SQL Database server
 
-Azure SQL Database instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+Azure SQL Database instances are secured by default. They have a firewall that doesn't allow any incoming connection. To use your database, you need to add a firewall rule that allows your local IP address to access the database server.
 
 Because you configured your local IP address at the beginning of this article, you can open the server's firewall by running the following command:
 
@@ -98,13 +98,13 @@ az sql server firewall-rule create \
 
 If you're connecting to your Azure SQL Database server from Windows Subsystem for Linux (WSL) on a Windows computer, you need to add the WSL host ID to your firewall.
 
-Obtain the IP address of your host machine by running the following command in WSL:
+Get the IP address of your host machine by running the following command in WSL:
 
 ```bash
 cat /etc/resolv.conf
 ```
 
-Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
+Copy the IP address following the term `nameserver`, and then use the following command to set an environment variable for the WSL IP Address:
 
 ```bash
 export AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
@@ -138,9 +138,9 @@ az sql db create \
 
 ## Create an SQL database non-admin user and grant permission
 
-This step will create a non-admin user and grant all permissions on the `demo` database to it.
+In this step, you create a non-admin user and grant all permissions on the `demo` database to that user.
 
-Create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script named **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
@@ -155,7 +155,7 @@ GO
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the non-admin user:
+Then, use the following command to run the SQL script and create the non-admin user:
 
 ```bash
 sqlcmd -S $AZ_DATABASE_NAME.database.windows.net,1433  -d demo -U $AZ_SQL_SERVER_ADMIN_USERNAME -P $AZ_SQL_SERVER_ADMIN_PASSWORD  -i create_user.sql
@@ -207,7 +207,7 @@ Replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_SQL_SERVER_NON_ADMIN_
 > [!NOTE]
 > For better performance, the `spring.r2dbc.url` property is configured to use a connection pool using [r2dbc-pool](https://github.com/r2dbc/r2dbc-pool).
 
-You should now be able to start your application by using the provided Maven wrapper as follows:
+You can now start your application by using the provided Maven wrapper as follows:
 
 ```bash
 ./mvnw spring-boot:run
@@ -226,7 +226,7 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id INT IDENTITY PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
 ```
 
-Stop the running application, and start it again using the following command. The application will now use the `demo` database that you created earlier, and create a `todo` table inside it.
+Stop the running application, and start it again using the following command. The application now uses the `demo` database that you created earlier, and creates a `todo` table inside it.
 
 ```bash
 ./mvnw spring-boot:run
@@ -238,7 +238,7 @@ Here's a screenshot of the database table as it's being created:
 
 ## Code the application
 
-Next, add the Java code that will use R2DBC to store and retrieve data from your Azure SQL Database server.
+Next, add the Java code that uses R2DBC to store and retrieve data from your Azure SQL Database server.
 
 [!INCLUDE [spring-data-r2dbc-create-application.md](includes/spring-data-r2dbc-create-application.md)]
 
@@ -246,7 +246,7 @@ Here's a screenshot of these cURL requests:
 
 :::image type="content" source="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-03.png" alt-text="Screenshot of the cURL test." lightbox="media/configure-spring-data-r2dbc-with-azure-azure-sql/create-azure-sql-03.png":::
 
-Congratulations! You've created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure SQL Database.
+Congratulations! You created a fully reactive Spring Boot application that uses R2DBC to store and retrieve data from Azure SQL Database.
 
 [!INCLUDE [spring-data-conclusion.md](includes/spring-data-conclusion.md)]
 
