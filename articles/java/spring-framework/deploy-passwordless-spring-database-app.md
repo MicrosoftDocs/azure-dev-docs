@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy to Azure Spring Apps with passwordless connection to Azure database'
-description: Create a Spring Boot application with passwordless connection to an Azure database and deploy to Azure Spring Apps.
+title: 'Deploy to Azure Spring Apps With a Passwordless Connection'
+description: Follow this tutorial to deploy a Spring Boot app to Azure Spring Apps with a passwordless connection to Azure Database for MySQL, PostgreSQL, or Azure SQL.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -20,25 +20,25 @@ ms.custom:
 
 This article shows you how to use passwordless connections to Azure databases in Spring Boot applications deployed to Azure Spring Apps.
 
-In this tutorial, you complete the following tasks using the Azure portal or the Azure CLI. Both methods are explained in the following procedures.
+In this tutorial, you complete the following tasks by using the Azure portal or the Azure CLI. Both methods are explained in the following procedures.
 
 > [!div class="checklist"]
 > - Provision an instance of Azure Spring Apps.
 > - Build and deploy apps to Azure Spring Apps.
-> - Run apps connected to Azure databases using managed identity.
+> - Run apps connected to Azure databases by using managed identity.
 
 > [!NOTE]
 > This tutorial doesn't work for R2DBC.
 
 ## Prerequisites
 
-- An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-- [Azure CLI](/cli/azure/install-azure-cli) 2.45.0 or higher required.
-- The Azure Spring Apps extension. You can install the extension by using the command: `az extension add --name spring`.
+- An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
+- The Azure Spring Apps extension. Install the extension by using the command: `az extension add --name spring`.
 - [Java Development Kit (JDK)](../fundamentals/java-support-on-azure.md), version 8, 11, or 17.
 - A [Git](https://git-scm.com/downloads) client.
 - [cURL](https://curl.haxx.se) or a similar HTTP utility to test functionality.
-- MySQL command line client if you choose to run Azure Database for MySQL. You can connect to your server with Azure Cloud Shell using a popular client tool, the [mysql.exe](https://dev.mysql.com/downloads/) command-line tool. Alternatively, you can use the `mysql` command line in your local environment.
+- MySQL command-line client if you choose to run Azure Database for MySQL. You can connect to your server with Azure Cloud Shell by using a popular client tool, the [mysql.exe](https://dev.mysql.com/downloads/) command-line tool. Alternatively, you can use the `mysql` command line in your local environment.
 - [ODBC Driver 18 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server) if you choose to run Azure SQL Database.
 
 ## Prepare the working environment
@@ -60,7 +60,7 @@ export AZ_USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
 Replace the placeholders with the following values, which are used throughout this article:
 
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your Azure Database server, which should be unique across Azure.
-- `<YOUR_AZURE_REGION>`: The Azure region you want to use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
+- `<YOUR_AZURE_REGION>`: The Azure region you want to use. You can use `eastus` by default, but configure a region closer to where you live. See the full list of available regions by using `az account list-locations`.
 - `<YOUR_AZURE_SPRING_APPS_SERVICE_NAME>`: The name of your Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 - `<AZ_DB_ADMIN_USERNAME>`: The admin username of your Azure database server.
 - `<AZ_DB_ADMIN_PASSWORD>`: The admin password of your Azure database server.
@@ -114,7 +114,7 @@ Use the following steps to provision an Azure Database instance.
    ```
 
 > [!NOTE]
-> If you don't provide `admin-user` or `admin-password` parameters, the system will generate a default admin user or a random admin password by default.
+> If you don't provide `admin-user` or `admin-password` parameters, the system generates a default admin user or a random admin password.
 
 1. Create a new database by using the following command:
 
@@ -140,7 +140,7 @@ Use the following steps to provision an Azure Database instance.
    ```
 
 > [!NOTE]
-> If you don't provide `admin-user` or `admin-password` parameters, the system will generate a default admin user or a random admin password by default.
+> If you don't provide `admin-user` or `admin-password` parameters, the system generates a default admin user or a random admin password.
 
 1. The PostgreSQL server is empty, so create a new database by using the following command:
 
@@ -224,15 +224,15 @@ az spring connection create mysql-flexible \
     --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID
 ```
 
-This Service Connector command does the following tasks in the background:
+This Service Connector command runs the following tasks in the background:
 
-- Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
-- Set the Microsoft Entra admin to the current signed-in user.
-- Add a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grant all privileges of the database `$AZ_DATABASE_NAME` to this user.
-- Add two configurations to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url` and `spring.datasource.username`.
+- Enables system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
+- Sets the Microsoft Entra admin to the current signed-in user.
+- Adds a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grants all privileges of the database `$AZ_DATABASE_NAME` to this user.
+- Adds two configurations to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url` and `spring.datasource.username`.
 
   > [!NOTE]
-  > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
+  > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, and then run the connection command again.
 
 ### [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -249,24 +249,24 @@ az spring connection create postgres-flexible \
     --system-identity
 ```
 
-This Service Connector command does the following tasks in the background:
+This Service Connector command runs the following tasks in the background:
 
-- Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
-- Set the Microsoft Entra admin to current sign-in user.
-- Add a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grant all privileges of the database `$AZ_DATABASE_NAME` to this user.
-- Add two configurations to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url` and `spring.datasource.username`.
+- Enables system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
+- Sets the Microsoft Entra admin to the current sign-in user.
+- Adds a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grants all privileges of the database `$AZ_DATABASE_NAME` to this user.
+- Adds two configurations to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url` and `spring.datasource.username`.
 
   > [!NOTE]
-  > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
+  > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, and then run the connection command again.
 
 ### [Azure SQL Database](#tab/sqlserver)
 
 > [!NOTE]
-> Please make sure Azure CLI use the 64-bit Python, 32-bit Python has compatibility issue with the command's dependency [pyodbc](https://pypi.org/project/pyodbc/).
+> Ensure Azure CLI uses the 64-bit Python. The 32-bit Python version has compatibility issues with the command's dependency [pyodbc](https://pypi.org/project/pyodbc/).
 >
-> The Python information of Azure CLI can be got with command `az --version`. If it shows `[MSC v.1929 32 bit (Intel)]`, then it means it use 32-bit Python.
+> Use the command `az --version` to get the Python information of Azure CLI. If it shows `[MSC v.1929 32 bit (Intel)]`, it uses 32-bit Python.
 >
-> The solution is to install 64-bit Python and install Azure CLI from [PyPI](https://pypi.org/project/azure-cli/).
+> Install 64-bit Python and install Azure CLI from [PyPI](https://pypi.org/project/azure-cli/) to resolve this issue.
 
 Use the following command to create a passwordless connection to the database.
 
@@ -281,15 +281,15 @@ az spring connection create sql \
     --system-identity
 ```
 
-This Service Connector command does the following tasks in the background:
+This Service Connector command runs the following tasks in the background:
 
-- Enable system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
-- Set the Microsoft Entra admin to current sign-in user.
-- Add a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grant all privileges of the database `$AZ_DATABASE_NAME` to this user.
-- Add one configuration to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url`.
+- Enables system-assigned managed identity for the app `$AZ_SPRING_APPS_APP_NAME` hosted by Azure Spring Apps.
+- Sets the Microsoft Entra admin to the current sign-in user.
+- Adds a database user named `$AZ_SPRING_APPS_SERVICE_NAME/apps/$AZ_SPRING_APPS_APP_NAME` for the managed identity created in step 1 and grants all privileges of the database `$AZ_DATABASE_NAME` to this user.
+- Adds one configuration to the app `$AZ_SPRING_APPS_APP_NAME`: `spring.datasource.url`.
 
   > [!NOTE]
-  > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
+  > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, and then run the connection command again.
 
 ---
 
@@ -357,7 +357,7 @@ The following steps describe how to download, configure, build, and deploy the s
    </dependency>
    ```
 
-   There's currently no Spring Cloud Azure starter for Azure SQL Database, but the `azure-identity` dependency is required.
+   Currently, there's no Spring Cloud Azure starter for Azure SQL Database, but you need the `azure-identity` dependency.
 
 1. Use the following command to update the **application.properties** file:
 
@@ -396,7 +396,7 @@ The following steps describe how to download, configure, build, and deploy the s
    EOF
    ```
 
-1. Use the following commands to build the project using Maven:
+1. Use the following commands to build the project by using Maven:
 
    ```bash
    cd passwordless-sample
@@ -422,7 +422,7 @@ The following steps describe how to download, configure, build, and deploy the s
        --output table
    ```
 
-   You should see output similar to the following example.
+   You see output similar to the following example.
 
    ```
    Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
@@ -432,7 +432,7 @@ The following steps describe how to download, configure, build, and deploy the s
 
 ## Test the application
 
-To test the application, you can use cURL. First, create a new "todo" item in the database by using the following command:
+To test the application, use cURL. First, create a new "todo" item in the database by using the following command:
 
 ```bash
 curl --header "Content-Type: application/json" \
@@ -453,7 +453,7 @@ Next, retrieve the data by using the following cURL request:
 curl https://${AZ_SPRING_APPS_SERVICE_NAME}-hellospring.azuremicroservices.io
 ```
 
-This command returns the list of "todo" items, including the item you've created, as shown in the following example:
+This command returns the list of "todo" items, including the item you created, as shown in the following example:
 
 ```json
 [{"id":1,"description":"configuration","details":"congratulations, you have set up JDBC correctly!","done":true}]
