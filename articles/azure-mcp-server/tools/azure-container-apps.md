@@ -52,7 +52,7 @@ Example prompts include:
 **Example CLI command**
 
 ```console
-azmcp containerapps list \
+azmcp containerapps list
 ```
 
 | Parameter | Type | Required | Description |
