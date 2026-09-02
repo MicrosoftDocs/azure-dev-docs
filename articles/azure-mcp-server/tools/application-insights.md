@@ -46,7 +46,7 @@ Example prompts include:
 **Example CLI command**
 
 ```console
-azmcp applicationinsights recommendation list \
+azmcp applicationinsights recommendation list
 ```
 
 | Parameter | Type | Required | Description |
