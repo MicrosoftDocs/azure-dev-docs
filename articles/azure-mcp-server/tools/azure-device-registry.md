@@ -54,7 +54,7 @@ Example prompts include:
 **Example CLI command**
 
 ```console
-azmcp deviceregistry namespace list \
+azmcp deviceregistry namespace list
 ```
 
 | Parameter | Type | Required | Description |
