@@ -1,11 +1,13 @@
 ---
 title: Azure Policy Tools for Azure MCP Server
 description: Manage Azure Policy assignments effortlessly with Azure MCP Server. Learn how to simplify compliance and governance using natural language prompts.
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 author: diberry
 ms.author: diberry
 reviewer: msalaman
 ms.reviewer: diberry
-ms.date: 01/23/2026
+ms.date: 09/02/2026
 ms.topic: concept-article
 ai-usage: ai-assisted
 content_well_notification:
@@ -60,7 +62,7 @@ azmcp policy assignment list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `scope` | string | No | The scope of the policy assignment (e.g., /subscriptions/{subscriptionId}, /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}). |
+| `scope` | string | No | The scope of the policy assignment (for example, `/subscriptions/{subscriptionId}`, `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`). |
 
 ---
 
