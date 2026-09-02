@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to list and discover Azure Device Regist
 author: diberry
 ms.author: diberry
 ms.reviewer: diberry
-ms.date: 05/21/2026
+ms.date: 09/02/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -12,7 +12,7 @@ ms.custom:
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-mcp-cli.version: "3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30"
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 tool_count: 1
 ---
 
@@ -55,12 +55,10 @@ Example prompts include:
 
 ```console
 azmcp deviceregistry namespace list \
-  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `resource-group` | string | No | The Azure resource group name. |
 
 ---
 
