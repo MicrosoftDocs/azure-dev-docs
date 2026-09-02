@@ -1,9 +1,11 @@
 ---
 title: Azure SignalR Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure SignalR to manage your real-time messaging and communication services.
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 09/02/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ai-usage: ai-assisted
@@ -59,13 +61,11 @@ Example prompts include:
 ```console
 azmcp signalr runtime get \
   [--signalr <signalr>] \
-  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `signalr` | string | No | The name of the SignalR runtime |
-| `resource-group` | string | No | The Azure resource group name. |
 
 ---
 
