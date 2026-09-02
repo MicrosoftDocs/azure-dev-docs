@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
 tool_count: 6
-mcp-cli.version: "2.0.0-beta.33"
+mcp-cli.version: "3.0.0-beta.38+0cac8a66daeab3b89620af5395a293e710d4a72a"
 ---
 
 # Azure MCP Server tools for Azure AI Search
@@ -54,7 +54,7 @@ Example prompts include:
 
 This tool runs a search query against an Azure AI Search index and returns the matching documents and relevance metadata. Results typically include document fields, a relevance score, and any text highlights that match the query.
 
-The tool automatically selects the search behavior based on the target index's schema; there's no parameter to force a specific mode:
+The tool automatically selects keyword-only or hybrid search based on the target index's schema; there's no parameter to force either behavior:
 
 - **Keyword search**: If the index has no vector fields, the tool sends your query text as a lexical (keyword) search and returns matches ranked by traditional text relevance.
 - **Hybrid search**: If the index has one or more vector fields that use a vector search profile with a configured vectorizer, the tool sends your query text as both a lexical query and a vector query. Azure AI Search runs both searches and merges the two ranked result sets using [Reciprocal Rank Fusion (RRF)](/azure/search/hybrid-search-overview) to produce a single combined ranking.
@@ -77,7 +77,7 @@ If `products-vectorized` has vector fields with a configured vectorizer, this pr
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Index** |  Required | The name of the search index within the Azure AI Search service. |
 | **Query** |  Required | The search query to execute against the Azure AI Search index. |
-| **Query type** |  Optional | The lexical query syntax to use: `simple`, `full` (default), or `semantic`. `semantic` requires the index to have a semantic configuration and applies semantic ranking in addition to any automatic hybrid vector search. |
+| **Query type** |  Optional | The query processing to use. `simple` uses the simple query syntax, `full` (default) uses the full Lucene query syntax, and `semantic` applies semantic ranking in addition to any automatic hybrid vector search. `semantic` requires the index to have a semantic configuration. |
 | **Semantic configuration** |  Optional | The semantic configuration to use when **Query type** is `semantic`. If omitted, the index's default semantic configuration is used. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
