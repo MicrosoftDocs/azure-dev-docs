@@ -60,7 +60,7 @@ Example prompts include:
 
 ```console
 azmcp signalr runtime get \
-  [--signalr <signalr>] \
+  [--signalr <signalr>]
 ```
 
 | Parameter | Type | Required | Description |
