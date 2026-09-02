@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to manage containerized applications and
 author: diberry
 ms.author: diberry
 reviewer: ArthurMa1978
-ms.date: 4/6/2026
+ms.date: 09/02/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -13,7 +13,7 @@ ai-usage: ai-generated
 content_well_notification:
   - AI-contribution
 tool_count: 1
-mcp-cli.version: "2.0.0-beta.39"
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 ---
 
 # Azure MCP Server tools for Azure Container Apps
@@ -53,12 +53,10 @@ Example prompts include:
 
 ```console
 azmcp containerapps list \
-  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `resource-group` | string | No | The Azure resource group name. |
 
 ---
 
