@@ -1,9 +1,11 @@
 ---
 title: Application Insights Tools
 description: Use Azure MCP Server with Application Insights to list resources and code optimization recommendations using natural language prompts.
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 09/02/2026
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -45,12 +47,10 @@ Example prompts include:
 
 ```console
 azmcp applicationinsights recommendation list \
-  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `resource-group` | string | No | The Azure resource group name. |
 
 ---
 
