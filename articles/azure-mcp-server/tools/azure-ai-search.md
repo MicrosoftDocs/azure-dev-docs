@@ -54,7 +54,7 @@ Example prompts include:
 
 This tool runs a search query against an Azure AI Search index and returns the matching documents and relevance metadata. Results typically include document fields, a relevance score, and any text highlights that match the query.
 
-The tool automatically selects keyword-only or hybrid search based on the target index's schema; there's no parameter to force either behavior:
+The tool automatically selects keyword-only or hybrid search based on the target index's schema. There's no parameter to force either behavior:
 
 - **Keyword search**: If the index has no vector fields, the tool sends your query text as a lexical (keyword) search and returns matches ranked by traditional text relevance.
 - **Hybrid search**: If the index has one or more vector fields that use a vector search profile with a configured vectorizer, the tool sends your query text as both a lexical query and a vector query. Azure AI Search runs both searches and merges the two ranked result sets using [Reciprocal Rank Fusion (RRF)](/azure/search/hybrid-search-overview) to produce a single combined ranking.
