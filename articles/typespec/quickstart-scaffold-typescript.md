@@ -158,6 +158,8 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
     npm install --save-dev --save-exact typescript@7.0.2
     ```
 
+    For migration context, see [Announcing TypeScript 6.0](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/) and [Announcing TypeScript 7.0](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/).
+
 1. Compile the TypeScript into JavaScript.
 
     ```console
@@ -971,8 +973,8 @@ Or delete the resource group directly from the Azure portal.
 
 **Solution:**
 
-1. Identify the process using port 3000: `netstat -tulpn | grep 3000` (macOS/Linux) or `netstat -ano | findstr :3000` (Windows).
-1. Stop that process, or change the PORT environment variable: `PORT=3001 npm start`.
+1. Identify the process using port 3000: `lsof -nP -iTCP:3000 -sTCP:LISTEN` (macOS), `ss -ltnp 'sport = :3000'` (Linux), or `Get-NetTCPConnection -LocalPort 3000` (PowerShell).
+1. Stop that process, or change the `PORT` environment variable: `PORT=3001 npm start` (macOS/Linux) or `$env:PORT=3001; npm start` (PowerShell).
 
 ### Node.js version mismatch
 
@@ -1010,7 +1012,7 @@ Or delete the resource group directly from the Azure portal.
 **Solution:**
 
 1. Install missing dependencies: `cd ./tsp-output/server && npm install @azure/cosmos @azure/identity`.
-1. For port conflicts, change PORT in `index.ts` or use `PORT=3001 npm start`.
+1. For port conflicts, change `PORT` in `index.ts`, or use `PORT=3001 npm start` (macOS/Linux) or `$env:PORT=3001; npm start` (PowerShell).
 
 ## Next steps
 
