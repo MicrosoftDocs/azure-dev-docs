@@ -175,7 +175,7 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
 
 ## Change persistence to Azure Cosmos DB for NoSQL
 
-Now that the basic Express.js API server is working, update the Express.js server to work with [Azure Cosmos DB for NoSQL](/azure/cosmos-db/) for a persistent data store. This includes changes to the `index.ts` to use Azure Cosmos DB integration in the middleware. All changes should happen outside the `./tsp-output/server/src/generated` directory.
+Now that the basic Express.js API server is working, update the Express.js server to work with [Azure Cosmos DB for NoSQL](/azure/cosmos-db/) for a persistent data store. This update includes changes to the `index.ts` file to use Azure Cosmos DB integration in the middleware. Make all changes outside the `./tsp-output/server/src/generated` directory.
 
 1. In the `./tsp-output/server` directory, add [Azure Cosmos DB for NoSQL](/azure/cosmos-db/) to the project:
 
