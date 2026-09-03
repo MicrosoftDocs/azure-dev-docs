@@ -99,7 +99,7 @@ azd extension install <extension-names> [flags]
 
 Replace `<extension-name>` with the name of the extension you want to install.
 
-- `-v, --version` Specifies the version constraint to apply when installing extensions.
+- `-v, --version` Specifies the exact version to install. This option doesn't accept version ranges or constraints and can't be used when installing a self-contained bundle (`.zip` file path or URL).
 - `-s, --source` Specifies the extension source used for installations. The source name must be a valid registered source name.
 
 **Upgrade an extension**
@@ -109,7 +109,7 @@ azd extension upgrade <extension-name>
 ```
 
 - `--all` Upgrades all previously installed extensions when specified.
-- `-v, --version` Upgrades a specified extension using a version constraint, if provided.
+- `-v, --version` Upgrades a specified extension to the exact version, if provided. This option doesn't accept version ranges or constraints.
 - `-s, --source` Specifies the extension source used for installations. The source name must be a valid registered source name.
 
 **Uninstall an extension**

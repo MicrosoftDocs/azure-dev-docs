@@ -152,7 +152,7 @@ dependencies:
     version: "^1.0.0"
 ```
 
-`azd` installs or upgrades to the highest published version that satisfies each constraint. Common constraint formats include:
+`azd` installs or upgrades to the highest dependency version that satisfies each constraint and is compatible with the current `azd` version, based on the dependency's `requiredAzdVersion` property. If only incompatible releases satisfy the constraint, `azd` reports a compatibility error and provides guidance to resolve it. Common constraint formats include:
 
 - `^1.0.0`: Compatible with version 1.x.x.
 - `~1.2.0`: Compatible with version 1.2.x.
@@ -175,7 +175,7 @@ dependencies:
     version: "~0.1.0"
 ```
 
-Installing a pack recursively installs its dependencies from the same extension source as the pack.
+Installing a pack recursively installs its dependencies. For each dependency, `azd` selects the highest version that satisfies the declared constraint and is compatible with the current `azd` version based on the dependency's `requiredAzdVersion` property.
 
 ## Related content
 
