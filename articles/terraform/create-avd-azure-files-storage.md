@@ -9,21 +9,21 @@ ms.custom: devx-track-terraform
 
 # Configure Azure Files using Terraform
 
-Article tested with the following Terraform and Terraform provider versions:
+This article was tested with the following Terraform and Terraform provider versions:
 
 - [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-Azure offers multiple storage solutions that you can use to store your FSLogix profiles container. This article covers configuring Azure Files storage solutions for Azure Virtual Desktop FSLogix user profile containers using Terraform
+Azure offers multiple storage solutions that you can use to store your FSLogix profiles container. This article covers configuring Azure Files storage solutions for Azure Virtual Desktop FSLogix user profile containers using Terraform.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Use Terraform to Azure File Storage account
-> * Use Terraform to configure File Share
-> * Use Terraform to configure RBAC permission on Azure File Storage
+> * Use Terraform to create an Azure File Storage account.
+> * Use Terraform to configure a File Share.
+> * Use Terraform to configure RBAC permissions on Azure File Storage.
 
 ## 1. Configure your environment
 
@@ -33,17 +33,19 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-1. Create a directory in which to test the sample Terraform code and make it the current directory.
+1. Create a directory to test the sample Terraform code and set it as the current directory.
 
-1. Create a file named `providers.tf` and insert the following code.
+1. Create a file named `providers.tf` and add the following code.
 
     [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/provider.tf)]
 
-1. Create a file named `main.tf` and insert the following code:
-
+1. Create a file named `main.tf` and add the following code:
+   
     [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/afstorage.tf)]
 
-1. Create a file named `variables.tf` and insert the following code:
+    [!INCLUDE [Storage account conversion drift warning](includes/storage-account-conversion-drift-warning.md)]
+
+1. Create a file named `variables.tf` and add the following code:
 
 ```
 variable "deploy_location" {
@@ -73,7 +75,7 @@ variable "aad_group_name" {
 }
 ```
 
-2. Create a file named `output.tf` and insert the following code:
+5. Create a file named `output.tf` and add the following code:
 
 ```
 output "location" {

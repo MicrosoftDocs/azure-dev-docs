@@ -62,13 +62,6 @@ Build retrieval-augmented generation (RAG) applications using [Azure OpenAI](/az
 - [Quickstart: Build a RAG app with JavaScript](/azure/developer/javascript/get-started-app-chat-template)
 - [Sample repository](https://github.com/Azure-Samples/azure-search-openai-javascript)
 
-### Azure OpenAI Assistants
-
-Create intelligent assistants with function calling capabilities using [Azure OpenAI Service](/azure/ai-services/openai/overview).
-
-- [Quickstart: Build an assistants app with function calling](/azure/developer/javascript/ai/get-started-app-chat-assistants-function-calling)
-- [Sample repository](https://github.com/Azure-Samples/azure-openai-assistant-javascript)
-
 ## Data and storage
 
 ### Azure Blob Storage
