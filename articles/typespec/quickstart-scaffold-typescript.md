@@ -28,7 +28,7 @@ This quickstart covers the end-to-end development and deployment workflow. Compl
 
 ## Developing with TypeSpec
 
-TypeSpec defines your API in a language-agnostic way and generates the API server and client library for multiple platforms. For more background, see [What is TypeSpec?](overview.md). This functionality allows you to:
+TypeSpec defines your API in a language-agnostic way and generates the API server and client library for multiple platforms. For more background, see [What is TypeSpec?](overview.md) This functionality allows you to:
 
 * Define your API contract once
 * Generate consistent server and client code
