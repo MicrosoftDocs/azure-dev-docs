@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a New API Project with TypeSpec and TypeScript"
+title: "Scaffold a TypeScript API Project"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.date: 09/03/2026
 ms.topic: quickstart
@@ -11,22 +11,11 @@ ai-usage: ai-assisted
 
 # Quickstart: Create a new API project with TypeSpec and TypeScript
 
-In this quickstart: learn how to use TypeSpec to design, generate, and implement a RESTful TypeScript API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
+In this quickstart, you scaffold a RESTful TypeScript API from a TypeSpec definition, add Azure Cosmos DB for NoSQL persistence, and deploy the API to Azure Container Apps.
 
-You'll use TypeSpec emitters to generate API artifacts and `hsjs-scaffold` to create the complete Express.js server host with routing and Swagger UI, connect it to Azure Cosmos DB for NoSQL for persistence, and deploy it to Azure Container Apps.
+You'll use TypeSpec emitters and `hsjs-scaffold` to generate an Express.js server with routing and Swagger UI. You'll then run and test the API locally and in Azure.
 
-For context on TypeSpec's role in API development, see [Overview of TypeSpec](overview.md).
-
-**Time to complete:** 15–20 minutes
-
-In this quickstart, you:
-
-> [!div class="checklist"]
-> * Define your API using TypeSpec
-> * Create an API server application
-> * Integrate Azure Cosmos DB for persistent storage
-> * Deploy to Azure
-> * Run and test your API
+This quickstart covers the end-to-end development and deployment workflow. Completion time varies based on dependency installation and Azure resource provisioning.
 
 > [!IMPORTANT]
 > The [`@typespec/http-server-js` emitter](https://github.com/microsoft/typespec/tree/main/packages/http-server-js) is highly experimental and might introduce breaking changes or bugs.
@@ -39,7 +28,7 @@ In this quickstart, you:
 
 ## Developing with TypeSpec
 
-TypeSpec defines your API in a language-agnostic way and generates the API server and client library for multiple platforms. This functionality allows you to:
+TypeSpec defines your API in a language-agnostic way and generates the API server and client library for multiple platforms. For more background, see [What is TypeSpec?](overview.md). This functionality allows you to:
 
 * Define your API contract once
 * Generate consistent server and client code
@@ -176,7 +165,7 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
 
 1. Open the browser and go to `http://localhost:3000/.api-docs`. 
     
-    :::image type="content" source="media/quickstart-scaffold/default-widget-swagger-ui.png" alt-text="Screenshot of browser displaying Swagger UI for Widgets API.":::
+    :::image type="content" border="true" source="media/quickstart-scaffold/default-widget-swagger-ui.png" alt-text="Screenshot of a browser displaying Swagger UI for the Widgets API." loc-scope="third-party":::
 
 1. The default TypeSpec API and server both work. If you want to finish off this API server, add your business logic to support the Widgets APIs in `./tsp-output/server/src/controllers/widgets.ts`. The UI is connected to the API which returns hardcoded fake data. 
 
