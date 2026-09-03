@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a New API Project with TypeSpec and TypeScript"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
-ms.date: 09/02/2026
+ms.date: 09/03/2026
 ms.topic: quickstart
 ms.custom:
   - devx-track-typespec, devx-track-js, devx-track-ts
@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 In this quickstart: learn how to use TypeSpec to design, generate, and implement a RESTful TypeScript API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
 
-You'll use TypeSpec's code generator to scaffold an Express.js server with routing and Swagger UI, connect it to Azure Cosmos DB for persistence, and deploy to Azure Container Apps.
+You'll use TypeSpec emitters to generate API artifacts and `hsjs-scaffold` to create the complete Express.js server host with routing and Swagger UI, connect it to Azure Cosmos DB for NoSQL for persistence, and deploy it to Azure Container Apps.
 
 For context on TypeSpec's role in API development, see [Overview of TypeSpec](overview.md).
 
@@ -80,7 +80,7 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
 
 1. Initialize the TypeSpec project:
 
-    ```
+    ```console
     tsp init
     ```
 
@@ -133,14 +133,14 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
         express: true
     ```
     
-    This configuration creates a complete Express.js API server:
+    This configuration enables Express.js middleware generation. The `hsjs-scaffold` command in the next step creates the complete Express.js host, including Swagger UI:
 
-    * `express`: Generate the Express.js API server, including the Swagger UI.
+    * `express`: Generate Express.js routing middleware.
     * `emitter-output-dir`: Generate everything into `./server` directory.
 
 1. Delete the existing `./tsp-output`. Don't worry, you'll generate the server in the next step. 
 
-1. Use the TypeSpec JavaScript emitter to create the Express.js server:
+1. Use `hsjs-scaffold` to create the complete Express.js server host and Swagger UI:
 
     ```console
     npx hsjs-scaffold
@@ -184,11 +184,11 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
 
 [!INCLUDE [js-file-structure](includes/quickstart/file-structure-typescript.md)]
 
-## Change persistence to Azure Cosmos DB no-sql
+## Change persistence to Azure Cosmos DB for NoSQL
 
-Now that the basic Express.js API server is working, update the Express.js server to work with [Azure Cosmos DB](/azure/cosmos-db/) for a persistent data store. This includes changes to the `index.ts` to use Cosmos DB integration in the middleware. All changes should happen outside the `./tsp-output/server/src/generated` directory.
+Now that the basic Express.js API server is working, update the Express.js server to work with [Azure Cosmos DB for NoSQL](/azure/cosmos-db/) for a persistent data store. This includes changes to the `index.ts` to use Azure Cosmos DB integration in the middleware. All changes should happen outside the `./tsp-output/server/src/generated` directory.
 
-1. In the `./tsp-output/server` directory, add [Azure Cosmos DB](/azure/cosmos-db/) to the project:
+1. In the `./tsp-output/server` directory, add [Azure Cosmos DB for NoSQL](/azure/cosmos-db/) to the project:
 
     ```console
     npm install @azure/cosmos
@@ -484,7 +484,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
           }
     
           // First check if the widget exists
-          const { resource: item } = await container.item(id).read<WidgetDocument>();
+          const { resource: item } = await container.item(id, id).read<WidgetDocument>();
           if (!item) {
             return buildError({statusCode:404}, `Widget with id ${id} not found`);
           }
@@ -497,7 +497,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
           };
     
           // Replace the document in Cosmos DB
-          const { resource } = await container.item(id).replace(updatedWidget);
+          const { resource } = await container.item(id, id).replace(updatedWidget);
     
           if (!resource) {
             return buildError({statusCode:500}, `Failed to update widget ${id}: No resource returned`);
@@ -691,7 +691,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
 1. Create a `./infra/main.bicep` file and copy in the following to define the Azure resources for provisioning and deployment:
 
     ```bicep
-    metadata description = 'Bicep template for deploying a GitHub App using Azure Container Apps and Azure Container Registry.'
+    metadata description = 'Bicep template for deploying the TypeSpec Widgets API using Azure Container Apps, Azure Container Registry, and Azure Cosmos DB for NoSQL.'
     
     targetScope = 'resourceGroup'
     param serviceName string = 'api'
