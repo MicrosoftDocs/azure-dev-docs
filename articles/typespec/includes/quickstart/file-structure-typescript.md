@@ -3,7 +3,7 @@ ms.custom: devx-track-ts, devx-track-typespec
 ms.topic: include
 ms.date: 09/03/2026
 ---
-The Express.js project structure found at `tsp-output/server/` includes the generated server, package files, configuration, and middleware for your Azure integration.
+The Express.js project structure at `tsp-output/server/` includes the generated server, package files, configuration, and middleware for your Azure integration.
 
 ```console
 server
