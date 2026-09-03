@@ -3,7 +3,7 @@ title: Extension development concepts
 description: Learn the core concepts for developing Azure Developer CLI (azd) extensions, including the developer extension, the azdext SDK, and the gRPC communication model.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/13/2026
+ms.date: 09/03/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
@@ -13,9 +13,6 @@ ai-usage: ai-generated
 # Extension development concepts
 
 Azure Developer CLI (`azd`) [extensions](../overview.md) add new commands, automate workflows, and integrate other services with `azd`. This article explains the concepts you need to understand before you build an extension, such as the developer tooling, the software development kit (SDK), and how `azd` communicates with a running extension. To learn what extensions are from a user perspective, see the [extensions overview](../overview.md).
-
-> [!NOTE]
-> The `azd` extension framework is generally available. Individual extensions or capabilities might have their own preview status.
 
 ## The developer extension
 
@@ -32,7 +29,7 @@ The fastest way to build extensions is to use the `azd` developer extension (`mi
 
 The [Build a sample extension quickstart](quickstart-build-extension.md) shows you how to install the developer extension and scaffold your first extension.
 
-The developer extension supports registry-based publishing workflows and portable bundle distribution. Use `azd x pack` to create platform artifacts for release and registry publication, or create a self-contained `.zip` bundle when you need to share an extension without hosting a registry. For step-by-step guidance, see [Publish an extension](publish-extensions.md).
+The developer extension supports registry-based publishing workflows and portable bundle distribution. Use `azd x pack` to create platform artifacts for release and registry publication, or create a self-contained `.zip` bundle when you need to share an extension without hosting a registry. Bundles can be installed from a local file or hosted remotely at an HTTPS URL. For step-by-step guidance, see [Publish an extension](publish-extensions.md).
 
 ## The extension framework and gRPC
 
@@ -66,6 +63,7 @@ The `azdext` package is the Go SDK for the extension framework. It provides a gR
 - Build a root command that registers the standard `azd` flags and environment variable handling.
 - Attach the `azd` access token to outgoing requests.
 - Call `azd` framework services, such as the Project, Environment, Account, and Prompt services.
+- Report named usage events through the `TelemetryService.ReportUsage` gRPC API for official-source extensions. For API usage details, see [Communicate with azd by using the SDK](extension-sdk.md).
 - Register lifecycle event handlers and custom providers through an extension host.
 
 To learn how to call `azd` services from your extension, see [Communicate with azd by using the SDK](extension-sdk.md).
@@ -100,7 +98,7 @@ For extensions authored in languages other than Go, you can generate gRPC client
 
 ## Extension registries
 
-You distribute extensions through extension sources. Extension sources are URL-based or file-based manifests that describe available extensions and their artifacts. `azd` also supports portable bundle files for direct installation when you don't want to host a registry.
+You distribute extensions through registry sources or extension bundles. Registry sources are URL-based or file-based manifests that describe available extensions and their artifacts. Extension bundles are portable `.zip` packages that you can install directly from a local file or host remotely at an HTTPS URL when you don't want to host a registry.
 
 - The **official registry** is preconfigured in `azd` and hosts vetted, first-party extensions. Official extensions are developed in a fork of the [azure/azure-dev](https://github.com/azure/azure-dev) repository.
 - **URL-based sources** let you install from remote public or private registry manifests.

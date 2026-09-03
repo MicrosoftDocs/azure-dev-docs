@@ -4,7 +4,7 @@ description: Get sample code for working with Azure Container Service from your 
 author: bmitchell287
 ms.author: brendm
 ms.reviewer: jogiles
-ms.date: 06/02/2025
+ms.date: 09/03/2026
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
