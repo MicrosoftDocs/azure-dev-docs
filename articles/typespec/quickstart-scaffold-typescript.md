@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a New API Project with TypeSpec and TypeScript"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
-ms.date: 03/10/2026
+ms.date: 09/02/2026
 ms.topic: quickstart
 ms.custom:
   - devx-track-typespec, devx-track-js, devx-track-ts
@@ -29,7 +29,7 @@ In this quickstart, you:
 > * Run and test your API
 
 > [!IMPORTANT]
-> `@typespec/http-server-js` emitter is currently in PREVIEW.
+> The [`@typespec/http-server-js` emitter](https://github.com/microsoft/typespec/tree/main/packages/http-server-js) is highly experimental and might introduce breaking changes or bugs.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 ## Prerequisites
@@ -152,10 +152,16 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
     cd ./tsp-output/server
     ```
 
+1. Install TypeScript 7.0.2 as an exact development dependency:
+
+    ```console
+    npm install --save-dev --save-exact typescript@7.0.2
+    ```
+
 1. Compile the TypeScript into JavaScript.
 
     ```console
-    tsc
+    npm exec -- tsc
     ```
 
 1. Run the project:
@@ -569,7 +575,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
 1. In a terminal at `./tsp-output/server`, compile the TypeScript into JavaScript.
 
     ```console
-    tsc
+    npm exec -- tsc
     ```
 
     The project now builds with Cosmos DB integration. Let's create the deployment scripts to create the Azure resources and deploy the project.
@@ -619,36 +625,29 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
 
     ```dockerfile
     # Stage 1: Build stage
-    FROM node:20-alpine AS builder
+    FROM node:24-alpine AS builder
     
     WORKDIR /app
     
-    # Install TypeScript globally
-    RUN npm install -g typescript
-    
     # Copy package files first to leverage Docker layer caching
     COPY package*.json ./
-    
-    # Create the tsp-output/server directory structure
-    RUN mkdir -p tsp-output/server
-    
-    # Copy server package.json 
-    COPY tsp-output/server/package.json ./tsp-output/server/
+    COPY tsp-output/server/package*.json ./tsp-output/server/
     
     # Install build and dev dependencies
-    RUN npm i --force --no-package-lock
-    RUN cd tsp-output/server && npm install
+    RUN npm ci
+    RUN cd tsp-output/server && npm ci
     
     # Copy the rest of the application code
     COPY . .
     
-    # Build the TypeScript code
-    RUN cd tsp-output/server && tsc
+    # Regenerate the server with a cross-platform TypeSpec command, then build it
+    RUN npm exec -- tsp compile --output-dir="./tsp-output" .
+    RUN cd tsp-output/server && npm exec -- tsc
     
     #---------------------------------------------------------------
     
     # Stage 2: Runtime stage
-    FROM node:20-alpine AS runtime
+    FROM node:24-alpine AS runtime
     
     # Set NODE_ENV to production for better performance
     ENV NODE_ENV=production
@@ -656,10 +655,10 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
     WORKDIR /app
     
     # Copy only the server package files
-    COPY tsp-output/server/package.json ./
+    COPY tsp-output/server/package*.json ./
     
     # Install only production dependencies
-    RUN npm install
+    RUN npm ci --omit=dev
     
     # Copy all necessary files from the builder stage
     # This includes the compiled JavaScript, any static assets, etc.
@@ -983,7 +982,7 @@ Or delete the resource group directly from the Azure portal.
 
 1. Verify your Node.js version: `node --version`.
 1. Ensure it's an LTS version. Update from [nodejs.org](https://nodejs.org/) or your package manager.
-1. Clear npm cache: `npm cache clean --force`, then reinstall: `npm install -g @typespec/compiler`.
+1. Clear the npm cache with `npm cache clean --force`, then reinstall the project dependencies with `npm ci`.
 
 ### @typespec/http-server-js emitter not found
 
@@ -1001,7 +1000,7 @@ Or delete the resource group directly from the Azure portal.
 
 **Solution:**
 
-1. Regenerate the server after modifying `main.tsp`: `tsp compile .`, then `cd ./tsp-output/server && tsc`.
+1. Regenerate the server after modifying `main.tsp`: `npm exec -- tsp compile .`, then `cd ./tsp-output/server && npm exec -- tsc`.
 1. Ensure your custom controller code is **outside** the `./generated` directory. Don't edit generated files directly.
 
 ### Express.js server crashes on startup

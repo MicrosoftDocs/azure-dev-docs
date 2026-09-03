@@ -3,25 +3,25 @@ ms.custom: devx-track-ts, devx-track-typespec
 ms.topic: include
 ms.date: 04/23/2025
 ---
-The Express.js project structure found at `tsp-output/server/` includes the generated server, the package.json, and the middleware for your Azure integration. 
+The Express.js project structure found at `tsp-output/server/` includes the generated server, package files, configuration, and middleware for your Azure integration.
 
 ```console
 server
-├── package.json
+├── .vscode
+│   ├── launch.json
+│   └── tasks.json
 ├── package-lock.json
+├── package.json
+├── schema
+│   └── openapi.yaml
 ├── src
 │   ├── controllers
 │   │   └── widgets.ts
 │   ├── generated
 │   │   ├── helpers
-│   │   │   ├── datetime.ts
 │   │   │   ├── header.ts
 │   │   │   ├── http.ts
-│   │   │   ├── multipart.ts
-│   │   │   ├── router.ts
-│   │   │   └── temporal
-│   │   │       ├── native.ts
-│   │   │       └── polyfill.ts
+│   │   │   └── router.ts
 │   │   ├── http
 │   │   │   ├── openapi3.ts
 │   │   │   ├── operations
@@ -29,19 +29,20 @@ server
 │   │   │   └── router.ts
 │   │   └── models
 │   │       └── all
-│   │           ├── demo-service.ts
-│   │           └── typespec.ts
+│   │           └── demo-service.ts
 │   ├── index.ts
 │   └── swagger-ui.ts
+└── tsconfig.json
 ```
 
 The file structure for the parent TypeSpec project includes this Express.js project in `tsp-output`:
 
 ```console
-├── tsp-output
 ├── .gitignore
 ├── main.tsp
 ├── package-lock.json
 ├── package.json
-├── tspconfig.yaml
+├── tsp-output
+│   └── server
+└── tspconfig.yaml
 ```
