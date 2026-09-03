@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 In this quickstart, you scaffold a RESTful TypeScript API from a TypeSpec definition, add Azure Cosmos DB for NoSQL persistence, and deploy the API to Azure Container Apps.
 
-You'll use TypeSpec emitters and `hsjs-scaffold` to generate an Express.js server with routing and Swagger UI. You'll then run and test the API locally and in Azure.
+You use TypeSpec emitters and `hsjs-scaffold` to generate an Express.js server with routing and Swagger UI. You then run and test the API locally and in Azure.
 
 This quickstart covers the end-to-end development and deployment workflow. Completion time varies based on dependency installation and Azure resource provisioning.
 
