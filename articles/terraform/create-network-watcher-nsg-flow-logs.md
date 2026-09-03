@@ -28,10 +28,10 @@ In this article, you learn how to:
 
 ## 2. Configure an Azure Network Watcher and flow logs
 
-1. Create a directory in which to test the sample Terraform code and make it the current directory.
+1. Create a directory to test the sample Terraform code and set it as the current directory.
 
-1. Create a file named `main.tf` and insert the following code:
-
+1. Create a file named `main.tf` and add the following code:
+   
     ```hcl
     provider azurerm {
       version = "~>2.0"
@@ -114,6 +114,8 @@ In this article, you learn how to:
     }
     ```
 
+[!INCLUDE [Storage account conversion drift warning](includes/storage-account-conversion-drift-warning.md)]
+ 
 ## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
