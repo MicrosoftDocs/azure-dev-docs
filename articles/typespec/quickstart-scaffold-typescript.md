@@ -1,5 +1,5 @@
 ---
-title: "Scaffold a TypeScript API Project"
+title: "Quickstart: Create a New API Project with TypeSpec and TypeScript"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.date: 09/03/2026
 ms.topic: quickstart
@@ -11,14 +11,25 @@ ai-usage: ai-assisted
 
 # Quickstart: Create a new API project with TypeSpec and TypeScript
 
-In this quickstart, you scaffold a RESTful TypeScript API from a TypeSpec definition, add Azure Cosmos DB for NoSQL persistence, and deploy the API to Azure Container Apps.
+In this quickstart: learn how to use TypeSpec to design, generate, and implement a RESTful TypeScript API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
 
-You use TypeSpec emitters and `hsjs-scaffold` to generate an Express.js server with routing and Swagger UI. You then run and test the API locally and in Azure.
+You'll use TypeSpec's code generator to scaffold an Express.js server with routing and Swagger UI, connect it to Azure Cosmos DB for persistence, and deploy to Azure Container Apps.
 
-This quickstart covers the end-to-end development and deployment workflow. Completion time varies based on dependency installation and Azure resource provisioning.
+For context on TypeSpec's role in API development, see [Overview of TypeSpec](overview.md).
+
+**Time to complete:** 15–20 minutes
+
+In this quickstart, you:
+
+> [!div class="checklist"]
+> * Define your API using TypeSpec
+> * Create an API server application
+> * Integrate Azure Cosmos DB for persistent storage
+> * Deploy to Azure
+> * Run and test your API
 
 > [!IMPORTANT]
-> The [`@typespec/http-server-js` emitter](https://github.com/microsoft/typespec/tree/main/packages/http-server-js) is highly experimental and might introduce breaking changes or bugs.
+> `@typespec/http-server-js` emitter is currently in PREVIEW.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 ## Prerequisites
@@ -28,7 +39,7 @@ This quickstart covers the end-to-end development and deployment workflow. Compl
 
 ## Developing with TypeSpec
 
-TypeSpec defines your API in a language-agnostic way and generates the API server and client library for multiple platforms. For more background, see [What is TypeSpec?](overview.md) This functionality allows you to:
+TypeSpec defines your API in a language-agnostic way and generates the API server and client library for multiple platforms. This functionality allows you to:
 
 * Define your API contract once
 * Generate consistent server and client code
@@ -69,7 +80,7 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
 
 1. Initialize the TypeSpec project:
 
-    ```console
+    ```
     tsp init
     ```
 
@@ -122,14 +133,14 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
         express: true
     ```
     
-    This configuration enables Express.js middleware generation. The `hsjs-scaffold` command in the next step creates the complete Express.js host, including Swagger UI:
+    This configuration creates a complete Express.js API server:
 
-    * `express`: Generate Express.js routing middleware.
+    * `express`: Generate the Express.js API server, including the Swagger UI.
     * `emitter-output-dir`: Generate everything into `./server` directory.
 
 1. Delete the existing `./tsp-output`. Don't worry, you'll generate the server in the next step. 
 
-1. Use `hsjs-scaffold` to create the complete Express.js server host and Swagger UI:
+1. Use the TypeSpec JavaScript emitter to create the Express.js server:
 
     ```console
     npx hsjs-scaffold
@@ -141,18 +152,10 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
     cd ./tsp-output/server
     ```
 
-1. Install TypeScript 7.0.2 as an exact development dependency:
-
-    ```console
-    npm install --save-dev --save-exact typescript@7.0.2
-    ```
-
-    For migration context, see [Announcing TypeScript 6.0](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/) and [Announcing TypeScript 7.0](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/).
-
 1. Compile the TypeScript into JavaScript.
 
     ```console
-    npm exec -- tsc
+    tsc
     ```
 
 1. Run the project:
@@ -165,7 +168,7 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
 
 1. Open the browser and go to `http://localhost:3000/.api-docs`. 
     
-    :::image type="content" border="true" source="media/quickstart-scaffold/default-widget-swagger-ui.png" alt-text="Screenshot of a browser displaying Swagger UI for the Widgets API." loc-scope="third-party":::
+    :::image type="content" source="media/quickstart-scaffold/default-widget-swagger-ui.png" alt-text="Screenshot of browser displaying Swagger UI for Widgets API.":::
 
 1. The default TypeSpec API and server both work. If you want to finish off this API server, add your business logic to support the Widgets APIs in `./tsp-output/server/src/controllers/widgets.ts`. The UI is connected to the API which returns hardcoded fake data. 
 
@@ -173,11 +176,11 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
 
 [!INCLUDE [js-file-structure](includes/quickstart/file-structure-typescript.md)]
 
-## Change persistence to Azure Cosmos DB for NoSQL
+## Change persistence to Azure Cosmos DB no-sql
 
-Now that the basic Express.js API server is working, update the Express.js server to work with [Azure Cosmos DB for NoSQL](/azure/cosmos-db/) for a persistent data store. This update includes changes to the `index.ts` file to use Azure Cosmos DB integration in the middleware. Make all changes outside the `./tsp-output/server/src/generated` directory.
+Now that the basic Express.js API server is working, update the Express.js server to work with [Azure Cosmos DB](/azure/cosmos-db/) for a persistent data store. This includes changes to the `index.ts` to use Cosmos DB integration in the middleware. All changes should happen outside the `./tsp-output/server/src/generated` directory.
 
-1. In the `./tsp-output/server` directory, add [Azure Cosmos DB for NoSQL](/azure/cosmos-db/) to the project.
+1. In the `./tsp-output/server` directory, add [Azure Cosmos DB](/azure/cosmos-db/) to the project:
 
     ```console
     npm install @azure/cosmos
@@ -289,7 +292,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
 
     ```typescript
     import { Widgets, Widget, WidgetList,   AnalyzeResult,Error } from "../generated/models/all/demo-service.js";
-    import { WidgetMergePatchUpdate } from "../generated/models/all/demo-service.js";
+    import { WidgetMergePatchUpdate } from "../generated/models/all/typespec/http.js";
     import { CosmosClientManager, CosmosConfig, buildError } from "../azure/cosmosClient.js";
     import { HttpContext } from "../generated/helpers/router.js";
     import { Container } from "@azure/cosmos";
@@ -473,7 +476,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
           }
     
           // First check if the widget exists
-          const { resource: item } = await container.item(id, id).read<WidgetDocument>();
+          const { resource: item } = await container.item(id).read<WidgetDocument>();
           if (!item) {
             return buildError({statusCode:404}, `Widget with id ${id} not found`);
           }
@@ -486,7 +489,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
           };
     
           // Replace the document in Cosmos DB
-          const { resource } = await container.item(id, id).replace(updatedWidget);
+          const { resource } = await container.item(id).replace(updatedWidget);
     
           if (!resource) {
             return buildError({statusCode:500}, `Failed to update widget ${id}: No resource returned`);
@@ -566,7 +569,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
 1. In a terminal at `./tsp-output/server`, compile the TypeScript into JavaScript.
 
     ```console
-    npm exec -- tsc
+    tsc
     ```
 
     The project now builds with Cosmos DB integration. Let's create the deployment scripts to create the Azure resources and deploy the project.
@@ -616,29 +619,36 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
 
     ```dockerfile
     # Stage 1: Build stage
-    FROM node:24-alpine AS builder
+    FROM node:lts-alpine AS builder
     
     WORKDIR /app
     
+    # Install TypeScript globally
+    RUN npm install -g typescript
+    
     # Copy package files first to leverage Docker layer caching
     COPY package*.json ./
-    COPY tsp-output/server/package*.json ./tsp-output/server/
+    
+    # Create the tsp-output/server directory structure
+    RUN mkdir -p tsp-output/server
+    
+    # Copy server package.json 
+    COPY tsp-output/server/package.json ./tsp-output/server/
     
     # Install build and dev dependencies
-    RUN npm ci
-    RUN cd tsp-output/server && npm ci
+    RUN npm i --force --no-package-lock
+    RUN cd tsp-output/server && npm install
     
     # Copy the rest of the application code
     COPY . .
     
-    # Regenerate the server with a cross-platform TypeSpec command, then build it
-    RUN npm exec -- tsp compile --output-dir="./tsp-output" .
-    RUN cd tsp-output/server && npm exec -- tsc
+    # Build the TypeScript code
+    RUN cd tsp-output/server && tsc
     
     #---------------------------------------------------------------
     
     # Stage 2: Runtime stage
-    FROM node:24-alpine AS runtime
+    FROM node:lts-alpine AS runtime
     
     # Set NODE_ENV to production for better performance
     ENV NODE_ENV=production
@@ -646,10 +656,10 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
     WORKDIR /app
     
     # Copy only the server package files
-    COPY tsp-output/server/package*.json ./
+    COPY tsp-output/server/package.json ./
     
     # Install only production dependencies
-    RUN npm ci --omit=dev
+    RUN npm install
     
     # Copy all necessary files from the builder stage
     # This includes the compiled JavaScript, any static assets, etc.
@@ -680,7 +690,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
 1. Create a `./infra/main.bicep` file and copy in the following to define the Azure resources for provisioning and deployment:
 
     ```bicep
-    metadata description = 'Bicep template for deploying the TypeSpec Widgets API using Azure Container Apps, Azure Container Registry, and Azure Cosmos DB for NoSQL.'
+    metadata description = 'Bicep template for deploying a GitHub App using Azure Container Apps and Azure Container Registry.'
     
     targetScope = 'resourceGroup'
     param serviceName string = 'api'
@@ -962,8 +972,8 @@ Or delete the resource group directly from the Azure portal.
 
 **Solution:**
 
-1. Identify the process using port 3000: `lsof -nP -iTCP:3000 -sTCP:LISTEN` (macOS), `ss -ltnp 'sport = :3000'` (Linux), or `Get-NetTCPConnection -LocalPort 3000` (PowerShell).
-1. Stop that process, or change the `PORT` environment variable: `PORT=3001 npm start` (macOS/Linux) or `$env:PORT=3001; npm start` (PowerShell).
+1. Identify the process using port 3000: `netstat -tulpn | grep 3000` (macOS/Linux) or `netstat -ano | findstr :3000` (Windows).
+1. Stop that process, or change the PORT environment variable: `PORT=3001 npm start`.
 
 ### Node.js version mismatch
 
@@ -973,7 +983,7 @@ Or delete the resource group directly from the Azure portal.
 
 1. Verify your Node.js version: `node --version`.
 1. Ensure it's an LTS version. Update from [nodejs.org](https://nodejs.org/) or your package manager.
-1. Clear the npm cache with `npm cache clean --force`, then reinstall the TypeSpec compiler with `npm install -g @typespec/compiler`.
+1. Clear npm cache: `npm cache clean --force`, then reinstall: `npm install -g @typespec/compiler`.
 
 ### @typespec/http-server-js emitter not found
 
@@ -991,7 +1001,7 @@ Or delete the resource group directly from the Azure portal.
 
 **Solution:**
 
-1. Regenerate the server after modifying `main.tsp`: `npm exec -- tsp compile .`, then `cd ./tsp-output/server && npm exec -- tsc`.
+1. Regenerate the server after modifying `main.tsp`: `tsp compile .`, then `cd ./tsp-output/server && tsc`.
 1. Ensure your custom controller code is **outside** the `./generated` directory. Don't edit generated files directly.
 
 ### Express.js server crashes on startup
@@ -1001,7 +1011,7 @@ Or delete the resource group directly from the Azure portal.
 **Solution:**
 
 1. Install missing dependencies: `cd ./tsp-output/server && npm install @azure/cosmos @azure/identity`.
-1. For port conflicts, change `PORT` in `index.ts`, or use `PORT=3001 npm start` (macOS/Linux) or `$env:PORT=3001; npm start` (PowerShell).
+1. For port conflicts, change PORT in `index.ts` or use `PORT=3001 npm start`.
 
 ## Next steps
 
