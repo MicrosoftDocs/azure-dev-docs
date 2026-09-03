@@ -300,7 +300,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
 
     ```typescript
     import { Widgets, Widget, WidgetList,   AnalyzeResult,Error } from "../generated/models/all/demo-service.js";
-    import { WidgetMergePatchUpdate } from "../generated/models/all/typespec/http.js";
+    import { WidgetMergePatchUpdate } from "../generated/models/all/demo-service.js";
     import { CosmosClientManager, CosmosConfig, buildError } from "../azure/cosmosClient.js";
     import { HttpContext } from "../generated/helpers/router.js";
     import { Container } from "@azure/cosmos";
