@@ -3,7 +3,7 @@ title: Azure Developer CLI (azd) extensions overview
 description: Learn what azd extensions are, why to use them, and how to enable, manage, and install extensions in the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/13/2026
+ms.date: 09/03/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep
@@ -31,9 +31,9 @@ You can discover, install, and update extensions as your requirements grow. Exte
 - **URL-based sources** reference remote registry manifests that your team hosts for public or private distribution.
 - **File-based sources** reference local registry manifests for offline use or local development.
 - The **development** and **nightly** registries are opt-in sources for work-in-progress and automatically built first-party extensions. Use them for testing scenarios instead of production workflows.
-- **Self-contained bundle files** provide portable `.zip` packages for direct installation when you don't want to host a registry.
+- **Self-contained bundle files** provide portable `.zip` packages for direct installation from a local file or an HTTPS URL when you don't want to host a registry.
 
-Custom extension source names must contain 1 to 64 lowercase ASCII letters or digits. You can include hyphens (`-`) and underscores (`_`) between letters or digits. Names must start and end with a letter or digit. `azd` returns an error for invalid names; it doesn't normalize them. The names `azd` and `bundle` are reserved and can't be used for custom sources.
+`azd` enforces strict validation for custom extension source names. Names must contain 1 to 64 lowercase ASCII letters or digits. You can include hyphens (`-`) and underscores (`_`) between letters or digits. Names must start and end with a letter or digit. `azd` returns an error for invalid names; it doesn't normalize them. The names `azd` and `bundle` are reserved and can't be used for custom sources. The source name must be valid when you use it with `--source`.
 
 The preconfigured `azd` source is the official registry. You can't remove it or change its location.
 
@@ -75,7 +75,7 @@ azd extension source remove <name>
 
 You can't remove the preconfigured `azd` source.
 
-If an upgrade reports a source load error caused by a legacy invalid source name in `~/.azd/config.json`, remove the offending source with `azd extension source remove`, then add it again with a valid name.
+If an update reports a source load error caused by a legacy invalid source name in `~/.azd/config.json`, remove the offending source with `azd extension source remove`, then add it again with a valid name.
 
 ## Manage extensions
 
@@ -99,18 +99,19 @@ azd extension install <extension-names> [flags]
 
 Replace `<extension-name>` with the name of the extension you want to install.
 
-- `-v, --version` Specifies the version constraint to apply when installing extensions.
+- `-v, --version` Specifies the exact version to install. This option doesn't accept version ranges or constraints and can't be used when installing a self-contained bundle (`.zip` file path or URL).
 - `-s, --source` Specifies the extension source used for installations. The source name must be a valid registered source name.
 
-**Upgrade an extension**
+To install a self-contained bundle from an HTTPS URL, provide the bundle location as the extension name:
 
 ```azdeveloper
-azd extension upgrade <extension-name>
+azd extension install https://example.com/extensions/example.zip
 ```
 
 - `--all` Upgrades all previously installed extensions when specified.
-- `-v, --version` Upgrades a specified extension using a version constraint, if provided.
+- `-v, --version` Upgrades a specified extension to the exact version, if provided. This option doesn't accept version ranges or constraints.
 - `-s, --source` Specifies the extension source used for installations. The source name must be a valid registered source name.
+- `--no-dependency-updates` Prevents updates to dependencies when specified.
 
 **Uninstall an extension**
 
