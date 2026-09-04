@@ -1,7 +1,7 @@
 ---
 title: Use Azure SDK for Rust Crates to Access Azure Services
 description: Get started with Azure SDK for Rust crates. Learn authentication, explore supported Azure services, and follow best practices with code examples.
-ms.date: 08/10/2026
+ms.date: 09/03/2026
 ms.service: azure-rust
 ms.topic: concept-article
 ms.custom:
@@ -15,18 +15,15 @@ The Azure SDK for Rust crates help you access Azure services from Rust applicati
 [Crates] | [API reference documentation] | [Source code]
 
 > [!IMPORTANT]
-> Use the latest stable 1.x Azure SDK for Rust crate releases for new development. Each crate versions independently, so use the latest stable 1.x release for each crate that your application depends on.
+> Use the latest stable Azure SDK for Rust crate releases for new development. Each crate versions independently, so use the latest stable release for each crate that your application depends on.
 
 ## Prerequisites to develop with crates
 
-- Rust 1.85 or later. The version is specified in the Azure SDK for Rust crates [Cargo.toml][Azure SDK main Cargo.toml].
+- The [latest stable Rust toolchain](https://www.rust-lang.org/tools/install). If you need the minimum supported Rust version (MSRV), check the `rust-version` field in the Azure SDK for Rust [workspace manifest][Azure SDK main Cargo.toml].
 - An Azure subscription. You can [create one for free][Free Subscription].
 - [Azure CLI]
 - [Azure Developer CLI]
 - [Azure SDK for Rust crates](installation.md)
-
-> [!TIP]  
-> For the best development experience, ensure you have the latest stable version of Rust installed.
 
 ## Provide authentication credentials
 
