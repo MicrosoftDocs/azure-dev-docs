@@ -6,6 +6,8 @@
   href: azure-mcp-server-for-functions.md
 - name: Azure Key Vault
   href: azure-mcp-server-for-key-vault.md
+- name: Azure Platform Landing Zone
+  href: azure-mcp-server-for-platform-landing-zone.md
 - name: Azure Redis
   href: azure-mcp-server-for-redis.md
 - name: Azure AI Search
