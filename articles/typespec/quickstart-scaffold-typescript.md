@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a New API Project with TypeSpec and TypeScript"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
-ms.date: 09/03/2026
+ms.date: 09/04/2026
 ms.topic: quickstart
 ms.custom:
   - devx-track-typespec, devx-track-js, devx-track-ts
@@ -95,7 +95,13 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
 
     TypeSpec **emitters** are libraries that utilize various TypeSpec compiler APIs to reflect on the TypeSpec compilation process and generate artifacts.
 
+    > [!TIP]
+    > For a noninteractive setup, replace `tsp init` and the prompt responses with `tsp init --template rest --project-name Widgets --template-emitters @typespec/openapi3 --template-emitters @typespec/http-server-js --no-prompt`. Specifying the JavaScript server emitter ensures that the project includes `@typespec/http-server-js`.
+
 1. Wait for the initialization to complete before continuing.
+
+    > [!NOTE]
+    > `tsp init` installs the project dependencies. If dependency installation fails after the project files are created, run `npm install` from the TypeSpec project root before continuing.
     
 1. Compile the project:
 
@@ -291,8 +297,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
 1. Create a new Widget controller, `./tsp-output/server/src/controllers/WidgetsCosmos.ts`, and paste in the following integration code for Azure Cosmos DB.
 
     ```typescript
-    import { Widgets, Widget, WidgetList,   AnalyzeResult,Error } from "../generated/models/all/demo-service.js";
-    import { WidgetMergePatchUpdate } from "../generated/models/all/typespec/http.js";
+    import { Widgets, Widget, WidgetList, AnalyzeResult, Error, WidgetMergePatchUpdate } from "../generated/models/all/demo-service.js";
     import { CosmosClientManager, CosmosConfig, buildError } from "../azure/cosmosClient.js";
     import { HttpContext } from "../generated/helpers/router.js";
     import { Container } from "@azure/cosmos";
@@ -909,6 +914,12 @@ You can deploy this application to Azure using Azure Container Apps:
     ```console
     azd auth login
     ```
+
+    If you're already signed in with the Azure CLI, you can instead configure the Azure Developer CLI to use those credentials:
+
+    ```console
+    azd config set auth.useAzCliAuth true
+    ```
     
 
 1. Deploy to Azure Container Apps using the Azure Developer CLI:
@@ -924,6 +935,16 @@ You can deploy this application to Azure using Azure Container Apps:
     * Select an Azure location to use: select a location near you
     * Pick a resource group to use: Select *Create a new resource group*
     * Enter a name for the new resource group: accept the default provided
+
+    > [!TIP]
+    > For an unattended deployment, replace `azd up` and the prompt responses with the following commands. In CI, first authenticate with a supported noninteractive method described in the [`azd auth login` reference](/azure/developer/azure-developer-cli/reference#azd-auth-login).
+    >
+    > ```console
+    > azd env new tsp-server-js --no-prompt
+    > azd env set AZURE_SUBSCRIPTION_ID <subscription-id>
+    > azd env set AZURE_LOCATION <location>
+    > azd up --no-prompt
+    > ```
 
 1. Wait until the deployment completes. The response includes information similar to the following:
 
@@ -991,9 +1012,9 @@ Or delete the resource group directly from the Azure portal.
 
 **Solution:**
 
+1. From the TypeSpec project root, install the emitter: `npm install @typespec/http-server-js`.
 1. Ensure the emitter is listed in `tspconfig.yaml` under `emit:`.
 1. Recompile: `tsp compile .`.
-1. If the error persists, reinstall dependencies: `cd ./tsp-output/server && npm install`.
 
 ### TypeScript compilation error in generated server
 
