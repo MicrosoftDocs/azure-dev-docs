@@ -915,7 +915,7 @@ You can deploy this application to Azure using Azure Container Apps:
     azd auth login
     ```
 
-    If you're already signed in with the Azure CLI, you can instead configure the Azure Developer CLI to use those credentials:
+    If you're already signed in by using the Azure CLI, you can instead configure the Azure Developer CLI to use those credentials:
 
     ```console
     azd config set auth.useAzCliAuth true
@@ -937,7 +937,7 @@ You can deploy this application to Azure using Azure Container Apps:
     * Enter a name for the new resource group: accept the default provided
 
     > [!TIP]
-    > For an unattended deployment, replace `azd up` and the prompt responses with the following commands. In CI, first authenticate with a supported noninteractive method described in the [`azd auth login` reference](/azure/developer/azure-developer-cli/reference#azd-auth-login).
+    > For an unattended deployment, replace `azd up` and the prompt responses with the following commands. In CI, first authenticate by using a supported noninteractive method described in the [`azd auth login` reference](/azure/developer/azure-developer-cli/reference#azd-auth-login).
     >
     > ```console
     > azd env new tsp-server-js --no-prompt
