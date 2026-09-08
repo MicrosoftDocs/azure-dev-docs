@@ -30,9 +30,9 @@ If you have any questions about this documentation, create a GitHub issue in one
 | [`Azure-Samples/azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples) | This repository holds the related samples. |
 | [MicrosoftDocs/azure-dev-docs](https://github.com/MicrosoftDocs/azure-dev-docs)                       | This repository holds the documentation.   |
 
-## Get started with Spring Cloud Azure
+## Getting started
 
-### Set up Spring Cloud Azure dependencies
+### Setting up dependencies
 
 #### Bill of materials (BOM)
 
@@ -164,7 +164,7 @@ The following table lists starters for PostgreSQL support:
 > |----------------------------------------------|-----------------------------------------------------------------------------------------|
 > | `spring-cloud-azure-starter-jdbc-postgresql`   | The starter for using Azure PostgreSQL and JDBC through Microsoft Entra authentication. |
 
-### Learn Spring Cloud Azure with samples
+### Learning Spring Cloud Azure
 
 For a full list of samples that show usage, see [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main).
 
