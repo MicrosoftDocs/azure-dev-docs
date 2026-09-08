@@ -1,6 +1,6 @@
 ---
-title: Spring Cloud Azure overview
-description: This reference doc contains Spring Cloud Azure overview.
+title: Spring Cloud Azure Guide for Java Applications
+description: Explore Spring Cloud Azure dependencies, starters, and integrations for building Java applications with Azure services. Get started today.
 ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
@@ -16,7 +16,7 @@ appliesto:
 
 # Spring Cloud Azure developer guide
 
-Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure.
+Spring Cloud Azure integrates Spring Boot applications with Azure services. This developer guide explains how to manage dependencies, choose starters, and use samples to accelerate Java application development.
 
 For more information about supported versions, see [Spring Versions Mapping](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
 
@@ -30,13 +30,13 @@ If you have any questions about this documentation, create a GitHub issue in one
 | [`Azure-Samples/azure-spring-boot-samples`](https://github.com/Azure-Samples/azure-spring-boot-samples) | This repository holds the related samples. |
 | [MicrosoftDocs/azure-dev-docs](https://github.com/MicrosoftDocs/azure-dev-docs)                       | This repository holds the documentation.   |
 
-## Getting started
+## Get started with Spring Cloud Azure
 
-### Setting up dependencies
+### Set up Spring Cloud Azure dependencies
 
 #### Bill of materials (BOM)
 
-If you use Maven, add the BOM to your **pom.xml** file in the `dependencyManagement` section, as shown in the following example. When you use the BOM, you don't have to specify versions for any of the Maven dependencies because versioning is delegated to the BOM.
+If you use Maven, add the BOM to your **pom.xml** file in the `dependencyManagement` section, as shown in the following example. When you use the BOM, you don't have to specify versions for any of the Maven dependencies because the BOM handles versioning.
 
 ```xml
 <dependencyManagement>
@@ -54,7 +54,7 @@ If you use Maven, add the BOM to your **pom.xml** file in the `dependencyManagem
 
 With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the following ways:
 
-* Use Gradle's native BOM support by adding dependencies as shown in the following example:
+* Use Gradle's native BOM support by adding dependencies as shown in the following example.
 
   ```kotlin
   import org.springframework.boot.gradle.plugin.SpringBootPlugin
@@ -70,7 +70,7 @@ With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the fol
   }
   ```
 
-* Use the `io.spring.dependency-management` plugin and import the BOM in `dependencyManagement`, as shown in the following example:
+* Use the `io.spring.dependency-management` plugin and import the BOM in `dependencyManagement`, as shown in the following example.
 
   ```kotlin
   plugins {
@@ -164,7 +164,7 @@ The following table lists starters for PostgreSQL support:
 > |----------------------------------------------|-----------------------------------------------------------------------------------------|
 > | `spring-cloud-azure-starter-jdbc-postgresql`   | The starter for using Azure PostgreSQL and JDBC through Microsoft Entra authentication. |
 
-### Learning Spring Cloud Azure
+### Learn Spring Cloud Azure with samples
 
 For a full list of samples that show usage, see [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main).
 
