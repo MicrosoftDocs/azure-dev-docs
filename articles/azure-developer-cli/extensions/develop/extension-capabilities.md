@@ -3,7 +3,7 @@ title: Add extension capabilities
 description: Learn how to add capabilities such as custom commands and lifecycle events to an Azure Developer CLI (azd) extension.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/10/2026
+ms.date: 09/10/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -17,7 +17,7 @@ Capabilities define what an Azure Developer CLI (`azd`) extension can do, from a
 Each capability requires two things: an entry in the `capabilities` array of your [extension manifest](extension-manifest.md), and the corresponding implementation in your extension code.
 
 > [!NOTE]
-> `azd` extensions are currently in beta.
+> The `azd` extension framework is generally available. Individual extensions or capabilities might have their own preview status. For GA details, see [Generally Available: Azure Developer CLI (azd) Extension Framework](https://azure.microsoft.com/updates?id=570881).
 
 ## Available capabilities
 
