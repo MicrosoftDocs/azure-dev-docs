@@ -53,6 +53,8 @@ landingContent:
             url: /azure/developer/azure-developer-cli/use-terraform-for-azd
           - text: Customize workflows using hooks
             url: /azure/developer/azure-developer-cli/azd-extensibility
+          - text: Work with Azure Developer CLI extensions
+            url: /azure/developer/azure-developer-cli/extensions/overview
           - text: Remote environment support
             url: /azure/developer/azure-developer-cli/remote-environments-support
           - text: Troubleshooting
