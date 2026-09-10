@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/19/2026
+ms.date: 09/09/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -48,7 +48,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd package](#azd-package): Packages the project's code to be deployed to Azure.
 * [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines.
 * [azd provision](#azd-provision): Provision Azure resources for your project.
-* [azd publish](#azd-publish): Publish a service to a container registry.
+* [azd publish](#azd-publish): Publish a service image or reuse an existing passthrough image.
 * [azd restore](#azd-restore): Restores the project's dependencies.
 * [azd show](#azd-show): Display information about your project and its resources.
 * [azd template](#azd-template): Find and view template details.
@@ -1630,13 +1630,13 @@ location is given, azd registers it as a source (prompting for a name, and
 confirming first for a URL) and then installs from it. If the location is already
 registered, azd reuses that source.
 
-You can also pass a self-contained extension bundle (.zip), either as a local
-path or an https URL: azd downloads (when remote) and extracts it, then installs
-the bundled extension. Bundled extensions aren't tracked for updates; reinstall
-from a newer bundle to update.
+You can also pass a self-contained extension bundle as a local .zip path or an
+https URL. Remote URLs may be shortened or opaque. azd follows redirects
+automatically and warns when a download redirects from HTTPS to HTTP. Bundle
+installs aren't tracked for updates; install a newer bundle to update.
 
 ```azdeveloper
-azd extension install <extension-id|extension-bundle.zip> [flags]
+azd extension install <extension-id|bundle-path-or-url> [flags]
 ```
 
 ### Options
@@ -1647,7 +1647,7 @@ azd extension install <extension-id|extension-bundle.zip> [flags]
   -h, --help              Gets help for install.
       --no-dependencies   Install only the specified extension(s) without installing their declared dependencies
   -s, --source string     The extension source to use for installs. Accepts a registered source name or a registry location (URL or file path) to register and install from.
-  -v, --version string    The version of the extension to install
+  -v, --version string    The version of the extension to install. Cannot be used with an extension bundle
 ```
 
 ### Options inherited from parent commands
@@ -2370,7 +2370,7 @@ azd provision [<layer>] [flags]
 
 ## azd publish
 
-Publish a service to a container registry.
+Publish a service image or reuse an existing passthrough image.
 
 ```azdeveloper
 azd publish <service> [flags]
