@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB dev guide
-description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Spring Data Azure Cosmos DB SDK.
+title: Azure Cosmos DB Developer Guide for Java
+description: Learn how to use Azure Spring Data for Azure Cosmos DB to configure repositories, use supported features, diagnose issues, and apply workarounds.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -11,15 +11,15 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 
 # Azure Cosmos DB dev guide
 
-Azure Spring Data for Azure Cosmos DB provides Spring Data support for [Azure Cosmos DB for NoSQL][sql_api_query]. [Azure Cosmos DB][cosmos_introduction] is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+Azure Spring Data for Azure Cosmos DB provides Spring Data support for [Azure Cosmos DB for NoSQL][sql_api_query]. [Azure Cosmos DB][cosmos_introduction] is a globally distributed database service that developers can use to work with data by using various standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
-This guide will walk you through the concepts of Azure Spring Data Azure Cosmos DB SDK, supported features, troubleshooting, and known issues. For more information on below concepts and code samples, see the [Spring Data for Azure Cosmos DB SDK readme][azure-spring-data-cosmos-sdk-readme].
+This guide explains the concepts of Azure Spring Data Azure Cosmos DB SDK, supported features, troubleshooting, and known issues. For more information about these concepts and code samples, see the [Spring Data for Azure Cosmos DB SDK readme][azure-spring-data-cosmos-sdk-readme].
 
 ## Version support policy
 
 ### Spring Boot version support
 
-This project supports multiple Spring Boot versions. For more information, see [Spring Boot Support Policy][spring-boot-support-policy]. Maven users can inherit from the `spring-boot-starter-parent` project to obtain a dependency management section to let Spring manage the versions for dependencies. For more information, see [Spring Boot Version Support][spring-boot-version-support].
+This project supports multiple Spring Boot versions. For more information, see [Spring Boot Support Policy][spring-boot-support-policy]. Maven users can inherit from the `spring-boot-starter-parent` project to get a dependency management section that lets Spring manage the versions for dependencies. For more information, see [Spring Boot Version Support][spring-boot-version-support].
 
 ### Spring Data version support
 
@@ -27,7 +27,7 @@ This project supports different `spring-data-commons` versions. For more informa
 
 ### Which version of Azure Spring Data Azure Cosmos DB to use
 
-Azure Spring Data Azure Cosmos DB library supports multiple versions of Spring Boot / Spring Cloud. For more information on which version of Azure Spring Data Azure Cosmos DB to use with Spring Boot / Spring Cloud version, see [Which Version of Azure Spring Data for Azure Cosmos DB should I use?][spring-data-cosmos-sdk-version-mapping].
+Azure Spring Data Azure Cosmos DB library supports multiple versions of Spring Boot and Spring Cloud. For more information about which version of Azure Spring Data Azure Cosmos DB to use with Spring Boot and Spring Cloud, see [Which Version of Azure Spring Data for Azure Cosmos DB should I use?][spring-data-cosmos-sdk-version-mapping]
 
 ## Get started
 
@@ -48,24 +48,24 @@ If you're using Maven, add the following dependency.
 ### Prerequisites
 
 - [Java Development Kit (JDK)][jdk_link], version 8 or higher.
-- An active Azure account. If you don't have one, you can sign up for a [free account][azure_subscription]. Alternatively, you can use the [Azure Cosmos DB Emulator][local_emulator] for development and testing. As emulator https certificate is self-signed, you need to import its certificate to java trusted cert store, [explained here][local_emulator_export_ssl_certificates]
+- An active Azure account. If you don't have one, you can sign up for a [free account][azure_subscription]. Alternatively, you can use the [Azure Cosmos DB Emulator][local_emulator] for development and testing. Because the emulator uses a self-signed HTTPS certificate, you need to import its certificate to the Java trusted certificate store, [explained here][local_emulator_export_ssl_certificates].
 - (Optional) SLF4J is a logging facade.
 - (Optional) [SLF4J binding](https://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
 - (Optional) [Maven][maven_link]
 
-SLF4J is only needed if you plan to use logging, also download an SLF4J binding, which will link the SLF4J API with the logging implementation of your choice. For more information, see the [SLF4J user manual](https://www.slf4j.org/manual.html).
+You only need SLF4J if you plan to use logging. Also download an SLF4J binding, which links the SLF4J API with the logging implementation of your choice. For more information, see the [SLF4J user manual](https://www.slf4j.org/manual.html).
 
 ### Set up and customize the configuration class
 
-In order to set up the configuration class, you need to extend `AbstractCosmosConfiguration`. For more information, see [Setup Configuration Class][setup-configuration-class].
+To set up the configuration class, extend `AbstractCosmosConfiguration`. For more information, see [Setup Configuration Class][setup-configuration-class].
 
-You can customize underlying `CosmosAsyncClient` used by Azure Spring Data Azure Cosmos DB SDK by providing `DirectConnectionConfig` or `GatewayConnectionConfig` or both and provide them to `CosmosClientBuilder`. For complete sample, visit [customizing configuration section][customizing-configuration].
+You can customize the underlying `CosmosAsyncClient` used by the Azure Spring Data Azure Cosmos DB SDK by providing `DirectConnectionConfig`, `GatewayConnectionConfig`, or both, and giving them to `CosmosClientBuilder`. For a complete sample, visit the [customizing configuration section][customizing-configuration].
 
 ### Entity setup
 
-You can define a simple entity as item in Azure Cosmos DB. You can define entities by adding the `@Container` annotation and specifying properties related to the container. For more information, see [Define an entity][define-an-entity].
+You can define a simple entity as an item in Azure Cosmos DB. Define entities by adding the `@Container` annotation and specifying properties related to the container. For more information, see [Define an entity][define-an-entity].
 
-Container annotation supports specifying the container name, [request units](/azure/cosmos-db/request-units) (RUs), time to live, [creating containers with autoscale throughput][creating-containers-with-autoscale-throughput], [nested partition key support][nested-partition-key-support], and other container properties.
+The container annotation supports specifying the container name, [request units](/azure/cosmos-db/request-units) (RUs), time to live, [creating containers with autoscale throughput][creating-containers-with-autoscale-throughput], [nested partition key support][nested-partition-key-support], and other container properties.
 
 ### Repository setup
 
@@ -80,51 +80,51 @@ Azure Spring Data Azure Cosmos DB supports `ReactiveCrudRepository` (async APIs)
 
 You can extend `CosmosRepository` (for sync API support) or `ReactiveCosmosRepository` (for async API support) to set up Spring Data repositories for your application. For more information, see [Create repositories][create-repositories].
 
-Azure Spring Data Azure Cosmos DB supports specifying annotated queries in the repositories using `@Query`. For more information, see [QueryAnnotation : Using annotated queries in repositories][query-annotation-code-snippet].
+Azure Spring Data Azure Cosmos DB supports specifying annotated queries in the repositories by using `@Query`. For more information, see [QueryAnnotation : Using annotated queries in repositories][query-annotation-code-snippet].
 
 ### Spring Data Annotations
 
 #### Spring Data [@Id annotation][spring_data_commons_id_annotation]
 
-There are multiple ways to map a field in domain class to `id`. For more information, see the [spring data ID annotation code section][spring-data-id-annotation].
+You can map a field in a domain class to `id` in multiple ways. For more information, see the [spring data ID annotation code section][spring-data-id-annotation].
 
 #### ID auto generation
 
-Azure Spring Data Azure Cosmos DB supports auto generation of IDs using the @GeneratedValue annotation. For more information, see the [ID auto generation section][id-auto-generation].
+Azure Spring Data Azure Cosmos DB supports auto generation of IDs by using the `@GeneratedValue` annotation. For more information, see the [ID auto generation section][id-auto-generation].
 
 #### SpEL expression and custom container name
 
-By default, the container name will be the class name of the user domain class. To customize, add the `@Container(containerName="myCustomContainerName")` annotation to the domain class. For more information, see the [SpEL expression and custom container name section][spel-expression-and-custom-container-name].
+By default, the container name is the class name of the user domain class. To customize the container name, add the `@Container(containerName="myCustomContainerName")` annotation to the domain class. For more information, see the [SpEL expression and custom container name section][spel-expression-and-custom-container-name].
 
 #### Custom IndexingPolicy
 
-By default, `IndexingPolicy` will be set by Azure service. To customize, add the annotation `@CosmosIndexingPolicy` to the domain class. For more information, see the [indexing policy section][indexing-policy].
+By default, the Azure service sets the `IndexingPolicy`. To customize the `IndexingPolicy`, add the `@CosmosIndexingPolicy` annotation to the domain class. For more information, see the [indexing policy section][indexing-policy].
 
 #### Unique key policy
 
-Azure Spring Data Azure Cosmos DB supports setting `UniqueKeyPolicy` on the container by adding the annotation `@CosmosUniqueKeyPolicy` to the domain class. For more information, see the [unique key policy section][unique-key-policy].
+Azure Spring Data Azure Cosmos DB supports setting the `UniqueKeyPolicy` on the container by adding the `@CosmosUniqueKeyPolicy` annotation to the domain class. For more information, see the [unique key policy section][unique-key-policy].
 
 ### Azure Cosmos DB Partition
 
 `Azure-spring-data-cosmos` supports [Azure Cosmos DB partitions][azure_cosmos_db_partition].
 
-To specify a field of the domain class to be a partition key field, just annotate it with `@PartitionKey`.
+To specify a field of the domain class as the partition key field, annotate it with `@PartitionKey`.
 
-When you perform CRUD operation, specify your partition value.
+When you perform a CRUD operation, specify your partition value.
 
 For more information, see the [test here section][address_repository_it_test].
 
 ### Optimistic Locking
 
-`Azure-spring-data-cosmos` supports Optimistic Locking for specific containers, which means upserts/deletes by item will fail with an exception in case the item is modified by another process in the meantime. For more information, see the [optimistic locking section][optimistic-locking].
+`Azure-spring-data-cosmos` supports optimistic locking for specific containers. This support means upserts and deletes by item fail with an exception if another process modifies the item. For more information, see the [optimistic locking section][optimistic-locking].
 
 ### Spring Data custom query, pageable and sorting
 
-`Azure-spring-data-cosmos` supports [Spring Data custom queries][spring_data_custom_query], for example, a find operation such as `findByAFieldAndBField`. It also supports [Spring Data Pageable, Slice and Sort][spring-data-pageable-slice-sort]. For more information, see the [query, pageable and sorting section][spring-data-custom-query-pageable-and-sorting].
+`Azure-spring-data-cosmos` supports [Spring Data custom queries][spring_data_custom_query], such as a find operation like `findByAFieldAndBField`. It also supports [Spring Data Pageable, Slice, and Sort][spring-data-pageable-slice-sort]. For more information, see the [query, pageable, and sorting section][spring-data-custom-query-pageable-and-sorting].
 
 ### Using Azure Cosmos DB Java SDK through Spring Data Cosmos
 
-`Azure-spring-data-cosmos` supports using `Azure Cosmos DB Java SDK`. Users can get `CosmosClient` or `CosmosAsyncClient` bean through `ApplicationContext` and execute any operations supported by Azure Cosmos DB Java SDK. For more information, see the [using Azure Cosmos Client through Spring Data Cosmos section][using-azure-cosmos-db-java-sdk-through-spring-data-cosmos].
+`Azure-spring-data-cosmos` supports using the `Azure Cosmos DB Java SDK`. You can get a `CosmosClient` or `CosmosAsyncClient` bean through `ApplicationContext` and execute any operations supported by Azure Cosmos DB Java SDK. For more information, see the [using Azure Cosmos Client through Spring Data Cosmos section][using-azure-cosmos-db-java-sdk-through-spring-data-cosmos].
 
 ### Spring Data REST
 
@@ -132,19 +132,19 @@ For more information, see the [test here section][address_repository_it_test].
 
 ### Auditing
 
-`Azure-spring-data-cosmos` supports auditing fields on database entities using standard spring-data annotations. For more information, see the [Spring Data Azure Cosmos DB auditing section][spring-data-cosmos-auditing].
+`Azure-spring-data-cosmos` supports auditing fields on database entities by using standard spring-data annotations. For more information, see the [Spring Data Azure Cosmos DB auditing section][spring-data-cosmos-auditing].
 
 ### Multi-database configuration
 
-`Azure-spring-data-cosmos` supports multi-database configuration, including "multiple database accounts" and "single account, with multiple databases". For a complete code snippet, see the [multi database configuration section][multi-database-configuration].
+`Azure-spring-data-cosmos` supports multi-database configuration, including **multiple database accounts** and **single account with multiple databases**. For a complete code snippet, see the [multi database configuration section][multi-database-configuration].
 
 ## Troubleshooting
 
 ### General
 
-If you encounter any bug, file an issue [here](https://github.com/Azure/azure-sdk-for-java/issues/new).
+If you encounter a bug, file an issue [here](https://github.com/Azure/azure-sdk-for-java/issues/new).
 
-To suggest a new feature or changes that could be made, file an issue the same way you would for a bug.
+To suggest a new feature or changes, file an issue the same way you would for a bug.
 
 ### Enable Client Logging
 
@@ -156,18 +156,18 @@ For a complete sample project, see the [sample project][samples].
 
 ### Multi-database accounts
 
-For a complete sample project, see the [Multi-database sample project][sample-for-multi-database].
+For a complete sample project, see the [multiple database sample project][sample-for-multi-database].
 
 ### Single account with Multi-database
 
-For a complete sample project, see the [Single account with Multi-database sample project][sample-for-multi-database-single-account].
+For a complete sample project, see the [single account with multiple databases sample project][sample-for-multi-database-single-account].
 
 ## Next steps
 
 - [Read more about Azure spring data Azure Cosmos DB][azure_spring_data_cosmos_docs].
-- [Read more about Azure Cosmos DB Service][cosmos_docs]
-- [See the Azure Spring Data Azure Cosmos DB Samples][azure-spring-data-cosmos-samples]
-- [See the Spring MVC with Azure Cosmos DB Sample][spring-mvc-with-azure-cosmosdb-samples]
+- [Read more about Azure Cosmos DB Service][cosmos_docs].
+- [See the Azure Spring Data Azure Cosmos DB Samples][azure-spring-data-cosmos-samples].
+- [See the Spring MVC with Azure Cosmos DB Sample][spring-mvc-with-azure-cosmosdb-samples].
 
 ## Contributing
 
