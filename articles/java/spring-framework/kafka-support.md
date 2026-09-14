@@ -1,6 +1,6 @@
 ---
-title: Spring Cloud Azure Kafka support
-description: This article describes how Spring Cloud Azure and Kafka can be used together.
+title: Spring Cloud Azure Kafka Authentication Support
+description: Learn how to use Spring Cloud Azure Kafka support to connect Spring applications to Azure Event Hubs with OAuth or connection string authentication.
 ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
@@ -16,15 +16,15 @@ appliesto:
 
 # Spring Cloud Azure Kafka support
 
-From version 4.3.0, Spring Cloud Azure for Kafka supports various types of credentials to authenticate and connect to Azure Event Hubs.
+Spring Cloud Azure Kafka support helps Spring applications authenticate and connect to Azure Event Hubs by using OAuth credentials or connection strings. This article describes the supported authentication types, configuration options, dependencies, and usage scenarios.
 
 ## Supported Kafka version
 
-The current version of the starter should be compatible with Apache Kafka Clients 2.0.0 using Java 8 or higher.
+The current version of the starter is compatible with Apache Kafka Clients 2.0.0 and uses Java 8 or higher.
 
 ## Supported authentication types
 
-The following authentication types are supported:
+The starter supports the following authentication types:
 
 - Plain connection string authentication
   - Direct connection string authentication
@@ -41,21 +41,21 @@ The following authentication types are supported:
 
 This section describes the overall workflow of Spring Cloud Azure OAuth authentication.
 
-Spring Cloud Azure will first build one of the following types of credentials depending on the application authentication configuration:
+Spring Cloud Azure first builds one of the following types of credentials, depending on the application authentication configuration:
 
 - `ClientSecretCredential`
 - `ClientCertificateCredential`
 - `UsernamePasswordCredential`
 - `ManagedIdentityCredential`
 
-If none of these types of credentials are found, the credential chain via `DefaultAzureTokenCredential` will be used to obtain credentials from application properties, environment variables, managed identity, or IDEs. For detailed information, see [Spring Cloud Azure authentication](authentication.md).
+If the application doesn't use one of these types of credentials, the application uses the credential chain through `DefaultAzureTokenCredential` to get credentials from application properties, environment variables, managed identity, or IDEs. For detailed information, see [Spring Cloud Azure authentication](authentication.md).
 
 ### Plain connection string authentication
 
 For the connection string authentication mode, you can use connection string authentication directly or use the Azure Resource Manager to retrieve the connection string. For more information about the usage, see the [Basic usage for connection string authentication](#basic-usage-connection-string) section.
 
 > [!NOTE]
-> Since version of 4.3.0, connection string authentication is deprecated in favor of OAuth authentications.
+> Since version 4.3.0, connection string authentication is deprecated in favor of OAuth authentication.
 
 ## Configuration
 
@@ -120,7 +120,7 @@ The following list shows all supported configuration options.
 
 - Spring Cloud Stream Kafka Binder admin configuration
 
-  - Prefix: Not supported, should use Spring Boot Kafka common or admin configuration.
+  - Prefix: Not supported, use Spring Boot Kafka common or admin configuration.
 
 The following table shows the Spring Boot Kafka common configuration options:
 
@@ -131,7 +131,7 @@ The following table shows the Spring Boot Kafka common configuration options:
 > | `spring.kafka.properties.azure.credential.client-certificate-path`                                             | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
 > | `spring.kafka.properties.azure.credential.client-id`                                                           | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
 > | `spring.kafka.properties.azure.credential.client-secret`                                                       | Client secret to use when performing service principal authentication with Azure. This is a legacy property.                                                                                           |
-> | `spring.kafka.properties.azure.credential.managed-identity-enabled`                                            | Whether to enable managed identity to authenticate with Azure. If `true` and the `client-id` is set, will use the client ID as user assigned managed identity client ID. The default value is `false`. |
+> | `spring.kafka.properties.azure.credential.managed-identity-enabled`                                            | Whether to enable managed identity to authenticate with Azure. If `true` and the `client-id` is set, the client ID is the user assigned managed identity client ID. The default value is `false`. |
 > | `spring.kafka.properties.azure.credential.password`                                                            | Password to use when performing username/password authentication with Azure.                                                                                                                           |
 > | `spring.kafka.properties.azure.credential.username`                                                            | Username to use when performing username/password authentication with Azure.                                                                                                                           |
 > | `spring.kafka.properties.azure.profile.environment.active-directory-endpoint`                                  | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
@@ -144,7 +144,7 @@ The following table shows the Spring Boot Kafka common configuration options:
 > - Spring Kafka consumer configuration options supersede the common options.
 > - Spring Kafka producer configuration options supersede the common options.
 > - Spring Kafka admin configuration options supersede the common options.
-> - The Spring Cloud Stream Kafka Binder options are just like the above.
+> - The Spring Cloud Stream Kafka Binder options follow the same pattern.
 
 ### Configurable properties when using Kafka support with plain connection string authentication
 
@@ -161,7 +161,7 @@ The following table shows the Spring Boot Event Hubs for Kafka common configurat
 
 ## Dependency setup
 
-Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
+Add the following dependency to your project. This dependency automatically includes the `spring-boot-starter` dependency in your project.
 
 ```xml
 <dependency>
@@ -171,7 +171,7 @@ Add the following dependency to your project. This will automatically include th
 ```
 
 > [!NOTE]
-> Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For details, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+> Remember to add the BOM `spring-cloud-azure-dependencies` along with the preceding dependency. For details, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 ## Basic usage
 
@@ -179,16 +179,16 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 ### Use OAuth authentication
 
-When you use the OAuth authentication provided by Spring Cloud Azure for Kafka, you can configure the specific credentials using the above configurations. Alternatively, you can choose to configure nothing about credentials, in which case Spring Cloud Azure will load the credentials from the environment. This section describes the usages that load the credentials from the Azure CLI environment or the Azure Spring Apps hosting environment.
+When you use the OAuth authentication that Spring Cloud Azure provides for Kafka, you can configure specific credentials by using the preceding configurations. Alternatively, you can choose not to configure any credentials. In this case, Spring Cloud Azure loads the credentials from the environment. This section describes how to load credentials from the Azure CLI environment or the Azure Spring Apps hosting environment.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see the [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) section to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see the [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) section to ensure the security principal has sufficient permission to access the Azure resource.
 
-The following section describes the scenarios using different Spring ecosystem libraries with OAuth authentication.
+The following section describes scenarios that use different Spring ecosystem libraries with OAuth authentication.
 
 #### Spring Kafka application support
 
-This section describes the usage scenario for Spring Boot application using Spring Kafka or Spring Integration Kafka library.
+This section describes the usage scenario for a Spring Boot application that uses Spring Kafka or the Spring Integration Kafka library.
 
 ##### Dependency setup
 
@@ -214,7 +214,7 @@ This section describes the usage scenario for Spring Boot application using Spri
 <a name="spring-kafka-configuration-setup"></a>
 ##### Configuration update
 
-To use the OAuth authentication, just specify the Event Hubs endpoint, as shown in the following example:
+To use OAuth authentication, specify the Event Hubs endpoint, as shown in the following example:
 
 ```properties
 spring.kafka.bootstrap-servers=<NAMESPACENAME>.servicebus.windows.net:9093
@@ -222,7 +222,7 @@ spring.kafka.bootstrap-servers=<NAMESPACENAME>.servicebus.windows.net:9093
 
 #### Spring Cloud Stream binder Kafka application support
 
-This section describes the usage scenario for Spring Boot applications using the Spring Cloud Stream binder Kafka library.
+This section describes the usage scenario for Spring Boot applications that use the Spring Cloud Stream binder Kafka library.
 
 ##### Dependency setup
 
@@ -240,20 +240,20 @@ This section describes the usage scenario for Spring Boot applications using the
 
 ##### Configuration
 
-To use the OAuth authentication, just specify the Event Hubs endpoint as shown in the following example:
+To use OAuth authentication, specify the Event Hubs endpoint, as shown in the following example:
 
 ```properties
 spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:9093
 ```
 
 > [!NOTE]
-> If you're using version `4.3.0`, don't forget to set the `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration` property to enable the whole OAuth authentication workflow, where `kafka-binder-name` is `kafka` by default in a single Kafka binder application. The configuration `AzureKafkaSpringCloudStreamConfiguration` specifies the OAuth security parameters for `KafkaBinderConfigurationProperties`, which is used in `KafkaOAuth2AuthenticateCallbackHandler` to enable Azure Identity.
+> If you're using version `4.3.0`, set the `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration` property to enable the entire OAuth authentication workflow. The `kafka-binder-name` is `kafka` by default in a single Kafka binder application. The configuration `AzureKafkaSpringCloudStreamConfiguration` specifies the OAuth security parameters for `KafkaBinderConfigurationProperties`. This configuration is used in `KafkaOAuth2AuthenticateCallbackHandler` to enable Azure Identity.
 >
-> For version after `4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
+> For versions after `4.4.0`, this property is added automatically for each Kafka binder environment, so you don't need to add it manually.
 
 #### Use managed identity for OAuth authentication
 
-1. To use the managed identity, you need enable the managed identity for your service and assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` roles. For more information, see [Assign Azure roles for access rights](/azure/event-hubs/authorize-access-azure-active-directory#assign-azure-roles-for-access-rights).
+1. To use managed identity, enable managed identity for your service and assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` roles. For more information, see [Assign Azure roles for access rights](/azure/event-hubs/authorize-access-azure-active-directory#assign-azure-roles-for-access-rights).
 
 1. Configure the following properties in your **application.yml** file:
 
@@ -266,7 +266,7 @@ spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:
    ```
 
    > [!IMPORTANT]
-   > If you're using user-assigned managed identity, you also need to add the property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client ID.
+   > If you're using user-assigned managed identity, also add the property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client ID.
 
 ##### Samples
 
@@ -280,16 +280,16 @@ You can use connection string authentication directly or use the Azure Resource 
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 > [!NOTE]
-> Since version of 5.0.0, when using connection string authentication with Spring Cloud Stream framework, the following property is still required to ensure that the connection string can take effect, where the value of `<kafka-binder-name>` should be `kafka` when there is no customized configuration for your Kafka binder name: `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.implementation.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
+> Since version 5.0.0, when using connection string authentication with Spring Cloud Stream framework, you still need the following property to ensure that the connection string works. The value of `<kafka-binder-name>` should be `kafka` if you don't customize your Kafka binder name: `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.implementation.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
 >
-> If the version of `spring-cloud-dependencies` you used is `2022.0.0`, you'll encounter exception the `java.lang.IllegalStateException: kafka_context has not been refreshed yet`. To solve this problem, upgrade to a higher version.
+> If the version of `spring-cloud-dependencies` you use is `2022.0.0`, you encounter the exception `java.lang.IllegalStateException: kafka_context has not been refreshed yet`. To solve this problem, upgrade to a higher version.
 
 ###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
 > [!NOTE]
-> Since version of 4.3.0, connection string authentication is deprecated in favor of OAuth authentications.
+> Since version 4.3.0, connection string authentication is deprecated in favor of OAuth authentication.
 >
-> Since version of 4.5.0, when using connection string authentication with Spring Cloud Stream framework, the following property is required to ensure that the connection string can take effect, where the value of `<kafka-binder-name>` should be `kafka` when there is no customized configuration for your Kafka binder name: `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
+> Since version 4.5.0, when using connection string authentication with Spring Cloud Stream framework, you need the following property to ensure that the connection string works. The value of `<kafka-binder-name>` should be `kafka` if you don't customize your Kafka binder name: `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
 
 ---
 
@@ -304,7 +304,7 @@ Add the following dependencies if you want to migrate your Apache Kafka applicat
 </dependency>
 ```
 
-If you want to retrieve the connection string using Azure Resource Manager, add the following dependency:
+If you want to retrieve the connection string by using Azure Resource Manager, add the following dependency:
 
 ```xml
 <dependency>
@@ -325,10 +325,10 @@ spring.cloud.azure.eventhubs.connection-string=${AZURE_EVENTHUBS_CONNECTION_STRI
 
 ##### Use Azure Resource Manager to retrieve connection string
 
-If you don't want to configure the connection string in your application, you can use Azure Resource Manager to retrieve the connection string. To authenticate with Azure Resource Manager, you can also use credentials stored in Azure CLI or another local development tool such as Visual Studio Code or Intellij IDEA. Alternately, you can use Managed Identity if your application is deployed to Azure Cloud. Just be sure the principal has sufficient permission to read resource metadata.
+If you don't want to configure the connection string in your application, you can use Azure Resource Manager to retrieve the connection string. To authenticate with Azure Resource Manager, you can also use credentials stored in Azure CLI or another local development tool such as Visual Studio Code or Intellij IDEA. Alternately, you can use Managed Identity if your application is deployed to Azure Cloud. Just ensure the principal has sufficient permission to read resource metadata.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see the [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) section to be sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see the [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) section to ensure the security principal has sufficient permission to access the Azure resource.
 
 To use Azure Resource Manager to retrieve the connection string, just add the following property.
 
