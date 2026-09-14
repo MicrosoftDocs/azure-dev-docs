@@ -44,6 +44,7 @@ Use this skill when you need to:
 - Work with modernize application
 - Update application in Azure
 - Add authentication in Azure
+- Choose an Azure Functions hosting plan and plan for cold starts when preparing a deployment with Azure Developer CLI (`azd`).
 
 ## Example prompts
 
