@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 08/10/2026
+ms.date: 09/02/2026
 ai-usage: ai-generated
 author: KarlErickson
 ms.author: karler
@@ -11,6 +11,130 @@ ms.topic: whats-new
 # Azure developer documentation: What's new
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
+
+## What's new for August 2026
+
+### AI apps using Azure services
+
+New articles:
+
+- [Microsoft Foundry Toolkit for Visual Studio Code overview](/azure/foundry/how-to/develop/get-started-projects-visual-studio-code)
+- [Install Microsoft Foundry Toolkit for Visual Studio Code](/azure/foundry/how-to/develop/install-foundry-toolkit-visual-studio-code)
+- [Set up a Microsoft Foundry project in Visual Studio Code](/azure/foundry/how-to/develop/set-up-foundry-project-visual-studio-code)
+- [Foundry Skills scenarios and example prompts](/azure/foundry/how-to/develop/foundry-skills-scenarios-example-prompts)
+
+### Azure Developer CLI (azd)
+
+New articles:
+
+- [App Service container deployments with Azure Developer CLI](../azure-developer-cli/app-service-containers.md)
+
+Updated articles:
+
+- [Supported languages and environments](../azure-developer-cli/supported-languages-environments.md) - Documented App Service container deployment modes, requirements, and Linux-only support.
+- [Azure Developer CLI extensions overview](../azure-developer-cli/extensions/overview.md) - Documented the generally available extension framework, source and bundle distribution options, and project-level extension requirements.
+- [Extension development concepts](../azure-developer-cli/extensions/develop/extension-development-concepts.md) - Documented generally available extension development, project extension requirements, and URL, file, and bundle distribution options.
+- [Quickstart: Build a sample azd extension](../azure-developer-cli/extensions/develop/quickstart-build-extension.md) - Updated the quickstart for the generally available extension framework and official extension source.
+- [Publish an extension](../azure-developer-cli/extensions/develop/publish-extensions.md) - Added registry, file-based, and portable-bundle distribution guidance for generally available extensions.
+- [Explore Azure Developer CLI support for CI/CD pipelines](../azure-developer-cli/configure-devops-pipeline.md) - Documented federated authentication as the default for Azure DevOps pipelines and client-credentials configuration.
+- [Layered provisioning](../azure-developer-cli/layered-provisioning.md) - Documented dependency-based layer ordering, automatic inference, and explicit dependencies for opaque providers.
+- [Azure Developer CLI publishing workflows](../azure-developer-cli/publishing-workflows.md) - Documented publishing behavior and flag limitations for services that use `imagePassthrough`.
+- [Use third-party container registries](../azure-developer-cli/use-external-registry.md) - Added guidance for deploying remote images with `imagePassthrough` without Docker or registry authentication.
+- [Manage Azure development tools with `azd tool`](../azure-developer-cli/development-tools.md) - Added `azd tool uninstall` guidance, including dry runs, agent targeting, and JSON output.
+- [Configure and consume template sources](../azure-developer-cli/configure-template-sources.md) - Clarified standard versus extension-specific templates and how to initialize each type.
+- [Azure Developer CLI schema reference](../azure-developer-cli/azd-schema.md) - Added dependency inference details and App Service container-image schema guidance.
+
+### Azure for .NET developers
+
+New articles:
+
+- [Deploy a C# Azure AI Search app to Azure Container Apps](/azure/search/tutorial-csharp-deploy-web-search)
+- [How to transcribe multichannel audio in real time](/azure/ai-services/speech-service/how-to-recognize-speech-multichannel?pivots=programming-language-csharp)
+
+### Azure for C++ developers
+
+New articles:
+
+- [How to transcribe multichannel audio in real time](/azure/ai-services/speech-service/how-to-recognize-speech-multichannel?pivots=programming-language-cpp)
+
+### Azure for Go developers
+
+New articles:
+
+- [How to transcribe multichannel audio in real time](/azure/ai-services/speech-service/how-to-recognize-speech-multichannel?pivots=programming-language-go)
+
+### Azure for Java developers
+
+New articles:
+
+- [How to transcribe multichannel audio in real time](/azure/ai-services/speech-service/how-to-recognize-speech-multichannel?pivots=programming-language-java)
+
+Updated articles:
+
+- [Spring Cloud Azure configuration properties](../java/spring-framework/configuration-properties-all.md) - Corrected Microsoft Entra and B2C JWT timeout defaults from `500s` to `500ms` and removed obsolete configuration guidance.
+
+### Azure for JavaScript developers
+
+New articles:
+
+- [How to transcribe multichannel audio in real time](/azure/ai-services/speech-service/how-to-recognize-speech-multichannel?pivots=programming-language-javascript)
+
+### Azure for Python developers
+
+New articles:
+
+- [How to transcribe multichannel audio in real time](/azure/ai-services/speech-service/how-to-recognize-speech-multichannel?pivots=programming-language-python)
+- [Python SDKs for Microsoft Discovery](/azure/microsoft-discovery/reference-python-sdks)
+- [Quickstart: Create and run an Azure Container Apps sandbox using the Python SDK (preview)](/azure/container-apps/sandboxes-quickstart-python-sdk)
+
+### Azure for Rust developers
+
+Updated articles:
+
+- [What are Azure SDK for Rust crates?](../rust/sdk/overview.md) - Documented the current stable 1.x release model and per-crate versioning.
+- [Install Azure SDK for Rust crates](../rust/sdk/installation.md) - Added stable 1.x production guidance and updated installation examples to use Cargo version requirements.
+
+### Azure MCP Server
+
+New articles:
+
+- [Get started with the Azure MCP Server in Google Antigravity](../azure-mcp-server/get-started/tools/anti-gravity.md)
+- [Azure MCP Server tools for Azure IoT Hub](../azure-mcp-server/tools/azure-iot-hub.md)
+
+Updated articles:
+
+- [Azure MCP Server tools for Azure Advisor](../azure-mcp-server/tools/azure-advisor.md) - Reworked Advisor coverage around recommendation metadata discovery and localized catalog queries.
+- [Azure MCP Server tools for Microsoft Foundry Extensions](../azure-mcp-server/tools/azure-foundry.md) - Added Azure MCP CLI command, parameter, and prompt guidance for knowledge indexes and OpenAI operations.
+- [Azure MCP Server tools for Azure Backup](../azure-mcp-server/tools/azure-backup.md) - Expanded Azure Backup tool coverage with new commands, parameters, and Azure MCP CLI examples.
+- [Azure Communication Services tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-communication.md) - Corrected tool annotations to show that email and SMS operations aren't read-only.
+- [Azure MCP Server tools for Azure Monitor and Workbooks](../azure-mcp-server/tools/azure-monitor.md) - Replaced the removed health-entity command with health-model list and get guidance.
+- [Azure Quick Review CLI tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-compliance-quick-review.md) - Added Azure MCP CLI usage and parameter guidance for generating compliance and security reports.
+- [Azure MCP Server tools for Azure Resilience](../azure-mcp-server/tools/azure-resilience.md) - Expanded resilience tool coverage with drill, goal, recovery-plan, and recovery-job operations.
+- [Azure MCP Server tools for Azure SRE Agent](../azure-mcp-server/tools/azure-sre-agent.md) - Documented sub-agent handoffs and newly required agent and query parameters for Azure SRE Agent operations.
+
+### Azure Skills
+
+New articles:
+
+- [Azure skill for Azure App Onboard](../azure-skills/skills/azure-app-onboard.md)
+- [Azure skill for Azure App Onboard Prereq](../azure-skills/skills/azure-app-onboard-prereq.md)
+
+Updated articles:
+
+- [Azure skill for Kubernetes](../azure-skills/skills/azure-kubernetes.md) - Narrowed the skill to AKS planning, provisioning, and configuration, and redirected application deployment to the dedicated workflow.
+- [Azure skill for Azure Validate](../azure-skills/skills/azure-validate.md) - Reworked validation around the scripted workflow, approved deployment plans, and readiness checks.
+- [Azure skill for Microsoft Foundry](../azure-skills/skills/microsoft-foundry.md) - Expanded Foundry agent guidance for Azure Developer CLI, CI/CD, routines, agent-to-agent connections, and authentication.
+
+### Terraform on Azure
+
+New articles:
+
+- [Create a virtual network flow log by using Terraform](/azure/network-watcher/vnet-flow-logs-terraform)
+- [Quickstart: Configure a standard service endpoint by using Terraform](/azure/private-link/configure-service-endpoint-standard-terraform)
+
+Updated articles:
+
+- [Choose between AzureRM and AzAPI Terraform providers](../terraform/provider-selection-azurerm-vs-azapi.md) - Corrected the provider comparison to show AzureRM support for selected data-plane management and preflight validation.
 
 ## What's new for July 2026
 
@@ -130,11 +254,14 @@ Updated articles:
 
 ### Terraform on Azure
 
+New articles:
+
+- [Create a virtual network flow log by using Terraform](/azure/network-watcher/vnet-flow-logs-terraform)
+- [Quickstart: Configure a standard service endpoint by using Terraform](/azure/private-link/configure-service-endpoint-standard-terraform)
+
 Updated articles:
 
 - [Overview of the Azure Terraform Resource Provider](../terraform/azure-export-for-terraform/resource-provider-overview.md) - Documented a limit of 1,000 resources when exporting in resource group mode.
-
-
 
 ## What's new for June 2026
 
@@ -353,184 +480,3 @@ Updated articles:
 - [Quickstart: generate Java unit tests with GitHub Copilot modernization](../github-copilot-app-modernization/quickstart-unit-tests.md) - Expanded the unit-test quickstart to cover Visual Studio Code, IntelliJ, and CLI workflows plus the generated work log and result summary.
 - [Customize the Java project upgrade plan when using GitHub Copilot modernization](../github-copilot-app-modernization/customize-upgrade-plan.md) - Updated Java upgrade plan customization guidance for the new plan structure and build-option syntax.
 - [GitHub Copilot modernization Java utilities](../github-copilot-app-modernization/tools.md) - Renamed the Java utilities to `#appmod-...` prompt tools and streamlined the documented CVE and test-generation workflows.
-
-
-
-## What's new for May 2026
-
-### AI apps using Azure services
-
-New articles:
-
-- [Get started with Azure OpenAI and the Responses API](../ai/get-started-azure-openai-starter-kit.md)
-
-Updated articles:
-
-- [Create hosted agent workflows in the Microsoft Foundry Toolkit for Visual Studio Code extension](/azure/foundry/agents/how-to/vs-code-agents-workflow-pro-code) - Added a hosted agent workflow tutorial for the Microsoft Foundry Toolkit in Visual Studio Code, including project creation, local testing, and deployment to Foundry Agent Service.
-
-### Azure Developer CLI (azd)
-
-Updated articles:
-
-- [Use Docker support to deploy containerized apps in any language](../azure-developer-cli/docker-language-support.md) - Expanded Docker language guidance to explicitly cover Go, Rust, Ruby, PHP, Kotlin, and other unsupported or polyglot apps.
-- [Azure Developer CLI schema reference](../azure-developer-cli/azd-schema.md) - Documented the `dependsOn` layer property for declaring hook-mediated infrastructure dependencies.
-- [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Added `azd exec` and refreshed reference guidance for non-interactive `--no-prompt` behavior and consent actions.
-
-### Azure for .NET developers
-
-New articles:
-
-- [Generate text embeddings with Foundry Local](/azure/foundry-local/how-to/how-to-generate-embeddings?pivots=programming-language-csharp)
-- [Live transcribe audio from a microphone with Foundry Local](/azure/foundry-local/how-to/how-to-live-transcribe-audio?pivots=programming-language-csharp)
-- [Use Agent Framework in a .NET console app with Azure App Configuration](/azure/azure-app-configuration/howto-ai-agent-config-dotnet)
-- [MCP prompt trigger for Azure Functions (public preview)](/azure/azure-functions/functions-bindings-mcp-prompt-trigger?pivots=programming-language-csharp)
-- [Quickstart: Vector index with .NET in Azure DocumentDB](/azure/documentdb/quickstart-dotnet-select-algorithm)
-
-### Azure for Go developers
-
-New articles:
-
-- [Quickstart: Vector index with Go in Azure DocumentDB](/azure/documentdb/quickstart-go-select-algorithm)
-
-### Azure for Java developers
-
-New articles:
-
-- [MCP prompt trigger for Azure Functions (public preview)](/azure/azure-functions/functions-bindings-mcp-prompt-trigger?pivots=programming-language-java)
-- [Enable features on a schedule in a Spring Boot application](/azure/azure-app-configuration/how-to-time-window-filter-spring-boot)
-- [Choose between JMS and the native SDK for Azure Service Bus](/azure/service-bus-messaging/service-bus-jms-versus-native-sdk)
-- [Troubleshoot Java applications on AKS with Azure SRE Agent](/azure/sre-agent/troubleshoot-java-aks)
-- [Quickstart: Vector index with Java in Azure DocumentDB](/azure/documentdb/quickstart-java-select-algorithm)
-
-Updated articles:
-
-- [Quickstart: Containerize your project by using GitHub Copilot modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md) - Added Docker image vulnerability scanning as part of the containerization workflow.
-- [Re-architect projects by using GitHub Copilot modernization](../java/migration/github-copilot-app-modernization-for-java-rearchitecture.md) - Added rearchitecture scenarios for Struts, WebSphere, WinForms, and ASP.NET MVC migrations.
-- [Secure Java Spring Boot apps using Microsoft Entra ID](../java/identity/enable-spring-boot-webapp-authentication-entra-id.md) - Updated the app registration steps to use the current single-tenant option label and client secret duration choices.
-
-### Azure for JavaScript developers
-
-New articles:
-
-- [Generate text embeddings with Foundry Local](/azure/foundry-local/how-to/how-to-generate-embeddings?pivots=programming-language-javascript)
-- [Live transcribe audio from a microphone with Foundry Local](/azure/foundry-local/how-to/how-to-live-transcribe-audio?pivots=programming-language-javascript)
-- [MCP prompt trigger for Azure Functions (public preview)](/azure/azure-functions/functions-bindings-mcp-prompt-trigger?pivots=programming-language-typescript)
-- [Quickstart: Vector index with TypeScript in Azure DocumentDB](/azure/documentdb/quickstart-nodejs-select-algorithm)
-
-Updated articles:
-
-- [What is Azure for JavaScript developers](../javascript/what-is-azure-for-javascript-development.md) - Added AI and developer tools guidance plus new next-step links for learning, samples, SDKs, and deployment options.
-- [JavaScript developer tools for Azure overview](../javascript/node-azure-tools.md) - Added an AI and developer productivity tools section through the shared Azure AI developer tools guidance.
-- [GraphQL on Azure for JavaScript developers](../javascript/graphql-developer-guide.md) - Added an AI-assisted GraphQL development section with GitHub Copilot for Azure scenarios for schema, resolver, query, and validation work.
-- [Training with Azure and JavaScript](../javascript/learn-azure-javascript.md) - Expanded the learning guide with updated Static Web Apps, Azure Functions, AI, and certification resources, plus a new advanced section.
-
-### Azure for Python developers
-
-New articles:
-
-- [Generate text embeddings with Foundry Local](/azure/foundry-local/how-to/how-to-generate-embeddings?pivots=programming-language-python)
-- [Live transcribe audio from a microphone with Foundry Local](/azure/foundry-local/how-to/how-to-live-transcribe-audio?pivots=programming-language-python)
-- [MCP prompt trigger for Azure Functions (public preview)](/azure/azure-functions/functions-bindings-mcp-prompt-trigger?pivots=programming-language-python)
-- [Connect agents to Microsoft Fabric with Fabric IQ (preview)](/azure/foundry/agents/how-to/tools/fabric-iq?pivots=python)
-- [Enable tool search in a toolbox (preview)](/azure/foundry/agents/how-to/tools/tool-search?pivots=python)
-- [Connect agents to Microsoft 365 with Work IQ (preview)](/azure/foundry/agents/how-to/tools/work-iq?pivots=python)
-- [Quickstart: Vector index with Python in Azure DocumentDB](/azure/documentdb/quickstart-python-select-algorithm)
-
-Updated articles:
-
-- [Create a GitHub Codespaces dev environment with FastAPI and Postgres](../python/configure-python-web-app-codespaces.md) - Added troubleshooting guidance for PostgreSQL 18 volume incompatibility in dev containers.
-- [Configure a custom startup file for Python apps on Azure App Service](../python/configure-python-web-app-on-app-service.md) - Added prerequisite and deployment guidance plus an Azure CLI command for setting the startup command.
-- [Build and run a containerized Python web app locally](../python/tutorial-containerize-deploy-python-web-app-azure-02.md) - Added supported Python version guidance for Dockerfiles and new notes for MongoDB configuration paths and Cosmos DB provisioning.
-- [Build a containerized Python web app in Azure](../python/tutorial-containerize-deploy-python-web-app-azure-03.md) - Added prerequisites, a Python 3.8 end-of-life warning, and clearer Azure Container Registry build and verification guidance.
-
-### Azure for Rust developers
-
-New articles:
-
-- [Generate text embeddings with Foundry Local](/azure/foundry-local/how-to/how-to-generate-embeddings?pivots=programming-language-rust)
-- [Live transcribe audio from a microphone with Foundry Local](/azure/foundry-local/how-to/how-to-live-transcribe-audio?pivots=programming-language-rust)
-
-Updated articles:
-
-- [Access Azure services using Azure SDK for Rust crates](../rust/sdk/overview.md) - Removed the beta caveat for Azure SDK for Rust crates, reflecting their broader supported status.
-
-### Azure MCP Server
-
-New articles:
-
-- [Azure MCP Server tools for Azure SRE Agent](../azure-mcp-server/tools/azure-sre-agent.md)
-- [Azure MCP Server tools for Azure Terraform overview](../azure-mcp-server/tools/azure-terraform.md)
-
-Updated articles:
-
-- [Azure MCP Server tools for Microsoft Foundry Extensions](../azure-mcp-server/tools/azure-foundry.md) - Reworked the article for Microsoft Foundry Extensions, replacing agent-centric coverage with tools for completions, embeddings, models, and knowledge indexes.
-- [Azure MCP Server tools for Azure App Service](../azure-mcp-server/tools/azure-app-service.md) - Documented a new web app state-change tool for start, stop, and restart operations and updated diagnostic parameter guidance.
-- [Azure MCP Server tools for Azure compute overview](../azure-mcp-server/tools/azure-compute.md) - Added a VM power-state tool and expanded the compute reference with updated managed disk and VM configuration guidance.
-- [Azure Database for PostgreSQL tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-database-postgresql.md) - Consolidated server, database, and table listing into a single flow and documented new authentication parameters for database operations.
-- [Azure Event Grid tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-event-grid.md) - Added event publishing coverage and expanded topic and subscription guidance, including topic filtering and location-based discovery.
-- [Azure File Sync Tools](../azure-mcp-server/tools/azure-file-sync.md) - Added a cloud endpoint change-detection tool for targeted or recursive sync scans.
-- [Azure Key Vault tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-key-vault.md) - Updated key creation guidance to reflect the current supported key types and the premium-vault requirement for HSM keys.
-- [Azure Load Testing tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-load-testing.md) - Documented the resource group parameter and updated test resource creation inputs.
-- [Azure Migrate tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-migrate.md) - Added landing zone request parameters for security subscription ID and location.
-- [Azure MCP Server tools for Azure Monitor and Workbooks](../azure-mcp-server/tools/azure-monitor.md) - Documented new required workspace table parameters and added web test configuration input coverage.
-- [Azure pricing tools for the Azure MCP Server](../azure-mcp-server/tools/azure-pricing.md) - Added detailed guidance for pricing queries, including required filters, SKU specificity, and savings plan handling.
-- [Azure Quick Review CLI tools for the Azure MCP Server overview](../azure-mcp-server/tools/azure-compliance-quick-review.md) - Documented the optional resource group parameter for scoping quick review scans.
-- [Azure Redis tools for Azure MCP Server overview](../azure-mcp-server/tools/azure-redis.md) - Added required SKU guidance and documented the new public network access option when creating a Redis resource.
-- [Azure MCP Server tools for Azure Storage](../azure-mcp-server/tools/azure-storage.md) - Greatly expanded Azure Storage coverage with new account and container create/get flows, CLI command mappings, and parameter tables.
-
-### Azure Skills
-
-New articles:
-
-- [Azure skill for AI Runway AKS setup](../azure-skills/skills/ai-runway-aks-setup.md)
-- [Azure skill for Entra Agent ID](../azure-skills/skills/entra-agent-id.md)
-
-Updated articles:
-
-- [Azure skill for Azure Compute](../azure-skills/skills/azure-compute.md) - Expanded the skill to cover capacity reservations, Essential Machine Management, and richer VM and VMSS guidance.
-- [Azure skill for Kusto (Data Explorer)](../azure-skills/skills/azure-kusto.md) - Expanded the skill with schema exploration, cluster and database discovery, and broader analytics guidance.
-- [Azure skill for Azure Upgrade](../azure-skills/skills/azure-upgrade.md) - Expanded the skill to cover Azure SDK modernization and Azure Cache for Redis migration scenarios.
-- [Azure skill for Microsoft Foundry](../azure-skills/skills/microsoft-foundry.md) - Expanded the skill to cover continuous evaluation, Foundry Agent Optimization Service workflows, dataset curation, and production troubleshooting.
-
-### GitHub Copilot for Azure
-
-New articles:
-
-- [Quickstart: Import data into Azure Cosmos DB by using GitHub Copilot for Azure agent mode](../github-copilot-azure/agent-mode-cosmosdb-import.md)
-
-Updated articles:
-
-- [What is GitHub Copilot for Azure?](../github-copilot-azure/introduction.md) - Added Azure Skills integration details, support for Claude Code, GitHub Copilot CLI, and IntelliJ, and clearer next-step guidance.
-- [Troubleshoot Azure applications with GitHub Copilot for Azure](../github-copilot-azure/troubleshoot-examples.md) - Reorganized the article into general and service-specific troubleshooting prompt sets for logs, errors, performance, and health checks.
-
-### GitHub Copilot modernization
-
-Updated articles:
-
-- [GitHub Copilot modernization agent overview](../github-copilot-app-modernization/modernization-agent/overview.md) - Removed the public preview reference from the modernization agent overview.
-- [AppCAT 7 release notes](/azure/migrate/appcat/appcat-7-release-notes) - Added AppCAT 7 release notes entries.
-
-### Introduction to Azure for developers
-
-New articles:
-
-- [Quickstart: Develop Azure applications with agent-assisted AI](../intro/quickstart-agent-assist.md)
-
-### Terraform on Azure
-
-New articles:
-
-- [Use the Microsoft Terraform Visual Studio Code extension](../terraform/how-to-use-terraform-vscode-extension.md)
-- [Quickstart: Perform Azure resource actions with the AzAPI Terraform provider](../terraform/get-started-azapi-resource-action-mutation.md)
-- [Quickstart: Manage Azure Key Vault certificate contacts with the AzAPI Terraform provider](../terraform/get-started-azapi-data-plane-resource.md)
-- [Quickstart: List Azure resources with the AzAPI Terraform provider](../terraform/get-started-azapi-resource-list.md)
-- [Choose between AzureRM and AzAPI Terraform providers](../terraform/provider-selection-azurerm-vs-azapi.md)
-- [Understand the AzAPI data plane framework](../terraform/concept-azapi-data-plane-framework.md)
-- [Enable preflight validation in the AzAPI Terraform provider](../terraform/how-to-use-azapi-preflight-validation.md)
-- [Use provider functions in the AzAPI Terraform provider](../terraform/how-to-use-azapi-provider-functions.md)
-- [Migration paths between Azure, AzureRM, and AzAPI Terraform providers](../terraform/how-to-migrate-between-azurerm-and-azapi.md)
-
-Updated articles:
-
-- [Overview of the Terraform AzAPI provider](../terraform/overview-azapi-provider.md) - Expanded the overview with data plane framework guidance, response export and JMESPath examples, import and migration workflows, provider options, and VS Code tooling.
-- [Quickstart: Deploy your first Azure resource_action resource with the AzAPI Terraform provider](../terraform/get-started-azapi-resource-action.md) - Reframed `azapi_resource_action` as a read-only data-source pattern for listing Key Vault keys and added subscription confirmation guidance.
