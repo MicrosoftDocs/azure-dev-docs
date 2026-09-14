@@ -406,6 +406,7 @@
 | Unknown Display Name | PyPI [0.1.0b4](https://pypi.org/project/azure-containerapps-sandbox/0.1.0b4) |  |  |
 | Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-developer-microsoftplaywrighttesting/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-iot-deviceregistryupdate/0.0.0b1) |  |  |
+| Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-maps-weather/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-messaging-webpubsubchatservice/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0b1](https://pypi.org/project/azure-mgmt-anyscale/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0](https://pypi.org/project/azure-mgmt-commonedgesitemanageroperations/0.0.0) |  |  |
