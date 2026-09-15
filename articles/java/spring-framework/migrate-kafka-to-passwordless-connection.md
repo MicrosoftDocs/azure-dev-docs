@@ -1,6 +1,6 @@
 ---
-title: Migrate an application to use passwordless connections with Azure Event Hubs for Kafka
-description: Learn how to migrate existing applications using Azure Event Hubs for Kafka away from authentication patterns such as connection strings to more secure approaches like Managed Identity.
+title: Use Passwordless Connections with Azure Event Hubs for Kafka
+description: Learn how to migrate Azure Event Hubs for Kafka applications from connection strings to passwordless connections with Microsoft Entra ID. Start securing your app.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -24,7 +24,7 @@ This article explains how to migrate from traditional authentication methods to 
 
 Application requests to Azure Event Hubs for Kafka must be authenticated. Azure Event Hubs for Kafka provides different ways for apps to connect securely. One of the ways is to use a connection string. However, you should prioritize passwordless connections in your applications when possible.
 
-Passwordless connections are supported since Spring Cloud Azure 4.3.0. This article is a migration guide for removing credentials from Spring Cloud Stream Kafka applications.
+Spring Cloud Azure 4.3.0 and later supports passwordless connections. This article is a migration guide for removing credentials from Spring Cloud Stream Kafka applications.
 
 ## Compare authentication options
 
@@ -34,21 +34,21 @@ When the application authenticates with Azure Event Hubs for Kafka, it provides 
 
 ### Microsoft Entra authentication
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage service principal identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage service principal identities and other Microsoft services in a central location, which simplifies permission management.
 
 Using Microsoft Entra ID for authentication provides the following benefits:
 
 - Authentication of users across Azure services in a uniform way.
 - Management of password policies and password rotation in a single place.
 - Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords.
-- Customers can manage Event Hubs permissions using external (Microsoft Entra ID) groups.
+- Customers can manage Event Hubs permissions by using external (Microsoft Entra ID) groups.
 - Support for token-based authentication for applications connecting to Azure Event Hubs for Kafka.
 
 ### SAS authentication
 
 Event Hubs also provides Shared Access Signatures (SAS) for delegated access to Event Hubs for Kafka resources.
 
-Although it's possible to connect to Azure Event Hubs for Kafka with SAS, it should be used with caution. You must be diligent to never expose the connection strings in an unsecure location. Anyone who gains access to the connection strings is able to authenticate. For example, there's a risk that a malicious user can access the application if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission. Instead, authorizing access using the OAuth 2.0 token-based mechanism provides superior security and ease of use over SAS. Consider updating your application to use passwordless connections.
+Although you can connect to Azure Event Hubs for Kafka with SAS, use it with caution. Don't expose the connection strings in an unsecure location. Anyone who gains access to the connection strings can authenticate. For example, a malicious user can access the application if you accidentally check in a connection string to source control, send it through an unsecure email, paste it into the wrong chat, or if someone without permission views it. Instead, authorizing access by using the OAuth 2.0 token-based mechanism provides superior security and ease of use over SAS. Consider updating your application to use passwordless connections.
 
 [!INCLUDE [introducing-passwordless-connections](includes/introducing-passwordless-connections.md)]
 
@@ -68,13 +68,13 @@ export AZ_EVENTHUB_NAME=<YOUR_EVENTHUB_NAME>
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_RESOURCE_GROUP>`: The name of the resource group you'll use.
-- `<YOUR_EVENTHUBS_NAMESPACE_NAME>`: The name of the Azure Event Hubs namespace you'll use.
-- `<YOUR_EVENTHUB_NAME>`: The name of the event hub you'll use.
+- `<YOUR_RESOURCE_GROUP>`: The name of the resource group.
+- `<YOUR_EVENTHUBS_NAMESPACE_NAME>`: The name of the Azure Event Hubs namespace.
+- `<YOUR_EVENTHUB_NAME>`: The name of the event hub.
 
 ### 1) Grant permission for Azure Event Hubs
 
-If you want to run this sample locally with Microsoft Entra authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
+To run this sample locally with Microsoft Entra authentication, ensure your user account authenticates through Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, ensure the account has sufficient permissions.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -98,9 +98,9 @@ If you want to run this sample locally with Microsoft Entra authentication, be s
 
 #### [Azure CLI](#tab/azure-cli)
 
-To authenticate using the Azure CLI, use the following steps:
+To authenticate by using the Azure CLI, use the following steps:
 
-1. Use the following command to sign to your Azure account:
+1. Use the following command to sign in to your Azure account:
 
    ```bash
    az login
@@ -149,7 +149,7 @@ For more information about granting access roles, see [Authorize access to Event
 
 ### 2) Sign in and migrate the app code to use passwordless connections
 
-For local development, make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your Event Hubs. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
+For local development, ensure you're authenticated with the same Microsoft Entra account you assigned the role to on your Event Hubs. Authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
 [!INCLUDE [sign-in](includes/passwordless-sign-in.md)]
 
@@ -342,38 +342,38 @@ Next, use the following steps to update your Spring Kafka application to use pas
    ```
 
    > [!NOTE]
-   > Starting with version `4.4.0`, this property will be added automatically, so there's no need to add it manually.
+   > Starting with version `4.4.0`, this property is added automatically, so there's no need to add it manually.
 
 ---
 
 #### Run the app locally
 
-After making these code changes, run your application locally. The new configuration should pick up your local credentials, assuming you're logged into a compatible IDE or command line tool, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
+After making these code changes, run your application locally. The new configuration picks up your local credentials, assuming you're logged into a compatible IDE or command line tool, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure allow your app to connect to the Azure service locally.
 
 ### 3) Configure the Azure hosting environment
 
 After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure Spring Apps instance that has a managed identity assigned can connect to Azure Event Hubs for Kafka.
 
-In this section, you'll execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
+In this section, you execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
 
 - Assign the managed identity for your Azure hosting environment.
 - Assign roles to the managed identity.
 
 > [!NOTE]
-> Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with Event Hubs. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
+> Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with Event Hubs. By using Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector assigns them for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
 > Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or higher.
 
 #### Assign the managed identity for your Azure hosting environment
 
-The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
+The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure services by using the app configurations you set up previously.
 
 ##### [App Service](#tab/app-service)
 
 1. On the main overview page of your Azure App Service instance, select **Identity** from the navigation pane.
 
-1. On the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
+1. On the **System assigned** tab, set the **Status** field to **On**. Azure internally manages a system-assigned identity and handles administrative tasks for you. Your code never exposes the details and IDs of the identity.
 
 ##### [Service Connector](#tab/service-connector)
 
@@ -385,20 +385,20 @@ The following compute services are currently supported:
 - Azure Spring Apps
 - Azure Container Apps
 
-For this migration guide, you'll use App Service, but the steps are similar for Azure Spring Apps and Azure Container Apps.
+For this migration guide, you use App Service, but the steps are similar for Azure Spring Apps and Azure Container Apps.
 
 > [!NOTE]
 > Azure Spring Apps currently only supports Service Connector using connection strings.
 
 1. In the Azure portal, on the main overview page of your App Service instance, select **Service Connector** from the navigation pane.
 
-1. Select **Create** from the main menu and the **Create connection** panel will open. Enter the following values:
+1. Select **Create** from the main menu to open the **Create connection** pane. Enter the following values:
 
    - **Service type**: Choose **Event Hubs**.
-   - **Subscription**: Select the subscription you'd like to use.
+   - **Subscription**: Select the subscription you want to use.
    - **Connection Name**: Enter a name for your connection, such as **connector_appservice_eventhub**.
-   - **Namespace**: Select the Event Hubs namespace you'd like to use.
-   - **Client type**: Leave the default value selected or choose the specific client you'd like to use.
+   - **Namespace**: Select the Event Hubs namespace you want to use.
+   - **Client type**: Leave the default value selected or choose the specific client you want to use.
 
 1. Select **Next: Authentication**.
 
@@ -408,13 +408,13 @@ For this migration guide, you'll use App Service, but the steps are similar for 
 1. Leave the default values selected, and then select **Next: Review + Create**.
 1. After Azure validates your settings, select **Create**.
 
-The Service Connector will automatically assign a system-assigned managed identity for the app service. The connector will also assign the managed identity roles of `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` for the Event Hubs instance you selected.
+The Service Connector automatically assigns a system-assigned managed identity for the app service. The connector also assigns the managed identity roles of `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` for the Event Hubs instance you selected.
 
 ##### [Container Apps](#tab/container-apps)
 
 1. On the main overview page of your Azure Container Apps instance, select **Identity** from the navigation pane.
 
-1. On the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
+1. On the **System assigned** tab, set the **Status** field to **On**. Azure internally manages a system-assigned identity and handles administrative tasks for you. Your code never exposes the details and IDs of the identity.
 
    :::image type="content" source="media/passwordless-connections/container-apps-identity.png" alt-text="Screenshot of Azure portal Identity page of Container App resource showing System assigned tab with Status field highlighted." lightbox="media/passwordless-connections/container-apps-identity.png":::
 
@@ -422,7 +422,7 @@ The Service Connector will automatically assign a system-assigned managed identi
 
 1. On the main overview page of your Azure Spring Apps instance, select **Identity** from the navigation pane.
 
-1. On the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
+1. On the **System assigned** tab, set the **Status** field to **On**. Azure internally manages a system-assigned identity and handles administrative tasks for you. Your code never exposes the details and IDs of the identity.
 
    :::image type="content" source="media/passwordless-connections/spring-apps-identity.png" alt-text="Screenshot of Azure portal Identity page of App resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/spring-apps-identity.png":::
 
@@ -430,17 +430,17 @@ The Service Connector will automatically assign a system-assigned managed identi
 
 1. On the main overview page of your virtual machine, select **Identity** from the navigation pane.
 
-1. On the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
+1. On the **System assigned** tab, set the **Status** field to **On**. Azure internally manages a system-assigned identity and handles administrative tasks for you. Your code never exposes the details and IDs of the identity.
 
    :::image type="content" source="media/passwordless-connections/virtual-machine-identity.png" alt-text="Screenshot of Azure portal Identity page of Virtual machine resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/virtual-machine-identity.png":::
 
 ##### [AKS](#tab/aks)
 
-An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, a system-assigned managed identity is automatically created.
+An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, Azure automatically creates a system-assigned managed identity.
 
 ---
 
-You can also assign managed identity on an Azure hosting environment by using the Azure CLI.
+You can also assign a managed identity on an Azure hosting environment by using the Azure CLI.
 
 ##### [App Service](#tab/app-service)
 
@@ -456,7 +456,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az webapp identity assign \
 
 ##### [Service Connector](#tab/service-connector)
 
-You can create a Service Connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Assign the managed identity for your Azure hosting environment](#assign-the-managed-identity-for-your-azure-hosting-environment) section.
+You can create a service connection between an Azure compute hosting environment and a target service by using the Azure CLI. The Azure CLI automatically handles creating a managed identity and assigns the proper role, as explained in the [Assign the managed identity for your Azure hosting environment](#assign-the-managed-identity-for-your-azure-hosting-environment) section.
 
 First, install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI:
 
@@ -559,7 +559,7 @@ Next, grant permissions to the managed identity you created to access your Event
 
 ##### [Service Connector](#tab/assign-role-service-connector)
 
-If you connected your services using the Service Connector, you don't need to complete this step. The following necessary configurations were handled for you:
+If you connected your services by using the Service Connector, you don't need to complete this step. The following necessary configurations were handled for you:
 
 - If you selected a managed identity when you created the connection, a system-assigned managed identity was created for your app and assigned the `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` roles on the Event Hubs.
 
@@ -570,11 +570,11 @@ If you connected your services using the Service Connector, you don't need to co
 > [!NOTE]
 > If you use Azure Spring Apps, use the following steps to assign roles in Azure Spring Apps.
 >
-> 1. In the Azure portal, navigate to **Azure Spring Apps**, then choose the app you use.
+> 1. In the Azure portal, navigate to **Azure Spring Apps**, and then choose the app you use.
 > 2. Select **Identity** on the navigation menu, and on the **System assigned** tab, select **Azure role assignments**.
 > 3. Select **Add role assignments**, search for **Azure Event Hubs Data Sender** and **Azure Event Hubs Data Receiver**, select the matching result, and then select **Save**.
 
-1. In the Azure portal, locate your Event Hubs namespace using the main search bar or the navigation pane.
+1. In the Azure portal, locate your Event Hubs namespace by using the main search bar or the navigation pane.
 
 1. On the Event Hubs overview page, select **Access control (IAM)** from the navigation menu.
 
@@ -593,11 +593,11 @@ If you connected your services using the Service Connector, you don't need to co
    > [!NOTE]
    > If you use Azure Kubernetes Service, select **User-assigned managed identities** and then select the managed identity of the Kubernetes cluster, which has a name with the following structure: `<your-kubernetes-cluster-name>-agentpool`.
 
-1. Select **Next** a couple of times until you're able to select **Review + assign** to finish the role assignment.
+1. Select **Next** a couple of times until you can select **Review + assign** to finish the role assignment.
 
 ##### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you can use the following commands:
+To assign a role at the resource level by using the Azure CLI, use the following commands:
 
 ```azurecli
 az role assignment create \
@@ -614,13 +614,13 @@ az role assignment create \
 
 #### Test the app
 
-After making these code changes, browse to your hosted application in the browser. Your app should be able to connect to the Azure Event Hubs for Kafka successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
+After making these code changes, browse to your hosted application in the browser. Your app should be able to connect to the Azure Event Hubs for Kafka successfully. It can take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
 ## Next steps
 
 In this tutorial, you learned how to migrate an application to passwordless connections.
 
-You can read the following resources to explore the concepts discussed in this article in more depth:
+To explore the concepts discussed in this article in more depth, see the following resources:
 
 - [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity)
 - [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)
