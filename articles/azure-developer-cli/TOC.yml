@@ -103,6 +103,8 @@
           href: monitor-your-app.md
       - name: Deployment configuration
         items:
+        - name: Choose a container workflow
+          href: container-build-deploy-options.md
         - name: Layered provisioning
           href: layered-provisioning.md
         - name: Remote build support
