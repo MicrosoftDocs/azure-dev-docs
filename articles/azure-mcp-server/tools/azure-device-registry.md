@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to list and discover Azure Device Regist
 author: diberry
 ms.author: diberry
 ms.reviewer: nimengan
-ms.date: 09/02/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
