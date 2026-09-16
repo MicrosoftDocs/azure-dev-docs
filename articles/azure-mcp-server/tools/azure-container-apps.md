@@ -26,12 +26,12 @@ Azure Container Apps is a fully managed serverless container platform for buildi
 
 
 ## List container apps
-#### [MCP Server](#tab/mcp-server)
-
 
 <!-- @mcpcli containerapps list -->
 
 This tool, part of the Model Context Protocol (MCP), lists Azure Container Apps in a subscription. You can optionally filter results by a resource group. Each returned container app includes the following properties: `name`, `location`, `resourceGroup`, `managedEnvironmentId`, and `provisioningState`. If no container apps are found, this tool returns an empty list of results, consistent with other list tools.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -47,9 +47,6 @@ Example prompts include:
 ```console
 azmcp containerapps list
 ```
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
 
 ---
 
