@@ -1,6 +1,6 @@
 ---
 title: Secure Spring Boot apps using Azure Active Directory B2C
-description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Azure Active Directory B2C.
+description: Shows you how to develop a Java Spring Boot web app that supports sign-in using Azure Active Directory B2C.
 author: bmitchell287
 ms.author: brendm
 ms.reviewer: givermei
@@ -12,6 +12,8 @@ ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 # Secure Java Spring Boot apps using Azure Active Directory B2C
 
 This article demonstrates a Java Spring Boot web app that signs in users on your Azure Active Directory B2C tenant using the [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c). It uses the OpenID Connect protocol.
+
+[!INCLUDE [azure-ad-b2c-availability-note.md](includes/azure-ad-b2c-availability-note.md)]
 
 The following diagram shows the topology of the app:
 
@@ -94,7 +96,7 @@ To register the app, use the following steps:
 
 1. Type a description - for example, **app secret**.
 
-1. Select one of the available durations as per your security concerns - for example, **In 2 years**.
+1. Select an expiration for the secret or specify a custom lifetime. Client secrets are limited to a maximum lifetime of 24 months, and Microsoft recommends an expiration of less than 12 months. For production apps, prefer a certificate or federated identity credential over a client secret.
 
 1. Select **Add**. The generated value is displayed.
 
