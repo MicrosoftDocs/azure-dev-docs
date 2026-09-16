@@ -18,12 +18,12 @@ Azure RBAC tools in the Azure MCP Server allow you to manage Azure role-based ac
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List role assignments
-#### [MCP Server](#tab/mcp-server)
-
 
 <!-- role assignment list -->
 
 The Azure MCP Server can list Azure RBAC [role assignments](/azure/role-based-access-control/role-assignments) at a specific scope. This allows you to view who has access to what resources and what permissions they have.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
