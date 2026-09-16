@@ -43,12 +43,6 @@ Example prompts include:
 - "Find namespaces in the Contoso-IoT resource group and show their UUIDs."
 - "Which device registry namespaces are available in my West US region?"
 
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 **Example CLI command**
@@ -61,6 +55,12 @@ azmcp deviceregistry namespace list
 |-----------|------|----------|-------------|
 
 ---
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
+|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
+| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
 ## Related content
 
