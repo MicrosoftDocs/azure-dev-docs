@@ -4,7 +4,7 @@ description: The azure-prepare skill helps you prepare Azure environments for ap
 author: diberry
 ms.author: diberry
 ms.reviewer: tomescht
-ms.date: 06/29/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
