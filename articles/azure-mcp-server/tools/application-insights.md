@@ -43,9 +43,6 @@ Example prompts include:
 azmcp applicationinsights recommendation list
 ```
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-
 ---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
