@@ -1,6 +1,6 @@
 ---
-title: Migrate an application to use passwordless connections with Azure Database for MySQL
-description: Learn how to migrate existing applications using Azure Database for MySQL away from authentication patterns such as passwords to more secure approaches like Managed Identity.
+title: Migrate to Passwordless Connections for Azure Database for MySQL
+description: Learn how to migrate an Azure Database for MySQL application to passwordless connections with managed identity for stronger security. Start the migration.
 ms.topic: how-to
 author: KarlErickson
 ms.author: karler
@@ -32,22 +32,22 @@ When the application authenticates with Azure Database for MySQL, it provides a 
 
 ### Microsoft Entra authentication
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 Using Microsoft Entra ID for authentication provides the following benefits:
 
 - Authentication of users across Azure Services in a uniform way.
 - Management of password policies and password rotation in a single place.
 - Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords.
-- Customers can manage database permissions using external (Microsoft Entra ID) groups.
+- Customers can manage database permissions by using external (Microsoft Entra ID) groups.
 - Microsoft Entra authentication uses MySQL database users to authenticate identities at the database level.
 - Support of token-based authentication for applications connecting to Azure Database for MySQL.
 
 ### MySQL authentication
 
-You can create accounts in MySQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in MySQL, you need to manage the rotation of the passwords by yourself.
+You can create accounts in MySQL. If you choose to use passwords as credentials for the accounts, the `user` table stores these credentials. Because MySQL stores these passwords, you need to manage the rotation of the passwords yourself.
 
-Although it's possible to connect to Azure Database for MySQL with passwords, you should use them with caution. You must be diligent to never expose the passwords in an unsecure location. Anyone who gains access to the passwords is able to authenticate. For example, there's a risk that a malicious user can access the application if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission. Instead, consider updating your application to use passwordless connections.
+Although you can connect to Azure Database for MySQL by using passwords, use them with caution. Be diligent to never expose the passwords in an insecure location. Anyone who gains access to the passwords can authenticate. For example, a malicious user can access the application if you accidentally check in a connection string to source control, send it through an insecure email, paste it into the wrong chat, or if someone without permission views it. Instead, consider updating your application to use passwordless connections.
 
 [!INCLUDE [introducing-passwordless-connections](includes/introducing-passwordless-connections.md)]
 
@@ -72,10 +72,10 @@ export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id --output tsv
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_RESOURCE_GROUP>`: The name of the resource group your resources are in.
+- `<YOUR_RESOURCE_GROUP>`: The name of the resource group for your resources.
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
-- `<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>`: The display name of your Microsoft Entra non-admin user. Make sure the name is a valid user in your Microsoft Entra tenant.
-- `<YOUR_AZURE_AD_MI_DISPLAY_NAME>`: The display name of Microsoft Entra user for your managed identity. Make sure the name is a valid user in your Microsoft Entra tenant.
+- `<YOUR_AZURE_AD_NON_ADMIN_USER_DISPLAY_NAME>`: The display name of your Microsoft Entra non-admin user. Ensure the name is a valid user in your Microsoft Entra tenant.
+- `<YOUR_AZURE_AD_MI_DISPLAY_NAME>`: The display name of Microsoft Entra user for your managed identity. Ensure the name is a valid user in your Microsoft Entra tenant.
 - `<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>`: The name of your user-assigned managed identity server, which should be unique across Azure.
 
 ### 1) Configure Azure Database for MySQL
@@ -84,15 +84,15 @@ Replace the placeholders with the following values, which are used throughout th
 
 #### 1.1) Enable Microsoft Entra ID-based authentication
 
-To use Microsoft Entra ID access with Azure Database for MySQL, you should set the Microsoft Entra admin user first. Only a Microsoft Entra Admin user can create/enable users for Microsoft Entra ID-based authentication.
+To use Microsoft Entra ID access with Azure Database for MySQL, set the Microsoft Entra admin user first. Only a Microsoft Entra admin user can create or enable users for Microsoft Entra ID-based authentication.
 
-If you're using Azure CLI, run the following command to make sure it has sufficient permission:
+If you're using Azure CLI, run the following command to ensure it has sufficient permission:
 
 ```bash
 az login --scope https://graph.microsoft.com/.default
 ```
 
-Run the following command to the create user identity for assigning:
+Run the following command to create a user identity for assigning:
 
 ```azurecli
 az identity create \
@@ -112,7 +112,7 @@ az mysql flexible-server identity assign \
     --identity $AZ_USER_IDENTITY_NAME
 ```
 
-Then, run following command to set the Microsoft Entra admin:
+Then, run the following command to set the Microsoft Entra admin:
 
 ```azurecli
 az mysql flexible-server ad-admin create \
@@ -123,10 +123,10 @@ az mysql flexible-server ad-admin create \
     --identity $AZ_USER_IDENTITY_NAME
 ```
 
-This command will set the Microsoft Entra admin to the current signed-in user.
+This command sets the Microsoft Entra admin to the current signed-in user.
 
 > [!NOTE]
-> You can only create one Microsoft Entra admin per MySQL server. Selection of another one will overwrite the existing Microsoft Entra admin configured for the server.
+> You can only create one Microsoft Entra admin per MySQL server. Selecting another admin overwrites the existing Microsoft Entra admin configured for the server.
 
 ### 2) Configure Azure Database for MySQL for local development
 
@@ -136,13 +136,13 @@ Azure Database for MySQL instances are secured by default. They have a firewall 
 
 You can skip this step if you're using Bash because the `flexible-server create` command already detected your local IP address and set it on MySQL server.
 
-If you're connecting to your MySQL server from Windows Subsystem for Linux (WSL) on a Windows computer, you need to add the WSL host ID to your firewall. Obtain the IP address of your host machine by running the following command in WSL:
+If you're connecting to your MySQL server from Windows Subsystem for Linux (WSL) on a Windows computer, you need to add the WSL host ID to your firewall. Get the IP address of your host machine by running the following command in WSL:
 
 ```bash
 cat /etc/resolv.conf
 ```
 
-Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP address:
+Copy the IP address following the term `nameserver`, and then use the following command to set an environment variable for the WSL IP address:
 
 ```bash
 export AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
@@ -164,7 +164,7 @@ az mysql server firewall-rule create \
 
 Next, create a non-admin Microsoft Entra user and grant all permissions on the `$AZ_DATABASE_NAME` database to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
-Create a SQL script called **create_ad_user.sql** for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script named **create_ad_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 export AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id --output tsv)
@@ -177,24 +177,24 @@ FLUSH privileges;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
+Then, use the following command to run the SQL script and create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
-Now use the following command to remove the temporary SQL script file:
+Now, use the following command to remove the temporary SQL script file:
 
 ```bash
 rm create_ad_user.sql
 ```
 
 > [!NOTE]
-> You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
+> For more information about creating MySQL users, see [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
 
 ### 3) Sign in and migrate the app code to use passwordless connections
 
-For local development, make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your MySQL. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
+For local development, ensure you're authenticated with the same Microsoft Entra account you assigned the role to on your MySQL. Authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
 [!INCLUDE [sign-in](includes/passwordless-sign-in.md)]
 
@@ -220,14 +220,14 @@ Next, use the following steps to update your code to use passwordless connection
    ```
 
    > [!NOTE]
-   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, be sure to remove `defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin` from the URL.
+   > If you're using the `MysqlConnectionPoolDataSource` class as the datasource in your application, remove `defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin` from the URL.
 
    ```properties
    url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
    user=$AZ_MYSQL_AD_NON_ADMIN_USERNAME
    ```
 
-1. Replace the one `$AZ_DATABASE_SERVER_NAME` variable, one `$AZ_DATABASE_NAME` variable and one `$AZ_MYSQL_AD_NON_ADMIN_USERNAME` variable with the values that you configured at the beginning of this article.
+1. Replace the `$AZ_DATABASE_SERVER_NAME`, `$AZ_DATABASE_NAME`, and `$AZ_MYSQL_AD_NON_ADMIN_USERNAME` variables with the values that you configured at the beginning of this article.
 
 1. Remove the `password` from the JDBC URL.
 
@@ -260,26 +260,26 @@ Next, use the following steps to update your code to use passwordless connection
 
 #### Run the app locally
 
-After making these code changes, run your application locally. The new configuration should pick up your local credentials if you're signed in to a compatible IDE or command line tool, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
+After making these code changes, run your application locally. The new configuration picks up your local credentials if you're signed in to a compatible IDE or command line tool, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure allow your app to connect to the Azure service locally.
 
 ### 4) Configure the Azure hosting environment
 
-After your application is configured to use passwordless connections and it runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity assigned can connect to Azure Storage.
+After you configure your application to use passwordless connections and run it locally, the same code can authenticate to Azure services after you deploy it to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity assigned can connect to Azure Storage.
 
-In this section, you'll execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
+In this section, you execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
 
 - Assign the managed identity for your Azure hosting environment.
 - Assign roles to the managed identity.
 
 > [!NOTE]
-> Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with PostgreSQL. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
+> Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with PostgreSQL. By using Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector assigns them for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
 > Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or higher.
 
 #### Assign the managed identity using the Azure portal
 
-The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
+The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure services by using the app configurations you set up previously.
 
 ##### [App Service](#tab/app-service)
 
@@ -289,7 +289,7 @@ The following steps show you how to assign a system-assigned managed identity fo
 
 ##### [Service Connector](#tab/service-connector)
 
-When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn't support configuring Azure Database this way, so you need to use Azure CLI to assign the identity.
+When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, the Azure portal doesn't support configuring Azure Database this way, so you need to use Azure CLI to assign the identity.
 
 ##### [Container Apps](#tab/container-apps)
 
@@ -317,11 +317,11 @@ When you use Service Connector, it can help to assign the system-assigned manage
 
 ##### [AKS](#tab/aks)
 
-An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, a system-assigned managed identity is automatically created.
+An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, Azure automatically creates a system-assigned managed identity.
 
 ---
 
-You can also assign managed identity on an Azure hosting environment by using the Azure CLI.
+You can also assign a managed identity on an Azure hosting environment by using the Azure CLI.
 
 ##### [App Service](#tab/app-service)
 
@@ -455,9 +455,9 @@ export AZ_MI_OBJECT_ID=$(az aks update \
 
 Next, grant permissions to the managed identity you assigned to access your MySQL instance.
 
-These steps will create a Microsoft Entra user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
+These steps create a Microsoft Entra user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
-First, create a SQL script called **create_ad_user.sql** for creating a non-admin user. Add the following contents and save it locally:
+First, create a SQL script named **create_ad_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 export AZ_MYSQL_AD_MI_USERID=$(az ad sp show --id $AZ_MI_OBJECT_ID --query appId --output tsv)
@@ -470,13 +470,13 @@ FLUSH privileges;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
+Then, use the following command to run the SQL script and create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
 ```
 
-Now use the following command to remove the temporary SQL script file:
+Now, use the following command to remove the temporary SQL script file:
 
 ```bash
 rm create_ad_user.sql
@@ -484,7 +484,7 @@ rm create_ad_user.sql
 
 #### Test the app
 
-Before deploying the app to the hosting environment, you need to make one more change to the code because the application is going to connect to MySQL using the user created for the managed identity.
+Before deploying the app to the hosting environment, you need to make one more change to the code because the application connects to MySQL by using the user you created for the managed identity.
 
 ### [Java](#tab/java)
 
@@ -509,13 +509,13 @@ spring:
 
 ---
 
-After making these code changes, you can build and redeploy the application. Then, browse to your hosted application in the browser. Your app should be able to connect to the MySQL database successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
+After making these code changes, you can build and redeploy the application. Then, browse to your hosted application in the browser. Your app should be able to connect to the MySQL database successfully. It might take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
 ## Next steps
 
 In this tutorial, you learned how to migrate an application to passwordless connections.
 
-You can read the following resources to explore the concepts discussed in this article in more depth:
+To explore the concepts discussed in this article in more depth, see the following resources:
 
 - [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
 - [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)

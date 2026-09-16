@@ -3,10 +3,11 @@ title: Explore azd config functionality
 description: Learn how to use the azd config command and related functionality
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 01/09/2026
+ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep
+ai-usage: ai-generated
 ---
 
 # Explore Azure Developer CLI configuration
@@ -153,16 +154,12 @@ Name: azd.operations
 Description: Extends provisioning providers with azd operations.
 Status: Off
 
-Name: compose
-Description: Enable simplified app-centric modeling. Run `azd add` to add Azure components to your project.
-Status: On
-
 Name: deployment.stacks
 Description: Enables Azure deployment stacks for ARM/Bicep based deployments.
 Status: Off
 
-Name: infraSynth
-Description: Enable the `infra synth` command to write generated infrastructure to disk.
+Name: llm
+Description: Enables the use of LLMs in the CLI.
 Status: Off
 ```
 
@@ -174,19 +171,19 @@ You can get, set, or unset values in the `config.json` file using `azd config` c
 
 Use the `azd config set <key> <value>` command to add a configuration setting to the `config.json` file.
 
-For example, to enable the `azd compose` alpha feature:
+For example, to enable the LLM features used by the GitHub Copilot integration:
 
 ```azdeveloper
-azd config set alpha.compose on
+azd config set alpha.llm on
 ```
 
 > [!NOTE]
-> Use `.` syntax to traverse JSON object structures when you get and set configuration values, such as in the case of `alpha.compose`.
+> Selecting **Set up with GitHub Copilot (Preview)** during `azd init` enables this setting automatically. Use `.` syntax to traverse JSON object structures when you get and set configuration values.
 
 Verify the setting was enabled using the `azd config get <key>` command, such as the following:
 
 ```azdeveloper
-azd config get alpha.compose
+azd config get alpha.llm
 ```
 
 Sample output:
@@ -205,7 +202,7 @@ Sample output:
 
 ```json
 {
-  "compose": "on"
+  "llm": "on"
 }
 ```
 
@@ -248,4 +245,4 @@ When you run `azd config show` after a reset, you will simply see an empty objec
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible)
+> [Template development overview](build-templates-overview.md)

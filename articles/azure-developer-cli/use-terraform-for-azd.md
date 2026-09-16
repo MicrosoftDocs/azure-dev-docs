@@ -27,7 +27,7 @@ By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Ter
 
 - [Install and configure Terraform](../terraform/quickstart-configure.md).
 - [Install Azure CLI (v 2.38.0+)](/cli/azure/install-azure-cli).
-- [Review the architecture diagram and the Azure resources you deploy in the Node.js or Python Terraform template](./azd-templates.md#start-with-an-existing-template).
+- [Review the architecture diagram and the Azure resources you deploy in the Node.js or Python Terraform template](./start-with-existing-template.md).
 
 > [!IMPORTANT]
 > Terraform deployments require an Azure CLI sign-in even when you use `azd`. The Terraform `azurerm` provider authenticates through Azure CLI by default and doesn't read tokens from the `azd` credential cache. If you only run `azd auth login`, `azd up` fails at the provision step with `ERROR: Please run 'az login' to setup account`. See [Authenticate to Azure](#authenticate-to-azure) for the recommended sign-in flow.

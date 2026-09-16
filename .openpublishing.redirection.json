@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-developer-cli/build-new-template.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/start-with-new-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-developer-cli/azd-copilot-integration.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/start-with-new-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-developer-cli/make-azd-compatible.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/build-templates-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-developer-cli/azd-compose.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/build-templates-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-developer-cli/compose-quickstart.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/build-templates-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-developer-cli/compose-generate.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/explore-edit-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-developer-cli/start-with-app-code.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/explore-edit-templates",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-mcp-server/services/azure-mcp-server-for-app-service.md",
       "redirect_url": "/azure/developer/azure-mcp-server/azure-services/azure-mcp-server-for-app-service",
       "redirect_document_id": true

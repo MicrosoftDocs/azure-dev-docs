@@ -3,10 +3,11 @@ title: Monitor your app using Azure Developer CLI
 description: Learn how to use Azure Developer CLI (azd) to monitor your app health.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 01/09/2026
+ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
+ai-usage: ai-generated
 ---
 
 # Monitor your app using Azure Developer CLI
@@ -58,4 +59,4 @@ azd down
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Make your project Azure Developer CLI (azd) compatible](make-azd-compatible.md)
+> [Template development overview](build-templates-overview.md)

@@ -1,147 +1,178 @@
 ---
-title: Azure Developer CLI templates
-description: Learn about what Azure Developer CLI templates are, how to work with them, and how to get started using them with your apps.
+title: Azure Developer CLI templates overview
+description: Learn how Azure Developer CLI templates organize configuration, infrastructure, and application code for repeatable Azure deployments.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 01/09/2026
-ms.topic: how-to
-ms.custom: devx-track-azdevcli, build-2023
+ms.date: 09/11/2026
+ms.topic: concept-article
+ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
+ai-usage: ai-generated
 ---
 
 # Azure Developer CLI templates overview
 
-Azure Developer CLI (`azd`) templates are regular code repositories that include sample application code, as well as `azd` configuration and infrastructure files. `azd` templates enable you to provision Azure resources, deploy your application, configure CI/CD pipelines, and more. You can either create your own templates, or get started using an existing template from a template repository such as [Awesome AZD](https://azure.github.io/awesome-azd/). In this article, you'll learn about the following concepts:
+An Azure Developer CLI (`azd`) template is a code repository that follows `azd` conventions. It combines project configuration, infrastructure as code, and optional application source so you can create repeatable Azure environments and deployments.
 
-- How `azd` templates enable you to provision and deploy app resources
-- How `azd` templates are structured
-- How to decide whether to use an existing template or create one
-- Explore existing `azd` starter templates
+Templates can support different project types, including:
 
-> [!VIDEO https://www.youtube.com/embed/KDgR-TXtOgM?si=rLzhrqC4M0o5d0BE]
+- A complete application with one or more deployable services.
+- An infrastructure-only solution without application code.
+- A reusable starting point that another developer can initialize and extend.
+- An existing project that you prepare for provisioning and deployment with `azd`.
 
-## Why use Azure Developer CLI templates?
+This article explains the structure of a template and how `azd` commands use its files.
 
-Developers often face many time consuming and challenging tasks when building properly architected and configured environment aware apps for the cloud. Teams must account for many different concerns in these environments, such as creating resources, applying configurations, setting up monitoring and logging, building CI/CD pipelines, and other tasks. `azd` templates reduce and streamline these responsibilities to help the developer on their journey from local development to a successfully deployed app on Azure.
+## Why use a template?
 
-For example, suppose you work at a company that operates a ticket management and customer communication platform, which requires the following Azure resources:
+A template captures the decisions required to run a project on Azure. Depending on the project, it can define:
 
-- Two App Service instances and an App Service Plan to host a front-end web app and back-end API
-- A Key Vault instance to store secure app secrets
-- A Cosmos DB database to permanently store app data
-- Azure Monitor resources such as Application Insights dashboards
-- A Service Bus to manage scalable messaging
-- CI/CD pipelines to ensure changes can be reliably deployed through an automated, repeatable process.
+- Azure resources and their configuration.
+- Deployable application services and packaging instructions.
+- Connections between application services and Azure resources.
+- Environment-specific parameters and outputs.
+- Local development, continuous integration, and continuous delivery configuration.
 
-Rather than starting from the ground up, with `azd` you can leverage existing architecture templates to provision and deploy most of the resources for you. The development team can then focus on building the app and making smaller adjustments to the template architecture.
+Because the configuration is stored with the project, teams can review changes in source control and create consistent development, test, and production environments.
 
-## How Azure Developer CLI templates work
+## How `azd` uses a template
 
-Azure Developer CLI templates are designed to work with `azd` commands such as `azd init` and `azd up`. The templates include configuration and infrastructure-as-code (IaC) files that are used by the commands to perform tasks such as provisioning Azure resources and deploy the app code to them.
+The files in a template support different stages of the `azd` workflow:
 
-For example, a typical `azd` workflow using an existing template includes the following steps:
+- `azd init` initializes the project and creates an `azd` environment. It can also use GitHub Copilot to generate an initial template or copy an existing template.
+- `azd provision` evaluates the infrastructure definitions and creates or updates Azure resources.
+- `azd package` prepares deployable application services according to `azure.yaml`.
+- `azd deploy` associates each service with its Azure host and deploys the application package.
+- `azd up` runs the provisioning, packaging, and deployment stages as a combined workflow.
 
-1. Run the `azd init` command with the `--template` parameter to clone an existing template down from GitHub.
-
-    ```azdeveloper
-    azd init --template todo-nodejs-mongo
-    ```
-
-2. Run the `azd auth login` command to authenticate to your Azure subscription.
-
-    ```azdeveloper
-    azd auth login
-    ```
-
-3. Run the `azd up` command to provision and deploy the template resources to Azure. The `azd up` command leverages the configuration and infrastructure-as-code (IaC) files in your template to provision Azure resources and deploy your application to those resources.
-
-    ```azdeveloper
-    azd up
-    ```
-
-4. Once your environment is set up in Azure, you can locally modify the application features or Azure resource templates and then run `azd up` again to provision your changes.
+The template files remain regular source files throughout this process. You can review, edit, and version them with the rest of the project.
 
 [!INCLUDE [azd-template-structure](includes/azd-template-structure.md)]
 
-## Start with an existing template or create your own
+The following diagram shows how the primary template assets work together:
 
-There are two main approaches to working with `azd` templates:
+```mermaid
+flowchart LR
+AZ[azure.yaml] -->|Defines services| SRC[Application source]
+AZ -->|Selects provider and path| INFRA[Infrastructure as code]
+INFRA -->|Provisions| RES[Azure resources]
+INFRA -->|Exports values| ENV[azd environment]
+ENV -->|Configures| SRC
+AZ -->|Maps services to| RES
+```
 
-- **Start with an existing `azd` template.**
-  - This is a good choice if you're just getting started with `azd` or if you're looking for a template to build off of for a new app with a similar architecture and frameworks.
-- **Convert an existing project to an `azd` template.**
-  - This is a good choice when you already have an existing app but you want to make it compatible with `azd` capabilities.
+## Required and optional assets
 
-The following sections provide more information on these two options.
+The exact structure varies by project, but most templates use the following assets.
 
-### Start with an existing template
+### `azure.yaml`
 
-A broad selection of `azd` templates is available on the [awesome-azd](https://azure.github.io/awesome-azd/) template gallery. These templates provide infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can extend and replace the template code with your own
+The `azure.yaml` file is the primary project configuration file. It defines the project name and can define deployable services, infrastructure providers, hooks, workflows, and other `azd` behavior.
 
-For example, the following `azd` templates provide starting points for common app architectures and frameworks:
+For an application service, `azure.yaml` commonly identifies:
 
-### [C#](#tab/csharp)
+- The path to the application source.
+- The programming language or packaging strategy.
+- The Azure service that hosts the application.
+- Build, deployment, container, or Kubernetes settings.
 
-| Template      | App host | Tech stack |
-| ----------- | ----------| ----------- |
-| [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for NoSQL](/learn/modules/intro-to-azure-cosmos-db-core-api/), Bicep |
-| [React Web App with C# API and SQL Database on Azure](https://github.com/azure-samples/todo-csharp-sql) | [Azure App Service](/azure/app-service/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
-| [Static React Web App + Functions with C# API and SQL Database on Azure](https://github.com/Azure-Samples/todo-csharp-sql-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
+Infrastructure-only templates can omit application services. For the complete configuration model, see the [`azure.yaml` schema](azd-schema.md).
 
-### [Java](#tab/java)
+The following example defines two application services. The service names, source paths, languages, and hosting targets tell `azd` what to package and where to deploy it:
 
-| Template      | App host | Tech stack     | 
-| ----------- | ----------| ----------- | 
-| [React Web App with Java API and MongoDB on Azure](https://github.com/Azure-Samples/todo-java-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep | 
-| [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/Azure-Samples/todo-java-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep | 
+```yaml
+name: store
+services:
+  api:
+    project: ./src/api
+    language: js
+    host: containerapp
+  web:
+    project: ./src/web
+    language: js
+    host: staticwebapp
+```
 
-### [Node.js](#tab/nodejs)
+### Infrastructure as code
 
-| Template      | App host | Tech stack |
-| ----------- | ----------| ----------- |
-| [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |  
-| [React Web App with Node.js API and MongoDB (Terraform) on Azure](https://github.com/azure-samples/todo-nodejs-mongo-terraform) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Terraform |  
-| [Containerized React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |
-| [Static React Web App + Functions with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |
-| [Kubernetes React Web App with Node.js API and MongoDB on Azure](https://github.com/Azure-Samples/todo-nodejs-mongo-aks) |  [Azure Kubernetes Service](/azure/aks/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep
+Most templates contain an `infra` directory with Bicep or Terraform files. These files define the Azure resources, role assignments, networking, application settings, and deployment outputs required by the project.
 
-### [Python](#tab/python)
+For the default Bicep provider, `azd` typically uses `infra/main.bicep` as the deployment entry point and `infra/main.parameters.json` to map `azd` environment values to Bicep parameters. Terraform templates commonly use `infra/main.tf` and related Terraform files.
 
-| Template      | App host | Tech stack |
-| ----------- | ----------| ----------- |
-| [React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep  |  
-| [Containerized React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) |  [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep |  
-| [Static React Web App + Functions with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) |  [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), Bicep|
+For example, a Bicep parameter file can pass values selected by `azd` into the infrastructure deployment:
 
-### [Starter Templates (IaC only)](#tab/starter-IaC)
-| Template      | App host | Tech stack |
-| ----------- | ----------| ----------- |
-| [Bicep Starter](https://github.com/Azure-Samples/azd-starter-bicep) | - | Bicep, [dev container](https://containers.dev) configuration file, CI/CD pipeline definitions to test your app against your applications resources on Azure |  
-| [Terraform Starter](https://github.com/Azure-Samples/azd-starter-terraform) | - | Terraform [dev container](https://containers.dev) configuration file, CI/CD pipeline definitions to test your app against your applications resources on Azure |  
+```json
+{
+  "parameters": {
+    "environmentName": { "value": "${AZURE_ENV_NAME}" },
+    "location": { "value": "${AZURE_LOCATION}" }
+  }
+}
+```
 
----
+When Bicep provisioning completes, `azd` stores outputs from the entry point as environment values. Application services and hooks can use these values for resource endpoints, names, and other runtime configuration.
 
-### Create a new `azd` template for your app
+```bicep
+output API_ENDPOINT string = api.outputs.uri
+```
 
-You can also convert an existing app into an `azd` template to enhance the repository with provisioning and deployment capabilities. This approach allows for the most control and produces a reusable solution for future development work on the app. The high level steps to create your own template are as follows:
+### Application source
 
-- Initialize the project template with `azd init`.
-- Create the Bicep or Terraform infrastructure as code files in the `infra` folder.
-- Update the `azure.yaml` file to tie the app services together with the Azure resources.
-- Provision & deploy with `azd up`.
+Application source is optional. When a template contains deployable services, each service definition in `azure.yaml` points to its source directory. A template can organize services under `src`, use directories elsewhere in the repository, or point a service at the repository root.
 
-The following resources provide more information about creating your own templates:
+The folder name itself isn't significant. The `project` value in `azure.yaml` determines where `azd` finds each service.
 
-- [Build your first Azure Developer CLI template](/training/modules/build-first-azd-template/)
-- [Make your project compatible with `azd` guide](/azure/developer/azure-developer-cli/make-azd-compatible)
+### Environment configuration
 
-## Guidelines for using `azd` templates
+The `.azure` directory contains local environment state and values created by `azd`. It can contain subscription, location, resource name, endpoint, and deployment output values for multiple environments.
 
-Please note that each template that you use with Azure Developer CLI is licensed by its respective owner (which may or may not be Microsoft) under the agreement which accompanies the template. It is your responsibility to determine what license applies to any template you choose to use.
+Treat this directory as local state rather than a reusable template asset. Don't commit environment files that contain secrets or environment-specific values.
 
-Microsoft is not responsible for any non-Microsoft templates and does not screen these templates for security, privacy, compatibility, or performance issues. The templates you use with Azure Developer CLI, including those provided from Microsoft, are not supported by any Microsoft support program or service. Any Microsoft-provided templates are provided AS IS without warranty of any kind.
+### Supporting assets
+
+Templates can also contain:
+
+- GitHub Actions or Azure Pipelines definitions.
+- Dockerfiles and container configuration.
+- Development container configuration.
+- Command and service hooks.
+- Tests, scripts, and project documentation.
+
+These assets are optional and should be included only when they support the intended template experience.
+
+## Service and resource association
+
+To deploy an application service, `azd` must associate its definition in `azure.yaml` with a provisioned Azure resource. By default, `azd` finds a resource whose `azd-service-name` tag matches the service name.
+
+For example, a service named `api` maps to a resource tagged with `azd-service-name: api`. You can instead use the `resourceName` service property to identify the deployment target explicitly.
+
+The following Bicep expression adds the discovery tag to a resource's existing tags:
+
+```bicep
+tags: union(tags, {
+  'azd-service-name': 'api'
+})
+```
+
+Keep service names, resource discovery settings, infrastructure outputs, and application environment variables aligned when you edit a template.
+
+## Build or adapt a template
+
+The recommended authoring experience is to run `azd init` and select **Set up with GitHub Copilot (Preview)**. The dedicated Copilot agent session can analyze existing files, help plan a new project, generate template assets, and validate the result. For this workflow and other authoring methods, see [Start with a new template](start-with-new-template.md).
+
+The generated files aren't tied to Copilot. You can [explore and edit the template files](explore-edit-templates.md) directly after initialization. You can also create the same files manually or with another AI coding agent.
+
+If a template from Microsoft, your organization, or the developer community already provides a useful architecture, [start from the existing template](start-with-existing-template.md) and adapt it for your project. Browse available templates in the [template galleries](azd-template-galleries.md).
+
+## Template usage guidelines
+
+Each template is licensed by its owner under the agreement that accompanies the template. Determine which license applies before you use or distribute a template.
+
+Microsoft isn't responsible for non-Microsoft templates and doesn't screen them for security, privacy, compatibility, or performance issues. Templates, including Microsoft-provided templates, aren't supported by a Microsoft support program or service and are provided as is without warranty.
+
+Review all template files before provisioning. In particular, evaluate role assignments, network exposure, authentication methods, service tiers, resource locations, and expected costs.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Select and deploy a template](./get-started.md)
+> [Template development overview](build-templates-overview.md)
