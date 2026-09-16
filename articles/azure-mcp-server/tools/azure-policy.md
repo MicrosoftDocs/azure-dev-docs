@@ -44,13 +44,6 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Scope** |  Optional | The scope of the policy assignment (for example, `/subscriptions/{subscriptionId}`, `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`). |
 
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 **Example CLI command**
@@ -65,6 +58,12 @@ azmcp policy assignment list \
 | `scope` | string | No | The scope of the policy assignment (for example, `/subscriptions/{subscriptionId}`, `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`). |
 
 ---
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
+|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
+| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
 ## Related content
 
