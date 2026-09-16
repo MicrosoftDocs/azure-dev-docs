@@ -40,13 +40,6 @@ Example prompts include:
 - "List container apps in resource group 'rg-prod'."
 - "Show me the container apps in resource group 'webapp-dev'."
 
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 **Example CLI command**
@@ -59,6 +52,12 @@ azmcp containerapps list
 |-----------|------|----------|-------------|
 
 ---
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
+|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
+| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
 ## Related content
 
