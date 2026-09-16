@@ -22,12 +22,12 @@ The Azure MCP Server allows you to list Application Insights resources using nat
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List recommendations
-#### [MCP Server](#tab/mcp-server)
-
 
 <!-- applicationinsights recommendation list -->
 
 Lists [Application Insights](/azure/azure-monitor/app/app-insights-overview) code optimization recommendations in a subscription. 
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
