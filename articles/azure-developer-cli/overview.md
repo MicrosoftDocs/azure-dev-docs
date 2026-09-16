@@ -3,10 +3,11 @@ title: What is the Azure Developer CLI?
 description: Overview of the features and capabilities of the Azure Developer CLI that helps developers be more productive when building and deploying apps to Azure.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 01/09/2026
+ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: overview
 ms.custom: devx-track-azdevcli, build-2023
+ai-usage: ai-generated
 ---
 
 # What is the Azure Developer CLI?
@@ -22,7 +23,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that accelerates provisio
 - Configuration files to handle deploying your app to the provisioned resources.
 - Optionally, pipeline workflow files for GitHub Actions or Azure Pipelines to enable CI/CD integrations.
 
-You can also [create your own template](./make-azd-compatible.md?pivots=azd-create) or find one to customize and expand on from the [Awesome AZD](./make-azd-compatible.md?pivots=azd-convert) gallery.
+You can also [build your own template](./build-templates-overview.md) or find one to adapt in the [Azure Developer CLI template galleries](./azd-template-galleries.md).
 
 ## A sample `azd` workflow
 
@@ -52,7 +53,7 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 
 After you install `azd`, provision and deploy app resources to Azure in only a few steps:
 
-1. Select an [Azure Developer CLI template](./azd-templates.md#start-with-an-existing-template) such as the [`hello-azd`](https://github.com/Azure-Samples/hello-azd) demo template that contains the app resources you want to provision and deploy.
+1. Select an [Azure Developer CLI template](./start-with-existing-template.md) such as the [`hello-azd`](https://github.com/Azure-Samples/hello-azd) demo template that contains the app resources you want to provision and deploy.
 1. Run the [`azd init`](./get-started.md) command to initialize the template:
 
     ```azdeveloper

@@ -2,7 +2,8 @@
 title: Azure Developer CLI commands overview
 description: This article provides a conceptual overview of key concepts for Azure Developer CLI commands
 ms.topic: concept-article
-ms.date: 03/20/2026
+ms.date: 09/11/2026
+ai-usage: ai-generated
 ---
 
 # Azure Developer CLI commands overview
@@ -46,9 +47,6 @@ Using the preceding template as an example:
 
 - The `azd provision` command creates resources in Azure using the infrastructure-as-code files in the `infra` folder of a template.
 - The `azd deploy` command deploys an app or service defined in the `src` folder.
-
-> [!NOTE]
-> `azd` can also create and manage some Azure resources without the need to define infrastructure-as-code templates manually using the new [`azd compose`](/azure/developer/azure-developer-cli/azd-compose) feature, which is currently in alpha.
 
 ## Explore common commands
 

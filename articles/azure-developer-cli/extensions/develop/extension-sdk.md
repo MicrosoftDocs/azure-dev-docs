@@ -3,7 +3,7 @@ title: Communicate with azd by using the SDK
 description: Learn how to use the azdext Go SDK to communicate with the Azure Developer CLI (azd) from an extension, including project data, prompts, and gRPC services.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/10/2026
+ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -134,7 +134,6 @@ The `azdext` SDK exposes the following gRPC services through the client:
 | Prompt | Displays interactive prompts. |
 | AI Model | Interacts with configured AI models. |
 | Event | Subscribes to lifecycle events. |
-| Compose | Reads and modifies the composed set of services and resources. |
 | Workflow | Runs `azd` workflows. |
 | Telemetry | Reports extension usage by using `azdClient.Telemetry().ReportUsage`. |
 

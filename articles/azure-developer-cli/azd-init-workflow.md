@@ -3,10 +3,11 @@ title: Explore the Azure Developer CLI init workflow
 description: Learn about the stages of the Azure Developer CLI project initialization process.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/30/2026
+ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
+ai-usage: ai-generated
 ---
 
 # Explore the Azure Developer CLI initialization workflows
@@ -17,24 +18,31 @@ The Azure Developer CLI (`azd`) provides a set of commands to streamline develop
 
 The `azd init` command supports several workflows to prepare your app to work with `azd`:
 
+- **Set up with GitHub Copilot (Preview)**: Starts a dedicated Copilot agent session that can plan a project, generate template assets, and validate the result.
 - **Scan current directory**: Analyzes an existing app codebase to generate appropriate `azd` configuration files and resources.
 - **Select a template**: Clones and initializes a template from an `azd` [template gallery](azd-template-galleries.md).
 - **Create a minimal project**: Initializes a basic `azure.yaml` file as a starting point for building your own `azd` template from scratch.
 
-Choose the approach that best fits your project. All of these flows are outlined in more detail in the [Create templates overview](make-azd-compatible.md) and related articles. The following sections provide a conceptual overview of each flow.
+For template development, use **Set up with GitHub Copilot (Preview)**. For an overview of the complete authoring lifecycle, see [Template development overview](build-templates-overview.md). The following sections describe each initialization workflow.
+
+### Set up with GitHub Copilot (Preview)
+
+Use this workflow to build a template with AI assistance. `azd` starts a dedicated GitHub Copilot agent session that can inspect existing project files or help you plan a new project. The agent generates standard `azd` assets, such as `azure.yaml`, Bicep or Terraform files, and container configuration, and then validates the result.
+
+The agent session runs in the terminal and doesn't continue an active GitHub Copilot Chat session from Visual Studio Code. For prerequisites and detailed instructions, see [Start with a new template](start-with-new-template.md).
 
 ### Scan current directory
 
 Use this workflow when you have an existing app codebase and want to prepare it for deployment to Azure using `azd`.
 
 1. Navigate to your project's root directory.
-2. Run the `azd init` command:
+1. Run the `azd init` command.
 
     ```bash
     azd init
     ```
 
-3. Select **Scan current directory**. `azd` will:
+1. Select **Scan current directory**. `azd` will:
     - Scan your directory to determine the language or framework your app uses.
     - Select an appropriate hosting platform, such as Azure Container Apps.
     - Prompt you to add or remove discovered services if needed.
@@ -57,12 +65,12 @@ Use this workflow when you have an existing app codebase and want to prepare it 
       Add an undetected service
     ```
 
-4. Select **Confirm and continue initializing my app** to complete the workflow. `azd` creates the following in your app directory:
+1. Select **Confirm and continue initializing my app** to complete the workflow. `azd` creates the following in your app directory:
     - An `azure.yaml` file that defines your app services and maps them to hosting resources.
     - A `.azure` folder to hold configuration settings such as your environment name.
     - A `.gitignore` file configured for your app language and hosting platform.
 
-5. Optionally, run `azd up` to create the Azure Container Apps resources and deploy your app.
+1. Optionally, run `azd up` to create the Azure Container Apps resources and deploy your app.
 
 Your app is now structured as an `azd` template you can continue to develop and expand with more Azure resources and services.
 
@@ -79,7 +87,7 @@ This workflow lets you start with a prebuilt `azd` template that usually include
     > [!NOTE]
     > You can also run `azd init` with the `--template` parameter to directly initialize a template by name and skip the workflow selection.
 
-2. Choose **Select a template**. `azd` displays a list of available templates from your configured template sources.
+1. Choose **Select a template**. `azd` displays a list of available templates from your configured template sources.
 
     ```output
     ? How do you want to initialize your app? Select a template
@@ -97,9 +105,9 @@ This workflow lets you start with a prebuilt `azd` template that usually include
       (Azure-Samples/ASA-Samples-Web-Application)
     ```
 
-3. Type to filter the results and search for the `Hello AZD` template. Press Enter to clone and initialize the template.
+1. Type to filter the results and search for the `Hello AZD` template. Select the template to clone and initialize it.
 
-4. Optionally, run `azd up` to provision and deploy the template resources to Azure.
+1. Optionally, run `azd up` to provision and deploy the template resources to Azure.
 
 You can also use the initialized template as a starting point for further development.
 
@@ -113,7 +121,7 @@ For advanced users who want to start with a minimal setup and customize everythi
    azd init --minimal
    ```
 
-2. When prompted, enter a name for your `azd` template and press Enter.
+1. When prompted, enter a name for your `azd` template and select **Enter**.
 
     ```output
     ? How do you want to initialize your app? Create a minimal project
@@ -121,12 +129,11 @@ For advanced users who want to start with a minimal setup and customize everythi
     ? What is the name of your project? hello-azd
     
     SUCCESS: Generated azure.yaml project file.
-    Run azd add to add new Azure components to your project.
     ```
 
     The `--minimal` flag creates only the following:
 
-    - A basic `azure.yaml` file with just the project name and schemaVersion
+    - A basic `azure.yaml` file with the project name
     - A `.azure` directory for environment configuration
     - A `.gitignore` file with appropriate entries for Azure Developer CLI
 
@@ -134,13 +141,9 @@ For advanced users who want to start with a minimal setup and customize everythi
 
     - Want to build your infrastructure from scratch
     - Need to integrate `azd` with an existing complex project
-    - Plan to use the `azd add` command to incrementally build your architecture
     - Prefer full control over your project structure
 
-3. After initialization, you can:
-   - Manually create your infrastructure files in an `infra` folder
-   - Use the `azd add` [compose feature](azd-compose.md) to start adding Azure resources to your app
-   - Customize your `azure.yaml` file to define your services and resources
+1. Complete the project configuration. You can manually create infrastructure files in an `infra` folder, ask an AI coding agent to create the infrastructure, and customize `azure.yaml` to define your services and resources.
 
 ## Project and Azure resource naming
 
@@ -159,7 +162,7 @@ Where `name` refers to the project name and `environmentName` is the name of you
 When using `azd init` to initialize a project or when creating a new project name in the `azure.yaml` file, the following validation rules are applied:
 
 | Rule | Description |
-|------|-------------|
+| --- | --- |
 | Allowed characters | Project names can include lowercase letters, numbers, and hyphens only. |
 | Starting character | Project names must start with a letter. |
 | Ending character | Project names must not end with a hyphen. |

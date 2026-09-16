@@ -3,10 +3,11 @@ title: Explore and customize an Azure Developer CLI Template
 description: Learn the basics of how to work with and customize Azure Developer CLI templates.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/30/2026
+ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
+ai-usage: ai-generated
 ---
 
 # Explore and customize an Azure Developer CLI template
@@ -217,4 +218,4 @@ In this quickstart, you explored the structure of the `hello-azd` template, cust
 
 - [What are Azure Developer CLI commands?](/azure/developer/azure-developer-cli/azd-commands)
 - [What are Azure Developer CLI templates?](/azure/developer/azure-developer-cli/azd-templates)
-- [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible)
+- [Template development overview](build-templates-overview.md)
