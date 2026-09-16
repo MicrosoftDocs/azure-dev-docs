@@ -60,7 +60,7 @@ The following code example uses `DefaultAzureCredential` and the [`@azure/arm-re
 
 An SDK method can return an asynchronous iterator, [PagedAsyncIterableIterator](/javascript/api/@azure/core-paging/pagedasynciterableiterator), to allow for asynchronous results. The results might use paging and continuation tokens to break up result sets.
 
-The following [JavaScript example](https://github.com/Azure-Samples/azure-sdk-for-js-docs/blob/main/samples/storage/blob-paging/blob-paging.js) demonstrates asynchronous paging. The code sets an artificially short paging size of 2 in order to quickly and visually demonstrate the process when you run the sample code in debug.
+The following [JavaScript example](https://github.com/Azure-Samples/azure-sdk-for-js-docs/blob/main/samples/storage/blob-paging/blob-paging.js) demonstrates asynchronous paging. The code sets an artificially short page size of 2 to quickly and visually demonstrate the process when you run the sample code in debug.
 
 :::code language="JavaScript" source="~/../azure-sdk-for-js-docs/samples/storage/blob-paging/blob-paging.js" highlight="21-44":::
 
