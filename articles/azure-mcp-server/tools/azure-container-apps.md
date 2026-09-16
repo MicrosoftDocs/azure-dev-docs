@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to manage containerized applications and
 author: diberry
 ms.author: diberry
 reviewer: ArthurMa1978
-ms.date: 09/02/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
