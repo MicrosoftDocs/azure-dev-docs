@@ -5,7 +5,7 @@ tool_count: 1
 mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 author: diberry
 ms.author: diberry
-ms.date: 09/02/2026
+ms.date: 09/16/2026
 ms.topic: concept-article
 ms.custom:
   - build-2025
