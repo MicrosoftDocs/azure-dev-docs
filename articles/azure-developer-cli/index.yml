@@ -9,7 +9,7 @@ metadata:
   description: Get started developing Azure apps using Azure Developer CLI (azd).
   author: alexwolfmsft
   ms.author: alexwolf
-  ms.date: 07/22/2025
+  ms.date: 09/11/2026
   ms.topic: landing-page
   ms.collection: collection
   ms.service: azure-dev-cli
@@ -29,7 +29,7 @@ landingContent:
             url: /azure/developer/azure-developer-cli/supported-languages-environments
           - text: Training - Introduction to Azure Developer CLI
             url: /training/modules/introduction-to-azure-developer-cli
-  - title: Work with templates
+  - title: Templates
     linkLists:
       - linkListType: tutorial
         links:
@@ -37,10 +37,10 @@ landingContent:
             url: /azure/developer/azure-developer-cli/azd-templates
           - text: Visit the template gallery
             url: https://azure.github.io/awesome-azd
-          - text: Make your project azd compatible
-            url: /azure/developer/azure-developer-cli/make-azd-compatible
-          - text: Training - Build and deploy azd templates
-            url: /training/paths/azure-developer-cli
+          - text: Template development overview
+            url: /azure/developer/azure-developer-cli/build-templates-overview
+          - text: Start with a new template
+            url: /azure/developer/azure-developer-cli/start-with-new-template
           - text: Configure deployment pipeline
             url: configure-devops-pipeline.md
   - title: Customization and configuration
