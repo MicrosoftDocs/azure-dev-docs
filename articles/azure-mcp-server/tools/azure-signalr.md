@@ -48,12 +48,6 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Signalr** |  Optional | The name of the SignalR runtime. |
 
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 **Example CLI command**
@@ -68,6 +62,12 @@ azmcp signalr runtime get \
 | `signalr` | string | No | The name of the SignalR runtime |
 
 ---
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
+|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
+| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
 ## Related content
 
