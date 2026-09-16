@@ -35,12 +35,6 @@ Example prompts include:
 - **Show recommendations for all resources**: "Show me code optimization recommendations for all Application Insights resources in my subscription."
 - **List profiler recommendations by group**: "List profiler recommendations for Application Insights in resource group 'devops-group'."
 
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
-|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
-| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 **Example CLI command**
@@ -53,6 +47,12 @@ azmcp applicationinsights recommendation list
 |-----------|------|----------|-------------|
 
 ---
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
+|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
+| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
 ## Related content
 
