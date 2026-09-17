@@ -3,8 +3,8 @@ title: Azure MCP Server Tools for Azure Device Registry
 description: Use Azure MCP Server tools to list and discover Azure Device Registry namespaces across subscriptions and resource groups with natural-language prompts.
 author: diberry
 ms.author: diberry
-ms.reviewer: diberry
-ms.date: 05/21/2026
+ms.reviewer: nimengan
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -12,7 +12,7 @@ ms.custom:
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-mcp-cli.version: "3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30"
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 tool_count: 1
 ---
 
@@ -30,6 +30,8 @@ Azure Device Registry is part of Azure IoT Operations that provides a unified re
 
 Lists Azure Device Registry namespaces in a subscription or resource group. The tool returns details such as the namespace name, location, provisioning state, and UUID.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - "List all Azure Device Registry namespaces in my subscription."
@@ -40,6 +42,16 @@ Example prompts include:
 - "Show device registry namespaces in subscription 11111111-1111-1111-1111-111111111111."
 - "Find namespaces in the Contoso-IoT resource group and show their UUIDs."
 - "Which device registry namespaces are available in my West US region?"
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp deviceregistry namespace list
+```
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

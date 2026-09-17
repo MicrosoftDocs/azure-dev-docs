@@ -4,7 +4,7 @@ description: The azure-prepare skill helps you prepare Azure environments for ap
 author: diberry
 ms.author: diberry
 ms.reviewer: tomescht
-ms.date: 06/29/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -44,6 +44,7 @@ Use this skill when you need to:
 - Work with modernize application
 - Update application in Azure
 - Add authentication in Azure
+- Choose an Azure Functions hosting plan and plan for cold starts when preparing a deployment with Azure Developer CLI (`azd`).
 
 ## Example prompts
 

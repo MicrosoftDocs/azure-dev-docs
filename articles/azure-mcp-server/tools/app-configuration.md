@@ -1,10 +1,12 @@
 ---
 title: Azure App Configuration Tools
 description: Learn how to use Azure MCP Server tools to manage Azure App Configuration stores, key-value settings, and feature flags with natural language prompts.
+tool_count: 5
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 author: diberry
 ms.author: diberry
 ms.reviewer: conniey, joncarde
-ms.date: 07/10/2026
+ms.date: 09/16/2026
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -26,6 +28,8 @@ The Azure MCP Server enables you to manage Azure resources, including App Config
 
 The Azure MCP Server can list App Configuration stores in a subscription. This is useful for quickly checking the status of your App Configuration resources.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - **List stores**: "List all App Configuration stores in my subscription."
@@ -33,6 +37,16 @@ Example prompts include:
 - **Find stores**: "I need to see my App Configuration resources"
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp appconfig account list
+```
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -44,7 +58,9 @@ Example prompts include:
 
 <!-- appconfig kv delete -->
 
-Delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. If you specify a label, the tool deletes only that labeled version. If you omit a label, the tool deletes the key-value with the default label.
+Delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. If you specify a label, the tool deletes only that labeled version. If you omit a label, the tool deletes the key-value with the default label. The result identifies the key and label, indicates whether the setting existed, and includes a status message.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -60,11 +76,32 @@ Example prompts include:
 | **Key** |  Required | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
 
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp appconfig kv delete \
+  --account <account> \
+  --key <key> \
+  [--label <label>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `account` | string | Yes | The name of the App Configuration store (for example, `my-appconfig`). |
+| `key` | string | Yes | The name of the key to access within the App Configuration store. |
+| `label` | string | No | The label to apply to the configuration key. Labels group and organize settings. |
+
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+
 
 ## Key-value: Get key-values
 
@@ -75,7 +112,9 @@ Gets key-values in an App Configuration store. This command can provide one of t
 - Retrieve a specific key-value by its key and optional label
 - List key-values if no key is provided. 
 
-Listing key-values can optionally be filtered by a key filter and label filter. Each key-value includes its key, value, label, content type, ETag, last modified time, and lock status.
+You can optionally filter the list of key-values by using a key filter and label filter. You can't use `Key` with `Key filter`, and you can't use `Label` with `Label filter`. Each key-value includes its key, value, label, content type, ETag, last modified time, and lock status.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -98,6 +137,31 @@ Example prompts include:
 | **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a key of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `App*`). If omitted all keys is retrieved. |
 | **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a label of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `Prod*`). This filter is case-sensitive. If omitted, all labels is retrieved. |
 
+
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp appconfig kv get \
+  --account <account> \
+  [--key <key>] \
+  [--label <label>] \
+  [--key-filter <key-filter>] \
+  [--label-filter <label-filter>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `account` | string | Yes | The name of the App Configuration store (for example, `my-appconfig`). |
+| `key` | string | No | The name of the key to access within the App Configuration store. |
+| `label` | string | No | The label to apply to the configuration key. Labels group and organize settings. |
+| `key-filter` | string | No | Specifies the key filter to use when retrieving key-values. The filter can be an exact match, such as `foo` to get all key-values with a key of `foo`, or it can include a `*` character at the end of the string for wildcard searches, such as `App*`. If you omit this parameter, the command retrieves all keys. |
+| `label-filter` | string | No | Specifies the label filter to use when retrieving key-values. The filter can be an exact match, such as `foo` to get all key-values with a label of `foo`, or it can include a `*` character at the end of the string for wildcard searches, such as `Prod*`. This filter is case-sensitive. If you omit this parameter, the command retrieves all labels. |
+
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -109,6 +173,8 @@ Example prompts include:
 <!-- appconfig kv lock set -->
 
 Sets the lock state of a key-value in an App Configuration store. This command can lock and unlock key-values.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -122,8 +188,28 @@ Example prompts include:
 | **Account** |  Required | The name of the App Configuration store (for example,`my-appconfig`). |
 | **Key** |  Required | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
-| **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
 | **Lock** |  Optional | Whether a key-value is locked (set to `read-only`) or unlocked (`read-only` removed). |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp appconfig kv lock set \
+  --account <account> \
+  --key <key> \
+  [--lock <lock>] \
+  [--label <label>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `account` | string | Yes | The name of the App Configuration store (for example, `my-appconfig`). |
+| `key` | string | Yes | The name of the key to access within the App Configuration store. |
+| `lock` | string | No | Whether a key-value is locked (set to read-only) or unlocked (read-only removed). |
+| `label` | string | No | The label to apply to the configuration key. Labels group and organize settings. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -136,6 +222,8 @@ Example prompts include:
 <!-- appconfig kv set -->
 
 Set or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. 
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -153,6 +241,31 @@ Example prompts include:
 | **Label**        | Optional | The label of the setting to set.                                            |
 | **Tags** | Optional | The tags to associate with the configuration key. Tags should be in the format `key=value`. You can specify multiple tags. |
 | **Content type** | Optional | The content type of the configuration value. This value indicates how the value should be interpreted or parsed. |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp appconfig kv set \
+  --account <account> \
+  --key <key> \
+  --value <value> \
+  [--label <label>] \
+  [--content-type <content-type>] \
+  [--tags <tags>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `account` | string | Yes | The name of the App Configuration store (for example, `my-appconfig`). |
+| `key` | string | Yes | The name of the key to access within the App Configuration store. |
+| `value` | string | Yes | The value to set for the configuration key. |
+| `label` | string | No | The label to apply to the configuration key. Labels group and organize settings. |
+| `content-type` | string | No | The content type of the configuration value. This value indicates how the value should be interpreted or parsed. |
+| `tags` | string | No | The tags to associate with the configuration key. Tags should be in the format `key=value`. You can specify multiple tags. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

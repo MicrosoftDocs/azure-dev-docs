@@ -1,10 +1,10 @@
 ---
 title: Azure Bicep Schema Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Bicep Schema to retrieve the latest API versions and properties for Azure resources in Bicep templates.
-ms.date: 07/10/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.reviewer: diberry
+ms.reviewer: masalama, skaluvak 
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
@@ -24,6 +24,8 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Bice
 
 Gets the Bicep schema for the most recent API version of an Azure resource. This operation helps you ensure your Bicep templates use the correct properties and values when defining Azure resources.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - **Get storage account schema**: "Get me the Bicep schema for Microsoft.Storage/storageAccounts"
@@ -35,6 +37,21 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Resource type** | Required | The Azure resource type in format `{ResourceProvider}/{ResourceType}` (such as `Microsoft.Storage/storageAccounts`, `Microsoft.Compute/virtualMachines`) |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp bicepschema get \
+  --resource-type <resource-type>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `resource-type` | string | Yes | The name of the Bicep Resource Type and must be in the full Azure Resource Manager format `{ResourceProvider}/{ResourceType}`. For example, `Microsoft.KeyVault/vaults`, `Microsoft.Storage/storageAccounts`, `Microsoft.Compute/virtualMachines`. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
