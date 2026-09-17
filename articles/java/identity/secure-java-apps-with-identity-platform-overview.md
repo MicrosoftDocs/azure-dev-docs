@@ -15,7 +15,9 @@ ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 This series of articles provides an overview of recommended strategies for securing Java applications with the [Microsoft identity platform](/entra/identity-platform/v2-overview).
 
 
-The Microsoft identity platform, along with [Microsoft Entra ID](/entra/fundamentals/whatis) (Entra ID) and [Azure Azure Active Directory B2C](/azure/active-directory-b2c/overview) (Azure AD B2C) are central to the Azure cloud ecosystem. This guidance takes you through the fundamentals of modern authentication using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
+The Microsoft identity platform, along with [Microsoft Entra ID](/entra/fundamentals/whatis) (Entra ID) and [Azure Active Directory B2C](/azure/active-directory-b2c/overview) (Azure AD B2C) are central to the Azure cloud ecosystem. This guidance takes you through the fundamentals of modern authentication using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
+
+[!INCLUDE [azure-ad-b2c-availability-note.md](includes/azure-ad-b2c-availability-note.md)]
 
 The guidance is available for the following server platforms: Java Spring Boot, Tomcat, JBoss EAP, WebLogic, and WebSphere.
 
