@@ -11,6 +11,10 @@ Validate and fix example prompts in Azure MCP Server tool documentation to ensur
 3. **Add minimal changes** - Only add what is strictly required according to the parameter table
 4. **Use explicit values** - Add specific placeholder values, not generic phrases like "my database" or "my resource"
 5. **Check conditional requirements** - Some tools require "one of" multiple parameters (e.g., Cluster URI OR Cluster name + Subscription)
+6. **Use version-matched evidence** - Verify behavior against the CLI metadata and implementation source for the exact `mcp-cli.version`
+7. **Document omission behavior** - When an optional selector changes the result if omitted, explain that behavior in both MCP Server and CLI parameter descriptions
+8. **Use behavior-based terminology** - Describe an option by what it controls; for example, use "query mode" when values include both query syntax and semantic processing
+9. **State only authoritative defaults** - Document a default only when version-matched metadata or implementation source explicitly establishes it
 
 ## Validation Process
 
@@ -21,6 +25,18 @@ For each tool in a documentation file:
 3. **Fix only missing required parameters** - Add them with appropriate placeholder values
 4. **Leave compliant prompts unchanged** - Do not modify prompts that already have all required parameters
 5. **Change the ms.date** field** - Update it to the current date after making changes
+
+## Authoritative Behavior Verification
+
+Before documenting optional-parameter behavior, terminology, or defaults:
+
+1. Read the article's full `mcp-cli.version`
+2. Locate the CLI metadata generated for that exact version
+3. Verify behavioral claims against the implementation source commit identified by the version hash
+4. Prefer command descriptions and execution paths over assumptions based only on whether an option is marked required
+5. Keep the article, CLI table, frontmatter version, and PR description aligned to the same evidence
+
+> Source note (2026-09-17T14:37:25.333-07:00): Generalized from Azure MCP review feedback in https://github.com/MicrosoftDocs/azure-dev-docs-pr/pull/9643.
 
 ## Parameter Detection Rules
 
