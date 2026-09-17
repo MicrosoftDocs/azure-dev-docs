@@ -4,14 +4,14 @@ description: Use the Azure best practices tools in Azure MCP Server to get guida
 author: diberry
 ms.author: diberry
 ms.reviewer: conniey
-ms.date: 06/02/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
 tool_count: 2
-mcp-cli.version: "2.0.0-beta.23+535bd1649379f0596f18dc7d95987f8197de342d"
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 ---
 
 # Azure best practices tools for the Azure MCP Server overview
@@ -22,7 +22,9 @@ The Azure MCP Server lets you manage data retrieval and analysis, including work
 
 <!-- @mcpcli get azure bestpractices ai app -->
 
-This command returns best practices and code generation guidance for building AI applications in Azure. Use it when you need recommendations on writing code for AI agents, chatbots, workflows, or any AI/LLM features. Additionally, this command provides guidance for code generation on Microsoft Foundry for application development. 
+This command returns comprehensive best practices and code-generation guidance for building AI applications, workflows, and agents in Azure, including Microsoft Agent Framework usage and patterns and Microsoft Foundry application development. Call it before generating code for any AI application, working with Microsoft Agent Framework, or implementing an AI solution in Azure.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -34,6 +36,18 @@ Example prompts include:
 
 <!-- No parameters for this tool -->
 
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp get azure bestpractices ai app
+```
+
+This tool has no CLI parameters.
+
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -44,7 +58,9 @@ Example prompts include:
 
 <!-- @mcpcli get azure bestpractices get -->
 
-This tool returns a list of best practices for code generation, operations, and deployment when working with Azure services. Call this tool for any code generation, deployment, or operations involving Azure, `Azure Functions`, `Azure Kubernetes Service (AKS)`, `Azure Container Apps (ACA)`, `Bicep`, `Terraform`, `Azure Cache`, `Redis`, `CosmosDB`, `Entra`, `Azure Active Directory`, `Azure App Services`. 
+This tool returns secure, production-grade best practices for code generation, operations, and deployment when working with Azure services. Call this tool for any code generation, deployment, or operations involving Azure, `Azure Functions`, `Azure Kubernetes Service (AKS)`, `Azure Container Apps (ACA)`, `Bicep`, `Terraform`, `Azure Cache`, `Redis`, `CosmosDB`, `Entra`, `Azure Active Directory`, `Azure App Services`.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -62,6 +78,23 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Action** | Required | The action type for the best practices. Options: `all`, `code-generation`, `deployment`. Note: the `static-web-app` and `coding-agent` resource values only support `all`. |
 | **Resource** | Required | The Azure resource type for which to get best practices. Options: `general` (general Azure), `azurefunctions` (Azure Functions), `static-web-app` (Azure Static Web Apps), `coding-agent` (the resource value for Copilot cloud agent scenarios). |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp get azure bestpractices get \
+  --resource <resource> \
+  --action <action>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `resource` | string | Yes | The Azure resource type for which to get best practices. Options: `general` (general Azure), `azurefunctions` (Azure Functions), `static-web-app` (Azure Static Web Apps), `coding-agent` (Coding Agent). |
+| `action` | string | Yes | The action type for the best practices. Options: `all`, `code-generation`, `deployment`. Note: `static-web-app` and `coding-agent` resources only support `all`. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
