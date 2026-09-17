@@ -14,6 +14,8 @@ ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java Tomcat application that authenticates users against Azure Active Directory B2C (Azure AD B2C) using the [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
+[!INCLUDE [azure-ad-b2c-availability-note.md](includes/azure-ad-b2c-availability-note.md)]
+
 [!INCLUDE [scenario-sign-in-azure-ad-b2c.md](includes/scenario-sign-in-azure-ad-b2c.md)]
 
 ## Prerequisites
