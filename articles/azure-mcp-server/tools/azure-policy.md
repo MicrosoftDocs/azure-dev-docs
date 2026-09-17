@@ -1,11 +1,13 @@
 ---
 title: Azure Policy Tools for Azure MCP Server
 description: Manage Azure Policy assignments effortlessly with Azure MCP Server. Learn how to simplify compliance and governance using natural language prompts.
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 author: diberry
 ms.author: diberry
 reviewer: msalaman
 ms.reviewer: diberry
-ms.date: 01/23/2026
+ms.date: 09/16/2026
 ms.topic: concept-article
 ai-usage: ai-assisted
 content_well_notification:
@@ -27,6 +29,8 @@ Azure MCP Server enables you to view Azure Policy assignments, definitions, and 
 
 List policy assignments in a subscription or scope. This command retrieves all Azure Policy assignments along with their complete policy definition details (rules, effects, parameters schema), enforcement modes, assignment parameters, and metadata. You can optionally filter by scope to list assignments at a specific resource group, resource, or management group level.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - "Show me all policy assignments in resource group 'rg-contoso'"
@@ -40,13 +44,26 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Scope** |  Optional | The scope of the policy assignment (for example, `/subscriptions/{subscriptionId}`, `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`). |
 
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp policy assignment list \
+  [--scope <scope>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `scope` | string | No | The scope of the policy assignment (for example, `/subscriptions/{subscriptionId}`, `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`). |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
 
 ## Related content
 
