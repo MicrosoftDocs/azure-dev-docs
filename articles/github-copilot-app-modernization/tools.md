@@ -4,7 +4,7 @@ description: Learn about Java-focused tools available in GitHub Copilot moderniz
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xinrzhu
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 06/02/2026
 ms.custom: devx-track-java
 ---

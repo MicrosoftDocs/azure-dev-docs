@@ -5,7 +5,7 @@ ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.topic: reference
+ms.topic: troubleshooting-problem-resolution
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
