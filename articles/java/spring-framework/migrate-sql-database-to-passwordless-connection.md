@@ -1,6 +1,6 @@
 ---
-title: Migrate a Java application to use passwordless connections with Azure SQL Database
-description: Learn how to migrate a Java application to use passwordless connections with Azure SQL Database.
+title: Passwordless Connections with Azure SQL Database for Java
+description: Learn how to migrate a Java application to passwordless connections with Azure SQL Database by using managed identity. Follow the steps to remove stored credentials.
 ms.topic: how-to
 author: KarlErickson
 ms.author: karler
@@ -29,27 +29,27 @@ When the application authenticates with Azure SQL Database, it provides a userna
 
 ### Microsoft Entra authentication
 
-Microsoft Entra authentication is a mechanism for connecting to Azure SQL Database using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure SQL Database using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 Using Microsoft Entra ID for authentication provides the following benefits:
 
 - Authentication of users across Azure Services in a uniform way.
 - Management of password policies and password rotation in a single place.
 - Multiple forms of authentication supported by Microsoft Entra ID, which can eliminate the need to store passwords.
-- Customers can manage database permissions using external (Microsoft Entra ID) groups.
+- Customers can manage database permissions by using external (Microsoft Entra ID) groups.
 - Microsoft Entra authentication uses Azure SQL database users to authenticate identities at the database level.
 - Support of token-based authentication for applications connecting to Azure SQL Database.
 
 ### Azure SQL Database authentication
 
-You can create accounts in Azure SQL Database. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `sys.database_principals` table. Because these passwords are stored in Azure SQL Database, you need to manage the rotation of the passwords by yourself.
+You can create accounts in Azure SQL Database. If you choose to use passwords as credentials for the accounts, the `sys.database_principals` table stores these credentials. Because Azure SQL Database stores these passwords, you need to manage the rotation of the passwords yourself.
 
-Although it's possible to connect to Azure SQL Database with passwords, you should use them with caution. You must be diligent to never expose the passwords in an unsecure location. Anyone who gains access to the passwords is able to authenticate. For example, there's a risk that a malicious user can access the application if a connection string is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission. Instead, consider updating your application to use passwordless connections.
+Although you can connect to Azure SQL Database by using passwords, use them with caution. Be diligent to never expose the passwords in an unsecure location. Anyone who gains access to the passwords can authenticate. For example, if you accidentally check a connection string into source control, send it through an unsecure email, paste it into the wrong chat, or view it by someone who shouldn't have permission, a malicious user can access the application. Instead, consider updating your application to use passwordless connections.
 
 [!INCLUDE [introducing-passwordless-connections](includes/introducing-passwordless-connections.md)]
 
 > [!NOTE]
-> Since the JDBC driver for Azure SQL Database doesn't support passwordless connections from local environments yet, this article will focus only on applications deployed to Azure hosting environments and how to migrate them to use passwordless connections.
+> Because the JDBC driver for Azure SQL Database doesn't support passwordless connections from local environments yet, this article focuses only on applications deployed to Azure hosting environments and how to migrate them to use passwordless connections.
 
 ## Migrate an existing application to use passwordless connections
 
@@ -69,7 +69,7 @@ export CURRENT_USER_OBJECTID=$(az ad signed-in-user show --query id --output tsv
 
 Replace the placeholders with the following values, which are used throughout this article:
 
-- `<YOUR_RESOURCE_GROUP>`: The name of the resource group your resources are in.
+- `<YOUR_RESOURCE_GROUP>`: The name of the resource group for your resources.
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your Azure SQL Database server. It should be unique across Azure.
 
 ### 1) Configure Azure SQL Database
@@ -78,15 +78,15 @@ Replace the placeholders with the following values, which are used throughout th
 
 #### 1.1) Enable Microsoft Entra ID-based authentication
 
-To use Microsoft Entra ID access with Azure SQL Database, you should set the Microsoft Entra admin user first. Only a Microsoft Entra Admin user can create/enable users for Microsoft Entra ID-based authentication.
+To use Microsoft Entra ID access with Azure SQL Database, set the Microsoft Entra admin user first. Only a Microsoft Entra admin user can create or enable users for Microsoft Entra ID-based authentication.
 
-If you're using Azure CLI, run the following command to make sure it has sufficient permission:
+If you're using Azure CLI, run the following command to ensure it has sufficient permission:
 
 ```bash
 az login --scope https://graph.microsoft.com/.default
 ```
 
-Then, run following command to set the Microsoft Entra admin:
+Then, run the following command to set the Microsoft Entra admin:
 
 ```azurecli
 az sql server ad-admin create \
@@ -96,10 +96,10 @@ az sql server ad-admin create \
     --object-id $CURRENT_USER_OBJECTID
 ```
 
-This command will set the Microsoft Entra admin to the current signed-in user.
+This command sets the Microsoft Entra admin to the current signed-in user.
 
 > [!NOTE]
-> You can only create one Microsoft Entra admin per Azure SQL Database server. Selection of another one will overwrite the existing Microsoft Entra admin configured for the server.
+> You can only create one Microsoft Entra admin per Azure SQL Database server. Selecting another admin overwrites the existing Microsoft Entra admin configured for the server.
 
 ### 2) Migrate the app code to use passwordless connections
 
@@ -154,22 +154,22 @@ Next, use the following steps to update your code to use passwordless connection
 
 ### 3) Configure the Azure hosting environment
 
-After your application is configured to use passwordless connections, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity assigned can connect to Azure Storage.
+After you configure your application to use passwordless connections, the same code can authenticate to Azure services after you deploy it to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity assigned can connect to Azure Storage.
 
-In this section, you'll execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
+In this section, you execute two steps to enable your application to run in an Azure hosting environment in a passwordless way:
 
 - Assign the managed identity for your Azure hosting environment.
 - Assign roles to the managed identity.
 
 > [!NOTE]
-> Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with SQL server. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
+> Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with SQL server. By using Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector does it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
 > Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or higher.
 
 #### Assign the managed identity using the Azure portal
 
-The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure services using the app configurations you set up previously.
+The following steps show you how to assign a system-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure services by using the app configurations you set up previously.
 
 ##### [App Service](#tab/app-service)
 
@@ -179,7 +179,7 @@ The following steps show you how to assign a system-assigned managed identity fo
 
 ##### [Service Connector](#tab/service-connector)
 
-When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you need to use Azure CLI to assign the identity.
+When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, the Azure portal doesn't support configuring Azure Database this way, so you need to use Azure CLI to assign the identity.
 
 ##### [Container Apps](#tab/container-apps)
 
@@ -207,11 +207,11 @@ When you use Service Connector, it can help to assign the system-assigned manage
 
 ##### [AKS](#tab/aks)
 
-An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, a system-assigned managed identity is automatically created.
+An Azure Kubernetes Service (AKS) cluster requires an identity to access Azure resources like load balancers and managed disks. This identity can be either a managed identity or a service principal. By default, when you create an AKS cluster, Azure automatically creates a system-assigned managed identity.
 
 ---
 
-You can also assign managed identity on an Azure hosting environment using the Azure CLI.
+You can also assign managed identity on an Azure hosting environment by using the Azure CLI.
 
 ##### [App Service](#tab/app-service)
 
@@ -334,13 +334,13 @@ Next, grant permissions to the managed identity you created to access your SQL d
 
 ##### [Service Connector](#tab/assign-role-service-connector)
 
-If you connected your services using Service Connector, the previous step's commands already assigned the role, so you can skip this step.
+If you connected your services by using Service Connector, the commands in the previous step already assigned the role, so you can skip this step.
 
 ##### [Azure CLI](#tab/assign-role-azure-cli)
 
-This step will create a database user for the managed identity and grant read and write permissions to it.
+This step creates a database user for the managed identity and grants read and write permissions to it.
 
-The following command will retrieve the display name of the managed identity and construct the commands to create a user for the managed identity and grant permissions:
+The following command retrieves the display name of the managed identity and constructs the commands to create a user for the managed identity and grant permissions:
 
 ```bash
 export AZ_DATABASE_AD_MI_USERNAME=$(az ad sp show \
@@ -355,11 +355,11 @@ GO
 EOF
 ```
 
-Copy the output of this command, then go to the Azure portal and find the SQL database. Sign in to the query editor as the Microsoft Entra admin user, as shown in the following screenshot.
+Copy the output of this command, go to the Azure portal, and find the SQL database. Sign in to the query editor as the Microsoft Entra admin user, as shown in the following screenshot.
 
 :::image type="content" source="media/migrate-sql-database-to-passwordless-connection/sql-database-query-editor.jpg" alt-text="Screenshot of Azure portal showing the SQL Database query editor.":::
 
-Past the output of last command into the query editor, and run the SQL commands, as shown in the following screenshot.
+Paste the output of the last command into the query editor, and run the SQL commands, as shown in the following screenshot.
 
 :::image type="content" source="media/migrate-sql-database-to-passwordless-connection/sql-database-create-user.jpg" alt-text="Screenshot of Azure portal showing SQL Database query editor with query to create user and add roles.":::
 
@@ -367,13 +367,13 @@ Past the output of last command into the query editor, and run the SQL commands,
 
 #### Test the app
 
-After making these code changes, you can build and redeploy the application. Then, browse to your hosted application in the browser. Your app should be able to connect to the Azure SQL database successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
+After making these code changes, you can build and redeploy the application. Then, browse to your hosted application in the browser. Your app should be able to connect to the Azure SQL database successfully. It might take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
 ## Next steps
 
 In this tutorial, you learned how to migrate an application to passwordless connections.
 
-You can read the following resources to explore the concepts discussed in this article in more depth:
+To explore the concepts discussed in this article in more depth, see the following resources:
 
 - [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
 - [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)

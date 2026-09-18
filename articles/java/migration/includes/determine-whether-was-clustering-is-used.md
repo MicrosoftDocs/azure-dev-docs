@@ -7,7 +7,7 @@ ms.date: 01/13/2026
 
 ### Determine whether WAS clustering is used
 
-Most likely, you've deployed your application on multiple WAS servers to achieve high availability. You can migrate these clusters directly from your on-premises installation to WAS running in Azure Virtual Machines. For more information, see [WebSphere Application Server Network Deployment](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=network-deployment-all-operating-systems-version-90) in the IBM documentation.
+Most likely, you deployed your application on multiple WAS servers to achieve high availability. You can migrate these clusters directly from your on-premises installation to WAS running in Azure Virtual Machines. For more information, see [WebSphere Application Server Network Deployment](https://www.ibm.com/docs/en/was-nd/9.0.5) in the IBM documentation.
 
 ### Account for load-balancing requirements
 

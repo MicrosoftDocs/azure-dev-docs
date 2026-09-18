@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to diagnose and troubleshoot Azure App S
 author: diberry
 ms.author: diberry
 reviewer: msalaman
-ms.date: 04/07/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -13,7 +13,7 @@ ai-usage: ai-generated
 content_well_notification:
   - AI-contribution
 tool_count: 1
-mcp-cli.version: "2.0.0-beta.39"
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 ---
 
 # Azure MCP Server tools for Azure AppLens
@@ -28,7 +28,9 @@ Azure AppLens identifies and troubleshoots application and platform issues for A
 
 <!-- @mcpcli applens resource diagnose -->
 
-Get diagnostic help from App Lens for Azure application and service issues to identify what's wrong with a service. Ask questions about performance, slowness, failures, errors, application state, or availability to receive expert analysis and solutions. Returns analysis, insights, and recommended solutions. Only the resource name and question are required. Subscription, resource group, and resource type are optional and used to narrow down results when multiple resources share the same name.
+Get diagnostic help from AppLens for Azure application and service issues to identify what's wrong with a service. Ask questions about performance, slowness, failures, errors, application state, or availability to receive expert analysis and solutions. Returns analysis, insights, and recommended solutions. Only the resource name and question are required. Subscription, resource group, and resource type are optional and used to narrow down results when multiple resources share the same name. Tenant is also optional.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -40,8 +42,26 @@ Example prompts include:
 |---|---|---|
 | **Question** | Required | The diagnostic question to ask about the resource. |
 | **Resource** | Required | The name of the resource to investigate or diagnose. |
-| **Resource group** | Optional | Azure resource group name. Use to narrow results when multiple resources share the same name. |
 | **Resource type** | Optional | The Azure resource type. Use to narrow results when multiple resources share the same name. |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp applens resource diagnose \
+  --question <question> \
+  --resource <resource> \
+  [--resource-type <resource-type>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `question` | string | Yes | User question |
+| `resource` | string | Yes | The name of the resource to investigate or diagnose |
+| `resource-type` | string | No | Resource type. Provide this value when disambiguating between multiple resources of the same name. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

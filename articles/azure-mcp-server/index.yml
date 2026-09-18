@@ -5,9 +5,10 @@ summary: Learn how to use the Azure MCP Server to manage Azure resources through
 
 metadata:
   title: Azure MCP Server documentation
-  description: Learn how to use the Azure MCP Server to interact with Azure resources through natural language commands from AI agents and other types of clients.
+  description: Learn how to use the Azure MCP Server to manage Azure resources through natural language commands from AI agents and other types of clients.
   ms.topic: landing-page
-  ms.date: 02/09/2026
+  ms.date: 09/14/2026
+  ai-usage: ai-assisted
 
 landingContent:
   # Card
@@ -29,6 +30,8 @@ landingContent:
             url: how-to/github-copilot-cloud-agent.md
       - linkListType: quickstart
         links:
+          - text: Connect from Antigravity
+            url: get-started/tools/anti-gravity.md
           - text: Connect from Cline
             url: get-started/tools/cline.md
           - text: Connect from Cursor
@@ -72,11 +75,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Model Context Protocol overview
-            url: overview.md#key-features
+            url: overview.md#concepts
           - text: Scenarios for using Azure MCP Server
             url: overview.md#scenarios-for-using-the-azure-mcp-server
           - text: Authentication and permissions
-            url: overview.md
+            url: security.md#authentication-and-authorization
   - title: Azure MCP Server tools
     linkLists:
       - linkListType: overview
@@ -88,7 +91,7 @@ landingContent:
           - text: Azure best practices
             url: tools/azure-best-practices.md
           - text: Azure AI Search
-            url: tools/ai-search.md
+            url: tools/azure-ai-search.md
           - text: Azure App Configuration
             url: tools/app-configuration.md
           - text: Azure Cosmos DB
@@ -98,11 +101,11 @@ landingContent:
           - text: Azure Key Vault
             url: tools/azure-key-vault.md
           - text: Azure Monitor
-            url: tools/monitor.md
+            url: tools/azure-monitor.md
           - text: Azure RBAC
             url: tools/azure-rbac.md
           - text: Azure Redis
-            url: tools/azure-cache-for-redis.md
+            url: tools/azure-redis.md
           - text: Complete list of tools
             url: tools/index.md#available-tools
   - title: Resources
@@ -116,6 +119,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Authentication guidance
-            url: overview.md
+            url: security.md#authentication-and-authorization
           - text: Tool reference
             url: tools/index.md

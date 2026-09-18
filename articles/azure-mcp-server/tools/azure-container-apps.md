@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to manage containerized applications and
 author: diberry
 ms.author: diberry
 reviewer: ArthurMa1978
-ms.date: 4/6/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -13,7 +13,7 @@ ai-usage: ai-generated
 content_well_notification:
   - AI-contribution
 tool_count: 1
-mcp-cli.version: "2.0.0-beta.39"
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 ---
 
 # Azure MCP Server tools for Azure Container Apps
@@ -31,6 +31,8 @@ Azure Container Apps is a fully managed serverless container platform for buildi
 
 This tool, part of the Model Context Protocol (MCP), lists Azure Container Apps in a subscription. You can optionally filter results by a resource group. Each returned container app includes the following properties: `name`, `location`, `resourceGroup`, `managedEnvironmentId`, and `provisioningState`. If no container apps are found, this tool returns an empty list of results, consistent with other list tools.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - "List all Azure Container Apps in my subscription."
@@ -38,6 +40,15 @@ Example prompts include:
 - "List container apps in resource group 'rg-prod'."
 - "Show me the container apps in resource group 'webapp-dev'."
 
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp containerapps list
+```
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
