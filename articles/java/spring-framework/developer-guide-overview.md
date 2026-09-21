@@ -5,7 +5,7 @@ ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.topic: reference
+ms.topic: overview
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
