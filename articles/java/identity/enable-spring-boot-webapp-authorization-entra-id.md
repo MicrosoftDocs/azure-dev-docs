@@ -80,7 +80,7 @@ To register the app, use the following steps:
 
 1. Type a description - for example, **app secret**.
 
-1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select an expiration for the secret or specify a custom lifetime. Client secrets are limited to a maximum lifetime of 24 months, and Microsoft recommends an expiration of less than 12 months. For production apps, prefer a certificate or federated identity credential over a client secret.
 
 1. Select **Add**. The generated value is displayed.
 

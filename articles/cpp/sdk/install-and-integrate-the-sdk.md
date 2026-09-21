@@ -2,7 +2,7 @@
 title: Install and Integrate the Azure SDK for C++
 description: "Learn how to install packages from the Azure SDK for C++ with vcpkg and integrate them into your project with CMake."
 ms.topic: install-set-up-deploy #Don't change
-ms.date: 5/08/2025
+ms.date: 08/25/2026
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want to seamlessly integrate Azure SDK for C++ libraries into my projects so that I can leverage Azure services efficiently and effectively.
@@ -158,7 +158,7 @@ To manage and install the Azure SDK for C++ libraries, use vcpkg. [vcpkg](/vcpkg
 
 ## Install the libraries
 
-This section guides you through the process of installing the necessary libraries from the Azure SDK for C++ using vcpkg. This section shows how to use vcpkg in manifest mode which creates a couple vcpkg project files to help managed the dependencies of the project even when shared with other collaborators.
+This section guides you through the process of installing the necessary libraries from the Azure SDK for C++ using vcpkg. This section shows how to use vcpkg in manifest mode, which creates a couple of vcpkg project files that help manage the project's dependencies, even when you share the project with other collaborators.
 
 ### [Windows - PowerShell](#tab/win-powershell)
 
@@ -169,7 +169,7 @@ This section guides you through the process of installing the necessary librarie
     ```
 
 1. There should now be a **vcpkg.json** file and a **vcpkg-configuration.json** file in your project directory.
-1. Now we can add the Azure Key Vault and Identity libraries from the Azure SDK for C++ to our project by running the following command:
+1. Add the Azure Key Vault and Identity libraries from the Azure SDK for C++ to your project by running the following command:
 
     ```powershell
     vcpkg add port azure-identity-cpp azure-security-keyvault-secrets-cpp
@@ -195,7 +195,7 @@ This section guides you through the process of installing the necessary librarie
     ```
 
 1. There should now be a **vcpkg.json** file and a **vcpkg-configuration.json** file in your project directory.
-1. Now we can add the Azure Key Vault and Identity libraries from the Azure SDK for C++ to our project by running the following command:
+1. Add the Azure Key Vault and Identity libraries from the Azure SDK for C++ to your project by running the following command:
 
     ```bash
     vcpkg add port azure-identity-cpp azure-security-keyvault-secrets-cpp
@@ -220,7 +220,7 @@ This section discusses how to use the Azure CLI to create an Azure Key Vault res
 
 ### [Windows - PowerShell](#tab/win-powershell)
 
-1. Use the Azure CLI to login by entering following command in your terminal:
+1. Use the Azure CLI to sign in by entering the following command in your terminal:
 
     ```azurecli
     az login
@@ -234,7 +234,7 @@ This section discusses how to use the Azure CLI to create an Azure Key Vault res
     az keyvault create --resource-group <your-resource-group-name> --name <your-key-vault-name>
     ```
 
-1. In the output, you should see a list of properties with a `vaultUri` property. Set that to an environment variable to be used in our program with the following command:
+1. In the output, you should see a list of properties with a `vaultUri` property. Set that to an environment variable to be used in your program with the following command:
 
     ```powershell
     $env:AZURE_KEYVAULT_URL = "https://<your-key-vault-name>.vault.azure.net/"
@@ -242,7 +242,7 @@ This section discusses how to use the Azure CLI to create an Azure Key Vault res
 
 ### [MacOS/Linux - Bash](#tab/mac-linux-bash)
 
-1. Use the Azure CLI to login by entering following command in your terminal:
+1. Use the Azure CLI to sign in by entering the following command in your terminal:
 
     ```azurecli
     az login
@@ -256,7 +256,7 @@ This section discusses how to use the Azure CLI to create an Azure Key Vault res
     az keyvault create --resource-group <your-resource-group-name> --name <your-key-vault-name>
     ```
 
-1. In the output, you should see a list of properties with a `vaultUri` property. Set that to an environment variable to be used in our program with the following command:
+1. In the output, you should see a list of properties with a `vaultUri` property. Set that to an environment variable to be used in your program with the following command:
 
     ```bash
     export AZURE_KEYVAULT_URL="https://<your-key-vault-name>.vault.azure.net/"
@@ -270,7 +270,7 @@ This section discusses how to use the Azure CLI to create an Azure Key Vault res
 
 This section describes the process of creating the necessary folders and files to set up your Azure C++ project.
 
-1. In the root of your project directory, create a **CMakeLists.txt** file. This file is used to configure our CMake project. Add the following code to the **CMakeLists.txt** file:
+1. In the root of your project directory, create a **CMakeLists.txt** file. This file configures your CMake project. Add the following code to the **CMakeLists.txt** file:
 
     ```cmake
     # Specify the minimum version of CMake required to build this project
@@ -457,7 +457,7 @@ Then also verify that the `/path/to/vcpkg-root/` in the `set(CMAKE_TOOLCHAIN_FIL
 
 ### Syntax error in cmake code
 
-When running the CMake configuration or build commands, if you receive the following error, the **CMakeLists.txt** file may contain paths using `\`. This issue can be common when using Window's paths.
+When you run the CMake configuration or build commands, you might see an error that indicates the **CMakeLists.txt** file contains paths that use `\`. This problem often occurs when you use Windows paths.  
 
   ```output
   Syntax error in cmake code at
@@ -481,7 +481,7 @@ When running the CMake configure command, if you continue to receive the same er
 
 ### CMake 3.30 or higher required
 
-When running the CMake configure command, if you receive an error like the following, you may need to update your version of CMake.
+When you run the CMake configure command, you might see an error that indicates you need to update your version of CMake.  
 
   ```output
   CMake Error at CMakeLists.txt:2 (cmake_minimum_required):
@@ -579,6 +579,4 @@ When running the CMake configure command, if you receive an error like the follo
     vcpkg install failed.  See logs for more information:
   ```
 
-To find the needed system packages, search the output of the CMake config commands for lines starting with `Could not find <system-package>`, replacing `<system-package>` with the missing system package. Underneath this line should be a command to install that missing system package. Run that command. Then rerun the CMake configuration command. You may need to repeat this process a few times depending on the number of missing system packages.
-
-## Next step
+To find the needed system packages, search the output of the CMake config commands for lines starting with `Could not find <system-package>`, replacing `<system-package>` with the missing system package. Underneath this line should be a command to install that missing system package. Run that command. Then rerun the CMake configuration command. You might need to repeat this process a few times depending on the number of missing system packages.

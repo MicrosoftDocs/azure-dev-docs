@@ -3,6 +3,7 @@ title: Azure MCP Server Tools for Azure SRE Agent
 description: Use Azure MCP Server tools to manage Azure SRE Agent resources, including agents, skills, connectors, incidents, and workflows.
 author: diberry
 ms.author: diberry
+ms.reviewer: cachai
 ms.date: 05/28/2026
 ms.topic: concept-article
 ms.custom:
@@ -41,6 +42,7 @@ Example prompts include:
 | **Description** |  Optional | A description for the SRE Agent item. |
 | **Instructions** |  Optional | Instructions for the subagent. |
 | **Tools** |  Optional | Tool names to attach. Multiple values are supported. |
+| **Handoffs** |  Optional | Sub-agent handoff names. Multiple values are supported. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
@@ -52,17 +54,19 @@ azmcp sreagent agents create \
   [--resource-group <resource-group>] \
   [--description <description>] \
   [--instructions <instructions>] \
-  [--tools <tools>]
+  [--tools <tools>] \
+  [--handoffs <handoffs>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--description` | string | No | A description for the SRE Agent item. |
 | `--instructions` | string | No | Instructions for the subagent. |
 | `--tools` | string | No | Tool names to attach. Multiple values are supported. |
+| `--handoffs` | string | No | Sub-agent handoff names. Multiple values are supported. |
 
 ---
 
@@ -100,16 +104,16 @@ Example prompts include:
 azmcp sreagent agents delete \
   --agent <agent> \
   --name <name> \
-  [--resource-group <resource-group>] \
-  --confirm <confirm>
+  --confirm <confirm> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -149,8 +153,8 @@ azmcp sreagent agents get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -239,10 +243,10 @@ azmcp sreagent agents tools create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--tool-type` | string | Yes | The custom tool type, such as KustoTool or LinkTool. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--description` | string | No | A description for the SRE Agent item. |
 | `--connector` | string | No | The connector name for Kusto tools. |
 | `--database` | string | No | The Kusto database for Kusto tools. |
@@ -288,9 +292,9 @@ azmcp sreagent agents tools get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -328,8 +332,8 @@ azmcp sreagent agents tools list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -406,25 +410,25 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Content** |  Required | The prompt content. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent commonprompts create \
+  --agent <agent> \
   --name <name> \
   --content <content> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--content` | string | Yes | Skill content. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -450,7 +454,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -458,18 +462,18 @@ Example prompts include:
 
 ```console
 azmcp sreagent commonprompts delete \
+  --agent <agent> \
   --name <name> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  --confirm <confirm>
+  --confirm <confirm> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -495,23 +499,23 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent commonprompts get \
+  --agent <agent> \
   --name <name> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -536,7 +540,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Search** |  Optional | Optional search filter. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -544,15 +548,15 @@ Example prompts include:
 
 ```console
 azmcp sreagent commonprompts list \
+  --agent <agent> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
   [--search <search>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 | `--search` | string | No | Optional search filter. |
 
 ---
@@ -597,10 +601,10 @@ azmcp sreagent connectors create kusto \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--cluster-url` | string | Yes | The Azure Data Explorer cluster URL. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--database` | string | No | The Kusto database for Kusto tools. |
 
 ---
@@ -660,10 +664,10 @@ azmcp sreagent connectors create mcp \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--type` | string | Yes | The MCP connector type: stdio or http. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--command` | string | No | The command for stdio MCP connectors. |
 | `--args` | string | No | Arguments for stdio MCP connectors. |
 | `--envs-json` | string | No | JSON object of environment variables for stdio MCP connectors. |
@@ -705,16 +709,16 @@ Example prompts include:
 azmcp sreagent connectors delete \
   --agent <agent> \
   --name <name> \
-  [--resource-group <resource-group>] \
-  --confirm <confirm>
+  --confirm <confirm> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -754,9 +758,9 @@ azmcp sreagent connectors get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -795,8 +799,8 @@ azmcp sreagent connectors list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -837,9 +841,9 @@ azmcp sreagent connectors test \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -903,25 +907,25 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Content** |  Required | The document content to add to the knowledge base. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent docs memories add \
+  --agent <agent> \
   --name <name> \
   --content <content> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--content` | string | Yes | Skill content. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -947,7 +951,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -955,18 +959,18 @@ Example prompts include:
 
 ```console
 azmcp sreagent docs memories delete \
+  --agent <agent> \
   --name <name> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  --confirm <confirm>
+  --confirm <confirm> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -991,21 +995,21 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent docs memories list \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
 
@@ -1030,21 +1034,21 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent docs memories reindex \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
 
@@ -1069,24 +1073,24 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Query** |  Optional | The search query used to find relevant knowledge base documents. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
+| **Query** |  Required | The search query used to find relevant knowledge base documents. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent docs memories search \
-  [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--query <query>]
+  --agent <agent> \
+  --query <query> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--query` | string | Yes | The search query used to find relevant knowledge base documents. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--query` | string | No | The search query used to find relevant knowledge base documents. |
 
 ---
 
@@ -1122,16 +1126,16 @@ Example prompts include:
 azmcp sreagent hooks delete \
   --agent <agent> \
   --name <name> \
-  [--resource-group <resource-group>] \
-  --confirm <confirm>
+  --confirm <confirm> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1171,9 +1175,9 @@ azmcp sreagent hooks get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1211,8 +1215,8 @@ azmcp sreagent hooks list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1254,10 +1258,10 @@ azmcp sreagent hooks thread activate \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--hook-name` | string | Yes | The hook name. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1299,10 +1303,10 @@ azmcp sreagent hooks thread deactivate \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--hook-name` | string | Yes | The hook name. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1342,9 +1346,9 @@ azmcp sreagent hooks thread list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | Yes | The SRE Agent thread ID. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1369,21 +1373,21 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent incidents active list \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
 
@@ -1412,29 +1416,29 @@ Example prompts include:
 | **Services** |  Required | Affected service names. |
 | **Severity** |  Required | Incident severity: critical, high, medium, or low. |
 | **Title** |  Required | Incident title. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent incidents create \
+  --agent <agent> \
   --severity <severity> \
   --title <title> \
   --description <description> \
   --services <services> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--severity` | string | Yes | Incident severity: critical, high, medium, or low. |
 | `--title` | string | Yes | Incident title. |
 | `--description` | string | Yes | A description for the SRE Agent item. |
 | `--services` | string | Yes | Affected service names. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1464,7 +1468,7 @@ Example prompts include:
 | **Severity** |  Required | Incident severity: critical, high, medium, or low. |
 | **Steps** |  Required | Incident response steps. |
 | **Trigger condition** |  Required | Text that triggers the incident response plan. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Agent mode** |  Optional | Agent mode: autonomous or review. |
 | **Escalation** |  Optional | Escalation procedure. |
 | **Runbook URL** |  Optional | Runbook URL. |
@@ -1474,13 +1478,13 @@ Example prompts include:
 
 ```console
 azmcp sreagent incidents plans create \
+  --agent <agent> \
   --name <name> \
   --severity <severity> \
   --trigger-condition <trigger-condition> \
   --services <services> \
   --steps <steps> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
   [--escalation <escalation>] \
   [--runbook-url <runbook-url>] \
   [--agent-mode <agent-mode>]
@@ -1488,13 +1492,13 @@ azmcp sreagent incidents plans create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--severity` | string | Yes | Incident severity: critical, high, medium, or low. |
 | `--trigger-condition` | string | Yes | Text that triggers the incident response plan. |
 | `--services` | string | Yes | Affected service names. |
 | `--steps` | string | Yes | Incident response steps. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--escalation` | string | No | Escalation procedure. |
 | `--runbook-url` | string | No | Runbook URL. |
 | `--agent-mode` | string | No | Agent mode: autonomous or review. |
@@ -1522,21 +1526,21 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent incidents plans list \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
 
@@ -1563,7 +1567,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **API key env** |  Required | Environment variable containing the API key. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Subdomain** |  Optional | PagerDuty subdomain. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -1571,19 +1575,19 @@ Example prompts include:
 
 ```console
 azmcp sreagent incidents setup pagerduty \
+  --agent <agent> \
   --name <name> \
   --api-key-env <api-key-env> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
   [--subdomain <subdomain>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--api-key-env` | string | Yes | Environment variable containing the API key. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--subdomain` | string | No | PagerDuty subdomain. |
 
 ---
@@ -1612,7 +1616,7 @@ Example prompts include:
 | **Auth type** |  Required | The HTTP MCP connector authentication type. |
 | **Instance URL** |  Required | ServiceNow instance URL. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Password env** |  Optional | Environment variable containing password. |
 | **Token env** |  Optional | Environment variable containing bearer token. |
 | **Username env** |  Optional | Environment variable containing username. |
@@ -1622,11 +1626,11 @@ Example prompts include:
 
 ```console
 azmcp sreagent incidents setup servicenow \
+  --agent <agent> \
   --name <name> \
   --instance-url <instance-url> \
   --auth-type <auth-type> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
   [--token-env <token-env>] \
   [--username-env <username-env>] \
   [--password-env <password-env>]
@@ -1634,11 +1638,11 @@ azmcp sreagent incidents setup servicenow \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--instance-url` | string | Yes | ServiceNow instance URL. |
 | `--auth-type` | string | Yes | The HTTP MCP connector authentication type. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--token-env` | string | No | Environment variable containing bearer token. |
 | `--username-env` | string | No | Environment variable containing username. |
 | `--password-env` | string | No | Environment variable containing password. |
@@ -1669,7 +1673,7 @@ Example prompts include:
 | **Cron expression** |  Required | The cron expression for the schedule. |
 | **Message** |  Required | The prompt the agent runs on the defined schedule. |
 | **Name** |  Required | The name of the SRE Agent item. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Description** |  Optional | A description for the SRE Agent item. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -1677,21 +1681,21 @@ Example prompts include:
 
 ```console
 azmcp sreagent scheduledtasks create \
+  --agent <agent> \
   --name <name> \
   --cron-expression <cron-expression> \
   --message <message> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
   [--description <description>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--cron-expression` | string | Yes | The cron expression for the schedule. |
 | `--message` | string | Yes | The prompt the agent runs on the defined schedule. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--description` | string | No | A description for the SRE Agent item. |
 
 ---
@@ -1718,7 +1722,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Confirm** |  Required | Confirm a destructive operation. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -1726,18 +1730,18 @@ Example prompts include:
 
 ```console
 azmcp sreagent scheduledtasks delete \
+  --agent <agent> \
   --task-id <task-id> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  --confirm <confirm>
+  --confirm <confirm> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1763,23 +1767,23 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent scheduledtasks get \
+  --agent <agent> \
   --task-id <task-id> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1804,21 +1808,21 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent scheduledtasks list \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
 
@@ -1844,23 +1848,23 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent scheduledtasks pause \
+  --agent <agent> \
   --task-id <task-id> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1886,23 +1890,23 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Task ID** |  Required | The scheduled task ID. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent scheduledtasks resume \
+  --agent <agent> \
   --task-id <task-id> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -1946,10 +1950,10 @@ azmcp sreagent skills create \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--content` | string | Yes | Skill content. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--description` | string | No | A description for the SRE Agent item. |
 
 ---
@@ -1986,16 +1990,16 @@ Example prompts include:
 azmcp sreagent skills delete \
   --agent <agent> \
   --name <name> \
-  [--resource-group <resource-group>] \
-  --confirm <confirm>
+  --confirm <confirm> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -2033,8 +2037,8 @@ azmcp sreagent skills list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -2060,23 +2064,23 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Message** |  Required | The message to send. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent threads create \
+  --agent <agent> \
   --message <message> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -2101,27 +2105,27 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Confirm** |  Required | Confirm a destructive operation. |
-| **Thread ID** |  Optional | The SRE Agent thread ID. |
+| **Thread ID** |  Required | The SRE Agent thread ID. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent threads delete \
-  [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--thread-id <thread-id>] \
-  --confirm <confirm>
+  --agent <agent> \
+  --thread-id <thread-id> \
+  --confirm <confirm> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--thread-id` | string | No | The SRE Agent thread ID. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -2146,24 +2150,24 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Thread ID** |  Optional | The SRE Agent thread ID. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
+| **Thread ID** |  Required | The SRE Agent thread ID. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent threads get \
-  [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--thread-id <thread-id>]
+  --agent <agent> \
+  --thread-id <thread-id> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--thread-id` | string | No | The SRE Agent thread ID. |
 
 ---
 
@@ -2189,7 +2193,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Message** |  Required | The message to send. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Max iterations** |  Optional | The maximum number of automatic follow-up iterations. |
 | **Timeout seconds** |  Optional | The investigation timeout in seconds. |
 
@@ -2198,18 +2202,18 @@ Example prompts include:
 
 ```console
 azmcp sreagent threads investigate yolo \
+  --agent <agent> \
   --message <message> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
   [--max-iterations <max-iterations>] \
   [--timeout-seconds <timeout-seconds>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--max-iterations` | string | No | The maximum number of automatic follow-up iterations. |
 | `--timeout-seconds` | string | No | The investigation timeout in seconds. |
 
@@ -2237,7 +2241,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Message** |  Required | The message to send. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 | **Max iterations** |  Optional | The maximum number of automatic follow-up iterations. |
 | **Timeout seconds** |  Optional | The investigation timeout in seconds. |
 
@@ -2246,18 +2250,18 @@ Example prompts include:
 
 ```console
 azmcp sreagent threads investigate \
+  --agent <agent> \
   --message <message> \
   [--resource-group <resource-group>] \
-  [--agent <agent>] \
   [--max-iterations <max-iterations>] \
   [--timeout-seconds <timeout-seconds>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--max-iterations` | string | No | The maximum number of automatic follow-up iterations. |
 | `--timeout-seconds` | string | No | The investigation timeout in seconds. |
 
@@ -2284,21 +2288,21 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent threads list \
-  [--resource-group <resource-group>] \
-  [--agent <agent>]
+  --agent <agent> \
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
 
 ---
 
@@ -2324,26 +2328,26 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Message** |  Required | The message to send. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Thread ID** |  Optional | The SRE Agent thread ID. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
+| **Thread ID** |  Required | The SRE Agent thread ID. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent threads send message \
+  --agent <agent> \
+  --thread-id <thread-id> \
   --message <message> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--thread-id <thread-id>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
-| `--thread-id` | string | No | The SRE Agent thread ID. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
+| `--thread-id` | string | Yes | The SRE Agent thread ID. |
 | `--message` | string | Yes | The message to send. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -2369,26 +2373,23 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **YAML content** |  Required | YAML content. |
-| **Agent** |  Optional | The name of the Azure SRE Agent resource to target. |
-| **Source name** |  Optional | Optional source name. |
+| **Agent** |  Required | The name of the Azure SRE Agent resource to target. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
 
 
 ```console
 azmcp sreagent workflows apply \
+  --agent <agent> \
   --yaml-content <yaml-content> \
-  [--resource-group <resource-group>] \
-  [--agent <agent>] \
-  [--source-name <source-name>]
+  [--resource-group <resource-group>]
 ```
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--agent` | string | No | The name of the Azure SRE Agent resource to target. |
+| `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--yaml-content` | string | Yes | YAML content. |
-| `--source-name` | string | No | Optional source name. |
+| `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
 
@@ -2422,6 +2423,7 @@ Example prompts include:
 | **Parameters** |  Optional | Parameters as name:description. |
 | **Query** |  Optional | The Kusto query for Kusto tools. |
 | **Tools** |  Optional | Tool names to attach. Multiple values are supported. |
+| **Handoffs** |  Optional | Sub-agent handoff names. Multiple values are supported. |
 | **URL template** |  Optional | The URL template for link tools. |
 
 #### [Azure MCP CLI](#tab/azure-mcp-cli)
@@ -2434,6 +2436,7 @@ azmcp sreagent workflows generate \
   --description <description> \
   [--model-or-type <model-or-type>] \
   [--tools <tools>] \
+  [--handoffs <handoffs>] \
   [--connector <connector>] \
   [--database <database>] \
   [--query <query>] \
@@ -2448,6 +2451,7 @@ azmcp sreagent workflows generate \
 | `--description` | string | Yes | A description for the SRE Agent item. |
 | `--model-or-type` | string | No | Tool type, such as KustoTool or LinkTool. |
 | `--tools` | string | No | Tool names to attach. Multiple values are supported. |
+| `--handoffs` | string | No | Sub-agent handoff names. Multiple values are supported. |
 | `--connector` | string | No | The connector name for Kusto tools. |
 | `--database` | string | No | The Kusto database for Kusto tools. |
 | `--query` | string | No | The Kusto query for Kusto tools. |

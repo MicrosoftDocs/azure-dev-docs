@@ -37,6 +37,11 @@ For more information about each feature stage, see [feature versioning and relea
 | Azure Functions | Stable |
 | Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`) |
 
+Azure App Service supports two deployment modes when you set `host: appservice`:
+
+- **Deploy from source**: Set `language` to a supported runtime and `azd` builds and deploys your app code.
+- **Deploy a container**: Set `language: docker` (or a `docker` configuration) and `azd` builds a container image, pushes it to Azure Container Registry, and updates the site to run the image. Container deployments to App Service are supported for Linux only. For more information, see [Deploy containers to Azure App Service](./app-service-containers.md).
+
 ## Supported languages and frameworks
 
 Currently supported languages and frameworks:

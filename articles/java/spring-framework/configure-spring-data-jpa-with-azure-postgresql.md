@@ -1,6 +1,6 @@
 ---
 title: Use Spring Data JPA with Azure Database for PostgreSQL
-description: Learn how to use Spring Data JPA with an Azure Database for PostgreSQL database.
+description: Learn how to use Spring Data JPA with Azure Database for PostgreSQL. Store and manage data securely using passwordless or password authentication methods.
 ms.date: 08/19/2025
 ms.author: karler
 ms.reviewer: seal
@@ -19,14 +19,14 @@ This tutorial demonstrates how to store data in [Azure Database for PostgreSQL](
 
 In this tutorial, we include two authentication methods: Microsoft Entra authentication and PostgreSQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the PostgreSQL authentication.
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL by using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords by yourself.
+PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, store these credentials in the `user` table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords yourself.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 - [PostgreSQL command line client](https://www.postgresql.org/download/).
 
-- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **PostgreSQL Driver** dependencies, and then select Java version 8 or higher.
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **PostgreSQL Driver** dependencies. Then select Java version 8 or higher.
 
 ::: zone pivot="postgresql-passwordless-flexible-server"
 
@@ -37,13 +37,13 @@ PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to u
 
 ## See the sample application
 
-In this tutorial, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql).
+In this tutorial, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql).
 
 [!INCLUDE [spring-data-azure-postgresql-flexible-server-setup.md](includes/spring-data-azure-postgresql-flexible-server-setup.md)]
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 
-To store data from Azure Database for PostgreSQL using Spring Data JPA, follow these steps to configure the application:
+To store data in Azure Database for PostgreSQL using Spring Data JPA, follow these steps to configure the application:
 
 1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your **application.properties** configuration file.
 
@@ -73,7 +73,7 @@ To store data from Azure Database for PostgreSQL using Spring Data JPA, follow t
    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
    ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule. -->
     ---
 
 ::: zone-end
@@ -87,13 +87,13 @@ To store data from Azure Database for PostgreSQL using Spring Data JPA, follow t
 
 ## See the sample application
 
-In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql).
+In this article, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jpa-postgresql).
 
 [!INCLUDE [spring-data-azure-postgresql-single-server-setup.md](includes/spring-data-azure-postgresql-single-server-setup.md)]
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 
-To store data from Azure Database for PostgreSQL using Spring Data JPA, follow these steps to configure the application:
+To store data in Azure Database for PostgreSQL using Spring Data JPA, follow these steps to configure the application:
 
 1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your **application.properties** configuration file.
 
@@ -123,7 +123,7 @@ To store data from Azure Database for PostgreSQL using Spring Data JPA, follow t
    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
    ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule. -->
     ---
 
 ::: zone-end

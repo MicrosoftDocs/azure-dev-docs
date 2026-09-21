@@ -70,6 +70,10 @@ conceptualContent:
         - text: Authenticate Terraform with Azure CLI
           url: /azure/developer/terraform/authenticate-to-azure
           itemType: how-to-guide
+        - text: Prevent Terraform drift for stateful Azure resources
+          url: /azure/developer/terraform/prevent-terraform-drift-stateful-resources
+          itemType: concept
+ 
 
 additionalContent:
   sections:

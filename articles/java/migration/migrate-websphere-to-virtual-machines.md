@@ -114,7 +114,7 @@ After you've provisioned the offer, you can examine the profile configuration. F
 
 ### Connect the databases
 
-After you've migrated the profiles, you can connect the databases by following the instructions in [Configuring the WebSphere Application Server data source](https://www.ibm.com/docs/en/was/9.0.5?topic=SSEQTP_9.0.5/com.ibm.websphere.nd.multiplatform.doc/ae/twim_fedmap_datasconf.htm) in the IBM documentation.
+After you migrate the profiles, connect the databases by following the instructions in [Configuring the WebSphere Application Server data source](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=configuration-configuring-websphere-application-server-data-source) in the IBM documentation.
 
 ### Account for KeyStores
 
@@ -122,7 +122,7 @@ You must account for the migration of any SSL KeyStores used by your application
 
 ### Connect the JMS sources
 
-After you've connected the databases, you can configure JMS by following the instructions at [Setting up JMS in IBM WebSphere Application Server](https://www.ibm.com/docs/en/iis/9.1?topic=jms-setting-up-in-websphere-application-server) in the IBM documentation.
+After you connect the databases, configure JMS by following the instructions in [Setting up JMS in IBM WebSphere Application Server](https://www.ibm.com/docs/en/iis/9.1.0?topic=jms-setting-up-in-websphere-application-server) in the IBM documentation.
 
 [!INCLUDE [account-for-authentication-and-authorization](includes/account-for-authentication-and-authorization-was.md)]
 

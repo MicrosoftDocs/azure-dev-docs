@@ -1,10 +1,11 @@
 ---
 title: Azure MCP Server Tools
-description: Learn how to use the Azure MCP Server tools for consuming servers.
+description: Learn about the Azure MCP Server tools that let you use natural language to interact with Azure services from AI clients like GitHub Copilot.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 08/11/2026
 ms.topic: overview
+ms.service: azure-mcp-server
 ms.custom:
   - build-2025
 ai-usage: ai-assisted

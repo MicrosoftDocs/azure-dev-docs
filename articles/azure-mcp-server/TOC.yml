@@ -21,6 +21,8 @@
         href: get-started/tools/cursor.md
       - name: Windsurf
         href: get-started/tools/windsurf.md
+      - name: Antigravity
+        href: get-started/tools/anti-gravity.md
       - name: IntelliJ
         href: get-started/tools/jet-brains.md
       - name: Cline
@@ -59,21 +61,6 @@
       href: how-to/deploy-remote-mcp-server-copilot-studio.md
     - name: Azure Container Apps with on-behalf-of authentication
       href: how-to/deploy-remote-mcp-server-on-behalf-of.md
-- name: Use with Azure services
-  expanded: true
-  items:
-    - name: Azure App Service
-      href: services/azure-mcp-server-for-app-service.md
-    - name: Azure Functions
-      href: services/azure-mcp-server-for-functions.md
-    - name: Azure Key Vault
-      href: services/azure-mcp-server-for-key-vault.md
-    - name: Azure Redis
-      href: services/azure-mcp-server-for-redis.md
-    - name: Azure AI Search
-      href: services/azure-mcp-server-for-search.md
-    - name: Azure Speech in Foundry Tools
-      href: services/azure-mcp-speech-foundry-tools.md
 - name: Tools
   expanded: true
   items:
@@ -147,6 +134,8 @@
       href: tools/azure-functions.md
     - name: Azure Insights
       href: tools/azure-insights.md
+    - name: Azure IoT Hub
+      href: tools/azure-iot-hub.md
     - name: Azure Key Vault
       href: tools/azure-key-vault.md
     - name: Azure Kubernetes Service
@@ -216,4 +205,3 @@
   href: tools/index.md
 - name: Troubleshooting
   href: https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/TROUBLESHOOTING.md
-

@@ -25,8 +25,6 @@
       href: azure-developer-cli-vs-azure-cli.md
     - name: Explore the azd init workflow
       href: azd-init-workflow.md
-    - name: Use GitHub Copilot with azd
-      href: azd-copilot-integration.md
     - name: Explore the azd up workflow
       href: azd-up-workflow.md
     - name: Commands overview
@@ -35,54 +33,46 @@
       href: azd-templates.md
     - name: Feature versioning and release strategy
       href: feature-versioning.md
-  - name: Development workflows
+  - name: Templates
     items:
-    - name: Get started with template development
-      href: make-azd-compatible.md
-    - name: Use the compose feature
+    - name: Template development overview
+      href: build-templates-overview.md
+    - name: Start with a new template
+      href: start-with-new-template.md
+    - name: Start from an existing template
+      href: start-with-existing-template.md
+    - name: Explore and edit template files
+      href: explore-edit-templates.md
+    - name: Extend a template
+      href: extend-template.md
+  - name: Extensions
+    items:
+    - name: Extensions overview
+      href: extensions/overview.md
+    - name: Quickstart - Use the demo extension
+      href: extensions/quickstart-ai-extension.md
+    - name: Develop extensions
       items:
-      - name: Compose feature overview
-        href: azd-compose.md
-      - name: Create a minimal template
-        href: compose-quickstart.md
-      - name: Generate Bicep files
-        href: compose-generate.md
-    - name: Build a template
+      - name: Extension development concepts
+        href: extensions/develop/extension-development-concepts.md
+      - name: "Quickstart - Build a sample azd extension"
+        href: extensions/develop/quickstart-build-extension.md
+      - name: Define the extension manifest
+        href: extensions/develop/extension-manifest.md
+      - name: Add extension capabilities
+        href: extensions/develop/extension-capabilities.md
+      - name: Communicate with azd by using the SDK
+        href: extensions/develop/extension-sdk.md
+      - name: Add an MCP server
+        href: extensions/develop/extension-mcp-server.md
+      - name: Publish an extension
+        href: extensions/develop/publish-extensions.md
+    - name: Available extensions
       items:
-      - name: Start with an existing template
-        href: start-with-existing-template.md
-      - name: Start with your app code
-        href: start-with-app-code.md
-      - name: Training - build and deploy azd templates
-        href: /training/paths/azure-developer-cli
-    - name: Work with extensions
-      items:
-      - name: Overview
-        href: extensions/overview.md
-      - name: Quickstart - Use the demo extension
-        href: extensions/quickstart-ai-extension.md
-      - name: Develop extensions
-        items:
-        - name: Extension development concepts
-          href: extensions/develop/extension-development-concepts.md
-        - name: "Quickstart - Build a sample azd extension"
-          href: extensions/develop/quickstart-build-extension.md
-        - name: Define the extension manifest
-          href: extensions/develop/extension-manifest.md
-        - name: Add extension capabilities
-          href: extensions/develop/extension-capabilities.md
-        - name: Communicate with azd by using the SDK
-          href: extensions/develop/extension-sdk.md
-        - name: Add an MCP server
-          href: extensions/develop/extension-mcp-server.md
-        - name: Publish an extension
-          href: extensions/develop/publish-extensions.md
-      - name: Extensions
-        items:
-        - name: Copilot cloud agent extension
-          href: extensions/copilot-coding-agent-extension.md
-        - name: Microsoft Foundry agent extension
-          href: extensions/azure-ai-foundry-extension.md
+      - name: Copilot cloud agent extension
+        href: extensions/copilot-coding-agent-extension.md
+      - name: Microsoft Foundry agent extension
+        href: extensions/azure-ai-foundry-extension.md
   - name: Deployment and operations
     items:
       - name: CI/CD
@@ -103,6 +93,8 @@
           href: monitor-your-app.md
       - name: Deployment configuration
         items:
+        - name: Choose a container workflow
+          href: container-build-deploy-options.md
         - name: Layered provisioning
           href: layered-provisioning.md
         - name: Remote build support
@@ -111,6 +103,8 @@
           href: publishing-workflows.md
         - name: Azure App Service deployment slots
           href: app-service-slots.md
+        - name: App Service container deployments
+          href: app-service-containers.md
         - name: Docker support as a language
           href: docker-language-support.md
         - name: Metadata configuration

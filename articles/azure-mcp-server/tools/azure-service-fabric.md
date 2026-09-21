@@ -1,8 +1,8 @@
 ---
-title: Azure Service Fabric Tools for the Azure MCP Server Overview
-description: Learn about the tools available in Azure Service Fabric for managing microservices and containerized applications as part of the Azure MCP Server.
+title: Azure Service Fabric Tools
+description: Learn how to use the Azure MCP Server with Azure Service Fabric to inspect managed cluster nodes and restart nodes by node type with natural language prompts.
 ms.reviewer: anuchan
-ms.date: 02/18/2026
+ms.date: 08/11/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ai-usage: ai-assisted
@@ -14,9 +14,9 @@ mcp-cli.version: "2.0.0-beta.20+6836f5da0f4b4aac4abadd186fbcf8c4dd7743f9"
 
 # Azure Service Fabric tools for the Azure MCP Server overview
 
-The Azure MCP Server lets you manage microservices and containerized applications, including deployment, scaling, and monitoring, with natural language prompts.
+The Azure MCP Server helps you inspect Azure Service Fabric managed clusters and restart cluster nodes by node type by using natural language prompts. You don't need to remember specialized command syntax to view node status or perform targeted node restarts.
 
-Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. For more information, see [Azure Service Fabric documentation](/azure/service-fabric/).
+[Azure Service Fabric](/azure/service-fabric/service-fabric-overview) is a distributed systems platform for packaging, deploying, and managing scalable and reliable microservices and containers.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -50,7 +50,7 @@ Example prompts include:
 
 <!-- @mcpcli servicefabric managedcluster nodetype restart -->
 
-Restart nodes of a specific node type in a Service Fabric managed cluster. 
+Restart nodes of a specific node type in a Service Fabric managed cluster.
 
 Example prompts include:
 - "Restart nodes `node1` and `node2` of node type `frontend` in managed cluster `myservicefabric` within resource group `rg-prod`."

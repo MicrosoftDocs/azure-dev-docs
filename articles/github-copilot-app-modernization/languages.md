@@ -4,7 +4,7 @@ description: Learn which languages and frameworks GitHub Copilot modernization s
 author: KarlErickson
 ms.author: karler
 ms.reviewer: yangtony
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 06/02/2026
 ---
 

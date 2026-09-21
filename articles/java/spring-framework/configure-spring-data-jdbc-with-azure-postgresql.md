@@ -1,6 +1,6 @@
 ---
-title: Use Spring Data JDBC with Azure Database for PostgreSQL
-description: Learn how to use Spring Data JDBC with an Azure Database for PostgreSQL database.
+title: "Spring Data JDBC with Azure Database for PostgreSQL"
+description: "Learn to use Spring Data JDBC with Azure Database for PostgreSQL. This tutorial covers passwordless and password authentication methods for secure data storage."
 author: KarlErickson
 ms.date: 08/19/2025
 ms.author: karler
@@ -13,20 +13,20 @@ zone_pivot_groups: passwordless-postgresql
 
 # Use Spring Data JDBC with Azure Database for PostgreSQL
 
-This tutorial demonstrates how to store data in an [Azure Database for PostgreSQL](/azure/postgresql/) database using [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc).
+This tutorial demonstrates how to store data in an [Azure Database for PostgreSQL](/azure/postgresql/) database by using [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc).
 
 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) is the standard Java API to connect to traditional relational databases.
 
 In this tutorial, we include two authentication methods: Microsoft Entra authentication and PostgreSQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the PostgreSQL authentication.
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for PostgreSQL by using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords by yourself.
+PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to use passwords as credentials for the accounts, store these credentials in the `user` table. Because these passwords are stored in PostgreSQL, you need to manage the rotation of the passwords yourself.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 - [PostgreSQL command line client](https://www.postgresql.org/download/).
 
-- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **PostgreSQL Driver** dependencies, and then select Java version 8 or higher.
+- If you don't have a Spring Boot application, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**, **Spring Data JDBC**, and **PostgreSQL Driver** dependencies. Then select Java version 8 or higher.
 
 ::: zone pivot="postgresql-passwordless-flexible-server"
 
@@ -34,7 +34,7 @@ PostgreSQL authentication uses accounts stored in PostgreSQL. If you choose to u
 
 ## See the sample application
 
-In this tutorial, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-postgresql).
+In this tutorial, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-postgresql).
 
 [!INCLUDE [spring-data-azure-postgresql-flexible-server-setup.md](includes/spring-data-azure-postgresql-flexible-server-setup.md)]
 
@@ -68,11 +68,11 @@ To store data from Azure Database for PostgreSQL using Spring Data JDBC, follow 
    spring.sql.init.mode=always
    ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule, and the following note isn't properly indented. -->
     ---
 
    > [!WARNING]
-   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the **schema.sql** file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
+   > The configuration property `spring.sql.init.mode=always` means that Spring Boot automatically generates a database schema, using the **schema.sql** file that you create next, each time the server starts. This feature is great for testing, but it deletes your data at each restart. Don't use it in production.
 
 ::: zone-end
 
@@ -82,7 +82,7 @@ To store data from Azure Database for PostgreSQL using Spring Data JDBC, follow 
 
 ## See the sample application
 
-In this article, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-postgresql).
+In this article, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jdbc-postgresql](https://github.com/Azure-Samples/quickstart-spring-data-jdbc-postgresql).
 
 [!INCLUDE [spring-data-azure-postgresql-single-server-setup.md](includes/spring-data-azure-postgresql-single-server-setup.md)]
 
@@ -116,16 +116,16 @@ To store data from Azure Database for PostgreSQL using Spring Data JDBC, follow 
    spring.sql.init.mode=always
    ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule, and the following note isn't properly indented. -->
     ---
 
    > [!WARNING]
-   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the **schema.sql** file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
+   > The configuration property `spring.sql.init.mode=always` means that Spring Boot automatically generates a database schema, using the **schema.sql** file that you create next, each time the server starts. This feature is great for testing, but it deletes your data at each restart. Don't use it in production.
 
 ::: zone-end
 
-<!-- NOTE: The numbering must start with 2 here to continue the sequence after the previous step, otherwise the numbering will reset to 1. -->
-2. Create the **src/main/resources/schema.sql** configuration file to configure the database schema, then add the following contents.
+<!-- NOTE: The numbering must start with 2 here to continue the sequence after the previous step, otherwise the numbering resets to 1. -->
+2. Create the **src/main/resources/schema.sql** configuration file to configure the database schema, and then add the following contents.
 
    ```sql
    DROP TABLE IF EXISTS todo;
@@ -139,5 +139,5 @@ To store data from Azure Database for PostgreSQL using Spring Data JDBC, follow 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure for Spring developers](../spring/index.yml)
+> [Azure for Spring developers](index.yml)
 > [Spring Cloud Azure PostgreSQL Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/postgresql)

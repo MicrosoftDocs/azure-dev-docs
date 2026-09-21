@@ -1,9 +1,11 @@
 ---
 title: Azure SignalR Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure SignalR to manage your real-time messaging and communication services.
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ai-usage: ai-assisted
@@ -27,6 +29,8 @@ Gets or lists details of an Azure SignalR runtimes. If a specific SignalR name i
 SignalR runtime will be retrieved. Otherwise, all SignalR runtimes in the specified subscription or resource
 group will be retrieved. Returns runtime information including identity, network ACLs, upstream templates.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - **Get specific SignalR details**: "Show me the details of SignalR 'my-signalr-service'"
@@ -43,6 +47,21 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Signalr** |  Optional | The name of the SignalR runtime. |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp signalr runtime get \
+  [--signalr <signalr>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `signalr` | string | No | The name of the SignalR runtime |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

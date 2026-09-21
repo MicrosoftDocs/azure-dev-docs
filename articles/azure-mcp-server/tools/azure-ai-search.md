@@ -4,14 +4,15 @@ description: Use Azure MCP Server tools to manage search services, indexes, know
 author: diberry
 ms.author: diberry
 reviewer: pablocastro
-ms.date: 03/27/2026
+ms.date: 09/17/2026
 ms.service: azure-mcp-server
+ms.reviewer: pablocas
 ms.topic: concept-article
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
 tool_count: 6
-mcp-cli.version: "2.0.0-beta.33"
+mcp-cli.version: "3.0.0-beta.38+0cac8a66daeab3b89620af5395a293e710d4a72a"
 ---
 
 # Azure MCP Server tools for Azure AI Search
@@ -31,6 +32,8 @@ The Azure Model Context Protocol (MCP) Server lets you manage Azure AI Search re
 
 This tool retrieves detailed information about Azure AI Search indexes, including index schema, fields, analyzers, scoring profiles, and other index properties. When you provide an index name, it returns properties for that index; without an index name, it returns all indexes in the specified service.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - "Show me the details of index 'products-index' in Azure AI Search service 'my-search-service'."
@@ -40,7 +43,24 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
-| **Index** |  Optional | The name of the search index within the Azure AI Search service. |
+| **Index** |  Optional | The name of the search index within the Azure AI Search service. If you omit this parameter, the tool returns details for all indexes in the service. |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp search index get \
+  --service <service> \
+  [--index <index>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `service` | string | Yes | The name of the Azure AI Search service (for example, `my-search-service`). |
+| `index` | string | No | The name of the search index within the Azure AI Search service. If you omit this parameter, the command returns details for all indexes in the service. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -54,17 +74,56 @@ Example prompts include:
 
 This tool runs a search query against an Azure AI Search index and returns the matching documents and relevance metadata. Results typically include document fields, a relevance score, and any text highlights that match the query.
 
+The tool automatically selects keyword-only or hybrid search based on the target index's schema. There's no parameter to force either behavior:
+
+- **Keyword search**: If the index has no vector fields, the tool sends your query text as a lexical (keyword) search and returns matches ranked by traditional text relevance.
+- **Hybrid search**: If the index has one or more vector fields that use a vector search profile with a configured vectorizer, the tool sends your query text as both a lexical query and a vector query. Azure AI Search runs both searches and merges the two ranked result sets using [Reciprocal Rank Fusion (RRF)](/azure/search/hybrid-search-overview) to produce a single combined ranking.
+
+Hybrid search only works when the index defines vector fields, those fields reference a vector search profile, and the profile's vectorizer is fully configured (for example, an Azure OpenAI embedding deployment) so Azure AI Search can convert your query text to a vector at query time. If a vector field's vectorizer isn't configured or isn't reachable, the query can fail instead of silently falling back to keyword-only search.
+
+This tool doesn't support requesting vector-only search: it always includes your query text as a lexical query alongside any vector queries, so you can't skip the keyword portion of a hybrid query. It also doesn't support multimodal (image or audio) vector search. The optional `queryType` and `semanticConfiguration` parameters let you choose the query mode: `simple` or `full` lexical query , or `semantic` ranking. They don't change whether the automatic hybrid vector search described here is applied.
+
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - "Search for 'machine learning' in the 'documents' index of my 'contoso-search' service."
 - "Query index 'products' for 'noise-canceling headphones' in Azure AI Search service 'fabrikam-search'."
 - "Search my 'content' index in 'my-search-service' for anything mentioning 'climate change'."
+- "Search the 'products-vectorized' index in 'contoso-search' for 'cozy waterproof hiking boots'."
+
+If `products-vectorized` has vector fields with a configured vectorizer, this prompt triggers hybrid search: the tool returns results ranked by RRF, combining products whose text matches the keywords with products that are conceptually similar (for example, "insulated trail shoes") even without an exact keyword match.
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Index** |  Required | The name of the search index within the Azure AI Search service. |
 | **Query** |  Required | The search query to execute against the Azure AI Search index. |
+| **Query type** |  Optional | The query mode to use. `simple` uses the simple query mode, `full` (the default) uses the full Lucene query mode, and `semantic` applies semantic ranking in addition to any automatic hybrid vector search. `semantic` requires the index to have a semantic configuration. |
+| **Semantic configuration** |  Optional | The semantic configuration to use when **Query type** is `semantic`. If omitted, the index's default semantic configuration is used. |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp search index query \
+  --query <query> \
+  --service <service> \
+  --index <index> \
+  [--query-type <query-type>] \
+  [--semantic-configuration <semantic-configuration>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | Yes | The search query to execute against the Azure AI Search index. |
+| `service` | string | Yes | The name of the Azure AI Search service (for example, `my-search-service`). |
+| `index` | string | Yes | The name of the search index within the Azure AI Search service. |
+| `query-type` | string | No | The query mode to use when searching the index. `simple` uses the simple query mode, `full` (the default) uses the full Lucene query mode, and `semantic` applies semantic ranking, which requires the index to have a semantic configuration. |
+| `semantic-configuration` | string | No | The semantic configuration name to use when `query-type` is `semantic`. If omitted, the index's default semantic configuration is used. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -78,6 +137,8 @@ Example prompts include:
 
 This tool gets details for Azure AI Search knowledge bases. Knowledge bases encapsulate retrieval and reasoning capabilities over one or more knowledge sources or indexes. If you don't provide a knowledge base name, it returns details for all knowledge bases within the specified service.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - "List all knowledge bases in the Azure AI Search service 'my-search-service'."
@@ -87,7 +148,24 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
-| **Knowledge base** |  Optional | The name of the knowledge base within the Azure AI Search service. |
+| **Knowledge base** |  Optional | The name of the knowledge base within the Azure AI Search service. If omitted, the tool returns details for all knowledge bases in the service. |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp search knowledge base get \
+  --service <service> \
+  [--knowledge-base <knowledge-base>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `service` | string | Yes | The name of the Azure AI Search service (for example, `my-search-service`). |
+| `knowledge-base` | string | No | The name of the knowledge base within the Azure AI Search service. If omitted, the command returns details for all knowledge bases in the service. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -100,6 +178,8 @@ Example prompts include:
 <!-- @mcpcli search knowledge base retrieve -->
 
 This tool executes a retrieval operation against an Azure AI Search knowledge base to find relevant information from its data sources. Provide either a single-turn query for retrieval or one or more conversational messages in `role:content` format. Specifying both query and messages isn't allowed.
+
+#### [MCP Server](#tab/mcp-server)
 
 Example prompts include:
 
@@ -114,6 +194,27 @@ Example prompts include:
 | **Query** |  Optional | Natural language query for retrieval when a conversational message history isn't provided. |
 | **Messages** |  Optional | Conversation history messages passed to the knowledge base. Each entry formatted as `role:content`, where role is `user` or `assistant` (for example, `user:What policies apply to archived invoices?`). |
 
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp search knowledge base retrieve \
+  --knowledge-base <knowledge-base> \
+  --service <service> \
+  [--query <query>] \
+  [--messages <messages>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `knowledge-base` | string | Yes | The name of the knowledge base within the Azure AI Search service. |
+| `service` | string | Yes | The name of the Azure AI Search service (for example, `my-search-service`). |
+| `query` | string | No | Natural language query for retrieval when you don't provide a conversational message history. |
+| `messages` | string | No | Conversation history messages passed to the knowledge base. You can specify multiple `--messages` entries. Each entry formatted as `role:content`, where role is `user` or `assistant` (for example, `user:How many docs?`). |
+
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -126,6 +227,8 @@ Example prompts include:
 
 This tool gets details of Azure AI Search knowledge sources. A knowledge source can point at an existing Azure AI Search index or represent external data (for example, a blob storage container) that Azure AI Search has indexed. Knowledge sources are used by knowledge bases during retrieval. If you don't provide a knowledge source name, it returns details for all knowledge sources in the specified service.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - "List all knowledge sources in the Azure AI Search service 'my-search-service'."
@@ -136,6 +239,23 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Knowledge source** |  Optional | The name of the knowledge source within the Azure AI Search service. |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp search knowledge source get \
+  --service <service> \
+  [--knowledge-source <knowledge-source>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `service` | string | Yes | The name of the Azure AI Search service (for example, `my-search-service`). |
+| `knowledge-source` | string | No | The name of the knowledge source within the Azure AI Search service. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -149,11 +269,23 @@ Example prompts include:
 
 This tool lists Azure AI Search services in a subscription and returns details for each service, including name, location, SKU, provisioning state, and endpoint.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - "List Azure AI Search services in my subscription."
 - "What AI Search services do I have?"
 - "Show me my Azure AI Search resources."
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp search service list
+```
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

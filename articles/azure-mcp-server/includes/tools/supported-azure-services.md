@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 03/11/2026
+ ms.date: 08/21/2026
 ---
 
 ## Available tools
@@ -118,12 +118,13 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Device Registry](../../tools/azure-device-registry.md) | `deviceregistry` | Manage Azure Device Registry namespaces for organizing IoT device assets. |
 | [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
+| [Azure IoT Hub](../../tools/azure-iot-hub.md) | `iothub` | List devices and get details for Azure IoT Hub resources. |
 
 ### Management and governance
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | Get recommendations to optimize Azure resources and improve performance. |
+| [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | List and summarize Azure Advisor recommendations, explore recommendation metadata, and apply recommendations to infrastructure-as-code files. |
 | [Azure Backup](../../tools/azure-backup.md) | `azurebackup` | Manage backup vaults, policies, protected items, governance, disaster recovery, and security for Azure Backup. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | `cloudarchitect` | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Insights](../../tools/azure-insights.md) | `insights` | Analyze deployed Azure resources across a subscription or tenant and generate infrastructure insights. |
@@ -134,7 +135,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Pricing](../../tools/azure-pricing.md) | `pricing` | Get Azure retail pricing, cost estimates, and billing details for services, SKUs, and regions. |
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | `extension` | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | `quota` | Manage Azure resource quotas and limits. |
-| [Azure Resilience](../../tools/azure-resilience.md) | `resilience` | Get resilience goal assignments, goal templates, recovery plans, recovery jobs, and usage plans for Azure Resilience. |
+| [Azure Resilience](../../tools/azure-resilience.md) | `resilience` | Create, delete, get, and update resilience drills, goal assignments, goal templates, recovery plans, recovery jobs, and usage plans for Azure Resilience. |
 | [Azure Resource Health](../../tools/azure-resource-health.md) | `resourcehealth` | Check availability status, view health events, and track service-impacting issues for Azure resources. |
 | [Azure Well-Architected Framework](../../tools/azure-well-architected-framework.md) | `wellarchitectedframework` | Get architectural best practices, design patterns, and recommendations for Azure services based on the five Well-Architected Framework pillars. |
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
@@ -164,7 +165,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure App Configuration](../../tools/app-configuration.md) | `appconfig` | Manage centralized application settings and feature flags. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
-| [Azure Key Vault](../../tools/azure-key-vault.md) | `keyvault` | List and create keys, secrets, certificates in Azure Key Vault. |
+| [Azure Key Vault](../../tools/azure-key-vault.md) | `keyvault` | List and create keys, secrets, and certificates in Azure Key Vault. |
 
 ### Storage
 
@@ -201,4 +202,3 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure Marketplace](../../tools/azure-marketplace.md) | `marketplace` | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | No namespace | Discover and manage available Azure MCP Server tools. |
-

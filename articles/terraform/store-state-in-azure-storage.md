@@ -127,24 +127,26 @@ Save the configuration as `create-remote-storage.tf`.
 
 Run the command `terraform init`, then `terraform apply` to configure the Azure storage account and container.
 
+[!INCLUDE [Storage account conversion drift warning](includes/storage-account-conversion-drift-warning.md)]
+
 ---
 
 **Key points:**
 * Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
-* Terraform state is stored in plain text and may contain secrets. If the state is incorrectly secured, unauthorized access to systems and data loss can result.
-* In this example, Terraform authenticates to the Azure storage account using an Access Key. In a production deployment, it's recommended to evaluate the available [authentication options](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) supported by the azurerm backend and to use the most secure option for your use case.
-* In this example, public network access is allowed to this Azure storage account. In a production deployment, it's recommended to restrict access to this storage account using a [storage firewall, service endpoint, or private endpoint](/azure/storage/common/storage-network-security).
+* Terraform state is stored in plain text and might contain secrets. If you don't secure the state correctly, unauthorized users can access systems and cause data loss.
+* In this example, Terraform authenticates to the Azure storage account by using an Access Key. In a production deployment, evaluate the available [authentication options](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) supported by the azurerm backend and use the most secure option for your use case.
+* In this example, public network access is allowed to this Azure storage account. In a production deployment, restrict access to this storage account by using a [storage firewall, service endpoint, or private endpoint](/azure/storage/common/storage-network-security).
 
-## 3. Configure terraform backend state
+## 3. Configure Terraform backend state
 
 To configure the backend state, you need the following Azure storage information:
 
 - **storage_account_name**: The name of the Azure Storage account.
 - **container_name**: The name of the blob container.
-- **key**: The name of the state store file to be created.
+- **key**: The name of the state store file to create.
 - **access_key**: The storage access key.
 
-Each of these values can be specified in the Terraform configuration file or on the command line. We recommend that you use an environment variable for the `access_key` value. Using an environment variable prevents the key from being written to disk.
+Specify each of these values in the Terraform configuration file or on the command line. Use an environment variable for the `access_key` value. By using an environment variable, you prevent the key from being written to disk.
 
 Run the following commands to get the storage access key and store it as an environment variable:
 
@@ -165,12 +167,12 @@ $env:ARM_ACCESS_KEY=$ACCOUNT_KEY
 ```terraform
 ```
 
-Terraform prevents sensitive information from being displayed within the terminal. It's recommended to use Azure CLI or Azure PowerShell to retrieve the access key.
+Terraform prevents sensitive information from being displayed within the terminal. Use Azure CLI or Azure PowerShell to retrieve the access key.
 
 ---
 
 **Key points:**
-* To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set by using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation](/azure/key-vault/secrets/quick-create-cli).
+* To further protect the Azure Storage account access key, store it in Azure Key Vault. Set the environment variable by using a command similar to the following example. For more information about Azure Key Vault, see the [Azure Key Vault documentation](/azure/key-vault/secrets/quick-create-cli).
 
     ```bash
     export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)

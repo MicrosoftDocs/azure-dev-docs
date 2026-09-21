@@ -65,28 +65,3 @@ This template demonstrates the use of these features.
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
 |Azure Static Web Apps<br>Azure Functions|Azure AI Search<br>Azure OpenAI<br>Azure Cosmos DB<br>Azure Storage<br>Azure Managed Identity|GPT4<br>Mistral<br>Ollama|
-
-<!--
-
-### Assistant API with Function Calling
-
-Learn [how to deploy and run](../../javascript/ai/get-started-app-chat-assistants-function-calling.md) this JavaScript [reference template](https://github.com/Azure-Samples/azure-openai-assistant-javascript). This application is a serverless Azure OpenAI Assistant Quick Start which implements an assistants app using JavaScript, Azure OpenAI Service assistants with function calling, and Azure Functions to get the latest stock price.
-
-https://review.learn.microsoft.com/en-us/azure/developer/javascript/media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png
-
-:::row:::
-   :::column:::
-      :::image type="content" source="../../javascript/media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" lightbox="../../javascript/media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" alt-text="Diagram showing architecture for assistants API using LangChainjs to integrate with Azure OpenAI Service.":::
-   :::column-end:::
-   :::column:::
-      :::image type="content" source="../../javascript/media/get-started-app-chat-langchainjs/demo.gif" lightbox="../../javascript/media/get-started-app-chat-langchainjs/demo.gif" alt-text="Browser image of demonstration of JavaScript assistants chat app.":::
-   :::column-end:::
-:::row-end:::
-
-This template demonstrates the use of these features.
-
-| Azure hosting solution | Technologies | AI models |
-|--|--|--|
-|Azure Static Web Apps<br>Azure Functions|Azure OpenAI<br>Azure Managed Identity|GPT 3.5 Turbo|
-
--->

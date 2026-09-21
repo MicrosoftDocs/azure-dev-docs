@@ -27,6 +27,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Azure App Onboard
+            url: skills/azure-app-onboard.md
           - text: Azure Prepare
             url: skills/azure-prepare.md
           - text: Azure Validate

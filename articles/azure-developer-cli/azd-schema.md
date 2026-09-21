@@ -56,7 +56,7 @@ services:
 
 ## `name`
 
-_(string, required)_ The application name. Only lowercase letters, numbers, and hyphens (`-`) are allowed. The name must start and end with a letter or number. Minimum length: 2 characters.
+_(string, required)_ The application name. Use only lowercase letters, numbers, and hyphens (`-`). The name must start and end with a letter or number. The minimum length is 2 characters.
 
 ```yaml
 name: my-app
@@ -64,7 +64,7 @@ name: my-app
 
 ## `resourceGroup`
 
-_(string)_ Name of the Azure resource group. When specified, overrides the resource group name used for infrastructure provisioning. Supports environment variable substitution. Must be between 3 and 64 characters.
+_(string)_ Name of the Azure resource group. When specified, overrides the resource group name for infrastructure provisioning. Supports environment variable substitution. Must be between 3 and 64 characters.
 
 ```yaml
 resourceGroup: rg-my-app-${AZURE_ENV_NAME}
@@ -76,7 +76,7 @@ _(object)_ Metadata about the application template.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `template` | N | string | Identifier of the template from which the application was created. |
+| `template` | N | string | Identifier of the template used to create the application. |
 
 ```yaml
 metadata:
@@ -160,7 +160,7 @@ _(object)_ Definition of services that comprise the application. Each key is a s
 | --- | --- | --- | --- |
 | `host` | Y | string | The type of Azure resource used for service implementation. See [Host types](#host-types). |
 | `project` | Conditional | string | Path to the service source code directory. Required for most host types. |
-| `image` | Conditional | string | The source image to be used for the container image instead of building from source. Supports environment variable substitution. Only valid for `containerapp` host. |
+| `image` | Conditional | string | The source image to be used for the container image instead of building from source. Supports environment variable substitution. Valid for the `containerapp` and `appservice` (Linux) hosts. |
 | `language` | N | string | Service implementation language. Allowed values: `dotnet`, `csharp`, `fsharp`, `py`, `python`, `js`, `ts`, `java`, `go`, `golang`, `docker`. |
 | `module` | N | string | Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI assumes the module name is the same as the service name. |
 | `dist` | N | string | Relative path to service deployment artifacts. |
@@ -206,7 +206,7 @@ The `host` property determines the type of Azure resource used for service imple
 > When `host` is `containerapp`, you must provide either `image` or `project`, but not both. If `image` is set, the container is deployed from the specified image. If `project` is set, the container image is built from source.
 
 > [!NOTE]
-> When `host` is `appservice`, you can deploy from source by setting `project`, or from a container by setting `image` and `docker`.
+> When `host` is `appservice`, you can deploy from source by setting `project`, or deploy a container image (Linux only). Container mode is triggered when you set `language: docker`, set a `docker.path` value, or set `image`. `azd deploy` builds and pushes the image, then updates the site's `linuxFxVersion` to run it. The site must already be provisioned as a Linux container app through infrastructure as code, which owns the site and Azure Container Registry configuration. For details, see [Deploy containers to Azure App Service with azd](./app-service-containers.md).
 
 > [!NOTE]
 > When `host` is `azure.ai.agent`, the `config` property is deprecated. Agent settings moved to the service level, but the previous `config` shape remains valid.
@@ -220,7 +220,7 @@ _(object, required when `host` is `ai.endpoint`)_ Provides additional configurat
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `workspace` | N | string | The name of the AI Studio project workspace. When omitted, `azd` uses the value specified in the `AZUREAI_PROJECT_NAME` environment variable. Supports environment variable substitution. |
+| `workspace` | N | string | The name of the Azure AI Studio project workspace. When omitted, `azd` uses the value specified in the `AZUREAI_PROJECT_NAME` environment variable. Supports environment variable substitution. |
 | `flow` | N | object | The Azure AI Studio Prompt Flow configuration. When omitted, a prompt flow isn't created. See [AI component config](#ai-component-config). |
 | `environment` | N | object | The Azure AI Studio custom environment configuration. When omitted, a custom environment isn't created. See [AI component config](#ai-component-config). |
 | `model` | N | object | The Azure AI Studio model configuration. When omitted, a model isn't created. See [AI component config](#ai-component-config). |
@@ -361,7 +361,7 @@ _(properties at the service level, when `host` is `azure.ai.agent`)_ Configure a
 | `resources` | N | array | External resources for agent execution. Each item has a `resource` identifier and a `connectionName`. |
 | `toolConnections` | N | array | Connections to external services (MCP tools, A2A, custom APIs) created during provisioning. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
 | `toolboxes` | N | array | Toolboxes (Foundry Toolsets) to deploy. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
-| `connections` | N | array | Project connections to create via Bicep provisioning. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
+| `connections` | N | array | Project connections to create through Bicep provisioning. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
 | `memoryStores` | N | array | Foundry memory stores that let the agent retain context across sessions. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
 | `policies` | N | array | Governance policies attached to the agent, such as Responsible AI. See the [extension schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.ai.agents/schemas/azure.ai.agent.json). |
 | `protocols` | N | array | Invocation protocols the agent implements, for example `responses`, `invocations`, or `a2a`. |
@@ -505,6 +505,20 @@ services:
     host: containerapp
 ```
 
+##### App Service with a container image
+
+Setting `language: docker` (or a `docker.path` value) on an `appservice` host deploys the service as a Linux Web App for Containers. The site must already be provisioned as a Linux container app. For details, see [Deploy containers to Azure App Service with azd](./app-service-containers.md).
+
+```yaml
+services:
+  web:
+    project: ./src/web
+    host: appservice
+    language: docker
+    docker:
+      path: ./Dockerfile
+```
+
 ##### AKS with service level hooks
 
 ```yaml
@@ -572,7 +586,7 @@ The `type` property determines the kind of Azure resource and controls which add
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
 | `port` | N | integer | Port that the web app listens on. Default: `80`. |
-| `runtime` | Y | object | The language runtime configuration. See below. |
+| `runtime` | Y | object | The language runtime configuration. See the `runtime` object table that follows. |
 | `env` | N | array | Environment variables. Each item has `name` (required), `value`, and `secret` properties. Supports environment variable substitution. |
 | `startupCommand` | N | string | Startup command that runs as part of web app startup. |
 | `uses` | N | array of strings | Other resources that this resource uses. |
@@ -725,9 +739,9 @@ _(object)_ Definition of continuous integration pipeline.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `provider` | N | string | The pipeline provider to be used for continuous integration. Default: `github`. Allowed values: `github`, `azdo`. |
-| `variables` | N | array of strings | List of `azd` environment variables to be used in the pipeline as variables. |
-| `secrets` | N | array of strings | List of `azd` environment variables to be used in the pipeline as secrets. |
+| `provider` | N | string | The pipeline provider for continuous integration. Default: `github`. Allowed values: `github`, `azdo`. |
+| `variables` | N | array of strings | List of `azd` environment variables to use in the pipeline as variables. |
+| `secrets` | N | array of strings | List of `azd` environment variables to use in the pipeline as secrets. |
 
 ```yaml
 pipeline:
@@ -851,7 +865,7 @@ _(object)_ Provides additional configuration for required versions of `azd` and 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
 | `azd` | N | string | A range of supported versions of `azd` for this project. If the version of `azd` is outside this range, the project fails to load. Supports semver range syntax. |
-| `extensions` | N | object | A map of required extensions and version constraints for this project. Supports semver constraints. If the version is omitted, the latest version is installed. |
+| `extensions` | N | object | A map of required extensions and version constraints for this project. Supports semver constraints. If you omit the version, `azd` installs the latest version. |
 
 ```yaml
 requiredVersions:
@@ -881,7 +895,7 @@ _(object)_ Provides additional configuration for state management.
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
 | `accountName` | Y | string | The Azure Storage account name. |
-| `containerName` | N | string | The Azure Storage container name. Defaults to the project name if not specified. |
+| `containerName` | N | string | The Azure Storage container name. Defaults to the project name if you don't specify one. |
 | `endpoint` | N | string | The Azure Storage endpoint. Default: `blob.core.windows.net`. |
 
 ```yaml
@@ -908,7 +922,7 @@ Available when `type` is `devcenter`:
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `name` | N | string | The name of the Azure Dev Center. Used as the default dev center for this project. |
+| `name` | N | string | The name of the Azure Dev Center. Serves as the default dev center for this project. |
 | `project` | N | string | The name of the Azure Dev Center project. |
 | `catalog` | N | string | The name of the Azure Dev Center catalog. |
 | `environmentDefinition` | N | string | The name of the Dev Center catalog environment definition. |
@@ -935,7 +949,7 @@ _(object)_ Provides additional configuration for workflows such as overriding `a
 
 ### Workflow steps
 
-The `up` workflow accepts a `steps` array (or can be specified directly as an array). Each step runs an `azd` command.
+The `up` workflow accepts a `steps` array, or you can specify the workflow directly as an array. Each step runs an `azd` command.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
@@ -943,7 +957,7 @@ The `up` workflow accepts a `steps` array (or can be specified directly as an ar
 
 ### Configure workflow step order
 
-The following `azure.yaml` file changes the default behavior of `azd up` to move the `azd package` step after the `azd provision` step. Use this approach in scenarios where you need to know the URLs of resources during the build or packaging process.
+The following `azure.yaml` file changes the default behavior of `azd up` to move the `azd package` step after the `azd provision` step. Use this approach when you need to know the URLs of resources during the build or packaging process.
 
 ```yaml
 name: todo-nodejs-mongo

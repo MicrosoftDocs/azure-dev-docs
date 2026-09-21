@@ -82,7 +82,6 @@ azd up
 | Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | OpenAI MCP Agent (.NET) | Blazor (.NET) on Azure Container Apps | .NET MCP agent, TypeScript MCP server on Azure Container Apps | Azure OpenAI | Bicep | - | [openai-mcp-agent-dotnet](https://github.com/Azure-Samples/openai-mcp-agent-dotnet) |
-| Data API Builder + Cosmos DB | Blazor (.NET) on Azure Container Apps | Data API Builder container | Azure Cosmos DB for NoSQL | Bicep | - | [dab-azure-cosmos-db-nosql-quickstart](https://github.com/azure-samples/dab-azure-cosmos-db-nosql-quickstart) |
 | Cosmos DB Copilot | Blazor (.NET) on Azure App Service | .NET (Semantic Kernel, RAG, multitenant) | Azure Cosmos DB for NoSQL, Azure OpenAI | Bicep | - | [cosmosdb-nosql-copilot](https://github.com/AzureCosmosDB/cosmosdb-nosql-copilot) |
 
 ### [.NET Aspire](#tab/aspire)
@@ -102,7 +101,6 @@ azd up
 |----------|-----------|----------|----------|-----|-----|------------|
 | React + Python + MongoDB | React on App Service | Python (Flask/FastAPI) on App Service | Azure Cosmos DB (MongoDB) | Bicep | - | [todo-python-mongo](https://github.com/Azure-Samples/todo-python-mongo) |
 | React + Python + MongoDB (Container Apps) | React on Container Apps | Python on Container Apps | Azure Cosmos DB (MongoDB) | Bicep | ✅ | [todo-python-mongo-aca](https://github.com/Azure-Samples/todo-python-mongo-aca) |
-| React + Python + MongoDB (Terraform) | React on App Service | Python on App Service | Azure Cosmos DB (MongoDB) | Terraform | - | [todo-python-mongo-terraform](https://github.com/Azure-Samples/todo-python-mongo-terraform) |
 | React + Python + MongoDB (Static Web Apps) | React on Static Web Apps | Python on Azure Functions | Azure Cosmos DB (MongoDB) | Bicep | - | [todo-python-mongo-swa-func](https://github.com/Azure-Samples/todo-python-mongo-swa-func) |
 
 ## Java templates

@@ -1,6 +1,6 @@
 ---
 title: Use Spring Data JPA with Azure SQL Database
-description: Learn how to use Spring Data JPA with an Azure SQL Database.
+description: "Learn to use Spring Data JPA with Azure SQL Database. This tutorial demonstrates object-relational mapping for Java applications with passwordless and SQL authentication options."
 ms.date: 08/19/2025
 ms.author: karler
 ms.reviewer: seal
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java, devx-track-extended-java
 ---
 
-# Use Spring Data JPA with Azure SQL Database
+# Use Spring Data JPA with Azure SQL database
 
 This tutorial demonstrates how to store data in [Azure SQL Database](/azure/sql-database/) using [Spring Data JPA](https://spring.io/projects/spring-data-jpa).
 
@@ -17,9 +17,9 @@ This tutorial demonstrates how to store data in [Azure SQL Database](/azure/sql-
 
 In this tutorial, we include two authentication methods: Microsoft Entra authentication and SQL Database authentication. The Passwordless tab shows the Microsoft Entra authentication and the Password tab shows the SQL Database authentication.
 
-Microsoft Entra authentication is a mechanism for connecting to Azure Database for SQL Database using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for SQL Database using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
-SQL Database authentication uses accounts stored in SQL Database. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the user table. Because these passwords are stored in SQL Database, you need to manage the rotation of the passwords by yourself.
+SQL Database authentication uses accounts stored in SQL Database. If you choose to use passwords as credentials for the accounts, you store these credentials in the user table. Because these passwords are stored in SQL Database, you need to manage the rotation of the passwords.
 
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 - [sqlcmd Utility](/sql/tools/sqlcmd/sqlcmd-utility)
@@ -35,7 +35,7 @@ SQL Database authentication uses accounts stored in SQL Database. If you choose 
 
 ## See the sample application
 
-In this tutorial, you'll code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-jpa-sql-server).
+In this tutorial, you code a sample application. If you want to go faster, this application is already coded and available at [https://github.com/Azure-Samples/quickstart-spring-data-jpa-sql-server](https://github.com/Azure-Samples/quickstart-spring-data-jpa-sql-server).
 
 [!INCLUDE [spring-data-sql-server-setup.md](includes/spring-data-sql-server-setup.md)]
 
@@ -73,13 +73,13 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
   ```
   
   > [!NOTE]
-  > As this is a dependency, it should be added in the `<dependencies>` section of the **pom.xml**. Its version is not configured here, as it is managed by the BOM that we added previously.
+  > As this artifact is a dependency, add it in the `<dependencies>` section of the **pom.xml**. Don't configure its version because the BOM you added previously manages it.
 
 ### Configure Spring Boot to use Azure SQL Database
 
-To store data from Azure SQL Database using Spring Data JPA, follow these steps to configure the application:
+To store data in Azure SQL Database using Spring Data JPA, follow these steps to configure the application:
 
-1. Configure an Azure SQL Database credentials in the **application.properties** configuration file.
+1. Configure Azure SQL Database credentials in the **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -105,11 +105,11 @@ To store data from Azure SQL Database using Spring Data JPA, follow these steps 
    spring.jpa.hibernate.ddl-auto=create-drop
    ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule, and the following note won't be properly indented. -->
+    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it renders as a hard rule, and the following note isn't properly indented. -->
     ---
 
    > [!WARNING]
-   > The configuration property `spring.jpa.hibernate.ddl-auto=create-drop` means that Spring Boot will automatically create a database schema at application start-up, and will try to delete it when it shuts down. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
+   > The configuration property `spring.jpa.hibernate.ddl-auto=create-drop` means that Spring Boot automatically creates a database schema at application start-up, and tries to delete it when it shuts down. This feature is great for testing, but it deletes your data at each restart. Don't use it in production.
 
 [!INCLUDE [spring-data-jpa-create-application.md](includes/spring-data-jpa-create-application.md)]
 

@@ -1,7 +1,7 @@
 ---
 title: "Azure for Rust Developers: Build and Deploy Cloud Applications"
 description: Learn how Azure empowers Rust developers to build, deploy, and manage cloud applications with high performance and reliability.
-ms.date: 05/18/2026
+ms.date: 09/03/2026
 ms.service: azure-rust
 ms.topic: overview
 ms.custom:
@@ -32,7 +32,7 @@ Rust is gaining momentum for cloud applications thanks to its performance, relia
 Azure provides multiple integration points for Rust applications through both the [Azure SDK for Rust](https://github.com/Azure/azure-sdk-for-rust) and standard protocols like HTTP for REST APIs. Use Azure services with your Rust applications regardless of where they're hosted.
 
 > [!NOTE]
-> The Azure SDK for Rust requires Rust edition 2021 or later and supports Rust 1.85.0 or newer versions.
+> Install the [latest stable Rust toolchain](https://www.rust-lang.org/tools/install). If you need the minimum supported Rust version (MSRV), check the `rust-version` field in the upstream [workspace manifest](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml).
 
 ## Rust and other languages: Unique advantages
 

@@ -1,6 +1,6 @@
 ---
 title: Deploy Spring Boot Application to Azure Kubernetes Service
-description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
+description: Learn how to deploy a Spring Boot application to Azure Kubernetes Service (AKS) with Docker, Jib, Azure Container Registry, and kubectl.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -15,18 +15,18 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Deploy Spring Boot Application to Azure Kubernetes Service
+# Deploy Spring Boot application to Azure Kubernetes Service
 
 > [!NOTE]
-> For Spring Boot applications, we recommend using Azure Container Apps. However, you can still choose to use Azure Kubernetes Service as a destination. For more information, see [Choose the right Azure services for your Java applications](../get-started/choose.md).
+> For Spring Boot applications, use Azure Container Apps. However, you can still use Azure Kubernetes Service as a destination. For more information, see [Choose the right Azure services for your Java applications](../get-started/choose.md).
 
-This tutorial walks you through combining Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and [Azure Kubernetes Service (AKS)] to host your application.
+This tutorial shows you how to use Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and [Azure Kubernetes Service (AKS)] to host your application.
 
 [Kubernetes] and [Docker] are open-source solutions that help developers automate the deployment, scaling, and management of their applications running in containers.
 
 ## Prerequisites
 
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
+* An Azure subscription; if you don't already have an Azure subscription, activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * Apache's [Maven] build tool (Version 3).
@@ -35,13 +35,13 @@ This tutorial walks you through combining Kubernetes and Docker to develop and d
 * The [ACR Docker credential helper](https://github.com/Azure/acr-docker-credential-helper).
 
 > [!NOTE]
-> Due to the virtualization requirements of this tutorial, you cannot follow the steps in this article on a virtual machine; you must use a physical computer with virtualization features enabled.
+> Due to the virtualization requirements of this tutorial, you can't follow the steps in this article on a virtual machine. You must use a physical computer with virtualization features enabled.
 
 ## Create the Spring Boot on Docker Getting Started web app
 
 The following steps walk you through building a Spring Boot web application and testing it locally.
 
-1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
+1. Open a command prompt and create a local directory to hold your application, and change to that directory; for example:
 
    ```bash
    mkdir C:\SpringBoot
@@ -80,7 +80,7 @@ The following steps walk you through building a Spring Boot web application and 
    curl http://localhost:8080
    ```
 
-1. You should see the following message displayed: **Hello Docker World**
+1. You see the following message displayed: **Hello Docker World**
 
    ![Browse Sample App Locally][SB01]
 
@@ -88,13 +88,13 @@ The following steps walk you through building a Spring Boot web application and 
 
 1. Open a command prompt.
 
-1. Log in to your Azure account:
+1. Sign in to your Azure account:
 
    ```azurecli
    az login
    ```
 
-1. Choose your Azure Subscription:
+1. Select your Azure subscription:
 
    ```azurecli
    az account set -s <YourSubscriptionID>
@@ -115,7 +115,7 @@ The following steps walk you through building a Spring Boot web application and 
 
 ## Push your app to the container registry via Jib
 
-1. Log in to your Azure Container Registry from the Azure CLI.
+1. Sign in to your Azure Container Registry from the Azure CLI.
 
    ```azurecli
    # set the default name for Azure Container Registry, otherwise you need to specify the name in "az acr login"
@@ -123,7 +123,7 @@ The following steps walk you through building a Spring Boot web application and 
    az acr login
    ```
 
-1. Open the **pom.xml** file with a text editor; for example [Visual Studio Code](https://code.visualstudio.com/docs).
+1. Open the **pom.xml** file with a text editor, such as [Visual Studio Code](https://code.visualstudio.com/docs).
 
    ```bash
    code pom.xml
@@ -140,7 +140,7 @@ The following steps walk you through building a Spring Boot web application and 
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the **pom.xml** file so that the `<plugin>` element contains an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/openjdk/jdk:11-ubuntu`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Install the Microsoft Build of OpenJDK.](/java/openjdk/containers).
+1. Update the `<plugins>` collection in the **pom.xml** file so that the `<plugin>` element contains an entry for the `jib-maven-plugin`, as shown in the following example. Use a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/openjdk/jdk:11-ubuntu`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Install the Microsoft Build of OpenJDK.](/java/openjdk/containers)
 
    ```xml
    <plugin>
@@ -158,18 +158,18 @@ The following steps walk you through building a Spring Boot web application and 
    </plugin>
    ```
 
-1. Navigate to the completed project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
+1. Go to the completed project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
 
    ```azurecli
    az acr login && mvn compile jib:build
    ```
 
 > [!NOTE]
-> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour. If you see a `401 Unauthorized` error, you can run the `az acr login --name <your registry name>` command again to reauthenticate. If you see a `Read timed out` error, you can try increasing timeouts with `mvn -Djib.httpTimeout=7200000 jib:dockerBuild`, or `-Djib.httpTimeout=0` for an infinite timeout.
+> For security reasons, the credential you create by using `az acr login` is valid for one hour. If you see a `401 Unauthorized` error, run the `az acr login --name <your registry name>` command again to reauthenticate. If you see a `Read timed out` error, try increasing timeouts with `mvn -Djib.httpTimeout=7200000 jib:dockerBuild`, or use `-Djib.httpTimeout=0` for an infinite timeout.
 
-## Create a Kubernetes Cluster on AKS using the Azure CLI
+## Create a Kubernetes cluster on AKS using the Azure CLI
 
-1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a kubernetes cluster in the `wingtiptoys-kubernetes` resource group, with `wingtiptoys-akscluster` as the cluster name, with Azure Container Registry (ACR) `wingtiptoysregistry` attached, and `wingtiptoys-kubernetes` as the DNS prefix:
+1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a Kubernetes cluster in the `wingtiptoys-kubernetes` resource group, with `wingtiptoys-akscluster` as the cluster name, with Azure Container Registry (ACR) `wingtiptoysregistry` attached, and `wingtiptoys-kubernetes` as the DNS prefix:
 
    ```azurecli
    az aks create --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster \
@@ -177,9 +177,9 @@ The following steps walk you through building a Spring Boot web application and 
     --dns-name-prefix=wingtiptoys-kubernetes --generate-ssh-keys
    ```
 
-   This command may take a while to complete.
+   This command might take a while to complete.
 
-1. Install `kubectl` using the Azure CLI. Linux users may have to prefix this command with `sudo` since it deploys the Kubernetes CLI to `/usr/local/bin`.
+1. Install `kubectl` using the Azure CLI. Linux users might need to prefix this command with `sudo` since it deploys the Kubernetes CLI to `/usr/local/bin`.
 
    ```azurecli
    az aks install-cli
@@ -193,7 +193,7 @@ The following steps walk you through building a Spring Boot web application and 
 
 ## Deploy the image to your Kubernetes cluster
 
-This tutorial deploys the app using `kubectl`, then allows you to explore the deployment through the Kubernetes web interface.
+This tutorial deploys the app by using `kubectl`, and then you can explore the deployment through the Kubernetes web interface.
 
 ### Deploy with kubectl
 
@@ -207,9 +207,9 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
    In this command:
 
-   * The container name `gs-spring-boot-docker` is specified immediately after the `run` command
+   * You specify the container name `gs-spring-boot-docker` immediately after the `run` command.
 
-   * The `--image` parameter specifies the combined login server and image name as `wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest`
+   * The `--image` parameter specifies the combined login server and image name as `wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest`.
 
 1. Expose your Kubernetes cluster externally by using the `kubectl expose` command. Specify your service name, the public-facing TCP port used to access the app, and the internal target port your app listens on. For example:
 
@@ -219,7 +219,7 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
    In this command:
 
-   * The container name `gs-spring-boot-docker` is specified immediately after the `expose pod` command.
+   * You specify the container name `gs-spring-boot-docker` immediately after the `expose pod` command.
 
    * The `--type` parameter specifies that the cluster uses load balancer.
 
@@ -227,7 +227,7 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
    * The `--target-port` parameter specifies the internal TCP port of 8080. The load balancer forwards requests to your app on this port.
 
-1. Once the app is deployed to the cluster, query the external IP address and open it in your web browser:
+1.  After you deploy the app to the cluster, query the external IP address and open it in your web browser:
 
    ```bash
    kubectl get services -o=jsonpath='{.items[*].status.loadBalancer.ingress[0].ip}'
@@ -268,7 +268,7 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
    :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR02.png" alt-text="Kubernetes resources view, add resource.":::
 
-   After deploying the `Deployment`, just like above, select **Add** at the bottom of the YAML editor to deploy `Service` using the following YAML:
+   After deploying the `Deployment`, just like in the preceding step, select **Add** at the bottom of the YAML editor to deploy `Service` using the following YAML:
 
    ```yaml
    apiVersion: v1
@@ -284,13 +284,13 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
        app: gs-spring-boot-docker
    ```
 
-1. Once the YAML file is added, the resource viewer shows your Spring Boot application. The external service includes a linked external IP address so you can easily view the application in your browser.
+1. Once you add the YAML file, the resource viewer shows your Spring Boot application. The external service includes a linked external IP address so you can easily view the application in your browser.
 
    :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR03.png" alt-text="Kubernetes resources view, services list.":::
 
    :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR04.png" alt-text="Kubernetes resources view, services list, external endpoints highlighted.":::
 
-1. Select **External IP**. You'll then see your Spring Boot application running on Azure.
+1. Select **External IP**. You see your Spring Boot application running on Azure.
 
    ![Browse Sample App on Azure][SB02]
 
@@ -313,15 +313,15 @@ For more information about deploying a Java application to Kubernetes with Visua
 
 For more information about the Spring Boot on Docker sample project, see [Spring Boot on Docker Getting Started].
 
-The following links provide additional information about creating Spring Boot applications:
+The following links provide more information about creating Spring Boot applications:
 
 * For more information about creating a simple Spring Boot application, see the Spring Initializr at https://start.spring.io/.
 
-The following links provide additional information about using Kubernetes with Azure:
+The following links provide more information about using Kubernetes with Azure:
 
 * [Get started with a Kubernetes cluster in Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
-More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/reference/kubectl/>.
+For more information about using Kubernetes command-line interface, see the **kubectl** user guide at <https://kubernetes.io/docs/reference/kubectl/>.
 
 The Kubernetes website has several articles that discuss using images in private registries:
 
@@ -329,9 +329,9 @@ The Kubernetes website has several articles that discuss using images in private
 * [Namespaces]
 * [Pulling an Image from a Private Registry]
 
-For additional examples for how to use custom Docker images with Azure, see [Using a custom Docker image for Azure Web App on Linux].
+For more examples of how to use custom Docker images with Azure, see [Using a custom Docker image for Azure Web App on Linux].
 
-For more information about iteratively running and debugging containers directly in Azure Kubernetes Service (AKS) with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java]
+For more information about iteratively running and debugging containers directly in Azure Kubernetes Service (AKS) with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java].
 
 <!-- URL List -->
 [kubectl create clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-

@@ -418,6 +418,8 @@
       href: concept-azapi-data-plane-framework.md
     - name: Testing Terraform code
       href: best-practices-testing-overview.md
+    - name: Prevent Terraform drift for stateful Azure resources
+      href: prevent-terraform-drift-stateful-resources.md
     - name: Comparing features of Terraform and Bicep
       href: comparing-terraform-and-bicep.md
 - name: How-to guides

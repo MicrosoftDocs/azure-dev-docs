@@ -13,16 +13,16 @@ adobe-target: true
 
 ## Terraform providers for Azure infrastructure
 
-There are several Terraform providers that enable the management of Azure infrastructure:
+Several Terraform providers enable the management of Azure infrastructure:
 
 - [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs): Manage stable Azure resources and functionality such as virtual machines, storage accounts, and networking interfaces.
-- [AzAPI](https://registry.terraform.io/providers/Azure/azapi/latest/docs): Manage Azure resources and functionality using the Azure Resource Manager APIs directly. Enables consistency with Azure's latest and greatest functionality without requiring provider updates. For more information about the AzAPI provider, see [Terraform AzAPI provider](overview-azapi-provider.md).
+- [AzAPI](https://registry.terraform.io/providers/Azure/azapi/latest/docs): Manage Azure resources and functionality by using the Azure Resource Manager APIs directly. This provider enables consistency with Azure's latest functionality without requiring provider updates. For more information about the AzAPI provider, see [Terraform AzAPI provider](overview-azapi-provider.md).
 - [AzureAD](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs): Manage Microsoft Entra resources such as groups, users, service principals, and applications.
 - [AzureDevops](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs): Manage Azure DevOps resources such as agents, repositories, projects, pipelines, and queries.
 - [AzureStack](https://registry.terraform.io/providers/hashicorp/azurestack/latest/docs): Manage Azure Stack Hub resources such as virtual machines, DNS, virtual networks, and storage.
 
 ### Using AzAPI vs AzureRM
-To understand when to use AzAPI vs AzureRM, please read our [joint statement with HashiCorp](https://aka.ms/tf/providermessaging).
+To understand when to use AzAPI vs AzureRM, read the [joint statement with HashiCorp](https://aka.ms/tf/providermessaging).
 
 ## Benefits of Terraform with Azure
 
@@ -30,7 +30,7 @@ This section describes the benefits of using Terraform to manage Azure infrastru
 
 ### Common IaC tool
 
-Terraform Azure providers enable you to manage all of your Azure infrastructure using the same declarative syntax and tooling. Using these providers you can:
+Terraform Azure providers enable you to manage all of your Azure infrastructure by using the same declarative syntax and tooling. By using these providers, you can:
 
 1. Configure core platform capabilities such as management groups, policies, users, groups, and policies. For more information, see [Terraform implementation of Cloud Adoption Framework Enterprise-scale](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale#readme).
 1. Configure Azure DevOps projects and pipelines to automate regular infrastructure and application deployments.
@@ -38,23 +38,26 @@ Terraform Azure providers enable you to manage all of your Azure infrastructure 
 
 ### Automate infrastructure management
 
-The Terraform template-based configuration file syntax enables you to configure Azure resources in a repeatable and predictable manner. Automating infrastructure includes the following benefits:
+Use the Terraform template-based configuration file syntax to configure Azure resources in a repeatable and predictable way. Automating infrastructure management offers the following benefits:
 
-- Lowers the potential for human errors while deploying and managing infrastructure.
+- Reduces the potential for human errors when deploying and managing infrastructure.
 - Deploys the same template multiple times to create identical development, test, and production environments.
-- Reduces the cost of development and test environments by creating them on-demand.
+- Cuts the cost of development and test environments by creating them on demand.
 
-### Understand infrastructure changes before being applied
+### Understand infrastructure changes before applying them
 
-As a resource topology becomes complex, understanding the meaning and impact of infrastructure changes can be difficult.
+As a resource topology becomes more complex, it can be difficult to understand the meaning and impact of infrastructure changes.
 
-The Terraform CLI enables users to validate and preview infrastructure changes before application of the plan. Previewing infrastructure changes in a safe manner has several benefits:
+The Terraform CLI enables you to validate and preview infrastructure changes before applying the plan. Previewing infrastructure changes in a safe manner offers several benefits:
 
 - Team members can collaborate more effectively by understanding proposed changes and their impact.
-- Unintended changes can be caught early in the development process.
+- You can catch unintended changes early in the development process.
 
 ## Next steps
 
 Based on your environment, install and configure Terraform:
+
+> [!NOTE]
+> Azure Storage account conversions can introduce supported out-of-band changes that cause Terraform to plan a storage account replacement. For guidance on preventing unexpected recreation during these conversions, see [Prevent Terraform drift for stateful Azure resources](prevent-terraform-drift-stateful-resources.md).
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]

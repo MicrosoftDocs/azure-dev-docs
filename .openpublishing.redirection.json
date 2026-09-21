@@ -1,6 +1,71 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-developer-cli/build-new-template.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/start-with-new-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-developer-cli/azd-copilot-integration.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/start-with-new-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-developer-cli/make-azd-compatible.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/build-templates-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-developer-cli/azd-compose.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/build-templates-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-developer-cli/compose-quickstart.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/build-templates-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-developer-cli/compose-generate.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/explore-edit-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-developer-cli/start-with-app-code.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/explore-edit-templates",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-mcp-server/services/azure-mcp-server-for-app-service.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/azure-services/azure-mcp-server-for-app-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-mcp-server/services/azure-mcp-server-for-functions.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/azure-services/azure-mcp-server-for-functions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-mcp-server/services/azure-mcp-server-for-key-vault.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/azure-services/azure-mcp-server-for-key-vault",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-mcp-server/services/azure-mcp-server-for-redis.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/azure-services/azure-mcp-server-for-redis",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-mcp-server/services/azure-mcp-server-for-search.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/azure-services/azure-mcp-server-for-search",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-mcp-server/services/azure-mcp-speech-foundry-tools.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/azure-services/azure-mcp-speech-foundry-tools",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-skills/skills/azure-hosted-copilot-sdk.md",
       "redirect_url": "/azure/developer/azure-skills/",
       "redirect_document_id": false
@@ -446,7 +511,11 @@
     },
     {
       "source_path": "articles/javascript/get-started-app-chat-assistants-function-calling.md",
-      "redirect_url": "/azure/javascript/ai/get-started-app-chat-assistants-function-calling"
+      "redirect_url": "/azure/developer/javascript/ai/azure-ai-for-javascript-developers"
+    },
+    {
+      "source_path": "articles/javascript/ai/get-started-app-chat-assistants-function-calling.md",
+      "redirect_url": "/azure/developer/javascript/ai/azure-ai-for-javascript-developers"
     },
     {
       "source_path": "articles/javascript/get-started-app-chat-evaluations.md",
@@ -2016,6 +2085,36 @@
     {
       "source_path": "articles/azure-mcp-server/how-to/github-copilot-coding-agent.md",
       "redirect_url": "/azure/developer/azure-mcp-server/how-to/github-copilot-cloud-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/introduction-build-generative-ai-solutions.md",
+      "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/gen-ai-concepts-considerations-developers.md",
+      "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/augment-llm-rag-fine-tuning.md",
+      "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/advanced-retrieval-augmented-generation.md",
+      "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/intro-agents-mcp.md",
+      "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/build-mcp-server-ts.md",
+      "redirect_url": "/azure/developer/ai/",
       "redirect_document_id": false
     }
   ]

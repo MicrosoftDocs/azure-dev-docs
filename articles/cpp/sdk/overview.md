@@ -1,8 +1,8 @@
 ---
 title: Overview of the Azure SDK for C++
 description: Learn how the Azure SDK for C++ can help you create and manage applications that run on Azure.
-ms.topic: overview
-ms.date: 5/08/2025
+ms.topic: concept-article
+ms.date: 08/25/2026
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.
@@ -11,39 +11,37 @@ ms.custom: devx-track-cpp
 
 # What is the Azure SDK for C++?
 
-The Azure SDK for C++ provides a set of client libraries that enable your C++ applications to interact seamlessly with Azure services, whether in local or cloud environments. These libraries, built on top of the Azure REST API, offer familiar C++ syntax and implement common cloud patterns such as authentication, logging, and retries. By using the Azure SDK for C++, you can efficiently manage and utilize Azure resources, enhancing your development workflow with robust and reliable cloud capabilities.
+The Azure SDK for C++ is a collection of client libraries that let your C++ applications interact with Azure services from local or cloud environments. These libraries, built on the Azure REST API, use familiar C++ syntax and implement common cloud patterns such as authentication, logging, and retries. With the Azure SDK for C++, you can manage and use Azure resources directly from your C++ code.
 
 ## Client libraries
 
 The Azure SDK for C++ is composed of numerous client libraries, each designed to interact with specific Azure services. This modular approach allows developers to include only the libraries they need, minimizing unnecessary dependencies and reducing bloat in their projects.
 
-Each Azure service can have one or multiple libraries tailored to different functionalities. For example, Azure Key Vault offers separate libraries for managing Keys, Secrets, and Certificates. This granularity ensures that developers can precisely target the capabilities they require without incorporating extraneous features.
+Each Azure service can have one or multiple libraries tailored to different functionalities. For example, Azure Key Vault offers separate libraries for managing keys, secrets, and certificates. This granularity lets you target the capabilities you need without including extra features.
 
-Breaking down the Azure SDK for C++ into these small, consumable service libraries, allows users to efficiently manage their dependencies and streamline their development process. This design not only enhances the flexibility and maintainability of applications but also aligns with common cloud development patterns, ensuring a seamless integration with Azure services.
+Breaking the Azure SDK for C++ into small, consumable service libraries lets you manage dependencies precisely and keep your applications maintainable.
 
 ## Installation and integration
 
-The Azure SDK for C++ supports acquiring libraries through vcpkg, a modern package manager for C++. vcpkg simplifies the often frustrating task of managing dependencies in C++ projects. By using vcpkg, you can easily download the source of your project's dependencies and their dependencies, and build them as part of your project's build process.
+The Azure SDK for C++ supports acquiring libraries through vcpkg, a package manager for C++. vcpkg manages dependencies in C++ projects: it downloads the source of your project's dependencies, along with their dependencies, and builds them as part of your project's build process.
 
-vcpkg integrates seamlessly with CMake, a widely used build system for C++ projects. By utilizing a CMake module, vcpkg manages the entire dependency chain, ensuring that all required libraries are correctly downloaded and built. This integration not only streamlines the setup process but also ensures consistency across different development environments.
+vcpkg integrates with CMake, a widely used build system for C++ projects. Through a CMake module, vcpkg manages the entire dependency chain, so that all required libraries are downloaded and built consistently across development environments.
 
-By using vcpkg and CMake, you can focus more on developing your application and less on managing dependencies, enhancing your overall development workflow. If you'd like to see how to install and integrate the Azure SDK for C++ libraries into your projects, check out the [Install and integrate libraries from the Azure SDK for C++](./install-and-integrate-the-sdk.md).
+To install and integrate the Azure SDK for C++ libraries into your projects, see [Install and integrate libraries from the Azure SDK for C++](./install-and-integrate-the-sdk.md).
 
 ## Unified design principles
 
-The Azure SDK for C++ is built on a foundation of core libraries that provide common types and patterns across all service libraries. This unified design ensures consistency and familiarity, making it easier for developers to learn and use the SDK effectively.
+The Azure SDK for C++ is built on a foundation of core libraries that provide common types and patterns across all service libraries. This unified design provides consistency across libraries, which makes the SDK easier to learn and use.
 
-When you start with your first library from the Azure SDK for C++, you'll encounter these common types and patterns. As you become familiar with them, you'll find that transitioning to other libraries within the SDK is seamless. This consistency allows you to quickly get up to speed with new libraries, enhancing your productivity and reducing the learning curve.
+When you start with your first library, you encounter these common types and patterns. After you're familiar with them, moving to other libraries in the SDK is straightforward, because they share the same behavior. This consistency helps you get up to speed with new libraries quickly.
 
-Adhering to these unified design principles, allows the Azure SDK for C++ to offer a cohesive and intuitive development experience. Whether you're working with Azure Key Vault, Azure Storage, or any other service, you'll benefit from the same reliable and predictable behavior, enabling you to efficiently manage and utilize Azure resources.
+These unified design principles mean that whether you work with Azure Key Vault, Azure Storage, or another service, you get the same predictable behavior when you manage and use Azure resources.
 
 ## Open source
 
-The Azure SDK for C++ is an open source project, providing transparency and accessibility to its users. By being open source, it allows developers to [inspect the source code](https://github.com/Azure/azure-sdk-for-cpp) of each library, gaining a deeper understanding of how the SDK operates and ensuring that it meets their specific needs.
+The Azure SDK for C++ is an open-source project. Because it's open source, you can [inspect the source code](https://github.com/Azure/azure-sdk-for-cpp) of each library to understand how the SDK operates and confirm that it meets your needs.
 
-We actively encourage feedback from our users through [issues on our GitHub repository](https://github.com/Azure/azure-sdk-for-cpp/issues). This feedback is invaluable in helping us improve the SDK and address any concerns or suggestions from the community. Additionally, we welcome contributions from developers around the world. Whether it's fixing bugs, adding new features, or improving documentation, contributions through pull requests (PRs) are always appreciated.
-
-By fostering an open-source community, we aim to create a collaborative environment where developers can work together to enhance the Azure SDK for C++. This collaborative approach not only improves the quality of the SDK but also ensures that it evolves to meet the needs of its users.
+You can provide feedback through [issues on the GitHub repository](https://github.com/Azure/azure-sdk-for-cpp/issues), which helps improve the SDK. You can also contribute directly. Whether you're fixing bugs, adding features, or improving documentation, contributions through pull requests (PRs) are welcome.
 
 ## Next steps
 
