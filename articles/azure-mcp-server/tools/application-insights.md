@@ -29,11 +29,23 @@ Lists [Application Insights](/azure/azure-monitor/app/app-insights-overview) cod
 
 The tool returns recommendations based on profiler data that identify code optimization opportunities for the selected scope.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - **List code optimization recommendations**: "List code optimization recommendations across my Application Insights components."
 - **Show recommendations for all resources**: "Show me code optimization recommendations for all Application Insights resources in my subscription."
 - **List recommendations by resource group**: "List code optimization recommendations for Application Insights in resource group 'devops-group'."
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp applicationinsights recommendation list
+```
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
