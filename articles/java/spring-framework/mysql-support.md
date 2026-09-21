@@ -1,6 +1,6 @@
 ---
-title: Spring Cloud Azure MySQL support
-description: This article describes how Spring Cloud Azure and Azure MySQL can be used together.
+title: Spring Cloud Azure MySQL Passwordless Support
+description: Learn how Spring Cloud Azure MySQL support enables passwordless connections to Azure Database for MySQL. Explore authentication and configuration options.
 ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
@@ -16,7 +16,7 @@ appliesto:
 
 # Spring Cloud Azure MySQL support
 
-[Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
+This article explains how to use Spring Cloud Azure MySQL support to connect Spring Boot applications to [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) with flexible authentication options, including passwordless Microsoft Entra authentication.
 
 From version `4.5.0`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for MySQL Flexible server.
 
@@ -28,11 +28,11 @@ The current version of the starter should use Azure Database for MySQL Flexible 
 
 ### Passwordless connection
 
-Passwordless connection uses Microsoft Entra authentication for connecting to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Passwordless connection uses Microsoft Entra authentication for connecting to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. By using Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 ## How it works
 
-Spring Cloud Azure will first build one of the following types of credentials depending on the application authentication configuration:
+Spring Cloud Azure first builds one of the following types of credentials, depending on the application authentication configuration:
 
 - `ClientSecretCredential`
 - `ClientCertificateCredential`
@@ -40,9 +40,9 @@ Spring Cloud Azure will first build one of the following types of credentials de
 - `ManagedIdentityCredential`
 - `DefaultAzureCredential`
 
-If none of these types of credentials are found, the `DefaultAzureCredential` credentials will be obtained from application properties, environment variables, managed identities, or the IDE. For more information, see [Spring Cloud Azure authentication](authentication.md).
+If the application doesn't find any of these types of credentials, it gets `DefaultAzureCredential` credentials from application properties, environment variables, managed identities, or the IDE. For more information, see [Spring Cloud Azure authentication](authentication.md).
 
-The following high-level diagram summarizes how authentication works using OAuth credential authentication with Azure Database for MySQL. The arrows indicate communication pathways.
+The following high-level diagram summarizes how authentication works by using OAuth credential authentication with Azure Database for MySQL. The arrows indicate communication pathways.
 
 :::image type="content" source="media/spring-cloud-azure/authentication-mysql-entra-id.png" alt-text="Diagram showing Microsoft Entra authentication for MySQL." border="false":::
 
@@ -73,7 +73,7 @@ The following table shows the Spring Cloud Azure for MySQL common configuration 
 
 ## Dependency setup
 
-Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
+Add the following dependency to your project. This dependency automatically includes the `spring-boot-starter` dependency in your project.
 
 ```xml
 <dependency>
@@ -83,16 +83,16 @@ Add the following dependency to your project. This will automatically include th
 ```
 
 > [!NOTE]
-> Passwordless connections have been supported since version `4.5.0`.
+> Passwordless connections are supported starting with version `4.5.0`.
 >
-> Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+> Remember to add the BOM `spring-cloud-azure-dependencies` along with the preceding dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 ## Basic usage
 
 The following sections show the classic Spring Boot application usage scenarios.
 
 > [!IMPORTANT]
-> Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should set the Microsoft Entra admin user first. Only a Microsoft Entra admin user can create and enable users for Microsoft Entra ID-based authentication. For more information, see [Use Spring Data JDBC with Azure Database for MySQL](configure-spring-data-jdbc-with-azure-mysql.md).
+> Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, set the Microsoft Entra admin user first. Only a Microsoft Entra admin user can create and enable users for Microsoft Entra ID-based authentication. For more information, see [Use Spring Data JDBC with Azure Database for MySQL](configure-spring-data-jdbc-with-azure-mysql.md).
 
 ### Connect to Azure MySQL locally without password
 
@@ -111,9 +111,9 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 ### Connect to Azure MySQL using a service principal
 
-1. Create a Microsoft Entra user for service principal and grant permission.
+1. Create a Microsoft Entra user for the service principal and grant permission.
 
-   1. First, use the following commands to set up some environment variables.
+   1. Use the following commands to set up environment variables.
 
       ```bash
       export AZURE_MYSQL_AZURE_AD_SP_USERID=$(az ad sp list \
@@ -128,7 +128,7 @@ The following sections show the classic Spring Boot application usage scenarios.
           --output tsv)
       ```
 
-   1. Then, create a SQL script called **create_ad_user_sp.sql** for creating a non-admin user. Add the following contents and save it locally:
+   1. Create a SQL script named **create_ad_user_sp.sql** for creating a non-admin user. Add the following content and save it locally:
 
       ```bash
       cat << EOF > create_ad_user_sp.sql
@@ -145,7 +145,7 @@ The following sections show the classic Spring Boot application usage scenarios.
       mysql -h $AZURE_MYSQL_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user_sp.sql
       ```
 
-   1. Now use the following command to remove the temporary SQL script file:
+   1. Use the following command to remove the temporary SQL script file:
 
       ```bash
       rm create_ad_user_sp.sql
@@ -170,7 +170,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    ```
 
 > [!NOTE]
-> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
+> The allowed values for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 ### Connect to Azure MySQL with Managed Identity in Azure Spring Apps
 
