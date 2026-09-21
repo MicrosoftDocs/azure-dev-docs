@@ -5,7 +5,7 @@ author: bmitchell287
 ms.author: brendm
 ms.reviewer: jogiles
 ms.date: 09/03/2026
-ms.topic: reference
+ms.topic: sample
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

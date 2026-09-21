@@ -515,7 +515,7 @@
 | TypeSpec Mutator Framework | npm [0.17.1](https://www.npmjs.com/package/@typespec/mutator-framework/v/0.17.1) |  |  |
 | TypeSpec SSE | npm [0.86.0](https://www.npmjs.com/package/@typespec/sse/v/0.86.0) |  |  |
 | TypeSpec Streams | npm [0.86.0](https://www.npmjs.com/package/@typespec/streams/v/0.86.0) |  |  |
-| Unknown Display Name | npm [1.0.2](https://www.npmjs.com/package/@azure-tools/apiops-cli/v/1.0.2) |  |  |
+| Unknown Display Name | npm [1.0.3](https://www.npmjs.com/package/@azure-tools/apiops-cli/v/1.0.3) |  |  |
 | Unknown Display Name | npm [0.6.129](https://www.npmjs.com/package/@azure/bicep-types/v/0.6.129) |  |  |
 | Web PubSub Chat Client | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/web-pubsub-chat-client/v/1.0.0-beta.2) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.12](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.12) |  |  |

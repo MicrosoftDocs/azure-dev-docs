@@ -5,7 +5,7 @@ ms.date: 01/20/2026
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: devx-track-java
 ---
 

@@ -5,7 +5,7 @@ description: Learn how to effectively work with application assessments in GitHu
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haozhan
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/02/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
