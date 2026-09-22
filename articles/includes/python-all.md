@@ -395,6 +395,8 @@
 | Resource Management - Preview Alert Rule | PyPI [0.0.0](https://pypi.org/project/azure-mgmt-previewalertrule/0.0.0) |  |  |
 | Resource Management - Programmable Connectivity | PyPI [0.0.0](https://pypi.org/project/azure-mgmt-programmableconnectivity/0.0.0) |  |  |
 | Resource Management - Tenant Activity Log Alerts | PyPI [0.0.0](https://pypi.org/project/azure-mgmt-tenantactivitylogalerts/0.0.0) |  |  |
+| unknown | PyPI [0.0.0b1](https://pypi.org/project/azure-ai-language-documents/0.0.0b1) |  |  |
+| unknown | PyPI [0.0.0b1](https://pypi.org/project/azure-mgmt-computeworkloadmanager/0.0.0b1) |  |  |
 | unknown | PyPI [0.0.0b1](https://pypi.org/project/azure-mgmt-deviceregistrysoftwareupdate/0.0.0b1) |  |  |
 | Unknown Display Name | PyPI [0.0.0](https://pypi.org/project/apiview-copilot/0.0.0) |  |  |
 | Unknown Display Name | PyPI [0.0.0](https://pypi.org/project/apiview-stub-generator-test/0.0.0) |  |  |
