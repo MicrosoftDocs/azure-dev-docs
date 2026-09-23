@@ -12,7 +12,7 @@
 | AI Agents | npm [1.1.0](https://www.npmjs.com/package/@azure/ai-agents/v/1.1.0) | [docs](/javascript/api/overview/azure/ai-agents-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0/sdk/ai/ai-agents/) |
 | AI Model Inference | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure-rest/ai-inference/v/1.0.0-beta.6) |  | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.6/sdk/ai/ai-inference-rest/) |
 | AI Projects | npm [2.7.0](https://www.npmjs.com/package/@azure/ai-projects/v/2.7.0) | [docs](/javascript/api/overview/azure/ai-projects-readme) | GitHub [2.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_2.7.0/sdk/ai/ai-projects/) |
-| App Configuration | npm [1.12.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.12.1)<br>npm [1.13.0-beta.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.13.0-beta.1) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.12.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.12.1/sdk/appconfiguration/app-configuration/)<br>GitHub [1.13.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.13.0-beta.1/sdk/appconfiguration/app-configuration/) |
+| App Configuration | npm [1.13.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.13.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.13.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.13.0/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.16](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.16) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.16](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.16/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure AI Search | npm [13.0.0](https://www.npmjs.com/package/@azure/search-documents/v/13.0.0)<br>npm [13.1.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/13.1.0-beta.2) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [13.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_13.0.0/sdk/search/search-documents/)<br>GitHub [13.1.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_13.1.0-beta.2/sdk/search/search-documents/) |
@@ -461,13 +461,13 @@
 | App Configuration Provider | npm [3.0.2-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/3.0.2-preview) |  |  |
 | App Configuration Provider | npm [2.6.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.6.0) |  |  |
 | App Configuration Provider File Source | npm [3.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/3.0.1-preview) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp/v/2.0.2)<br>npm [3.0.0-beta.45](https://www.npmjs.com/package/@azure/mcp/v/3.0.0-beta.45) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.2)<br>npm [3.0.0-beta.45](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/3.0.0-beta.45) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.2)<br>npm [3.0.0-beta.45](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/3.0.0-beta.45) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.2)<br>npm [3.0.0-beta.45](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/3.0.0-beta.45) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.2)<br>npm [3.0.0-beta.45](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/3.0.0-beta.45) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.2)<br>npm [3.0.0-beta.45](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/3.0.0-beta.45) |  |  |
-| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.2)<br>npm [3.0.0-beta.45](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/3.0.0-beta.45) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp/v/2.0.2)<br>npm [3.0.0-beta.46](https://www.npmjs.com/package/@azure/mcp/v/3.0.0-beta.46) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.2)<br>npm [3.0.0-beta.46](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/3.0.0-beta.46) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.2)<br>npm [3.0.0-beta.46](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/3.0.0-beta.46) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.2)<br>npm [3.0.0-beta.46](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/3.0.0-beta.46) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.2)<br>npm [3.0.0-beta.46](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/3.0.0-beta.46) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.2)<br>npm [3.0.0-beta.46](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/3.0.0-beta.46) |  |  |
+| Azure MCP | npm [2.0.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.2)<br>npm [3.0.0-beta.46](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/3.0.0-beta.46) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Azure MCP Native | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -516,8 +516,11 @@
 | TypeSpec Mutator Framework | npm [0.17.1](https://www.npmjs.com/package/@typespec/mutator-framework/v/0.17.1) |  |  |
 | TypeSpec SSE | npm [0.86.0](https://www.npmjs.com/package/@typespec/sse/v/0.86.0) |  |  |
 | TypeSpec Streams | npm [0.86.0](https://www.npmjs.com/package/@typespec/streams/v/0.86.0) |  |  |
+| unknown | npm [0.6.145](https://www.npmjs.com/package/@azure/bicep-typespec-emitter/v/0.6.145) |  |  |
+| unknown | npm [1.0.0](https://www.npmjs.com/package/@azure/cosmosdb-nosql-language-service/v/1.0.0) |  |  |
+| unknown | npm [1.0.0](https://www.npmjs.com/package/@azure/cosmosdb-schema-analyzer/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.0.3](https://www.npmjs.com/package/@azure-tools/apiops-cli/v/1.0.3) |  |  |
-| Unknown Display Name | npm [0.6.144](https://www.npmjs.com/package/@azure/bicep-types/v/0.6.144) |  |  |
+| Unknown Display Name | npm [0.6.145](https://www.npmjs.com/package/@azure/bicep-types/v/0.6.145) |  |  |
 | Web PubSub Chat Client | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/web-pubsub-chat-client/v/1.0.0-beta.2) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.12](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.12) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
