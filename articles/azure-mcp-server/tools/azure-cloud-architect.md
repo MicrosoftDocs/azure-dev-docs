@@ -59,7 +59,7 @@ azmcp cloudarchitect design \
   [--question-number <question-number>] \
   [--total-questions <total-questions>] \
   [--answer <answer>] \
-  [--next-question-needed <next-question-needed>] \
+  [--next-question-needed <TRUE|FALSE>] \
   [--confidence-score <confidence-score>] \
   [--state <state>]
 ```
@@ -67,11 +67,11 @@ azmcp cloudarchitect design \
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `question` | string | No | The current question being asked |
-| `question-number` | string | No | Current question number |
-| `total-questions` | string | No | Estimated total questions needed |
+| `question-number` | integer | No | Current question number |
+| `total-questions` | integer | No | Estimated total questions needed |
 | `answer` | string | No | The user's response to the question |
-| `next-question-needed` | string | No | Whether another question is needed |
-| `confidence-score` | string | No | A value between 0.0 and 1.0 representing confidence in understanding requirements. When this value reaches 0.7 or higher, set `nextQuestionNeeded` to false. |
+| `next-question-needed` | boolean | No | Whether another question is needed. If the switch is included without a value, it defaults to `true`. |
+| `confidence-score` | number | No | A value between 0.0 and 1.0 representing confidence in understanding requirements. When this value reaches 0.7 or higher, set `nextQuestionNeeded` to false. |
 | `state` | string | No | The complete architecture state from the previous request as JSON. See the JSON schema after this table. |
 
 **`state` JSON schema**
