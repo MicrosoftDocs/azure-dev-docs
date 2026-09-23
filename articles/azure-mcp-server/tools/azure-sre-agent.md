@@ -112,7 +112,7 @@ azmcp sreagent agents delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If you include the switch without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -472,7 +472,7 @@ azmcp sreagent commonprompts delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If you include the switch without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -717,7 +717,7 @@ azmcp sreagent connectors delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If you include the switch without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -969,7 +969,7 @@ azmcp sreagent docs memories delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If you include the switch without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -1134,7 +1134,7 @@ azmcp sreagent hooks delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If you include the switch without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -1740,7 +1740,7 @@ azmcp sreagent scheduledtasks delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
-| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If you include the switch without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -1998,7 +1998,7 @@ azmcp sreagent skills delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If you include the switch without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -2124,7 +2124,7 @@ azmcp sreagent threads delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | Yes | The SRE Agent thread ID. |
-| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If you include the switch without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
