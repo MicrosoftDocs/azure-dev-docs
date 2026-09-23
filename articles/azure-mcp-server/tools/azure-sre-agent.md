@@ -65,8 +65,8 @@ azmcp sreagent agents create \
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--description` | string | No | A description for the SRE Agent item. |
 | `--instructions` | string | No | Instructions for the subagent. |
-| `--tools` | string | No | Tool names to attach. Multiple values are supported. |
-| `--handoffs` | string | No | Sub-agent handoff names. Multiple values are supported. |
+| `--tools` | array of strings | No | Tool names to attach. Multiple values are supported. |
+| `--handoffs` | array of strings | No | Sub-agent handoff names. Multiple values are supported. |
 
 ---
 
@@ -104,7 +104,7 @@ Example prompts include:
 azmcp sreagent agents delete \
   --agent <agent> \
   --name <name> \
-  --confirm <confirm> \
+  --confirm <TRUE|FALSE> \
   [--resource-group <resource-group>]
 ```
 
@@ -112,7 +112,7 @@ azmcp sreagent agents delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -464,7 +464,7 @@ Example prompts include:
 azmcp sreagent commonprompts delete \
   --agent <agent> \
   --name <name> \
-  --confirm <confirm> \
+  --confirm <TRUE|FALSE> \
   [--resource-group <resource-group>]
 ```
 
@@ -472,7 +472,7 @@ azmcp sreagent commonprompts delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -669,7 +669,7 @@ azmcp sreagent connectors create mcp \
 | `--type` | string | Yes | The MCP connector type: stdio or http. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--command` | string | No | The command for stdio MCP connectors. |
-| `--args` | string | No | Arguments for stdio MCP connectors. |
+| `--args` | array of strings | No | Arguments for stdio MCP connectors. |
 | `--envs-json` | string | No | JSON object of environment variables for stdio MCP connectors. |
 | `--endpoint` | string | No | The HTTP MCP connector endpoint. |
 | `--auth-type` | string | No | The HTTP MCP connector authentication type. |
@@ -709,7 +709,7 @@ Example prompts include:
 azmcp sreagent connectors delete \
   --agent <agent> \
   --name <name> \
-  --confirm <confirm> \
+  --confirm <TRUE|FALSE> \
   [--resource-group <resource-group>]
 ```
 
@@ -717,7 +717,7 @@ azmcp sreagent connectors delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -961,7 +961,7 @@ Example prompts include:
 azmcp sreagent docs memories delete \
   --agent <agent> \
   --name <name> \
-  --confirm <confirm> \
+  --confirm <TRUE|FALSE> \
   [--resource-group <resource-group>]
 ```
 
@@ -969,7 +969,7 @@ azmcp sreagent docs memories delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -1126,7 +1126,7 @@ Example prompts include:
 azmcp sreagent hooks delete \
   --agent <agent> \
   --name <name> \
-  --confirm <confirm> \
+  --confirm <TRUE|FALSE> \
   [--resource-group <resource-group>]
 ```
 
@@ -1134,7 +1134,7 @@ azmcp sreagent hooks delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -1437,7 +1437,7 @@ azmcp sreagent incidents create \
 | `--severity` | string | Yes | Incident severity: critical, high, medium, or low. |
 | `--title` | string | Yes | Incident title. |
 | `--description` | string | Yes | A description for the SRE Agent item. |
-| `--services` | string | Yes | Affected service names. |
+| `--services` | array of strings | Yes | Affected service names. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -1496,8 +1496,8 @@ azmcp sreagent incidents plans create \
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--severity` | string | Yes | Incident severity: critical, high, medium, or low. |
 | `--trigger-condition` | string | Yes | Text that triggers the incident response plan. |
-| `--services` | string | Yes | Affected service names. |
-| `--steps` | string | Yes | Incident response steps. |
+| `--services` | array of strings | Yes | Affected service names. |
+| `--steps` | array of strings | Yes | Incident response steps. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 | `--escalation` | string | No | Escalation procedure. |
 | `--runbook-url` | string | No | Runbook URL. |
@@ -1732,7 +1732,7 @@ Example prompts include:
 azmcp sreagent scheduledtasks delete \
   --agent <agent> \
   --task-id <task-id> \
-  --confirm <confirm> \
+  --confirm <TRUE|FALSE> \
   [--resource-group <resource-group>]
 ```
 
@@ -1740,7 +1740,7 @@ azmcp sreagent scheduledtasks delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--task-id` | string | Yes | The scheduled task ID. |
-| `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -1990,7 +1990,7 @@ Example prompts include:
 azmcp sreagent skills delete \
   --agent <agent> \
   --name <name> \
-  --confirm <confirm> \
+  --confirm <TRUE|FALSE> \
   [--resource-group <resource-group>]
 ```
 
@@ -1998,7 +1998,7 @@ azmcp sreagent skills delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--name` | string | Yes | The name of the SRE Agent item. |
-| `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -2116,7 +2116,7 @@ Example prompts include:
 azmcp sreagent threads delete \
   --agent <agent> \
   --thread-id <thread-id> \
-  --confirm <confirm> \
+  --confirm <TRUE|FALSE> \
   [--resource-group <resource-group>]
 ```
 
@@ -2124,7 +2124,7 @@ azmcp sreagent threads delete \
 |-----------|------|----------|-------------|
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--thread-id` | string | Yes | The SRE Agent thread ID. |
-| `--confirm` | string | Yes | Confirm a destructive operation. |
+| `--confirm` | boolean | Yes | Confirm a destructive operation. If the switch is included without a value, it defaults to `true`. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
 
 ---
@@ -2214,8 +2214,8 @@ azmcp sreagent threads investigate yolo \
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--max-iterations` | string | No | The maximum number of automatic follow-up iterations. |
-| `--timeout-seconds` | string | No | The investigation timeout in seconds. |
+| `--max-iterations` | integer | No | The maximum number of automatic follow-up iterations. |
+| `--timeout-seconds` | integer | No | The investigation timeout in seconds. |
 
 ---
 
@@ -2262,8 +2262,8 @@ azmcp sreagent threads investigate \
 | `--agent` | string | Yes | The name of the Azure SRE Agent resource to target. |
 | `--message` | string | Yes | The message to send. |
 | `--resource-group` | string | No | The name of the Azure resource group. This name is a logical container for Azure resources. |
-| `--max-iterations` | string | No | The maximum number of automatic follow-up iterations. |
-| `--timeout-seconds` | string | No | The investigation timeout in seconds. |
+| `--max-iterations` | integer | No | The maximum number of automatic follow-up iterations. |
+| `--timeout-seconds` | integer | No | The investigation timeout in seconds. |
 
 ---
 
@@ -2450,13 +2450,13 @@ azmcp sreagent workflows generate \
 | `--name` | string | Yes | The name of the SRE Agent item. |
 | `--description` | string | Yes | A description for the SRE Agent item. |
 | `--model-or-type` | string | No | Tool type, such as KustoTool or LinkTool. |
-| `--tools` | string | No | Tool names to attach. Multiple values are supported. |
-| `--handoffs` | string | No | Sub-agent handoff names. Multiple values are supported. |
+| `--tools` | array of strings | No | Tool names to attach. Multiple values are supported. |
+| `--handoffs` | array of strings | No | Sub-agent handoff names. Multiple values are supported. |
 | `--connector` | string | No | The connector name for Kusto tools. |
 | `--database` | string | No | The Kusto database for Kusto tools. |
 | `--query` | string | No | The Kusto query for Kusto tools. |
 | `--url-template` | string | No | The URL template for link tools. |
-| `--parameters` | string | No | Parameters as name:description. |
+| `--parameters` | array of strings | No | Parameters as name:description. |
 
 ---
 
