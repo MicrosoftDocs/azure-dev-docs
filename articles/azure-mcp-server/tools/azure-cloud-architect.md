@@ -70,7 +70,7 @@ azmcp cloudarchitect design \
 | `question-number` | integer | No | Current question number |
 | `total-questions` | integer | No | Estimated total questions needed |
 | `answer` | string | No | The user's response to the question |
-| `next-question-needed` | boolean | No | Whether another question is needed. If the switch is included without a value, it defaults to `true`. |
+| `next-question-needed` | boolean | No | Whether another question is needed. If you include the switch without a value, it defaults to `true`. |
 | `confidence-score` | number | No | A value between 0.0 and 1.0 representing confidence in understanding requirements. When this value reaches 0.7 or higher, set `nextQuestionNeeded` to false. |
 | `state` | string | No | The complete architecture state from the previous request as JSON. See the JSON schema after this table. |
 
