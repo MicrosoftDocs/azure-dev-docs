@@ -2456,7 +2456,7 @@ azmcp sreagent workflows generate \
 | `--database` | string | No | The Kusto database for Kusto tools. |
 | `--query` | string | No | The Kusto query for Kusto tools. |
 | `--url-template` | string | No | The URL template for link tools. |
-| `--parameters` | array of strings | No | Parameters as name:description. |
+| `--parameters` | array of strings | No | Parameters as `name:description`. |
 
 ---
 
