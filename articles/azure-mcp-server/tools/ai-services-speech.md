@@ -71,7 +71,7 @@ azmcp speech stt recognize
 | `file` | string | Yes | Path to the audio file to recognize. |
 | `endpoint` | string | Yes | The Azure AI Services endpoint URL (for example, `https://your-service.cognitiveservices.azure.com/`). |
 | `language` | string | No | The language for speech recognition (for example, `en-US`, `es-ES`). Default is `en-US`. |
-| `phrases` | string | No | Phrase hints to improve recognition accuracy. Specify multiple times (`--phrases "phrase1"` `--phrases "phrase2"`) or as comma-separated values (`--phrases "phrase1,phrase2"`). |
+| `phrases` | array of strings | No | Phrase hints to improve recognition accuracy. Specify multiple times (`--phrases "phrase1"` `--phrases "phrase2"`) or as comma-separated values (`--phrases "phrase1,phrase2"`). |
 | `format` | string | No | Output format: `simple` or `detailed`. |
 | `profanity` | string | No | Profanity filter: `masked`, `removed`, or `raw`. Default is `masked`. |
 
