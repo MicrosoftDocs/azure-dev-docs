@@ -123,8 +123,8 @@ azmcp appservice webapp change-state \
   --app <app> \
   --state-change <state-change> \
   --resource-group <resource-group> \
-  [--soft-restart <soft-restart>] \
-  [--wait-for-completion <wait-for-completion>]
+  [--soft-restart <TRUE|FALSE>] \
+  [--wait-for-completion <TRUE|FALSE>]
 ```
 
 | Parameter | Type | Required | Description |
@@ -132,8 +132,8 @@ azmcp appservice webapp change-state \
 | `app` | string | Yes | The name of the Azure App Service (for example, `my-webapp`). |
 | `state-change` | string | Yes | The state change action to perform. Valid values are: start, stop, restart. |
 | `resource-group` | string | Yes | The Azure resource group name. |
-| `soft-restart` | string | No | When state-change is restart, indicates whether to perform a soft restart. |
-| `wait-for-completion` | string | No | When state-change is restart, indicates whether to synchronously wait for the state change operation to complete before returning. |
+| `soft-restart` | boolean | No | When state-change is restart, indicates whether to perform a soft restart. If the switch is included without a value, it defaults to `true`. |
+| `wait-for-completion` | boolean | No | When state-change is restart, indicates whether to synchronously wait for the state change operation to complete before returning. If the switch is included without a value, it defaults to `true`. |
 
 ---
 
@@ -184,8 +184,8 @@ azmcp appservice webapp diagnostic diagnose \
 | `app` | string | Yes | The name of the Azure App Service (for example, `my-webapp`). |
 | `detector-id` | string | Yes | The ID of the diagnostic detector to run. Use the `id` field from `azmcp appservice webapp diagnostic list` output (for example, `LinuxContainerRecycle`, `LinuxMemoryDrillDown`). |
 | `resource-group` | string | Yes | The Azure resource group name. |
-| `start-time` | string | No | The start time in ISO format (for example, `2023-01-01T00:00:00Z`). |
-| `end-time` | string | No | The end time in ISO format (for example, `2023-01-01T00:00:00Z`). |
+| `start-time` | date and time | No | The start time in ISO format (for example, `2023-01-01T00:00:00Z`). |
+| `end-time` | date and time | No | The end time in ISO format (for example, `2023-01-01T00:00:00Z`). |
 | `interval` | string | No | The time interval (for example, `PT1H` for 1 hour, `PT5M` for 5 minutes). |
 
 ---
