@@ -198,7 +198,7 @@ Example prompts include:
 azmcp appconfig kv lock set \
   --account <account> \
   --key <key> \
-  [--lock <lock>] \
+  [--lock <TRUE|FALSE>] \
   [--label <label>]
 ```
 
@@ -206,7 +206,7 @@ azmcp appconfig kv lock set \
 |-----------|------|----------|-------------|
 | `account` | string | Yes | The name of the App Configuration store (for example, `my-appconfig`). |
 | `key` | string | Yes | The name of the key to access within the App Configuration store. |
-| `lock` | string | No | Whether a key-value is locked (set to read-only) or unlocked (read-only removed). |
+| `lock` | boolean | No | Whether a key-value is locked (set to read-only) or unlocked (read-only removed). If the switch is included without a value, it defaults to `true`. |
 | `label` | string | No | The label to apply to the configuration key. Labels group and organize settings. |
 
 ---
@@ -263,7 +263,7 @@ azmcp appconfig kv set \
 | `value` | string | Yes | The value to set for the configuration key. |
 | `label` | string | No | The label to apply to the configuration key. Labels group and organize settings. |
 | `content-type` | string | No | The content type of the configuration value. This value indicates how the value should be interpreted or parsed. |
-| `tags` | string | No | The tags to associate with the configuration key. Tags should be in the format `key=value`. You can specify multiple tags. |
+| `tags` | array of strings | No | The tags to associate with the configuration key. Tags should be in the format `key=value`. You can specify multiple tags. |
 
 ---
 
