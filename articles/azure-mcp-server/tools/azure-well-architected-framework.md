@@ -18,7 +18,7 @@ mcp-cli.version: "2.0.0-beta.33"
 
 The Azure Model Context Protocol (MCP) Server lets you get Azure Well-Architected Framework guidance, best practices, and recommendations for Azure services with natural language prompts.
 
-The Azure Well-Architected Framework is a set of guiding tenets that help you design, build, and optimize workloads across five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Azure Well-Architected Framework documentation](/azure/well-architected/).
+The Azure Well-Architected Framework is a set of guiding principles that help you design, build, and optimize workloads across five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Azure Well-Architected Framework documentation](/azure/well-architected/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
