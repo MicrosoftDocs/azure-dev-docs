@@ -51,7 +51,7 @@ Example prompts include:
 ```console
 azmcp insights get \
   [--query <query>] \
-  [--nocache <nocache>] \
+  [--nocache <TRUE|FALSE>] \
   [--scope <scope>] \
   [--subscription <subscription>]
 ```
@@ -59,7 +59,7 @@ azmcp insights get \
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `--query` | string | No | A free-form description of what the insights are used for. When provided, the tool tailors insights toward this scenario. When omitted, the tool returns generic patterns. |
-| `--nocache` | string | No | Bypass the cached aggregation and force a fresh Azure Resource Graph scan. The newly computed aggregation replaces the cached entry for the same scope. |
+| `--nocache` | boolean | No | Bypass the cached aggregation and force a fresh Azure Resource Graph scan. The newly computed aggregation replaces the cached entry for the same scope. If the switch is included without a value, it defaults to `true`. |
 | `--scope` | string | No | Aggregation scope. Use `subscription` to scan a single subscription, or `tenant` to scan every accessible subscription in the tenant. |
 
 ---
