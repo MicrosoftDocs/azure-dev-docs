@@ -120,7 +120,7 @@ azmcp search index query \
 | `query` | string | Yes | The search query to execute against the Azure AI Search index. |
 | `service` | string | Yes | The name of the Azure AI Search service (for example, `my-search-service`). |
 | `index` | string | Yes | The name of the search index within the Azure AI Search service. |
-| `query-type` | string | No | The query mode to use when searching the index. `simple` uses the simple query mode, `full` (the default) uses the full Lucene query mode, and `semantic` applies semantic ranking, which requires the index to have a semantic configuration. |
+| `query-type` | enumeration | No | The query mode to use when searching the index. `simple` uses the simple query mode, `full` (the default) uses the full Lucene query mode, and `semantic` applies semantic ranking, which requires the index to have a semantic configuration. |
 | `semantic-configuration` | string | No | The semantic configuration name to use when `query-type` is `semantic`. If omitted, the index's default semantic configuration is used. |
 
 ---
@@ -211,7 +211,7 @@ azmcp search knowledge base retrieve \
 | `knowledge-base` | string | Yes | The name of the knowledge base within the Azure AI Search service. |
 | `service` | string | Yes | The name of the Azure AI Search service (for example, `my-search-service`). |
 | `query` | string | No | Natural language query for retrieval when you don't provide a conversational message history. |
-| `messages` | string | No | Conversation history messages passed to the knowledge base. You can specify multiple `--messages` entries. Each entry formatted as `role:content`, where role is `user` or `assistant` (for example, `user:How many docs?`). |
+| `messages` | array of strings | No | Conversation history messages passed to the knowledge base. You can specify multiple `--messages` entries. Each entry formatted as `role:content`, where role is `user` or `assistant` (for example, `user:How many docs?`). |
 
 ---
 
