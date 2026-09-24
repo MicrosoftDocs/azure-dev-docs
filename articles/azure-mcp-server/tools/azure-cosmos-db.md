@@ -200,7 +200,7 @@ azmcp cosmos database container item list-recent \
 | `container` | string | Yes | The name of the container to query (for example, `my-container`). |
 | `database` | string | Yes | The name of the database to query (for example, `my-database`). |
 | `account` | string | Yes | The name of the Cosmos DB account to query (for example, `my-cosmos-account`). |
-| `count` | string | No | Maximum number of documents to return (1-20). Defaults to 10. |
+| `count` | integer | No | Maximum number of documents to return (1-20). Defaults to 10. |
 
 ---
 
@@ -258,7 +258,7 @@ azmcp cosmos database container item text-search \
 | `container` | string | Yes | The name of the container to query (for example, `my-container`). |
 | `database` | string | Yes | The name of the database to query (for example, `my-database`). |
 | `account` | string | Yes | The name of the Cosmos DB account to query (for example, `my-cosmos-account`). |
-| `count` | string | No | Maximum number of documents to return (1-20). Defaults to 10. |
+| `count` | integer | No | Maximum number of documents to return (1-20). Defaults to 10. |
 | `properties-to-select` | string | No | Comma-separated list of properties to project in the result (for example, `id,title,metadata.author`). Wildcards (`*`) aren't supported in this list. Omit this option to return all properties. |
 
 ---
@@ -328,8 +328,8 @@ azmcp cosmos database container item vector-search \
 | `database` | string | Yes | The name of the database to query (for example, `my-database`). |
 | `account` | string | Yes | The name of the Cosmos DB account to query (for example, `my-cosmos-account`). |
 | `properties-to-select` | string | No | Comma-separated list of properties to project in the result (for example, `id,title,metadata.author`). Wildcards (`*`) aren't supported in this list. Omit this option to return all properties. |
-| `count` | string | No | Maximum number of documents to return (1-20). Defaults to 10. |
-| `embedding-dimensions` | string | No | Optional embedding dimensions to request from the model. Only models that support custom dimensions honor this value (for example, `text-embedding-3-*`). |
+| `count` | integer | No | Maximum number of documents to return (1-20). Defaults to 10. |
+| `embedding-dimensions` | integer | No | Optional embedding dimensions to request from the model. Only models that support custom dimensions honor this value (for example, `text-embedding-3-*`). |
 
 ---
 
@@ -379,7 +379,7 @@ azmcp cosmos database container schema infer \
 | `container` | string | Yes | The name of the container to query (for example, `my-container`). |
 | `database` | string | Yes | The name of the database to query (for example, `my-database`). |
 | `account` | string | Yes | The name of the Cosmos DB account to query (for example, `my-cosmos-account`). |
-| `sample-size` | string | No | Number of documents to sample for schema inference (1-20). Defaults to 10. |
+| `sample-size` | integer | No | Number of documents to sample for schema inference (1-20). Defaults to 10. |
 
 ---
 
