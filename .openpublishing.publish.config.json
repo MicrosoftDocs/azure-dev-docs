@@ -87,101 +87,11 @@
       "branch_mapping": {}
     },    
     {
-      "path_to_root": "js-e2e-azure-function-upload-file",
-      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-upload-file",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-azure-resource-management-functions",
-      "url": "https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-browser-file-upload-storage-blob",
-      "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "ts-e2e-browser-file-upload-storage-blob",
       "url": "https://github.com/Azure-Samples/ts-e2e-browser-file-upload-storage-blob",
       "branch": "main",
       "branch_mapping": {}
     },    
-    {
-      "path_to_root": "js-e2e-vm",
-      "url": "https://github.com/Azure-Samples/js-e2e-vm",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-client-cognitive-services",
-      "url": "https://github.com/Azure-Samples/js-e2e-client-cognitive-services",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-client-azure-login-button",
-      "url": "https://github.com/Azure-Samples/js-e2e-client-azure-login-button",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-express-server-cognitive-services",
-      "url": "https://github.com/Azure-Samples/js-e2e-express-server-cognitive-services",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-express-mongodb-main",
-      "url": "https://github.com/Azure-Samples/js-e2e-express-mongodb",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-express-mongodb-keyvault",
-      "url": "https://github.com/Azure-Samples/js-e2e-express-mongodb",
-      "branch": "keyvault",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-web-app-server-auth",
-      "url": "https://github.com/Azure-Samples/js-e2e-web-app-server-auth",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e",
-      "url": "https://github.com/Azure-Samples/js-e2e",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-azure-function-graphql-hello",
-      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-graphql-hello",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-azure-function-graphql-crud-operations",
-      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-graphql-crud-operations",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-graphql-cosmosdb-static-web-app",
-      "url": "https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "js-e2e-graphql-nextjs-triviagame",
-      "url": "https://github.com/azure-samples/js-e2e-graphql-nextjs-triviagame",
-      "branch": "main",
-      "branch_mapping": {}
-    },
     {
       "path_to_root": "python-sdk-docs-examples",
       "url": "https://github.com/MicrosoftDocs/python-sdk-docs-examples",
