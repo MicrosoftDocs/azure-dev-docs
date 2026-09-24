@@ -131,7 +131,7 @@ azmcp foundryextensions openai chat-completions-create \
   [--frequency-penalty <frequency-penalty>] \
   [--presence-penalty <presence-penalty>] \
   [--stop <stop>] \
-  [--stream <stream>] \
+  [--stream <TRUE|FALSE>] \
   [--seed <seed>] \
   [--user <user>]
 ```
@@ -142,14 +142,14 @@ azmcp foundryextensions openai chat-completions-create \
 | `deployment` | string | Yes | The name of the deployment. |
 | `message-array` | string | Yes | JSON array of messages in the conversation. Each message should have `role` and `content` properties. |
 | `resource-group` | string | Yes | The Azure resource group name. |
-| `max-tokens` | string | No | The maximum number of tokens to generate in the completion. |
-| `temperature` | string | No | Controls randomness in the output. Lower values make it more deterministic. |
-| `top-p` | string | No | Controls diversity via nucleus sampling (0.0 to 1.0). Default is 1.0. |
-| `frequency-penalty` | string | No | Penalizes new tokens based on their frequency (-2.0 to 2.0). Default is 0. |
-| `presence-penalty` | string | No | Penalizes new tokens based on presence (-2.0 to 2.0). Default is 0. |
+| `max-tokens` | integer | No | The maximum number of tokens to generate in the completion. |
+| `temperature` | number | No | Controls randomness in the output. Lower values make it more deterministic. |
+| `top-p` | number | No | Controls diversity via nucleus sampling (0.0 to 1.0). Default is 1.0. |
+| `frequency-penalty` | number | No | Penalizes new tokens based on their frequency (-2.0 to 2.0). Default is 0. |
+| `presence-penalty` | number | No | Penalizes new tokens based on presence (-2.0 to 2.0). Default is 0. |
 | `stop` | string | No | Up to 4 sequences where the API stops generating further tokens. |
-| `stream` | string | No | Whether to stream back partial progress. Default is false. |
-| `seed` | string | No | If specified, the system makes a best effort to sample deterministically. |
+| `stream` | boolean | No | Whether to stream back partial progress. Default is false. If the switch is included without a value, it defaults to `true`. |
+| `seed` | integer | No | If specified, the system makes a best effort to sample deterministically. |
 | `user` | string | No | User identifier for tracking and abuse monitoring. |
 
 #### [MCP Server](#tab/mcp-server)
@@ -220,7 +220,7 @@ azmcp foundryextensions openai embeddings-create \
 | `resource-group` | string | Yes | The Azure resource group name. |
 | `user` | string | No | User identifier for tracking and abuse monitoring. |
 | `encoding-format` | string | No | The format to return embeddings in (float or base64). |
-| `dimensions` | string | No | The number of dimensions for the embedding output. Only supported in some models. |
+| `dimensions` | integer | No | The number of dimensions for the embedding output. Only supported in some models. |
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -282,8 +282,8 @@ azmcp foundryextensions openai create-completion \
 | `prompt-text` | string | Yes | The prompt text to send to the completion model. |
 | `resource-name` | string | Yes | The name of the Microsoft Foundry resource. |
 | `resource-group` | string | Yes | The Azure resource group name. |
-| `max-tokens` | string | No | The maximum number of tokens to generate in the completion. |
-| `temperature` | string | No | Controls randomness in the output. Lower values make it more deterministic. |
+| `max-tokens` | integer | No | The maximum number of tokens to generate in the completion. |
+| `temperature` | number | No | Controls randomness in the output. Lower values make it more deterministic. |
 
 #### [MCP Server](#tab/mcp-server)
 
