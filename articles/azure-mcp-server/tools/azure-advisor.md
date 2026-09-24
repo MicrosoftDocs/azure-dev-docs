@@ -196,7 +196,7 @@ azmcp advisor recommendation list \
 | `resource-type` | string | No | Filter recommendations by impacted Azure resource type (for example, `Microsoft.Storage/storageAccounts`). Case-insensitive exact match. |
 | `resource` | string | No | Filter recommendations by impacted resource name or full ARM resource ID. Case-insensitive substring match. |
 | `search` | string | No | Applies a free-text filter to the recommendation problem text (case-insensitive substring match). Use this whenever a request includes a topical phrase such as `related to Microsoft Foundry`, `about encryption`, `mentioning right-size`, or `for Key Vault`. Extract the salient nouns from the phrase (for example, `Foundry`, `encrypt`, `right-size`, `Key Vault`) and pass them here. |
-| `top` | string | No | Maximum number of items to return. For `list`: defaults to 50 with a server-side range of 1-100. For `summary`: optional display cap on the number of buckets returned (defaults to all). `TotalRecommendations` always reflects the complete filtered population regardless of `--top`. |
+| `top` | integer | No | Maximum number of items to return. For `list`: defaults to 50 with a server-side range of 1-100. For `summary`: optional display cap on the number of buckets returned (defaults to all). `TotalRecommendations` always reflects the complete filtered population regardless of `--top`. |
 | `resource-group` | string | No | The Azure resource group name. |
 
 #### [MCP Server](#tab/mcp-server)
@@ -259,7 +259,7 @@ azmcp advisor recommendation summary \
 | `resource-type` | string | No | Filter recommendations by impacted Azure resource type (for example, `Microsoft.Storage/storageAccounts`). Case-insensitive exact match. |
 | `resource` | string | No | Filter recommendations by impacted resource name or full ARM resource ID. Case-insensitive substring match. |
 | `search` | string | No | Free-text filter applied to the recommendation problem text (case-insensitive substring match). Use this filter whenever your request includes a topical phrase such as `related to Microsoft Foundry`, `about encryption`, `mentioning right-size`, or `for Key Vault`. Extract the salient nouns from the phrase (for example, `Foundry`, `encrypt`, `right-size`, `Key Vault`) and pass them here. |
-| `top` | string | No | Maximum number of items to return. For `list`: defaults to 50, clamped to 1-100 (server-side limit). For `summary`: optional display cap on the number of buckets returned (defaults to all). `TotalRecommendations` always reflects the complete filtered population regardless of `--top`. |
+| `top` | integer | No | Maximum number of items to return. For `list`: defaults to 50, clamped to 1-100 (server-side limit). For `summary`: optional display cap on the number of buckets returned (defaults to all). `TotalRecommendations` always reflects the complete filtered population regardless of `--top`. |
 | `resource-group` | string | No | The Azure resource group name. |
 
 #### [MCP Server](#tab/mcp-server)

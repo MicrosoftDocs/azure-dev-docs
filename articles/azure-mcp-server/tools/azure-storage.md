@@ -69,7 +69,7 @@ azmcp storage account create \
   --location <location> \
   [--sku <sku>] \
   [--access-tier <access-tier>] \
-  [--enable-hierarchical-namespace <enable-hierarchical-namespace>]
+  [--enable-hierarchical-namespace <TRUE|FALSE>]
 ```
 
 | Parameter | Type | Required | Description |
@@ -79,7 +79,7 @@ azmcp storage account create \
 | `--location` | string | Yes | The Azure region where the storage account will be created (for example, 'eastus', 'westus2'). |
 | `--sku` | string | No | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
 | `--access-tier` | string | No | The default access tier for blob storage. Valid values: Hot, Cool. |
-| `--enable-hierarchical-namespace` | string | No | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
+| `--enable-hierarchical-namespace` | boolean | No | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. If the switch is included without a value, it defaults to `true`. |
 
 ---
 
