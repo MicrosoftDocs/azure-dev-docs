@@ -1,14 +1,14 @@
 ---
-title: Connect Azure MCP Server to Sovereign Clouds
+title: Connect Azure MCP Server to sovereign clouds
 description: Learn how to configure Azure MCP Server for Azure operated by 21Vianet Cloud and Azure US Government.
-ms.date: 03/24/2026
+ms.date: 09/22/2026
 ms.topic: how-to
 ai-usage: ai-generated
 ---
 
 # Connect Azure MCP Server to sovereign clouds
 
-This article shows you how to configure Azure MCP Server to authenticate against a sovereign cloud instead of the Azure public cloud. For example, use these steps when your subscription is in Azure US Government or Azure operated by 21Vianet Cloud (Azure in China), or when you need to provide a custom authority host. For more background about Azure sovereign cloud offerings, see [What are sovereign clouds?](/industry/sovereign-cloud/).
+This article shows you how to configure Azure MCP Server to authenticate against a sovereign cloud instead of the Azure public cloud. For example, use these steps when your subscription is in Azure US Government or Azure operated by 21Vianet Cloud (Azure in China). For more background about Azure sovereign cloud offerings, see [What are sovereign clouds?](/industry/sovereign-cloud/).
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ You can set the cloud either in the server arguments or through configuration. I
 | 3 | Environment variable fallback | `AZURE_CLOUD` |
 | Default | Fallback | `AzurePublicCloud` |
 
-### Configure using a server argument
+### Configure with a server argument
 
 If your MCP client starts Azure MCP Server for you, add `--cloud` to the server arguments.
 
@@ -62,9 +62,9 @@ If your MCP client starts Azure MCP Server for you, add `--cloud` to the server 
 }
 ```
 
-Replace `AzureUSGovernment` with `AzureChinaCloud` when you connect to the Azure in China.
+Replace `AzureUSGovernment` with `AzureChinaCloud` when you connect to Azure in China.
 
-### Configure using environment variables
+### Configure with environment variables
 
 If you start Azure MCP Server from a shell, or if your MCP client supports environment variables, set `AZURE_CLOUD` with the appropriate value before starting the server.
 
@@ -131,22 +131,19 @@ For Azure in China, replace `AzureUSGovernment` with `AzureChinaCloud`.
 
 ## Configure a self-hosted remote server
 
-If you deploy Azure MCP Server as a remote MCP server, make sure the host environment is configured for the target sovereign cloud before you publish the endpoint.
+If you deploy Azure MCP Server as a remote MCP server, configure the host environment for the target sovereign cloud before you publish the endpoint. Set `AZURE_CLOUD` on the host or container so that Azure MCP Server selects the correct cloud endpoints.
 
-Set these environment variables on the host or container:
-
-- `AZURE_CLOUD`.
-- `AzureAd__ClientCredentials__0__TokenExchangeUrl`.
-
-If you use one of the Microsoft-provided Azure Container Apps templates, this value is set for you. The template derives the correct value from the target cloud before it publishes the remote endpoint. For examples, see the [Foundry managed identity template](https://github.com/Azure-Samples/azmcp-foundry-aca-mi), the [Copilot Studio managed identity template](https://github.com/Azure-Samples/azmcp-copilot-studio-aca-mi), and the [on-behalf-of template](https://github.com/Azure-Samples/azmcp-obo-template).
-
-If you configure the remote server manually, set `AzureAd__ClientCredentials__0__TokenExchangeUrl` to the token exchange audience for your cloud:
+Remote authentication settings depend on the deployment's authentication model. If the deployment uses federated identity credential token exchange, also set `AzureAd__ClientCredentials__0__TokenExchangeUrl` to the token exchange audience for the target cloud.
 
 | Cloud | Value |
 | --- | --- |
 | Azure Public Cloud | `api://AzureADTokenExchange` |
 | Azure US Government | `api://AzureADTokenExchangeUSGov` |
 | Azure in China | `api://AzureADTokenExchangeChina` |
+
+The [on-behalf-of template](https://github.com/Azure-Samples/azmcp-obo-template) derives the token exchange audience from the Azure environment and sets `AzureAd__ClientCredentials__0__TokenExchangeUrl` for you. The [Foundry managed identity template](https://github.com/Azure-Samples/azmcp-foundry-aca-mi) and [Copilot Studio managed identity template](https://github.com/Azure-Samples/azmcp-copilot-studio-aca-mi) use different authentication settings and don't require this token exchange setting.
+
+The sample templates don't currently set `AZURE_CLOUD`. Before you deploy a sample template to a sovereign cloud, configure Azure Developer CLI for the target cloud and add `AZURE_CLOUD` to the host or container environment settings.
 
 For template-based deployments, review the upstream [Azure MCP Server azd templates](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server/azd-templates) if you want to confirm the generated host or container settings before you publish the remote endpoint.
 
@@ -162,7 +159,7 @@ For template-based deployments, review the upstream [Azure MCP Server azd templa
 
 If authentication or discovery fails, start with these checks.
 
-1. Verify the cloud configuration. Confirm that the cloud name or authority host is correct.
+1. Verify the cloud configuration. Confirm that the cloud name is correct and maps to the expected authority host.
 
 1. Check local authentication. Make sure you authenticated the local toolchain to the correct cloud.
 
@@ -173,7 +170,7 @@ If authentication or discovery fails, start with these checks.
    - Azure US Government: `https://login.microsoftonline.us`
    - Azure in China: `https://login.chinacloudapi.cn`
 
-1. For remote deployments, confirm that both `AZURE_CLOUD` and `AzureAd__ClientCredentials__0__TokenExchangeUrl` are set correctly.
+1. For remote deployments, confirm that `AZURE_CLOUD` and any settings required by the selected authentication model are set correctly.
 
 ### Common error messages
 
@@ -182,7 +179,7 @@ Use the following table to map common failures to likely causes.
 | Error | Likely cause | Resolution |
 | --- | --- | --- |
 | `Authentication failed` | Your local tool is still signed in to the wrong cloud, or not signed in at all. | Reauthenticate with the correct cloud by using `az login`, `Connect-AzAccount`, or `azd auth login`. |
-| `Cannot connect to authority host` | The cloud value or custom authority host URL is invalid, or the endpoint is unreachable. | Verify the cloud name, custom authority host, and network connectivity. |
+| `Cannot connect to authority host` | The cloud value is invalid or unrecognized, or the endpoint is unreachable. | Verify the cloud name and network connectivity. |
 | `Invalid tenant` | The tenant doesn't match the sovereign cloud subscription. | Confirm the tenant ID and sign in again with the correct tenant and cloud. |
 | `The primary access token is from the wrong issuer` | The token was issued for a different tenant than the subscription expects. | Check the active tenant, then restart the client and Azure MCP Server after switching to the correct tenant. |
 

@@ -1,9 +1,11 @@
 ---
 title: Azure RBAC Tools for the Azure MCP Server
 description: Learn how to use Azure MCP Server with Azure RBAC to manage role assignments using natural language prompts. Simplify access control management.
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 09/16/2026
 ms.topic: concept-article
 ---
 
@@ -21,6 +23,8 @@ Azure RBAC tools in the Azure MCP Server allow you to manage Azure role-based ac
 
 The Azure MCP Server can list Azure RBAC [role assignments](/azure/role-based-access-control/role-assignments) at a specific scope. This allows you to view who has access to what resources and what permissions they have.
 
+#### [MCP Server](#tab/mcp-server)
+
 Example prompts include:
 
 - **List assignments**: "Show me all role assignments in my subscription."
@@ -36,6 +40,21 @@ Example prompts include:
 | Parameter | Required | Description |
 |-----------|----------|-------------|
 | **Scope** | Required | The scope to list role assignments for. Can be a subscription, resource group, or resource. |
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp role assignment list \
+  --scope <scope>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `scope` | string | Yes | Scope at which the role assignment or definition applies, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
