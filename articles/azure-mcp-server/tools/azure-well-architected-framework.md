@@ -1,10 +1,10 @@
 ---
 title: Azure MCP Server Tools for Azure Well-Architected Framework
-description: Use Azure MCP Server tools to get Azure Well-Architected Framework guidance, best practices, and recommendations for Azure services with natural language prompts from your IDE.
+description: Use Azure MCP Server tools to get Well-Architected Framework guidance, best practices, and recommendations for Azure services with natural language prompts.
 author: diberry
 ms.author: diberry
 reviewer: skakara
-ms.date: 03/27/2026
+ms.date: 09/22/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ai-usage: ai-assisted
@@ -18,7 +18,7 @@ mcp-cli.version: "2.0.0-beta.33"
 
 The Azure Model Context Protocol (MCP) Server lets you get Azure Well-Architected Framework guidance, best practices, and recommendations for Azure services with natural language prompts.
 
-Azure Well-Architected Framework is a set of guiding tenets that help you design, build, and optimize workloads across five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency; for more information, see [Azure Well-Architected Framework documentation](/azure/architecture/framework/).
+The Azure Well-Architected Framework is a set of guiding principles that help you design, build, and optimize workloads across five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Azure Well-Architected Framework documentation](/azure/well-architected/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -26,19 +26,19 @@ Azure Well-Architected Framework is a set of guiding tenets that help you design
 
 <!-- @mcpcli wellarchitectedframework serviceguide get -->
 
-This tool retrieves Azure Well-Architected Framework guidance for a specific Azure service, or lists all supported services when no service is specified. When you provide a service, the tool returns architectural best practices, design patterns, and recommendations across the five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency.
+This tool retrieves Azure Well-Architected Framework guidance for a specific Azure service, or lists all supported services when you don't specify a service. When you provide a service, the tool returns architectural best practices, design patterns, and recommendations across the five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency.
 
 Example prompts include:
 
 - "Show all services with Well-Architected Framework guidance."
 - "Which services have architectural guidance under the Well-Architected Framework?"
 - "Retrieve Well-Architected Framework guidance for service 'App Service'."
-- "What's the WAF guidance for service 'Cosmos DB'?"
+- "What's the Well-Architected Framework guidance for service 'Cosmos DB'?"
 - "Show the architectural guidance for 'Azure Functions'."
 
-| Parameter |  Required or optional | Description |
+| Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Service** |  Optional | A single Azure service name. The value is case-insensitive and accepts hyphens, underscores, and spaces. If the name contains spaces, enclose it in double quotes. Examples: `cosmos-db`, `Cosmos_DB`, `Cosmos DB`, `cosmosdb`, `cosmos-database`. |
+| **Service** | Optional | A single Azure service name. The value is case-insensitive and accepts hyphens, underscores, and spaces. If the name contains spaces, enclose it in double quotes. Examples: `cosmos-db`, `Cosmos_DB`, `Cosmos DB`, `cosmosdb`, `cosmos-database`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -50,4 +50,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure Well-Architected Framework documentation](/azure/architecture/framework/)
+- [Azure Well-Architected Framework documentation](/azure/well-architected/)
