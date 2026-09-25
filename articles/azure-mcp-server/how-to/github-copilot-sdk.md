@@ -22,7 +22,7 @@ Azure MCP provides tools that let AI assistants interact with Azure resources di
 
 ## Azure MCP Server configuration example
 
-Regardless of the programming SDK you use, you must configure Azure MCP Server in the app context so that its tools are available. The essential configuration looks like the following example:
+Regardless of the programming SDK you use, you must configure Azure MCP Server in the app context so that its tools are available. The following example shows the minimal configuration:
 
 ```json
 {
@@ -37,7 +37,22 @@ Regardless of the programming SDK you use, you must configure Azure MCP Server i
 }
 ```
 
-The `tools: ["*"]` parameter is essential—it enables all tools from the MCP server for the session.
+The `tools: ["*"]` parameter enables all tools from the MCP server for the session. In many cases, you should provide a specific list of tool names instead, so the Copilot session can only call the Azure MCP tools that your app needs. The following example restricts the session to a small set of tools:
+
+```json
+{
+  "mcp_servers": {
+    "azure-mcp": {
+      "type": "local",
+      "command": "npx",
+      "args": ["-y", "@azure/mcp@latest", "server", "start"],
+      "tools": ["group_list", "storage_account_list", "subscription_list"]
+    }
+  }
+}
+```
+
+For a full list of available tool names, see [Azure MCP Server tools](../tools/index.md).
 
 ## Integration examples
 
@@ -45,6 +60,9 @@ The following examples show how to integrate the SDK in different languages.
 
 > [!NOTE]
 > For faster startup, you can install Azure MCP Server globally using `npm install -g @azure/mcp@latest`.
+
+> [!NOTE]
+> The following samples use `--allow-all-tools` and `--allow-all-paths` to keep the examples simple. These flags aren't required or recommended for every app. Scope the CLI permissions and the MCP `tools` configuration to what your app actually needs—broad "allow all" settings can expose more tools and file system access than your Azure MCP integration requires.
 
 # [Python](#tab/python)
 
