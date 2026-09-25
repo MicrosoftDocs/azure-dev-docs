@@ -112,6 +112,8 @@
       href: tools/azure-cosmos-db.md
     - name: Azure Data Explorer
       href: tools/azure-data-explorer.md
+    - name: Azure Data Manager for Energy
+      href: tools/azure-data-manager-for-energy.md
     - name: Azure Database for MySQL
       href: tools/azure-mysql.md
     - name: Azure Database for PostgreSQL

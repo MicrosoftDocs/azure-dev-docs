@@ -172,6 +172,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Product, tool, or service | Namespace | Description |
 |------|------|------------|
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
+| [Azure Data Manager for Energy](../../tools/azure-data-manager-for-energy.md) | `adme` | Retrieve or search for OSDU records or schemas. |
 | [Azure File Sync](../../tools/azure-file-sync.md) | `storagesync` | Manage Azure file sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints for Azure File Sync. |
 | [Azure Files](../../tools/azure-file-shares.md) | `fileshares` | Manage Azure file shares, including creating, updating, deleting, and snapshotting file shares. |
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | `managedlustre` | Manage Azure Managed Lustre file systems, including auto-import and auto-export jobs. |
