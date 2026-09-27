@@ -38,7 +38,7 @@ azmcp extension cli generate \
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `intent` | string | Yes | The user intent of the task to solve by using the CLI tool. This user intent generates the appropriate CLI command to accomplish the goal. |
-| `cli-type` | string | Yes | The type of CLI tool to use. Supported values are 'az' for Azure CLI. |
+| `cli-type` | string | Yes | The type of CLI tool to use. Supported values are `az` for Azure CLI. |
 
 #### [MCP Server](#tab/mcp-server)
 
