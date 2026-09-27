@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to manage Azure Functions app resources 
 author: diberry
 ms.author: diberry
 ms.reviewer: manvkaur
-ms.date: 05/13/2026
+ms.date: 09/27/2026
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -13,7 +13,7 @@ ai-usage: ai-generated
 content_well_notification:
   - AI-contribution
 tool_count: 4
-mcp-cli.version: "3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30"
+mcp-cli.version: "3.0.0-beta.47+bd724faf47e86348c7163a429b584aabfd714876"
 ---
 
 # Azure MCP Server tools for Azure Functions
@@ -26,9 +26,26 @@ Azure Functions is a serverless compute service for running event-driven code wi
 
 ## Function app: list or get
 
-<!-- @mcpcli functionapp get -->
-
 Get details for a specific function app or list all function apps in your subscription. Returns information including name, location, status, and app service plan.
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp functionapp get \
+  [--function-app <function-app>] \
+  [--resource-group <resource-group>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `function-app` | string | No | The name of the Function App. |
+| `resource-group` | string | No | The Azure resource group name. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli functionapp get -->
 
 Example prompts include:
 
@@ -41,13 +58,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Function app** |  Optional | The name of the function app. |
 
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
-
 
 ## Functions: get language list
 
