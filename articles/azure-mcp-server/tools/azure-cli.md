@@ -46,9 +46,22 @@ The Azure MCP Server generates Azure CLI commands to accomplish specific goals.
 
 <!-- extension cli install -->
 
-The Azure MCP Server provides installation instructions for CLI tools including Azure CLI (`az`), Azure Developer CLI (`azd`), and Azure Functions Core Tools CLI (`func`). It incorporates knowledge of the CLI tool beyond what the LLM knows. Use this tool to get installation instructions if you attempt to use the CLI tool but it's not installed.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-**Example prompts** include:
+**Example CLI command**
+
+```console
+azmcp extension cli install \
+  --cli-type <cli-type>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `cli-type` | string | Yes | The type of CLI tool to use. Supported values are 'az' for Azure CLI, 'azd' for Azure Developer CLI, and 'func' for Azure Functions Core Tools CLI. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli extension cli install -->
 
 - **Azure CLI installation**: "How do I install the `az` CLI?"
 - **Azure Developer CLI installation**: "Show me how to install `azd`"
@@ -57,6 +70,8 @@ The Azure MCP Server provides installation instructions for CLI tools including 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **CLI type** | Required | The type of CLI tool to use. Supported values are `az` for Azure CLI, `azd` for Azure Developer CLI, and `func` for Azure Functions Core Tools CLI. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
