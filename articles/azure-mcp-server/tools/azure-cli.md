@@ -57,7 +57,7 @@ azmcp extension cli install \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `cli-type` | string | Yes | The type of CLI tool to use. Supported values are 'az' for Azure CLI, 'azd' for Azure Developer CLI, and 'func' for Azure Functions Core Tools CLI. |
+| `cli-type` | string | Yes | The type of CLI tool to use. Supported values are `az` for Azure CLI, `azd` for Azure Developer CLI, and `func` for Azure Functions Core Tools CLI. |
 
 #### [MCP Server](#tab/mcp-server)
 
