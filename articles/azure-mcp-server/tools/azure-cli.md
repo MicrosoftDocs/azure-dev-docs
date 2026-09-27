@@ -1,17 +1,20 @@
 ---
-title: Azure CLI Tools
-description: Learn how to use Azure CLI tools with the Azure MCP Server to generate commands, execute operations, and get installation instructions for Azure resource management.
+title: Azure MCP Server tools for Azure CLI
+description: Azure MCP Server tools for Azure CLI let you generate commands and get installation instructions for Azure resource management.
 author: diberry
 ms.author: diberry
-ms.date: 02/27/2026
+ms.date: 09/27/2026
+ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
   - build-2025
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
+tool_count: 2
+mcp-cli.version: "3.0.0-beta.47+bd724faf47e86348c7163a429b584aabfd714876"
 ---
-# Azure CLI tools for the Azure MCP Server overview
+# Azure MCP Server tools for Azure CLI
 
 The Azure MCP Server provides comprehensive support for Azure CLI operations, including finding commands, generating command syntax, and providing installation instructions. Perform virtually any Azure resource management operation without needing to remember specific command syntax, parameters, or formatting.
 
