@@ -4,12 +4,14 @@ description: Azure MCP Server tools for Azure CLI let you generate commands and 
 author: diberry
 ms.author: diberry
 ms.date: 09/27/2026
+ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
   - build-2025
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
+tool_count: 2
 mcp-cli.version: "3.0.0-beta.47+bd724faf47e86348c7163a429b584aabfd714876"
 ---
 # Azure MCP Server tools for Azure CLI
