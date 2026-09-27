@@ -5,6 +5,7 @@ author: diberry
 ms.author: diberry
 ms.reviewer: manvkaur
 ms.date: 09/27/2026
+ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -57,6 +58,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Function app** |  Optional | The name of the function app. |
+| **Resource group** | Optional | The name of the Azure resource group. |
 
 ---
 
