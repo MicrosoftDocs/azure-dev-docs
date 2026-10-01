@@ -1,12 +1,13 @@
 ---
 title: Deploying to Azure Container Apps and Container App Jobs
-description: Learn how to deploy container apps and container app jobs using image-based or revision-based deployment strategies with Azure Developer CLI (azd).
+description: Learn how to deploy container apps, including Container Apps express, and container app jobs by using Azure Developer CLI (azd).
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 03/10/2026
+ms.date: 09/30/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
+ai-usage: ai-generated
 ---
 
 # Deploy to Azure Container Apps using the Azure Developer CLI
@@ -17,6 +18,40 @@ The Azure Developer CLI (`azd`) supports deploying both Azure Container Apps and
 - **Revision-based strategy**. Combines both into a single deployment and supports advanced rollout patterns.
 
 The following sections explain both strategies, along with how to deploy Container App Jobs.
+
+## Deploy to Container Apps express (preview)
+
+`azd` supports image-based deployments to [Azure Container Apps express (preview)](/azure/container-apps/express-overview). Use the existing `containerapp` host in `azure.yaml`; you don't need a separate host type for express:
+
+> [!IMPORTANT]
+> Container Apps express support requires `azd` version 1.35.0-beta.1 or later.
+
+```yaml
+services:
+  web:
+    host: containerapp
+    image: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+    docker:
+      imagePassthrough: true
+```
+
+In your infrastructure, create a managed environment with `properties.environmentMode` set to `Express`. The container app must reference that environment and include an `azd-service-name` tag that matches the service name in `azure.yaml`:
+
+```bicep
+resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2026-07-01' = {
+  name: 'cae-${environmentName}'
+  location: location
+  properties: {
+    environmentMode: 'Express'
+  }
+}
+```
+
+Define the `Microsoft.App/containerApps` resource with `environmentId` set to `containerAppsEnvironment.id`. Add an `azd-service-name` tag with the value `web` so that it matches the service name in `azure.yaml`.
+
+During `azd deploy`, `azd` detects the parent environment's express mode and updates the container image without setting a custom revision suffix or traffic weights. Express performs a single-revision rolling update automatically.
+
+Use the image-based deployment strategy for express. The revision-based strategy doesn't adapt your deployment Bicep for express, and express doesn't support multiple revisions or traffic splitting. Before defining your infrastructure, review the [current express feature availability and limitations](/azure/container-apps/express-overview#supported-features).
 
 ## Image-based deployment strategy
 
@@ -372,6 +407,7 @@ When `azd` discovers a job resource tagged with `azd-service-name`, it:
 ## Additional resources
 
 - [Azure Container Apps overview](/azure/container-apps/overview)
+- [Azure Container Apps express overview](/azure/container-apps/express-overview)
 - [Azure Container Apps Jobs overview](/azure/container-apps/jobs)
 - [Azure Container Apps Bicep reference](/azure/templates/microsoft.app/containerapps)
 - [Azure Container App Jobs Bicep reference](/azure/templates/microsoft.app/jobs)
