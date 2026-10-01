@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 09/16/2026
+ms.date: 09/30/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -1036,6 +1036,7 @@ azd deploy <service> [flags]
   -e, --environment string    The name of the environment to use.
       --from-package string   Deploys the packaged service located at the provided path. Supports zipped file packages (file path) or container images (image tag).
   -h, --help                  Gets help for deploy.
+      --preview               Preview changes to services without deploying them.
       --timeout int           Maximum time in seconds for azd to wait for each service deployment. This stops azd from waiting but does not cancel the Azure-side deployment. (default: 1200) (default 1200)
 ```
 
@@ -1710,10 +1711,8 @@ Show details for a specific extension.
 
 ### Synopsis
 
-Show details for a specific extension from a registered extension source.
-
-The --source flag accepts a registered source name or registry location (URL or
-file path). Locations are queried read-only and are not registered.
+Includes version compatibility, dependencies, and installed dependents.
+Uses installed metadata when no registry lists the extension, or a registry lookup fails without --source.
 
 ```azdeveloper
 azd extension show <extension-id> [flags]
@@ -1910,16 +1909,26 @@ azd extension source validate <name-or-path-or-url> [flags]
 
 Uninstall specified extensions.
 
+### Synopsis
+
+Also removes unused dependency installs after confirmation.
+Use --no-dependencies to keep them; --no-prompt accepts their removal.
+
+Required extensions cannot be removed unless their dependents are also removed
+or --force is set.
+
 ```azdeveloper
-azd extension uninstall [extension-id] [flags]
+azd extension uninstall [extension-id...] [flags]
 ```
 
 ### Options
 
 ```azdeveloper
-      --all    Uninstall all installed extensions
-      --docs   Opens the documentation for azd extension uninstall in your web browser.
-  -h, --help   Gets help for uninstall.
+      --all               Uninstall all installed extensions
+      --docs              Opens the documentation for azd extension uninstall in your web browser.
+  -f, --force             Uninstall even if other installed extensions depend on it
+  -h, --help              Gets help for uninstall.
+      --no-dependencies   Keep dependencies installed for the removed extensions
 ```
 
 ### Options inherited from parent commands
@@ -1942,27 +1951,11 @@ Update installed extensions to the latest version.
 
 ### Synopsis
 
-Update one or more installed extensions.
+Also updates installed dependencies to compatible versions unless
+--no-dependency-updates is set.
 
-By default, uses the stored registry source for each extension. If the stored
-source is unavailable, falls back to the main (azd) registry. Extensions that
-were installed from a non-main registry (e.g., dev) are automatically promoted
-to the main registry when a newer version is available there.
-
-Use --source to override the registry source for the update. It accepts a
-registered source name or registry location (URL or file path); locations are
-registered first and the updated extension's stored source is updated. Because
-registration is interactive, locations are rejected under --no-prompt. Use --all
-to update all installed extensions in a single batch; failures in one extension
-do not prevent the remaining extensions from being updated.
-
-When updating an extension that has dependencies, any installed
-dependencies are automatically updated too, to the highest version
-satisfying the extension's declared constraints. Use
---no-dependency-updates to opt out and update only the named
-extension.
-
-Use --output json for a structured report of all update results.
+Failures return a nonzero exit code. Other extensions continue updating;
+completed updates are kept.
 
 ```azdeveloper
 azd extension update [extension-id] [flags]
