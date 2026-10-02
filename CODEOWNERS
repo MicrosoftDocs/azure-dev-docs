@@ -22,13 +22,13 @@
 /articles/github-copilot-app-modernization/ @KarlErickson
 
 # Tools
-/articles/azure-developer-cli/ @alexwolfmsft @kristenwomack
+/articles/azure-developer-cli/ @kristenwomack @vhvb1989
 /articles/typespec/ @diberry
 
 # Azure AI Developer tools
 /articles/ai-developer-tools/ @diberry @yunjchoi @sandeep-sen 
 /articles/azure-mcp-server/ @diberry @sandeep-sen @yunjchoi 
-/articles/azure-mcp-server/get-started @diberry @sandeep-sen @alexwolfmsft @yunjchoi 
+/articles/azure-mcp-server/get-started @diberry @sandeep-sen @yunjchoi 
 /articles/azure-skills/ @diberry @yunjchoi
 
 # Azure SDK authentication topics
