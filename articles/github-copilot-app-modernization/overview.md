@@ -25,7 +25,7 @@ The following GitHub Copilot modernization capabilities are currently available:
 
 - **General availability**: IDE experience - language, framework, and toolset upgrades for .NET, Java, and C++.
 - **General availability**: IDE experience - migration scenarios for .NET and Java.
-- **Public preview**: Modernization agent - CLI experience for application assessment and planning. For more information, see [Modernization agent overview](modernization-agent/overview.md).
+- **General availability**: Modernization agent - CLI experience for application assessment and planning. For more information, see [Modernization agent overview](modernization-agent/overview.md).
 
 <br>
 
