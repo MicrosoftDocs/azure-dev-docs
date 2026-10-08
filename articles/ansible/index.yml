@@ -9,8 +9,8 @@ metadata:
   services: azure
   ms.service: ansible
   ms.topic: landing-page
-  author: vranade-microsoft
-  ms.author: vranade
+  author: kgremban
+  ms.author: kgremban
   ms.date: 08/28/2021
   ms.custom: devx-track-ansible
 
