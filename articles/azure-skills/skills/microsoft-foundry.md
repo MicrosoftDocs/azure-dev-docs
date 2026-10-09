@@ -2,13 +2,13 @@
 title: Azure skill for Microsoft Foundry
 description: "Deploy, schedule, connect, evaluate, and manage Microsoft Foundry agents with Azure Developer CLI support, CI/CD, routines, Agent-to-Agent connections, and authentication guidance."
 ms.topic: reference
-ms.date: 07/18/2026
-author: diberry
-ms.author: diberry
+ms.date: 10/05/2026
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: anksinha, cearley, luechen, anchenyi, xiaofu.huang, jugonzales, vebudumu, swatdong
 ms.service: azure-mcp-server
 ms.custom: skill-version-1.1.97
-ai-usage: ai-assisted
+ai-usage: ai-generated
 ---
 
 # Azure skill for Microsoft Foundry
@@ -17,7 +17,7 @@ This skill helps developers work with new and existing Microsoft Foundry project
 
 Deploy, schedule, connect, evaluate, and manage Microsoft Foundry agents end-to-end with Azure Developer CLI (`azd`) support, CI/CD, routines, A2A connections, and authentication guidance.
 
-**Skill:** `microsoft-foundry` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/microsoft-foundry/SKILL.md)
+**Skill:** `microsoft-foundry` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/SKILL.md)
 
 ## What it provides
 
@@ -28,7 +28,6 @@ This skill provides GitHub Copilot with specialized knowledge for the Microsoft 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
 - **Azure Developer CLI**: Install `azd` from [Install Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd), then sign in with `azd auth login`.
 - **Foundry `azd` extensions**: Install the required Foundry extensions for the workflow, such as `azure.ai.agents`, `azure.ai.projects`, `microsoft.foundry`, and `azure.ai.routines` for routines.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 
 ## When to use this skill
 
@@ -84,5 +83,5 @@ Try these prompts to activate this skill:
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Set up CI/CD for a hosted agent](/azure/ai-foundry/agents/quickstarts/set-up-cicd-hosted-agent?pivots=azd)
 - [Agent-to-agent tool for Foundry agents](/azure/ai-foundry/agents/how-to/tools/agent-to-agent)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/microsoft-foundry/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/SKILL.md)
 - [Microsoft Foundry](/azure/foundry/)

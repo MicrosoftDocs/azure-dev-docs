@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure AI Gateway
 description: The azure-aigateway skill helps you configure Azure API Management as a centralized AI gateway for AI models, MCP tools, and agents. Use it to set up routing, load balancing, authentication, and rate limiting for AI traffic across multiple backends.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: azaslonov
-ms.date: 06/22/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "3.0.1"
 
 The `azure-aigateway` skill helps you configure Azure API Management as a centralized AI gateway for AI models, MCP tools, and agents. Use it to set up routing, load balancing, authentication, and rate limiting for AI traffic across multiple backends.
 
-**Skill** `azure-aigateway` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-aigateway/SKILL.md)
+**Skill** `azure-aigateway` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-aigateway/SKILL.md)
 
 ## What it provides
 
@@ -26,7 +26,6 @@ You get guidance to configure Azure API Management as a centralized AI gateway t
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 
 ## When to use this skill
@@ -62,4 +61,4 @@ Try these prompts to activate this skill:
 - [Azure API Management overview](/azure/api-management/api-management-key-concepts)
 - [Load balancing Azure OpenAI endpoints](/azure/api-management/azure-openai-enable-semantic-caching)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-aigateway/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-aigateway/SKILL.md)
