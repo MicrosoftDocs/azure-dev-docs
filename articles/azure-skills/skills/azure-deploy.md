@@ -1,20 +1,21 @@
 ---
 title: Azure Skill for Deploy
 description: Execute Azure deployments for already-prepared applications that have existing .azure/deployment-plan.md and infrastructure files.
-author: diberry
-ms.author: diberry
-ms.date: 4/2/2026
+author: yunjchoi
+ms.author: yunjchoi
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
   - "skill-version-1.0.19"
+ai-usage: ai-generated
 ---
 
 # Azure skill for deploy
 
 Execute Azure deployments for already-prepared applications that have existing .azure/deployment-plan.md and infrastructure files.
 
-**Skill:** `azure-deploy` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-deploy/SKILL.md)
+**Skill:** `azure-deploy` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-deploy/SKILL.md)
 
 ## What it provides
 
@@ -24,7 +25,6 @@ This skill enables GitHub Copilot to execute production deployments using your p
 
 - **Prepared deployment plan**: Run the [azure-prepare](azure-prepare.md) skill first to generate your `.azure/deployment-plan.md` and infrastructure files. Then run the [azure-validate](azure-validate.md) skill to verify readiness.
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 
 ## When to use this skill
@@ -65,5 +65,5 @@ This skill is the final step in the deployment workflow:
 - [Azure skill for prepare](azure-prepare.md)
 - [Azure skill for validate](azure-validate.md)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-deploy/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-deploy/SKILL.md)
 - [Azure skill to deploy Python apps to Azure App Service on Linux](python-app-service-deploy.md)

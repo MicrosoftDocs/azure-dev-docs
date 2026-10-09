@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure Cloud Migrate
 description: The azure-cloud-migrate skill helps you migrate workloads from AWS, GCP, and Heroku to Azure. Use it to get migration guidance for containers, VMs, and application code including Spring Boot and containerized apps.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: skaluvak, mabhar
-ms.date: 06/29/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,12 +17,11 @@ ms.skillversion: "1.2.1"
 
 The azure-cloud-migrate skill helps you migrate workloads from AWS, GCP, and Heroku to Azure. Use it to get migration guidance for hosting scenarios and containerized apps.
 
-**Skill** `azure-cloud-migrate` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-cloud-migrate/SKILL.md)
+**Skill** `azure-cloud-migrate` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-cloud-migrate/SKILL.md)
 
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 
 ## When to use this skill
@@ -59,7 +58,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-cloud-migrate/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-cloud-migrate/SKILL.md)
 - [Azure Migrate overview](/azure/migrate/migrate-services-overview)
 - [Cloud migration strategies](/azure/cloud-adoption-framework/migrate/)
 - [Azure migration best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices/)

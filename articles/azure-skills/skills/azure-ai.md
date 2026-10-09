@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure AI Services
 description: The azure-AI skill helps you integrate Azure AI search, speech, OpenAI, and Document Intelligence into applications. Use it to configure Cognitive Services, manage endpoints, and set quotas for AI-powered features.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: JasonYeMSFT
-ms.date: 06/22/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.0.1"
 
 The `azure-ai` skill helps GitHub Copilot answer questions about Azure AI Services, including Azure AI Search, Azure AI Speech, Azure OpenAI, and Azure AI Document Intelligence. Use it to configure Cognitive Services endpoints, manage service keys, and set quotas for AI-powered features in your applications.
 
-**Skill** `azure-ai` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-ai/SKILL.md)
+**Skill** `azure-ai` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-ai/SKILL.md)
 
 ## What it provides
 
@@ -35,7 +35,6 @@ You get expert guidance on Azure AI Services to build and configure AI-powered a
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 
 ## When to use this skill
@@ -63,7 +62,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-ai/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-ai/SKILL.md)
 - [Azure AI Services overview](/azure/ai-services/)
 - [Azure OpenAI Service](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai#azure-openai-in-microsoft-foundry-models)
 - [Azure AI Search documentation](/azure/search/)

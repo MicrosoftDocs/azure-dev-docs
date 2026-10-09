@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure Storage
 description: The azure-storage skill helps you configure and manage Azure Storage services including Blob Storage, Azure Files, Queue Storage, Table Storage, and Data Lake Storage Gen2. Use it to set access tiers, configure lifecycle management, and manage storage account security.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: chuye
-ms.date: 06/22/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.0.0"
 
 The `azure-storage` skill helps you configure and manage Azure Storage services including Blob Storage, Azure Files, Queue Storage, Table Storage, and Data Lake Storage Gen2. Use it to set access tiers, configure lifecycle management policies, manage storage account security, and optimize storage costs.
 
-**Skill** `azure-storage` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-storage/SKILL.md)
+**Skill** `azure-storage` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-storage/SKILL.md)
 
 ## What it provides
 
@@ -36,7 +36,6 @@ You get guidance on all Azure Storage services — Blob Storage (access tiers, l
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 - **[Azure Storage](/azure/storage/common/storage-account-create)**: A storage account for blob, file, queue, or table data.
 
@@ -71,7 +70,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-storage/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-storage/SKILL.md)
 - [Azure Storage documentation](/azure/storage/)
 - [Blob Storage overview](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Files overview](/azure/storage/files/storage-files-introduction)
