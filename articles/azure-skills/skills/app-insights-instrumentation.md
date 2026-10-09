@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for App Insights Instrumentation
 description: The app-insights-instrumentation skill helps you instrument web applications to send telemetry to Azure Application Insights and Azure Monitor. Use it to add SDKs, configure connection strings, set up custom events, and diagnose telemetry gaps.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: chuye
-ms.date: 06/22/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.0.2"
 
 The `app-insights-instrumentation` skill helps you instrument web applications to send telemetry to Azure Application Insights and Azure Monitor. Use it to add Application Insights SDKs, configure connection strings, set up custom events and metrics, and diagnose telemetry collection gaps.
 
-**Skill** `appinsights-instrumentation` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/appinsights-instrumentation/SKILL.md)
+**Skill** `appinsights-instrumentation` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/appinsights-instrumentation/SKILL.md)
 
 ## What it provides
 
@@ -26,7 +26,6 @@ You get step-by-step instrumentation guidance for adding Application Insights SD
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **[PowerShell](/powershell/scripting/install/installing-powershell)** (v7.4+): Install with `winget install Microsoft.PowerShell`.
 - **Azure CLI with Bicep** (v2.60.0+): [Install](/cli/azure/install-azure-cli), sign in with `az login`, then run `az bicep install`.
 - Azure Application Insights resource, Azure Monitor workspace or application source code (ASP.NET, Node.js, Python, or Java).
@@ -53,7 +52,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/appinsights-instrumentation/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/appinsights-instrumentation/SKILL.md)
 - [Application Insights overview](/azure/azure-monitor/app/app-insights-overview)
 - [Application Insights SDK instrumentation](/azure/azure-monitor/app/asp-net)
 - [Creating and configuring Application Insights resources](/azure/azure-monitor/app/application-insights-faq#creating-and-configuring-application-insights-resources)

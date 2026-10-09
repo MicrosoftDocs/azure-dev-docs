@@ -4,8 +4,8 @@ description: Deploy Python apps to Azure App Service on Linux. Learn how to publ
 #customer intent: As a developer new to Azure, I want to understand the prerequisites for deploying Python apps to App Service with this skill, so that I can set up my environment correctly and deploying.
 ms.topic: reference
 ms.date: 06/26/2026
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.service: azure-mcp-server
 ai-usage: ai-generated
 ms.reviewer: glaming, @tmeschter
@@ -15,7 +15,7 @@ ms.reviewer: glaming, @tmeschter
 
 Use this skill to deploy Flask, Django, and FastAPI apps to [Azure App Service](/azure/app-service) on Linux. You use this skill when you want a straightforward path from code to running App Service, not for containers, Functions, or infrastructure-as-code workflows. Use `python-appservice-deploy` when you need a straightforward, code-to-running deployment of a Python web app (Flask, Django, or FastAPI) to Azure App Service on Linux, rather than when you're targeting containers, Functions. Managing infrastructure with infrastructure as code (IaC) tools.
 
-**Skill** `python-appservice-deploy` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/python-appservice-deploy/SKILL.md)
+**Skill** `python-appservice-deploy` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/python-appservice-deploy/SKILL.md)
 
 ## What it provides
 
@@ -62,4 +62,4 @@ Try these prompts to activate this skill:
 - [Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app-django)
 - [Tutorial: Deploy a FastAPI web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app-fastapi)
 - [Configure Linux Python apps in Azure App Service](/azure/app-service/configure-language-python)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/python-appservice-deploy/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/python-appservice-deploy/SKILL.md)

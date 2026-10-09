@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure Validate
 description: The azure-validate skill helps you run pre-deployment validation for Azure Bicep and Terraform templates. Use it to check ARM template syntax, validate RBAC permissions, verify service quotas, and confirm policy compliance before deploying.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: tomescht
-ms.date: 08/06/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.2.10"
 
 The `azure-validate` skill helps you run script-driven predeployment validation for Azure apps and infrastructure. Use it after [azure-prepare](azure-prepare.md) to verify configuration, infrastructure, roles, and deployment prerequisites before you continue to [azure-deploy](azure-deploy.md).
 
-**Skill** `azure-validate` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-validate/SKILL.md)
+**Skill** `azure-validate` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-validate/SKILL.md)
 
 ## What it provides
 
@@ -27,7 +27,6 @@ You get pre-deployment validation for Bicep and Terraform templates, including A
 
 - **Prepared deployment plan**: Run [azure-prepare](azure-prepare.md) first, and make sure `.azure/deployment-plan.md` exists with an **Approved** status or later.
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 - **PowerShell 7 or Bash**: Use PowerShell on Windows or Bash on macOS and Linux to run the workflow script.
 
@@ -69,7 +68,7 @@ This skill is the second step in the deployment workflow:
 - [Azure skill for prepare](azure-prepare.md)
 - [Azure skill for deploy](azure-deploy.md)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-validate/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-validate/SKILL.md)
 - [Azure deployment workflow with Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 - [ARM template validation](/azure/azure-resource-manager/templates/template-syntax)
 - [Bicep linter](/azure/azure-resource-manager/bicep/linter)

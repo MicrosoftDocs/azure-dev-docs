@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure Enterprise Infrastructure Planning
 description: The azure-enterprise-infra-planner skill helps you architect and provision enterprise-grade Azure infrastructure, applying Azure best practices and the Well-Architected Framework (WAF). Use it to plan networking, identity, security, compliance, and multi-resource topologies, and generate Bicep or Terraform code directly.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: arunrab
-ms.date: 06/22/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.0.2"
 
 The `azure-enterprise-infra-planner` skill helps you architect and provision enterprise-grade Azure infrastructure by applying Azure best practices and the Well-Architected Framework (WAF). Use it to plan networking, identity, security, compliance, and multiresource topologies, and generate Bicep or Terraform code directly.
 
-**Skill** `azure-enterprise-infra-planner` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-enterprise-infra-planner/SKILL.md)
+**Skill** `azure-enterprise-infra-planner` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-enterprise-infra-planner/SKILL.md)
 
 ## What it provides
 
@@ -26,7 +26,6 @@ You get guidance on designing enterprise Azure infrastructure, such as hub-spoke
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 
 ## When to use this skill
@@ -55,7 +54,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-enterprise-infra-planner/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-enterprise-infra-planner/SKILL.md)
 - [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/)
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/)
 - [Azure enterprise architecture](/azure/architecture/reference-architectures/enterprise-integration/)

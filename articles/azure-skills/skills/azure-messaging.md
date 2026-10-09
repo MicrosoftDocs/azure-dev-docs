@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure Messaging
 description: "Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Covers connection failures, authentication errors, message processing issues, and SDK configuration problems. WHEN: event hub SDK error, service bus SDK issue, messaging connection failure, AMQP error, event processor host issue, message lock lost, message lock expired, lock renewal, lock renewal batch, send timeout, receiver disconnected, SDK troubleshooting, azure messaging SDK, event hub consumer, service bus queue issue, topic subscription error, enable logging event hub, service bus logging, eventhub python, servicebus java, eventhub javascript, servicebus dotnet, event hub checkpoint, event hub not receiving messages, service bus dead letter, batch processing lock, session lock expired, idle timeout, connection inactive, link detach, slow reconnect, session error, duplicate events, offset reset, receive batch."
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: kashifkhan
-ms.date: 06/24/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.0.4"
 
 The `azure-messaging` skill helps you troubleshoot Azure Event Hubs and Azure Service Bus SDK problems across Python, Java, JavaScript, and .NET. Use it when your application reports AMQP protocol errors, connection failures, lock expirations, timeouts, dead-lettered messages, or SDK configuration issues.
 
-**Skill** `azure-messaging` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-messaging/SKILL.md)
+**Skill** `azure-messaging` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-messaging/SKILL.md)
 
 ## What it provides
 
@@ -26,7 +26,6 @@ You get language-specific troubleshooting guidance for Azure Event Hubs and Azur
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 
 ### Related tools
@@ -72,7 +71,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-messaging/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-messaging/SKILL.md)
 - [Azure Service Bus documentation](/azure/service-bus-messaging/)
 - [Azure Event Hubs documentation](/azure/event-hubs/)
 - [Azure Messaging SDKs](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/servicebus)

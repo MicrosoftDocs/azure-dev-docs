@@ -9,7 +9,9 @@
   href: quickstart.md
 - name: Plugins
   items:
-  - name: Azure Skills
+  - name: Overview
+    href: plugins/index.md
+  - name: Azure Skills plugin (core)
     items:
     - name: AI Runway AKS Setup
       href: skills/ai-runway-aks-setup.md
@@ -29,8 +31,6 @@
       href: skills/azure-compliance.md
     - name: Azure Compute
       href: skills/azure-compute.md
-    - name: Azure Cost Management
-      href: skills/azure-cost.md
     - name: Azure Deploy
       href: skills/azure-deploy.md
     - name: Azure Diagnostics
@@ -67,6 +67,16 @@
       href: skills/microsoft-foundry.md
     - name: Python App Service Deployment
       href: skills/python-app-service-deploy.md
+  - name: Azure Cost plugin
+    items:
+    - name: Cost Analysis
+      href: plugins/azure-cost/cost-analysis.md
+    - name: Cost Estimation
+      href: plugins/azure-cost/cost-estimation.md
+    - name: Cost Optimization
+      href: plugins/azure-cost/cost-optimization.md
+    - name: Cost Governance
+      href: plugins/azure-cost/cost-governance.md
   - name: Azure Kusto Graph plugin
     items:
     - name: Azure Kusto Graph
@@ -75,3 +85,13 @@
       href: plugins/azure-kusto-graph/azure-kusto-irql.md
     - name: Azure Kusto IRQL Graph
       href: plugins/azure-kusto-graph/azure-kusto-irql-graph.md
+  - name: Azure Local plugin
+    items:
+    - name: Azure Local
+      href: plugins/azure-local/azure-local.md
+    - name: Azure Local Multi-Rack
+      href: plugins/azure-local/azure-local-multi-rack.md
+  - name: Foundry IQ plugin
+    items:
+    - name: Foundry IQ
+      href: plugins/foundry-iq/foundry-iq.md
