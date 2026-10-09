@@ -3,7 +3,6 @@ author: diberry
 ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: include
-ai-usage: ai-generated
 ---
 
 ## Prerequisites
@@ -31,8 +30,6 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 1. Launch Visual Studio 2026 and create or load a project.
 
 1. Open GitHub Copilot Chat.
-
-1. In the chat area's mode selector, select **Agent**.
 
 1. If prompted, sign in to your GitHub account.
 
@@ -63,7 +60,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 
    :::image type="content" source="../media/get-started/visual-studio-2026-first-prompt.png" alt-text="Screenshot that shows an example prompt typed into the chat area in Visual Studio 2026.":::
 
-**Agent** mode enables GitHub Copilot to answer your prompts and take action in your workspace.
+By default, GitHub Copilot uses **ask** mode. Ask mode provides answers to your prompts in the chat pane. **Agent** mode enables GitHub Copilot to take action in your workspace.
 
 The answer to your question depends on what's currently running in Azure in your subscription.
 
@@ -73,7 +70,7 @@ In Agent mode, GitHub Copilot can perform tasks across your entire Visual Studio
 
 GitHub Copilot for Azure provides "tools" to GitHub Copilot to enhance the agentic experience through deep integration with Azure.
 
-To select **Agent** mode, open the mode selector in the chat area and select **Agent**.
+To switch, between ask and agent mode, select the down chevron next to the Ask option in the chat area and select the desired mode.
 
    :::image type="content" source="../media/get-started/visual-studio-2026-switch-agent-mode.png" alt-text="Screenshot that shows the mode menu in the chat area in Visual Studio 2026.":::
 
