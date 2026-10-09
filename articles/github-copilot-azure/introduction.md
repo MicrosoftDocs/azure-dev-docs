@@ -9,6 +9,7 @@ ms.topic: overview
 ms.collection:
   - ce-skilling-ai-copilot
 keywords: github, copilot, ai, azure
+ai-usage: ai-generated
 ---
 
 # What is GitHub Copilot for Azure?
@@ -63,7 +64,7 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## Best practices
 
-First, use **Agent** mode for the best experience when completing multi-step tasks. Use **Ask** mode (`@azure`) for quick questions about Azure services.
+First, use **Agent** mode to ask questions about Azure services and complete multi-step tasks.
 
 Second, include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
