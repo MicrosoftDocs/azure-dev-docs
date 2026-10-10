@@ -64,7 +64,7 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## Best practices
 
-First, in Visual Studio Code, use **Agent** mode to ask questions about Azure services and complete multi-step tasks. In Visual Studio 2022 and Visual Studio 2026, you can use **Ask** mode for quick questions or **Agent** mode for multi-step tasks.
+First, in Visual Studio Code, use **Agent** mode to ask questions about Azure services and complete multistep tasks. In Visual Studio 2022 and Visual Studio 2026, you can use **Ask** mode for quick questions or **Agent** mode for multistep tasks.
 
 Second, include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
