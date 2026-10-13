@@ -47,41 +47,31 @@ In this course, you:
 
 Large language models (LLMs) are neural networks trained on large datasets to understand and generate text. Training usually starts with a broad base model and then adds fine-tuning for specific tasks. LLMs can help with scenarios such as code completion and chat, but they also have limits, including context windows and possible bias in training data. That's why responsible AI practices such as fairness, reliability, privacy, and accountability matter.
 
-Learn more in the [LLM session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/01-llms.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/01-llms/readme.md)
-- [Video](https://www.youtube.com/watch?v=GQ_2OjNZ9aA&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=2)
+Learn more in the [LLM session of the course](https://www.youtube.com/watch?v=GQ_2OjNZ9aA&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=2)
 
 ## Use prompt engineering techniques
 
 Prompt engineering is the practice of writing prompts that guide the model toward better results. Use zero-shot prompts when you don't need examples, or few-shot prompts when examples help. Clear instructions, relevant context, and explicit output formats often improve responses and prepare you for more advanced patterns such as RAG.
 
-Learn more in the [prompt engineering session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/02-prompt-engineering.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/02-prompt-engineering/readme.md)
-- [Video](https://www.youtube.com/watch?v=gQ6TlyxBmWs&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=3)
+Learn more in the [prompt engineering session of the course](https://www.youtube.com/watch?v=gQ6TlyxBmWs&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=3)
 
 ## Improve AI accuracy and reliability with RAG
 
 Use retrieval-augmented generation (RAG) to ground model responses in current, trusted data. RAG combines a retriever that finds relevant content with a generator that uses that content to answer questions. This approach can improve accuracy, make responses easier to verify, and control costs. For example, a real estate support app can use company documents to answer detailed customer questions.
 
-Learn more in the [RAG session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/03-rag.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/03-rag/readme.md)
-- [Video](https://www.youtube.com/watch?v=xkFOmx5yxIA&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=4)
+Learn more in the [RAG session of the course](https://www.youtube.com/watch?v=xkFOmx5yxIA&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=4)
 
 ## Speed up your AI development with LangChain.js
 
 Speed up your AI projects with LangChain.js. This JavaScript library helps you build prompt templates, connect models and vector stores, and compose complex workflows. It works well for rapid prototyping, such as an API that answers questions from YouTube transcripts. When you're ready for production, you can swap local models and vector stores for Azure services without rewriting your app.
 
-Learn more in the [LangChain.js session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/04-langchainjs.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/04-langchainjs/readme.md)
-- [Video](https://www.youtube.com/watch?v=02IDU8eCX8o&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=5)
+Learn more in the [LangChain.js session of the course](https://www.youtube.com/watch?v=02IDU8eCX8o&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=5)
 
 ## Run AI models on your local machine with Ollama
 
 Use Ollama to run local AI models, including Phi-3, on your machine. Local models reduce cloud dependencies, support offline development, and shorten your inner loop while you test ideas. Because Ollama exposes an OpenAI-compatible API, you can integrate it into existing JavaScript workflows with minimal changes.
 
-Learn more in the [Ollama session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/05-local-models.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/05-local-models/readme.md)
-- [Video](https://www.youtube.com/watch?v=dLfNnoPv4AQ&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=6)
+Learn more in the [Ollama session of the course](https://www.youtube.com/watch?v=dLfNnoPv4AQ&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=6)
 
 ## Get started with AI for free
 
@@ -89,23 +79,17 @@ You can run AI for free by using [Foundry Local](/azure/foundry-local/get-starte
 
 You can also try models without any local setup by creating a GitHub Codespace and using a Jupyter notebook to test prompt engineering, few-shot learning, and RAG.
 
-Learn more in the [Phi-3 session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/06-playground.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/06-playground/readme.md)
-- [Video](https://www.youtube.com/watch?v=Ds32MS9SHzU&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=7)
+Learn more in the [Phi-3 session of the course](https://www.youtube.com/watch?v=Ds32MS9SHzU&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=7)
 
 ## Introduction to Microsoft Foundry
 
 Use Microsoft Foundry to start building generative AI apps with JavaScript. Organize resources with hubs and projects, browse models, and deploy a model to test in a playground. Whether you use managed compute or serverless APIs, the workflow stays the same: choose a model, deploy it, and integrate it into your app.
 
-Learn more in the [Foundry session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/07-ai-foundry.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/07-ai-foundry/readme.md)
-- [Video](https://www.youtube.com/watch?v=9Mo-VOGk8ng&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=8)
+Learn more in the [Foundry session of the course](https://www.youtube.com/watch?v=9Mo-VOGk8ng&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=8)
 
 ## Build generative AI apps with Azure Cosmos DB
 
-Learn more in the [Azure Cosmos DB session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/08-cosmos-db.md):
-- [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/08-cosmos-db/readme.md)
-- [Video](https://www.youtube.com/watch?v=-GQyaLbeqxQ&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=9)
+Learn more in the [Azure Cosmos DB session of the course](https://www.youtube.com/watch?v=-GQyaLbeqxQ&list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk&index=9)
 
 ## Azure tools and services for hosting and storing AI apps
 
