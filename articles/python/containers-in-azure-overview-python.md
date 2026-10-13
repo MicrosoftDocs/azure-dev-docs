@@ -291,7 +291,7 @@ There's also support for viewing logs in VS Code. You must have [Azure Tools for
 [10]: https://azure.microsoft.com/products/functions/
 [11]: /azure/azure-functions/functions-create-function-linux-custom-image?pivots=programming-language-python
 [12]: /azure/container-apps/compare-options
-[13]: https://www.uvicorn.org/
+[13]: https://uvicorn.dev/
 [14]: /azure/app-service/configure-custom-container?pivots=container-linux#configure-port-number
 [15]: /azure/container-apps/ingress
 [16]: https://docs.docker.com/engine/reference/builder/#from
