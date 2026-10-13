@@ -9,7 +9,7 @@ ms.topic: best-practice
 ms.collection:
   - ce-skilling-ai-copilot
 keywords: github, copilot, ai, azure, troubleshooting, logs, diagnostics
-ai-usage: ai-assisted
+ai-usage: ai-generated
 ---
 
 # Troubleshoot Azure applications with GitHub Copilot for Azure
@@ -20,7 +20,7 @@ Use GitHub Copilot for Azure to diagnose errors, analyze logs, and resolve perfo
 
 For the best troubleshooting experience, use [best practices](introduction.md#best-practices):
 
-- Use **Agent** mode for interactive troubleshooting. Avoid **Ask** mode.
+- Use **Agent** mode for interactive troubleshooting.
 - Include the word "Azure" in your prompt so Copilot calls the right tools from the Azure MCP Server.
 - If you're using Visual Studio Code, select **Configure Tools** and enable both **Azure MCP** and **GitHub Copilot for Azure**. For details, see [the Tool calling section's Visual Studio Code tab](introduction.md#tool-calling).
 
