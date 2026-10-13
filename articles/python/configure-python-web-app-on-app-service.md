@@ -115,7 +115,7 @@ To use a framework other than Django or Flask (such as [Falcon](https://falconfr
 
 - In your startup command, identify the WSGI callable as described in the [previous section for Flask](#flask-startup-commands).
 
-- To launch a web server other than Gunicorn, use a `python -m` command instead of invoking the server directly. For example, the following command starts the [uvicorn](https://www.uvicorn.org/) server, assuming that the WSGI callable is named `app` and is found in *application.py*:
+- To launch a web server other than Gunicorn, use a `python -m` command instead of invoking the server directly. For example, the following command starts the [uvicorn](https://uvicorn.dev/) server, assuming that the WSGI callable is named `app` and is found in *application.py*:
 
     ```sh
     python -m uvicorn application:app --host 0.0.0.0
