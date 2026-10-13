@@ -3,6 +3,7 @@ author: diberry
 ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: include
+ai-usage: ai-generated
 ---
 
 ## Prerequisites
@@ -29,6 +30,8 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 1. If the Chat window isn't already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown list next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
 
    :::image type="content" source="../media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the Open Chat menu option.":::
+
+1. In the chat pane's mode selector, select **Agent**.
 
 1. In the chat text area at the bottom of the chat pane, enter the following prompt:
 
@@ -97,7 +100,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
       - Capabilities: Azure development best practices guidance, Microsoft Learn documentation lookup, query Azure Resource Graph (when authenticated), manage Azure auth context (change tenant, sign out), generate Azure CLI / Bicep / ARM snippets, Bicep schemas, and guidance for deploying models and services.
       - Example prompts:
          - "What are Azure best practices for deploying this function app?"
-         - "@azure /changeTenant - set my default tenant to <tenant-id>"
+         - "What Azure account am I signed in with?"
          - "Generate a Bicep template for an App Service and a Storage Account."
       - When to use: any task that touches Azure resources, deployment, or configuration.
 
@@ -121,7 +124,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
    - "What are your tools?" - lists the tools (this reply).
    - "Find all TODO comments in this repo and open a summary."
    - "Generate an az CLI command to list storage accounts sorted by region."
-   - "@azure /changeTenant" - opens tenant selection (if you need to set a default).
+   - "Which Azure tenant and subscription am I working with?" - checks the current Azure authentication context.
 
    Notes and privacy/permissions
 
@@ -189,15 +192,7 @@ You might want to disable or re-enable certain tools available by GitHub Copilot
 
 ## Set your default tenant
 
-If you have multiple [Microsoft Entra ID](/entra/fundamentals/whatis#terminology) tenants, You can set a default tenant using the following prompt:
-
-   ```prompt
-   @azure /changeTenant
-   ```
-
-Select from a list of your available tenants in the top center dropdown list.
-
-You can also set the default tenant in the extension settings:
+If you have multiple [Microsoft Entra ID](/entra/fundamentals/whatis#terminology) tenants, you can set a default tenant in the extension settings:
 
 1. In Visual Studio Code, on the Activity Bar, select **Extensions**. Then scroll down to **GitHub Copilot for Azure**.
 
