@@ -16,6 +16,8 @@ items:
             href: modernization-agent/quickstart.md
           - name: CLI commands
             href: modernization-agent/cli-commands.md
+          - name: Configure BYOM/BYOK
+            href: modernization-agent/configure-bring-your-own-model-key.md
 
           - name: Batch modernization
             expanded: false
@@ -37,6 +39,8 @@ items:
       - name: Developer environment
         expanded: true
         items:
+        - name: Configure a custom model in Visual Studio Code
+          href: configure-custom-model-visual-studio-code.md
         - name: Java
           expanded: false
           items:
