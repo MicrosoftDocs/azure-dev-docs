@@ -1,8 +1,8 @@
 ---
 title: What Is GitHub Copilot for Azure?
 description: "This article describes the purpose and capabilities of the GitHub Copilot for Azure Visual Studio Code extension, and how it fits into a developer's workflow."
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.date: 06/22/2026
 ms.service: github-copilot-for-azure
 ms.topic: overview

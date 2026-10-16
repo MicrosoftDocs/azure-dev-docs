@@ -1,8 +1,8 @@
 ---
 title: Manage Azure Key Vault with Azure MCP Server
 description: Learn how to use the Azure MCP Server to manage key vaults, access secrets and keys, and troubleshoot configurations through AI-powered natural language interactions.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: mbaldwin
 ms.date: 02/13/2026
 ms.service: azure-mcp-server

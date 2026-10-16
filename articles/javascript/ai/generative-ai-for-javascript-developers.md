@@ -1,8 +1,8 @@
 ---
 title: Generative AI for JavaScript Developers
 description: Learn how to build generative AI apps with JavaScript by using prompt engineering, RAG, LangChain.js, Ollama, Microsoft Foundry, Azure Cosmos DB, and the AI Chat Protocol.
-author: diberry
-ms.author: diberry
+author: achandmsft
+ms.author: achand
 ms.date: 06/01/2026
 ms.service: azure-javascript
 ms.subservice: intelligent-apps

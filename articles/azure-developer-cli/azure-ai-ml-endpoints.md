@@ -1,8 +1,8 @@
 ---
 title: Deploy to a Microsoft Foundry or Azure Machine Learning studio online endpoint using the Azure Developer CLI
 description: Learn how to deploy to a Microsoft Foundry or Azure Machine Learning studio online endpoint using the Azure Developer CLI.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 06/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

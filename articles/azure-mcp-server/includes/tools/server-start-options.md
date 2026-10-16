@@ -1,6 +1,6 @@
 ---
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-mcp-server
 ms.topic: include
 ms.date: 02/09/2026

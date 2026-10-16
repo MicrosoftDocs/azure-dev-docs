@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Enable Copilot Cloud Agent Azure access with the azd extension
 description: Install and use the Azure Developer CLI extension to configure GitHub Copilot cloud agent with Azure managed identity access.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 10/21/2025
 ms.service: azure-dev-cli
 ms.topic: quickstart

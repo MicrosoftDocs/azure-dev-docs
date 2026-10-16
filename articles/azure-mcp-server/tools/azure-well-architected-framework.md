@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure Well-Architected Framework
 description: Use Azure MCP Server tools to get Well-Architected Framework guidance, best practices, and recommendations for Azure services with natural language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: skakara
 ms.date: 09/22/2026
 ms.service: azure-mcp-server

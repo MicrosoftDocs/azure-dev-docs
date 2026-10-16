@@ -1,9 +1,9 @@
 ---
-author: alexwolfmsft
+author: kristenwomack
 ms.service: azure-dev-cli
 ms.topic: include
 ms.date: 06/12/2026
-ms.author: alexwolf
+ms.author: kwomack
 ms.custom: sfi-image-nochange
 ---
 

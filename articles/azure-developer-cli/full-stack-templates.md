@@ -1,8 +1,8 @@
 ---
 title: Full-stack deployment templates for Azure Developer CLI
 description: Discover full-stack deployment templates for Azure Developer CLI (azd) that integrate front-end and back-end services. Start building your app today.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 01/20/2026
 ms.service: azure-dev-cli
 ms.topic: reference

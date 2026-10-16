@@ -1,8 +1,8 @@
 ---
 title: Terraform Best Practices for Azure - Azure MCP Server
 description: Use the Azure Terraform best practices tool in Azure MCP Server to get guidance on implementing Terraform for Azure resources.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 02/27/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article

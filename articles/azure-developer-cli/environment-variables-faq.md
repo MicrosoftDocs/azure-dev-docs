@@ -1,8 +1,8 @@
 ---
 title: Environment variables FAQ
 description: Discover answers to frequently asked questions about environment variables
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

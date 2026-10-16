@@ -1,8 +1,8 @@
 ---
 title: Extension development concepts
 description: Learn the core concepts for developing Azure Developer CLI (azd) extensions, including the developer extension, the azdext SDK, and the gRPC communication model.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/03/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article

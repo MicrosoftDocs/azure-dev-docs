@@ -1,8 +1,8 @@
 ---
 title: Explore azd config functionality
 description: Learn how to use the azd config command and related functionality
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

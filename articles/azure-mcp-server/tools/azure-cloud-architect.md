@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure Cloud Architect
 description: Use Azure MCP Server tools to design cloud architectures through guided requirements gathering and receive optimal Azure solution recommendations from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: msalaman
 ms.date: 09/16/2026
 ms.service: azure-mcp-server

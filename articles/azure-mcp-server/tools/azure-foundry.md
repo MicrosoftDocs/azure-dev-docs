@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Microsoft Foundry Extensions
 description: Use Azure MCP Server tools with natural language prompts or Azure MCP CLI commands to manage Microsoft Foundry Extensions resources such as chat completions, text completions, embeddings, and models.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: zhoujay, xiangyan
 ms.date: 08/24/2026
 ms.service: azure-mcp-server

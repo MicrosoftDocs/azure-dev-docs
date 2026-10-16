@@ -1,8 +1,8 @@
 ---
 title: Add an MCP server to an extension
 description: Learn how to add a Model Context Protocol (MCP) server to an Azure Developer CLI (azd) extension so AI agents can use its tools.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/10/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

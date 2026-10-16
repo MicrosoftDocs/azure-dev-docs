@@ -3,8 +3,8 @@ title: Azure App Configuration Tools
 description: Learn how to use Azure MCP Server tools to manage Azure App Configuration stores, key-value settings, and feature flags with natural language prompts.
 tool_count: 5
 mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: conniey, joncarde
 ms.date: 09/16/2026
 ms.topic: concept-article

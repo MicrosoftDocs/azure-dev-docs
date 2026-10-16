@@ -3,8 +3,8 @@ title: Azure Speech in Foundry Tools
 description: Learn how to use the Azure MCP Server with Azure Speech in Foundry Tools.
 tool_count: 2
 mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 09/02/2026
 ms.reviewer: dilin
 ms.topic: concept-article

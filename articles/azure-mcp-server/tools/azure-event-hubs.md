@@ -1,8 +1,8 @@
 ---
 title: Azure Event Hubs Tools
 description: Learn to use Azure MCP Server tools to manage Event Hubs resources with natural language prompts. Create, update, and delete namespaces and consumer groups.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.topic: concept-article
 ms.custom:

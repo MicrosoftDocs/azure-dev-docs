@@ -2,8 +2,8 @@
 ms.custom: overview
 ms.topic: include
 ms.date: 05/16/2025
-ms.author: rotabor
-author: bobtabor-msft
+ms.author: achand
+author: achandmsft
 ms.service: azure
 ---
 ## Resources for Azure OpenAI in Microsoft Foundry Models

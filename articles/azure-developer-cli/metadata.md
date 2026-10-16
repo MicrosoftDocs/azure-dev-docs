@@ -1,8 +1,8 @@
 ---
 title: Work with Azure Developer CLI metadata for Bicep input parameters
 description: Learn how to improve the deployment experience by adding specific `azd` metadata to Bicep input parameters.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/16/2025
 ms.service: azure-dev-cli
 ms.topic: how-to
