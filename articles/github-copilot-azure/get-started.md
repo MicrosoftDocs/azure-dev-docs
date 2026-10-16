@@ -1,8 +1,8 @@
 ---
 title: Get Started with GitHub Copilot for Azure
 description: Install GitHub Copilot for Azure and write your first prompt in Visual Studio Code, Visual Studio 2022, or Visual Studio 2026.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: get-started

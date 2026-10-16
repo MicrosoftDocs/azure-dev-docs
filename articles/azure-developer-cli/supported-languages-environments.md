@@ -1,8 +1,8 @@
 ---
 title: Supported languages and environments
 description: Details about the Azure Developer CLI's template structure and supported development environments, hosts, and programming languages.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 06/24/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article

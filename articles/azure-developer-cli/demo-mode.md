@@ -1,8 +1,8 @@
 ---
 title: Enable demo mode
 description: How to enable demo mode
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

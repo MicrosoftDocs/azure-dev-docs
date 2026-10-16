@@ -1,8 +1,8 @@
 ---
 title: Get started with Azure MCP Server using Visual Studio
 description: Learn how to install, authenticate to, and use Azure MCP Server operations from GitHub Copilot agent mode in Visual Studio.
-author: alexwolfmsft
-ms.author: alexwolf
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.topic: get-started
 zone_pivot_groups: pivot-visual-studio

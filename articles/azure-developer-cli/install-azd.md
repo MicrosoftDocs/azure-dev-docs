@@ -1,8 +1,8 @@
 ---
 title: Install the Azure Developer CLI
 description: Install the Azure Developer CLI (azd) with all the prerequisites for your local environment.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023, linux-related-content

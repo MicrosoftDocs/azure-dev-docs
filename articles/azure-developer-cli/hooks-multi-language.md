@@ -1,8 +1,8 @@
 ---
 title: Write azd hooks in Python, JavaScript, TypeScript, or .NET
 description: Learn how to write Azure Developer CLI hooks in Python, JavaScript, TypeScript, and .NET, with automatic dependency installation and environment management.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 04/22/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

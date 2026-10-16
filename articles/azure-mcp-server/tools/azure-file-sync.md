@@ -1,8 +1,8 @@
 ---
 title: Azure File Sync Tools
 description: Learn how to use Azure MCP Server with Azure File Sync tools to manage storage sync services, sync groups, cloud endpoints, and server endpoints using natural language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: ankushb, kszobi
 ms.date: 05/13/2026
 ms.topic: concept-article

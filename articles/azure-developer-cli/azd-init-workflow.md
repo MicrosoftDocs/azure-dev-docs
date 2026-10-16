@@ -1,8 +1,8 @@
 ---
 title: Explore the Azure Developer CLI init workflow
 description: Learn about the stages of the Azure Developer CLI project initialization process.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article

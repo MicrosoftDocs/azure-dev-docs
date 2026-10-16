@@ -1,8 +1,8 @@
 ---
 title: Publish an extension
 description: Learn how to package, release, and publish an Azure Developer CLI (azd) extension to a registry so others can install it.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 08/13/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

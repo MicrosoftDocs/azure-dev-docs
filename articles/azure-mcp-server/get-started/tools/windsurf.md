@@ -1,8 +1,8 @@
 ---
 title: Get started with the Azure MCP Server in Windsurf
 description: Learn how to install and configure the Azure MCP Server in Windsurf to interact with your Azure resources using AI prompts.
-author: alexwolfmsft
-ms.author: alexwolf
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.topic: get-started
 ms.custom:

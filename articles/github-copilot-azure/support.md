@@ -1,8 +1,8 @@
 ---
 title: Getting Support for GitHub Copilot for Azure
 description: This article helps you decide where to find support for your issue.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.date: 06/22/2026
 ms.service: github-copilot-for-azure
 ms.topic: best-practice

@@ -1,8 +1,8 @@
 ---
 title: GitHub Copilot for Azure Prompt Engineering Examples to Learn About Using Azure for Your Application
 description: This article provides example prompts that can help you learn how to use Azure and deploy your application to the cloud.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: best-practice

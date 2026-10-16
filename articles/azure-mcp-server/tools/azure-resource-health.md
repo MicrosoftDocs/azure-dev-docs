@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure Resource Health
 description: Use Azure MCP Server tools to manage resource health and availability of Azure resources with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: shdesmu
 ms.date: 09/25/2026
 ms.service: azure-mcp-server

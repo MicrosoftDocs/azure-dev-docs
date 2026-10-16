@@ -1,8 +1,8 @@
 ---
 title: Deploy the Azure MCP Server as a Remote MCP Server and Connect Using Microsoft Foundry
 description: Learn how to deploy the Azure MCP Server as a remote MCP server and connect using Microsoft Foundry
-author: alexwolfmsft
-ms.author: alexwolf
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 02/27/2026
 ms.topic: how-to
 ai-usage: ai-generated

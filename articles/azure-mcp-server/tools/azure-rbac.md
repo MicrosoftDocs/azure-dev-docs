@@ -3,8 +3,8 @@ title: Azure RBAC Tools for the Azure MCP Server
 description: Learn how to use Azure MCP Server with Azure RBAC to manage role assignments using natural language prompts. Simplify access control management.
 tool_count: 1
 mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 09/16/2026
 ms.topic: concept-article
 ---

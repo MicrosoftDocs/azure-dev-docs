@@ -2,8 +2,8 @@
 title: Azure Developer CLI versioning and feature release strategy
 description: Learn about the versioning and feature release strategy of the Azure Developer CLI
 keywords: azure developer cli, azd
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/30/2026
 ms.topic: how-to
 ms.service: azure-dev-cli

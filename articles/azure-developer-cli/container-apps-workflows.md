@@ -1,8 +1,8 @@
 ---
 title: Deploying to Azure Container Apps and Container App Jobs
 description: Learn how to deploy container apps, including Container Apps express, and container app jobs by using Azure Developer CLI (azd).
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/30/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

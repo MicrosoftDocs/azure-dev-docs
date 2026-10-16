@@ -1,8 +1,8 @@
 ---
 title: Explore the demo extension
 description: Use the demo extension to explore Azure Developer CLI extension capabilities.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/30/2026
 ms.service: azure-dev-cli
 ms.topic: quickstart

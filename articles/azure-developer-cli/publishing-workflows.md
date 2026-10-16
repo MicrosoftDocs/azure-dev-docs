@@ -2,8 +2,8 @@
 title: How to use the azd publish command
 description: Learn how to use the azd publish command to build and push container images to a registry without deploying them immediately.
 ai-usage: ai-generated
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.reviewer: alexwolf
 ms.date: 01/22/2026
 ms.service: azure-dev-cli

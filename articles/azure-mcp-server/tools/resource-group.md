@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server tools for Azure resource groups
 description: Use Azure MCP Server tools to list Azure resource groups and their resources with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 09/25/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article

@@ -1,8 +1,8 @@
 ---
 title: Get Started Using the Azure MCP Server with Python
 description: Learn how to connect to and consume Azure MCP Server operations with Python
-author: alexwolfmsft
-ms.author: alexwolf
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 12/11/2025
 ms.topic: get-started
 ms.custom:
