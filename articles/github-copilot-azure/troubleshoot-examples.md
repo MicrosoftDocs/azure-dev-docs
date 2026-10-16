@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Applications with GitHub Copilot for Azure
 description: Use GitHub Copilot for Azure prompt examples to diagnose errors, analyze logs, and resolve performance issues across Azure services.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.date: 06/22/2026
 ms.service: github-copilot-for-azure
 ms.topic: best-practice

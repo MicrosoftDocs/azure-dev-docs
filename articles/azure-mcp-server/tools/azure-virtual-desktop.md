@@ -1,8 +1,8 @@
 ---
 title: Azure Virtual Desktop Tools
 description: Learn how to use the Azure MCP Server with Azure Virtual Desktop.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 07/10/2026
 ms.topic: concept-article
 ms.reviewer: vladimis

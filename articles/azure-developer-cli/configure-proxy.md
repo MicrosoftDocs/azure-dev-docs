@@ -1,8 +1,8 @@
 ---
 title: Configure a proxy server for the Azure Developer CLI
 description: Learn how to configure the Azure Developer CLI (azd) and its dependent tools to work behind a corporate proxy server or firewall.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 12/19/2025
 ms.service: azure-dev-cli
 ms.topic: how-to

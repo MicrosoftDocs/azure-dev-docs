@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure Functions
 description: Use Azure MCP Server tools to manage Azure Functions app resources and generate Azure Functions code with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: manvkaur
 ms.date: 05/13/2026
 ms.topic: concept-article

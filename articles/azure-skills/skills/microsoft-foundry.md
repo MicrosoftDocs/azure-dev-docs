@@ -81,7 +81,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Set up CI/CD for a hosted agent](/azure/ai-foundry/agents/quickstarts/set-up-cicd-hosted-agent?pivots=azd)
+- [Set up CI/CD for a hosted agent](/azure/foundry/agents/quickstarts/set-up-cicd-hosted-agent)
 - [Agent-to-agent tool for Foundry agents](/azure/ai-foundry/agents/how-to/tools/agent-to-agent)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/SKILL.md)
 - [Microsoft Foundry](/azure/foundry/)

@@ -1,8 +1,8 @@
 ---
 title: Azure Developer CLI (azd) extensions overview
 description: Learn what azd extensions are, why to use them, and how to enable, manage, and install extensions in the Azure Developer CLI.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/03/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: Azure Backup vault type parameter
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-mcp-server
 ms.topic: include
 ms.date: 08/27/2026

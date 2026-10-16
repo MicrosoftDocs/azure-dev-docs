@@ -1,8 +1,8 @@
 ---
 title: Plan Azure platform landing zones with Azure MCP Server
 description: Azure MCP Server helps you get guidance, configure parameters, and generate or download Azure platform landing zone files for an Azure Migrate project.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: akrohill
 ms.date: 09/02/2026
 ms.service: azure-mcp-server

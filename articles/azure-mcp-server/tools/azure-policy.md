@@ -3,8 +3,8 @@ title: Azure Policy Tools for Azure MCP Server
 description: Manage Azure Policy assignments effortlessly with Azure MCP Server. Learn how to simplify compliance and governance using natural language prompts.
 tool_count: 1
 mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: msalaman
 ms.reviewer: diberry
 ms.date: 09/16/2026

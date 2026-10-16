@@ -1,9 +1,9 @@
 ---
-author: alexwolfmsft
+author: kristenwomack
 ms.service: azure-dev-cli
 ms.topic: include
 ms.date: 03/23/2026
-ms.author: alexwolf
+ms.author: kwomack
 ---
 
 The `azd` Dev Container Feature supports an `extensions` option to automatically install a comma-separated list of `azd` extensions during the container build. Extensions installed this way are available as soon as the container starts, reducing manual setup and enabling `azd` commands to run with the required extensions already installed.

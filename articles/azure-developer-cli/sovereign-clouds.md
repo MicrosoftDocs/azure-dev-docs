@@ -1,8 +1,8 @@
 ---
 title: Use Azure Developer CLI in sovereign clouds
 description: Configure the Azure Developer CLI (azd) for use in sovereign clouds
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/30/2026
 ms.topic: how-to
 ms.service: azure-dev-cli

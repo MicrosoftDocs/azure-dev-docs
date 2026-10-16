@@ -1,5 +1,5 @@
 ---
-author: diberry
+author: yunjchoi
 ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: include

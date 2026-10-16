@@ -1,8 +1,8 @@
 ---
 title: Use Azure MCP Server with Azure Speech in Foundry Tools
 description: Learn how to use Azure Model Context Protocol (MCP) Server to interact with Azure Speech in Foundry Tools using natural language commands through AI assistants.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 03/04/2026
 ms.service: azure-mcp-server
 ms.topic: how-to

@@ -5,8 +5,8 @@ ms.service: azure-mcp-server
 ms.topic: concept-article
 tool_count: 2
 mcp-cli.version: 3.0.0-beta.36+b9f596ccb94e20ed8bacd41c2a9d666e6785b476
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: rrao
 ms.date: 08/21/2026
 ai-usage: ai-generated

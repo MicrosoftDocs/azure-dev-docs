@@ -1,8 +1,8 @@
 ---
 title: Deploy Azure MCP Server with on-behalf-of authentication
 description: Learn how to deploy Azure MCP Server to Azure Container Apps with on-behalf-of authentication so users retain their Azure permissions.
-author: alexwolfmsft
-ms.author: alexwolf
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: alexwolf
 ms.date: 09/22/2026
 ms.topic: how-to

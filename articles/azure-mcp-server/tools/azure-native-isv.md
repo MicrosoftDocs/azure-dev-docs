@@ -1,8 +1,8 @@
 ---
 title: Azure Native ISV Tools for Azure MCP Server
 description: Use Azure MCP Server tools with Azure Native ISV partner solutions like Datadog to manage integrated third-party services with natural language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article

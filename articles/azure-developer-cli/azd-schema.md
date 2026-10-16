@@ -1,8 +1,8 @@
 ---
 title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 08/14/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
