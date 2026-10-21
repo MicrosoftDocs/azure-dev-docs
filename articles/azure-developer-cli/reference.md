@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 09/30/2026
+ms.date: 10/20/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -1114,6 +1114,7 @@ Manage environments (ex: default environment, environment variables).
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Set one or more environment values.
 * [azd env set-secret](#azd-env-set-secret): Set a name as a reference to a Key Vault secret in the environment.
+* [azd env unset](#azd-env-unset): Remove one or more keys from an environment. (Beta)
 * [Back to top](#azd)
 
 ## azd env config
@@ -1540,6 +1541,56 @@ azd env set-secret <name> [flags]
 * [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
+## azd env unset
+
+Remove one or more keys from an environment. (Beta)
+
+### Synopsis
+
+Remove one or more keys from the selected environment's .env file. (Beta)
+
+Keys are case-sensitive. Missing keys are ignored with a warning.
+AZURE_ENV_NAME identifies the environment and cannot be unset.
+You are prompted to confirm removal (defaults to Yes). Use --force to skip this confirmation.
+If saving fails after local values change, you can choose to restore the previous values (defaults to Yes).
+With --force, restoration is attempted automatically without prompting.
+Removing a Key Vault secret reference does not delete the secret.
+Configuration values in config.json are not removed.
+
+```azdeveloper
+azd env unset <key...> [flags]
+```
+
+### Examples
+
+```azdeveloper
+azd env unset MY_KEY
+azd env unset KEY1 KEY2 --environment dev
+azd env unset MY_KEY --force
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd env unset in your web browser.
+  -e, --environment string   The name of the environment to use.
+      --force                Skips removal confirmation and automatically attempts restoration if saving fails.
+  -h, --help                 Gets help for unset.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically. Automatically enabled when azd detects a CI/CD or AI-agent environment; set AZD_NON_INTERACTIVE=false to opt out of that automatic enablement.
+```
+
+### See also
+
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
+* [Back to top](#azd)
+
 ## azd exec
 
 Execute commands and scripts with azd environment context.
@@ -1550,7 +1601,9 @@ Execute commands and scripts with full access to azd environment variables.
 
 Commands are run with the azd environment loaded into the child process.
 Multiple arguments use direct process execution (no shell wrapping).
-A single quoted argument uses shell inline execution.
+A single quoted argument uses shell inline execution unless it is ambiguous
+with a missing script path. Use --shell to make inline intent explicit when
+the command contains script-like path arguments.
 
 Examples:
   azd exec python script.py                     # Direct exec (exact argv)
@@ -1573,7 +1626,7 @@ azd exec [command] [args...] [-- script-args...] [flags]
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for exec.
   -i, --interactive          Run in interactive mode (connect stdin)
-  -s, --shell string         Shell to use (bash, sh, zsh, pwsh, powershell, cmd). Auto-detected if not specified.
+  -s, --shell string         Shell to use (bash, sh, zsh, pwsh, powershell, cmd). Auto-detected if not specified. Also disambiguates inline commands that contain script-like path arguments.
 ```
 
 ### Options inherited from parent commands
