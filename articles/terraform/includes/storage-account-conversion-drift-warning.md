@@ -1,6 +1,6 @@
 ---
 title: Storage account conversion drift warning
-ms.author: vranade
+ms.author: stema
 ms.topic: include
 ms.date: 09/02/2026
 ms.custom: devx-track-terraform
