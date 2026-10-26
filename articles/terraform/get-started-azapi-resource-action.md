@@ -5,8 +5,6 @@ keywords: azure devops terraform virtual machine azapi resource_action
 ms.topic: quickstart
 ms.date: 12/05/2023
 ms.custom: devx-track-terraform
-author: stema
-ms.author: stema
 ---
 
 # Quickstart: Deploy your first Azure resource_action resource with the AzAPI Terraform provider

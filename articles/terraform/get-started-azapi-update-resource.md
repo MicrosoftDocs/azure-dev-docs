@@ -5,8 +5,6 @@ keywords: azure devops terraform event hubs azapi update_resource
 ms.topic: quickstart
 ms.date: 11/21/2024
 ms.custom: devx-track-terraform
-author: grayzu
-ms.author: markgray
 ---
 
 # Quickstart: Deploy your first Azure update resource with the AzAPI Terraform provider
