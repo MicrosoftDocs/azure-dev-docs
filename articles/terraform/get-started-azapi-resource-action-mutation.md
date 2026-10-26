@@ -5,8 +5,6 @@ keywords: azure devops terraform storage account azapi resource_action key rotat
 ms.topic: quickstart
 ms.date: 04/20/2026
 ms.custom: devx-track-terraform
-author: stema
-ms.author: stema
 ai-usage: ai-generated
 ---
 
