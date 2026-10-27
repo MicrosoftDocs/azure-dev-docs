@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 09/30/2026
+ms.date: 10/14/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -1550,7 +1550,9 @@ Execute commands and scripts with full access to azd environment variables.
 
 Commands are run with the azd environment loaded into the child process.
 Multiple arguments use direct process execution (no shell wrapping).
-A single quoted argument uses shell inline execution.
+A single quoted argument uses shell inline execution unless it is ambiguous
+with a missing script path. Use --shell to make inline intent explicit when
+the command contains script-like path arguments.
 
 Examples:
   azd exec python script.py                     # Direct exec (exact argv)
@@ -1573,7 +1575,7 @@ azd exec [command] [args...] [-- script-args...] [flags]
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for exec.
   -i, --interactive          Run in interactive mode (connect stdin)
-  -s, --shell string         Shell to use (bash, sh, zsh, pwsh, powershell, cmd). Auto-detected if not specified.
+  -s, --shell string         Shell to use (bash, sh, zsh, pwsh, powershell, cmd). Auto-detected if not specified. Also disambiguates inline commands that contain script-like path arguments.
 ```
 
 ### Options inherited from parent commands
