@@ -49,7 +49,7 @@ The template is a serverless AI chatbot with Retrieval Augmented Generation usin
 To learn how to deploy and run this template, see [Get started with Serverless AI Chat with RAG using LangChain.js](../../javascript/ai/get-started-app-chat-template-langchainjs.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [serverless-chat-langchainjs](https://github.com/Azure-Samples/serverless-chat-langchainjs) GitHub repo.
 
 Learn [how to deploy and run](../../javascript/ai/get-started-app-chat-template-langchainjs.md)
-this JavaScript [reference template](). 
+this JavaScript reference template.
 
 :::row:::
    :::column:::
