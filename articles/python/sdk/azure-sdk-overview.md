@@ -1,7 +1,7 @@
 ---
 title: Use the Azure libraries (SDK) for Python
 description: Overview of the features and capabilities of the Azure libraries for Python that help developers be more productive when creating, using, and managing Azure resources.
-ms.date: 02/28/2026
+ms.date: 09/16/2026
 ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -14,7 +14,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - Use the Azure libraries to communicate with Azure services *from* Python code that you run either locally or in the cloud. Whether you can run Python code within the scope of a particular service depends on whether that service itself currently supports Python.
 
-- The libraries support [Python](https://www.python.org/) 3.9 or later. For more information about supported versions of Python, see [Azure SDKs Python version support policy](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy). If you're using [PyPy](https://www.pypy.org/), make sure the version you use at least supports the Python version mentioned previously.
+- For supported Python versions, see the [Azure SDKs Python version support policy](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy). If you're using [PyPy](https://www.pypy.org/), use a version that's compatible with a supported Python version.
 
 - The Azure SDK for Python is composed solely of over 180 individual Python libraries that relate to specific Azure services. There are no other tools in the SDK.
 
@@ -44,13 +44,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - The source repo for the library API reference documentation resides on [https://github.com/MicrosoftDocs/azure-docs-sdk-python/](https://github.com/MicrosoftDocs/azure-docs-sdk-python/).
 
-- Starting in 2019, Microsoft updated Azure Python libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries. The updated libraries adhere to [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html).
-
-  - On 31 March 2023, Microsoft retired support for Azure SDK libraries that don't conform to current Azure SDK guidelines. While older libraries can still be used beyond 31 March 2023, they no longer receive official support and updates from Microsoft. For more information, see the notice [Update your Azure SDK libraries](https://azure.microsoft.com/updates/support-for-azure-sdk-libraries-that-do-not-conform-to-our-current-azure-sdk-guidelines-will-be-retired-as-of-31-march-2023/).
-
-  - To avoid missing security and performance updates to the Azure SDKs, upgrade to the [latest Azure SDK libraries](https://azure.github.io/azure-sdk/) by 31 March 2023.
-
-  - To check which Python libraries are impacted, see [Azure SDK Deprecated Releases for Python](https://azure.github.io/azure-sdk/releases/deprecated/index.html#python).
+- Azure Python libraries share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries. The libraries adhere to [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html).
 
 - For details on the guidelines Microsoft applies to the libraries, see the [Python Guidelines: Introduction](https://azure.github.io/azure-sdk/python_design.html#introduction).
 
