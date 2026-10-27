@@ -1,29 +1,31 @@
 # Global owner
-* @nitinme
+* @nitinme @alvinashcraft
 
 # Config
-/articles/docfx.json @KarlErickson
-/.openpublishing.publish.config.json @KarlErickson
-/CODEOWNERS @KarlErickson
+/articles/docfx.json @alvinashcraft
+/.openpublishing.publish.config.json @alvinashcraft
+/CODEOWNERS @alvinashcraft
+/articles/includes/ @lfraleigh
 
 # AI
-/articles/ai/ @bobtabor-msft
+/articles/ai/ @achandmsft @lfraleigh
+/articles/github-copilot-azure/ @yunjchoi
 
 # Intro
-/articles/intro/ @PatAltimore
+/articles/intro/ @lfraleigh
 
 # DevEx
-/articles/python/ @PatAltimore
-/articles/go/ @PatAltimore
-/articles/cpp/ @antkmsft @PatAltimore
-/articles/rust/ @heaths @diberry
-/articles/javascript/ @diberry
-/articles/java/ @KarlErickson
-/articles/github-copilot-app-modernization/ @KarlErickson
+/articles/python/ @lfraleigh
+/articles/go/ @lfraleigh
+/articles/cpp/ @antkmsft @lfraleigh
+/articles/rust/ @heaths @diberry @lfraleigh
+/articles/javascript/ @diberry @lfraleigh
+/articles/java/ @lfraleigh
+/articles/github-copilot-app-modernization/ @KarlErickson @alvinashcraft
 
 # Tools
 /articles/azure-developer-cli/ @kristenwomack @vhvb1989
-/articles/typespec/ @diberry
+/articles/typespec/ @lfraleigh
 
 # Azure AI Developer tools
 /articles/ai-developer-tools/ @diberry @yunjchoi @sandeep-sen 
