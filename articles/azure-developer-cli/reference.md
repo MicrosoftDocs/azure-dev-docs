@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/14/2026
+ms.date: 10/20/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -1114,6 +1114,7 @@ Manage environments (ex: default environment, environment variables).
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Set one or more environment values.
 * [azd env set-secret](#azd-env-set-secret): Set a name as a reference to a Key Vault secret in the environment.
+* [azd env unset](#azd-env-unset): Remove one or more keys from an environment. (Beta)
 * [Back to top](#azd)
 
 ## azd env config
@@ -1525,6 +1526,57 @@ azd env set-secret <name> [flags]
       --docs                 Opens the documentation for azd env set-secret in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for set-secret.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Runs without prompts. Uses existing values; fails if any required value or decision cannot be resolved automatically. Automatically enabled when azd detects a CI/CD or AI-agent environment; set AZD_NON_INTERACTIVE=false to opt out of that automatic enablement.
+```
+
+### See also
+
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
+* [Back to top](#azd)
+
+## azd env unset
+
+Remove one or more keys from an environment. (Beta)
+
+### Synopsis
+
+Remove one or more keys from the selected environment's .env file. (Beta)
+
+Keys are case-sensitive. Missing keys are ignored with a warning.
+AZURE_ENV_NAME identifies the environment and cannot be unset.
+You are prompted to confirm removal (defaults to Yes). Use --force to skip this confirmation.
+When using --no-prompt, you must also use --force to remove an existing key.
+If saving fails after local values change, you can choose to restore the previous values (defaults to Yes).
+With --force, restoration is attempted automatically without prompting.
+Removing a Key Vault secret reference does not delete the secret.
+Configuration values in config.json are not removed.
+
+```azdeveloper
+azd env unset <key...> [flags]
+```
+
+### Examples
+
+```azdeveloper
+azd env unset MY_KEY
+azd env unset KEY1 KEY2 --environment dev
+azd env unset MY_KEY --force
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd env unset in your web browser.
+  -e, --environment string   The name of the environment to use.
+      --force                Skips removal confirmation and automatically attempts restoration if saving fails.
+  -h, --help                 Gets help for unset.
 ```
 
 ### Options inherited from parent commands
