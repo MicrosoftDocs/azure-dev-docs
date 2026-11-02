@@ -1886,7 +1886,8 @@
     },
     {
       "source_path": "articles/ai/passwordless-connections.md",
-      "redirect_url": "/azure/developer/ai/keyless-connections"
+      "redirect_url": "/azure/developer/ai/get-started-azure-openai-starter-kit",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/terraform/provider-version-history-azurerm.md",
@@ -2115,6 +2116,16 @@
     {
       "source_path": "articles/ai/build-mcp-server-ts.md",
       "redirect_url": "/azure/developer/ai/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/get-started-securing-your-ai-app.md",
+      "redirect_url": "/azure/developer/ai/get-started-azure-openai-starter-kit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/ai/keyless-connections.md",
+      "redirect_url": "/azure/developer/ai/get-started-azure-openai-starter-kit",
       "redirect_document_id": false
     }
   ]

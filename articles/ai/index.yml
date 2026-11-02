@@ -68,13 +68,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use Azure OpenAI without keys
-            url: keyless-connections.md
+            url: get-started-azure-openai-starter-kit.md
           - text: Use Azure AI Search without keys
             url: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
       - linkListType: get-started
         links:
-          - text: Secure your AI App with keyless authentication
-            url: get-started-securing-your-ai-app.md
+          - text: Get started with Azure OpenAI and the Responses API
+            url: get-started-azure-openai-starter-kit.md
 
   - title: Resources by programming language
     linkLists:
