@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 08/21/2026
+ ms.date: 11/02/2026
 ---
 
 ## Available tools
@@ -124,7 +124,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
-| [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | List and summarize Azure Advisor recommendations, explore recommendation metadata, and apply recommendations to infrastructure-as-code files. |
+| [Azure Advisor](../../tools/azure-advisor.md) | `advisor` | List, summarize, prioritize, and update Azure Advisor recommendations, explore recommendation metadata, get remediation guidance, and check service group status. |
 | [Azure Backup](../../tools/azure-backup.md) | `azurebackup` | Manage backup vaults, policies, protected items, governance, disaster recovery, and security for Azure Backup. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | `cloudarchitect` | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Insights](../../tools/azure-insights.md) | `insights` | Analyze deployed Azure resources across a subscription or tenant and generate infrastructure insights. |
