@@ -22,7 +22,7 @@
 | Azure PostgreSQL Authentication | npm [1.0.0](https://www.npmjs.com/package/@azure/postgresql-auth/v/1.0.0) | [docs](/javascript/api/overview/azure/postgresql-auth-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/postgresql-auth_1.0.0/sdk/postgresql/postgresql-auth/) |
 | Batch | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure-rest/batch/v/1.0.0-beta.4) |  | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.4/sdk/batch/batch-rest/) |
 | Batch | npm [13.0.0](https://www.npmjs.com/package/@azure/batch/v/13.0.0) | [docs](/javascript/api/overview/azure/batch-readme) | GitHub [13.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
-| Common | npm [2.1.0](https://www.npmjs.com/package/@azure/keyvault-common/v/2.1.0) | [docs](/javascript/api/overview/azure/keyvault-common-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_2.1.0/sdk/keyvault/keyvault-common/) |
+| Common | npm [2.1.1](https://www.npmjs.com/package/@azure/keyvault-common/v/2.1.1) | [docs](/javascript/api/overview/azure/keyvault-common-readme) | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_2.1.1/sdk/keyvault/keyvault-common/) |
 | Communication Call Automation | npm [1.6.0](https://www.npmjs.com/package/@azure/communication-call-automation/v/1.6.0) | [docs](/javascript/api/overview/azure/communication-call-automation-readme) | GitHub [1.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.6.0/sdk/communication/communication-call-automation/) |
 | Communication Chat | npm [1.6.0](https://www.npmjs.com/package/@azure/communication-chat/v/1.6.0) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.6.0/sdk/communication/communication-chat/) |
 | Communication Common | npm [2.5.0](https://www.npmjs.com/package/@azure/communication-common/v/2.5.0)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-common/v/3.0.0-beta.1) | [docs](/javascript/api/overview/azure/communication-common-readme) | GitHub [2.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.5.0/sdk/communication/communication-common/)<br>GitHub [3.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_3.0.0-beta.1/sdk/communication/communication-common/) |
@@ -525,6 +525,7 @@
 | TypeSpec Streams | npm [0.87.0](https://www.npmjs.com/package/@typespec/streams/v/0.87.0) |  |  |
 | unknown | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/typespec-azure-examples/v/0.2.2) |  |  |
 | unknown | npm [0.1.0-dev.2](https://www.npmjs.com/package/@azure-tools/typespec-foundry-core/v/0.1.0-dev.2) |  |  |
+| unknown | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-ts-provisioning/v/0.3.0) |  |  |
 | unknown | npm [0.6.145](https://www.npmjs.com/package/@azure/bicep-typespec-emitter/v/0.6.145) |  |  |
 | unknown | npm [1.1.0](https://www.npmjs.com/package/@azure/cosmosdb-nosql-language-service/v/1.1.0) |  |  |
 | unknown | npm [1.1.0](https://www.npmjs.com/package/@azure/cosmosdb-schema-analyzer/v/1.1.0) |  |  |
