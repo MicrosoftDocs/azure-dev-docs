@@ -45,3 +45,19 @@ groups:
     title: .NET
   - id: typescript
     title: TypeScript
+- id: azure-openai-starter-languages
+  title: Azure OpenAI Starter Kit Languages
+  prompt: Choose a programming language
+  pivots:
+  - id: dotnet
+    title: .NET
+  - id: python
+    title: Python
+  - id: javascript
+    title: JavaScript
+  - id: typescript
+    title: TypeScript
+  - id: java
+    title: Java
+  - id: golang
+    title: Go

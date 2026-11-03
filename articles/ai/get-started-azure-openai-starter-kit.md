@@ -1,13 +1,13 @@
 ---
 title: "Get started with Azure OpenAI and the Responses API"
 description: "Use the Azure OpenAI Starter Kit to deploy GPT-5-mini and run a hello world app with Microsoft Entra ID authentication."
-ms.date: 05/25/2026
+ms.date: 10/27/2026
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, keyless-python, devx-track-js, keyless-javascript, devx-track-dotnet, keyless-dotnet, devx-track-go, keyless-go, devx-track-extended-java, keyless-java
 ms.collection: ce-skilling-ai-copilot
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
-zone_pivot_groups: intelligent-apps-languages
+zone_pivot_groups: azure-openai-starter-languages
 # CustomerIntent: As an app developer, I want to deploy Azure OpenAI and call the Responses API from a small app using Microsoft Entra ID so that I can get my first AI app working quickly without API keys.
 ---
 
@@ -50,7 +50,7 @@ To complete this article, you need:
 
 :::zone-end
 
-:::zone pivot="javascript"
+:::zone pivot="javascript,typescript"
 
 - Node.js 18 or later.
 
@@ -231,7 +231,7 @@ dotnet run hello_world_entra.cs
 
 :::zone-end
 
-:::zone pivot="javascript"
+:::zone pivot="javascript,typescript"
 
 Create a file named `hello_world_entra.ts` in the `src/typescript` folder.
 
@@ -466,7 +466,7 @@ The C# app uses the `OpenAI` package with `Azure.Identity`. The `BearerTokenPoli
 
 :::zone-end
 
-:::zone pivot="javascript"
+:::zone pivot="javascript,typescript"
 
 The TypeScript app uses the `openai` package with `@azure/identity`. The `getBearerTokenProvider` helper creates a token provider that the OpenAI client can use as its credential.
 
@@ -483,6 +483,12 @@ The Go app uses `azidentity.NewDefaultAzureCredential` with an Azure Core bearer
 The Java app uses `DefaultAzureCredentialBuilder` with `AuthenticationUtil.getBearerTokenSupplier`. The token supplier is passed to the OpenAI client by using `BearerTokenCredential`.
 
 :::zone-end
+
+## Use keyless authentication in Azure-hosted apps
+
+This walkthrough runs the app locally with your developer identity; it doesn't deploy the app to Azure. When you host an app in Azure, configure the hosting service and the Azure Identity credential to use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). For a user-assigned managed identity, explicitly configure the credential to select that identity. For credential guidance and language-specific references, see [Passwordless connections for Azure services](../intro/passwordless-overview.md#introducing-defaultazurecredential).
+
+Grant the hosted app's identity an appropriate Azure OpenAI role, such as [Cognitive Services OpenAI User](/azure/role-based-access-control/built-in-roles/ai-machine-learning#cognitive-services-openai-user), at the Azure OpenAI resource scope. Your developer account's role assignment doesn't automatically grant the hosted app access. For assignment steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Run the starter kit sample
 
@@ -504,7 +510,7 @@ dotnet run responses_example_entra.cs
 
 :::zone-end
 
-:::zone pivot="javascript"
+:::zone pivot="javascript,typescript"
 
 ```bash
 npx tsx responses_example_entra.ts
@@ -566,7 +572,7 @@ If you need help with the starter kit, use these resources:
 - [Azure OpenAI Starter Kit issues](https://github.com/Azure-Samples/azure-openai-starter/issues).
 - [Azure OpenAI documentation](/azure/ai-services/openai/).
 - [Azure Developer CLI documentation](/azure/developer/azure-developer-cli/).
-- [Azure OpenAI role-based access control](/azure/ai-foundry/openai/how-to/role-based-access-control).
+- [Cognitive Services OpenAI User role](/azure/role-based-access-control/built-in-roles/ai-machine-learning#cognitive-services-openai-user).
 
 ## Next steps
 

@@ -21,6 +21,10 @@ on:
         description: Label required for a PR to participate in the rollout
         type: string
         required: true
+      rollout-branch-prefix:
+        description: Target branch prefix required for a reminder
+        type: string
+        required: true
       reminder-due-label:
         description: Bot-owned label recording business-day reminder eligibility
         type: string
@@ -63,6 +67,7 @@ jobs:
     timeout-minutes: 15
     env:
       EVENT_LABEL: ${{ inputs.event-label }}
+      ROLLOUT_BRANCH_PREFIX: ${{ inputs.rollout-branch-prefix }}
       REMINDER_DUE_LABEL: ${{ inputs.reminder-due-label }}
       INACTIVITY_DAYS: ${{ inputs.inactivity-days }}
       AUTHOR_ACTION_LABEL: ${{ inputs.author-action-label }}
@@ -152,7 +157,8 @@ jobs:
             .replace(posting, posting + "\n        try {\n            const load = __WEBPACK_EXTERNAL_createRequire(import.meta.url);\n            const {canPost} = load(load('node:path').join(\n                process.env.GITHUB_WORKSPACE, '.github/scripts/kp-business-clock.cjs'));\n            if (!await canPost({\n                github: this.client, context: github_context, number: issue.number,\n                core: {info: message => issueLogger.info(message)}\n            })) return;\n        } catch (error) {\n            process.exitCode = 1;\n            throw error;\n        }\n"));
           NODE
 
-      # Existing markers must reach stock cleanup even after due is removed.
+      # The clock re-arms obsolete cycles after activity; stock retains posting
+      # and ordinary cleanup. Existing markers still reach stock's filter.
       - name: Remind authors to address outstanding comments
         if: inputs.reminder-type == 'author'
         uses: ./.kp-stale-action

@@ -26,9 +26,11 @@ function fixture() {
   Object.assign(process.env, {
     EVENT_LABEL: 'conference-event', REMINDER_DUE_LABEL: 'kp-reminder-due',
     AUTHOR_REMINDER_LABEL: 'kp-author-stalepr', EXEMPT_LABEL: 'keep-open',
-    AUTHOR_REMINDER_MESSAGE: 'Existing author reminder', INACTIVITY_DAYS: '3'
+    AUTHOR_REMINDER_MESSAGE: 'Existing author reminder', INACTIVITY_DAYS: '3',
+    ROLLOUT_BRANCH_PREFIX: 'release-ignite26-'
   });
   let now = Date.parse('2026-10-26T19:00:00Z');
+  let nextCommentId = 1;
   const comments = [], events = [], reviews = [], writes = [];
   const pr = {number: 42, state: 'open', draft: false, title: 'Title', body: 'Body',
     head: {sha: 'abc'}, base: {ref: 'release-ignite26-test'},
@@ -39,7 +41,7 @@ function fixture() {
     pr.labels = pr.labels.filter(item => item.name !== name);
     if (add) pr.labels.push({name});
     pr.updated_at = stamp();
-    events.push({event: add ? 'labeled' : 'unlabeled', label: {name},
+    events.push({id: events.length + 1, event: add ? 'labeled' : 'unlabeled', label: {name},
       actor: {login: 'github-actions[bot]'}, created_at: pr.updated_at});
     writes.push([add ? 'add' : 'remove', name]);
   }
@@ -47,9 +49,9 @@ function fixture() {
   const endpoints = {
     list: () => {}, get,
     listComments: () => {}, listEventsForTimeline: () => {}, listReviewComments: () => {},
-    getLabel: async () => ({data: {name: 'kp-reminder-due'}}),
+    getLabel: async ({name}) => ({data: {name}}),
     createComment: async ({body}) => {
-      const comment = {id: comments.length + 1, body, user: {login: 'github-actions[bot]'},
+      const comment = {id: nextCommentId++, body, user: {login: 'github-actions[bot]'},
         created_at: stamp()};
       comment.updated_at = comment.created_at;
       comments.push(comment); pr.updated_at = comment.updated_at;
@@ -78,15 +80,239 @@ function fixture() {
   }, rest: {pulls: {list: endpoints.list, get, listReviewComments: endpoints.listReviewComments},
     issues: endpoints}, paginate};
   const run = () => reconcile({github, context: {repo: {owner: 'test', repo: 'repo'}},
-    core: {info() {}}, now});
+    core: {info() {}}, now: () => now});
   return {pr, comments, events, reviews, writes, github, run, label,
+    time: () => now,
     setTime: value => {now = Date.parse(value);},
     humanComment: () => {
       pr.updated_at = stamp();
-      comments.push({id: comments.length + 1, body: 'Author activity',
+      comments.push({id: nextCommentId++, body: 'Author activity',
         user: {login: 'author'}, created_at: pr.updated_at, updated_at: pr.updated_at});
     }};
 }
+
+test('successful delivery with failed marker is recovered without reposting through either entry point', async () => {
+  for (const entry of ['reconcile', 'canPost']) {
+    const f = fixture();
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    const gate = () => canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+      core: {info() {}}, number: 42, now: Date.parse('2026-10-28T19:01:00Z')});
+    assert.equal(await gate(), true);
+    await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+    const add = f.github.rest.issues.addLabels;
+    let attempts = 0;
+    f.github.rest.issues.addLabels = async input => {
+      if (input.labels.includes('kp-author-stalepr') && attempts++ === 0) {
+        throw Object.assign(new Error('Marker unavailable'), {status: 503});
+      }
+      return add(input);
+    };
+    await assert.rejects(f.github.rest.issues.addLabels({labels: ['kp-author-stalepr']}),
+      error => error.status === 503);
+    if (entry === 'reconcile') await f.run();
+    else assert.equal(await gate(), false);
+    assert.ok(f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+    assert.equal(await gate(), false);
+    await f.run();
+    const count = f.writes.length;
+    await f.run();
+    assert.equal(f.writes.length, count, 'recovery is idempotent');
+    assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+  }
+});
+
+test('same-second activity retires delivered comments and permits one new-cycle reminder', async () => {
+  const f = fixture();
+  await f.run();
+  f.setTime('2026-10-28T19:01:00Z');
+  await f.run();
+  await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+  const first = f.comments.at(-1);
+  f.pr.head.sha = 'push-after-delivery';
+  f.pr.updated_at = first.created_at;
+  await f.run();
+  assert.equal(readClock(f.comments[0]).reminderFloor, first.id);
+  assert.ok(!f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  f.setTime('2026-11-04T22:00:00Z');
+  await f.run();
+  assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, number: 42, now: Date.parse('2026-11-04T22:00:00Z')}), true);
+  await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+  await f.run();
+  assert.ok(f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 2);
+});
+
+test('delivery recovery surfaces missing definition/write failures and retries safely', async () => {
+  for (const operation of ['definition', 'write']) {
+    const f = fixture();
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+    const original = f.github.rest.issues[operation === 'definition' ? 'getLabel' : 'addLabels'];
+    const endpoint = operation === 'definition' ? 'getLabel' : 'addLabels';
+    f.github.rest.issues[endpoint] = async input => {
+      if (input.name === 'kp-author-stalepr' || input.labels?.includes('kp-author-stalepr')) {
+        throw Object.assign(new Error('Recovery denied'), {status: operation === 'definition' ? 404 : 403});
+      }
+      return original(input);
+    };
+    await assert.rejects(f.run(), /Recovery denied/);
+    assert.ok(!f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+    f.github.rest.issues[endpoint] = original;
+    await f.run();
+    assert.ok(f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+    assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+  }
+});
+
+test('delivery recovery defers concurrent activity without stale marker or duplicate comment writes', async () => {
+  const f = fixture();
+  await f.run();
+  f.setTime('2026-10-28T19:01:00Z');
+  await f.run();
+  await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+  const get = f.github.rest.pulls.get;
+  let calls = 0;
+  f.github.rest.pulls.get = async input => {
+    if (++calls === 2) {
+      f.pr.head.sha = 'concurrent-push';
+      f.pr.updated_at = '2026-10-28T20:00:00Z';
+    }
+    return get(input);
+  };
+  await f.run();
+  assert.ok(!f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  await f.run();
+  assert.ok(!f.pr.labels.some(item => item.name === 'kp-reminder-due'));
+  assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+});
+
+test('unknown delivery baseline stays blocked until genuine activity establishes a new cycle', async () => {
+  const f = fixture();
+  await f.run();
+  f.setTime('2026-10-28T19:01:00Z');
+  await f.run();
+  await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+  f.comments.splice(0, 1);
+  f.setTime('2026-11-10T20:00:00Z');
+  await assert.rejects(f.run(), /Unknown KP reminder cycle/);
+  await assert.rejects(f.run(), /Unknown KP reminder cycle/);
+  assert.ok(!f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  const clock = f.comments.find(item => item.body.startsWith(PREFIX));
+  assert.equal(readClock(clock).reminderFloor, null);
+  f.pr.head.sha = 'new-confirmed-cycle';
+  f.pr.updated_at = '2026-11-10T21:00:00Z';
+  await f.run();
+  assert.equal(readClock(clock).reminderFloor, f.comments[0].id);
+  assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+});
+
+test('only exact configured bot delivery is recovered; marker-only delivery ambiguity never triggers reposting', async () => {
+  const f = fixture();
+  await f.run();
+  f.comments.push({id: 900, user: {login: 'author'}, body: process.env.AUTHOR_REMINDER_MESSAGE,
+    created_at: '2026-10-23T19:00:00Z'});
+  f.comments.push({id: 901, user: {login: 'github-actions[bot]'}, body: 'Different bot message',
+    created_at: '2026-10-23T19:00:00Z'});
+  f.setTime('2026-10-28T19:01:00Z');
+  await f.run();
+  assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, number: 42, now: Date.parse('2026-10-28T19:01:00Z')}), true);
+  assert.ok(!f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  f.label('kp-author-stalepr', true);
+  assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, number: 42, now: Date.parse('2026-10-28T19:01:00Z')}), false);
+});
+
+test('feedback revisions in the marker second reset issue and inline cycles and retain retry evidence', async () => {
+  for (const kind of ['issue', 'review']) for (const delayed of [false, true]) {
+    const f = fixture();
+    await f.run();
+    const feedback = {id: 900, user: {login: 'reviewer'}, body: 'Original feedback',
+      created_at: '2026-10-26T19:00:00Z', updated_at: '2026-10-26T19:00:00Z'};
+    (kind === 'issue' ? f.comments : f.reviews).push(feedback);
+    await f.run();
+    f.setTime('2026-10-30T19:00:00Z');
+    await f.run();
+    await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+    f.label('kp-author-stalepr', true);
+    f.label('kp-reminder-due', false);
+    const marker = f.events.find(event => event.event === 'labeled' &&
+      event.label.name === 'kp-author-stalepr');
+    feedback.body = 'Edited feedback';
+    feedback.updated_at = marker.created_at;
+    f.setTime(delayed ? '2026-11-10T20:00:00Z' : '2026-10-30T20:00:00Z');
+    const remove = f.github.rest.issues.removeLabel;
+    f.github.rest.issues.removeLabel = async input => {
+      if (input.name === 'kp-author-stalepr') throw new Error('Transient marker removal');
+      return remove(input);
+    };
+    await assert.rejects(f.run(), /Transient marker removal/);
+    const persisted = readClock(f.comments.find(item => item.body.startsWith(PREFIX)));
+    assert.equal(persisted.markerReset.id, marker.id);
+    assert.equal(persisted.markerReset.confirmed, true);
+    assert.equal(persisted.activityAt, marker.created_at);
+    f.github.rest.issues.removeLabel = remove;
+    await f.run();
+    assert.ok(!f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+    assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+  }
+});
+
+test('unchanged legacy feedback never authorizes a reset when backfilling revision evidence', async () => {
+  for (const kind of ['issue', 'review']) {
+    const f = fixture();
+    await f.run();
+    const feedback = {id: 900, user: {login: 'reviewer'}, body: 'Historical feedback',
+      created_at: '2026-10-26T19:00:00Z', updated_at: '2026-10-26T19:00:00Z'};
+    (kind === 'issue' ? f.comments : f.reviews).push(feedback);
+    f.setTime('2026-10-30T19:00:00Z');
+    await f.run();
+    await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+    f.label('kp-author-stalepr', true);
+    feedback.updated_at = f.events.at(-1).created_at;
+    const clock = f.comments.find(item => item.body.startsWith(PREFIX));
+    const legacy = readClock(clock);
+    delete legacy.feedbackFingerprint;
+    clock.body = PREFIX + JSON.stringify(legacy) + '\n-->';
+    f.setTime('2026-11-10T20:00:00Z');
+    await f.run();
+    await f.run();
+    assert.ok(f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+    assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+    feedback.body = 'A genuinely new edit at the same server timestamp';
+    await f.run();
+    assert.ok(!f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  }
+});
+
+test('posting rereads inline edits even when PR timestamp and feedback counts stay unchanged', async () => {
+  const f = fixture();
+  f.reviews.push({id: 900, user: {login: 'reviewer'}, body: 'Original feedback',
+    created_at: '2026-10-23T19:00:00Z', updated_at: '2026-10-23T19:00:00Z'});
+  await f.run();
+  f.setTime('2026-10-28T19:01:00Z');
+  await f.run();
+  const original = f.github.paginate;
+  let reads = 0;
+  const paginate = async (...args) => {
+    if (args[0] === f.github.rest.pulls.listReviewComments && ++reads === 2) {
+      f.reviews[0].body = 'Fresh feedback during validation';
+      f.reviews[0].updated_at = '2026-10-28T19:01:00Z';
+    }
+    return original(...args);
+  };
+  paginate.iterator = original.iterator;
+  f.github.paginate = paginate;
+  const before = f.writes.length;
+  assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, number: 42, now: Date.parse('2026-10-28T19:01:00Z')}), false);
+  assert.equal(f.writes.length, before, 'racing feedback cannot write bookkeeping or permit posting');
+});
 
 test('initialization, due bookkeeping, stock reminder, activity cleanup and reset', async () => {
   const f = fixture();
@@ -110,9 +336,7 @@ test('initialization, due bookkeeping, stock reminder, activity cleanup and rese
   await f.run();
   assert.equal(readClock(f.comments[0]).activityAt, activityAt);
   assert.equal(f.pr.labels.some(l => l.name === 'kp-reminder-due'), false);
-  assert.equal(f.pr.labels.some(l => l.name === 'kp-author-stalepr'), true);
-  // The marker itself keeps the PR in stock stale's any-of label filter.
-  f.label('kp-author-stalepr', false);
+  assert.equal(f.pr.labels.some(l => l.name === 'kp-author-stalepr'), false);
   await f.run();
   assert.equal(f.pr.labels.some(l => l.name === 'kp-reminder-due'), false);
   const resetWrites = f.writes.length;
@@ -184,13 +408,290 @@ test('recover activity before later bot writes, including edited old comments', 
   assert.equal(f.pr.labels.some(l => l.name === 'kp-reminder-due'), false);
 });
 
-test('an existing marker without due is not disturbed to force a reminder', async () => {
+test('an existing marker without due and without new activity is not disturbed', async () => {
   const f = fixture();
-  f.pr.labels.push({name: 'kp-author-stalepr'});
+  f.setTime('2026-10-26T19:00:00Z');
+  f.label('kp-author-stalepr', true);
   f.setTime('2026-11-10T20:00:00Z');
   await f.run();
   assert.equal(f.pr.labels.some(l => l.name === 'kp-reminder-due'), false);
-  assert.equal(f.writes.some(([kind]) => kind === 'add' || kind === 'remove'), false);
+  assert.equal(f.writes.some(([kind, name]) => kind === 'remove' &&
+    ['kp-reminder-due', 'kp-author-stalepr'].includes(name)), false);
+});
+
+test('push re-arms marker-only and marker-plus-due cycles, including delayed scans', async () => {
+  for (const markerOnly of [false, true]) for (const delayed of [false, true]) {
+    const f = fixture();
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    if (!markerOnly) await f.run();
+    await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+    f.label('kp-author-stalepr', true);
+    f.pr.head.sha = 'pushed';
+    f.pr.updated_at = '2026-10-29T20:00:00Z';
+    f.setTime(delayed ? '2026-11-04T20:00:00Z' : '2026-10-29T21:00:00Z');
+    await f.run();
+    assert.equal(readClock(f.comments[0]).activityAt, '2026-10-29T20:00:00Z');
+    assert.ok(!f.pr.labels.some(label => ['kp-author-stalepr', 'kp-reminder-due'].includes(label.name)));
+    assert.equal(f.comments.filter(comment => comment.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+    const when = delayed ? '2026-11-04T21:00:00Z' : '2026-11-03T20:59:59Z';
+    f.setTime(when);
+    await f.run();
+    assert.equal(f.pr.labels.some(label => label.name === 'kp-reminder-due'), delayed);
+    f.setTime('2026-11-04T22:00:00Z');
+    await f.run();
+    assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+      core: {info() {}}, number: 42, now: Date.parse('2026-11-04T22:00:00Z')}), true);
+    await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+    f.label('kp-author-stalepr', true);
+    const count = f.writes.length;
+    await f.run();
+    await f.run();
+    assert.equal(f.writes.length, count, 'unchanged cycle does not re-arm or create a duplicate');
+    assert.equal(f.comments.filter(comment => comment.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 2);
+  }
+});
+
+test('missing-clock fallback and legacy migration do not authorize bot-only marker resets', async () => {
+  for (const change of ['timestamp-skew', 'due-removal']) {
+    const f = fixture();
+    f.setTime('2026-10-28T19:00:00Z');
+    if (change === 'due-removal') f.label('kp-reminder-due', true);
+    await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+    f.label('kp-author-stalepr', true);
+    f.setTime('2026-10-28T19:01:00Z');
+    if (change === 'due-removal') f.label('kp-reminder-due', false);
+    else f.pr.updated_at = '2026-10-28T19:01:00Z';
+    const fallback = f.pr.updated_at;
+    await f.run();
+    const persisted = f.comments.find(comment => comment.body.startsWith(PREFIX));
+    assert.equal(readClock(persisted).activityAt, fallback);
+    assert.equal(readClock(persisted).confirmedActivityAt, null);
+    assert.ok(f.pr.labels.some(label => label.name === 'kp-author-stalepr'));
+    assert.ok(!f.writes.some(([kind, name]) => kind === 'remove' && name === 'kp-author-stalepr'));
+    const legacy = readClock(persisted);
+    delete legacy.confirmedActivityAt;
+    const marker = f.events.find(event => event.event === 'labeled' &&
+      event.label.name === 'kp-author-stalepr');
+    legacy.markerReset = {id: marker.id, createdAt: marker.created_at};
+    persisted.body = PREFIX + JSON.stringify(legacy) + '\n-->';
+    f.setTime('2026-11-10T20:00:00Z');
+    await f.run();
+    await f.run();
+    assert.equal(readClock(persisted).activityAt, fallback);
+    assert.equal(readClock(persisted).confirmedActivityAt, null);
+    assert.ok(f.pr.labels.some(label => label.name === 'kp-author-stalepr'));
+    assert.equal(f.comments.filter(comment => comment.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+    f.pr.head.sha = 'genuine-push';
+    f.pr.updated_at = '2026-11-10T21:00:00Z';
+    f.setTime('2026-11-10T21:01:00Z');
+    await f.run();
+    assert.equal(readClock(persisted).confirmedActivityAt, '2026-11-10T21:00:00Z');
+    assert.ok(!f.pr.labels.some(label => label.name === 'kp-author-stalepr'));
+  }
+});
+
+test('confirmed feedback can re-arm even when later bot writes seeded a conservative fallback', async () => {
+  const f = fixture();
+  f.setTime('2026-10-28T19:00:00Z');
+  f.label('kp-author-stalepr', true);
+  f.setTime('2026-10-28T19:01:00Z');
+  f.humanComment();
+  const confirmed = f.pr.updated_at;
+  f.setTime('2026-10-28T19:02:00Z');
+  f.label('kp-reminder-due', false);
+  const fallback = f.pr.updated_at;
+  await f.run();
+  const persisted = f.comments.find(comment => comment.body.startsWith(PREFIX));
+  assert.equal(readClock(persisted).activityAt, fallback);
+  assert.equal(readClock(persisted).confirmedActivityAt, confirmed);
+  assert.ok(!f.pr.labels.some(label => label.name === 'kp-author-stalepr'));
+});
+
+test('marker reset retries partial removals, including activity in the marker second', async () => {
+  for (const failedLabel of ['kp-reminder-due', 'kp-author-stalepr']) {
+    const f = fixture();
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    f.label('kp-author-stalepr', true);
+    const activityAt = f.events.at(-1).created_at;
+    f.pr.head.sha = 'same-second-push';
+    f.pr.updated_at = activityAt;
+    const remove = f.github.rest.issues.removeLabel;
+    f.github.rest.issues.removeLabel = async args => {
+      if (args.name === failedLabel) throw new Error('Injected label failure');
+      return remove(args);
+    };
+    await assert.rejects(f.run(), /Injected label failure/);
+    assert.equal(readClock(f.comments[0]).markerReset.id, f.events.find(event =>
+      event.event === 'labeled' && event.label.name === 'kp-author-stalepr').id);
+    f.github.rest.issues.removeLabel = remove;
+    await f.run();
+    assert.equal(f.pr.labels.some(label => label.name === 'kp-author-stalepr'), false);
+    assert.equal(readClock(f.comments[0]).activityAt, activityAt);
+    await f.run();
+    assert.equal(readClock(f.comments[0]).markerReset, undefined);
+  }
+});
+
+test('reset observes racing activity, retargeting and replacement marker generations', async () => {
+  for (const change of ['push', 'comment', 'retarget', 'replacement-marker']) {
+    const f = fixture();
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    f.label('kp-author-stalepr', true);
+    f.setTime('2026-10-29T20:00:00Z');
+    f.pr.head.sha = 'first-push';
+    f.pr.updated_at = '2026-10-29T20:00:00Z';
+    const update = f.github.rest.issues.updateComment;
+    f.github.rest.issues.updateComment = async args => {
+      const result = await update(args);
+      f.github.rest.issues.updateComment = update;
+      if (change === 'push') {f.pr.head.sha = 'racing-push'; f.pr.updated_at = '2026-10-29T20:01:00Z';}
+      if (change === 'comment') f.humanComment();
+      if (change === 'retarget') {f.pr.base.ref = 'main'; f.label('conference-event', false);}
+      if (change === 'replacement-marker') f.label('kp-author-stalepr', true);
+      return result;
+    };
+    await f.run();
+    assert.equal(f.pr.labels.some(label => label.name === 'kp-author-stalepr'), true);
+    assert.equal(f.writes.some(([kind, name]) => kind === 'remove' &&
+      ['kp-reminder-due', 'kp-author-stalepr'].includes(name)), false);
+  }
+});
+
+test('missing/malformed marker provenance and reset write failures fail explicitly', async () => {
+  for (const corrupt of [
+    f => {f.pr.labels.push({name: 'kp-author-stalepr'});},
+    f => {f.label('kp-author-stalepr', true); f.events.at(-1).id = 0;},
+    f => {f.label('kp-author-stalepr', true); f.events.at(-1).created_at = 'invalid';}
+  ]) {
+    const f = fixture();
+    await f.run();
+    corrupt(f);
+    const writes = f.writes.length;
+    await assert.rejects(f.run(), /KP marker event/);
+    assert.equal(f.writes.length, writes);
+  }
+  const f = fixture();
+  await f.run();
+  f.label('kp-author-stalepr', true);
+  f.pr.head.sha = 'new';
+  f.github.rest.issues.updateComment = async () => {throw new Error('Clock write failed');};
+  await assert.rejects(f.run(), /Clock write failed/);
+  assert.ok(f.pr.labels.some(label => label.name === 'kp-author-stalepr'));
+  for (const markerReset of [null, {id: 0, createdAt: '2026-10-28T19:00:00Z'},
+    {id: 1, createdAt: 1}, {id: 1, createdAt: 'invalid'},
+    {id: 1, createdAt: '2026-10-28T19:00:00Z', extra: true}]) {
+    const invalid = fixture();
+    await invalid.run();
+    const saved = readClock(invalid.comments[0]);
+    invalid.comments[0].body = PREFIX + JSON.stringify({...saved, markerReset}) + '\n-->';
+    await assert.rejects(invalid.run(), /Invalid persisted KP marker reset/);
+  }
+  for (const confirmedActivityAt of [42, false, 'invalid']) {
+    const invalid = fixture();
+    await invalid.run();
+    const saved = readClock(invalid.comments[0]);
+    invalid.comments[0].body = PREFIX + JSON.stringify({...saved, confirmedActivityAt}) + '\n-->';
+    await assert.rejects(invalid.run(), /Invalid persisted KP confirmed activity/);
+  }
+  for (const reminderFloor of [-1, 0.5, '3', false]) {
+    const invalid = fixture();
+    await invalid.run();
+    const saved = readClock(invalid.comments[0]);
+    invalid.comments[0].body = PREFIX + JSON.stringify({...saved, reminderFloor}) + '\n-->';
+    await assert.rejects(invalid.run(), /Invalid persisted KP reminder boundary/);
+  }
+  for (const feedbackFingerprint of [false, 42, 'invalid']) {
+    const invalid = fixture();
+    await invalid.run();
+    const saved = readClock(invalid.comments[0]);
+    invalid.comments[0].body = PREFIX + JSON.stringify({...saved, feedbackFingerprint}) + '\n-->';
+    await assert.rejects(invalid.run(), /Invalid persisted KP feedback revisions/);
+  }
+  const invalidDelivery = fixture();
+  await invalidDelivery.run();
+  invalidDelivery.comments.push({id: 99, body: process.env.AUTHOR_REMINDER_MESSAGE,
+    user: {login: 'github-actions[bot]'}, created_at: 'invalid'});
+  await assert.rejects(invalidDelivery.run(), /Invalid KP reminder delivery evidence/);
+});
+
+test('404 removal is benign only when definition/PR are accessible and label is actually absent', async () => {
+  for (const gone of [false, true]) {
+    const f = fixture();
+    await f.run();
+    f.label('kp-author-stalepr', true);
+    f.pr.head.sha = 'new';
+    f.github.rest.issues.removeLabel = async ({name}) => {
+      if (gone) f.label(name, false);
+      const error = new Error('Not found');
+      error.status = 404;
+      throw error;
+    };
+    if (gone) {
+      await f.run();
+      assert.ok(!f.pr.labels.some(label => label.name === 'kp-author-stalepr'));
+    } else {
+      await assert.rejects(f.run(), /Not found/);
+    }
+  }
+  const f = fixture();
+  await f.run();
+  f.label('kp-author-stalepr', true);
+  f.pr.head.sha = 'new';
+  f.github.rest.issues.removeLabel = async () => {
+    const error = new Error('Not found');
+    error.status = 404;
+    throw error;
+  };
+  const getLabel = f.github.rest.issues.getLabel;
+  f.github.rest.issues.getLabel = async args => {
+    if (args.name === 'kp-author-stalepr') throw new Error('Marker definition access denied');
+    return getLabel(args);
+  };
+  await assert.rejects(f.run(), /Marker definition access denied/);
+});
+
+test('replacement marker or retarget during due removal is not erased', async () => {
+  for (const change of ['marker', 'retarget']) {
+    const f = fixture();
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    f.label('kp-author-stalepr', true);
+    f.pr.head.sha = 'new';
+    const remove = f.github.rest.issues.removeLabel;
+    f.github.rest.issues.removeLabel = async args => {
+      await remove(args);
+      if (args.name !== 'kp-reminder-due') return;
+      if (change === 'marker') f.label('kp-author-stalepr', true);
+      if (change === 'retarget') {f.pr.base.ref = 'main'; f.label('conference-event', false);}
+    };
+    await f.run();
+    assert.ok(f.pr.labels.some(label => label.name === 'kp-author-stalepr'));
+  }
+});
+
+test('draft/keep-open activity resets obsolete state without restoring reminder eligibility', async () => {
+  for (const change of [
+    f => {f.pr.draft = true;},
+    f => {f.label('keep-open', true);}
+  ]) {
+    const f = fixture();
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    f.label('kp-author-stalepr', true);
+    f.setTime('2026-10-29T20:00:00Z');
+    change(f);
+    await f.run();
+    f.setTime('2026-11-10T20:00:00Z');
+    await f.run();
+    assert.ok(!f.pr.labels.some(label => ['kp-reminder-due', 'kp-author-stalepr'].includes(label.name)));
+  }
 });
 
 test('clock writes cannot hide racing author activity', async () => {
@@ -640,5 +1141,288 @@ test('comment identity baselines migrate without resetting and reject incomplete
     return paginate(endpoint);
   }, {iterator: paginate.iterator});
   await assert.rejects(f.run(), /Comment snapshot read denied/);
+  assert.equal(f.writes.length, writes);
+});
+
+test('clock credit uses original server creation time in Redmond, including both DST transitions', async () => {
+  for (const [createdAt, display] of [
+    ['2026-10-31T13:24:23Z', '2026-10-31 06:24:23 PDT (UTC-07:00)'],
+    ['2026-11-01T08:30:00Z', '2026-11-01 01:30:00 PDT (UTC-07:00)'],
+    ['2026-11-01T09:30:00Z', '2026-11-01 01:30:00 PST (UTC-08:00)'],
+    ['2026-03-08T09:59:59Z', '2026-03-08 01:59:59 PST (UTC-08:00)'],
+    ['2026-03-08T10:00:00Z', '2026-03-08 03:00:00 PDT (UTC-07:00)']
+  ]) {
+    const f = fixture();
+    f.setTime(new Date(Date.parse(createdAt) - 1000).toISOString());
+    await f.run();
+    const clock = f.comments.find(item => item.body.startsWith(PREFIX));
+    const visible = 'Created by PR Monitor bot for Ignite 2026 from the Knowledge Partnership team.\n' +
+      '3 day clock started on ' + display;
+    assert.ok(clock.body.endsWith(visible));
+    assert.equal(clock.created_at, new Date(createdAt).toISOString());
+    assert.equal(f.writes.filter(([kind]) => kind === 'comment').length, 1);
+    assert.equal(f.writes.filter(([kind]) => kind === 'update').length, 1);
+    const start = clock.created_at;
+    const initialActivity = readClock(clock).activityAt;
+    f.setTime('2027-01-05T20:00:00Z');
+    f.humanComment();
+    const feedbackAt = f.comments.at(-1).created_at;
+    await f.run();
+    assert.equal(clock.created_at, start);
+    assert.ok(clock.body.endsWith(visible));
+    assert.equal(readClock(clock).activityAt, feedbackAt);
+    assert.equal(initialActivity, '2026-10-23T19:00:00Z', 'display must not reset pre-enrollment activity');
+    const writes = f.writes.length;
+    await f.run();
+    assert.equal(f.writes.length, writes, 'no timestamp-only hourly edit');
+  }
+});
+
+test('legacy wording upgrades the same clock once and preserves its full hidden state', async () => {
+  const {initialize} = require('../scripts/kp-business-clock.cjs');
+  for (const enrollment of [false, true]) {
+    const f = fixture();
+    await f.run();
+    const clock = f.comments[0];
+    const state = readClock(clock);
+    state.legacyExtra = 'preserve';
+    clock.body = PREFIX + JSON.stringify(state) +
+      '\n-->\nBusiness-day reminder clock (managed by the documentation bot).';
+    const id = clock.id, createdAt = clock.created_at;
+    f.setTime('2026-11-10T20:00:00Z');
+    const run = enrollment ? () => initialize({
+      github: f.github, context: {repo: {owner: 'test', repo: 'repo'}}, core: {info() {}},
+      pr: structuredClone(f.pr), eventLabel: 'conference-event',
+      managedLabels: ['kp-reminder-due', 'kp-author-stalepr']
+    }) : f.run;
+    const updates = f.writes.filter(([kind]) => kind === 'update').length;
+    await run();
+    assert.equal(clock.id, id);
+    assert.equal(clock.created_at, createdAt);
+    assert.deepEqual(readClock(clock), state);
+    assert.match(clock.body, /3 day clock started on 2026-10-26 12:00:01 PDT \(UTC-07:00\)$/);
+    assert.equal(f.writes.filter(([kind]) => kind === 'update').length, updates + 1);
+    const writes = f.writes.length;
+    await run();
+    assert.equal(f.writes.length, writes);
+    assert.equal(f.comments.length, 1);
+  }
+});
+
+test('a failed creation-time wording update recovers the existing clock rather than replacing it', async () => {
+  const {initialize} = require('../scripts/kp-business-clock.cjs');
+  const f = fixture();
+  const args = {github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, pr: structuredClone(f.pr), eventLabel: 'conference-event',
+    managedLabels: ['kp-reminder-due', 'kp-author-stalepr']};
+  const update = f.github.rest.issues.updateComment;
+  f.github.rest.issues.updateComment = async () => {throw Error('Wording update failed');};
+  await assert.rejects(initialize(args), /Wording update failed/);
+  assert.equal(f.comments.length, 1);
+  const clock = f.comments[0], state = readClock(clock);
+  f.github.rest.issues.updateComment = update;
+  await initialize(args);
+  assert.equal(f.comments[0], clock);
+  assert.equal(f.comments.length, 1);
+  assert.deepEqual(readClock(clock), state);
+  assert.match(clock.body, /3 day clock started on 2026-10-26 12:00:01 PDT \(UTC-07:00\)$/);
+  const writes = f.writes.length;
+  await initialize(args);
+  assert.equal(f.writes.length, writes);
+  delete clock.created_at;
+  await assert.rejects(initialize(args), /clock creation time/);
+  assert.equal(f.writes.length, writes, 'invalid server metadata must not invent a start time');
+});
+
+test('a temporarily omitted feedback identity is not persisted as deletion', async () => {
+  for (const kind of ['issue', 'review']) {
+    const f = fixture();
+    const entries = kind === 'issue' ? f.comments : f.reviews;
+    entries.push({id: 500, body: 'Old feedback', user: {login: 'reviewer'},
+      created_at: '2026-10-23T19:00:00Z', updated_at: '2026-10-23T19:00:00Z'});
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    const clock = f.comments.find(item => item.body.startsWith(PREFIX));
+    const before = clock.body, writes = f.writes.length;
+    const paginate = f.github.paginate;
+    const endpoint = kind === 'issue' ? f.github.rest.issues.listComments : f.github.rest.pulls.listReviewComments;
+    let reads = 0;
+    f.github.paginate = Object.assign(async (method, args) => {
+      assert.equal(args.per_page, 100);
+      const snapshot = await paginate(method, args);
+      return method === endpoint && ++reads === 1 ? snapshot.filter(item => item.id !== 500) : snapshot;
+    }, {iterator: paginate.iterator});
+    await assert.rejects(f.run(), /feedback changed while confirming deletion/);
+    assert.equal(clock.body, before);
+    assert.equal(f.writes.length, writes);
+    f.github.paginate = paginate;
+    await f.run();
+    assert.equal(clock.body, before);
+  }
+});
+
+test('confirmed deletion uses read completion, with the exact fractional weekday deadline across DST', async () => {
+  for (const kind of ['issue', 'review']) for (const posting of [false, true]) {
+    const f = fixture();
+    const entries = kind === 'issue' ? f.comments : f.reviews;
+    entries.push({id: 500, body: 'Old feedback', user: {login: 'reviewer'},
+      created_at: '2026-10-23T19:00:00Z', updated_at: '2026-10-23T19:00:00Z'});
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    f.setTime('2026-10-28T19:02:00Z');
+    const paginate = f.github.paginate;
+    let issueReads = 0, reviewReads = 0;
+    f.github.paginate = Object.assign(async (method, args) => {
+      if (method === f.github.rest.issues.listComments && ++issueReads === 1) {
+        f.setTime('2026-10-28T19:02:10.250Z');
+        entries.splice(entries.findIndex(item => item.id === 500), 1);
+      }
+      if (method === f.github.rest.pulls.listReviewComments && ++reviewReads === 2) {
+        f.setTime('2026-10-28T19:02:12.750Z');
+      }
+      return paginate(method, args);
+    }, {iterator: paginate.iterator});
+    if (posting) {
+      assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+        core: {info() {}}, number: 42, now: f.time}), false);
+    } else await f.run();
+    const clock = f.comments.find(item => item.body.startsWith(PREFIX));
+    assert.equal(readClock(clock).activityAt, '2026-10-28T19:02:12.750Z');
+    assert.equal(issueReads, posting ? 4 : 2);
+    assert.equal(reviewReads, posting ? 4 : 2);
+    f.github.paginate = paginate;
+    f.setTime('2026-11-02T20:02:12.749Z');
+    await f.run();
+    assert.ok(!f.pr.labels.some(item => item.name === 'kp-reminder-due'));
+    f.setTime('2026-11-02T20:02:12.750Z');
+    await f.run();
+    assert.ok(f.pr.labels.some(item => item.name === 'kp-reminder-due'));
+  }
+});
+
+test('after-bookkeeping guard ignores its own wording edit and permits the normal stock reminder', async () => {
+  const f = fixture();
+  await f.run();
+  f.setTime('2026-10-28T19:01:00Z');
+  await f.run();
+  const clock = f.comments[0], activityAt = readClock(clock).activityAt;
+  clock.body = PREFIX + JSON.stringify(readClock(clock)) + '\n-->\nLegacy wording';
+  const gate = () => canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, number: 42, now: Date.parse('2026-10-28T19:02:00Z')});
+  assert.equal(await gate(), true);
+  assert.equal(readClock(clock).activityAt, activityAt);
+  const writes = f.writes.length;
+  assert.equal(await gate(), true);
+  assert.equal(f.writes.length, writes);
+  await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+  f.label('kp-author-stalepr', true);
+  assert.equal(await gate(), false);
+  await f.run();
+  assert.ok(f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  assert.ok(!f.writes.slice(writes).some(([kind, name]) =>
+    kind === 'remove' && name === 'kp-author-stalepr'), 'helper must not deliberately re-arm stock markers');
+});
+
+test('after-bookkeeping first-reminder guard rejects new feedback and scope changes', async () => {
+  for (const change of ['comment', 'review', 'push', 'body', 'draft', 'keep-open', 'retarget', 'closed', 'clock']) {
+    const f = fixture();
+    await f.run();
+    f.setTime('2026-10-28T19:01:00Z');
+    await f.run();
+    const clock = f.comments[0];
+    clock.body = PREFIX + JSON.stringify(readClock(clock)) +
+      '\n-->\nBusiness-day reminder clock (managed by the documentation bot).';
+    const update = f.github.rest.issues.updateComment;
+    let activityAt;
+    f.github.rest.issues.updateComment = async args => {
+      if (change === 'comment') {f.humanComment(); activityAt = f.pr.updated_at;}
+      if (change === 'review') {
+        activityAt = '2026-10-28T19:02:30Z';
+        f.reviews.push({id: 500, body: 'New review', user: {login: 'reviewer'},
+          created_at: activityAt, updated_at: activityAt});
+      }
+      if (change === 'push') f.pr.head.sha = 'after-bookkeeping-push';
+      if (change === 'body') f.pr.body = 'After-bookkeeping body';
+      if (change === 'draft') f.pr.draft = true;
+      if (change === 'keep-open') f.label('keep-open', true);
+      if (change === 'retarget') f.pr.base.ref = 'main';
+      if (change === 'closed') f.pr.state = 'closed';
+      f.github.rest.issues.updateComment = update;
+      const response = await update(args);
+      if (change === 'clock') clock.body = PREFIX + JSON.stringify({
+        ...readClock(clock), activityAt: '2026-10-28T19:02:30Z'
+      }) + '\n-->';
+      return response;
+    };
+    assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+      core: {info() {}}, number: 42, now: Date.parse('2026-10-28T19:03:00Z')}), false, change);
+    assert.equal(f.comments.filter(item => item.body.startsWith(PREFIX)).length, 1);
+    assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 0);
+    if (activityAt) {
+      await f.run();
+      assert.equal(readClock(clock).activityAt, activityAt);
+    }
+  }
+});
+
+test('same-second issue edits during bookkeeping preserve persisted revision evidence', async () => {
+  const f = fixture();
+  f.comments.push({id: 500, body: 'Original feedback', user: {login: 'reviewer'},
+    created_at: '2026-10-23T19:00:00Z', updated_at: '2026-10-23T19:00:00Z'});
+  await f.run();
+  f.setTime('2026-10-28T19:01:00Z');
+  await f.run();
+  const clock = f.comments.find(item => item.body.startsWith(PREFIX));
+  const before = readClock(clock);
+  clock.body = PREFIX + JSON.stringify(readClock(clock)) + '\n-->\nLegacy wording';
+  const update = f.github.rest.issues.updateComment;
+  f.github.rest.issues.updateComment = async args => {
+    f.comments.find(item => item.id === 500).body = 'Edited feedback';
+    return update(args);
+  };
+  assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, number: 42, now: Date.parse('2026-10-28T19:02:00Z')}), false);
+  assert.deepEqual(readClock(clock), before);
+});
+
+test('delivery racing clock wording refresh is recovered from post-bookkeeping reads without reposting', async () => {
+  const f = fixture();
+  await f.run();
+  f.setTime('2026-10-28T19:01:00Z');
+  await f.run();
+  const clock = f.comments.find(item => item.body.startsWith(PREFIX));
+  clock.body = PREFIX + JSON.stringify(readClock(clock)) + '\n-->\nLegacy wording';
+  const update = f.github.rest.issues.updateComment;
+  f.github.rest.issues.updateComment = async args => {
+    f.github.rest.issues.updateComment = update;
+    const response = await update(args);
+    await f.github.rest.issues.createComment({body: process.env.AUTHOR_REMINDER_MESSAGE});
+    return response;
+  };
+  const gate = () => canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, number: 42, now: f.time});
+  assert.equal(await gate(), false);
+  assert.ok(f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  assert.equal(await gate(), false);
+  await f.run();
+  assert.ok(f.pr.labels.some(item => item.name === 'kp-author-stalepr'));
+  assert.equal(f.comments.filter(item => item.body === process.env.AUTHOR_REMINDER_MESSAGE).length, 1);
+});
+
+test('rollout labels cannot authorize an off-prefix target and missing prefix fails explicitly', async () => {
+  const f = fixture();
+  f.pr.base.ref = 'main';
+  f.setTime('2026-11-10T20:00:00Z');
+  await f.run();
+  assert.ok(!f.pr.labels.some(item => item.name === 'kp-reminder-due'));
+  f.label('kp-reminder-due', true);
+  assert.equal(await canPost({github: f.github, context: {repo: {owner: 'test', repo: 'repo'}},
+    core: {info() {}}, number: 42, now: Date.parse('2026-11-10T20:01:00Z')}), false);
+  assert.ok(!f.pr.labels.some(item => item.name === 'kp-reminder-due'));
+  delete process.env.ROLLOUT_BRANCH_PREFIX;
+  const writes = f.writes.length;
+  await assert.rejects(f.run(), /Invalid KP business clock settings/);
   assert.equal(f.writes.length, writes);
 });

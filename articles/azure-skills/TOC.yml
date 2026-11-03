@@ -67,6 +67,12 @@
       href: skills/microsoft-foundry.md
     - name: Python App Service Deployment
       href: skills/python-app-service-deploy.md
+  - name: Azure Advisor plugin
+    items:
+    - name: Azure Advisor
+      href: plugins/azure-advisor/azure-advisor.md
+    - name: Azure Advisor Actionability
+      href: plugins/azure-advisor/azure-advisor-actionability.md
   - name: Azure Cost plugin
     items:
     - name: Cost Analysis
