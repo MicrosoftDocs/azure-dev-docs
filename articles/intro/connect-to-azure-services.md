@@ -30,11 +30,11 @@ Azure services offer the benefit that they're fully managed by Azure.
 
 ## Access Azure services from application code
 
-Use the Azure SDK, the Azure REST API, or the Azure AI Foundry SDK to access Azure services from your application code.
+Use the Azure SDK, the Azure REST API, or the Microsoft Foundry SDK to access Azure services from your application code.
 
 - **Azure SDK** - Available for .NET, C++, Go, Java, JavaScript, Python, and Rust.
 - **Azure REST API** - Available for all languages.
-- **Azure AI Foundry SDK** - Available for Python, .NET, Java, and JavaScript for AI-specific workloads.
+- **Microsoft Foundry SDK** - Available for Python, .NET, Java, and JavaScript for AI-specific workloads.
 
 When possible, use the Azure SDK to access Azure services from application code. Advantages include:
 
@@ -64,9 +64,9 @@ For more information about the Azure SDK, see the documentation in each language
 
 Use the Azure REST API when the Azure SDK doesn't support your programming language. For details and the full list of operations, see the [Azure REST API overview](/rest/api/azure/).
 
-## Azure AI Foundry SDK
+## Microsoft Foundry SDK
 
-When building AI applications, you can also use the [Azure AI Foundry SDK](/azure/foundry/how-to/develop/sdk-overview) (available for Python, .NET, Java, and JavaScript) to interact with Azure OpenAI models, manage prompts, and orchestrate AI workflows. For keyless authentication to AI services, see [Use Azure OpenAI without keys](../ai/keyless-connections.md).
+When you build AI applications, you can also use the [Microsoft Foundry SDK](/azure/foundry/how-to/develop/sdk-overview) (available for Python, .NET, Java, and JavaScript) to interact with Azure OpenAI models, manage prompts, and orchestrate AI workflows. For keyless authentication to Azure OpenAI, see [Get started with Azure OpenAI and the Responses API](../ai/get-started-azure-openai-starter-kit.md).
 
 > [!div class="nextstepaction"]
 > [Continue to part 5: How do I create and manage resources in Azure?](azure-developer-create-resources.md)

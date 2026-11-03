@@ -5,7 +5,7 @@ author: yunjchoi
 ms.author: yunjchoi
 ms.service: azure-mcp-server
 ms.topic: overview
-ms.date: 10/05/2026
+ms.date: 11/02/2026
 ai-usage: ai-generated
 ---
 
@@ -24,6 +24,7 @@ The plugin catalog can change independently of the core plugin. Check the [Azure
 | Plugin | Use it for | Representative skills | Install in GitHub Copilot CLI |
 | --- | --- | --- | --- |
 | **Azure Skills plugin (core)** (`azure`) | Broad Azure planning, deployment, diagnostics, resource management, AI, data, identity, and platform workflows. Use it as the default starting point and to discover skills in other plugins. | `discover-azure-skills`, `azure-prepare`, `azure-validate`, `azure-deploy`, `azure-diagnostics`, `azure-kubernetes` | `/plugin install azure@azure-skills` |
+| **Azure Advisor plugin** (`azure-advisor`) | Azure Advisor recommendations, service-retirement impact, and remediation guidance. | `azure-advisor`, `azure-advisor-actionability` | `/plugin install azure-advisor@azure-skills` |
 | **Azure Cost plugin** (`azure-cost`) | Cost analysis, estimation, optimization, and governance. | `cost-analysis`, `cost-estimation`, `cost-optimization`, `cost-governance` | `/plugin install azure-cost@azure-skills` |
 | **Azure Kusto Graph plugin** (`azure-kusto-graph-skills`) | Graph analysis in Azure Data Explorer, incident-response query pipelines, and graph visualization. | `azure-kusto-graph`, `azure-kusto-irql`, `azure-kusto-irql-graph` | `/plugin install azure-kusto-graph-skills@azure-skills` |
 | **Azure Local plugin** (`azure-local-skills`) | Azure Local planning, deployment, operations, workload management, and multi-rack scenarios. | `azure-local`, `azure-local-multi-rack` | `/plugin install azure-local-skills@azure-skills` |
@@ -34,6 +35,15 @@ The plugin catalog can change independently of the core plugin. Check the [Azure
 Install the core plugin when you work across Azure services or aren't sure which skill matches your task. The `discover-azure-skills` skill searches the marketplace catalog, matches your task to skill metadata, identifies the owning plugin, and returns installation guidance.
 
 The core plugin also configures Azure MCP capabilities used by many of its workflows. Installing the core plugin doesn't install every specialized plugin.
+
+## Azure Advisor plugin
+
+Install the Azure Advisor plugin to review and prioritize Advisor recommendations, find resources affected by service retirements, update recommendation status, and get remediation guidance for a recommendation.
+
+Learn about its skills:
+
+- [Azure Advisor](azure-advisor/azure-advisor.md).
+- [Azure Advisor Actionability](azure-advisor/azure-advisor-actionability.md).
 
 ## Azure Cost plugin
 

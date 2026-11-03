@@ -29,7 +29,7 @@ Once you complete this article, you can start modifying the new project with you
 ## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:
-:::image type="content" source="./media/get-started-app-chat-vision/simple-architecture-diagram.png" lightbox="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="./media/get-started-app-chat-vision/simple-architecture-diagram.png" lightbox="./media/get-started-app-chat-vision/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI in production, instead of an API key. During development, the app supports multiple authentication methods including Azure Developer CLI credentials and API keys.
 
@@ -309,7 +309,7 @@ form.addEventListener("submit", async function(e) {
 In the `src\quartapp\chat.py` file, the backend code for image handling starts after configuring keyless authentication.
 
 > [!NOTE]
-> For more information on how to use keyless connections for authentication and authorization to Azure OpenAI, check out the [Get started with the Azure OpenAI security building block](get-started-securing-your-ai-app.md) Microsoft Learn article.
+> For an introduction to keyless authentication with Microsoft Entra ID, see [Get started with Azure OpenAI and the Responses API](get-started-azure-openai-starter-kit.md?pivots=python).
 
 #### Authentication configuration
 
