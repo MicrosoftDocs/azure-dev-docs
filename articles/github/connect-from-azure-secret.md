@@ -4,7 +4,7 @@ description: Securely authenticate to Azure services from GitHub Actions workflo
 author: wangzelin007
 ms.author: zelinwang
 ms.topic: reference
-ms.service: azure 
+ms.service: github
 ms.date: 07/01/2024
 ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---

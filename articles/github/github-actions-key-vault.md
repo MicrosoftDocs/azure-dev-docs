@@ -2,7 +2,7 @@
 title: Use Azure Key Vault secrets in a GitHub Actions workflow
 description: Securely retrieve secrets with GitHub Actions and Azure Key Vault.
 ms.topic: sample
-ms.service: azure
+ms.service: github
 ms.date: 06/30/2025
 ms.custom: github-actions-azure
 ---
