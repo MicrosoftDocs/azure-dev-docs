@@ -3,10 +3,11 @@ title: Supported languages and environments
 description: Details about the Azure Developer CLI's template structure and supported development environments, hosts, and programming languages.
 author: kristenwomack
 ms.author: kwomack
-ms.date: 06/24/2026
+ms.date: 10/26/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
+ai-usage: ai-generated
 ---
 
 # Supported languages and environments
@@ -41,6 +42,13 @@ Azure App Service supports two deployment modes when you set `host: appservice`:
 
 - **Deploy from source**: Set `language` to a supported runtime and `azd` builds and deploys your app code.
 - **Deploy a container**: Set `language: docker` (or a `docker` configuration) and `azd` builds a container image, pushes it to Azure Container Registry, and updates the site to run the image. Container deployments to App Service are supported for Linux only. For more information, see [Deploy containers to Azure App Service](./app-service-containers.md).
+
+Azure Functions also supports two deployment modes when you set `host: function`:
+
+- **Deploy function code**: Set `project` and a supported source `language`. `azd` builds the project, packages it as a zip archive, and uploads it to the Function App.
+- **Deploy a container**: Set `language: docker`, configure `docker.path`, or provide a prebuilt `image`. `azd` publishes the image when needed and updates a container-ready Function App to run it.
+
+For configuration details and infrastructure requirements, see [Deploy to Azure Functions with Azure Developer CLI](./function-app-deployments.md).
 
 ## Supported languages and frameworks
 
