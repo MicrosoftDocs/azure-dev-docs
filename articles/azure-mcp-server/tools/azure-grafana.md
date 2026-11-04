@@ -1,12 +1,16 @@
 ---
 title: Azure MCP Server tools for Azure Managed Grafana
 description: Use Azure MCP Server tools to list your Azure Managed Grafana workspaces with natural language prompts from your IDE.
-ms.date: 08/11/2026
+ms.date: 11/03/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
+ms.custom:
+  - build-2025
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.47+bd724faf47e86348c7163a429b584aabfd714876"
 ---
 
 # Azure MCP Server tools for Azure Managed Grafana
@@ -21,7 +25,22 @@ Use the Azure MCP Server to manage Azure Managed Grafana workspaces with natural
 
 <!-- grafana list -->
 
-Lists all Azure Managed Grafana workspaces in your subscription. This command helps you view and manage your Grafana workspace resources across your Azure environment.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp grafana list \
+  [--resource-group <resource-group>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `resource-group` | string | No | Limit workspaces to this resource group. Omit it to list Grafana workspaces across the subscription. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli grafana list -->
 
 Example prompts include:
 
@@ -30,6 +49,12 @@ Example prompts include:
 - **Find visualization dashboards**: "List all my Azure Managed Grafana resources"
 - **Check workspace status**: "Are there any Grafana workspaces in my dev subscription?"
 - **Dashboard inventory**: "I need to see all Grafana workspace resources in my account"
+
+| Parameter | Required or optional | Description |
+|-----------|----------------------|-------------|
+| **Resource group** | Optional | Limit workspaces to this resource group. Omit it to list Grafana workspaces across the subscription. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

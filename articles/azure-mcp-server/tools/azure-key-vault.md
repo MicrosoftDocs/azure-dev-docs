@@ -4,16 +4,18 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 author: sandeep-sen
 ms.author: sandeepsen
 ms.reviewer: mbaldwin
-ms.date: 05/26/2026
+ms.date: 11/03/2026
+ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
   - build-2025
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
-mcp-cli.version: "3.0.0-beta.12+d6e43aeae7450e7b68c5b1252e2a5c6e7bab1938"
+tool_count: 8
+mcp-cli.version: "3.0.0-beta.47+bd724faf47e86348c7163a429b584aabfd714876"
 ---
-# Azure Key Vault tools for the Azure MCP Server overview
+# Azure MCP Server tools for Azure Key Vault
 
 The Azure MCP Server lets you manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You don't need to remember specialized command syntax to manage these resources.
 
@@ -25,7 +27,22 @@ The Azure MCP Server lets you manage Azure Key Vault resources, including keys, 
 
 <!-- keyvault admin settings get -->
 
-Retrieves all Key Vault Managed HSM account settings for a given vault. This includes settings such as purge protection and soft-delete retention days. This tool ONLY applies to Managed HSM vaults.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp keyvault admin settings get \
+  --vault <vault>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `vault` | string | Yes | The name of the Key Vault. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli keyvault admin settings get -->
 
 Example prompts include:
 
@@ -38,6 +55,8 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Vault** |  Required | The name of the Key Vault. |
 
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -48,7 +67,26 @@ Example prompts include:
 
 <!-- keyvault key create -->
 
-The Azure MCP Server can create a new key in an Azure Key Vault. This operation lets you add cryptographic keys for your applications.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp keyvault key create \
+  --key <key> \
+  --key-type <key-type> \
+  --vault <vault>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `key` | string | Yes | The name of the key. |
+| `key-type` | string | Yes | The type of key to create. Valid values: RSA, RSA-HSM, EC, EC-HSM. Note: RSA-HSM and EC-HSM require a premium SKU vault. |
+| `vault` | string | Yes | The name of the Key Vault. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli keyvault key create -->
 
 Example prompts include:
 
@@ -64,6 +102,8 @@ Example prompts include:
 | **Key name** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create. Valid values: `RSA`, `EC`, `RSA-HSM`, `EC-HSM`. Note: `RSA-HSM` and `EC-HSM` require a premium SKU vault. |
 
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -74,7 +114,26 @@ Example prompts include:
 
 <!-- keyvault key get -->
 
-The Azure MCP Server can retrieve details of a specific key or list all keys in an Azure Key Vault. When you provide a key name, it returns details for that specific key. When you omit the key name, it lists all keys in the vault.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp keyvault key get \
+  --vault <vault> \
+  [--key <key>] \
+  [--include-managed <include-managed>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `vault` | string | Yes | The name of the Key Vault. |
+| `key` | string | No | The name of the key. |
+| `include-managed` | string | No | Whether to include managed keys in results. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli keyvault key get -->
 
 Example prompts include:
 
@@ -82,13 +141,15 @@ Example prompts include:
 - **View key info**: "Get information about the 'signing-key' in Key Vault 'security-kv'"
 - **List all keys**: "Show me all keys in my 'mykeyvault' Key Vault."
 - **View keys**: "What keys do I have in Key Vault 'security-kv'?"
-- **Query keys**: "Show all keys including managed keys in my Key Vault"
+- **Query keys**: "Show all keys including managed keys in my Key Vault 'mykeyvault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
 | **Key name** | Optional | The name of the key to retrieve. Omit to list all keys. |
 | **Include managed** | Optional | Whether or not to include managed keys when listing. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -100,7 +161,26 @@ Example prompts include:
 
 <!-- keyvault secret create -->
 
-The Azure MCP Server can create a new secret in an Azure Key Vault. This operation lets you securely store sensitive information like passwords, API keys, and connection strings. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data).
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp keyvault secret create \
+  --secret <secret> \
+  --value <value> \
+  --vault <vault>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `secret` | string | Yes | The name of the secret. |
+| `value` | string | Yes | The value to set for the secret. |
+| `vault` | string | Yes | The name of the Key Vault. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli keyvault secret create -->
 
 Example prompts include:
 
@@ -115,6 +195,8 @@ Example prompts include:
 | **Secret name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
 
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -125,7 +207,24 @@ Example prompts include:
 
 <!-- keyvault secret get -->
 
-The Azure MCP Server can retrieve a specific secret or list all secrets in a Key Vault. When you provide a secret name, it returns that specific secret value. When you omit the secret name, it lists all secrets in the vault. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data) when retrieving a specific secret value.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp keyvault secret get \
+  --vault <vault> \
+  [--secret <secret>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `vault` | string | Yes | The name of the Key Vault. |
+| `secret` | string | No | The name of the secret. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli keyvault secret get -->
 
 Example prompts include:
 
@@ -140,6 +239,8 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Secret name** | Optional | The name of the secret to retrieve. Omit to list all secrets. |
 
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -150,7 +251,24 @@ Example prompts include:
 
 <!-- keyvault certificate create -->
 
-The Azure MCP Server can create a new certificate in an Azure Key Vault by using the default policy. With this operation, you can generate SSL/TLS certificates for your applications.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp keyvault certificate create \
+  --certificate <certificate> \
+  --vault <vault>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `certificate` | string | Yes | The name of the certificate. |
+| `vault` | string | Yes | The name of the Key Vault. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli keyvault certificate create -->
 
 Example prompts include:
 
@@ -165,6 +283,8 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Certificate name** | Required | The name of the certificate to create. |
 
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -175,7 +295,24 @@ Example prompts include:
 
 <!-- keyvault certificate get -->
 
-The Azure MCP Server can retrieve details of a specific certificate or list all certificates in an Azure Key Vault. When you provide a certificate name, it returns details for that specific certificate. When you omit the certificate name, it lists all certificates in the vault.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp keyvault certificate get \
+  --vault <vault> \
+  [--certificate <certificate>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `vault` | string | Yes | The name of the Key Vault. |
+| `certificate` | string | No | The name of the certificate. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli keyvault certificate get -->
 
 Example prompts include:
 
@@ -190,6 +327,8 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Certificate name** | Optional | The name of the certificate to retrieve. Omit to list all certificates. |
 
+---
+
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
@@ -200,16 +339,36 @@ Example prompts include:
 
 <!-- keyvault certificate import -->
 
-Imports an existing certificate (PFX or PEM with private key) into an Azure Key Vault without generating
-a new certificate or key material. If the certificate is a password-protected PFX, provide a password.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp keyvault certificate import \
+  --certificate <certificate> \
+  --certificate-data <certificate-data> \
+  --vault <vault> \
+  [--password <password>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `certificate` | string | Yes | The name of the certificate. |
+| `certificate-data` | string | Yes | The certificate content: path to a PFX or PEM file, a base64 encoded PFX, or raw PEM text beginning with -----BEGIN. |
+| `vault` | string | Yes | The name of the Key Vault. |
+| `password` | string | No | Optional password for a protected PFX being imported. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli keyvault certificate import -->
 
 Example prompts include:
 
-- **Import certificate from file**: "Import the certificate in file '/path/to/cert.pfx' into the key vault 'mykeyvault'."
-- **Import certificate with name**: "Import a certificate into the key vault 'security-kv' using the name 'web-ssl-cert'."
+- **Import certificate from file**: "Import the certificate in file '/path/to/cert.pfx' into the key vault 'mykeyvault' as 'web-ssl-cert'."
+- **Import certificate with name**: "Import a certificate from '/path/to/cert.pfx' into the key vault 'security-kv' using the name 'web-ssl-cert'."
 - **Add PFX certificate**: "Import a PFX certificate from 'C:\\certs\\api.pfx' into key vault 'api-vault' as 'api-cert'."
-- **Import PEM certificate**: "Import a PEM certificate into my key vault 'prod-vault' named 'prod-cert'."
-- **Import password-protected certificate**: "Import the certificate 'secure.pfx' into key vault 'ssl-vault' with password 'mypassword'."
+- **Import PEM certificate**: "Import a PEM certificate from '/path/to/cert.pem' into my key vault 'prod-vault' named 'prod-cert'."
+- **Import password-protected certificate**: "Import the certificate 'secure.pfx' into key vault 'ssl-vault' as 'secure-cert' with password 'mypassword'."
 
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
@@ -217,6 +376,8 @@ Example prompts include:
 | **Certificate name** | Required | The name of the certificate as it appears in Key Vault. |
 | **Certificate data or path** | Required | Either the path to a PFX or PEM file, a base64 encoded PFX, or raw PEM text beginning with `-----BEGIN`. |
 | **Password** |  Optional | Password for a protected PFX being imported. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

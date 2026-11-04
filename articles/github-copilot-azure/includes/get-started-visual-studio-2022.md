@@ -1,8 +1,9 @@
 ---
 author: yunjchoi
-ms.date: 06/01/2026
+ms.date: 11/03/2026
 ms.service: github-copilot-for-azure
 ms.topic: include
+ai-usage: ai-assisted
 ---
 
 ## Prerequisites
@@ -44,6 +45,9 @@ Azure MCP is built in to Visual Studio 2022. No separate GitHub Copilot for Azur
 1. If prompted, sign in to your GitHub account.
 
 1. If prompted, sign in to your Azure account.
+
+   > [!IMPORTANT]
+   > When you use GitHub Copilot for Azure, the accounts you sign in with and the resources and data those accounts can access might be available to GitHub Copilot Chat through the enabled Azure tools. Sign in only with accounts whose access you intend to make available to Copilot. For more information, see the [Azure MCP Server security note](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server#security).
 
 1. In the chat area, select the Select tools button (two wrenches icon) to display a list of available tools. Enable all Azure tools by checking the top nodes for **Azure MCP Server v.x.x.x**.
 

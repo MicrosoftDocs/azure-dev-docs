@@ -158,6 +158,8 @@
       href: tools/azure-monitor.md
     - name: Azure Native ISV
       href: tools/azure-native-isv.md
+    - name: Azure Optimization
+      href: tools/azure-optimization.md
     - name: Azure Policy
       href: tools/azure-policy.md
     - name: Azure Pricing
