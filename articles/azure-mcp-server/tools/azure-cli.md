@@ -26,9 +26,24 @@ The Azure MCP Server provides comprehensive support for Azure CLI operations, in
 
 <!-- extension cli generate -->
 
-The Azure MCP Server generates Azure CLI commands to accomplish specific goals. 
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
 
-**Example prompts** include:
+**Example CLI command**
+
+```console
+azmcp extension cli generate \
+  --intent <intent> \
+  --cli-type <cli-type>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `intent` | string | Yes | The user intent of the task to solve by using the CLI tool. This user intent generates the appropriate CLI command to accomplish the goal. |
+| `cli-type` | string | Yes | The type of CLI tool to use. Supported values are `az` for Azure CLI. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli extension cli generate -->
 
 - **Generate creation commands**: "Generate an `az` command to create a storage account"
 - **Generate query commands**: "Create an `az` command to list all virtual machines in a resource group"
@@ -37,6 +52,8 @@ The Azure MCP Server generates Azure CLI commands to accomplish specific goals.
 |-----------|-------------|-------------|
 | **Intent** | Required | The user intent of the task to be solved by using the CLI tool. This user intent is used to generate the appropriate CLI command to accomplish the desirable goal. |
 | **Cli type** | Required | The type of CLI tool to use. Supported values are `az` for Azure CLI. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
