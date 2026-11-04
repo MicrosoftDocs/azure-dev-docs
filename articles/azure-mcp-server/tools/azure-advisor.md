@@ -1,8 +1,7 @@
 ---
-
 title: Azure MCP Server tools for Azure Advisor
 description: Use Azure MCP Server tools with natural language prompts or Azure MCP CLI commands to manage Azure Advisor recommendations and optimizations.
-ms.date: 11/02/2026
+ms.date: 11/03/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 tool_count: 7
@@ -11,6 +10,7 @@ author: sandeep-sen
 ms.author: sandeepsen
 ms.reviewer: ankiga 
 ai-usage: ai-generated
+ms.custom: build-2025
 content_well_notification:
   - AI-contribution
 ---
@@ -40,8 +40,8 @@ azmcp advisor metadata get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `recommendation-type-id` | string | Yes | The stable Advisor recommendation type ID (`properties.recommendationTypeId`) to look up in the global recommendation-metadata catalog. This ID is the join key shared with individual recommendations. |
-| `language` | string | No | Catalog locale to filter on (`properties.language`). Defaults to `en`. Case-insensitive. Supported values: `en`, `cs`, `de`, `es`, `fr`, `hu`, `id`, `it`, `ja`, `ko`, `nl`, `pl`, `pt-br`, `pt-pt`, `ru`, `sv`, `tr`, `zh-hans`, `zh-hant`. Advisor accepts region-qualified tags such as `en-US` and maps them to the base language (`en`). |
+| `recommendation-type-id` | string | Yes | The stable Advisor recommendation type id (properties.recommendationTypeId) to look up in the global recommendation-metadata catalog. This is the join key shared with individual recommendations. Required. |
+| `language` | string | No | Catalog locale to filter on (properties.language). Defaults to 'en'. Case-insensitive. Supported values: en, cs, de, es, fr, hu, id, it, ja, ko, nl, pl, pt-br, pt-pt, ru, sv, tr, zh-hans, zh-hant. Region-qualified tags such as 'en-US' are accepted and mapped to the base language ('en'). |
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -58,8 +58,8 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Recommendation type ID** |  Required | The stable Advisor recommendation type ID (`properties.recommendationTypeId`) to look up in the global recommendation-metadata catalog. This ID is the join key shared with individual recommendations. |
-| **Language** |  Optional | Catalog locale to filter on (`properties.language`). Defaults to `en`. Case-insensitive. Supported values: `en`, `cs`, `de`, `es`, `fr`, `hu`, `id`, `it`, `ja`, `ko`, `nl`, `pl`, `pt-br`, `pt-pt`, `ru`, `sv`, `tr`, `zh-hans`, `zh-hant`. Advisor accepts region-qualified tags such as `en-US` and maps them to the base language (`en`). |
+| **Recommendation type ID** |  Required | The stable Advisor recommendation type ID (properties.recommendationTypeId) to look up in the global recommendation-metadata catalog. This is the join key shared with individual recommendations. Required. |
+| **Language** |  Optional | Catalog locale to filter on (properties.language). Defaults to 'en'. Case-insensitive. Supported values: en, cs, de, es, fr, hu, ID, it, ja, ko, nl, pl, pt-br, pt-pt, ru, sv, tr, zh-hans, zh-hant. Region-qualified tags such as 'en-US' are accepted and mapped to the base language ('en'). |
 
 ---
 
@@ -90,13 +90,13 @@ azmcp advisor metadata list \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `language` | string | No | Language for localized recommendation metadata. Defaults to English (`en`). Supported catalog languages are `en`, `cs`, `de`, `es`, `fr`, `hu`, `id`, `it`, `ja`, `ko`, `nl`, `pl`, `pt-BR`, `pt-PT`, `ru`, `sv`, `tr`, `zh-Hans`, and `zh-Hant`. Regional variants map to a supported base language when available, such as `en-US` to `en` and `fr-CA` to `fr`; locale-specific catalog languages remain distinct. |
-| `resource-type` | string | No | Optional exact Azure resource type filter, such as `microsoft.compute/virtualmachines`. Use it during brownfield onboarding to discover recommendation types applicable to that resource type. The filter is case-insensitive. |
-| `impact` | string | No | Optional recommendation impact filter. Allowed values are `High`, `Medium`, or `Low`. The filter is case-insensitive. By default, results appear in `High`, `Medium`, then `Low` order. |
-| `category` | string | No | Optional exact Advisor category filter. Allowed values are `Cost`, `HighAvailability`, `Security`, `Performance`, and `OperationalExcellence`. The filter is case-insensitive. |
-| `sub-category` | string | No | Optional exact recommendation subcategory filter. The filter is case-insensitive. Known catalog values include `ComputeOptimization`, `DataPerformance`, `DataProtectionAndRecovery`, `EfficiencyOptimization`, `FailureMitigation`, `GovernanceAndCompliance`, `MonitoringAndAlerting`, `NetworkOptimization`, `Other`, `Personalized`, `RegionalResiliency`, `Reservations`, `SafeAndSecureDeployment`, `SavingsPlan`, `Scalability`, `ServiceUpgradeAndRetirement`, `StorageOptimization`, `UsageOptimization`, and `ZoneResiliency`. The catalog can add values over time, so the tool accepts other subcategories. |
-| `tracking-id` | string | No | Optional exact Service Health tracking ID filter, such as `QNY1-HB8`. The filter is case-insensitive and applies within `ServiceUpgradeAndRetirement` metadata. You can omit `--sub-category`, but you can't specify a different value. |
-| `retirement-date` | string | No | Optional service-retirement date filter in `<operator>:<yyyy-MM-dd>` format, for example `ge:2026-03-31`. Supported operators are `eq`, `lt`, `le`, `gt`, and `ge`. Applies only to the `ServiceUpgradeAndRetirement` subcategory. You can omit `--sub-category`, but you can't specify a different value. |
+| `language` | string | No | Language for localized recommendation metadata. Defaults to English ('en'). Supported catalog languages are en, cs, de, es, fr, hu, id, it, ja, ko, nl, pl, pt-BR, pt-PT, ru, sv, tr, zh-Hans, and zh-Hant. Regional variants map to a supported base language when available, such as en-US to en and fr-CA to fr; locale-specific catalog languages remain distinct. |
+| `resource-type` | string | No | Optional exact Azure resource type filter, such as 'microsoft.compute/virtualmachines'. Use it during brownfield onboarding to discover recommendation types applicable to that resource type. Matched case-insensitively. |
+| `impact` | string | No | Optional recommendation impact filter. Allowed values are High, Medium, or Low. Matched case-insensitively; unfiltered results are ordered High, Medium, then Low. |
+| `category` | string | No | Optional exact Advisor category filter. Allowed values are Cost, HighAvailability, Security, Performance, and OperationalExcellence. Matched case-insensitively. |
+| `sub-category` | string | No | Optional exact recommendation subcategory filter, matched case-insensitively. Known catalog values include ComputeOptimization, DataPerformance, DataProtectionAndRecovery, EfficiencyOptimization, FailureMitigation, GovernanceAndCompliance, MonitoringAndAlerting, NetworkOptimization, Other, Personalized, RegionalResiliency, Reservations, SafeAndSecureDeployment, SavingsPlan, Scalability, ServiceUpgradeAndRetirement, StorageOptimization, UsageOptimization, and ZoneResiliency. The catalog can add values over time, so other subcategories are accepted. |
+| `tracking-id` | string | No | Optional exact Service Health tracking ID filter, such as QNY1-HB8. Matched case-insensitively within ServiceUpgradeAndRetirement metadata. --sub-category may be omitted but cannot specify a different value. |
+| `retirement-date` | string | No | Optional service-retirement date filter in `<operator>:<yyyy-MM-dd>` format, for example `ge:2026-03-31`. Supported operators are `eq`, `lt`, `le`, `gt`, and `ge`. Applies only to the ServiceUpgradeAndRetirement subcategory; `--sub-category` may be omitted but cannot specify a different value. |
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -104,24 +104,18 @@ azmcp advisor metadata list \
 
 Example prompts include:
 
-- "List the Advisor recommendation metadata catalog."
-- "Before I deploy any virtual machines, what kinds of recommendations could Advisor produce for them?"
-- "List high-impact Advisor metadata for microsoft.sql/servers/databases."
-- "Show the German metadata catalog for Advisor recommendations."
-- "Which Advisor recommendation types include service-retirement details?"
-- "List Advisor metadata in the ServiceUpgradeAndRetirement subcategory."
-- "Find the Advisor service-retirement metadata with tracking ID QNY1-HB8."
-- "Show Advisor service retirements on or after March 31, 2026."
+- "List the Advisor recommendation metadata catalog"
+- "Show Advisor service retirements on or after March 31, 2026"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Language** |  Optional | Language for localized recommendation metadata. Defaults to English (`en`). Supported catalog languages are `en`, `cs`, `de`, `es`, `fr`, `hu`, `id`, `it`, `ja`, `ko`, `nl`, `pl`, `pt-BR`, `pt-PT`, `ru`, `sv`, `tr`, `zh-Hans`, and `zh-Hant`. Regional variants map to a supported base language when available, such as `en-US` to `en` and `fr-CA` to `fr`; locale-specific catalog languages remain distinct. |
-| **Resource type** |  Optional | Optional exact Azure resource type filter, such as `microsoft.compute/virtualmachines`. Use it during brownfield onboarding to discover recommendation types applicable to that resource type. The filter is case-insensitive. |
-| **Impact** |  Optional | Optional recommendation impact filter. Allowed values are `High`, `Medium`, or `Low`. The filter is case-insensitive. By default, results appear in `High`, `Medium`, then `Low` order. |
-| **Category** |  Optional | Optional exact Advisor category filter. Allowed values are `Cost`, `HighAvailability`, `Security`, `Performance`, and `OperationalExcellence`. The filter is case-insensitive. |
-| **Sub-category** |  Optional | Optional exact recommendation subcategory filter. The filter is case-insensitive. Known catalog values include `ComputeOptimization`, `DataPerformance`, `DataProtectionAndRecovery`, `EfficiencyOptimization`, `FailureMitigation`, `GovernanceAndCompliance`, `MonitoringAndAlerting`, `NetworkOptimization`, `Other`, `Personalized`, `RegionalResiliency`, `Reservations`, `SafeAndSecureDeployment`, `SavingsPlan`, `Scalability`, `ServiceUpgradeAndRetirement`, `StorageOptimization`, `UsageOptimization`, and `ZoneResiliency`. The catalog can add values over time, so the tool accepts other subcategories. |
-| **Tracking ID** |  Optional | Optional exact Service Health tracking ID filter, such as `QNY1-HB8`. The filter is case-insensitive and applies within `ServiceUpgradeAndRetirement` metadata. You can omit `--sub-category`, but you can't specify a different value. |
-| **Retirement date** |  Optional | Optional service-retirement date filter in `<operator>:<yyyy-MM-dd>` format, for example `ge:2026-03-31`. Supported operators are `eq`, `lt`, `le`, `gt`, and `ge`. Applies only to the `ServiceUpgradeAndRetirement` subcategory. You can omit `--sub-category`, but you can't specify a different value. |
+| **Language** |  Optional | Language for localized recommendation metadata. Defaults to English ('en'). Supported catalog languages are en, cs, de, es, fr, hu, ID, it, ja, ko, nl, pl, pt-BR, pt-PT, ru, sv, tr, zh-Hans, and zh-Hant. Regional variants map to a supported base language when available, such as en-US to en and fr-CA to fr; locale-specific catalog languages remain distinct. |
+| **Resource type** |  Optional | Optional exact Azure resource type filter, such as 'microsoft.compute/virtualmachines'. Use it during brownfield onboarding to discover recommendation types applicable to that resource type. Matched case-insensitively. |
+| **Impact** |  Optional | Optional recommendation impact filter. Allowed values are High, Medium, or Low. Matched case-insensitively; unfiltered results are ordered High, Medium, then Low. |
+| **Category** |  Optional | Optional exact Advisor category filter. Allowed values are Cost, HighAvailability, Security, Performance, and OperationalExcellence. Matched case-insensitively. |
+| **Sub category** |  Optional | Optional exact recommendation subcategory filter, matched case-insensitively. Known catalog values include ComputeOptimization, DataPerformance, DataProtectionAndRecovery, EfficiencyOptimization, FailureMitigation, GovernanceAndCompliance, MonitoringAndAlerting, NetworkOptimization, Other, Personalized, RegionalResiliency, Reservations, SafeAndSecureDeployment, SavingsPlan, Scalability, ServiceUpgradeAndRetirement, StorageOptimization, UsageOptimization, and ZoneResiliency. The catalog can add values over time, so other subcategories are accepted. |
+| **Tracking ID** |  Optional | Optional exact Service Health tracking ID filter, such as QNY1-HB8. Matched case-insensitively within ServiceUpgradeAndRetirement metadata. `--sub-category` may be omitted but cannot specify a different value. |
+| **Retirement date** |  Optional | Optional service-retirement date filter in '&lt;operator&gt;:&lt;`yyyy-MM-dd`&gt;' format, for example 'ge:2026-03-31'. Supported operators are eq, lt, le, gt, and ge. Applies only to the ServiceUpgradeAndRetirement subcategory; `--sub-category` may be omitted but cannot specify a different value. |
 
 ---
 
