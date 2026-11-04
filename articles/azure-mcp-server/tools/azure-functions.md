@@ -4,7 +4,7 @@ description: Use Azure MCP Server tools to manage Azure Functions app resources 
 author: diberry
 ms.author: diberry
 ms.reviewer: manvkaur
-ms.date: 09/27/2026
+ms.date: 11/03/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
@@ -41,8 +41,8 @@ azmcp functionapp get \
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `function-app` | string | No | The name of the Function App. |
-| `resource-group` | string | No | The Azure resource group name. |
+| `function-app` | string | No | The function app name. Omit it to list function apps in the resource group or subscription. |
+| `resource-group` | string | No | The resource group to search. Required when `--function-app` is specified. Omit both selectors to list function apps across the subscription. |
 
 #### [MCP Server](#tab/mcp-server)
 
@@ -57,8 +57,8 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Function app** |  Optional | The name of the function app. |
-| **Resource group** | Optional | The name of the Azure resource group. |
+| **Function app** | Optional | The function app name. Omit it to list function apps in the resource group or subscription. |
+| **Resource group** | Optional | The resource group to search. Required when **Function app** is specified. Omit both selectors to list function apps across the subscription. |
 
 ---
 
