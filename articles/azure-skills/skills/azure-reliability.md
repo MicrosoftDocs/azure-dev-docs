@@ -1,21 +1,21 @@
 ---
 title: Azure Skill for Reliability
 description: Assess and improve the reliability posture of Azure Functions with zone redundancy, zone-redundant storage, health probes, and multi-region failover guidance.
-author: diberry
-ms.author: diberry
-ms.date: 5/26/2026
+author: yunjchoi
+ms.author: yunjchoi
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
   - "skill-version-1.0.1"
-ai-usage: ai-assisted
+ai-usage: ai-generated
 ---
 
 # Azure skill for reliability
 
 Assess and improve the reliability posture of Azure Functions: zone redundancy, zone-redundant storage, health probes, multi-region failover.
 
-**Skill:** `azure-reliability` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-reliability/SKILL.md)
+**Skill:** `azure-reliability` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-reliability/SKILL.md)
 
 ## What it provides
 
@@ -35,7 +35,6 @@ When issues are found, the skill offers two remediation paths: running Azure CLI
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with the [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 - **Azure Resource Graph extension**: Install with `az extension add --name resource-graph` to enable resource discovery queries.
 - **Reader access** on the target subscription or resource group for assessment. **Contributor access** is required to apply configuration changes.
@@ -76,4 +75,4 @@ Try these prompts to activate this skill:
 - [Azure Storage redundancy options](/azure/storage/common/storage-redundancy)
 - [Azure Front Door overview](/azure/frontdoor/front-door-overview)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-reliability/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-reliability/SKILL.md)

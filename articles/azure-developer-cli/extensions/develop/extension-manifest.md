@@ -1,8 +1,8 @@
 ---
 title: Define the extension manifest
 description: Learn how to configure the extension.yaml manifest for an Azure Developer CLI (azd) extension, including properties, capabilities, dependencies, and extension packs.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/10/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

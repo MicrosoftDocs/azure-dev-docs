@@ -1,8 +1,8 @@
 ---
 title: Explore the Azure Developer CLI up workflow
 description: Learn about how the different stages of the Azure Developer CLI provisioning and deployment workflows
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 06/30/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

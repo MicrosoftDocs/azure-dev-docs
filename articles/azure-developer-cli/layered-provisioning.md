@@ -1,8 +1,8 @@
 ---
 title: Layered provisioning with the Azure Developer CLI
 description: Learn how to use layered provisioning with the Azure Developer CLI (azd) to solve complex infrastructure dependency scenarios.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 08/14/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article

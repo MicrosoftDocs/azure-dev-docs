@@ -1,8 +1,8 @@
 ---
 title: Full-stack deployment with Azure Developer CLI
 description: Learn how to deploy full-stack applications with front-end and back-end services using Azure Developer CLI (azd). Discover deployment strategies and best practices.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 01/20/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article

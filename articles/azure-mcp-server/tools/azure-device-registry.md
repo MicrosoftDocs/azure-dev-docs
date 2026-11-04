@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure Device Registry
 description: Use Azure MCP Server tools to list and discover Azure Device Registry namespaces across subscriptions and resource groups with natural-language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: nimengan
 ms.date: 09/16/2026
 ms.service: azure-mcp-server

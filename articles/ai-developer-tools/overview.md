@@ -1,8 +1,8 @@
 ---
 title: Azure AI developer tools overview
 description: The Azure AI developer tools help you build, deploy, and manage Azure applications with natural language through GitHub Copilot for Azure, Azure MCP Server, and Azure Skills.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 06/23/2026
 ms.topic: overview
 ms.collection: ce-skilling-ai-copilot

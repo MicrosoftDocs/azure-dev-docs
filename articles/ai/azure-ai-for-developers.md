@@ -79,7 +79,7 @@ Building AI applications requires strong authentication and security to protect 
 
 * [Security planning for LLM-based applications](/ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 
-* [Use Azure OpenAI without keys](./keyless-connections.md) 
+* [Use Azure OpenAI without keys](./get-started-azure-openai-starter-kit.md)
 
 * [Use Azure AI Search without keys](/azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 

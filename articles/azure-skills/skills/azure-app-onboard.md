@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure App Onboard
 description: Use the Azure App Onboard skill to assess app readiness, choose Azure services, estimate costs, and scaffold deployment assets.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: vaibbavis
-ms.date: 08/14/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom: [devx-track-copilot-skills, skill-version-1.2.7]
@@ -16,7 +16,7 @@ ms.skillversion: "1.2.7"
 
 The Azure App Onboard skill helps you move a new or existing app to Azure. It guides you through app-readiness checks, Azure service selection, cost estimation, infrastructure scaffolding, and deployment approval so you can go from idea or codebase to a deployable Azure plan.
 
-**Skill** `azure-app-onboard` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-app-onboard/SKILL.md)
+**Skill** `azure-app-onboard` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-app-onboard/SKILL.md)
 
 ## What it provides
 
@@ -32,7 +32,6 @@ Azure App Onboard gives you an end-to-end workflow for getting an application re
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with the [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 - **PowerShell** (v7.4+): Install from [PowerShell documentation](/powershell/scripting/install/installing-powershell).
 - **Node.js** (LTS): Install from [Node.js](https://nodejs.org/).
@@ -55,7 +54,7 @@ Use this skill when you need to:
 | Scenario | Use instead |
 |---|---|
 | Run an existing deployment or execute `azd up` | [Azure Deploy](azure-deploy.md) |
-| Optimize costs for resources that already run in Azure | [Azure Cost Optimization](azure-cost.md) |
+| Optimize costs for resources that already run in Azure | [Cost Optimization](../plugins/azure-cost/cost-optimization.md) |
 | Run only a readiness scan for an existing repository | [Azure App Onboard Prereq](azure-app-onboard-prereq.md) |
 | Generate infrastructure for a known target architecture | [Azure Prepare](azure-prepare.md) |
 | Validate deployment files or preflight checks before go-live | [Azure Validate](azure-validate.md) |
@@ -83,4 +82,4 @@ Try these prompts to activate this skill:
 - [Azure skill for Azure Deploy](azure-deploy.md)
 - [Azure Skills overview](../overview.md)
 - [Azure Model Context Protocol (MCP) Server overview](../../azure-mcp-server/overview.md)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-app-onboard/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-app-onboard/SKILL.md)

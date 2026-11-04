@@ -1,8 +1,8 @@
 ---
 title: Work with Environments in Azure Developer CLI
 description: Learn how to create, manage, and switch between different environments using Azure Developer CLI (azd).
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 08/04/2025
 ms.service: azure-dev-cli
 ms.topic: how-to

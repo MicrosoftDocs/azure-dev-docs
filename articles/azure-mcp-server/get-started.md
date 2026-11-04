@@ -1,8 +1,8 @@
 ---
 title: Get Started with the Azure MCP Server
 description: Overview of the options for using the Azure MCP Server with tools and languages
-author: alexwolfmsft
-ms.author: alexwolf
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 06/02/2026
 ms.topic: get-started
 ms.custom:

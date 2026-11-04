@@ -1,8 +1,8 @@
 ---
 title: Azure Confidential Ledger Tools
 description: Learn how to use the Azure MCP Server with Azure Confidential Ledger to manage tamper-proof ledger entries by using natural language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.topic: concept-article
 ms.custom:

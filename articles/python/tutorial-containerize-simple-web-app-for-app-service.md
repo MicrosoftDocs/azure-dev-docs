@@ -340,7 +340,7 @@ For more information, see the following resources:
 [13]: https://gunicorn.org/
 [14]: https://betterstack.com/community/guides/scaling-python/gunicorn-explained/#config-file
 [15]: https://betterstack.com/community/guides/scaling-python/gunicorn-explained/#configuration-file
-[16]: https://www.uvicorn.org/#running-with-gunicorn
+[16]: https://uvicorn.dev/#running-with-gunicorn
 [17]: https://docs.docker.com/engine/reference/run/
 [18]: /cli/azure/group#az-group-create
 [19]: /cli/azure/acr#az-acr-create

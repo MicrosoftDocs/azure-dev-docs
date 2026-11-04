@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure Kusto IRQL
 description: Use the azure-kusto-irql skill to compose reusable IRQL pipelines that select, extract, enrich, filter, and summarize Kusto security data.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: skaluvak
-ms.date: 09/02/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom: [devx-track-copilot-skills, skill-version-1.2.0]
@@ -16,7 +16,7 @@ ms.skillversion: "1.2"
 
 The `azure-kusto-irql` skill helps you compose Incident Response Query Language (IRQL) pipelines for cybersecurity investigations in Azure Data Explorer. IRQL uses stored KQL functions to provide consistent schemas and reusable selectors, extractors, and enrichers across security data sources.
 
-**Skill** `azure-kusto-irql` | [Source code](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql/SKILL.md)
+**Skill** `azure-kusto-irql` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql/SKILL.md)
 
 This skill isn't a general natural-language-to-IRQL converter. Use it to compose known IRQL functions or handle a basic request that maps directly to a known selector and simple filters.
 
@@ -27,7 +27,6 @@ You get guidance for composing IRQL pipelines with `Get_*` selectors, `Extract_*
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../../install.md).
 - **Azure Data Explorer access**: You need access to the cluster and database that contain your security data.
 - **IRQL functions**: The required `Get_*`, `Extract_*`, and `Enrich_*` stored functions must be deployed in the target database.
 - **Optional example environment**: The `kc7001.eastus.kusto.windows.net` cluster provides predeployed IRQL functions in the `ValdyTimes` and `JoJosHospital` databases.
@@ -62,5 +61,5 @@ Try these prompts to activate this skill:
 - [Azure skill for Azure Kusto IRQL Graph](azure-kusto-irql-graph.md)
 - [Azure Data Explorer KQL overview](/kusto/query/index)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [IRQL examples](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql/references/EXAMPLES.md)
-- [Skill source code](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql/SKILL.md)
+- [IRQL examples](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql/references/EXAMPLES.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql/SKILL.md)

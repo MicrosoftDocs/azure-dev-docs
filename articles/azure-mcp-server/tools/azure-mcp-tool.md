@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Tools Management
 description: Learn how to use the Azure MCP Server tools management capability to discover the tools available in the server through natural language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.topic: concept-article
 ms.service: azure-mcp-server

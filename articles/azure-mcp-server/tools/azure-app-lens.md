@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure AppLens
 description: Use Azure MCP Server tools to diagnose and troubleshoot Azure App Service resources with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: msalaman
 ms.date: 09/16/2026
 ms.service: azure-mcp-server

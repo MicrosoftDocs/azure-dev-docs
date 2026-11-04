@@ -1,19 +1,20 @@
 ---
 title: What is Azure Skills?
-description: Connect your AI assistant to Azure to manage resources, deploy apps, and monitor services without leaving your editor.
-author: diberry
-ms.author: diberry
+description: Learn how the Azure Skills marketplace combines a core Azure plugin with specialized plugins for focused Azure scenarios.
+author: yunjchoi
+ms.author: yunjchoi
 ms.service: azure-mcp-server
 ms.topic: overview
-ms.date: 03/16/2026
+ms.date: 10/05/2026
+ai-usage: ai-generated
 
-#customer intent: As a developer, I want to use AI to manage Azure resources from my editor so that I can deploy and monitor applications without context switching.
+#customer intent: As a developer, I want to understand the Azure Skills plugin model so that I can install the capabilities that match my Azure tasks.
 
 ---
 
 # What is Azure Skills?
 
-Azure Skills are agent skills that extend your AI coding assistant with Azure-specific domain knowledge and specialized workflows. They give your assistant the ability to manage resources, deploy applications, and monitor services directly from your development environment.
+Azure Skills are agent skills that extend your AI coding assistant with Azure-specific domain knowledge and workflows. The [Azure Skills repository](https://github.com/microsoft/azure-skills) is a plugin marketplace that includes the core Azure Skills plugin and specialized plugins for focused scenarios.
 
 ## Azure Skills in Visual Studio Code
 
@@ -21,22 +22,43 @@ The following demonstration shows Azure Skills in action inside Visual Studio Co
 
 :::image type="content" source="media/azure-skills-visual-studio-code-demonstration.gif" alt-text="Animated demonstration of Azure Skills running in Visual Studio Code, showing a developer using natural language to interact with Azure services through the Copilot chat panel." lightbox="media/azure-skills-visual-studio-code-demonstration.gif":::
 
-**Azure Skills** are agent skills that extend Azure-specific domain knowledge and specialized workflows for your coding agent. Azure Skills gives your AI assistant the ability to manage resources, deploy applications, and monitor services directly from your development environment.
+Azure Skills give your AI assistant the ability to manage resources, deploy applications, and monitor services directly from your development environment.
 
-Work with Azure without switching between tools, context windows, or documentation tabs. Ask your AI assistant to build, validate, and deploy, and it handles the Azure operations for you. Azure Skills uses the [Azure MCP Server](../azure-mcp-server/overview.md) to provide your AI assistant with tools to interact with 40+ Azure services. Skills layer high-level workflows on top of those tools.
+Work with Azure without switching between tools, context windows, or documentation tabs. Ask your AI assistant to build, validate, deploy, troubleshoot, or optimize, and it applies the installed skills and tools to the task.
 
-Traditional Azure workflows require context-switching between your editor, the Azure portal, and documentation while learning CLI commands and running validation steps manually. **Azure Skills** eliminates this friction. Your AI assistant becomes a full Azure development partner, understanding your application architecture and executing Azure operations at your direction.
+## How the plugin model works
+
+The Azure Skills marketplace separates broad Azure capabilities from focused scenario packages:
+
+| Component | Purpose |
+| --- | --- |
+| **Azure Skills marketplace** | The `microsoft/azure-skills` repository that compatible hosts register to find Azure plugins. |
+| **Azure Skills plugin (core)** | The `azure` plugin, which provides broad Azure workflows, Azure MCP integration, and skill discovery. |
+| **Specialized plugins** | Independently installable plugins for focused scenarios, such as Azure cost management, Azure Local, Kusto graph analysis, and Foundry IQ. |
+| **Skills** | Workflow instructions and guardrails packaged inside a plugin. |
+| **MCP servers and tools** | Execution capabilities that let a plugin inspect or change supported services and resources. |
+
+The core plugin uses the [Azure MCP Server](../azure-mcp-server/overview.md) to interact with Azure services. Specialized plugins can include their own skills, MCP configuration, prerequisites, and safety requirements.
+
+## Choose discovery or direct installation
+
+Start with the core `azure` plugin when you work across Azure scenarios or don't know which skill you need. Its `discover-azure-skills` skill searches the Azure Skills catalog, matches your task to relevant skills, and provides installation guidance for their owning plugins.
+
+Install a specialized plugin directly when you already know the scenario you need or want its capabilities available without relying on discovery. For example, install `azure-cost` for cost analysis and optimization workflows.
+
+Installing the core plugin doesn't install every specialized plugin. You control which focused capabilities are available in your environment. For the current plugin list and installation commands, see the [Azure plugin catalog](plugins/index.md).
 
 ## The prepare, validate, and deploy workflow
 
-Azure Skills follow a three-step workflow designed to prevent errors and ensure safe deployments.
+The core Azure Skills plugin includes a three-step workflow designed to prevent errors and support safe deployments.
 
 When you ask your AI assistant to prepare an application for Azure, it:
-1. Analyzes your codebase
-2. Creates a detailed deployment plan
-3. Generates infrastructure-as-code
-4. Validates the setup
-5. Deploys your app to Azure
+
+1. Analyzes your codebase.
+1. Creates a detailed deployment plan.
+1. Generates infrastructure as code.
+1. Validates the setup.
+1. Deploys your app to Azure.
 
 All without you leaving your editor.
 
@@ -50,7 +72,7 @@ This structured approach keeps deployments safe and auditable. You always review
 
 ## Related content
 
-- [Install and configure Azure Skills](install.md) — Detailed setup instructions and authentication options.
-- [Get started with Azure Skills](quickstart.md) — Hands-on walkthrough for your first deployment.
-- [Azure Skills reference](skills/azure-deploy.md) — Full documentation of all skills and their capabilities.
-- [Azure MCP Server](../azure-mcp-server/overview.md) — Technical documentation for the underlying Azure integration.
+- [Install and configure Azure Skills](install.md) - Set up the marketplace, install plugins, and configure authentication.
+- [Azure plugin catalog](plugins/index.md) - Compare the core and specialized plugins.
+- [Get started with Azure Skills](quickstart.md) - Complete a prepare, validate, and deploy workflow.
+- [Azure MCP Server](../azure-mcp-server/overview.md) - Learn about the tools that support Azure resource operations.

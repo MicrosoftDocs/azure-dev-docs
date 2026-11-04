@@ -1,21 +1,22 @@
 ---
 title: Azure Skill for Diagnostics
 description: Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage. Also covers Azure VMs, App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: alex-thompson, yinghuidong, jobanerj
-ms.date: 07/22/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
   - "skill-version-1.1.104"
+ai-usage: ai-generated
 ---
 
 # Azure skill for diagnostics
 
 Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage. Also covers Azure VMs, App Service, Azure Functions, and Azure Messaging services including Event Hubs and Service Bus.
 
-**Skill:** `azure-diagnostics` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-diagnostics/SKILL.md)
+**Skill:** `azure-diagnostics` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-diagnostics/SKILL.md)
 
 ## What it provides
 
@@ -24,7 +25,6 @@ This skill provides GitHub Copilot with specialized knowledge to debug Azure pro
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 - **Azure compute resources**: This skill supports Azure Virtual Machines, Azure Container Apps, Azure Functions, Azure Kubernetes Service (AKS), and other Azure compute services.
 
@@ -76,4 +76,4 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-diagnostics/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-diagnostics/SKILL.md)

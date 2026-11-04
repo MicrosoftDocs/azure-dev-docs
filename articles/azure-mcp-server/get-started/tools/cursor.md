@@ -1,8 +1,8 @@
 ---
 title: Get started with the Azure MCP Server in Cursor
 description: Learn how to install, configure, and use the Azure MCP Server in Cursor to interact with your Azure resources using natural language prompts.
-author: alexwolfmsft
-ms.author: alexwolf
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.topic: get-started
 ms.custom:

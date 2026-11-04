@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure AI Search
 description: Use Azure MCP Server tools to manage search services, indexes, knowledge sources, and knowledge bases with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: pablocastro
 ms.date: 09/17/2026
 ms.service: azure-mcp-server

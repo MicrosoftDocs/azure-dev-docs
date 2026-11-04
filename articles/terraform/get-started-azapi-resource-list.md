@@ -5,8 +5,6 @@ keywords: azure devops terraform azapi resource_list data source jmespath
 ms.topic: quickstart
 ms.date: 04/20/2026
 ms.custom: devx-track-terraform
-author: stema
-ms.author: stema
 ai-usage: ai-generated
 ---
 

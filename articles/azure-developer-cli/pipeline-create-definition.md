@@ -1,8 +1,8 @@
 ---
 title: Create a custom pipeline definition file for GitHub Actions or Azure Pipelines
 description: Learn how to create a pipeline definition file for GitHub Actions or Azure Pipelines.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/20/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

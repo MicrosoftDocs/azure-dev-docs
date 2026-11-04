@@ -1,8 +1,8 @@
 ---
 title: Azure Developer CLI tooling and environment FAQ
 description: Get answers to commonly asked questions about Azure Developer CLI tooling and environments.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 03/03/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

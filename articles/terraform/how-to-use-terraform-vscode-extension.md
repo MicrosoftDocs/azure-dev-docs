@@ -4,8 +4,6 @@ description: Learn how to use the Microsoft Terraform VS Code extension to autho
 ms.topic: how-to
 ms.date: 04/21/2026
 ms.custom: devx-track-terraform
-author: stema
-ms.author: stema
 ai-usage: ai-generated
 ---
 

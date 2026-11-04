@@ -1,8 +1,8 @@
 ---
 title: Use Terraform as an infrastructure as code tool for Azure Developer CLI
 description: How to use Terraform as an infrastructure as code tool for Azure Developer CLI (azd).
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 06/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

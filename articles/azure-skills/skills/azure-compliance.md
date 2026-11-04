@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure Compliance
 description: The azure-compliance skill helps you run Azure compliance and security audits, combining azqr assessments with Key Vault expiration checks. Use it to find expiring or expired certificates and secrets, detect orphaned resources, and surface policy and best-practice gaps before running azqr scans.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: skaluvak
-ms.date: 06/15/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.1.1"
 
 This skill helps you run Azure compliance and security audits, combining `azqr` assessments with Key Vault expiration checks. Use it to find expiring or expired certificates and secrets, detect orphaned resources, and surface policy and best-practice gaps before running `azqr` scans.
 
-**Skill** `azure-compliance` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compliance/SKILL.md)
+**Skill** `azure-compliance` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-compliance/SKILL.md)
 
 ## What it provides
 
@@ -26,7 +26,6 @@ Get a combined compliance and security audit that pairs `azqr` assessments with 
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 - **[Azure Key Vault](/azure/key-vault/general/quick-create-portal)** (optional): Required only for key, secret, and certificate expiration audits.
 
@@ -55,7 +54,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-compliance/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-compliance/SKILL.md)
 - [Azure compliance offerings](/azure/compliance/)
 - [Azure Policy overview](/azure/governance/policy/overview)
 - [Azure Policy reference](/azure/governance/policy/)

@@ -1,9 +1,9 @@
 ---
 title: Azure Skill for AI Runway AKS Setup
 description: Set up AI Runway on Azure Kubernetes Service (AKS), from validating a bare cluster to installing the AI Runway controller. Assess GPU readiness, configure providers, and deploy your first model for inference on AKS.
-author: diberry
-ms.author: diberry
-ms.date: 05/29/2026
+author: yunjchoi
+ms.author: yunjchoi
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -16,7 +16,7 @@ ms.skillversion: "1.0.1"
 
 Walks through setting up AI Runway on an existing AKS cluster, from cluster verification to first model deployment.
 
-**Skill:** `airunway-aks-setup` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/airunway-aks-setup/SKILL.md)
+**Skill:** `airunway-aks-setup` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/airunway-aks-setup/SKILL.md)
 
 ## What it provides
 
@@ -25,7 +25,6 @@ This skill provides GitHub Copilot with specialized knowledge for end-to-end AI 
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **An existing AKS cluster**: If you don't have a cluster, use the `azure-kubernetes` skill first to provision one with a GPU node pool (unless CPU-only inference is acceptable).
 - **CLI tools**: `kubectl`, `make`, and `curl` installed locally.
 
@@ -97,4 +96,4 @@ Try these prompts to activate this skill:
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
 - [Azure Diagnostics skill](/azure/developer/azure-skills/skills/azure-diagnostics) — troubleshooting AI Runway deployments
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/airunway-aks-setup/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/airunway-aks-setup/SKILL.md)

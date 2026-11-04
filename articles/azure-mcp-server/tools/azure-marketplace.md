@@ -1,8 +1,8 @@
 ---
 title: Marketplace Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure Marketplace to discover and manage marketplace products and offers.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: meirloichter
 ms.date: 05/13/2026
 ms.service: azure-mcp-server

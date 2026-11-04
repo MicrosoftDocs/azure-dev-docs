@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure Deploy
 description: Use Azure MCP Server tools to manage deployments and deployment pipelines for Azure applications and infrastructure with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: qianwens
 ms.date: 09/16/2026
 ms.service: azure-mcp-server

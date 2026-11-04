@@ -1,17 +1,21 @@
 ---
 title: Azure Native ISV Tools for Azure MCP Server
 description: Use Azure MCP Server tools with Azure Native ISV partner solutions like Datadog to manage integrated third-party services with natural language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
+ms.custom:
+  - build-2025
 ai-usage: ai-assisted
 content_well_notification:
   - AI-contribution
+tool_count: 1
+mcp-cli.version: "3.0.0-beta.47+bd724faf47e86348c7163a429b584aabfd714876"
 ---
 
-# Azure Native ISV tools for Azure MCP Server overview
+# Azure MCP Server tools for Azure Native ISV services
 
 The Azure MCP Server lets you manage Azure resources, including Azure Native ISV partner solutions, with natural language prompts. You can quickly manage third-party services that are natively integrated with Azure without remembering complex syntax, which improves productivity and reduces operational overhead.
 
@@ -27,11 +31,26 @@ This article describes the Azure Native ISV tools that Azure MCP Server exposes,
 
 ## Datadog monitored resources
 
-<!-- datadog monitoredresources list -->
-
 The Azure MCP Server can list monitored resources in Datadog. [Datadog](/azure/partner-solutions/datadog/overview) is a monitoring and analytics platform for large-scale applications that includes infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring.
 
-The Datadog Azure Native Integration lets you manage Datadog directly in the Azure portal as an integrated service. This streamlined workflow covers everything from procurement to configuration, so you can quickly start monitoring the health and performance of your applications across Azure, hybrid, or multicloud environments.
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp datadog monitoredresources list \
+  --datadog-resource <datadog-resource> \
+  --resource-group <resource-group>
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `datadog-resource` | string | Yes | The name of the Datadog resource to use. This name is unique and you choose it for your Datadog resource in Azure. |
+| `resource-group` | string | Yes | The Azure resource group name. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli datadog monitoredresources list -->
 
 Example prompts include:
 
@@ -45,6 +64,8 @@ Example prompts include:
 | --- | --- | --- |
 | **Datadog resource** | Required | The name of the Datadog resource in Azure. |
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

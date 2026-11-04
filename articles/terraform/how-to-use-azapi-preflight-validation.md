@@ -4,8 +4,6 @@ description: Learn how to enable and use AzAPI preflight validation to catch Azu
 ms.topic: how-to
 ms.date: 04/20/2026
 ms.custom: devx-track-terraform
-author: stema
-ms.author: stema
 ai-usage: ai-generated
 ---
 

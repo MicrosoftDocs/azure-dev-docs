@@ -1,14 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Skills documentation
-summary: Azure Skills are agent skills that extend your AI coding assistant with Azure-specific domain knowledge and specialized workflows. Manage resources, deploy applications, and monitor services directly from your development environment.
+summary: Use the core Azure Skills plugin and specialized Azure plugins to add domain knowledge, workflows, and Azure tools to your AI coding assistant.
 
 metadata:
   title: Azure Skills documentation
-  description: Learn about Azure Skills, agent skills that extend your AI assistant with Azure-specific workflows for managing resources, deploying apps, and monitoring services.
+  description: Learn about the Azure Skills marketplace, the core Azure plugin, and specialized plugins for focused Azure scenarios.
+  author: yunjchoi
+  ms.author: yunjchoi
   ms.service: azure-mcp-server
   ms.topic: landing-page
-  ms.date: 04/20/2026
+  ms.date: 10/05/2026
 
 landingContent:
   - title: Get started
@@ -23,6 +25,22 @@ landingContent:
             url: install.md
           - text: Quickstart
             url: quickstart.md
+          - text: Explore the plugin catalog
+            url: plugins/index.md
+  - title: Choose a plugin
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Skills plugin (core)
+            url: overview.md#how-the-plugin-model-works
+          - text: Azure Cost plugin
+            url: plugins/index.md#azure-cost-plugin
+          - text: Azure Kusto Graph plugin
+            url: plugins/azure-kusto-graph/azure-kusto-graph.md
+          - text: Azure Local plugin
+            url: plugins/azure-local/azure-local.md
+          - text: Foundry IQ plugin
+            url: plugins/foundry-iq/foundry-iq.md
   - title: Skills reference
     linkLists:
       - linkListType: reference
@@ -37,8 +55,6 @@ landingContent:
             url: skills/azure-deploy.md
           - text: Azure Diagnostics
             url: skills/azure-diagnostics.md
-          - text: Azure Cost Optimization
-            url: skills/azure-cost.md
           - text: Azure Kubernetes
             url: skills/azure-kubernetes.md
   - title: Related tools

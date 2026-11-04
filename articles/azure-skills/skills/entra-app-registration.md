@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Microsoft Entra App Registration
 description: The entra-app-registration skill guides you through Microsoft Entra ID app registration and OAuth 2.0 authentication, and shows MSAL (Microsoft Authentication Library) integration patterns. It's for when you create app registrations, configure OAuth flows, add API permissions, or generate service principals for console apps and server-side auth.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: chuye
-ms.date: 06/15/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.1.1"
 
 This skill guides you through Microsoft Entra ID app registration and OAuth 2.0 authentication, and shows MSAL (Microsoft Authentication Library) integration patterns. It's for when you create app registrations, configure OAuth flows, add API permissions, or generate service principals for console apps and server-side auth.
 
-**Skill** `entra-app-registration` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/entra-app-registration/SKILL.md)
+**Skill** `entra-app-registration` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/entra-app-registration/SKILL.md)
 
 ## What it provides
 
@@ -26,7 +26,6 @@ This skill provides GitHub Copilot with specialized knowledge. Guides Microsoft 
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI with Bicep** (v2.60.0+): [Install](/cli/azure/install-azure-cli), sign in with `az login`, then run `az bicep install`.
 - **[Azure Key Vault](/azure/key-vault/general/quick-create-portal)**: A key vault for secrets and certificate management.
 
@@ -63,7 +62,7 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/entra-app-registration/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/entra-app-registration/SKILL.md)
 - [Microsoft Entra ID overview](/entra/identity-platform/)
 - [App registration quickstart](/entra/identity-platform/quickstart-register-app)
 - [Authentication vs authorization](/entra/identity-platform/authentication-vs-authorization)

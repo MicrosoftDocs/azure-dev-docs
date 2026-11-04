@@ -1,8 +1,8 @@
 ---
 title: Deploy to Azure App Service slots with Azure Developer CLI
 description: Learn how to use Azure Developer CLI to deploy to Azure App Service slots and swap slots for staging, promotion, or rollback. Get started today.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 04/01/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

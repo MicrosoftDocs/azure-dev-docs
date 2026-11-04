@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server tools for Application Insights
 description: Use Azure MCP Server tools to list Application Insights code optimization recommendations, optionally by resource group, using natural language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 09/16/2026
 ms.topic: concept-article
 ms.custom:

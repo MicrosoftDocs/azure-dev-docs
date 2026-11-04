@@ -1,8 +1,8 @@
 ---
 title: Manage Azure Quotas with Azure MCP Server
 description: Use Azure MCP Server to manage Azure Quotas with natural language prompts. Monitor usage, set alerts, and optimize resource allocation. Learn more and get started today.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 07/10/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
