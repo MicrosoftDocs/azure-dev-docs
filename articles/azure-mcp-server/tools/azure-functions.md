@@ -4,7 +4,8 @@ description: Use Azure MCP Server tools to manage Azure Functions app resources 
 author: sandeep-sen
 ms.author: sandeepsen
 ms.reviewer: manvkaur
-ms.date: 05/13/2026
+ms.date: 11/03/2026
+ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.custom:
   - build-2025
@@ -13,7 +14,7 @@ ai-usage: ai-generated
 content_well_notification:
   - AI-contribution
 tool_count: 4
-mcp-cli.version: "3.0.0-beta.10+7287903f962dd029489594e2ae68842f3e10ac30"
+mcp-cli.version: "3.0.0-beta.47+bd724faf47e86348c7163a429b584aabfd714876"
 ---
 
 # Azure MCP Server tools for Azure Functions
@@ -26,9 +27,26 @@ Azure Functions is a serverless compute service for running event-driven code wi
 
 ## Function app: list or get
 
-<!-- @mcpcli functionapp get -->
-
 Get details for a specific function app or list all function apps in your subscription. Returns information including name, location, status, and app service plan.
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp functionapp get \
+  [--function-app <function-app>] \
+  [--resource-group <resource-group>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `function-app` | string | No | The function app name. Omit it to list function apps in the resource group or subscription. |
+| `resource-group` | string | No | The resource group to search. Required when `--function-app` is specified. Omit both selectors to list function apps across the subscription. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli functionapp get -->
 
 Example prompts include:
 
@@ -39,15 +57,16 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Function app** |  Optional | The name of the function app. |
+| **Function app** | Optional | The function app name. Omit it to list function apps in the resource group or subscription. |
+| **Resource group** | Optional | The resource group to search. Required when **Function app** is specified. Omit both selectors to list function apps across the subscription. |
+
+---
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 | Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
 |:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-
-
 
 ## Functions: get language list
 
