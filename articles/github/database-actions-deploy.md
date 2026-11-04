@@ -4,7 +4,7 @@ description: Support to deploy databases from GitHub to Azure
 author: ramiMSFT 
 ms.author: rabououn 
 ms.topic: reference
-ms.service: azure
+ms.service: github
 ms.date: 02/15/2023
 ms.custom: github-actions-azure
 ---
