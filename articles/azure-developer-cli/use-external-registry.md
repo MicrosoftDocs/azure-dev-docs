@@ -1,8 +1,8 @@
 ---
 title: Use third-party container registries
 description: How to use third-party container registries
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

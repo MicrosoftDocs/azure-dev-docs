@@ -3,8 +3,8 @@ title: Get started with Azure Skills
 description: "Azure Skills quickstart: Deploy your first Azure application in minutes. Learn how to prepare, validate, and launch Node.js apps with step-by-step guidance."
 ms.topic: quickstart
 ms.date: 03/16/2026
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: alexwolf
 ms.service: azure-mcp-server
 ---

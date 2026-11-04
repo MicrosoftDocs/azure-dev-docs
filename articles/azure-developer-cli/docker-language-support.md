@@ -1,8 +1,8 @@
 ---
 title: "Use Docker to deploy Go, Rust, and other languages with Azure Developer CLI"
 description: "Learn how to use Docker as a language in Azure Developer CLI (azd) to build and deploy Go, Rust, Ruby, and other containerized apps to Azure with full control over the build process."
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/30/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli

@@ -1,8 +1,8 @@
 ---
 title: Customize your Azure Developer CLI workflows using command and event hooks
 description: Explores how to use Azure Developer CLI hooks to customize deployment pipelines
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 06/11/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli

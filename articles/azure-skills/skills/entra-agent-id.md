@@ -1,14 +1,15 @@
 ---
 title: Azure Skill for Entra Agent ID
 description: Provisions Microsoft Entra Agent Identity Blueprints, BlueprintPrincipals, and per-instance Agent Identities via Microsoft Graph, and configures OAuth 2.0 token exchange.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: chuye
-ms.date: 05/05/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
   - "skill-version-1.0.1"
+ai-usage: ai-generated
 ---
 
 # Azure skill for Entra Agent ID
@@ -29,7 +30,6 @@ For the latest Agent ID documentation, use the [microsoft-docs skill](https://gi
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Microsoft Entra role**: Agent Identity Developer, Agent Identity Administrator, or Application Administrator.
 - **Microsoft Graph access**: PowerShell (`Microsoft.Graph.Applications`) or Python (`azure-identity`, `requests`).
 - **OData-Version header**: Include `OData-Version: 4.0` on every Graph request to Agent Identity endpoints.

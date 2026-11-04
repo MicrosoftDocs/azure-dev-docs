@@ -1,8 +1,8 @@
 ---
 title: Communicate with azd by using the SDK
 description: Learn how to use the azdext Go SDK to communicate with the Azure Developer CLI (azd) from an extension, including project data, prompts, and gRPC services.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

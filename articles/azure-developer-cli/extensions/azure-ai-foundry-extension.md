@@ -1,8 +1,8 @@
 ---
 title: Microsoft Foundry agent extension overview
 description: Learn about the Microsoft Foundry agent extension, which lets you scaffold, provision, and deploy agents to Microsoft Foundry from your terminal.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 07/22/2026
 ms.service: azure-dev-cli
 ms.topic: overview

@@ -4,8 +4,6 @@ description: Learn when to use the AzureRM provider versus the AzAPI provider fo
 ms.topic: concept-article
 ms.date: 04/20/2026
 ms.custom: devx-track-terraform
-author: stema
-ms.author: stema
 ai-usage: ai-generated
 ---
 

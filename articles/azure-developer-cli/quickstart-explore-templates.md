@@ -1,8 +1,8 @@
 ---
 title: Explore and customize an Azure Developer CLI Template
 description: Learn the basics of how to work with and customize Azure Developer CLI templates.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/11/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

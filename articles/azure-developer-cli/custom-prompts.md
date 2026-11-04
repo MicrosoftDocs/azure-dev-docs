@@ -1,8 +1,8 @@
 ---
 title: Add custom prompts to your azd workflow
 description: Learn how to add custom prompts and parameters to the Azure Developer CLI (azd) provisioning flow using Bicep decorators and hooks.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 04/08/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

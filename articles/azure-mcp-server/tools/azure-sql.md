@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure SQL Database
 description: Use Azure MCP Server tools to manage Azure SQL databases, servers, elastic pools, and firewall rules with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: akromm
 ms.date: 04/09/2026
 ms.service: azure-mcp-server

@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Import Data into Azure Cosmos DB with Copilot Agent Mode"
 description: Use GitHub Copilot for Azure agent mode to create Azure Cosmos DB resources and import sample data with Python. Get started quickly—no manual infrastructure code needed.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.date: 06/01/2026
 ms.service: github-copilot-for-azure
 ms.topic: quickstart

@@ -1,8 +1,8 @@
 ---
 title: List Azure Subscriptions
 description: Learn how to use Azure MCP Server tools to list Azure subscriptions, identify the default subscription, and understand each returned field.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 09/25/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article

@@ -3,8 +3,8 @@ title: Azure skill for Azure App Onboard Prereq
 description: Use the Azure App Onboard Prereq skill to assess build health, app completeness, and Azure deployment readiness.
 ms.topic: reference
 ms.date: 08/14/2026
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: vaibbavis
 ms.custom: [skill-version-1.2.7]
 ai-usage: ai-generated
@@ -16,7 +16,7 @@ ms.service: azure-mcp-server
 
 Assess whether source code is ready to deploy to Azure. Evaluates build health, app completeness, dependencies and local services, stack compatibility, and deployment feasibility. Answers questions about what your app needs before it can be deployed — frameworks, dependencies, and configuration.
 
-**Skill:** `azure-app-onboard-prereq` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-app-onboard-prereq/SKILL.md)
+**Skill:** `azure-app-onboard-prereq` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-app-onboard-prereq/SKILL.md)
 
 ## What it provides
 
@@ -79,4 +79,4 @@ Try these prompts to activate this skill:
 ## Related content
 
 - [Azure Model Context Protocol (MCP) Server overview](../../azure-mcp-server/overview.md)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-app-onboard-prereq/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-app-onboard-prereq/SKILL.md)

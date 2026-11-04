@@ -1,9 +1,9 @@
 ---
 title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
-author: alexwolfmsft
-ms.author: alexwolf
-ms.date: 08/14/2026
+author: kristenwomack
+ms.author: kwomack
+ms.date: 10/26/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -160,13 +160,13 @@ _(object)_ Definition of services that comprise the application. Each key is a s
 | --- | --- | --- | --- |
 | `host` | Y | string | The type of Azure resource used for service implementation. See [Host types](#host-types). |
 | `project` | Conditional | string | Path to the service source code directory. Required for most host types. |
-| `image` | Conditional | string | The source image to be used for the container image instead of building from source. Supports environment variable substitution. Valid for the `containerapp` and `appservice` (Linux) hosts. |
+| `image` | Conditional | string | The source image to be used for the container image instead of building from source. Supports environment variable substitution. Valid for the `containerapp`, `appservice` (Linux), and `function` hosts. |
 | `language` | N | string | Service implementation language. Allowed values: `dotnet`, `csharp`, `fsharp`, `py`, `python`, `js`, `ts`, `java`, `go`, `golang`, `docker`. |
 | `module` | N | string | Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI assumes the module name is the same as the service name. |
 | `dist` | N | string | Relative path to service deployment artifacts. |
 | `resourceName` | N | string | Name of the Azure resource that implements the service. By default, the CLI discovers the Azure resource with tag `azd-service-name` set to the current service's name. Supports environment variable substitution. |
 | `resourceGroup` | N | string | Name of the Azure resource group that contains the resource. When specified, the CLI finds the Azure resource within the specified resource group. Supports environment variable substitution. |
-| `remoteBuild` | N | boolean | Whether to use remote build for function app deployment. Only valid when `host` is `function`. When set to `true`, the deployment package is built remotely using Oryx. Defaults to `true` for JavaScript, TypeScript, and Python function apps. |
+| `remoteBuild` | N | boolean | Whether to build the deployment package remotely using Oryx. Valid only for code deployments with `host: function` on Flex Consumption. When omitted, defaults to `true` for Python. For JavaScript and TypeScript, defaults to `true` when `.funcignore` excludes `node_modules` or no `.funcignore` file exists; otherwise, defaults to `false`. Other supported languages build locally by default. Use `docker.remoteBuild` for container image builds. |
 | `docker` | N | object | Docker configuration. Only applicable for container-based hosts. See [`docker`](#docker). |
 | `k8s` | N | object | AKS configuration options. Only valid when `host` is `aks`. See [`k8s`](#k8s). |
 | `config` | N | object | Extra configuration options for the service. |
@@ -186,7 +186,7 @@ The `host` property determines the type of Azure resource used for service imple
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `appservice` | Azure App Service | N | Y | Y | N | Y | N |
 | `containerapp` | Azure Container Apps | `project` or `image` (not both) | Y | Y | N | Y | Y |
-| `function` | Azure Functions | Y | N | N | N | N | N |
+| `function` | Azure Functions | `project` or `image` (not both) | Y | Y | N | N | N |
 | `staticwebapp` | Azure Static Web Apps | Y | N | N | N | N | N |
 | `springapp` | Azure Spring Apps | Y | N | N | N | N | N |
 | `aks` | Azure Kubernetes Service | N | N | Y | Y | N | N |
@@ -207,6 +207,9 @@ The `host` property determines the type of Azure resource used for service imple
 
 > [!NOTE]
 > When `host` is `appservice`, you can deploy from source by setting `project`, or deploy a container image (Linux only). Container mode is triggered when you set `language: docker`, set a `docker.path` value, or set `image`. `azd deploy` builds and pushes the image, then updates the site's `linuxFxVersion` to run it. The site must already be provisioned as a Linux container app through infrastructure as code, which owns the site and Azure Container Registry configuration. For details, see [Deploy containers to Azure App Service with azd](./app-service-containers.md).
+
+> [!NOTE]
+> When `host` is `function`, you must provide either `project` or `image`, but not both. A project uses code deployment unless you set `language: docker` or a `docker.path` value. A prebuilt `image` uses container deployment and requires `language` to be omitted or set to `docker`. The top-level `remoteBuild` property is valid only for code deployments on Flex Consumption. When omitted, it defaults to `true` for Python. For JavaScript and TypeScript, it defaults to `true` when `.funcignore` excludes `node_modules` or no `.funcignore` file exists; otherwise, it defaults to `false`. Use `docker.remoteBuild` for container image builds. For details, see [Deploy to Azure Functions with azd](./function-app-deployments.md).
 
 > [!NOTE]
 > When `host` is `azure.ai.agent`, the `config` property is deprecated. Agent settings moved to the service level, but the previous `config` shape remains valid.

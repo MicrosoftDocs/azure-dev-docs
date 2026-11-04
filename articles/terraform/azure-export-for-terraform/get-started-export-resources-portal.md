@@ -5,8 +5,6 @@ keywords: azure devops terraform lab resource
 ms.topic: quickstart
 ms.date: 10/01/2024
 ms.custom: devx-track-terraform
-author: stema
-ms.author: stema
 ---
 
 # Quickstart: Export a virtual machine into Terraform with the Azure portal

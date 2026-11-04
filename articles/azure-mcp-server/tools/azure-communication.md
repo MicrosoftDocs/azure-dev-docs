@@ -1,8 +1,8 @@
 ---
 title: Azure Communication Services Tools
 description: Learn how to use Azure MCP Server with Azure Communication Services to send emails and SMS messages using natural language prompts.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article

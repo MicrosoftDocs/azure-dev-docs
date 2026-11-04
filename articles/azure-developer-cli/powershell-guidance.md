@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot PowerShell issues with the Azure Developer CLI
 description: Troubleshoot PowerShell issues when running Azure Developer CLI templates that utilize hooks with PowerShell scripts
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 03/20/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

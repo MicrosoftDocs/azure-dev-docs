@@ -1,8 +1,8 @@
 ---
 title: Configure service packaging file inclusions and exclusions
 description: How to configure service packaging file inclusions and exclusions for Azure Developer CLI templates
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

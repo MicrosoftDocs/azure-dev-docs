@@ -1,10 +1,10 @@
 ---
 title: Azure Skill for Azure Prepare
 description: The azure-prepare skill helps you prepare Azure environments for app deployment. Use it to generate Bicep or Terraform templates and a deployment plan that define resource groups, app settings, and services for Container Apps, App Service, Functions, and related services.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: tomescht
-ms.date: 09/16/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
@@ -17,7 +17,7 @@ ms.skillversion: "1.2.14"
 
 The `azure-prepare` skill helps you prepare Azure environments for app deployment. Use it to generate Bicep or Terraform templates and a deployment plan that define resource groups, app settings, and services for Container Apps, App Service, Functions, and related services. After you generate and approve the deployment plan, the skill suggests a handoff to the [azure-validate](azure-validate.md) skill.
 
-**Skill** `azure-prepare` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-prepare/SKILL.md)
+**Skill** `azure-prepare` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-prepare/SKILL.md)
 
 ## What it provides
 
@@ -26,7 +26,6 @@ You get guided setup for Azure app deployment. The skill generates the infrastru
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI with Bicep** (v2.60.0+): [Install](/cli/azure/install-azure-cli), sign in with `az login`, then run `az bicep install`.
 - **[Terraform](https://developer.hashicorp.com/terraform/install)** (v1.5+).
 
@@ -74,6 +73,6 @@ This skill is the first step in the deployment workflow:
 - [Azure skill for validate](azure-validate.md)
 - [Azure skill for deploy](azure-deploy.md)
 - [Azure Model Context Protocol (MCP) Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-prepare/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-prepare/SKILL.md)
 - [Azure Container Apps overview](/azure/container-apps/overview)
 - [Azure App Service documentation](/azure/app-service/)

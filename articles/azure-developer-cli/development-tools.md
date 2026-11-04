@@ -1,8 +1,8 @@
 ---
 title: Manage Azure development tools with azd tool
 description: Learn how to use the azd tool command group to discover, install, upgrade, and check the status of common Azure development tools directly from the Azure Developer CLI.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 08/04/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

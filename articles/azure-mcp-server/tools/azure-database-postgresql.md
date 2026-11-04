@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure Database for PostgreSQL
 description: Learn how to use Azure MCP Server tools to manage Azure Database for PostgreSQL resources, query databases, list tables, and retrieve schemas.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: kkravi, mluk, shaithal, xiangyan
 ms.date: 07/14/2026
 ms.service: azure-mcp-server

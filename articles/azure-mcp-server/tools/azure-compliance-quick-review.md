@@ -1,8 +1,8 @@
 ---
 title: Azure Quick Review CLI Tools - Azure MCP Server
 description: Use Azure MCP Server tools with natural language prompts or Azure MCP CLI commands to generate Azure Quick Review compliance and security reports.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: wabrez
 ms.date: 08/24/2026
 ms.service: azure-mcp-server

@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Developer CLI
 description: In this article, troubleshoot common problems that might occur when you're using Azure Developer CLI.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
 ms.date: 09/11/2026

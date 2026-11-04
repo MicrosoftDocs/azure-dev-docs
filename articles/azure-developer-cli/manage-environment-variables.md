@@ -1,8 +1,8 @@
 ---
 title: Work with Azure Developer CLI environment variables
 description: Learn how to manage and use environment variables in Azure Developer CLI (azd)
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 08/06/2025
 ms.service: azure-dev-cli
 ms.topic: how-to

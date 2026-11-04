@@ -1,9 +1,9 @@
 ---
-author: alexwolfmsft
+author: kristenwomack
 ms.service: azure-dev-cli
 ms.topic: include
 ms.date: 09/11/2026
-ms.author: alexwolf
+ms.author: kwomack
 ai-usage: ai-generated
 ---
 

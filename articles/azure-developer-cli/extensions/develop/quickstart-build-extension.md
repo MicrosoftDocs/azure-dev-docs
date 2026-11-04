@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Build a sample azd extension"
 description: Use the Azure Developer CLI (azd) developer extension to scaffold, build, and run your first custom extension in Go.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 08/13/2026
 ms.service: azure-dev-cli
 ms.topic: quickstart

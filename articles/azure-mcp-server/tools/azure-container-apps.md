@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools for Azure Container Apps
 description: Use Azure MCP Server tools to manage containerized applications and serverless container instances in Azure Container Apps with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 reviewer: ArthurMa1978
 ms.date: 09/16/2026
 ms.service: azure-mcp-server

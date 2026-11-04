@@ -1,8 +1,8 @@
 ---
 title: Azure Developer CLI templates overview
 description: Learn how Azure Developer CLI templates organize configuration, infrastructure, and application code for repeatable Azure deployments.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 09/11/2026
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli

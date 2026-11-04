@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server Tools
 description: Learn about the Azure MCP Server tools that let you use natural language to interact with Azure services from AI clients like GitHub Copilot.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ms.topic: overview
 ms.service: azure-mcp-server

@@ -1,17 +1,18 @@
 ---
 title: Install and configure Azure Skills
-description: "Install, authenticate, and configure Azure Skills to manage Azure resources from your AI assistant."
+description: "Register the Azure Skills marketplace, install the core or specialized plugins, and authenticate to Azure."
 ms.topic: how-to
-ms.date: 03/16/2026
-author: diberry
-ms.author: diberry
+ms.date: 10/05/2026
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: alexwolf
 ms.service: azure-mcp-server
+ai-usage: ai-generated
 ---
 
 # Install and configure Azure Skills
 
-This article shows you how to install Azure Skills, authenticate to your Azure account, and verify the installation. After setup, you can manage Azure resources from your chat interface.
+This article shows you how to register the Azure Skills marketplace, install the plugins you need, authenticate to your Azure account, and verify the installation. The marketplace includes the core Azure Skills plugin and specialized plugins for focused Azure scenarios.
 
 ## Prerequisites
 
@@ -104,19 +105,19 @@ For more information, see [Azure managed identities](/entra/identity/managed-ide
 
 ---
 
-## Install Azure Skills
+## Install Azure Skills plugins
 
 Choose the installation method for your AI assistant.
 
 ### [GitHub Copilot CLI](#tab/copilot-cli)
 
-Add the marketplace (first time only):
+Add the Azure Skills marketplace. You only need to register it once:
 
 ```
 /plugin marketplace add microsoft/azure-skills
 ```
 
-Install the plugin:
+Install the core Azure Skills plugin. This plugin is the recommended starting point for broad Azure workflows and skill discovery:
 
 ```
 /plugin install azure@azure-skills
@@ -128,13 +129,32 @@ Update the plugin:
 /plugin update azure@azure-skills
 ```
 
+The core plugin includes `discover-azure-skills`. If your task isn't covered by a currently installed skill, describe the Azure task in Copilot CLI. The discovery skill searches the catalog, recommends matching skills, identifies their owning plugins, and provides installation guidance.
+
+#### Install a specialized plugin directly
+
+Install a specialized plugin when you already know which focused capabilities you need:
+
+```text
+/plugin install <plugin-name>@azure-skills
+```
+
+| Plugin | Install command | Focus |
+| --- | --- | --- |
+| Azure Cost | `/plugin install azure-cost@azure-skills` | Cost analysis, estimation, optimization, and governance. |
+| Azure Kusto Graph | `/plugin install azure-kusto-graph-skills@azure-skills` | Kusto graph analysis, IRQL pipelines, and graph visualization. |
+| Azure Local | `/plugin install azure-local-skills@azure-skills` | Standard and multi-rack Azure Local workflows. |
+| Foundry IQ | `/plugin install foundry-iq-skills@azure-skills` | Foundry IQ knowledge-base creation, retrieval, and agent connections. |
+
+Installing the core plugin doesn't install these specialized plugins. Review the [Azure plugin catalog](plugins/index.md) for plugin-specific capabilities and prerequisites.
+
 ### [Visual Studio Code](#tab/vscode)
 
 Install the **Azure MCP** extension from the Visual Studio Marketplace:
 
 👉 [Azure MCP Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server)
 
-The Azure MCP extension installs a companion extension that brings Azure Skills into Visual Studio Code. Together they configure the Azure MCP Server and the full skills layer.
+The Azure MCP extension installs a companion extension that brings the core Azure Skills experience into Visual Studio Code. Together they configure the Azure MCP Server and the core skills layer.
 
 > [!NOTE]
 > The skills extension requires **Git CLI** to be installed on your machine.
@@ -191,7 +211,7 @@ Install the Azure plugin from the [Cursor Marketplace](https://cursor.com/market
 
     :::image type="content" source="media/cursor-plugins.png" alt-text="A screenshot showing the Azure plugin in the Cursor Plugins settings.":::
 
-The plugin automatically configures the Azure MCP Server, Foundry MCP, and the full skills layer.
+The plugin automatically configures the Azure MCP Server, Foundry MCP, and the core Azure skills layer.
 
 ### [IntelliJ IDEA](#tab/intellij)
 
@@ -252,7 +272,7 @@ git --version
 
 ---
 
-For the full list of supported hosts and installation options, see the [Azure Skills repository](https://github.com/microsoft/azure-skills).
+For the current plugin list and installation options, see the [Azure plugin catalog](plugins/index.md) and the [Azure Skills repository](https://github.com/microsoft/azure-skills).
 
 ## Verify installation
 
@@ -264,7 +284,7 @@ After installation, confirm Azure Skills is ready to use.
    /plugin list
    ```
 
-   The output includes `azure@azure-skills` and available skills.
+   The output includes `azure@azure-skills` and any specialized plugins you installed.
 
 1. Test with a quick command:
 
@@ -338,12 +358,13 @@ export AZURE_MCP_COLLECT_TELEMETRY=false
 
 ### "Plugin not found" error
 
-**Problem:** The Azure Skills plugin isn't installed or recognized.
+**Problem:** An Azure Skills plugin isn't installed or recognized.
 
 **Solutions:**
 
 - To register the marketplace, run `/plugin marketplace add microsoft/azure-skills` .
-- To install the plugin, run `/plugin install azure@azure-skills`.
+- To install the core plugin, run `/plugin install azure@azure-skills`.
+- To install a specialized plugin, run `/plugin install <plugin-name>@azure-skills`.
 - Restart your AI assistant.
 - Verify Node.js is installed.
 
@@ -371,5 +392,6 @@ export AZURE_MCP_COLLECT_TELEMETRY=false
 
 - [Get started with Azure Skills](quickstart.md)
 - [Overview of Azure Skills](overview.md)
+- [Azure plugin catalog](plugins/index.md)
 - [GitHub Copilot for Azure](/azure/copilot/overview)
 - [Azure MCP Server get started guide](../azure-mcp-server/get-started.md)

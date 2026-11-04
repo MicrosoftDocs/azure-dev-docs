@@ -1,8 +1,8 @@
 ---
 title: Secure your Azure MCP Server deployment
 description: Learn how to secure Azure MCP Server deployments with authentication, gateway protection, local server hardening, and mitigation of tool-poisoning risks.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: sandeepsen, gilbertw, vigera, larryo, svukel, alzimmer  
 ms.date: 07/15/2026
 ms.topic: article

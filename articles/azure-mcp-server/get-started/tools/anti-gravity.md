@@ -1,8 +1,8 @@
 ---
 title: Get Started with Google Antigravity
 description: Learn how to connect Google Antigravity to the Azure MCP Server, authenticate, and run prompts that manage your Azure resources with natural language.
-author: alexwolfmsft
-ms.author: alexwolf
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 08/25/2026
 ms.topic: get-started
 ms.custom:

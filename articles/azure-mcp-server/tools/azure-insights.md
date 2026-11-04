@@ -1,8 +1,8 @@
 ---
 title: Azure MCP Server tools for Azure Insights
 description: Azure MCP Server tools help analyze deployed Azure resources and generate infrastructure insights with natural language prompts from your IDE.
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: mren, arunrab
 ms.date: 07/17/2026
 ms.topic: concept-article

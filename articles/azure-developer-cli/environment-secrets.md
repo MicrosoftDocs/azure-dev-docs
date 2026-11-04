@@ -1,8 +1,8 @@
 ---
 title: Use environment secrets with Azure Developer CLI
 description: Learn how to reference Azure Key Vault secrets within your Azure Developer CLI project environment for Bicep parameters, hooks, and CI/CD pipelines.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 03/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to

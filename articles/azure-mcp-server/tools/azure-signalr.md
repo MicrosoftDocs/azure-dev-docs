@@ -3,8 +3,8 @@ title: Azure SignalR Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure SignalR to manage your real-time messaging and communication services.
 tool_count: 1
 mcp-cli.version: "3.0.0-beta.37+19951caeceada3430e56e2487379817219a98df5"
-author: diberry
-ms.author: diberry
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 09/16/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article

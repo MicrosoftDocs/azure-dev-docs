@@ -1,22 +1,22 @@
 ---
 title: Azure Skill for Azure Upgrade
 description: Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK dependencies in source code.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.reviewer: skaluvak, mabha
-ms.date: 06/29/2026
+ms.date: 10/05/2026
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.custom:
   - "skill-version-1.1.4"
-ai-usage: ai-assisted
+ai-usage: ai-generated
 ---
 
 # Azure skill for Azure Upgrade
 
 This skill handles assessment and automated upgrades of existing Azure workloads from one Azure service, hosting plan, or SKU to another — all within Azure. This includes plan/tier upgrades, cross-service migrations, and SKU changes. This skill also covers Azure SDK for Java source-code modernization. This skill doesn't handle cross-cloud migration.
 
-**Skill** `azure-upgrade` | [Source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-upgrade/SKILL.md)
+**Skill** `azure-upgrade` | [Source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-upgrade/SKILL.md)
 
 ## What it provides
 
@@ -25,7 +25,6 @@ The Azure Upgrade skill gives GitHub Copilot specialized knowledge about Azure u
 ## Prerequisites
 
 - **Azure subscription**: [Create a free account](https://azure.microsoft.com/free/) if you don't have one.
-- **AI assistant with Azure Skills**: [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), Visual Studio Code with [Azure MCP extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-mcp-server), Claude Code, or another [compatible MCP client](../install.md).
 - **Azure CLI** (v2.60.0+): [Install](/cli/azure/install-azure-cli) and sign in with `az login`.
 
 ## When to use this skill
@@ -65,4 +64,4 @@ Try these prompts to activate this skill:
 - [Azure Cache for Redis migration guide](/azure/azure-cache-for-redis/cache-overview)
 - [Azure Managed Redis overview](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview)
 - [Azure MCP Server overview](/azure/developer/azure-mcp-server/overview)
-- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/skills/azure-upgrade/SKILL.md)
+- [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-upgrade/SKILL.md)

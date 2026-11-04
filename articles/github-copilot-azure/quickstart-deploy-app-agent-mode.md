@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Deploy Your Application to Azure with Agent Mode in GitHub Copilot for Azure
 description: This article demonstrates how to use agent mode in GitHub Copilot for the Azure to deploy an application to Azure.
-author: diberry
-ms.author: diberry
+author: yunjchoi
+ms.author: yunjchoi
 ms.date: 06/22/2026
 ms.service: github-copilot-for-azure
 ms.topic: quickstart

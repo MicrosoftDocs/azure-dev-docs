@@ -1,8 +1,8 @@
 ---
 title: Provisioning and deployment errors
 description: Discover answers to frequently asked questions about common errors and troubleshooting in the Azure Developer CLI.
-author: alexwolfmsft
-ms.author: alexwolf
+author: kristenwomack
+ms.author: kwomack
 ms.date: 03/03/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
