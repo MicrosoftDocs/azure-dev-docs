@@ -110,6 +110,11 @@ class KnowledgePartnershipWorkflows(unittest.TestCase):
             "${{ needs.configuration.outputs.rollout-branch-prefix }}",
         )
         reminder = self.workflows["reusable-kp-reminder.yml"]
+        self.assertNotIn("reminder-type", reminder["on"]["workflow_call"]["inputs"])
+        self.assertNotIn("author-action-label", reminder["on"]["workflow_call"]["inputs"])
+        self.assertNotIn("AUTHOR_ACTION_LABEL", reminder["jobs"]["send-reminders"]["env"])
+        self.assertNotIn("reminder-type", jobs["send-author-reminder"]["with"])
+        self.assertNotIn("author-action-label", jobs["send-author-reminder"]["with"])
         self.assertEqual(
             reminder["on"]["workflow_call"]["inputs"]["rollout-branch-prefix"]["required"], "true"
         )
@@ -543,7 +548,9 @@ async function check(pr, expected, failure) {
   }
   const script = input.isolation.split("\n").slice(1, -2).join("\n") + "\n";
   const anchor = "async _markStale(issue, staleMessage, staleLabel, skipMessage) {\n        const issueLogger = new IssueLogger(issue);";
-  const original = "const CACHE_KEY = '_state';\n" + anchor;
+  const marker = "const markedStaleOn = creationDate || issue.updated_at;";
+  const cleanup = "(issueHasUpdateSinceStale || issueHasCommentsSinceStale) &&";
+  const original = "const CACHE_KEY = '_state';\n" + marker + "\n" + cleanup + "\n" + anchor;
   function isolate(tamper = false, content = original) {
     let result;
     const mockFs = {
@@ -565,41 +572,63 @@ async function check(pr, expected, failure) {
   }
   const patched = isolate();
   const guard = patched.slice(patched.indexOf(anchor) + anchor.length);
-  assert.equal(patched.slice(0, -guard.length), original.replace("'_state'", "'kp-author-reminders-v1'"));
+  assert.ok(patched.startsWith("const CACHE_KEY = 'kp-author-reminders-v1';"));
+  assert.match(patched, /hasActivitySince/);
+  assert.match(patched, /if \(kpActivitySinceMarker === null\) return;/);
+  assert.ok(!patched.includes(cleanup));
+  const cleanupGuard = patched.slice(patched.indexOf(marker) + marker.length,
+    patched.indexOf("\nkpActivitySinceMarker &&"));
+  const beforeCleanup = new (Object.getPrototypeOf(async function(){}).constructor)(
+    'issue', 'issueLogger', '__WEBPACK_EXTERNAL_createRequire', 'process', 'github_context', 'creationDate',
+    cleanupGuard.replace('import.meta.url', '"file:///fixture.js"') + '\nreturn kpActivitySinceMarker;');
+  for (const result of [true, false, null, 'error']) {
+    const client = {}, context = {repo: {owner: 'owner', repo: 'private'}};
+    const fakeProcess = {env: {GITHUB_WORKSPACE: '/trusted'}};
+    const load = name => name === 'node:path' ? require('node:path') : {
+      hasActivitySince: async args => {
+        assert.equal(args.github, client); assert.equal(args.context, context); assert.equal(args.number, 42);
+        assert.equal(args.since, '2026-10-28T19:00:00Z');
+        if (result === 'error') throw Error('Cleanup read failed');
+        return result;
+      }
+    };
+    const promise = beforeCleanup.call({client}, {number: 42}, {info() {}}, () => load,
+      fakeProcess, context, '2026-10-28T19:00:00Z');
+    if (result === 'error') {
+      await assert.rejects(promise, /Cleanup read failed/);
+      assert.equal(fakeProcess.exitCode, 1);
+    } else assert.equal(await promise, result === null ? undefined : result);
+  }
   assert.match(guard, /canPost/);
+  assert.ok(!guard.includes('authorReminder'));
   const beforePost = new (Object.getPrototypeOf(async function(){}).constructor)(
     'issue', 'issueLogger', '__WEBPACK_EXTERNAL_createRequire', 'process', 'github_context', 'staleMessage',
     guard.replace('import.meta.url', '"file:///fixture.js"') + '\nreturn staleMessage;');
-  for (const result of [true, false, 'error', 'author-error']) {
+  for (const result of [true, false, 'error']) {
     const client = {}, context = {repo: {owner: 'owner', repo: 'private'}};
     const fakeProcess = {env: {GITHUB_WORKSPACE: '/trusted'}};
     let calls = 0;
     const load = name => name === 'node:path' ? require('node:path') : {
-      authorReminder: async args => {
-        assert.ok(result === true || result === 'author-error');
-        assert.equal(args.github, client); assert.equal(args.context, context); assert.equal(args.number, 42);
-        assert.equal(args.message, 'Original reminder');
-        if (result === 'author-error') throw Error('Missing PR author');
-        return '@pr-author\n\nOriginal reminder';
-      },
       canPost: async args => {
         calls++;
         assert.equal(args.github, client); assert.equal(args.context, context); assert.equal(args.number, 42);
         if (result === 'error') throw Error('Read failed');
-        return result === 'author-error' ? true : result;
+        return result;
       }
     };
     const promise = beforePost.call({client}, {number: 42}, {info() {}}, () => load, fakeProcess, context, 'Original reminder');
-    if (result === 'error' || result === 'author-error') {
-      await assert.rejects(promise, result === 'error' ? /Read failed/ : /Missing PR author/);
+    if (result === 'error') {
+      await assert.rejects(promise, /Read failed/);
       assert.equal(fakeProcess.exitCode, 1);
-    } else assert.equal(await promise, result ? '@pr-author\n\nOriginal reminder' : undefined);
+    } else assert.equal(await promise, result ? 'Original reminder' : undefined);
     assert.equal(calls, 1);
   }
   assert.throws(() => isolate(true), /Unexpected pinned stale content/);
   assert.throws(() => isolate(false, original + original), /cache-key contract/);
   assert.throws(() => isolate(false, 'no key'), /cache-key contract/);
   assert.throws(() => isolate(false, original.replace(anchor, 'no posting method')), /posting contract/);
+  assert.throws(() => isolate(false, original.replace(marker, 'no marker method')), /cleanup contract/);
+  assert.throws(() => isolate(false, original.replace(cleanup, 'no cleanup decision')), /cleanup contract/);
   console.log('Verified review fixes with mocks');
 })().catch(error => {console.error(error); process.exitCode = 1;});
 """

@@ -3,6 +3,21 @@ const {createHash} = require('node:crypto');
 const PREFIX = '<!-- kp-business-clock:v1\n';
 const BOT = 'github-actions[bot]';
 const HOUR = 3600000;
+const OVERLAP = 5 * 60000;
+const FEEDBACK = Symbol('complete feedback snapshot');
+class UncertainActivity extends Error {}
+const ACTIVITY_EVENTS = new Set([
+  'commented', 'reviewed', 'renamed', 'assigned', 'unassigned', 'labeled', 'unlabeled',
+  'milestoned', 'demilestoned', 'review_requested', 'review_request_removed', 'review_dismissed',
+  'ready_for_review', 'convert_to_draft', 'base_ref_changed', 'head_ref_force_pushed',
+  'head_ref_deleted', 'head_ref_restored', 'closed', 'reopened', 'merged', 'referenced',
+  'cross-referenced', 'connected', 'disconnected', 'locked', 'unlocked', 'added_to_project',
+  'moved_columns_in_project', 'removed_from_project', 'auto_merge_enabled', 'auto_merge_disabled',
+  'auto_squash_enabled', 'auto_rebase_enabled', 'pinned', 'unpinned', 'edited'
+]);
+const DEFAULT_MESSAGE = '### Knowledge Partnership - Author action needed\n\n<br>\n\n' +
+  'Thanks for your work on this pull request. Comments may need your attention, or your branch may need to be synced with its target branch. Please check the latest comments and validation results and update the PR as needed. If anything is unclear, let us know in the PR, and we will help identify the best next step.\n\n' +
+  '**Need help?** Visit [Knowledge Partnership support](https://aka.ms/kp-support).';
 const weekday = new Intl.DateTimeFormat('en-US', {
   timeZone: 'America/Los_Angeles', weekday: 'short'
 });
@@ -21,14 +36,15 @@ function isDue(activityAt, now, days) {
   return remaining <= 0;
 }
 
-function fingerprint(pr, managedLabels) {
+function fingerprint(pr, managedLabels, eventLabel) {
   return createHash('sha256').update(JSON.stringify({
     title: pr.title, body: pr.body, head: pr.head.sha, base: pr.base.ref,
     draft: pr.draft, milestone: pr.milestone?.number,
     assignees: pr.assignees.map(item => item.login).sort(),
     reviewers: pr.requested_reviewers.map(item => item.login).sort(),
     teams: pr.requested_teams.map(item => item.id).sort(),
-    labels: pr.labels.map(item => item.name).filter(name => !managedLabels.includes(name)).sort()
+    labels: pr.labels.map(item => item.name)
+      .filter(name => name !== eventLabel && !managedLabels.includes(name)).sort()
   })).digest('hex');
 }
 
@@ -38,16 +54,16 @@ function readClock(comment) {
       !Number.isFinite(Date.parse(clock.observedAt)) ||
       !/^[a-f0-9]{64}$/.test(clock.fingerprint)) throw new Error('Invalid persisted KP clock');
   if (clock.commentIds !== undefined) validateCommentIdentities(clock.commentIds);
+  if (clock.lastReviewedAt !== undefined && !Number.isFinite(Date.parse(clock.lastReviewedAt))) {
+    throw new Error('Invalid persisted KP review checkpoint');
+  }
   return clock;
 }
 
-function clockBody(clock, createdAt) {
+function clockBody(clock) {
   let visible = 'Created by PR Monitor bot for Ignite 2026 from the Knowledge Partnership team.';
-  if (createdAt !== undefined) {
-    if (typeof createdAt !== 'string' || !Number.isFinite(Date.parse(createdAt))) {
-      throw new Error('Missing or invalid KP clock creation time');
-    }
-    const date = new Date(createdAt);
+  {
+    const date = new Date(clock.activityAt);
     const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
       timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit',
       hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23',
@@ -63,10 +79,16 @@ function clockBody(clock, createdAt) {
 }
 
 async function activity(github, repo, pr, comment, comments, settings, now = Date.now) {
-  const hash = fingerprint(pr, settings.managedLabels);
+  const startedAt = typeof now === 'function' ? now() : now;
+  if (!Number.isFinite(startedAt)) throw new Error('Invalid KP review start');
+  const hash = fingerprint(pr, settings.managedLabels, settings.event);
   const clock = comment ? readClock(comment) : {
     activityAt: pr.updated_at, fingerprint: hash
   };
+  if (clock.lastReviewedAt && Date.parse(clock.lastReviewedAt) > startedAt) {
+    throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: review checkpoint is in the future`);
+  }
+  const since = clock.lastReviewedAt ? Date.parse(clock.lastReviewedAt) - OVERLAP : -Infinity;
   if (!Number.isFinite(Date.parse(clock.activityAt))) throw new Error('Missing PR update time');
   const summaries = [];
   let after = null;
@@ -83,7 +105,7 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
     if (!record || (record.lastEditedAt !== null && !Number.isFinite(Date.parse(record.lastEditedAt)))) {
       throw new Error(`Missing or invalid server PR edit time on #${pr.number}`);
     }
-    summaries.push({updated_at: record.lastEditedAt});
+    if (record.lastEditedAt !== null) summaries.push({updated_at: record.lastEditedAt});
     const connection = record.reviews;
     if (!Array.isArray(connection?.nodes) || typeof connection.pageInfo?.hasNextPage !== 'boolean') {
       throw new Error(`Missing review-summary activity on #${pr.number}`);
@@ -94,7 +116,8 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
           (review.lastEditedAt !== null && !Number.isFinite(Date.parse(review.lastEditedAt)))) {
         throw new Error(`Invalid review-summary time on #${pr.number}`);
       }
-      summaries.push({updated_at: review.submittedAt}, {updated_at: review.lastEditedAt});
+      summaries.push({updated_at: review.submittedAt});
+      if (review.lastEditedAt !== null) summaries.push({updated_at: review.lastEditedAt});
     }
     if (!connection.pageInfo.hasNextPage) break;
     after = connection.pageInfo.endCursor;
@@ -109,6 +132,10 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
   let reviews = await github.paginate(github.rest.pulls.listReviewComments, {
     ...repo, pull_number: pr.number, per_page: 100
   });
+  if (!Number.isSafeInteger(pr.comments) || !Number.isSafeInteger(pr.review_comments) ||
+      pr.comments !== comments.length || pr.review_comments !== reviews.length) {
+    throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: feedback counts disagree with complete reads`);
+  }
   const commentIds = commentIdentities(comments, reviews, settings);
   let latest = clock.activityAt;
   if (clock.commentIds && ['issue', 'review'].some(kind => {
@@ -122,7 +149,8 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
       ...repo, pull_number: pr.number, per_page: 100
     });
     if (JSON.stringify(commentIds) !==
-        JSON.stringify(commentIdentities(confirmedComments, confirmedReviews, settings))) {
+        JSON.stringify(commentIdentities(confirmedComments, confirmedReviews, settings)) ||
+        confirmedComments.length !== pr.comments || confirmedReviews.length !== pr.review_comments) {
       throw new Error(`KP feedback changed while confirming deletion on #${pr.number}; retry with fresh reads`);
     }
     const completedAt = typeof now === 'function' ? now() : now;
@@ -131,23 +159,98 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
     comments = confirmedComments;
     reviews = confirmedReviews;
   }
-  let bookkeeping = false;
+  let bookkeepingAt = -Infinity;
+  let membershipWrite = false;
+  let metadataObscured = false;
   for (const event of [...events, ...comments, ...reviews, ...summaries]) {
     if (event.event === 'committed') continue;
+    if (['mentioned', 'subscribed'].includes(event.event)) {
+      if (Date.parse(event.created_at) > Date.parse(clock.observedAt || clock.activityAt)) metadataObscured = true;
+      continue;
+    }
+    if (event.event && !ACTIVITY_EVENTS.has(event.event)) {
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: unsupported timeline event ${event.event}`);
+    }
     const time = event.updated_at || event.created_at || event.submitted_at;
-    if (!time) continue;
+    if (!time) throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: feedback time is missing`);
     const actor = event.actor?.login || event.user?.login;
     const ownLabel = ['labeled', 'unlabeled'].includes(event.event) &&
       [settings.event, ...settings.managedLabels].includes(event.label?.name);
     const ownComment = event.body?.startsWith(PREFIX) || isReminder(event.body, settings);
-    if (actor === BOT && (ownLabel || ownComment)) bookkeeping = true;
-    else if (Date.parse(time) > Date.parse(latest)) latest = time;
+    const timestamp = Date.parse(time);
+    if (actor === BOT && (ownLabel || ownComment)) {
+      if (!Number.isFinite(timestamp)) throw new Error('Invalid KP bookkeeping time');
+      bookkeepingAt = Math.max(bookkeepingAt, timestamp);
+      if (timestamp > Date.parse(clock.observedAt || clock.activityAt)) metadataObscured = true;
+      if (ownLabel && event.label.name === settings.event) membershipWrite = true;
+    } else {
+      if (!Number.isFinite(timestamp) || timestamp > startedAt) {
+        throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: invalid or future feedback time`);
+      }
+      if (timestamp >= since && timestamp > Date.parse(latest)) latest = time;
+    }
   }
-  // Fingerprints detect PR edits absent from timeline; bot timestamp skew is not activity.
-  if (hash !== clock.fingerprint || (!comment && !bookkeeping)) {
-    if (Date.parse(pr.updated_at) > Date.parse(latest)) latest = pr.updated_at;
+  // Recognize legacy hashes only when the current metadata can reproduce them.
+  const legacy = fingerprint(pr, settings.managedLabels) === clock.fingerprint ||
+    (membershipWrite && fingerprint({...pr, labels: pr.labels.some(label => label.name === settings.event)
+      ? pr.labels.filter(label => label.name !== settings.event)
+      : [...pr.labels, {name: settings.event}]}, settings.managedLabels) === clock.fingerprint);
+  if (hash !== clock.fingerprint && !legacy) {
+    const updatedAt = Date.parse(pr.updated_at);
+    if (!Number.isFinite(updatedAt) || updatedAt > startedAt ||
+        (updatedAt > Date.parse(latest) && (metadataObscured || bookkeepingAt >= updatedAt))) {
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: metadata changed but its time is obscured by KP bookkeeping`);
+    }
+    if (updatedAt > Date.parse(latest)) latest = pr.updated_at;
   }
-  return {activityAt: latest, fingerprint: hash, commentIds};
+  return {activityAt: latest, fingerprint: hash, commentIds,
+    lastReviewedAt: new Date(startedAt).toISOString(),
+    [FEEDBACK]: JSON.stringify([feedback(comments, settings), feedback(reviews, settings), summaries])};
+}
+
+function feedback(entries, settings) {
+  return entries.filter(item => !(item.user?.login === BOT &&
+    (item.body?.startsWith(PREFIX) || isReminder(item.body, settings))))
+    .map(item => [item.id, item.body, item.created_at, item.updated_at])
+    .sort((left, right) => left[0] - right[0]);
+}
+
+async function review(github, repo, core, pr, comment, comments, settings, now,
+  startedAt = typeof now === 'function' ? now() : now) {
+  try {
+    return await readReview(github, repo, core, pr, comment, comments, settings, now, startedAt);
+  } catch (error) {
+    if (!(error instanceof UncertainActivity)) throw error;
+    core.info(`${error.message}; skipped without advancing the clock/checkpoint or authorizing a reminder.`);
+    return null;
+  }
+}
+
+async function readReview(github, repo, core, pr, comment, comments, settings, now, startedAt) {
+  const clock = await activity(github, repo, pr, comment, comments, settings, now);
+  const {data: latest} = await github.rest.pulls.get({...repo, pull_number: pr.number});
+  const finalComments = await github.paginate(github.rest.issues.listComments, {
+    ...repo, issue_number: pr.number, per_page: 100
+  });
+  const selected = selectClock(finalComments, core, pr.number);
+  if (selected?.id !== comment?.id || selected?.body !== comment?.body ||
+      latest.state !== pr.state || latest.updated_at !== pr.updated_at ||
+      latest.comments !== pr.comments || latest.review_comments !== pr.review_comments ||
+      fingerprint(latest, settings.managedLabels, settings.event) !==
+        fingerprint(pr, settings.managedLabels, settings.event) ||
+      JSON.stringify(latest.labels.map(label => label.name).sort()) !==
+        JSON.stringify(pr.labels.map(label => label.name).sort())) {
+    throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: PR or clock changed during review`);
+  }
+  const seed = {...clock, observedAt: pr.updated_at,
+    lastReviewedAt: comment && readClock(comment).lastReviewedAt};
+  const confirmed = await activity(github, repo, latest,
+    {...comment, body: clockBody(seed)}, finalComments, settings, now);
+  if (confirmed.activityAt !== clock.activityAt || confirmed[FEEDBACK] !== clock[FEEDBACK] ||
+      JSON.stringify(confirmed.commentIds) !== JSON.stringify(clock.commentIds)) {
+    throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: feedback changed during review`);
+  }
+  return {...clock, lastReviewedAt: new Date(startedAt).toISOString()};
 }
 
 function validateCommentIdentities(value) {
@@ -172,21 +275,19 @@ function commentIdentities(comments, reviews, settings) {
   return result;
 }
 
-async function initialize({github, context, core, pr, eventLabel, managedLabels}) {
+async function initialize({github, context, core, pr, eventLabel, managedLabels, now = Date.now}) {
+  const startedAt = typeof now === 'function' ? now() : now;
   const comments = await github.paginate(github.rest.issues.listComments, {
     ...context.repo, issue_number: pr.number, per_page: 100
   });
   const existing = selectClock(comments, core, pr.number);
-  if (existing) {
-    await saveClock(github, context.repo, core, pr, existing, readClock(existing));
-    return;
-  }
   if (!Number.isFinite(Date.parse(pr.updated_at)) ||
       !eventLabel || managedLabels.some(label => !label)) throw new Error('Invalid enrollment clock settings');
-  const enrolled = {...pr, labels: [...pr.labels, {name: eventLabel}]};
-  const clock = {activityAt: pr.updated_at, fingerprint: fingerprint(enrolled, managedLabels),
-    observedAt: pr.updated_at};
-  await saveClock(github, context.repo, core, pr, undefined, clock);
+  const settings = {event: eventLabel, managedLabels,
+    message: process.env.AUTHOR_REMINDER_MESSAGE || DEFAULT_MESSAGE};
+  const clock = await review(github, context.repo, core, pr, existing, comments, settings, now, startedAt);
+  if (!clock) throw new Error(`Skipped KP enrollment on #${pr.number}: activity review is uncertain`);
+  await saveClock(github, context.repo, core, pr, existing, {...clock, observedAt: pr.updated_at});
   core.info(`Preserved pre-enrollment activity for #${pr.number}.`);
 }
 
@@ -212,13 +313,14 @@ async function saveClock(github, repo, core, pr, comment, clock) {
   const previous = comment && readClock(comment);
   const unchanged = previous && previous.activityAt === clock.activityAt &&
     previous.fingerprint === clock.fingerprint &&
+    previous.lastReviewedAt === clock.lastReviewedAt &&
     JSON.stringify(previous.commentIds) === JSON.stringify(clock.commentIds);
   const state = unchanged ? previous : {...previous, ...clock, observedAt: pr.updated_at};
   if (comment && (typeof comment.created_at !== 'string' ||
       !Number.isFinite(Date.parse(comment.created_at)))) {
     throw new Error('Missing or invalid KP clock creation time');
   }
-  const body = clockBody(state, comment?.created_at);
+  const body = clockBody(state);
   if (unchanged && comment.body === body) return comment;
   const response = comment
     ? await github.rest.issues.updateComment({...repo, comment_id: comment.id, body})
@@ -230,9 +332,7 @@ async function saveClock(github, repo, core, pr, comment, clock) {
         typeof created.created_at !== 'string' || !Number.isFinite(Date.parse(created.created_at))) {
       throw new Error('Missing or invalid created KP clock identity/time');
     }
-    return (await github.rest.issues.updateComment({
-      ...repo, comment_id: created.id, body: clockBody(state, created.created_at)
-    })).data;
+    return created;
   }
   return response.data;
 }
@@ -265,6 +365,7 @@ async function reconcile({github, context, core, now = Date.now}) {
   })) {
     for (const candidate of page.data) {
       if (!candidate.labels.some(label => label.name === settings.event)) continue;
+      const startedAt = typeof now === 'function' ? now() : now;
       const {data: pr} = await github.rest.pulls.get({
         ...context.repo, pull_number: candidate.number
       });
@@ -273,7 +374,8 @@ async function reconcile({github, context, core, now = Date.now}) {
         ...context.repo, issue_number: pr.number, per_page: 100
       });
       let comment = selectClock(comments, core, pr.number);
-      let clock = await activity(github, context.repo, pr, comment, comments, settings, now);
+      let clock = await review(github, context.repo, core, pr, comment, comments, settings, now, startedAt);
+      if (!clock) continue;
       comment = await saveClock(github, context.repo, core, pr, comment, clock);
       const has = label => pr.labels.some(item => item.name === label);
       // Never touch a marker here. Stock stale owns posting and cleanup.
@@ -307,12 +409,14 @@ async function canPost({github, context, core, number, now = Date.now}) {
   });
   const comment = selectClock(comments, core, number);
   if (!comment) throw new Error(`Expected one KP clock before posting on #${number}`);
-  const clock = await activity(github, context.repo, pr, comment, comments, settings, now);
+  const clock = await review(github, context.repo, core, pr, comment, comments, settings, now, checkedAt);
+  if (!clock) return false;
   const {data: latest} = await github.rest.pulls.get({...context.repo, pull_number: number});
   const has = label => latest.labels.some(item => item.name === label);
   const stable = latest.updated_at === pr.updated_at &&
     latest.comments === pr.comments && latest.review_comments === pr.review_comments &&
-    fingerprint(latest, settings.managedLabels) === fingerprint(pr, settings.managedLabels);
+    fingerprint(latest, settings.managedLabels, settings.event) ===
+      fingerprint(pr, settings.managedLabels, settings.event);
   if (!stable) {
     core.info(`Skipped reminder for #${number} because activity changed during validation; no bookkeeping written.`);
     return false;
@@ -342,19 +446,17 @@ async function canPost({github, context, core, number, now = Date.now}) {
         core.info(`Skipped reminder for #${number}: clock changed during bookkeeping.`);
         return false;
       }
-      const current = await activity(github, context.repo, finalPR, selected, finalComments, settings, now);
-      const feedback = entries => entries.filter(item => !(item.user?.login === BOT &&
-        (item.body?.startsWith(PREFIX) || isReminder(item.body, settings))))
-        .sort((left, right) => left.id - right.id)
-        .map(item => [item.id, item.body, item.created_at, item.updated_at]);
+      const current = await review(github, context.repo, core, finalPR, selected, finalComments, settings, now);
+      if (!current) return false;
       const finalHas = label => finalPR.labels.some(item => item.name === label);
       if (finalPR.state !== 'open' || finalPR.draft || !finalHas(settings.event) ||
           !finalHas(settings.due) || finalHas(settings.marker) || finalHas(settings.exempt) ||
           !finalPR.base.ref.startsWith(settings.branchPrefix) ||
           finalPR.comments !== latest.comments || finalPR.review_comments !== latest.review_comments ||
           current.activityAt !== clock.activityAt || current.fingerprint !== clock.fingerprint ||
+          current[FEEDBACK] !== clock[FEEDBACK] ||
           JSON.stringify(current.commentIds) !== JSON.stringify(clock.commentIds) ||
-          JSON.stringify(feedback(finalComments)) !== JSON.stringify(feedback(comments))) {
+          JSON.stringify(feedback(finalComments, settings)) !== JSON.stringify(feedback(comments, settings))) {
         core.info(`Skipped reminder for #${number}: activity or eligibility changed during bookkeeping.`);
         return false;
       }
@@ -369,15 +471,26 @@ function isReminder(body, settings) {
   return Boolean(mention && body.slice(mention[0].length) === settings.message);
 }
 
-async function authorReminder({github, context, number, message}) {
-  const {data: pr} = await github.rest.pulls.get({...context.repo, pull_number: number});
-  const login = pr?.user?.login;
-  if (pr?.number !== number || typeof login !== 'string' ||
-      !/^[A-Za-z0-9][A-Za-z0-9_-]*(?:\[bot\])?$/.test(login) || login.toLowerCase() === 'ghost') {
-    throw new Error(`Missing or invalid PR author for KP reminder on #${number}`);
+async function hasActivitySince({github, context, core, number, since, now = Date.now}) {
+  const startedAt = typeof now === 'function' ? now() : now;
+  if (!Number.isFinite(Date.parse(since))) {
+    core.info(`Uncertain KP marker time on #${number}; skipped marker cleanup.`);
+    return null;
   }
-  if (typeof message !== 'string' || !message.trim()) throw new Error('Missing KP author reminder message');
-  return `@${login}\n\n${message}`;
+  const {settings} = configuration();
+  const {data: pr} = await github.rest.pulls.get({...context.repo, pull_number: number});
+  if (pr.state !== 'open' || !pr.labels.some(label => label.name === settings.event)) {
+    core.info(`Skipping KP marker cleanup outside current open membership on #${number}.`);
+    return null;
+  }
+  const comments = await github.paginate(github.rest.issues.listComments, {
+    ...context.repo, issue_number: number, per_page: 100
+  });
+  const comment = selectClock(comments, core, number);
+  if (!comment) throw new Error(`Expected one KP clock before marker cleanup on #${number}`);
+  const clock = await review(github, context.repo, core, pr, comment, comments, settings, now, startedAt);
+  return clock ? Date.parse(clock.activityAt) >= Date.parse(since) : null;
 }
 
-module.exports = {isDue, fingerprint, readClock, activity, reconcile, canPost, initialize, authorReminder, PREFIX};
+module.exports = {isDue, fingerprint, readClock, activity, reconcile, canPost, initialize,
+  hasActivitySince, PREFIX};
