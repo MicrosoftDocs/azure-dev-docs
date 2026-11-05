@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/20/2026
+ms.date: 11/05/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -1552,7 +1552,6 @@ Remove one or more keys from the selected environment's .env file. (Beta)
 Keys are case-sensitive. Missing keys are ignored with a warning.
 AZURE_ENV_NAME identifies the environment and cannot be unset.
 You are prompted to confirm removal (defaults to Yes). Use --force to skip this confirmation.
-When using --no-prompt, you must also use --force to remove an existing key.
 If saving fails after local values change, you can choose to restore the previous values (defaults to Yes).
 With --force, restoration is attempted automatically without prompting.
 Removing a Key Vault secret reference does not delete the secret.
@@ -1605,6 +1604,10 @@ Multiple arguments use direct process execution (no shell wrapping).
 A single quoted argument uses shell inline execution unless it is ambiguous
 with a missing script path. Use --shell to make inline intent explicit when
 the command contains script-like path arguments.
+
+Canceling execution stops the command and its child processes and reports
+that the command was canceled by the user. After successful completion,
+intentional background child processes may continue running.
 
 Examples:
   azd exec python script.py                     # Direct exec (exact argv)
