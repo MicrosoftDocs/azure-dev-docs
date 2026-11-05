@@ -240,7 +240,7 @@ Updated articles:
 - [Install and configure Azure Skills](../azure-skills/install.md) - Added Visual Studio sign-in and VS Installer setup instructions.
 - [Azure skill for Azure Cloud Migrate](../azure-skills/skills/azure-cloud-migrate.md) - Expanded migration scenario coverage to include Heroku, Google App Engine, and AWS Fargate/EKS/GKE, plus Spring Boot migrations.
 - [Azure Compute](../azure-skills/skills/azure-compute.md) - Removed VM connectivity troubleshooting scope, now covered by the Azure Diagnostics skill.
-- [Azure skill for Azure Cost Management](../azure-skills/skills/azure-cost.md) - Added example prompts and removed the AKS prerequisite and related-tools table.
+- [Azure skill for Azure Cost Management](../azure-skills/plugins/index.md#azure-cost-plugin) - Added example prompts and removed the AKS prerequisite and related-tools table.
 - [Azure skill for diagnostics](../azure-skills/skills/azure-diagnostics.md) - Gained VM connectivity and troubleshooting scope from the Azure Compute skill.
 - [Azure skill for Azure Upgrade](../azure-skills/skills/azure-upgrade.md) - Added Azure Cache for Redis-to-Azure Managed Redis migration guidance and expanded Java SDK modernization coverage.
 - [Azure skill for Microsoft Foundry](../azure-skills/skills/microsoft-foundry.md) - Added agent routine scheduling (timer, cron, and GitHub issue triggers), real-time voice/streaming support, and model fine-tuning capabilities.
