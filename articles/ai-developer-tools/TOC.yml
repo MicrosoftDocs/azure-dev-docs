@@ -228,51 +228,97 @@ items:
       href: ../azure-skills/install.md?context=/azure/developer/ai-developer-tools/context/context
     - name: Quickstart
       href: ../azure-skills/quickstart.md?context=/azure/developer/ai-developer-tools/context/context
-    - name: Skills reference
+    - name: Plugins
       items:
-      - name: App Insights Instrumentation
-        href: ../azure-skills/skills/app-insights-instrumentation.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure AI Gateway
-        href: ../azure-skills/skills/azure-ai-gateway.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure AI Services
-        href: ../azure-skills/skills/azure-ai.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Cloud Migration
-        href: ../azure-skills/skills/azure-cloud-migrate.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Compliance
-        href: ../azure-skills/skills/azure-compliance.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Compute
-        href: ../azure-skills/skills/azure-compute.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Cost Optimization
-        href: ../azure-skills/skills/azure-cost.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Deploy
-        href: ../azure-skills/skills/azure-deploy.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Diagnostics
-        href: ../azure-skills/skills/azure-diagnostics.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Enterprise Infrastructure Planner
-        href: ../azure-skills/skills/azure-enterprise-infra-planner.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Hosted Copilot SDK
-        href: ../azure-skills/skills/azure-hosted-copilot-sdk.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Kubernetes
-        href: ../azure-skills/skills/azure-kubernetes.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Kusto (Data Explorer)
-        href: ../azure-skills/skills/azure-kusto.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Messaging
-        href: ../azure-skills/skills/azure-messaging.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Prepare
-        href: ../azure-skills/skills/azure-prepare.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Quotas
-        href: ../azure-skills/skills/azure-quotas.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Resource Lookup
-        href: ../azure-skills/skills/azure-resource-lookup.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Resource Visualizer
-        href: ../azure-skills/skills/azure-resource-visualizer.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Storage
-        href: ../azure-skills/skills/azure-storage.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Upgrade
-        href: ../azure-skills/skills/azure-upgrade.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Azure Validate
-        href: ../azure-skills/skills/azure-validate.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Entra App Registration
-        href: ../azure-skills/skills/entra-app-registration.md?context=/azure/developer/ai-developer-tools/context/context
-      - name: Microsoft Foundry
-        href: ../azure-skills/skills/microsoft-foundry.md?context=/azure/developer/ai-developer-tools/context/context
+      - name: Overview
+        href: ../azure-skills/plugins/index.md?context=/azure/developer/ai-developer-tools/context/context
+      - name: Azure Skills plugin (core)
+        items:
+        - name: AI Runway AKS Setup
+          href: ../azure-skills/skills/ai-runway-aks-setup.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: App Insights Instrumentation
+          href: ../azure-skills/skills/app-insights-instrumentation.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure AI Gateway
+          href: ../azure-skills/skills/azure-ai-gateway.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure AI Services
+          href: ../azure-skills/skills/azure-ai.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure App Onboard
+          href: ../azure-skills/skills/azure-app-onboard.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure App Onboard Prereq
+          href: ../azure-skills/skills/azure-app-onboard-prereq.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Cloud Migration
+          href: ../azure-skills/skills/azure-cloud-migrate.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Compliance
+          href: ../azure-skills/skills/azure-compliance.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Compute
+          href: ../azure-skills/skills/azure-compute.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Deploy
+          href: ../azure-skills/skills/azure-deploy.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Diagnostics
+          href: ../azure-skills/skills/azure-diagnostics.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Enterprise Infrastructure Planner
+          href: ../azure-skills/skills/azure-enterprise-infra-planner.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Kubernetes
+          href: ../azure-skills/skills/azure-kubernetes.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Kusto (Data Explorer)
+          href: ../azure-skills/skills/azure-kusto.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Messaging
+          href: ../azure-skills/skills/azure-messaging.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Prepare
+          href: ../azure-skills/skills/azure-prepare.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Quotas
+          href: ../azure-skills/skills/azure-quotas.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Reliability
+          href: ../azure-skills/skills/azure-reliability.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Resource Lookup
+          href: ../azure-skills/skills/azure-resource-lookup.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Resource Visualizer
+          href: ../azure-skills/skills/azure-resource-visualizer.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Storage
+          href: ../azure-skills/skills/azure-storage.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Upgrade
+          href: ../azure-skills/skills/azure-upgrade.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Validate
+          href: ../azure-skills/skills/azure-validate.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Entra Agent ID
+          href: ../azure-skills/skills/entra-agent-id.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Entra App Registration
+          href: ../azure-skills/skills/entra-app-registration.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Microsoft Foundry
+          href: ../azure-skills/skills/microsoft-foundry.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Python App Service Deployment
+          href: ../azure-skills/skills/python-app-service-deploy.md?context=/azure/developer/ai-developer-tools/context/context
+      - name: Azure Advisor plugin
+        items:
+        - name: Azure Advisor
+          href: ../azure-skills/plugins/azure-advisor/azure-advisor.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Advisor Actionability
+          href: ../azure-skills/plugins/azure-advisor/azure-advisor-actionability.md?context=/azure/developer/ai-developer-tools/context/context
+      - name: Azure Cost plugin
+        items:
+        - name: Cost Analysis
+          href: ../azure-skills/plugins/azure-cost/cost-analysis.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Cost Estimation
+          href: ../azure-skills/plugins/azure-cost/cost-estimation.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Cost Optimization
+          href: ../azure-skills/plugins/azure-cost/cost-optimization.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Cost Governance
+          href: ../azure-skills/plugins/azure-cost/cost-governance.md?context=/azure/developer/ai-developer-tools/context/context
+      - name: Azure Kusto Graph plugin
+        items:
+        - name: Azure Kusto Graph
+          href: ../azure-skills/plugins/azure-kusto-graph/azure-kusto-graph.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Kusto IRQL
+          href: ../azure-skills/plugins/azure-kusto-graph/azure-kusto-irql.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Kusto IRQL Graph
+          href: ../azure-skills/plugins/azure-kusto-graph/azure-kusto-irql-graph.md?context=/azure/developer/ai-developer-tools/context/context
+      - name: Azure Local plugin
+        items:
+        - name: Azure Local
+          href: ../azure-skills/plugins/azure-local/azure-local.md?context=/azure/developer/ai-developer-tools/context/context
+        - name: Azure Local Multi-Rack
+          href: ../azure-skills/plugins/azure-local/azure-local-multi-rack.md?context=/azure/developer/ai-developer-tools/context/context
+      - name: Foundry IQ plugin
+        items:
+        - name: Foundry IQ
+          href: ../azure-skills/plugins/foundry-iq/foundry-iq.md?context=/azure/developer/ai-developer-tools/context/context

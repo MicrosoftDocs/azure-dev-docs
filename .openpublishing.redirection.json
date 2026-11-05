@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-skills/skills/azure-cost.md",
+      "redirect_url": "/azure/developer/azure-skills/plugins/#azure-cost-plugin",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-developer-cli/build-new-template.md",
       "redirect_url": "/azure/developer/azure-developer-cli/start-with-new-template",
       "redirect_document_id": true
