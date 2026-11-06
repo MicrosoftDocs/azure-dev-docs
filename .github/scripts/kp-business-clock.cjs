@@ -5,7 +5,23 @@ const BOT = 'github-actions[bot]';
 const HOUR = 3600000;
 const OVERLAP = 5 * 60000;
 const FEEDBACK = Symbol('complete feedback snapshot');
+const FEEDBACK_POLICY = 'github-bot-excluded-v1';
 class UncertainActivity extends Error {}
+function isIgnoredBot(actor) {
+  if (!actor || typeof actor.login !== 'string' || !actor.login) {
+    throw new UncertainActivity('Uncertain KP activity: missing actor identity');
+  }
+  const type = actor.type || actor.__typename;
+  if ((actor.type && actor.__typename && actor.type !== actor.__typename) ||
+      (type !== 'Bot' && type !== 'User')) {
+    throw new UncertainActivity('Uncertain KP activity: ambiguous actor type');
+  }
+  return type === 'Bot';
+}
+function sameActor(left, right) {
+  return isIgnoredBot(left) === isIgnoredBot(right) &&
+    left.login.toLowerCase() === right.login.toLowerCase();
+}
 const ACTIVITY_EVENTS = new Set([
   'commented', 'reviewed', 'renamed', 'assigned', 'unassigned', 'labeled', 'unlabeled',
   'milestoned', 'demilestoned', 'review_requested', 'review_request_removed', 'review_dismissed',
@@ -53,7 +69,24 @@ function readClock(comment) {
   if (!Number.isFinite(Date.parse(clock.activityAt)) ||
       !Number.isFinite(Date.parse(clock.observedAt)) ||
       !/^[a-f0-9]{64}$/.test(clock.fingerprint)) throw new Error('Invalid persisted KP clock');
+  if (clock.nonBodyFingerprint !== undefined &&
+      (typeof clock.nonBodyFingerprint !== 'string' || !/^[a-f0-9]{64}$/.test(clock.nonBodyFingerprint))) {
+    throw new Error('Invalid persisted KP nonbody provenance');
+  }
   if (clock.commentIds !== undefined) validateCommentIdentities(clock.commentIds);
+  if (clock.feedbackPolicy !== undefined &&
+      (clock.feedbackPolicy !== FEEDBACK_POLICY || clock.commentIds === undefined)) {
+    throw new Error('Invalid persisted KP feedback policy');
+  }
+  if (clock.confirmedDeletedReviewIds !== undefined) {
+    if (!Array.isArray(clock.confirmedDeletedReviewIds) ||
+        clock.feedbackPolicy !== FEEDBACK_POLICY ||
+        clock.confirmedDeletedReviewIds.some((id, index, ids) =>
+          !Number.isSafeInteger(id) || id <= 0 || (index > 0 && id <= ids[index - 1]) ||
+          clock.commentIds.review.includes(id))) {
+      throw new Error('Invalid persisted KP inline deletion provenance');
+    }
+  }
   if (clock.lastReviewedAt !== undefined && !Number.isFinite(Date.parse(clock.lastReviewedAt))) {
     throw new Error('Invalid persisted KP review checkpoint');
   }
@@ -81,7 +114,9 @@ function clockBody(clock) {
 async function activity(github, repo, pr, comment, comments, settings, now = Date.now) {
   const startedAt = typeof now === 'function' ? now() : now;
   if (!Number.isFinite(startedAt)) throw new Error('Invalid KP review start');
+  validateFeedbackCounts(pr);
   const hash = fingerprint(pr, settings.managedLabels, settings.event);
+  const nonBodyFingerprint = fingerprint({...pr, body: null}, settings.managedLabels, settings.event);
   const clock = comment ? readClock(comment) : {
     activityAt: pr.updated_at, fingerprint: hash
   };
@@ -91,21 +126,36 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
   const since = clock.lastReviewedAt ? Date.parse(clock.lastReviewedAt) - OVERLAP : -Infinity;
   if (!Number.isFinite(Date.parse(clock.activityAt))) throw new Error('Missing PR update time');
   const summaries = [];
+  let bodyEditedAt = null;
+  let bodyEditSnapshot;
   let after = null;
   const cursors = new Set();
   do {
     const edited = await github.graphql(`query($owner:String!,$repo:String!,$number:Int!,$after:String) {
       repository(owner:$owner,name:$repo) { pullRequest(number:$number) {
-        lastEditedAt reviews(first:100,after:$after) {
-          nodes { submittedAt lastEditedAt } pageInfo { hasNextPage endCursor }
+        lastEditedAt editor { login __typename } reviews(first:100,after:$after) {
+          nodes { submittedAt lastEditedAt author { login __typename } editor { login __typename } }
+          pageInfo { hasNextPage endCursor }
         }
       } }
     }`, {...repo, number: pr.number, after});
     const record = edited.repository?.pullRequest;
-    if (!record || (record.lastEditedAt !== null && !Number.isFinite(Date.parse(record.lastEditedAt)))) {
+    if (!record || (record.lastEditedAt !== null &&
+        (typeof record.lastEditedAt !== 'string' || !Number.isFinite(Date.parse(record.lastEditedAt))))) {
       throw new Error(`Missing or invalid server PR edit time on #${pr.number}`);
     }
-    if (record.lastEditedAt !== null) summaries.push({updated_at: record.lastEditedAt});
+    let editorIsBot = null;
+    if (record.lastEditedAt !== null) {
+      editorIsBot = isIgnoredBot(record.editor);
+      summaries.push({updated_at: record.lastEditedAt, user: record.editor});
+    }
+    const bodySnapshot = JSON.stringify([record.lastEditedAt, editorIsBot,
+      record.lastEditedAt === null ? null : record.editor.login.toLowerCase()]);
+    if (bodyEditSnapshot !== undefined && bodySnapshot !== bodyEditSnapshot) {
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: body edit changed during pagination`);
+    }
+    bodyEditSnapshot = bodySnapshot;
+    bodyEditedAt = record.lastEditedAt !== null && !editorIsBot ? record.lastEditedAt : null;
     const connection = record.reviews;
     if (!Array.isArray(connection?.nodes) || typeof connection.pageInfo?.hasNextPage !== 'boolean') {
       throw new Error(`Missing review-summary activity on #${pr.number}`);
@@ -116,8 +166,13 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
           (review.lastEditedAt !== null && !Number.isFinite(Date.parse(review.lastEditedAt)))) {
         throw new Error(`Invalid review-summary time on #${pr.number}`);
       }
-      summaries.push({updated_at: review.submittedAt});
-      if (review.lastEditedAt !== null) summaries.push({updated_at: review.lastEditedAt});
+      const ignored = isIgnoredBot(review.author);
+      summaries.push({updated_at: review.submittedAt, user: review.author});
+      if (review.lastEditedAt !== null) {
+        const editor = ignored ? review.author : review.editor;
+        isIgnoredBot(editor);
+        summaries.push({updated_at: review.lastEditedAt, user: editor});
+      }
     }
     if (!connection.pageInfo.hasNextPage) break;
     after = connection.pageInfo.endCursor;
@@ -132,16 +187,25 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
   let reviews = await github.paginate(github.rest.pulls.listReviewComments, {
     ...repo, pull_number: pr.number, per_page: 100
   });
-  if (!Number.isSafeInteger(pr.comments) || !Number.isSafeInteger(pr.review_comments) ||
-      pr.comments !== comments.length || pr.review_comments !== reviews.length) {
+  if (pr.comments !== comments.length || pr.review_comments !== reviews.length) {
     throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: feedback counts disagree with complete reads`);
   }
   const commentIds = commentIdentities(comments, reviews, settings);
+  const ignoredIds = Object.fromEntries([['issue', comments], ['review', reviews]]
+    .map(([kind, entries]) => [kind, new Set(entries.filter(item => isIgnoredBot(item.user))
+      .map(item => item.id))]));
   let latest = clock.activityAt;
+  const deletedReviews = new Set(clock.confirmedDeletedReviewIds);
+  if (reviews.some(item => deletedReviews.has(item.id))) {
+    throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: confirmed deleted inline feedback reappeared`);
+  }
   if (clock.commentIds && ['issue', 'review'].some(kind => {
     const current = new Set(commentIds[kind]);
-    return clock.commentIds[kind].some(id => !current.has(id));
+    return clock.commentIds[kind].some(id => !current.has(id) && !ignoredIds[kind].has(id));
   })) {
+    if (clock.feedbackPolicy !== FEEDBACK_POLICY) {
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: missing legacy feedback authors`);
+    }
     const confirmedComments = await github.paginate(github.rest.issues.listComments, {
       ...repo, issue_number: pr.number, per_page: 100
     });
@@ -151,21 +215,109 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
     if (JSON.stringify(commentIds) !==
         JSON.stringify(commentIdentities(confirmedComments, confirmedReviews, settings)) ||
         confirmedComments.length !== pr.comments || confirmedReviews.length !== pr.review_comments) {
-      throw new Error(`KP feedback changed while confirming deletion on #${pr.number}; retry with fresh reads`);
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: feedback changed while confirming deletion; retry with fresh reads`);
     }
     const completedAt = typeof now === 'function' ? now() : now;
     if (!Number.isFinite(completedAt)) throw new Error('Invalid comment observation time');
     if (completedAt > Date.parse(latest)) latest = new Date(completedAt).toISOString();
     comments = confirmedComments;
     reviews = confirmedReviews;
+    for (const id of clock.commentIds.review) {
+      if (!reviews.some(item => item.id === id)) deletedReviews.add(id);
+    }
   }
+  const deletedWrappers = [];
+  const timeline = events.flatMap(event => {
+    if (event.event === 'commented') {
+      if (!Number.isSafeInteger(event.id) || event.id <= 0) {
+        throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: invalid issue timeline comment identity`);
+      }
+      const current = comments.find(item => item.id === event.id);
+      if (current && !sameActor(event.actor || event.user, current.user)) {
+        throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: issue timeline attribution disagrees with complete reads`);
+      }
+    }
+    if (event.event === 'line-commented') {
+      if (!Array.isArray(event.comments) || !event.comments.length || event.comments.some(item => {
+        if (!item || typeof item !== 'object' || !Number.isSafeInteger(item.id) || item.id <= 0) return true;
+        const current = reviews.find(review => review.id === item.id);
+        if (isIgnoredBot(item.user)) {
+          if (deletedReviews.has(item.id)) return true;
+          return current && (!isIgnoredBot(current.user) ||
+            item.user.login.toLowerCase() !== current.user.login.toLowerCase());
+        }
+        if (!current && deletedReviews.has(item.id)) {
+          deletedWrappers.push([item.id, item.body, item.user.login.toLowerCase(), item.created_at, item.updated_at]);
+          return false;
+        }
+        return !current || isIgnoredBot(current.user) ||
+          JSON.stringify([item.id, item.body, item.user?.login, item.created_at, item.updated_at]) !==
+          JSON.stringify([current.id, current.body, current.user?.login, current.created_at, current.updated_at]);
+      })) {
+        throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: inline timeline coverage disagrees with complete reads`);
+      }
+      return event.comments;
+    }
+    return [event];
+  });
   let bookkeepingAt = -Infinity;
   let membershipWrite = false;
   let metadataObscured = false;
-  for (const event of [...events, ...comments, ...reviews, ...summaries]) {
+  let excludedActivity = false;
+  let meaningfulAt = Date.parse(pr.created_at);
+  for (const event of [...timeline, ...comments, ...reviews, ...summaries]) {
     if (event.event === 'committed') continue;
-    if (['mentioned', 'subscribed'].includes(event.event)) {
-      if (Date.parse(event.created_at) > Date.parse(clock.observedAt || clock.activityAt)) metadataObscured = true;
+    if (event.actor && event.user && !sameActor(event.actor, event.user)) {
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: feedback actor identities disagree`);
+    }
+    if (event.event === 'copilot_work_started' &&
+        (!Number.isSafeInteger(event.id) || event.id <= 0 ||
+         typeof event.created_at !== 'string' || !Number.isFinite(Date.parse(event.created_at)) ||
+         Date.parse(event.created_at) > startedAt)) {
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: invalid work-start event identity/time`);
+    }
+    const actor = event.actor?.login || event.user?.login;
+    const ownLabel = ['labeled', 'unlabeled'].includes(event.event) &&
+      [settings.event, ...settings.managedLabels].includes(event.label?.name);
+    const ownComment = event.body?.startsWith(PREFIX) || isReminder(event.body, settings);
+    const own = actor === BOT && (ownLabel || ownComment) && isIgnoredBot(event.actor || event.user);
+    if (own) {
+      const times = ['created_at', 'updated_at', 'edited_at', 'submitted_at']
+        .filter(key => event[key] !== undefined && event[key] !== null)
+        .map(key => typeof event[key] === 'string' ? Date.parse(event[key]) : NaN);
+      if (!times.length || times.some(time => !Number.isFinite(time))) throw new Error('Invalid KP bookkeeping time');
+      if (times.some(time => time > startedAt)) {
+        throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: future KP bookkeeping time`);
+      }
+      const timestamp = Math.max(...times);
+      excludedActivity = true;
+      bookkeepingAt = Math.max(bookkeepingAt, timestamp);
+      if (timestamp > Date.parse(clock.observedAt || clock.activityAt)) metadataObscured = true;
+      if (ownLabel && event.label.name === settings.event) membershipWrite = true;
+      continue;
+    }
+    if ((event.event || event.user || event.body !== undefined) &&
+        isIgnoredBot(event.actor || event.user)) {
+      const times = ['created_at', 'updated_at', 'edited_at', 'submitted_at']
+        .filter(key => event[key] !== undefined && event[key] !== null)
+        .map(key => typeof event[key] === 'string' ? Date.parse(event[key]) : NaN);
+      if (!times.length || times.some(time => !Number.isFinite(time) || time > startedAt)) {
+        throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: invalid bot activity time`);
+      }
+      const timestamp = Math.max(...times);
+      bookkeepingAt = Math.max(bookkeepingAt, timestamp);
+      excludedActivity = true;
+      // Deleted bot reports need not leave an independently timed deletion event.
+      metadataObscured = true;
+      continue;
+    }
+    if (['mentioned', 'subscribed', 'unsubscribed', 'copilot_work_started'].includes(event.event)) {
+      const timestamp = typeof event.created_at === 'string' ? Date.parse(event.created_at) : NaN;
+      if (!Number.isFinite(timestamp) || timestamp > startedAt) {
+        throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: invalid excluded notification time`);
+      }
+      excludedActivity = true;
+      if (timestamp > Date.parse(clock.observedAt || clock.activityAt)) metadataObscured = true;
       continue;
     }
     if (event.event && !ACTIVITY_EVENTS.has(event.event)) {
@@ -173,22 +325,15 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
     }
     const time = event.updated_at || event.created_at || event.submitted_at;
     if (!time) throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: feedback time is missing`);
-    const actor = event.actor?.login || event.user?.login;
-    const ownLabel = ['labeled', 'unlabeled'].includes(event.event) &&
-      [settings.event, ...settings.managedLabels].includes(event.label?.name);
-    const ownComment = event.body?.startsWith(PREFIX) || isReminder(event.body, settings);
     const timestamp = Date.parse(time);
-    if (actor === BOT && (ownLabel || ownComment)) {
-      if (!Number.isFinite(timestamp)) throw new Error('Invalid KP bookkeeping time');
-      bookkeepingAt = Math.max(bookkeepingAt, timestamp);
-      if (timestamp > Date.parse(clock.observedAt || clock.activityAt)) metadataObscured = true;
-      if (ownLabel && event.label.name === settings.event) membershipWrite = true;
-    } else {
-      if (!Number.isFinite(timestamp) || timestamp > startedAt) {
-        throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: invalid or future feedback time`);
-      }
-      if (timestamp >= since && timestamp > Date.parse(latest)) latest = time;
+    if (!Number.isFinite(timestamp) || timestamp > startedAt) {
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: invalid or future feedback time`);
     }
+    meaningfulAt = Math.max(meaningfulAt, timestamp);
+    if (timestamp >= since && timestamp > Date.parse(latest)) latest = time;
+  }
+  if (!comment && excludedActivity && meaningfulAt < Date.parse(pr.updated_at)) {
+    throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: no trusted baseline before excluded bookkeeping`);
   }
   // Recognize legacy hashes only when the current metadata can reproduce them.
   const legacy = fingerprint(pr, settings.managedLabels) === clock.fingerprint ||
@@ -197,22 +342,36 @@ async function activity(github, repo, pr, comment, comments, settings, now = Dat
       : [...pr.labels, {name: settings.event}]}, settings.managedLabels) === clock.fingerprint);
   if (hash !== clock.fingerprint && !legacy) {
     const updatedAt = Date.parse(pr.updated_at);
+    const timedBodyOnlyChange = clock.nonBodyFingerprint === nonBodyFingerprint && bodyEditedAt !== null;
+    if (timedBodyOnlyChange && Date.parse(bodyEditedAt) > Date.parse(latest)) {
+      throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: changed body edit predates the review overlap`);
+    }
     if (!Number.isFinite(updatedAt) || updatedAt > startedAt ||
-        (updatedAt > Date.parse(latest) && (metadataObscured || bookkeepingAt >= updatedAt))) {
+        (!timedBodyOnlyChange && updatedAt > Date.parse(latest) &&
+          (metadataObscured || bookkeepingAt >= updatedAt))) {
       throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: metadata changed but its time is obscured by KP bookkeeping`);
     }
-    if (updatedAt > Date.parse(latest)) latest = pr.updated_at;
+    if (!timedBodyOnlyChange && updatedAt > Date.parse(latest)) latest = pr.updated_at;
   }
-  return {activityAt: latest, fingerprint: hash, commentIds,
+  if (meaningfulAt > Date.parse(latest)) {
+    throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: human activity outside the review overlap is newer than the accepted baseline`);
+  }
+  return {activityAt: latest, fingerprint: hash, nonBodyFingerprint, commentIds, feedbackPolicy: FEEDBACK_POLICY,
+    confirmedDeletedReviewIds: [...deletedReviews].sort((left, right) => left - right),
     lastReviewedAt: new Date(startedAt).toISOString(),
-    [FEEDBACK]: JSON.stringify([feedback(comments, settings), feedback(reviews, settings), summaries])};
+    [FEEDBACK]: JSON.stringify([feedback(comments, settings), feedback(reviews, settings),
+      summaries.filter(item => !isIgnoredBot(item.user)), deletedWrappers])};
 }
 
 function feedback(entries, settings) {
-  return entries.filter(item => !(item.user?.login === BOT &&
-    (item.body?.startsWith(PREFIX) || isReminder(item.body, settings))))
+  return entries.filter(item => !isIgnoredBot(item.user))
     .map(item => [item.id, item.body, item.created_at, item.updated_at])
     .sort((left, right) => left[0] - right[0]);
+}
+
+function reportUncertainty(error, core) {
+  if (!(error instanceof UncertainActivity)) throw error;
+  core.info(`${error.message}; skipped without advancing the clock/checkpoint or authorizing a reminder.`);
 }
 
 async function review(github, repo, core, pr, comment, comments, settings, now,
@@ -220,8 +379,7 @@ async function review(github, repo, core, pr, comment, comments, settings, now,
   try {
     return await readReview(github, repo, core, pr, comment, comments, settings, now, startedAt);
   } catch (error) {
-    if (!(error instanceof UncertainActivity)) throw error;
-    core.info(`${error.message}; skipped without advancing the clock/checkpoint or authorizing a reminder.`);
+    reportUncertainty(error, core);
     return null;
   }
 }
@@ -229,6 +387,7 @@ async function review(github, repo, core, pr, comment, comments, settings, now,
 async function readReview(github, repo, core, pr, comment, comments, settings, now, startedAt) {
   const clock = await activity(github, repo, pr, comment, comments, settings, now);
   const {data: latest} = await github.rest.pulls.get({...repo, pull_number: pr.number});
+  validateFeedbackCounts(latest);
   const finalComments = await github.paginate(github.rest.issues.listComments, {
     ...repo, issue_number: pr.number, per_page: 100
   });
@@ -247,10 +406,20 @@ async function readReview(github, repo, core, pr, comment, comments, settings, n
   const confirmed = await activity(github, repo, latest,
     {...comment, body: clockBody(seed)}, finalComments, settings, now);
   if (confirmed.activityAt !== clock.activityAt || confirmed[FEEDBACK] !== clock[FEEDBACK] ||
-      JSON.stringify(confirmed.commentIds) !== JSON.stringify(clock.commentIds)) {
+      confirmed.nonBodyFingerprint !== clock.nonBodyFingerprint ||
+      JSON.stringify(confirmed.commentIds) !== JSON.stringify(clock.commentIds) ||
+      JSON.stringify(confirmed.confirmedDeletedReviewIds) !== JSON.stringify(clock.confirmedDeletedReviewIds)) {
     throw new UncertainActivity(`Uncertain KP activity on #${pr.number}: feedback changed during review`);
   }
   return {...clock, lastReviewedAt: new Date(startedAt).toISOString()};
+}
+
+function validateFeedbackCounts(pr) {
+  for (const field of ['comments', 'review_comments']) {
+    if (!Number.isSafeInteger(pr[field]) || pr[field] < 0) {
+      throw new Error(`Invalid PR feedback count ${field} on #${pr.number}: expected a nonnegative safe integer`);
+    }
+  }
 }
 
 function validateCommentIdentities(value) {
@@ -267,8 +436,8 @@ function commentIdentities(comments, reviews, settings) {
   const result = {};
   for (const [kind, entries] of [['issue', comments], ['review', reviews]]) {
     if (!Array.isArray(entries)) throw new Error('Missing paginated KP comments');
-    result[kind] = entries.filter(item => !(item.user?.login === BOT &&
-      (item.body?.startsWith(PREFIX) || isReminder(item.body, settings)))).map(item => item.id)
+    validateCommentIdentities({issue: [], review: entries.map(item => item.id).sort((a, b) => a - b)});
+    result[kind] = entries.filter(item => !isIgnoredBot(item.user)).map(item => item.id)
       .sort((left, right) => left - right);
   }
   validateCommentIdentities(result);
@@ -280,20 +449,23 @@ async function initialize({github, context, core, pr, eventLabel, managedLabels,
   const comments = await github.paginate(github.rest.issues.listComments, {
     ...context.repo, issue_number: pr.number, per_page: 100
   });
-  const existing = selectClock(comments, core, pr.number);
+  const selection = selectReviewClock(comments, core, pr.number);
+  if (!selection) return 'skipped';
+  const {comment: existing} = selection;
   if (!Number.isFinite(Date.parse(pr.updated_at)) ||
       !eventLabel || managedLabels.some(label => !label)) throw new Error('Invalid enrollment clock settings');
   const settings = {event: eventLabel, managedLabels,
     message: process.env.AUTHOR_REMINDER_MESSAGE || DEFAULT_MESSAGE};
   const clock = await review(github, context.repo, core, pr, existing, comments, settings, now, startedAt);
-  if (!clock) throw new Error(`Skipped KP enrollment on #${pr.number}: activity review is uncertain`);
+  if (!clock) return 'skipped';
   await saveClock(github, context.repo, core, pr, existing, {...clock, observedAt: pr.updated_at});
   core.info(`Preserved pre-enrollment activity for #${pr.number}.`);
+  return 'initialized';
 }
 
 function selectClock(comments, core, number) {
   const clocks = comments.filter(item =>
-    item.user?.login === BOT && item.body?.startsWith(PREFIX));
+    item.user?.login === BOT && item.body?.startsWith(PREFIX) && isIgnoredBot(item.user));
   const ids = new Set();
   for (const comment of clocks) {
     readClock(comment);
@@ -309,11 +481,23 @@ function selectClock(comments, core, number) {
   return clocks[0];
 }
 
+function selectReviewClock(comments, core, number) {
+  try {
+    return {comment: selectClock(comments, core, number)};
+  } catch (error) {
+    reportUncertainty(error, core);
+    return null;
+  }
+}
+
 async function saveClock(github, repo, core, pr, comment, clock) {
   const previous = comment && readClock(comment);
   const unchanged = previous && previous.activityAt === clock.activityAt &&
     previous.fingerprint === clock.fingerprint &&
+    previous.nonBodyFingerprint === clock.nonBodyFingerprint &&
     previous.lastReviewedAt === clock.lastReviewedAt &&
+    previous.feedbackPolicy === clock.feedbackPolicy &&
+    JSON.stringify(previous.confirmedDeletedReviewIds) === JSON.stringify(clock.confirmedDeletedReviewIds) &&
     JSON.stringify(previous.commentIds) === JSON.stringify(clock.commentIds);
   const state = unchanged ? previous : {...previous, ...clock, observedAt: pr.updated_at};
   if (comment && (typeof comment.created_at !== 'string' ||
@@ -373,7 +557,9 @@ async function reconcile({github, context, core, now = Date.now}) {
       const comments = await github.paginate(github.rest.issues.listComments, {
         ...context.repo, issue_number: pr.number, per_page: 100
       });
-      let comment = selectClock(comments, core, pr.number);
+      const selection = selectReviewClock(comments, core, pr.number);
+      if (!selection) continue;
+      let {comment} = selection;
       let clock = await review(github, context.repo, core, pr, comment, comments, settings, now, startedAt);
       if (!clock) continue;
       comment = await saveClock(github, context.repo, core, pr, comment, clock);
@@ -407,11 +593,14 @@ async function canPost({github, context, core, number, now = Date.now}) {
   const comments = await github.paginate(github.rest.issues.listComments, {
     ...context.repo, issue_number: number, per_page: 100
   });
-  const comment = selectClock(comments, core, number);
+  const selection = selectReviewClock(comments, core, number);
+  if (!selection) return false;
+  const {comment} = selection;
   if (!comment) throw new Error(`Expected one KP clock before posting on #${number}`);
   const clock = await review(github, context.repo, core, pr, comment, comments, settings, now, checkedAt);
   if (!clock) return false;
   const {data: latest} = await github.rest.pulls.get({...context.repo, pull_number: number});
+  validateFeedbackCounts(latest);
   const has = label => latest.labels.some(item => item.name === label);
   const stable = latest.updated_at === pr.updated_at &&
     latest.comments === pr.comments && latest.review_comments === pr.review_comments &&
@@ -438,10 +627,13 @@ async function canPost({github, context, core, number, now = Date.now}) {
     const saved = await saveClock(github, context.repo, core, pr, comment, clock);
     if (saved !== comment) {
       const {data: finalPR} = await github.rest.pulls.get({...context.repo, pull_number: number});
+      validateFeedbackCounts(finalPR);
       const finalComments = await github.paginate(github.rest.issues.listComments, {
         ...context.repo, issue_number: number, per_page: 100
       });
-      const selected = selectClock(finalComments, core, number);
+      const finalSelection = selectReviewClock(finalComments, core, number);
+      if (!finalSelection) return false;
+      const {comment: selected} = finalSelection;
       if (!selected || selected.id !== saved.id || selected.body !== saved.body) {
         core.info(`Skipped reminder for #${number}: clock changed during bookkeeping.`);
         return false;
@@ -454,8 +646,10 @@ async function canPost({github, context, core, number, now = Date.now}) {
           !finalPR.base.ref.startsWith(settings.branchPrefix) ||
           finalPR.comments !== latest.comments || finalPR.review_comments !== latest.review_comments ||
           current.activityAt !== clock.activityAt || current.fingerprint !== clock.fingerprint ||
+          current.nonBodyFingerprint !== clock.nonBodyFingerprint ||
           current[FEEDBACK] !== clock[FEEDBACK] ||
           JSON.stringify(current.commentIds) !== JSON.stringify(clock.commentIds) ||
+          JSON.stringify(current.confirmedDeletedReviewIds) !== JSON.stringify(clock.confirmedDeletedReviewIds) ||
           JSON.stringify(feedback(finalComments, settings)) !== JSON.stringify(feedback(comments, settings))) {
         core.info(`Skipped reminder for #${number}: activity or eligibility changed during bookkeeping.`);
         return false;
@@ -486,10 +680,18 @@ async function hasActivitySince({github, context, core, number, since, now = Dat
   const comments = await github.paginate(github.rest.issues.listComments, {
     ...context.repo, issue_number: number, per_page: 100
   });
-  const comment = selectClock(comments, core, number);
-  if (!comment) throw new Error(`Expected one KP clock before marker cleanup on #${number}`);
+  const selection = selectReviewClock(comments, core, number);
+  if (!selection) return null;
+  const {comment} = selection;
+  if (!comment) {
+    core.info(`Uncertain KP activity on #${number}: no trusted KP clock; skipped marker cleanup.`);
+    return null;
+  }
   const clock = await review(github, context.repo, core, pr, comment, comments, settings, now, startedAt);
-  return clock ? Date.parse(clock.activityAt) >= Date.parse(since) : null;
+  if (!clock) return null;
+  const active = Date.parse(clock.activityAt) >= Date.parse(since);
+  if (active) await saveClock(github, context.repo, core, pr, comment, clock);
+  return active;
 }
 
 module.exports = {isDue, fingerprint, readClock, activity, reconcile, canPost, initialize,
