@@ -481,7 +481,7 @@ const input = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
 const executeMembership = new (Object.getPrototypeOf(async function(){}).constructor)(
   'github', 'context', 'core', 'require', input.membership);
 const action = (github, context) => executeMembership(github, context, {info() {}},
-  () => ({initialize: async () => {}}));
+  () => ({initialize: async () => 'initialized'}));
 process.env.EVENT_LABEL = 'kp-conference-event';
 process.env.ROLLOUT_BRANCH_PREFIX = 'release-ignite26-';
 process.env.EVENT_NAME = 'schedule';
@@ -581,23 +581,26 @@ async function check(pr, expected, failure) {
   const beforeCleanup = new (Object.getPrototypeOf(async function(){}).constructor)(
     'issue', 'issueLogger', '__WEBPACK_EXTERNAL_createRequire', 'process', 'github_context', 'creationDate',
     cleanupGuard.replace('import.meta.url', '"file:///fixture.js"') + '\nreturn kpActivitySinceMarker;');
-  for (const result of [true, false, null, 'error']) {
+  for (const result of [true, false, null, 'error']) for (const isPullRequest of [false, true]) {
     const client = {}, context = {repo: {owner: 'owner', repo: 'private'}};
     const fakeProcess = {env: {GITHUB_WORKSPACE: '/trusted'}};
+    let calls = 0;
     const load = name => name === 'node:path' ? require('node:path') : {
       hasActivitySince: async args => {
+        calls++;
         assert.equal(args.github, client); assert.equal(args.context, context); assert.equal(args.number, 42);
         assert.equal(args.since, '2026-10-28T19:00:00Z');
         if (result === 'error') throw Error('Cleanup read failed');
         return result;
       }
     };
-    const promise = beforeCleanup.call({client}, {number: 42}, {info() {}}, () => load,
+    const promise = beforeCleanup.call({client}, {number: 42, isPullRequest}, {info() {}}, () => load,
       fakeProcess, context, '2026-10-28T19:00:00Z');
-    if (result === 'error') {
+    if (result === 'error' && isPullRequest) {
       await assert.rejects(promise, /Cleanup read failed/);
       assert.equal(fakeProcess.exitCode, 1);
-    } else assert.equal(await promise, result === null ? undefined : result);
+    } else assert.equal(await promise, !isPullRequest || result === null ? undefined : result);
+    assert.equal(calls, Number(isPullRequest));
   }
   assert.match(guard, /canPost/);
   assert.ok(!guard.includes('authorReminder'));
@@ -660,6 +663,8 @@ async function check(pr, expected, failure) {
         self.assertEqual(steps[1]["with"]["ref"], "${{ steps.trusted-clock-source.outputs.result }}")
         script = steps[-1]["with"]["script"]
         self.assertLess(script.index("await initialize("), script.index("await github.rest.issues.addLabels("))
+        self.assertLess(script.index("if (result === 'skipped') return;"),
+                        script.index("await github.rest.issues.addLabels("))
 
 
 if __name__ == "__main__":
