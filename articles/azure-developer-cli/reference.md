@@ -1552,6 +1552,7 @@ Remove one or more keys from the selected environment's .env file. (Beta)
 Keys are case-sensitive. Missing keys are ignored with a warning.
 AZURE_ENV_NAME identifies the environment and cannot be unset.
 You are prompted to confirm removal (defaults to Yes). Use --force to skip this confirmation.
+When using --no-prompt, you must also use --force to remove an existing key.
 If saving fails after local values change, you can choose to restore the previous values (defaults to Yes).
 With --force, restoration is attempted automatically without prompting.
 Removing a Key Vault secret reference does not delete the secret.
