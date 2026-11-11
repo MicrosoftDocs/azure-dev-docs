@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/20/2026
+ms.date: 11/05/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -1605,6 +1605,10 @@ Multiple arguments use direct process execution (no shell wrapping).
 A single quoted argument uses shell inline execution unless it is ambiguous
 with a missing script path. Use --shell to make inline intent explicit when
 the command contains script-like path arguments.
+
+Canceling execution stops the command and its child processes and reports
+that the command was canceled by the user. After successful completion,
+intentional background child processes may continue running.
 
 Examples:
   azd exec python script.py                     # Direct exec (exact argv)
