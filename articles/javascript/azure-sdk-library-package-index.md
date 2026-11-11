@@ -5,6 +5,7 @@ ms.date: 06/01/2026
 ms.topic: concept-article
 ms.custom:
   - devx-track-js, devx-track-ts
+author: MikeRayMSFT
 ---
 
 # Azure libraries packages for JavaScript
