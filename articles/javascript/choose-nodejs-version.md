@@ -4,6 +4,8 @@ description: Learn how to choose the right Node.js version for developing and de
 ms.date: 06/01/2026
 ms.topic: concept-article
 # customer intent: As a JavaScript developer new to Azure, I want understand which version of Node.js to use for a hosting service or Azure sdk.
+author: diberry1
+ms.author: diberry1
 ---
 # Choose the right Node.js Version for Azure
 
