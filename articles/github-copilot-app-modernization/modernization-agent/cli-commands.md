@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: reference
 ai-usage: ai-assisted
-ms.date: 06/02/2026
+ms.date: 10/27/2026
 ---
 
 # GitHub Copilot modernization agent CLI commands
@@ -76,7 +76,8 @@ modernize assess [options]
 | `--issue-url <url>`      | A GitHub issue URL to update with the assessment summary.                                                                                                                                                                   | None                            |
 | `--format <format>`      | Output format for assessment reports: `html` or `markdown`.                                                                                                                                                                 | `html`                          |
 | `--assess-config <path>` | Path to assessment configuration YAML file. Overrides default assessment parameters such as target JDK version, compute services, and migration preferences. For more information, see [Batch assessment](batch-assess.md). | None                            |
-| `--model <model>`        | The LLM model to use.                                                                                                                                                                                                       | `claude-sonnet-4.6`             |
+| `--prompt <text>`        | Optional, non-secret assessment context passed as input to additional assessment skills, such as SQL Server and Oracle-to-PostgreSQL assessment. It isn't intended for repository routing, orchestration, or configuring other CLI behavior. For database assessment in public preview, use Full analysis and follow the workflow-specific prerequisites. | None |
+| `--model <model>`        | The LLM model to use.                                                                                                                                                                                                       | `claude-sonnet-5`               |
 | `--delegate <delegate>`  | The execution mode: `local` (this machine) or `cloud` (cloud agent).                                                                                                                                                 | `local`                         |
 | `--wait`                 | Waits for the delegated tasks to complete and generate results (only valid with `--delegate cloud`).                                                                                                                        | Disabled                        |
 | `--force`                | Forces restart delegation, ignoring ongoing tasks (only valid with `--delegate cloud`).                                                                                                                                     | Disabled                        |
@@ -139,6 +140,15 @@ The assessment generates:
 - **Summary**: Key findings and recommendations.
 - **Issue updates** (if you provide `--issue-url`): GitHub issue comment with summary.
 
+#### Database assessment (preview)
+
+Database assessment uses the existing `assess` command with **Full analysis** (`analysisCoverage: full` in the assessment configuration) and local execution. It doesn't add a database migration command or database-specific CLI flags.
+
+- [Assess SQL Server migration readiness](assess-sql-server.md) for Azure SQL targets, with optional sizing from existing performance data.
+- [Assess and migrate Oracle-dependent applications to PostgreSQL](migrate-oracle-to-postgresql.md) for Java and .NET application code.
+
+Use `--prompt` for optional assessment context. SQL selectors such as `instanceName` are context values, not CLI options. Oracle-to-PostgreSQL DDL paths and conversion options belong in the application's optional repository configuration.
+
 ### plan create
 
 Creates a modernization plan based on a natural language prompt describing your modernization goals.
@@ -164,7 +174,7 @@ modernize plan create <prompt> [options]
 | `--language <lang>`  | The programming language (`java`, `dotnet`, or `python`). | Auto-detected        |
 | `--assess-file-path <path>` | Path to an existing assessment report file to use as context for plan generation. Allows the plan to be based on assessment findings. | None |
 | `--overwrite`        | Overwrites an existing plan with the same name.           | Disabled             |
-| `--model <model>`    | The LLM model to use.                                     | `claude-sonnet-4.6`  |
+| `--model <model>`    | The LLM model to use.                                     | `claude-sonnet-5`    |
 
 #### Examples
 
@@ -271,7 +281,7 @@ modernize plan execute [prompt] [options]
 | `--source <path>`       | The path to the application source code.                                    | Current directory    |
 | `--plan-name <name>`    | The name of the plan to execute.                                            | `modernization-plan` |
 | `--language <lang>`     | The programming language (`java` or `dotnet`).                              | Auto-detected        |
-| `--model <model>`       | The LLM model to use.                                                       | `claude-sonnet-4.6`  |
+| `--model <model>`       | The LLM model to use.                                                       | `claude-sonnet-5`    |
 | `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (cloud agent). | `local`              |
 | `--force`               | Forces execution even when a cloud agent job is in progress. Only valid with `--delegate cloud`. | Disabled             |
 
@@ -354,7 +364,7 @@ modernize upgrade [prompt] [options]
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
 | `--source <source>`     | Source to upgrade (repeatable). Accepts local paths, Git URLs, or a JSON config file path. Use multiple `--source` flags to specify several repositories. | `.` (current directory) |
 | `--delegate <delegate>` | The execution mode: `local` (this machine) or `cloud` (cloud agent).                                                                               | `local`                 |
-| `--model <model>`       | The LLM model to use.                                                                                                                                     | `claude-sonnet-4.6`     |
+| `--model <model>`       | The LLM model to use.                                                                                                                                     | `claude-sonnet-5`       |
 
 #### Examples
 
@@ -427,14 +437,14 @@ Set environment variables to override all other configuration scopes:
 | Variable                      | Description                                                            | Default             |
 |-------------------------------|------------------------------------------------------------------------|---------------------|
 | `MODERNIZE_LOG_LEVEL`         | The logging level (`none`, `error`, `warning`, `info`, `debug`, `all`) | `info`              |
-| `MODERNIZE_MODEL`             | The LLM model to use.                                                  | `claude-sonnet-4.6` |
+| `MODERNIZE_MODEL`             | The LLM model to use.                                                  | `claude-sonnet-5`   |
 | `MODERNIZE_COLLECT_TELEMETRY` | Enable or disable telemetry collection.                                | `true`              |
 
 Example:
 
 ```bash
 export MODERNIZE_LOG_LEVEL=debug
-export MODERNIZE_MODEL=claude-sonnet-4.6
+export MODERNIZE_MODEL=claude-sonnet-5
 modernize assess
 ```
 
@@ -444,7 +454,7 @@ Store user-specific preferences in `~/.modernize/config.json` or repository-wide
 
 ```json
 {
-  "model": "claude-sonnet-4.6",
+  "model": "claude-sonnet-5",
   "log_level": "info",
   "trusted_folders": [
     "/path/to/trusted/project",

@@ -8,7 +8,7 @@ metadata:
   description: Provides an overview, reference, and quickstarts on using GitHub Copilot modernization.
   author: KarlErickson
   ms.author: karler
-  ms.date: 06/02/2026
+  ms.date: 10/27/2026
   ms.topic: landing-page
 
 landingContent:
@@ -52,18 +52,32 @@ landingContent:
             url: modernization-agent/cli-commands.md
       - linkListType: how-to-guide
         links:
+          - text: Configure your own model or key (BYOM/BYOK)
+            url: modernization-agent/configure-bring-your-own-model-key.md
           - text: Batch assessment
             url: modernization-agent/batch-assess.md
+          - text: Assess SQL Server migration readiness (preview)
+            url: modernization-agent/assess-sql-server.md
+          - text: Migrate Oracle apps to PostgreSQL (preview)
+            url: modernization-agent/migrate-oracle-to-postgresql.md
           - text: Batch plan
             url: modernization-agent/batch-plan.md
           - text: Batch upgrade
             url: modernization-agent/batch-upgrade.md
           - text: Customization
             url: modernization-agent/customization.md
+          - text: Generate and use rulebooks
+            url: modernization-agent/rulebooks.md
           - text: CI/CD integration
             url: modernization-agent/cicd-integration.md
           - text: Infrastructure and deployment
             url: modernization-agent/infra-deployment.md
+  - title: Developer environment
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure a custom model in Visual Studio Code
+            url: configure-custom-model-visual-studio-code.md
   - title: Upgrade Java projects
     linkLists:
       - linkListType: quickstart
