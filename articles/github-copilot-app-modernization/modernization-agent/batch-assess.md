@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 06/02/2026
+ms.date: 10/27/2026
 ---
 
 # Batch assessment with the GitHub Copilot modernization agent
@@ -33,6 +33,23 @@ Codebase insights document how each application is built. They're produced for *
 - **Business Workflows** — end-to-end functional flows reconstructed from code (for example, *order → reserve → pay → fulfill*). Anchors regression scope and stakeholder communication.
 - **Dependencies** — direct and transitive libraries, SDKs, and drivers with pinned versions. Feeds Azure-service mapping and surfaces EOL or beta pins.
 - **Data Model** — databases, schemas, key entities, and relationships from ORM mappings and DDL. Drives data-tier migration planning.
+
+### Database assessment (preview)
+
+By using **Full analysis**, the CLI selects database assessment skills based on repository evidence and optional assessment context:
+
+- **[SQL Server migration readiness](assess-sql-server.md)** assesses local or on-premises SQL Server dependencies for Azure SQL targets. It requires local Windows execution and a reachable source SQL Server.
+- **[Oracle-to-PostgreSQL application readiness](migrate-oracle-to-postgresql.md)** assesses Oracle-dependent application code by using static source inspection and optional DDL exports. It doesn't connect to a database or convert application code during assessment.
+
+These workflows are in public preview. Use local execution and follow their separate prerequisites. The default **Issue only** analysis coverage doesn't run these database assessments.
+
+For non-interactive runs, set the top-level `analysisCoverage` to `full` in the YAML file that you pass to `--assess-config`:
+
+```yaml
+analysisCoverage: full
+```
+
+Use `--prompt` for optional assessment goal or scope context. It doesn't replace repository evidence or the workflow-specific configuration. The individual application report links to published database reports. A built-in report alone doesn't establish that a database assessment completed.
 
 ### Reports
 

@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: overview
 ai-usage: ai-assisted
-ms.date: 06/02/2026
+ms.date: 10/27/2026
 keywords: modernize cli, modernization agent
 ---
 
@@ -56,6 +56,15 @@ The Modernize CLI assesses applications and repositories to determine modernizat
 - **Single or multi-repository assessment**: Assesses individual applications or multiple repositories simultaneously.
 - **Rich aggregated reports**: Delivers comprehensive insights with cross-repository analysis, dependency mapping, and cloud readiness scores.
 - **GitHub integration**: Optionally publishes assessment summaries directly to GitHub issues.
+
+### Database modernization (preview)
+
+The Modernize CLI includes two public-preview database workflows:
+
+- **[SQL Server migration readiness](assess-sql-server.md)**: Assess local or on-premises SQL Server dependencies for **Azure SQL Database Hyperscale**. Azure SQL Managed Instance and SQL Server on Azure Virtual Machines remain alternative migration paths based on workload requirements. Optional sizing uses existing performance data. This workflow requires local Windows execution.
+- **[Oracle-to-PostgreSQL application migration](migrate-oracle-to-postgresql.md)**: Assess and convert Oracle-dependent Java and .NET application code using source evidence and optional DDL exports. Conversion validates application paths in isolated local PostgreSQL Docker containers; it doesn't migrate database servers or customer data.
+
+Both database assessments require **Full analysis**. Use local execution and prepare the workflow-specific prerequisites before starting.
 
 ### Intelligent planning
 
