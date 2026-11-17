@@ -1,11 +1,11 @@
 ---
 title: Azure MCP Server tools for Azure Advisor
 description: Use Azure MCP Server tools with natural language prompts or Azure MCP CLI commands to manage Azure Advisor recommendations and optimizations.
-ms.date: 11/03/2026
+ms.date: 11/11/2026
 ms.service: azure-mcp-server
 ms.topic: concept-article
-tool_count: 7
-mcp-cli.version: 4.0.0-beta.4+fab10c6884593b2b17a1135279c2fb79bdb65016
+tool_count: 8
+mcp-cli.version: 4.0.0-beta.5+d7491c63f4d2c65b8a46ebe5c1e8597e34c42489
 author: sandeep-sen
 ms.author: sandeepsen
 ms.reviewer: ankiga 
@@ -17,12 +17,69 @@ content_well_notification:
 
 # Azure MCP Server tools for Azure Advisor
 
-The Azure MCP Server helps you work with Azure Advisor through natural language prompts. You can list, summarize, prioritize, and update recommendations, explore recommendation metadata, get remediation guidance, and check the status of service groups.
+The Azure MCP Server helps you work with Azure Advisor through natural language prompts. You can list, summarize, prioritize, and update recommendations, explore recommendation metadata, view pre-aggregated insight KPIs, get remediation guidance, and check the status of service groups.
 
 Azure Advisor analyzes your Azure resources and delivers personalized, actionable recommendations to optimize cost, performance, reliability, and security. For more information, see [Azure Advisor documentation](/azure/advisor/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
+
+## Insight: List
+
+This tool lists pre-aggregated Azure Advisor insights for a service group, a subscription, or all accessible service groups and subscriptions in the selected tenant. Use this tool to view idle resource counts and potential savings in USD, zonal resiliency coverage percentages, and service retirement exposure. Service retirement insights include Day 1 baseline exposure, current remaining exposure, and exposure reduction percentage. Only service retirement insights apply to subscriptions; idle resource and zonal resiliency insights apply to service groups.
+
+Each insight returns its name, domain, scope type and ID, last updated time, and typed KPI values. USD amounts include a unit. Results include an `areResultsTruncated` flag that indicates whether the result set is incomplete.
+
+This tool returns pre-aggregated KPIs, not individual resources or recommendations. For recommendation counts, totals, rankings, and grouped analysis, use [Recommendation: Summary](#recommendation-summary). For individual recommendations and affected resources, use [Recommendation: List](#recommendation-list).
+
+#### [Azure MCP CLI](#tab/azure-mcp-cli)
+
+**Example CLI command**
+
+```console
+azmcp advisor insight list \
+  [--service-group <service-group>] \
+  [--subscription <subscription>] \
+  [--insight-name <insight-name>] \
+  [--top <top>] \
+  [--tenant <tenant>]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `service-group` | string | No | The service group name, such as `commerce`, not its full ARM resource ID. Specify either a service group or a subscription, not both. If you omit both, the tool returns insights across all accessible service groups and subscriptions in the selected tenant. |
+| `subscription` | string | No | The Azure subscription ID or name. Returns insights for that subscription; only service retirement insights apply. Mutually exclusive with `service-group`. No default subscription is applied. |
+| `insight-name` | string | No | Filter by insight name: `IdleResources`, `ZonalResiliency`, or `ServiceRetirement`. Case-insensitive exact match. If you omit this parameter, the tool returns all insight types available for the scope. |
+| `top` | integer | No | Maximum number of insights to return, from 1 to 500. Defaults to 50. |
+| `tenant` | string | No | The Microsoft Entra tenant ID or display name. Required when multiple tenants are accessible and you don't specify a subscription. |
+
+#### [MCP Server](#tab/mcp-server)
+
+<!-- @mcpcli advisor insight list -->
+
+Example prompts include:
+
+- "List Azure Advisor insights across all accessible service groups and subscriptions in tenant '\<tenant-id\>'."
+- "Show idle resource counts and potential savings in USD for service group 'commerce' in tenant '\<tenant-id\>'."
+- "Show zonal resiliency coverage percentages for service group 'commerce' in tenant '\<tenant-id\>'."
+- "Get the service retirement insight for subscription '\<subscription-id\>', including Day 1 baseline exposure, current remaining exposure, and exposure reduction percentage."
+- "List up to 100 ServiceRetirement insights across all accessible service groups and subscriptions in tenant '\<tenant-id\>'."
+
+| Parameter | Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Service group** | Optional | The service group name, such as `commerce`, not its full ARM resource ID. Specify either a service group or a subscription, not both. If you omit both, the tool returns insights across all accessible service groups and subscriptions in the selected tenant. |
+| **Subscription** | Optional | The Azure subscription ID or name. Returns insights for that subscription; only service retirement insights apply. Mutually exclusive with service group. No default subscription is applied. |
+| **Insight name** | Optional | Filter by insight name: `IdleResources`, `ZonalResiliency`, or `ServiceRetirement`. Case-insensitive exact match. If you omit this parameter, the tool returns all insight types available for the scope. |
+| **Top** | Optional | Maximum number of insights to return, from 1 to 500. Defaults to 50. |
+| **Tenant** | Optional | The Microsoft Entra tenant ID or display name. Required when multiple tenants are accessible and you don't specify a subscription. |
+
+---
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+| Destructive | Idempotent | Open World | Read Only | Secret | Local Required |
+|:-----------:|:----------:|:----------:|:---------:|:------:|:--------------:|
+| ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
 
 ## Metadata: Get
 
