@@ -138,6 +138,10 @@ ls -la .github/skills/
 modernize plan create "migrate from rabbitmq to azure service bus"
 ```
 
+### Custom skill enforcement with rulebooks
+
+Your organization can use centrally managed [rulebooks](rulebooks.md) to require specific custom skills for applicable modernization tasks, guiding the agent during planning and execution. Your team should review the generated plan and rulebook compliance report to verify that the skill gets invoked as expected.
+
 ## Troubleshooting
 
 ### Skill not detected
@@ -154,6 +158,7 @@ modernize plan create "migrate from rabbitmq to azure service bus"
 
 ## Next steps
 
+- [Generate and use rulebooks with the Modernize CLI](rulebooks.md)
 - [Quick start: Get started with the modernization agent](quickstart.md)
 - [Batch assessment: Assess multiple applications](batch-assess.md)
 - [Batch upgrade: Upgrade multiple applications](batch-upgrade.md)

@@ -19,6 +19,13 @@ items:
           - name: Configure BYOM/BYOK
             href: modernization-agent/configure-bring-your-own-model-key.md
 
+          - name: Database modernization (preview)
+            items:
+              - name: Assess SQL Server migration readiness
+                href: modernization-agent/assess-sql-server.md
+              - name: Migrate Oracle apps to PostgreSQL
+                href: modernization-agent/migrate-oracle-to-postgresql.md
+
           - name: Batch modernization
             expanded: false
             items:
@@ -31,6 +38,8 @@ items:
 
           - name: Customization
             href: modernization-agent/customization.md
+          - name: Generate and use rulebooks
+            href: modernization-agent/rulebooks.md
           - name: CI/CD integration
             href: modernization-agent/cicd-integration.md
           - name: Infrastructure and deployment

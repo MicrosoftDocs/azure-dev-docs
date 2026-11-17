@@ -34,25 +34,13 @@ Use the following commands to install the modernization agent or update to the l
 
 Use one of the following options:
 
-**Option 1 - Winget (recommended):**
-
-```powershell
-winget install GitHub.Copilot.modernization.agent
-```
-
-For silent installation with no prompts:
-
-```powershell
-winget install GitHub.Copilot.modernization.agent --silent
-```
-
-**Option 2 - PowerShell one-liner:**
+**Option 1 - PowerShell one-liner:**
 
 ```powershell
 iex (irm 'https://raw.githubusercontent.com/microsoft/modernize-cli/main/scripts/install.ps1')
 ```
 
-**Option 3 - MSI installer:**
+**Option 2 - MSI installer:**
 
 Download and run the latest MSI from the [GitHub releases page](https://github.com/microsoft/modernize-cli/releases/latest).
 
