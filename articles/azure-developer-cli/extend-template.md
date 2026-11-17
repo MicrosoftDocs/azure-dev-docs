@@ -1,9 +1,9 @@
 ---
 title: Extend an Azure Developer CLI Template
 description: Extend an Azure Developer CLI template by creating a Bicep module that adds Azure Translator capabilities and exposes its outputs as azd environment values.
-ms.date: 09/11/2026
+ms.date: 09/21/2026
 ms.topic: tutorial
-ms.custom: devx-track-azdevcli, devx-track-bicep
+ms.custom: devx-track-azdevcli, devx-track-bicep, devx-track-python, devx-track-dotnet
 ai-usage: ai-generated
 ---
 
@@ -11,7 +11,7 @@ ai-usage: ai-generated
 
 After you build a new Azure Developer CLI (`azd`) template or start from an existing one, you can extend and evolve its application and infrastructure as your requirements change. This tutorial demonstrates how to add a new Azure service to a template without relying on a module that the template already provides.
 
-You'll start with the [`hello-azd` template](https://github.com/Azure-Samples/hello-azd), create a Bicep module that defines an Azure Translator resource, reference the module from the template's infrastructure entry point, and expose its outputs as `azd` environment values. The tutorial focuses on extending the infrastructure and doesn't modify the application code.
+You start with the [`hello-azd-python`](https://github.com/Azure-Samples/hello-azd-python) or [`hello-azd`](https://github.com/Azure-Samples/hello-azd) template, create a Bicep module that defines an Azure Translator resource, reference the module from the template's infrastructure entry point, and expose its outputs as `azd` environment values. The tutorial focuses on extending the infrastructure and doesn't modify the application code.
 
 > [!NOTE]
 > You can make the following changes directly or with help from an AI coding assistant. Regardless of the authoring method, review the resulting files and validate the template before deployment.
@@ -27,15 +27,25 @@ To complete this tutorial, you need:
 
 ## Initialize the template
 
-Open a terminal in an empty directory, and then initialize the `hello-azd` template in that directory:
+Open a terminal in an empty directory. For the .NET option, install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0). Then select a language and initialize its template in that directory:
+
+### [Python](#tab/python)
+
+```azdeveloper
+azd init --template hello-azd-python .
+```
+
+### [.NET](#tab/dotnet)
 
 ```azdeveloper
 azd init --template hello-azd .
 ```
 
+---
+
 The template includes:
 
-- A C# application deployed to Azure Container Apps as the `aca` service in `azure.yaml`.
+- A Python or C# application deployed to Azure Container Apps as the `aca` service in `azure.yaml`.
 - A user-assigned managed identity for the application.
 - An Azure Storage account with a blob container and table.
 - Azure Container Registry and an Azure Container Apps environment.
@@ -90,7 +100,23 @@ The module uses the `TextTranslation` resource kind and disables local key authe
 
 ## Reference the module from `main.bicep`
 
-The `hello-azd` template defines the `rg` resource group, `location`, `tags`, and `resourceToken` values in `infra/main.bicep`. You can make this edit by hand or prompt an AI assistant to add it. Add the following module after the `rg` resource declaration:
+Both templates define the resource group, `location`, `tags`, and `resourceToken` values in `infra/main.bicep`. You can make this edit by hand or prompt an AI assistant to add it. Add the following module after the resource group declaration, and select the language-specific resource group identifier:
+
+### [Python](#tab/python)
+
+```bicep
+module translator './translator.bicep' = {
+  name: 'translator'
+  scope: resourceGroup
+  params: {
+    name: 'translator-${resourceToken}'
+    location: location
+    tags: tags
+  }
+}
+```
+
+### [.NET](#tab/dotnet)
 
 ```bicep
 module translator './translator.bicep' = {
@@ -103,6 +129,8 @@ module translator './translator.bicep' = {
   }
 }
 ```
+
+---
 
 The `scope` property deploys the module into the resource group that the template creates. The existing `resourceToken` value makes the Translator resource name distinct for each environment.
 

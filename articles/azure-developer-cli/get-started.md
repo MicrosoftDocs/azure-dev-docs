@@ -1,405 +1,92 @@
 ---
-title: Get started using Azure Developer CLI
-description: Learn how to get started with Azure Developer CLI with a template for Node.js.
+title: 'Azure Developer CLI: Deploy a sample app'
+description: Get started with the Azure Developer CLI (azd) by initializing a template, then provisioning, deploying, and cleaning up a sample app on Azure.
 keywords: azure developer cli, azd
+ms.date: 09/21/2026
 author: kristenwomack
 ms.author: kwomack
-ms.date: 01/09/2026
 ms.topic: quickstart
 ms.service: azure-dev-cli
-ms.custom: devx-track-azdevcli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
-zone_pivot_groups: azd-languages-set
+ms.custom: devx-track-azdevcli, devx-track-python, devx-track-dotnet
 ai-usage: ai-generated
+#customer intent: As a developer, I want to deploy a sample application to Azure by using the Azure Developer CLI so that I can learn the core azd workflow.
 ---
 
 # Quickstart: Deploy an Azure Developer CLI template
 
-In this quickstart, you'll learn how to provision and deploy app resources to Azure using an [Azure Developer CLI (`azd`) template](/azure/developer/azure-developer-cli/azd-templates) and only a few `azd` commands.  `azd` templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files to provision Azure resources. To learn more about `azd` templates and how they can accelerate your Azure provisioning and deployment process see [What are Azure Developer CLI templates?](/azure/developer/azure-developer-cli/azd-templates).
+The Azure Developer CLI (`azd`) is an open-source command-line tool that replaces manual setup and configuration with consistent commands for building and deploying apps on Azure.
 
-## Select and deploy the template
+In this quickstart, you initialize a sample template and deploy it to Azure. You get a running app on Azure and a reusable local project that you can redeploy, customize, or remove when you're done.
 
-For the steps ahead, you'll use the following template to provision and deploy an app on Azure:
+## Prerequisites
 
-::: zone pivot="programming-language-nodejs"
-[React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo)
-::: zone-end
+Before you begin, ensure you have the following prerequisites:
 
-::: zone pivot="programming-language-python"
-[React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo)
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-[React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql)
-::: zone-end
-
-::: zone pivot="programming-language-java"
-[Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca)
-::: zone-end
-
-You can also select a template that matches your preferences from the [Awesome AZD](https://azure.github.io/awesome-azd/) template gallery site. Regardless of which template you use, you'll end up with the template code in your development environment and be able to run commands to build, redeploy, and monitor the app in Azure.
-
-The standard `azd init` flow and template picker only show standard templates. Extension-specific templates in the Awesome AZD gallery don't appear in those lists. To initialize an extension-specific template, follow the extension or template documentation.
-
-Select your preferred environment to continue:
-
-## [Local install](#tab/localinstall)
-
-A local development environment is a great choice for traditional development workflows. You'll clone the template repository down onto your device and run commands against a local installation of `azd`.
-
-### Prerequisites
-
-::: zone pivot="programming-language-nodejs"
-
-- [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-- [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Python 3.8](https://www.python.org/downloads/)
-- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-- [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-- [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [OpenJDK 17](/java/openjdk/download#openjdk-17)
-- [Docker](https://docs.docker.com/get-docker/).
-- [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo-aca/blob/main/README.md).
-
-::: zone-end
-
-### Initialize the project
-
-1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
-
-1. Run the `azd init` command and specify the template you want to use as a parameter:
-
-    ::: zone pivot="programming-language-nodejs"
-  
-    ```azdeveloper
-    azd init --template todo-nodejs-mongo
-    ```
-  
-    ::: zone-end
-  
-    ::: zone pivot="programming-language-python"
-  
-    ```azdeveloper
-    azd init --template todo-python-mongo
-    ```
-  
-    ::: zone-end
-  
-    ::: zone pivot="programming-language-csharp"
-  
-    ```azdeveloper
-    azd init --template todo-csharp-cosmos-sql
-    ```
-  
-    ::: zone-end
-  
-    ::: zone pivot="programming-language-java"
-  
-    ```azdeveloper
-    azd init --template todo-java-mongo-aca
-    ```
-  
-    ::: zone-end
-  
-    Enter an environment name when prompted, such as `azdquickstart`, which sets a naming prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./tooling-environment-faq.md#what-is-an-environment-name)
-  
-    After you specify the environment, `azd` clones the template project to your machine and initializes the project.
-
-### Provision and deploy the app resources
-
-1. Run the `azd auth login` command and `azd` launches a browser for you to complete the sign-in process.
-
-    ```azdeveloper
-    azd auth login
-    ```
-
-1. Run the `azd up` command:
-
-    ```azdeveloper
-    azd up
-    ```
-
-1. Once you are signed-in to Azure, you will be prompted for the following information:
-
-    | Parameter | Description |
-    | --------- | ----------- |
-    | `Azure Location`   | The Azure location where your resources will be deployed. |
-    | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
-  
-    Select your desired values and press enter. The `azd up` command handles the following tasks for you using the template configuration and infrastructure files:
-  
-    - Creates and configures all necessary Azure resources (`azd provision`), including:
-    - Access policies and roles for your account
-    - Service-to-service communication with Managed Identities
-    - Packages and deploys the code (`azd deploy`)
-
-    When the `azd up` command completes successfully, the CLI displays two links to view resources created:
-
-    - ToDo API app
-    - ToDo web app frontend
-
-    :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
-
-    > [!NOTE]
-    > You can call `azd up` as many times as you like to both provision and deploy updates to your application.
-    > The deployment may fail due to a resource being undeployable in the selected region. Because this is a quick start, it is safe to delete the `.azure` directory and try `azd up` again. When asked, select a different region. In a more advanced scenario you could selectively edit files within the `.azure` directory to change the region.
-
-## [Visual Studio Code](#tab/visual-studio-code)
-
-The Azure Developer CLI provides a Visual Studio Code extension to streamline working with `azd` features. For example, you can use the command palette interface to run `azd` commands. You'll  need to install the Azure Developer CLI extension for Visual Studio Code to complete the steps ahead.
-
-### Install the Azure Developer CLI extension
-
-1. Open Visual Studio Code.
-
-1. From the **View** menu, select **Extensions**.
-
-1. In the search field, enter `Azure Developer CLI`.
-
-    :::image type="content" source="media/get-started/install-extension.png" alt-text="Screenshot of the extension installation.":::
-
-1. Select **Install** and wait for the installation process to complete.
-
-### Initialize a new app
-
-1. Open an empty directory in Visual Studio Code.
-
-2. From the **View** menu, select **Command Palette...**.
-
-3. Search for the `Azure Developer CLI (azd): Initialize app (init)` command and press enter. The `azd up` command instructs `azd` to provision and deploy the app resources.
-
-    :::image type="content" source="media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
-
-4. Choose the **Select a template** workflow.
-
-   :::image type="content" source="media/debug/cmd-select-workflow.png" alt-text="Screenshot of the option to select a workflow.":::
-
-::: zone pivot="programming-language-nodejs"
-5. Search for the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template and press enter to select it.
-
-    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
-::: zone-end
-
-::: zone pivot="programming-language-python"
-5. Search for the [React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo) template and press enter to select it.
-
-    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-5. Search for the [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) template and press enter to select it.
-
-    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
-::: zone-end
-
-::: zone pivot="programming-language-java"
-5. Search for the [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca) template and press enter to select it.awesome-azd.
-
-    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
-::: zone-end
-
-6. After the template is cloned, Visual Studio Code opens a terminal to prompt you for an environment name. Enter a short name of your choosing such as *azdvscode* and press enter.
-
-    ```output
-    Enter a new environment name: [? for help] azdvscode
-    ```
-
-    The environment name influences the naming of resources provisioned in Azure and creates a folder in the `.azure` template directory to store certain environment settings.
-
-### Provision and deploy the app resources
-
-1. Open the Command Palette and search for the `Azure Developer CLI (azd): Package, Provision and Deploy(up)` command and press enter. The `azd up` command instructs `azd` to provision and deploy the app resources.
-
-    Visual Studio Code opens a terminal window to display the progress of the provisioning and deployment process. `azd` uses the subscription and location settings you selected during the `init` process when deploying resources.
-
-    > [!NOTE]
-    > The provisioning and deployment process can take several minutes.
-
-1. When the deploy process complete, select the link in the output window provided by `azd` to launch your site in the browser.
-
-## [Codespaces](#tab/codespaces)
-
-Codespaces are a great option for developers who prefer to work in containerized cloud environments and avoid installing tools or dependencies locally.
-
-### Set up your Codespace
-
-::: zone pivot="programming-language-nodejs"
-1. In your browser, navigate to the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template (or select one from [Awesome AZD](https://azure.github.io/awesome-azd/))
-::: zone-end
-
-::: zone pivot="programming-language-python"
-1. In your browser, navigate to the [React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo) template (or select one from [Awesome AZD](https://azure.github.io/awesome-azd/))
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-1. In your browser, navigate to the [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) template (or select one from [Awesome AZD](https://azure.github.io/awesome-azd/))
-::: zone-end
-
-::: zone pivot="programming-language-java"
-1. In your browser, navigate to the [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca) template (or select one from [Awesome AZD](https://azure.github.io/awesome-azd/))
-::: zone-end
-
-2. Above the file list, click **Use this template** > **Open in a Codespace**.
-
-  :::image type="content" source="media/get-started/codespaces-template-dropdown.png" alt-text="Screenshot demonstrating selecting the option to open a template in a Codespace via the GitHub repo UI.":::
-
-  With Codespaces, all pre-requisites are installed for you, including the [`azd` Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev).
-
-  :::image type="content" source="media/get-started/codespaces-initial-set-up.png" alt-text="Screenshot showing what your new Codespace will look like once initiated.":::
-
-### Run the template
-
-1. Once your Codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (provision resources, and deploy code to Azure)**.
-
-    :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
-
-1. When you run the `azd up` command, you'll be prompted to provide the following information and to sign in using a web browser and an authentication code:
-
-    :::image type="content" source="media/get-started/codespaces-parameters.png" alt-text="Screenshot showing the parameter prompts and the prompt to sign in using your browser.":::
-
-    | Parameter | Description |
-    | --------- | ----------- |
-    | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./tooling-environment-faq.md#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
-    | `Azure Location`   | The Azure location where your resources will be deployed. |
-    | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
-
-    This process may take some time to complete, as the `azd up` command handles the following tasks:
-
-    - Creates and configures all necessary Azure resources (`azd provision`).
-    - Configures access policies and roles for your account.
-    - Implements service-to-service communication with Managed Identities.
-    - Packages and deploys the code (`azd deploy`).
-
-    Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
-
-    - ToDo API app
-    - ToDo web app frontend
-
-    :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
-
-### What happened?
-
-Upon successful completion of the `azd up` command:
-
-- The [Azure resources referenced in the template's `README.md` file](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md) have been provisioned to the Azure subscription you specified after you ran `azd up`. You can now view those Azure resources via the [Azure portal](https://portal.azure.com).
-- The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- The [Azure Developer CLI installed](install-azd.md).
+- For the .NET sample, the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 > [!NOTE]
-> - You can call `azd up` as many times as you like to both provision and deploy your application.
-> - Run and debug that requires launching a web browser is currently not support because of [known limitation with GitHub Codespaces](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations). For better experience, we recommend using Codespaces in Desktop.
+> Both samples build container images remotely in Azure. The Python sample doesn't require a local Python installation for deployment. The .NET sample still requires a local .NET SDK because its postprovision hook runs `dotnet user-secrets set`.
 
-## [DevContainer](#tab/devcontainer)
+## Understand azd templates
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to work with the `azd` template on your local machine. They're a great choice for developers who prefer containerized environments that still run on a local device instead of a cloud service like GitHub Codespaces.
+An [`azd` template](azd-templates.md) is a source repository that contains everything `azd` needs to work with an app. You can [build your own template](start-with-new-template.md) for a new or existing app, or [start from an existing template](start-with-existing-template.md) and customize it. In this quickstart, you use a sample template so you can focus on the core `azd` workflow.
 
-### Prerequisites
+The following structure shows a simplified, top-level view of a typical template:
 
-::: zone pivot="programming-language-nodejs"
+```text
+|-- src/         # Application source code
+|-- infra/       # Azure resources defined as infrastructure as code
+|-- azure.yaml   # azd project configuration
+`-- .azure/      # Local environment settings
+```
 
-- [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+For the full breakdown of these files, see [Explore and edit template files](explore-edit-templates.md).
 
-::: zone-end
+## Initialize the template
 
-::: zone pivot="programming-language-python"
+From the parent directory where you want to store the project, select a sample repository and run [`azd init`](azd-init-workflow.md):
 
-- [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+### [Python](#tab/python)
 
-::: zone-end
+This option uses the [hello-azd-python](https://github.com/Azure-Samples/hello-azd-python) sample repository.
 
-::: zone pivot="programming-language-csharp"
+```azdeveloper
+azd init --template hello-azd-python
+```
 
-- [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+### [.NET](#tab/dotnet)
 
-::: zone-end
+This option uses the [hello-azd](https://github.com/Azure-Samples/hello-azd) sample repository.
 
-::: zone pivot="programming-language-java"
+```azdeveloper
+azd init --template hello-azd
+```
 
-- [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo-aca/blob/main/README.md).
+---
 
-::: zone-end
+`azd` supports many languages, frameworks, and containers. For more information, see [Supported languages and environments](supported-languages-environments.md).
 
-### Initialize the project
+When prompted, enter a short environment name, such as `dev`. After initialization completes, open the new project directory in your terminal before you continue.
 
-1. Open a terminal, create a new empty directory, and change into it.
+The `azd init` command:
 
-1. Run the following command to initialize the project:
-  
-    ::: zone pivot="programming-language-nodejs"
-  
-    ```azdeveloper
-    azd init --template todo-nodejs-mongo
-    ```
-  
-    ::: zone-end
+- Downloads the selected template into the new project directory.
+- Initializes the new directory as an `azd` project.
+- Creates an [environment](environments-overview.md) that stores deployment settings, such as your Azure subscription and location, under the `.azure` directory.
 
-    ::: zone pivot="programming-language-python"
-  
-    ```azdeveloper
-    azd init --template todo-python-mongo
-    ```
-  
-    ::: zone-end
+The command doesn't create or deploy any Azure resources.
 
-    ::: zone pivot="programming-language-csharp"
-  
-    ```azdeveloper
-    azd init --template todo-csharp-cosmos-sql
-    ```
-  
-    ::: zone-end
+## Sign in to Azure
 
-    ::: zone pivot="programming-language-java"
-  
-    ```azdeveloper
-    azd init --template todo-java-mongo-aca
-    ```
-  
-    ::: zone-end
+Run the following command, and then sign in through the browser:
 
-    When you run the `azd init` command, you'll be prompted to provide the following information:
+```azdeveloper
+azd auth login
+```
 
-    | Parameter | Description |
-    | --------- | ----------- |
-    | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./tooling-environment-faq.md#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
-
-### Open the DevContainer
-
-1. Open the project in VS Code.
-1. Press F1 and choose: `Remote-Containers: Rebuild and Reopen in Container`
-
-### Run `up` command
+## Provision and deploy the app resources
 
 Run the following command:
 
@@ -407,46 +94,73 @@ Run the following command:
 azd up
 ```
 
-When you run the `azd up` command, you'll be prompted to provide the following information:
+When prompted, select the Azure subscription and location to use. The first deployment can take several minutes because [`azd up`](azd-up-workflow.md) runs the complete deployment workflow:
 
-| Parameter | Description |
-| --------- | ----------- |
-| `Azure Location`   | The Azure location where your resources will be deployed. |
-| `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+1. **Provision:** Creates the Azure resources that the template's infrastructure-as-code files define.
+1. **Package:** Builds and packages the app for deployment. The sample uses a remote container build, so the build runs in Azure.
+1. **Deploy:** Deploys the packaged app to the provisioned hosting resource.
 
-The `azd up` command may take some time to run as it completes the following steps:
+The template defines supporting resources, such as managed identities, role assignments, and application settings, in the Bicep files under the `infra` directory and the `azure.yaml` project configuration, and `azd` deploys them together with the app. To learn more about these files, see [Explore and edit template files](explore-edit-templates.md).
 
-- Creates and configures all necessary Azure resources (`azd provision`), including:
-  - Access policies and roles for your account
-  - Service-to-service communication with Managed Identities
-- Packages and deploys the code (`azd deploy`)
+You can run `azd up` again after changing the app or infrastructure. `azd` updates the existing environment instead of creating a separate deployment.
 
-Once you've provided the necessary parameters and the `azd up` command completes, the CLI displays two Azure portal links to view resources created:
+## Explore the deployed app
 
-- ToDo API app
-- ToDo web app frontend
+When `azd up` finishes, it prints links to the provisioned resources and the running app in the command output.
 
-:::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
+1. Select the Azure portal resource-group link in the output to view the resources that `azd` provisioned.
 
-> [!NOTE]
-> You can run `azd up` as many times as you like to both provision and deploy your application to the same region and with the same configuration values you provided on the first run.
+   :::image type="content" source="media/quickstarts/provisioned-azure-resources.png" alt-text="Screenshot of an Azure resource group in the Azure portal that contains the resources azd provisioned for the sample app.":::
+
+1. Select the app endpoint link in the output to open the running app in a browser.
+
+   :::image type="content" source="media/quickstarts/app-home-page.png" alt-text="Screenshot of the deployed sample app's home page running in a browser.":::
+
+## Make a change and redeploy
+
+Optionally, make a small change to the sample app, and then redeploy just the app code with `azd deploy`.
+
+### [Python](#tab/python)
+
+1. Open `src/app/templates/home.html`.
+1. Find the `<h1>Hello, customized template!</h1>` heading.
+1. Replace the heading text with `<h1>Hello from your azd template!</h1>`, and then save the file.
+
+### [.NET](#tab/dotnet)
+
+1. Open `src/Components/Pages/Home.razor`.
+1. Find the heading that shows `Hello, Azure Developer CLI!`.
+1. Replace the heading with the following text, and then save the file:
+
+   ```razor
+   <MudText Typo="Typo.h2" GutterBottom="true">Hello, customized template!</MudText>
+   ```
 
 ---
 
+This change affects only the app source, so you don't need to reprovision the infrastructure. Redeploy the updated code:
+
+```azdeveloper
+azd deploy
+```
+
+The `azd deploy` command packages and deploys only the app code, while `azd up` runs the full provision, package, and deploy workflow. When the command finishes, open the app endpoint from the command output. The home page shows the updated heading.
+
+:::image type="content" source="media/get-started/explore-templates-header.png" alt-text="Screenshot of the deployed hello-azd app with a customized heading.":::
+
 ## Clean up resources
 
-When you no longer need the resources created in this article, run the following command to power down the app:
+When you're finished, run the following command to delete the Azure resources and avoid ongoing charges:
 
 ```azdeveloper
 azd down
 ```
 
-If you want to redeploy to a different region, delete the `.azure` directory before running `azd up` again.  In a more advanced scenario you could selectively edit files within the `.azure` directory to change the region.
+Confirm the deletion when prompted. This command removes the resources that `azd` provisioned for the current environment but keeps the local project files.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Explore and edit template files](explore-edit-templates.md)
 
 [!INCLUDE [request-help](includes/request-help.md)]
-
-## Next steps
-
-- [Learn how to run and debug apps with `azd`.](debug.md)
-- [Troubleshoot common problems when using Azure Developer CLI (azd).](troubleshoot.md)
-- [Read the Azure Developer CLI frequently asked questions (FAQ).](tooling-environment-faq.md)

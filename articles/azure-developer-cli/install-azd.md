@@ -355,7 +355,7 @@ You can also update manually at any time by using the same package manager or in
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart - Select and deploy an azd template](./get-started.md)
+> [Quickstart: Deploy an Azure Developer CLI template](./get-started.md)
 > [!div class="nextstepaction"]
 > [What are Azure Developer CLI templates?](./azd-templates.md)
 > [!div class="nextstepaction"]
