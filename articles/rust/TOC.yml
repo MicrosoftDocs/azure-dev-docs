@@ -16,7 +16,26 @@
     - name: Installation
       href: sdk/installation.md
     - name: Authentication
-      href: sdk/authentication/overview.md
+      expanded: false
+      items:
+        - name: Overview
+          href: sdk/authentication/overview.md
+        - name: Authenticate during local development
+          items:
+          - name: Use a developer account
+            href: sdk/authentication/local-development-dev-accounts.md
+          - name: Use a service principal
+            href: sdk/authentication/local-development-service-principal.md
+        - name: Authenticate from Azure-hosted apps
+          items:
+          - name: Use a system-assigned managed identity
+            href: sdk/authentication/system-assigned-managed-identity.md
+          - name: Use a user-assigned managed identity
+            href: sdk/authentication/user-assigned-managed-identity.md
+        - name: Authenticate from on-premises apps
+          href: sdk/authentication/on-premises-apps.md
+        - name: Additional authentication methods
+          href: sdk/authentication/additional-methods.md
     - name: Use crates
       href: sdk/use-crates.md
     - name: Use azure-core crate for advanced scenarios
