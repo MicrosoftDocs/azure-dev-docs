@@ -9,12 +9,8 @@
     items:
     - name: Install or update azd
       href: install-azd.md
-    - name: Quickstarts
-      items: 
-      - name: Deploy an azd template
-        href: get-started.md
-      - name: Explore and customize a template
-        href: quickstart-explore-templates.md
+    - name: Quickstart - Deploy an azd template
+      href: get-started.md
     - name: Explore the template galleries
       href: azd-template-galleries.md
     - name: Supported languages and environments
