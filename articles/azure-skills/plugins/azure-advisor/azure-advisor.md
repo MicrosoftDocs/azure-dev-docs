@@ -3,10 +3,10 @@ title: Azure skill for Azure Advisor
 description: Use the azure-advisor skill to review, summarize, and prioritize Azure Advisor recommendations, find service retirements, and update recommendation status.
 author: ravigupta99
 ms.author: guptaravi
-ms.date: 11/02/2026
+ms.date: 11/10/2026
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.custom: [devx-track-copilot-skills, skill-version-1.0.1]
+ms.custom: [devx-track-copilot-skills, skill-version-1.0.3]
 ai-usage: ai-generated
 ---
 
@@ -19,6 +19,8 @@ The `azure-advisor` skill helps you work with Azure Advisor recommendations. Use
 ## What it provides
 
 The skill uses the [Azure MCP Server tools for Azure Advisor](../../../azure-mcp-server/tools/azure-advisor.md) to answer recommendation questions in a subscription or service group. It uses summaries for counts and rankings and lists for individual recommendations, so totals aren't based on partial results. It asks you to confirm before it changes a recommendation's status.
+
+Unused-resource discovery and Cost/IdleResources requests use [Azure Advisor Cost Optimization](azure-advisor-cost-optimization.md), including savings reports and read-only deletion prevalidation. Generic Cost recommendations, such as reservations and savings plans, and cross-category questions stay with `azure-advisor`.
 
 ## Prerequisites
 
@@ -51,5 +53,6 @@ To fix a specific recommendation, use [Azure Advisor Actionability](azure-adviso
 
 - [Azure plugin catalog](../index.md#azure-advisor-plugin)
 - [Azure skill for Azure Advisor Actionability](azure-advisor-actionability.md)
+- [Azure skill for Azure Advisor Cost Optimization](azure-advisor-cost-optimization.md)
 - [Azure Advisor documentation](/azure/advisor/)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-advisor/skills/azure-advisor/SKILL.md)
