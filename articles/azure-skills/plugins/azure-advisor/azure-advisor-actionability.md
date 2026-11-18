@@ -3,10 +3,10 @@ title: Azure skill for Azure Advisor Actionability
 description: Use the azure-advisor-actionability skill to get resource-specific remediation guidance for an Azure Advisor recommendation.
 author: ravigupta99
 ms.author: guptaravi
-ms.date: 11/02/2026
+ms.date: 11/10/2026
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.custom: [devx-track-copilot-skills, skill-version-1.0.1]
+ms.custom: [devx-track-copilot-skills, skill-version-1.0.2]
 ai-usage: ai-generated
 ---
 
@@ -21,6 +21,8 @@ The `azure-advisor-actionability` skill helps you fix one Azure Advisor recommen
 The skill retrieves the Azure Advisor remediation for a recommendation type, and then substitutes values such as the subscription, resource group, and resource name from the affected resource. Remediation can include manual steps and commands or templates, such as Azure CLI and PowerShell. When Advisor has no usable remediation, the skill uses public Microsoft Learn documentation instead. Each response states whether the guidance comes from Azure Advisor or Microsoft Learn.
 
 The skill presents remediation for you to run. It doesn't run commands without your explicit confirmation.
+
+For unused-resource discovery, savings estimates, or checks before deletion, use [Azure Advisor Cost Optimization](azure-advisor-cost-optimization.md) first. Remediation guidance doesn't establish deletion safety.
 
 ## Prerequisites
 
@@ -46,5 +48,6 @@ Use this skill when you need to:
 
 - [Azure plugin catalog](../index.md#azure-advisor-plugin)
 - [Azure skill for Azure Advisor](azure-advisor.md)
+- [Azure skill for Azure Advisor Cost Optimization](azure-advisor-cost-optimization.md)
 - [Azure Advisor documentation](/azure/advisor/)
 - [Skill source code](https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-advisor/skills/azure-advisor-actionability/SKILL.md)
