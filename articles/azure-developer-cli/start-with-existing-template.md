@@ -1,9 +1,9 @@
 ---
 title: Start from an Existing azd Template
 description: Learn how to select and initialize an existing Azure Developer CLI (azd) template to use as the starting point for your application project.
-ms.date: 09/11/2026
+ms.date: 09/21/2026
 ms.topic: how-to
-ms.custom: devx-track-azdevcli, devx-track-bicep
+ms.custom: devx-track-azdevcli, devx-track-bicep, devx-track-python, devx-track-dotnet
 ai-usage: ai-generated
 ---
 
@@ -21,7 +21,25 @@ Run `azd init` with the template repository name, path, or URL:
 azd init --template <template>
 ```
 
-For example, the following command initializes the `hello-azd` template:
+For example, select a language to initialize its sample template:
+
+### [Python](#tab/python)
+
+The [hello-azd-python](https://github.com/Azure-Samples/hello-azd-python) template contains a Python app.
+
+```azdeveloper
+azd init --template hello-azd-python
+```
+
+By default, `azd` creates a project directory for the template. To initialize it in the current empty directory, add `.` after the template argument:
+
+```azdeveloper
+azd init --template hello-azd-python .
+```
+
+### [.NET](#tab/dotnet)
+
+The [hello-azd](https://github.com/Azure-Samples/hello-azd) template contains a .NET app.
 
 ```azdeveloper
 azd init --template hello-azd
@@ -32,6 +50,8 @@ By default, `azd` creates a project directory for the template. To initialize it
 ```azdeveloper
 azd init --template hello-azd .
 ```
+
+---
 
 ## Review the starting template
 

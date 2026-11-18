@@ -12,7 +12,7 @@ Run and debug apps built on your local machine using [Visual Studio](/visualstud
 ## Prerequisites
 
 - [Install azd](../install-azd.md)
-- [Run `azd` with the Node.js template](../get-started.md)
+- [Deploy an `azd` template](../get-started.md)
 - [.NET SDK 8.0 or later](https://dotnet.microsoft.com/download/dotnet)
 - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) version 17.7 or later. The `azd` integration is included by default in current Visual Studio releases.
 
