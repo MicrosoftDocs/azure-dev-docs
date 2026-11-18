@@ -73,6 +73,8 @@
       href: plugins/azure-advisor/azure-advisor.md
     - name: Azure Advisor Actionability
       href: plugins/azure-advisor/azure-advisor-actionability.md
+    - name: Azure Advisor Cost Optimization
+      href: plugins/azure-advisor/azure-advisor-cost-optimization.md
   - name: Azure Cost plugin
     items:
     - name: Cost Analysis
