@@ -28,7 +28,7 @@ The plugin catalog can change independently of the core plugin. Check the [Azure
 | **Azure Cost plugin** (`azure-cost`) | Cost analysis, estimation, optimization, and governance. | `cost-analysis`, `cost-estimation`, `cost-optimization`, `cost-governance` | `/plugin install azure-cost@azure-skills` |
 | **Azure Kusto Graph plugin** (`azure-kusto-graph-skills`) | Graph analysis in Azure Data Explorer, incident-response query pipelines, and graph visualization. | `azure-kusto-graph`, `azure-kusto-irql`, `azure-kusto-irql-graph` | `/plugin install azure-kusto-graph-skills@azure-skills` |
 | **Azure Local plugin** (`azure-local-skills`) | Azure Local planning, deployment, operations, workload management, and multi-rack scenarios. | `azure-local`, `azure-local-multi-rack` | `/plugin install azure-local-skills@azure-skills` |
-| **Foundry IQ plugin** (`foundry-iq-skills`) | Build, query, connect, and troubleshoot Foundry IQ knowledge bases. | `foundry-iq` | `/plugin install foundry-iq-skills@azure-skills` |
+| **Foundry IQ plugin** (`foundry-iq-skills`) | Get help with Foundry IQ, build agents that answer questions from your documents, and explore entity graphs, topic graphs, and ontologies. | `foundry-iq` | `/plugin install foundry-iq-skills@azure-skills` |
 
 ## Azure Skills plugin (core)
 
@@ -78,7 +78,7 @@ Learn about its skills:
 
 ## Foundry IQ plugin
 
-Install the Foundry IQ plugin to create or reuse knowledge sources, build and query knowledge bases, connect a knowledge base to an existing agent, and troubleshoot retrieval.
+Install the Foundry IQ plugin to get help with Foundry IQ (Azure AI Search), build agents that answer questions from your documents, and explore entity graphs, topic graphs, and ontologies.
 
 For capabilities and safety guidance, see [Foundry IQ](foundry-iq/foundry-iq.md).
 
