@@ -144,7 +144,7 @@ Install a specialized plugin when you already know which focused capabilities yo
 | Azure Cost | `/plugin install azure-cost@azure-skills` | Cost analysis, estimation, optimization, and governance. |
 | Azure Kusto Graph | `/plugin install azure-kusto-graph-skills@azure-skills` | Kusto graph analysis, IRQL pipelines, and graph visualization. |
 | Azure Local | `/plugin install azure-local-skills@azure-skills` | Standard and multi-rack Azure Local workflows. |
-| Foundry IQ | `/plugin install foundry-iq-skills@azure-skills` | Foundry IQ knowledge-base creation, retrieval, and agent connections. |
+| Foundry IQ | `/plugin install foundry-iq-skills@azure-skills` | Foundry IQ guidance, document-grounded agents, and entity graphs, topic graphs, and ontologies. |
 
 Installing the core plugin doesn't install these specialized plugins. Review the [Azure plugin catalog](plugins/index.md) for plugin-specific capabilities and prerequisites.
 

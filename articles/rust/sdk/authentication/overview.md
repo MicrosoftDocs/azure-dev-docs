@@ -10,7 +10,7 @@ ms.custom:
 
 # Authenticate Rust apps to Azure using the Azure Identity crate
 
-Rust applications must authenticate to Azure services such as Storage, Key Vault, or Cosmos DB. This article explains how to use the Azure Identity crate to securely authenticate Rust apps in local development and server environments, improving security and simplifying credential management.
+Apps use the Azure Identity crate to authenticate to Microsoft Entra ID and access Azure services. This article summarizes recommended authentication approaches for apps running on Azure, hosted on-premises, or in local development.
 
 ## Recommended token-based authentication
 
@@ -22,35 +22,55 @@ When building apps for Azure, we strongly recommend using token-based authentica
 
 [!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
 
-## Authenticate during local development
+## Authentication for Azure-hosted apps
+
+When you host your app on Azure, it can use managed identities to authenticate to Azure resources without needing to manage any credentials. There are two types of managed identities: user-assigned and system-assigned.
+
+#### Use a user-assigned managed identity
+
+You create a user-assigned managed identity as a standalone Azure resource. You can assign it to one or more Azure resources, allowing those resources to share the same identity and permissions. To authenticate by using a user-assigned managed identity, create the identity, assign it to your Azure resource, and then configure your app to use this identity for authentication by specifying its client ID.
+
+> [!div class="nextstepaction"]
+> [Authenticate using a user-assigned managed identity](user-assigned-managed-identity.md)
+
+#### Use a system-assigned managed identity
+
+You enable a system-assigned managed identity directly on an Azure resource. The identity is tied to the lifecycle of that resource and is automatically deleted when the resource is deleted. To authenticate by using a system-assigned managed identity, enable the identity on your Azure resource and then configure your app to use this identity for authentication.
+
+> [!div class="nextstepaction"]
+> [Authenticate using a system-assigned managed identity](system-assigned-managed-identity.md)
+
+## Authentication during local development
 
 [!INCLUDE [Authentication during local development](<../../../includes/authentication/overview-local-environments.md>)]
 
+During local development, authenticate to Azure resources by using your developer credentials or a service principal.
 
-### Authenticate with Azure CLI credential
+#### Use developer credentials
 
-The Azure CLI credential uses the authentication state of the Azure CLI to authenticate your Rust application. This credential is ideal for local development when you're already signed in with `az login`.
+Use your own Azure credentials to authenticate to Azure resources during local development. Typically, use a development tool, such as Azure CLI, which can provide your app with the necessary tokens to access Azure services.
 
-:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/authenticate_azure_cli.rs":::
+> [!div class="nextstepaction"]
+> [Authenticate locally using developer credentials](local-development-dev-accounts.md)
 
-### Authenticate with Azure Developer CLI credential
+#### Use a service principal
 
-The Azure Developer CLI credential uses the authentication state of the Azure Developer CLI (`azd`) to authenticate your application. This credential is useful when working with azd templates and workflows.
+Use a service principal only when you need to test authentication with an application identity during local development.
 
-:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/authenticate_azure_dev_cli.rs":::
+> [!div class="nextstepaction"]
+> [Authenticate locally using a service principal](local-development-service-principal.md)
 
-## Authenticate in server environments
+## Authentication for apps hosted on-premises
 
-In server environments, use **managed identities** for secure, passwordless authentication. [Managed identities](/entra/identity/managed-identities-azure-resources/overview) are automatically created and managed by Azure, so your application can authenticate without needing to store credentials.
+For apps hosted on-premises, use a service principal to authenticate to Azure resources. This method involves creating a service principal in Microsoft Entra ID, assigning it the necessary permissions, and configuring your app to use its credentials.
 
-When hosting in a server environment, assign a unique application identity to each application for each environment. In Azure, an app identity is represented by a service principal, a special type of security principal that identifies and authenticates apps to Azure. The type of service principal you use for your app depends on where your app runs.
-
-:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/authenticate_server.rs":::
-
-## Sample code
-
-The code shown in this article is available on <https://github.com/azure-samples/azure-sdk-for-rust-docs/>.
+> [!div class="nextstepaction"]
+> [Authenticate your on-prem app using a service principal](on-premises-apps.md)
 
 ## Additional resources
+
+- [Additional authentication methods](additional-methods.md) — client certificates, workload identity, Azure Pipelines, and federated identity credentials
+- [Azure Identity crate on crates.io](https://crates.io/crates/azure_identity)
+- [Azure Identity API reference on docs.rs](https://docs.rs/azure_identity/latest/azure_identity/)
 
 [!INCLUDE [common resources](../../includes/resources.md)]

@@ -31,10 +31,14 @@ landingContent:
             url: sdk/overview.md
           - text: Installation
             url: sdk/installation.md
-          - text: Authentication
+          - text: Authentication overview
             url: sdk/authentication/overview.md
+          - text: Authenticate with developer accounts
+            url: sdk/authentication/local-development-dev-accounts.md
+          - text: Authenticate with managed identities
+            url: sdk/authentication/system-assigned-managed-identity.md
           - text: Use crates
-            url: sdk/use-crates.md  
+            url: sdk/use-crates.md
 
   - title: Azure libraries (SDK)
     linkLists:
