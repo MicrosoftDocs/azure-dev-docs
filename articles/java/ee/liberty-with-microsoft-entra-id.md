@@ -2,8 +2,8 @@
 title: WebSphere Liberty/Open Liberty with Microsoft Entra ID
 titlesSuffix: Azure
 description: Shows you how to secure IBM WebSphere Liberty/Open Liberty applications with Microsoft Entra ID using OpenID Connect (OIDC).
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jiangma
 ms.topic: quickstart
 ms.date: 03/26/2026

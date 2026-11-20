@@ -1,8 +1,8 @@
 ---
 title: Azure Service Bus JMS configuration properties
 description: This reference doc contains all Azure Service Bus JMS configuration properties.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: reference

@@ -1,8 +1,8 @@
 ---
 title: Batch Plan with the GitHub Copilot Modernization Agent
 description: Learn how to use the GitHub Copilot modernization agent to generate modernization plans for multiple applications by using a shared prompt and repository configuration.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted

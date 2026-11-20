@@ -1,8 +1,8 @@
 ---
 title: Optimize GitHub Copilot Modernization Settings for IntelliJ
 description: Learn how to configure GitHub Copilot modernization to optimize the experience for IntelliJ.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: xinrzhu
 ms.topic: how-to
 ms.date: 06/18/2026

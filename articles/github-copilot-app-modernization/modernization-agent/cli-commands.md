@@ -1,8 +1,8 @@
 ---
 title: GitHub Copilot Modernization Agent CLI Commands
 description: Complete reference for GitHub Copilot modernization agent CLI commands, including interactive and non-interactive modes.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: jessiehuang
 ms.topic: reference
 ai-usage: ai-assisted

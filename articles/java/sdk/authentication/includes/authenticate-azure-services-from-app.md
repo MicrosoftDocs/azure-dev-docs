@@ -2,8 +2,8 @@
 ms.service: azure
 ms.topic: include
 ms.date: 03/03/2026
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ---
 
 ## Authenticate to Azure services from your app

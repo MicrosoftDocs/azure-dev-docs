@@ -1,8 +1,8 @@
 ---
 title: Deploy application to Azure hosting services
 description: Describes how to deploy applications to Azure hosting services
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: install-set-up-deploy

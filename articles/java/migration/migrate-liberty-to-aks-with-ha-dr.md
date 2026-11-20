@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery"
 description: Shows you how to deploy WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jiangma
 ms.topic: tutorial
 ms.date: 01/13/2026

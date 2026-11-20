@@ -2,8 +2,8 @@
 title: Scale with End-to-End Security, Monitoring, and Automation
 titleSuffix: Azure
 description: This article provides an overview of some key Azure services and features that you can use to build scalable Java applications.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: asirveda
 ms.topic: concept-article
 ms.date: 08/19/2025

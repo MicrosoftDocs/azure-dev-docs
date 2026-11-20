@@ -1,8 +1,8 @@
 ---
 ms.date: 08/19/2025
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
-author: KarlErickson
+author: sandeep-sen
 ---
 
 > [!TIP]

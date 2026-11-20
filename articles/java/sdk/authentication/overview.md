@@ -5,8 +5,8 @@ description: Learn how to authenticate Java apps to Azure services using the Azu
 ms.date: 02/24/2026
 ms.topic: overview
 ms.custom: devx-track-java
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: vigera
 ai-usage: ai-assisted
 ---

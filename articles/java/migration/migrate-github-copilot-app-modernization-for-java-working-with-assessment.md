@@ -2,8 +2,8 @@
 title: "Working with Assessment: Comprehensive Guide to Application Assessment with GitHub Copilot Modernization for Java"
 titleSuffix: Azure
 description: Learn how to effectively work with application assessments in GitHub Copilot modernization, including configuration, interpretation, and report management.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: haozhan
 ms.topic: how-to
 ms.date: 06/02/2026

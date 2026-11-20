@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Deploy Your Project to Azure by Using GitHub Copilot Modernization"
 description: Shows you how to deploy your migrated application to Azure by using GitHub Copilot modernization.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: honc
 ms.topic: quickstart
 ms.date: 06/02/2026

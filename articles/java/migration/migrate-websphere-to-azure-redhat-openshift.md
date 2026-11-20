@@ -1,8 +1,8 @@
 ---
 title: Migrate WebSphere applications to Azure Red Hat OpenShift
 description: This guide describes what you should be aware of when you want to migrate WebSphere applications to Azure Red Hat OpenShift.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: haiche
 ms.topic: upgrade-and-migration-article
 ms.date: 01/13/2026

@@ -1,8 +1,8 @@
 ---
 title: Batch Assessment with GitHub Copilot Modernization Agent
 description: Learn how to use the GitHub Copilot modernization agent to assess multiple applications simultaneously and generate aggregated report.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted

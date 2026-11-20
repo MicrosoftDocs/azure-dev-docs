@@ -1,8 +1,8 @@
 ---
 title: Migration guide for Spring Cloud Azure 4.0
 description: Helps with migration to Spring Cloud Azure 4.0 from legacy Azure Spring libraries.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: upgrade-and-migration-article

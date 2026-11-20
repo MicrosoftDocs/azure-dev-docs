@@ -2,8 +2,8 @@
 title: Re-architect Projects by Using GitHub Copilot Modernization
 titleSuffix: Azure
 description: Learn how to use the re-architecture feature in GitHub Copilot modernization to rewrite projects from legacy frameworks to modern architectures.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.topic: overview
 ms.date: 06/02/2026

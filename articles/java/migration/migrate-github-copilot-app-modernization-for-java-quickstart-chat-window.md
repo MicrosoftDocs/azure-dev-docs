@@ -2,8 +2,8 @@
 title: "Optimize Chat Results for Migrating Java Apps to Azure"
 titleSuffix: GitHub Copilot Modernization - Azure
 description: Shows you how to optimize chat results by using the modernize custom agent for migrating Java applications to Azure.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.topic: how-to
 ms.date: 06/02/2026

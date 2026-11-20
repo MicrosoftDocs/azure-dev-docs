@@ -2,8 +2,8 @@
 title: Secure Java WebLogic apps using groups and group claims
 titleSuffix: Azure
 description: Shows how to create a WebLogic app to sign in users and restrict access to pages using security groups and group claims with the Microsoft identity platform.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: bbanerjee
 ms.date: 09/16/2026
 ms.topic: how-to

@@ -2,8 +2,8 @@
 title: Spring Cloud Azure Guide for Java Applications
 description: Explore Spring Cloud Azure dependencies, starters, and integrations for building Java applications with Azure services. Get started today.
 ms.date: 08/19/2025
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: overview
 ms.custom: devx-track-java, devx-track-extended-java

@@ -2,8 +2,8 @@
 title: Passwordless Connections with Azure SQL Database for Java
 description: Learn how to migrate a Java application to passwordless connections with Azure SQL Database by using managed identity. Follow the steps to remove stored credentials.
 ms.topic: how-to
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.custom:

@@ -2,8 +2,8 @@
 title: Quarkus with Microsoft Entra ID
 titleSuffix: Azure
 description: Shows you how to secure Red Hat Quarkus applications with Microsoft Entra ID using OpenID Connect (OIDC).
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jiangma
 ms.topic: quickstart
 ms.date: 03/26/2026

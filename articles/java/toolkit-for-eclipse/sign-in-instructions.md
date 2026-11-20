@@ -1,8 +1,8 @@
 ---
 title: Sign-in instructions for the Azure Toolkit for Eclipse
 description: Learn how to sign into Microsoft Azure by using the Azure Toolkit for Eclipse.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jialuogan
 ms.date: 06/18/2026
 ms.topic: how-to

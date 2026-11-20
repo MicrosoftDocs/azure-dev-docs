@@ -1,8 +1,8 @@
 ---
 title: Add Sign-In with Microsoft Entra Account to a Spring Web App
 description: Learn how to add Microsoft Entra account sign-in to a Spring web app, configure app registration and roles, and test secure access.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: how-to

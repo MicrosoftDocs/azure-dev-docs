@@ -1,8 +1,8 @@
 ---
 title: Get Started with Azure SDK and Gradle
 description: Learn to build Java apps with Azure SDK and Gradle, manage dependencies with the BOM, and create GraalVM native images. Get started now.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jogiles
 ms.date: 07/27/2026
 ms.topic: get-started

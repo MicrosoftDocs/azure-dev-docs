@@ -1,8 +1,8 @@
 ---
 title: Developer Guide for Using Spring Cloud Azure App Configuration
 description: Learn how to load, select, and refresh Spring Cloud Azure App Configuration settings and feature flags in Spring Boot apps. Start building configurable apps today.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: mametcal
 ms.date: 11/02/2026
 ms.topic: tutorial

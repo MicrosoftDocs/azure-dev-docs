@@ -2,8 +2,8 @@
 title: Spring Cloud Azure Spring Security support
 description: This article describes how Spring Cloud Azure and Spring Security can be used together.
 ms.date: 08/19/2025
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: concept-article
 appliesto:

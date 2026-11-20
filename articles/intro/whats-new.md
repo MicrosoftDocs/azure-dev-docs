@@ -3,8 +3,8 @@ title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
 ms.date: 09/02/2026
 ai-usage: ai-generated
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.topic: whats-new
 ---
 

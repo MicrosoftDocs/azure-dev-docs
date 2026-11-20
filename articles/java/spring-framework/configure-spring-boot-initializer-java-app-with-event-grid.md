@@ -1,8 +1,8 @@
 ---
 title: "Use Azure Event Grid in Spring"
 description: "Learn to configure a Spring Boot application with Azure Event Grid. Integrate Event Grid for pub-sub messaging in your Spring apps today."
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiada
 ms.date: 08/19/2025
 ms.topic: how-to

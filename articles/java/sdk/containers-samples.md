@@ -1,8 +1,8 @@
 ---
 title: Java source samples for Azure Container Service
 description: Get sample code for working with Azure Container Service from your Java apps.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jogiles
 ms.date: 09/03/2026
 ms.topic: sample

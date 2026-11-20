@@ -2,8 +2,8 @@
 title: Code Using the Java tools you Know and Love
 titleSuffix: Azure
 description: This article provides an overview of the tools you can use for Java code development with Azure.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: asirveda
 ms.topic: concept-article
 ms.date: 08/19/2025

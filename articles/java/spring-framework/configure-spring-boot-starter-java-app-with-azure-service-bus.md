@@ -1,8 +1,8 @@
 ---
 title: Use Spring JMS to Send and Receive Messages in Azure Service Bus
 description: Learn how to use the Spring JMS Starter to send and receive messages with Azure Service Bus. Follow the tutorial to get started.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiada
 ms.date: 08/19/2025
 ms.topic: tutorial

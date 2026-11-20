@@ -2,8 +2,8 @@
 title: Passwordless Connections for Azure Database for PostgreSQL
 description: Learn how to migrate applications to passwordless connections with Azure Database for PostgreSQL and managed identities. Follow the steps to improve security.
 ms.topic: how-to
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java

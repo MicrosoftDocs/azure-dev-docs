@@ -1,8 +1,8 @@
 ---
 title: Connect Spring Boot to Azure Cache for Redis
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Cache for Redis.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiada
 ms.date: 08/19/2025
 ms.topic: how-to

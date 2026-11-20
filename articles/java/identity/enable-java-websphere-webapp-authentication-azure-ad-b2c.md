@@ -2,8 +2,8 @@
 title: Enable sign-in for Java WebSphere apps using MSAL4J
 titleSuffix: Azure Active Directory B2C
 description: Shows you how to develop a Java WebSphere app that supports sign-in using Azure Active Directory B2C.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: givermei
 ms.date: 08/21/2025
 ms.topic: how-to
