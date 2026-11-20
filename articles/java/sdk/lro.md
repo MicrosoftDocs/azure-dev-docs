@@ -4,8 +4,8 @@ description: Learn how to monitor and complete long-running operations in the Az
 ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: anuchan
 ---
 

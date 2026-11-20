@@ -4,8 +4,8 @@ description: Learn Azure SDK for Java pagination and iteration patterns to handl
 ms.date: 07/27/2026
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: anuchan
 ---
 

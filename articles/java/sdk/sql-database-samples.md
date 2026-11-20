@@ -1,8 +1,8 @@
 ---
 title: Azure management libraries for Java SQL Database samples
 description: Get sample code for creating and updating Azure SQL databases using the Azure Management libraries for Java.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jogiles
 ms.date: 09/03/2026 
 ms.topic: concept-article

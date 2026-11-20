@@ -1,8 +1,8 @@
 ---
 title: Get Started with Azure Extensions for IntelliJ and Eclipse
 description: Install Azure extensions for IntelliJ and Eclipse to set up your Java development environment for Azure quickly. Follow these steps to get started today.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jogiles
 ms.date: 07/27/2026
 ms.topic: get-started

@@ -4,8 +4,8 @@ description: Overview of the features and capabilities of the Azure SDK for Java
 ms.date: 07/27/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jogiles
 ---
 
