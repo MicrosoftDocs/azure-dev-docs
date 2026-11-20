@@ -1,8 +1,8 @@
 ---
 title: Azure Tools for Java Developers
 description: Discover Azure tools for Java developers, including IDE integrations, plugins, CLIs, and GitHub Copilot. Start building on Azure today.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.topic: concept-article
 ms.date: 10/24/2025
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
