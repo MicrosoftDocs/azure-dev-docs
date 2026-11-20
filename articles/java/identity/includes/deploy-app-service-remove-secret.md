@@ -1,6 +1,6 @@
 ---
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: givermei
 ms.date: 08/21/2025
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

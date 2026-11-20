@@ -1,8 +1,8 @@
 ---
 title: Deploy Java JBoss EAP apps to Azure App Service
 description: Shows you how to deploy a JBoss EAP app with sign-in by Microsoft Entra account to Azure App Service.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: givermei
 ms.date: 08/21/2025
 ms.topic: install-set-up-deploy
