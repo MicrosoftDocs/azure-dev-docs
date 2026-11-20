@@ -3,8 +3,8 @@ title: Create and deploy a Django web app to Azure with user-assigned managed id
 description: Use the Azure CLI to create and deploy a Django web app to Azure App Service using a user-assigned managed identity.
 ms.devlang: python
 ms.topic: tutorial
-author: bobtabor-msft
-ms.author: rotabor
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 11/10/2025
 ms.custom: devx-track-python, devx-track-azurecli
 ---
