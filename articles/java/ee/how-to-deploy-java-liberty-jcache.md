@@ -1,8 +1,8 @@
 ---
 title: Using Azure Redis as session cache for WebSphere Liberty or Open Liberty
 description: Using Azure Redis as session cache for WebSphere Liberty or Open Liberty.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jiangma
 ms.topic: how-to
 ms.date: 03/26/2026

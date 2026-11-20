@@ -1,8 +1,8 @@
 ---
 title: JBoss EAP on Azure
 description: An overview of the different JBoss EAP solutions on Azure, all jointly developed and supported by Red Hat and Microsoft.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: edburns
 ms.topic: overview
 ms.date: 03/26/2026

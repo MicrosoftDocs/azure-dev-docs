@@ -1,8 +1,8 @@
 ---
 title: Manually Deploy a Java Application with JBoss EAP on an Azure Red Hat OpenShift Cluster
 description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift cluster.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: edburns
 ms.date: 03/26/2026
 ms.topic: how-to
