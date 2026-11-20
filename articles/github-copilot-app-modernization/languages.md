@@ -1,8 +1,8 @@
 ---
 title: Languages and Frameworks Supported by GitHub Copilot Modernization
 description: Learn which languages and frameworks GitHub Copilot modernization supports. Start modernizing your apps today.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: yangtony
 ms.topic: concept-article
 ms.date: 06/02/2026

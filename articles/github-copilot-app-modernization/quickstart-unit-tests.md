@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Generate Java Unit Tests with GitHub Copilot Modernization"
 description: Shows you how to generate Java unit tests using GitHub Copilot modernization.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: xinrzhu
 ms.topic: quickstart
 ms.date: 06/18/2026

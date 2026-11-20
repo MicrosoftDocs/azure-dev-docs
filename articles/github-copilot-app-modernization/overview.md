@@ -2,8 +2,8 @@
 title: Analyze Applications and Migrate to Azure by Using GitHub Copilot Modernization
 titleSuffix: Azure
 description: Learn how GitHub Copilot modernization simplifies application assessment and upgrades for Java, .NET, and C++ projects, plus Azure migration for supported apps.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: seal
 ms.topic: upgrade-and-migration-article
 ai-usage: ai-assisted

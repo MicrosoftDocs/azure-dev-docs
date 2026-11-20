@@ -1,8 +1,8 @@
 ---
 title: Configure a Custom Model in Visual Studio Code for Network-Restricted Environments
 description: Learn how to configure a custom model for GitHub Copilot modernization in Visual Studio Code in a network-restricted environment.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: puichan
 ms.topic: how-to
 ai-usage: ai-generated
