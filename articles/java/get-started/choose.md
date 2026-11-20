@@ -1,8 +1,8 @@
 ---
 title: Choose the Right Azure Services for your Java Applications
 description: This article guides you on using Azure services for Java application deployment, emphasizing Azure's support for diverse Java technologies and architectures.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: asirveda
 ms.topic: concept-article
 ms.date: 08/19/2025
