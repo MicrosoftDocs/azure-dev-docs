@@ -1,8 +1,8 @@
 ---
 title: Migrate Spring Boot applications to Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Boot to Azure App Service.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.topic: upgrade-and-migration-article
 ms.date: 01/13/2026
 ms.custom: devx-track-java, migration-java, devx-track-extended-java

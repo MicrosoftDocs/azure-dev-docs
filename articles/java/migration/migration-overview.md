@@ -1,8 +1,8 @@
 ---
 title: Migrate Java applications to Azure
 description: This topic provides an overview of recommended strategies for migrating Java applications to Azure.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.topic: upgrade-and-migration-article
 ms.date: 01/13/2026
 ms.custom: devx-track-java, devx-track-javaee, migration-java, devx-track-extended-java

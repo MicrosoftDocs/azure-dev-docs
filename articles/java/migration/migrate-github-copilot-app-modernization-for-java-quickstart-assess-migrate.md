@@ -2,8 +2,8 @@
 title: Assess and Migrate a Java Project Using GitHub Copilot modernization
 titleSuffix: Azure
 description: Learn how to assess and migrate a Java project to Azure using GitHub Copilot modernization. Follow this quickstart to streamline your migration process.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: haozhan
 ms.topic: quickstart
 ms.date: 06/02/2026

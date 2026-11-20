@@ -2,8 +2,8 @@
 title: Integrate Portfolio Assessment with GitHub Copilot Modernization
 titleSuffix: Azure
 description: Introduces the integration of portfolio assessment tools and GitHub Copilot modernization.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.topic: overview
 ms.date: 01/13/2026

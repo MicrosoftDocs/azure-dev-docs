@@ -2,8 +2,8 @@
 title: Migrate From Oracle to PostgreSQL by Using GitHub Copilot Modernization
 titleSuffix: Azure
 description: Provides instructions to guide you in migrating Java projects from Oracle to PostgreSQL database.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.topic: overview
 ms.date: 06/02/2026

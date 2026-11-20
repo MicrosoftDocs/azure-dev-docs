@@ -1,6 +1,6 @@
 ---
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 01/13/2026
 ms.custom: devx-track-java, devx-track-extended-java, linux-related-content
 ---

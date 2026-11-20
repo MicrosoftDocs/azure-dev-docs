@@ -1,8 +1,8 @@
 ---
 title: Migrate Tomcat Applications to Azure Container Apps
 description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Container Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.topic: upgrade-and-migration-article
 ms.date: 01/13/2026
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java

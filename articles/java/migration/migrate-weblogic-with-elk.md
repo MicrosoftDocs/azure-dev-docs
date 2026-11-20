@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Migrate WebLogic Server to Azure with Elastic on Azure as the logging solution"
 description: This tutorial walks you through deploying WebLogic Server to Azure with Elastic Stack on Azure as the logging solution
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: haiche
 ms.topic: tutorial
 ms.date: 01/13/2026

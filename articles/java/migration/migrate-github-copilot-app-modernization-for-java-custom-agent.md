@@ -5,8 +5,8 @@ description: Learn to migrate Java apps to Azure using GitHub Copilot custom age
 ms.topic: quickstart
 ms.custom: devx-track-java
 ms.date: 06/02/2026
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiada
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days

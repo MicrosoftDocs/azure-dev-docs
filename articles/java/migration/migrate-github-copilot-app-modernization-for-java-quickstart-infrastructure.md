@@ -1,8 +1,8 @@
 ---
 title: Prepare Azure Infrastructure Using GitHub Copilot Modernization
 description: Shows you how to generate infrastructure as code and provision Azure resources by using GitHub Copilot modernization.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: honc
 ms.topic: quickstart
 ms.date: 06/02/2026

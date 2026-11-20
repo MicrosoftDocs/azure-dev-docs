@@ -2,8 +2,8 @@
 title: "Secure Your Java Applications with GitHub Copilot Modernization"
 titleSuffix: Azure
 description: Scan and resolve security issues in your Java application — ISO 5055-guided CWE findings and CVE vulnerabilities — using GitHub Copilot modernization in Visual Studio Code.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: haozhan
 ms.topic: how-to
 ms.date: 06/02/2026

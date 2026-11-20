@@ -2,8 +2,8 @@
 title: Modernize Java Apps by Using GitHub Copilot Modernization in the Copilot CLI
 titleSuffix: Azure
 description: Provides an overview of how Java developers can modernize applications by using the GitHub Copilot modernization plugin in Copilot CLI.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jessiehuang
 ms.topic: overview
 ms.date: 06/02/2026
