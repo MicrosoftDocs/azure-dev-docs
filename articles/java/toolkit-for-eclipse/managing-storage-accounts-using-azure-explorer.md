@@ -1,8 +1,8 @@
 ---
 title: Manage storage accounts with Azure Explorer for Eclipse
 description: Learn how to manage your Azure storage accounts by using the Azure Explorer for Eclipse.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jialuogan
 ms.date: 06/18/2026
 ms.topic: how-to

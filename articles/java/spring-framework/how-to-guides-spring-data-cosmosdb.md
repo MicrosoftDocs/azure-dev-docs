@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB Developer Guide for Java
 description: Learn how to use Azure Spring Data for Azure Cosmos DB to configure repositories, use supported features, diagnose issues, and apply workarounds.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: concept-article
 ms.date: 08/19/2025

@@ -1,8 +1,8 @@
 ---
 title: Use Azure Key Vault to Deliver TLS/SSL Certificates to Apache Tomcat
 description: Use Azure Key Vault to deliver TLS/SSL certificates to Apache Tomcat
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: manriem
 ms.topic: how-to
 ms.date: 12/09/2021

@@ -1,8 +1,8 @@
 ---
 title: GitHub Copilot Modernization Java Utilities
 description: Learn about Java-focused tools available in GitHub Copilot modernization that help with CVE validation, unit testing, and code maintenance.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: xinrzhu
 ms.topic: concept-article
 ms.date: 06/02/2026

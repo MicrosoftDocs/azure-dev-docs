@@ -1,8 +1,8 @@
 ---
 title: Get started with Azure SDK and Apache Maven
 description: Learn how to build Java applications with Azure SDK using Maven and create native images with GraalVM.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jogiles
 ms.date: 07/27/2026
 ms.topic: get-started

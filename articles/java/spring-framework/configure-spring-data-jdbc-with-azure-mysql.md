@@ -1,9 +1,9 @@
 ---
 title: Use Spring Data JDBC with Azure Database for MySQL
 description: Learn how to use Spring Data JDBC to store and query data in an Azure Database for MySQL database, using either passwordless Microsoft Entra or MySQL authentication. Start now.
-author: KarlErickson
+author: sandeep-sen
 ms.date: 08/19/2025
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure, devx-track-extended-java

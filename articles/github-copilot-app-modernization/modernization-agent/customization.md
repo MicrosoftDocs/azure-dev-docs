@@ -1,8 +1,8 @@
 ---
 title: Customize the GitHub Copilot Modernization Agent for Migrations
 description: Learn how to customize the GitHub Copilot modernization agent with custom skills to encode organization-specific migration patterns. Start now.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted

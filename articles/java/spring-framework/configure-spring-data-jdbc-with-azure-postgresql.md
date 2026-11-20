@@ -1,9 +1,9 @@
 ---
 title: "Spring Data JDBC with Azure Database for PostgreSQL"
 description: "Learn to use Spring Data JDBC with Azure Database for PostgreSQL. This tutorial covers passwordless and password authentication methods for secure data storage."
-author: KarlErickson
+author: sandeep-sen
 ms.date: 08/19/2025
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure, devx-track-extended-java

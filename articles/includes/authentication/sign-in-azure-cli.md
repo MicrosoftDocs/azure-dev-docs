@@ -1,9 +1,9 @@
 ---
-author: PatAltimore
+author: sandeep-sen
 ms.service: azure
 ms.topic: include
 ms.date: 02/05/2026
-ms.author: patricka
+ms.author: sandeepsen
 ---
 
 Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps that use `DefaultAzureCredential` or `AzureCLICredential` can then use this account to authenticate app requests.

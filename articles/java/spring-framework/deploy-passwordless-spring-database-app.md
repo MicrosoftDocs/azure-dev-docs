@@ -1,8 +1,8 @@
 ---
 title: 'Deploy to Azure Spring Apps With a Passwordless Connection'
 description: Follow this tutorial to deploy a Spring Boot app to Azure Spring Apps with a passwordless connection to Azure Database for MySQL, PostgreSQL, or Azure SQL.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: tutorial
 ms.date: 08/19/2025

@@ -2,9 +2,9 @@
 title: Use Spring Data JPA with Azure Database for PostgreSQL
 description: Learn how to use Spring Data JPA with Azure Database for PostgreSQL. Store and manage data securely using passwordless or password authentication methods.
 ms.date: 08/19/2025
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
-author: KarlErickson
+author: sandeep-sen
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure, devx-track-extended-java
 zone_pivot_group_filename: java/java-zone-pivot-groups.json

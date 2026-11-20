@@ -1,8 +1,8 @@
 ---
 title: Bring Your Own Model or Key for Modernize CLI
 description: Learn how to configure a customer-provided model for the GitHub Copilot Modernize CLI instead of using a GitHub-hosted model.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: puichan
 ms.topic: how-to
 ai-usage: ai-generated

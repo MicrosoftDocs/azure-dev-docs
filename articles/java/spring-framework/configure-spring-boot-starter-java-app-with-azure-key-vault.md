@@ -4,8 +4,8 @@ description: Learn how to load a secret from Azure Key Vault in a Spring Boot ap
 ms.date: 08/19/2025
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ---
 

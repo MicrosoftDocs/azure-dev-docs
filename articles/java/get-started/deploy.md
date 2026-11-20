@@ -2,8 +2,8 @@
 title: Deploy Java applications with Confidence and Ease
 titleSuffix: Azure
 description: This article provides an overview of the Java deployment options available with Azure.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: asirveda
 ms.topic: install-set-up-deploy
 ms.date: 08/19/2025

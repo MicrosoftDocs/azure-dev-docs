@@ -1,8 +1,8 @@
 ---
 title: Java source samples for Microsoft Entra ID
 description: Learn how to get sample source code for working with Microsoft Entra ID from your Java apps.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jogiles
 ms.date: 09/03/2026
 ms.topic: concept-article

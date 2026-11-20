@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Upgrade a Java Project with GitHub Copilot Modernization"
 description: Learn how to upgrade your Java project to Java 21 or Java 25, Spring Boot up to 4.0, and other frameworks using GitHub Copilot modernization. Follow this quickstart to modernize JDK, frameworks, and dependencies.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: xinrzhu
 ms.topic: quickstart
 ms.date: 06/18/2026

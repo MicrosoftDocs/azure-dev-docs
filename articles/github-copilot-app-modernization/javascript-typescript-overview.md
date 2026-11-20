@@ -1,8 +1,8 @@
 ---
 title: GitHub Copilot Modernization for JavaScript/TypeScript Developers
 description: Learn about GitHub Copilot modernization for JavaScript and TypeScript developers, an AI-assisted tool for upgrading npm packages.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: yangtony
 ms.topic: overview
 ms.date: 06/02/2026

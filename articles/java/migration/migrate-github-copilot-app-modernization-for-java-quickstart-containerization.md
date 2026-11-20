@@ -2,8 +2,8 @@
 title: "Quickstart: Containerize Your Project by Using GitHub Copilot Modernization"
 titleSuffix: Azure
 description: Shows you how to containerize your project by using GitHub Copilot modernization.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: honc
 ms.topic: quickstart
 ms.date: 06/02/2026

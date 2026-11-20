@@ -2,8 +2,8 @@
 title: Asset Manager Migration Sample
 titleSuffix: GitHub Copilot Modernization - Azure
 description: Introduces the Asset Manager migration sample.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.topic: overview
 ms.date: 01/13/2026

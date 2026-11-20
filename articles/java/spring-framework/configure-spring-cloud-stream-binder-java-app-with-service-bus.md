@@ -1,8 +1,8 @@
 ---
 title: Spring Cloud Stream with Azure Service Bus
 description: Learn how to use Spring Cloud Stream Binder with Azure Service Bus queues and topics to send and receive messages in Spring Boot apps—start building now.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: how-to

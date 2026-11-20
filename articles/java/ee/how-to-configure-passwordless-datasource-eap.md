@@ -2,8 +2,8 @@
 title: Configure Passwordless Database Connections for Java Apps on Red Hat JBoss EAP
 titleSuffix: Azure
 description: Configure passwordless datasource connections for Java apps on Red Hat JBoss EAP.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: edburns
 ms.topic: how-to
 ms.date: 03/26/2026

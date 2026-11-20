@@ -1,8 +1,8 @@
 ---
 title: Deploy WebSphere Application Server Cluster on Azure VMs
 description: Shows you how to deploy a traditional WebSphere Application Server cluster on Azure Virtual Machines using Azure Marketplace offer.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jiangma
 ms.topic: quickstart
 ms.date: 03/26/2026

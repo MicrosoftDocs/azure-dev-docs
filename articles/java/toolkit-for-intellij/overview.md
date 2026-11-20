@@ -1,8 +1,8 @@
 ---
 title: Azure Toolkit for IntelliJ Overview
 description: Learn about the Azure Toolkit for IntelliJ and its features for developing, configuring, testing, and deploying Java applications to Azure.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.date: 10/24/2025
 ms.topic: overview
 ms.custom: devx-track-java

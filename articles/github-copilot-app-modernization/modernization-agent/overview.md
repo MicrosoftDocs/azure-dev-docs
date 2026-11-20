@@ -1,8 +1,8 @@
 ---
 title: GitHub Copilot Modernization Agent Overview
 description: Learn about the GitHub Copilot modernization agent, its key capabilities, and how it enables end-to-end application modernization.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: jessiehuang
 ms.topic: overview
 ai-usage: ai-assisted

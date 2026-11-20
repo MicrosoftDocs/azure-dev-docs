@@ -2,8 +2,8 @@
 title: Secure Java Spring Boot apps using groups and group claims
 titleSuffix: Azure
 description: Shows you how to develop a Java Spring Boot web app to restrict access to routes using security groups with the Microsoft identity platform.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: givermei
 ms.date: 08/21/2025
 ms.topic: how-to

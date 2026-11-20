@@ -1,8 +1,8 @@
 ---
 title: Spring Data with Azure Cosmos DB Cassandra
 description: "Learn to build and deploy Java apps with Spring Data and Azure Cosmos DB for Apache Cassandra API. Configure, deploy, and scale your applications on Azure App Service Linux."
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: how-to

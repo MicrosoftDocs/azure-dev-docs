@@ -2,8 +2,8 @@
 title: Deploy a Hello World web app to a Linux container
 titleSuffix: Azure Toolkit for IntelliJ
 description: Run a basic Hello World web app in a Linux container and deploy it to the cloud using the Azure Toolkit for IntelliJ.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jialuogan
 ms.date: 06/18/2026
 ms.topic: install-set-up-deploy

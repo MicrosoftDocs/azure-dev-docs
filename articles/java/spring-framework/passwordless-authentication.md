@@ -2,8 +2,8 @@
 title: Passwordless Authentication with Spring Cloud Azure
 description: Describes how to use passwordless authentication to securely connect your Spring Cloud Azure applications to Azure services.
 ms.date: 01/20/2026
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: concept-article
 ms.custom: devx-track-java

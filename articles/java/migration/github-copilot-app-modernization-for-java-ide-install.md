@@ -1,8 +1,8 @@
 ---
 title: Install GitHub Copilot modernization in your IDE
 description: Shows you how to install GitHub Copilot modernization inside Visual Studio Code or IntelliJ IDEA.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: quickstart
 ms.date: 06/02/2026

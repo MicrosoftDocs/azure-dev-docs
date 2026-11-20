@@ -2,8 +2,8 @@
 title: Enable WebSphere app sign-in and access to Microsoft Graph
 titleSuffix: Azure
 description: Shows you how to develop a Java WebSphere app to sign in users and call Microsoft Graph with the Microsoft identity platform.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: givermei
 ms.date: 09/16/2026
 ms.topic: how-to

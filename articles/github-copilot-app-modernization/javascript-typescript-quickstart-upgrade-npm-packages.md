@@ -1,8 +1,8 @@
 ---
 title: Upgrade npm Packages in a JavaScript or TypeScript Project by Using GitHub Copilot modernization
 description: Learn how to upgrade npm packages in a JavaScript or TypeScript project using GitHub Copilot modernization in Visual Studio Code or Visual Studio.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: yangtony
 ms.topic: quickstart
 ms.date: 06/02/2026

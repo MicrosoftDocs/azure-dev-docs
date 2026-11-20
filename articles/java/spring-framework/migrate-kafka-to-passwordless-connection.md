@@ -1,8 +1,8 @@
 ---
 title: Use Passwordless Connections with Azure Event Hubs for Kafka
 description: Learn how to migrate Azure Event Hubs for Kafka applications from connection strings to passwordless connections with Microsoft Entra ID. Start securing your app.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: how-to
 ms.date: 08/19/2025

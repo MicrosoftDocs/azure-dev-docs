@@ -2,8 +2,8 @@
 title: Spring Cloud Azure support for Docker Compose
 description: Learn how to integrate Spring Cloud Azure with Docker Compose to create effective integration tests for Azure Blob Storage, Event Hubs, and Service Bus.
 ms.date: 03/18/2026
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: rujche
 ms.topic: reference
 ms.custom: devx-track-java

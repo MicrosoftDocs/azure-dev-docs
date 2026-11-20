@@ -1,8 +1,8 @@
 ---
 title: Build a Spring Cloud Function in Azure Functions
 description: Learn how to build, test, debug, and deploy a Java function with Spring Cloud Function in Azure Functions. Follow this quickstart to create your first function.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: how-to

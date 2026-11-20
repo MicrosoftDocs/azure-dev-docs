@@ -2,8 +2,8 @@
 title: Spring Cloud Azure configuration reference
 description: "Learn about Spring Cloud Azure configuration properties for HTTP and AMQP-based Azure SDKs. Configure authentication, retry options, proxy settings, and more across Azure services."
 ms.date: 08/19/2025
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java

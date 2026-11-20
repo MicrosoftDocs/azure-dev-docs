@@ -1,8 +1,8 @@
 ---
 title: Use Spring Kafka with Azure Event Hubs for Kafka API
 description: Learn how to configure Spring Kafka with Azure Event Hubs to send and receive messages in a Java Spring Cloud Stream application. Follow this tutorial.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiada
 ms.date: 08/19/2025
 ms.topic: how-to

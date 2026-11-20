@@ -5,8 +5,8 @@ description: Learn how to troubleshoot multi-tenant authentication errors in Azu
 ms.date: 07/27/2026
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jogiles
 ---
 

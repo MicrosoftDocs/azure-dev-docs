@@ -2,9 +2,9 @@
 title: Use Spring Data JPA with Azure SQL Database
 description: "Learn to use Spring Data JPA with Azure SQL Database. This tutorial demonstrates object-relational mapping for Java applications with passwordless and SQL authentication options."
 ms.date: 08/19/2025
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
-author: KarlErickson
+author: sandeep-sen
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java, devx-track-extended-java
 ---

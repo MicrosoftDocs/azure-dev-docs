@@ -2,8 +2,8 @@
 title: Configure Passwordless Database Connections for Java Apps on IBM WebSphere Application Server
 titleSuffix: Azure
 description: Configure passwordless datasource connections for Java apps on IBM WebSphere Application Server.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: haiche
 ms.topic: how-to
 ms.date: 03/26/2026

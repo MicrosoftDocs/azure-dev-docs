@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Migrate Oracle WebLogic Server to Azure Virtual Machines with high availability and disaster recovery"
 description: Shows how to deploy WebLogic Server to Azure Virtual Machines with high availability and disaster recovery.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jiangma
 ms.topic: tutorial
 ms.date: 01/13/2026

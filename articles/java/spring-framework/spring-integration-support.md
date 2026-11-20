@@ -2,8 +2,8 @@
 title: Spring Cloud Azure support for Spring Integration
 description: This article describes how Spring Cloud Azure and Spring Integration can be used together.
 ms.date: 08/19/2025
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java

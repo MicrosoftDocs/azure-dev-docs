@@ -3,8 +3,8 @@ title: Passwordless connections for Azure services
 description: Describes the security challenges with passwords and introduces passwordless connections for Azure services.
 ms.topic: overview
 ms.date: 06/24/2026
-ms.author: alexwolf
-author: alexwolfmsft
+ms.author: sandeepsen
+author: sandeep-sen
 ms.service: azure
 ms.custom: devx-track-java, devx-track-javaee, passwordless-dotnet, passwordless-go, passwordless-java, passwordless-js, passwordless-python
 ---

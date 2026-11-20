@@ -2,8 +2,8 @@
 title: Enable sign-in for Tomcat apps using Microsoft Entra ID
 titleSuffix: Azure
 description: Shows you how to develop a Java Tomcat app that supports sign-in using a Microsoft Entra account.
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: givermei
 ms.date: 09/16/2026
 ms.topic: how-to

@@ -1,8 +1,8 @@
 ---
 title: Use Spring Boot to Upload a File to Azure Blob Storage
 description: Learn how to use Spring Boot with Azure Blob Storage to upload and read blobs from a container. Follow the tutorial to get started.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: how-to

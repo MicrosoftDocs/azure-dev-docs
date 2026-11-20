@@ -2,8 +2,8 @@
 title: GitHub Copilot Modernization for Java Developers
 titleSuffix: Azure
 description: Provides an overview of GitHub Copilot modernization for Java developers.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.topic: overview
 ms.date: 06/15/2026

@@ -2,8 +2,8 @@
 title: "Quickstart: Create and Apply Your Own Skill"
 titleSuffix: GitHub Copilot Modernization - Azure
 description: Shows you how to create and apply your own custom skill.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.topic: quickstart
 ms.date: 03/11/2026

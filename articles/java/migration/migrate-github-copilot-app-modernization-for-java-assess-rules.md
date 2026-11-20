@@ -2,8 +2,8 @@
 title: Understand Assessment Coverage Using GitHub Copilot Modernization
 titleSuffix: Azure
 description: Learn how GitHub Copilot modernization detects issues in cloud readiness, Java versions, and security, helping you prepare for a seamless migration.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.topic: quickstart
 ms.date: 06/02/2026
