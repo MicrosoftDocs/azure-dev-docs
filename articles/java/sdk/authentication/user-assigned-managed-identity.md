@@ -5,8 +5,8 @@ description: Learn how to authenticate Azure-hosted Java apps to Azure resources
 ms.date: 04/02/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: vigera
 ai-usage: ai-generated
 ---

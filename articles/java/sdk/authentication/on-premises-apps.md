@@ -5,8 +5,8 @@ description: Learn how to authenticate on-premises Java apps to Azure services u
 ms.date: 02/24/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
-author: bmitchell287
-ms.author: brendm
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: vigera
 ai-usage: ai-generated
 ---
