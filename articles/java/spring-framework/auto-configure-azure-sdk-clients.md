@@ -2,8 +2,8 @@
 title: Spring Cloud Azure Auto-Configure Azure SDK Clients
 description: Learn how to auto-configure Azure SDK clients with Spring Cloud Azure starters to simplify authentication and setup. Follow this guide to get started.
 ms.date: 08/19/2025
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java

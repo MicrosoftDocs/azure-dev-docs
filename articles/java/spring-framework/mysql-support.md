@@ -2,8 +2,8 @@
 title: Spring Cloud Azure MySQL Passwordless Support
 description: Learn how Spring Cloud Azure MySQL support enables passwordless connections to Azure Database for MySQL. Explore authentication and configuration options.
 ms.date: 08/19/2025
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java

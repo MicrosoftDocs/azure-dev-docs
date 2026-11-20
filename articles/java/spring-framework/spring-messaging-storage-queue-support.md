@@ -2,8 +2,8 @@
 title: Spring Cloud Azure support for Spring Messaging Azure Storage Queue
 description: Spring Cloud Azure support for Spring Messaging Azure Storage Queue provides integration with Azure Storage Queue.
 ms.date: 08/19/2025
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java

@@ -1,8 +1,8 @@
 ---
 title: Access Data with Azure Cosmos DB NoSQL API
 description: Learn how to configure a Spring Boot app with Azure Cosmos DB for NoSQL to store and retrieve data. Follow the steps to build your app.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: how-to

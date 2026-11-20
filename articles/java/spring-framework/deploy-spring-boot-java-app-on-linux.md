@@ -1,8 +1,8 @@
 ---
 title: Deploy a Spring Boot Web App to Linux on Azure App Service
 description: Learn how to deploy a Spring Boot application to Linux on Azure App Service by building and publishing a custom Docker image. Follow the tutorial to get started.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: install-set-up-deploy

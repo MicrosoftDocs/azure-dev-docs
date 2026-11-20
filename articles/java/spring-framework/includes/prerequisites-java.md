@@ -1,7 +1,7 @@
 ---
-author: KarlErickson
+author: sandeep-sen
 ms.date: 08/19/2025
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: include
 ---

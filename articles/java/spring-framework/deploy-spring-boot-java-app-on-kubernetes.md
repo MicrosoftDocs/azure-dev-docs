@@ -1,8 +1,8 @@
 ---
 title: Deploy Spring Boot Application to Azure Kubernetes Service
 description: Learn how to deploy a Spring Boot application to Azure Kubernetes Service (AKS) with Docker, Jib, Azure Container Registry, and kubectl.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: install-set-up-deploy

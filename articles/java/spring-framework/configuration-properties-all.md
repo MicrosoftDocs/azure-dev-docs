@@ -1,8 +1,8 @@
 ---
 title: Spring Cloud Azure configuration properties
 description: This reference doc contains all Spring Cloud Azure configuration properties.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.topic: reference

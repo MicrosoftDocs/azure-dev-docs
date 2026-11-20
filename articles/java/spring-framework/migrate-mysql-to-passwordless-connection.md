@@ -2,8 +2,8 @@
 title: Migrate to Passwordless Connections for Azure Database for MySQL
 description: Learn how to migrate an Azure Database for MySQL application to passwordless connections with managed identity for stronger security. Start the migration.
 ms.topic: how-to
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.date: 08/19/2025
 ms.custom:

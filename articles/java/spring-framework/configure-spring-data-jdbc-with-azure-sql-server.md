@@ -2,8 +2,8 @@
 title: Use Spring Data JDBC with SQL Database
 description: Learn how to use Spring Data JDBC to store data in Azure SQL Database and choose between passwordless and password authentication methods.
 ms.date: 08/19/2025
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java, devx-track-extended-java
