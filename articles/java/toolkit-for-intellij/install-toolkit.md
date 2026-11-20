@@ -2,8 +2,8 @@
 title: Install the Azure Toolkit for IntelliJ
 description: Shows you how to install the Azure Toolkit as an IntelliJ IDEA plugin.
 ms.date: 06/18/2026
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jialuogan
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-java

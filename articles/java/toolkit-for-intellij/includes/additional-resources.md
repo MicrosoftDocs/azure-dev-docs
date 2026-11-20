@@ -1,6 +1,6 @@
 ---
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jialuogan
 ms.date: 02/24/2022
 ---
