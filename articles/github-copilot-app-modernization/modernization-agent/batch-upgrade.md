@@ -1,8 +1,8 @@
 ---
 title: Batch Upgrade with the GitHub Copilot Modernization Agent
 description: Learn how to use the GitHub Copilot modernization agent to upgrade multiple applications simultaneously with consistent modernization patterns.
-author: KarlErickson
-ms.author: karler
+author: rfrazier
+ms.author: ryanfraz
 ms.reviewer: jessiehuang
 ms.topic: how-to
 ai-usage: ai-assisted
