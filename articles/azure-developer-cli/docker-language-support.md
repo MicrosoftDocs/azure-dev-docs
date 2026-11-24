@@ -3,7 +3,8 @@ title: "Use Docker to deploy Go, Rust, and other languages with Azure Developer 
 description: "Learn how to use Docker as a language in Azure Developer CLI (azd) to build and deploy Go, Rust, Ruby, and other containerized apps to Azure with full control over the build process."
 author: kristenwomack
 ms.author: kwomack
-ms.date: 07/30/2026
+ms.date: 11/23/2026
+ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -54,7 +55,7 @@ services:
       remoteBuild: true
 ```
 
-This configuration allows users to run the template and build the container image in Azure Container Registry, even if they do not have .NET or Docker installed locally. The build process is handled entirely in the cloud, making it easy for developers to get started without setting up local dependencies or build tools.
+This configuration allows users to run the template and build the container image in Azure Container Registry without having .NET or Docker installed locally, as long as the ACR build succeeds. If ACR can't schedule the build because ACR Tasks operations are unavailable (`TasksOperationsNotAllowed`), `azd` automatically attempts to recover by building locally, which requires a working Docker or Podman installation. For details on this fallback behavior, see [Remote builds support with Azure Container Registry](./remote-builds.md#fallback-to-a-local-build).
 
 By leveraging remote builds, the `hello-azd` template ensures a consistent and streamlined experience for all users, regardless of their local environment.
 

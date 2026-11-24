@@ -3,7 +3,8 @@ title: Learn how to use the remote builds feature of the Azure Developer CLI.
 description: Learn how to use remote builds with Azure Container Registries and the Azure Developer CLI.
 author: kristenwomack
 ms.author: kwomack
-ms.date: 07/30/2026
+ms.date: 11/23/2026
+ai-usage: ai-assisted
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
@@ -11,9 +12,12 @@ ms.custom: devx-track-azdevcli
 
 # Remote builds support with Azure Container Registry
 
-Remote builds enable you to offload the process of building container images from your local development environment to a managed build service in the cloud. This is especially useful for large or complex builds, or when your local machine lacks the necessary resources or dependencies. The Azure Developer CLI (`azd`) supports remote builds through Azure Container Registry (ACR) when deploying to Azure Container Apps.
+Remote builds enable you to offload the process of building container images from your local development environment to a managed build service in the cloud. This approach is especially useful for large or complex builds, or when your local machine lacks the necessary resources or dependencies. The Azure Developer CLI (`azd`) supports remote builds through Azure Container Registry (ACR) Tasks for any host that supports the `docker` configuration, including Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), Azure AI online endpoints, and Azure AI agents.
 
 Azure Container Registry supports remote builds by providing a secure, cloud-based environment where your source code and Dockerfiles can be built into container images. With ACR Tasks, you can automate image builds and deployments, ensuring consistency and scalability across your development and production environments.
+
+> [!NOTE]
+> The `docker.remoteBuild` setting described in this article is separate from the `remoteBuild` setting used for code-based Azure Functions deployments. The Functions setting controls server-side Oryx package building for Flex Consumption function apps and doesn't use Azure Container Registry or the fallback behavior described in this article. For more information, see the `remoteBuild` service property in the [azd schema reference](./azd-schema.md#service-properties).
 
 Using remote builds in your Azure Developer CLI (azd) templates offers several benefits:
 
@@ -45,6 +49,19 @@ To configure the Azure Developer CLI to use remote builds with Azure Container R
      ```
 
 1. Run the `azd up` or `azd deploy` command. `azd` detects the remote build configuration and submits your build to the Azure Container Registry provisioned by the template.
+
+## Fallback to a local build
+
+`azd` falls back to building locally only when Azure Container Registry can't schedule the build because ACR Tasks operations are unavailable. This condition is reported as the `TasksOperationsNotAllowed` service error. This condition typically occurs when subscription eligibility or service policy doesn't allow ACR Tasks.
+
+Errors that occur after a build is scheduled—such as Dockerfile or compilation failures, build cancellation, or failures reading the remote build's status or logs—are returned to you directly. `azd` doesn't fall back to a local build in these cases, because the failure isn't related to whether ACR could schedule the task.
+
+Keep the following points in mind when you rely on fallback:
+
+- Fallback is automatic and non-interactive. You don't need to pass a flag or answer a prompt for it to occur.
+- Fallback requires a working Docker or Podman installation on your local machine. If neither is installed and running, the local build attempt fails.
+- If the local fallback build also fails, `azd` returns both the original remote error and the local build error so you can diagnose either issue.
+- There's no separate setting to disable fallback while keeping `docker.remoteBuild: true`. If you always want to build locally, set `docker.remoteBuild` to `false` instead, which skips the remote build attempt entirely.
 
 ## Verify the remote build
 
