@@ -279,7 +279,17 @@ _(object)_ Docker configuration for a service. Only applicable for hosts that su
 | `tag` | N | string | The tag that is applied to the built container image. If omitted, defaults to `azd-deploy-{unix time (seconds)}`. Supports environment variable substitution. |
 | `buildArgs` | N | array of strings | Build arguments to pass to the docker build command. |
 | `network` | N | string | The networking mode for RUN instructions during docker build. Passed as `--network` to docker build. For example, use `host` to allow the build container to access the host network. |
-| `remoteBuild` | N | boolean | Whether to build the image remotely. If set to `true`, the image is built remotely using the Azure Container Registry remote build feature. If the remote build fails, `azd` automatically falls back to building locally using Docker or Podman if available. |
+| `remoteBuild` | N | boolean | Whether to build the image remotely using Azure Container Registry (ACR) Tasks. If set to `true`, `azd` submits the build to ACR. If set to `false`, `azd` builds the image locally from the start. This setting is unrelated to the Function app deployment feature described by [`remoteBuild`](#service-properties). See [remote builds and ACR fallback](#remote-build-fallback-behavior) for fallback details. |
+
+##### Remote build fallback behavior
+
+When `docker.remoteBuild` is set to `true`, `azd` falls back to building the image locally only if ACR can't schedule the build because ACR Tasks operations are unavailable, reported as the `TasksOperationsNotAllowed` service error. Other errors that occur after the build is scheduled—including Dockerfile or compilation failures, build cancellation, and failures reading remote status or logs—are returned to you without a local fallback attempt.
+
+Fallback is automatic and non-interactive. It requires a working Docker or Podman installation on your local machine. If local recovery also fails, `azd` returns both the original remote error and the local build error.
+
+There's no separate setting to disable fallback while keeping `docker.remoteBuild: true`. To always build locally, set `docker.remoteBuild` to `false` instead.
+
+For more information, see [Remote builds support with Azure Container Registry](./remote-builds.md).
 
 #### `k8s`
 
