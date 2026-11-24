@@ -1,9 +1,9 @@
 ---
 title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
-author: kristenwomack
-ms.author: kwomack
-ms.date: 11/05/2026
+author: kwomackmsft
+ms.author: kristenwomack
+ms.date: 11/18/2026
 ms.service: azure-dev-cli
 ms.topic: reference
 ms.custom: devx-track-azdevcli
@@ -1552,7 +1552,6 @@ Remove one or more keys from the selected environment's .env file. (Beta)
 Keys are case-sensitive. Missing keys are ignored with a warning.
 AZURE_ENV_NAME identifies the environment and cannot be unset.
 You are prompted to confirm removal (defaults to Yes). Use --force to skip this confirmation.
-When using --no-prompt, you must also use --force to remove an existing key.
 If saving fails after local values change, you can choose to restore the previous values (defaults to Yes).
 With --force, restoration is attempted automatically without prompting.
 Removing a Key Vault secret reference does not delete the secret.
