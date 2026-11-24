@@ -3,7 +3,7 @@ title: Supported languages and environments
 description: Details about the Azure Developer CLI's template structure and supported development environments, hosts, and programming languages.
 author: kristenwomack
 ms.author: kwomack
-ms.date: 10/26/2026
+ms.date: 11/19/2026
 ms.service: azure-dev-cli
 ms.topic: concept-article
 ms.custom: devx-track-azdevcli
@@ -37,6 +37,7 @@ For more information about each feature stage, see [feature versioning and relea
 | Azure Container Apps (including Container App Jobs) | Stable |
 | Azure Functions | Stable |
 | Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`) |
+| Azure Storage static website | Beta |
 
 Azure App Service supports two deployment modes when you set `host: appservice`:
 
@@ -49,6 +50,8 @@ Azure Functions also supports two deployment modes when you set `host: function`
 - **Deploy a container**: Set `language: docker`, configure `docker.path`, or provide a prebuilt `image`. `azd` publishes the image when needed and updates a container-ready Function App to run it.
 
 For configuration details and infrastructure requirements, see [Deploy to Azure Functions with Azure Developer CLI](./function-app-deployments.md).
+
+Azure Storage static website hosting (`host: storage`) serves static content, such as a single-page app, from a storage account's `$web` container. Omit `language` to upload prebuilt files, or set `language` and `dist` to have `azd` build the site first (for example, `npm run build` for Node.js). `azd` enables static website hosting on the account if it's off. For details, see [Deploy to an Azure Storage static website with Azure Developer CLI](./storage-static-website-deployments.md).
 
 ## Supported languages and frameworks
 
