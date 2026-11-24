@@ -3,7 +3,7 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml configuration file, including all top-level properties, services, resources, hooks, and more.
 author: kristenwomack
 ms.author: kwomack
-ms.date: 10/26/2026
+ms.date: 11/19/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -188,6 +188,7 @@ The `host` property determines the type of Azure resource used for service imple
 | `containerapp` | Azure Container Apps | `project` or `image` (not both) | Y | Y | N | Y | Y |
 | `function` | Azure Functions | `project` or `image` (not both) | Y | Y | N | N | N |
 | `staticwebapp` | Azure Static Web Apps | Y | N | N | N | N | N |
+| `storage` | Azure Storage static website | Y | N | N | N | N | N |
 | `springapp` | Azure Spring Apps | Y | N | N | N | N | N |
 | `aks` | Azure Kubernetes Service | N | N | Y | Y | N | N |
 | `ai.endpoint` | Azure AI online endpoint | Y | N | Y | N | N | N |
@@ -210,6 +211,9 @@ The `host` property determines the type of Azure resource used for service imple
 
 > [!NOTE]
 > When `host` is `function`, you must provide either `project` or `image`, but not both. A project uses code deployment unless you set `language: docker` or a `docker.path` value. A prebuilt `image` uses container deployment and requires `language` to be omitted or set to `docker`. The top-level `remoteBuild` property is valid only for code deployments on Flex Consumption. When omitted, it defaults to `true` for Python. For JavaScript and TypeScript, it defaults to `true` when `.funcignore` excludes `node_modules` or no `.funcignore` file exists; otherwise, it defaults to `false`. Use `docker.remoteBuild` for container image builds. For details, see [Deploy to Azure Functions with azd](./function-app-deployments.md).
+
+> [!NOTE]
+> When `host` is `storage`, `azd` uploads static content to the `$web` container of the storage account tagged with `azd-service-name`, deletes blobs that are no longer in the content, and enables static website hosting if it's off. Without `language`, `azd` uploads the `project` folder (or its `dist` subfolder). With `language` set, `azd` builds the project first and `dist` is required, for example `dist: dist` for a Vite app or `dist: wwwroot` for Blazor WebAssembly. For details, see [Deploy to an Azure Storage static website with azd](./storage-static-website-deployments.md).
 
 > [!NOTE]
 > When `host` is `azure.ai.agent`, the `config` property is deprecated. Agent settings moved to the service level, but the previous `config` shape remains valid.

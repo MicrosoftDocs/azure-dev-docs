@@ -107,6 +107,8 @@
           href: app-service-containers.md
         - name: Azure Functions deployments
           href: function-app-deployments.md
+        - name: Azure Storage static website deployments
+          href: storage-static-website-deployments.md
         - name: Docker support as a language
           href: docker-language-support.md
         - name: Metadata configuration
