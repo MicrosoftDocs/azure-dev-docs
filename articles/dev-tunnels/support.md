@@ -16,3 +16,5 @@ To troubleshoot issues with the `devtunnel` CLI, the following tips may be usefu
 - Ensure you're on the latest version of the `devtunnel` CLI. Check the currently installed version with `devtunnel --version`.
 - The `--verbose` option prints debugging messages, which can provide extra diagnostic information.
 
+# Issues and Support
+To file an issue or request support, see [Support.md](https://github.com/microsoft/dev-tunnels/blob/main/SUPPORT.md).
