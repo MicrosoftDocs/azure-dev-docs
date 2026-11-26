@@ -168,6 +168,7 @@ A dev tunnel created using the `devtunnel create` command initially has no ports
 | `devtunnel port list TUNNELID`                               | List current ports                     |
 | `devtunnel port show TUNNELID -p 3000`                               | Show the details for port 3000                     |
 | `devtunnel port update -p 3000 --description 'frontend port'` | Update a dev tunnel port description |
+| `devtunnel port update -p 3000 --host-header api.example.local` | Set a custom host header for a specified port |
 | `devtunnel port delete -p 3000`                     | Delete a port                          |
 
 When creating a port, the protocol may optionally be specified, if auto-detection doesn't work properly. Current options are "http", "https" or "auto" (default). If the hosted port is HTTPS, then it's recommended to set the port protocol to "https"; otherwise "auto" is probably fine.
