@@ -1,5 +1,5 @@
 ---
-author: diberry
+author: sandeep-sen
 ms.service: azure
 ms.topic: include
 ms.date: 5/13/2026

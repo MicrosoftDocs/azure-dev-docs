@@ -1,7 +1,7 @@
 ---
 title: Azure Redis Tools for Azure MCP Server
 description: Learn how to manage Azure Redis instances using the Azure MCP Server with natural language prompts. Discover tools for creating and listing Redis resources.
-author: diberry
+author: sandeep-sen
 ms.author: diberry
 ms.date: 05/13/2026
 ms.service: azure-mcp-server
