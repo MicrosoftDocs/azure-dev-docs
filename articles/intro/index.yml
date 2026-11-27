@@ -9,8 +9,8 @@ summary: |
 metadata:
   title: Introduction to Azure for developers
   description: Learn how you can build applications using Azure.
-  author: PatAltimore
-  ms.author: patricka
+  author: sandeep-sen
+  ms.author: sandeepsen
   ms.date: 09/30/2025
   ms.topic: landing-page
   ms.service: azure
