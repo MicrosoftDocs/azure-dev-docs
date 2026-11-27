@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure for JavaScript and Node.js developers
   description: Build JavaScript and TypeScript apps on Azure with the Azure SDK, AI services, hosting platforms, and developer tools. Tutorials, quickstarts, and API reference.
-  author: diberry
+  author: sandeep-sen
   ms.author: diberry
   ms.date: 05/20/2026
   ms.topic: landing-page

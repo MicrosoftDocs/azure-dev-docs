@@ -2,7 +2,7 @@
 title: Upload Image to Azure Blob Storage with TypeScript
 titleSuffix: TypeScript on Azure
 description: Learn how to securely upload images to Azure Blob Storage using TypeScript. This tutorial covers SAS tokens, direct browser uploads, and API integration.
-author: diberry
+author: sandeep-sen
 ms.author: diberry
 ms.reviewer: diberry
 ms.date: 06/01/2026
