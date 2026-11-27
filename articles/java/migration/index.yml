@@ -8,7 +8,7 @@ metadata:
   description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease.
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
-  ms.author: karler
+  ms.author: sandeepsen
   ms.date: 06/02/2026
   ms.topic: landing-page
   ms.custom: seo-azure-migrate, devx-track-java, devx-track-extended-java
