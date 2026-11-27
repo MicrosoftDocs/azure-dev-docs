@@ -9,7 +9,7 @@ metadata:
   description: Learn how to use Infrastructure-as-Code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
   ms.service: azure
   author: vranade-microsoft
-  ms.author: vranade
+  ms.author: sandeepsen
   ms.topic: hub-page
   ms.date: 02/14/2025
 

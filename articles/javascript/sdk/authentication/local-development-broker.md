@@ -1,7 +1,7 @@
 ---
 title: Authenticate JavaScript Apps to Azure Using Brokered Authentication.
 description: Learn how to authenticate your app to Azure services when using the Azure SDK for JavaScript during local development using brokered authentication.
-author: diberry
+author: sandeep-sen
 ms.author: diberry
 ms.reviewer: diberry
 ms.date: 06/01/2026

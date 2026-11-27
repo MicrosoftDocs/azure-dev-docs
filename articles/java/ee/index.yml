@@ -8,7 +8,7 @@ metadata:
   description: Java EE, Jakarta EE, and MicroProfile are open specifications for Cloud Native Java. Learn how to combine the power of Azure with technologies based on these specifications with this documentation.
   ms.topic: landing-page
   author: KarlErickson
-  ms.author: karler
+  ms.author: sandeepsen
   ms.reviewer: edburns
   ms.date: 03/26/2026
   ms.custom: devx-track-java, devx-track-extended-java
