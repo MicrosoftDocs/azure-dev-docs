@@ -5,7 +5,7 @@ author: vranade-microsoft
 ms.service: terraform
 ms.topic: include
 ms.date: 07/22/2021
-ms.author: vranade
+ms.author: sandeepsen
 ---
 
 1. If you already have a Cloud Shell session open, you can skip to the next section.

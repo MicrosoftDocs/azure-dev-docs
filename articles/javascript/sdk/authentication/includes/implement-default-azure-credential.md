@@ -1,5 +1,5 @@
 ---
-author: diberry
+author: sandeep-sen
 ms.author: diberry
 ms.date: 06/01/2026
 ms.service: azure-javascript

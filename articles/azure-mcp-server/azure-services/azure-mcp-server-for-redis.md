@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Redis with Azure MCP Server
 description: Learn how to use the Azure MCP Server to create, list, and manage Azure Redis resources through AI-powered natural language interactions.
-author: diberry
+author: sandeep-sen
 ms.author: diberry
 ms.date: 07/10/2026
 ms.service: azure-managed-redis

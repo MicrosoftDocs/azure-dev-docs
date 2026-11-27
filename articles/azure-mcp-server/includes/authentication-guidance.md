@@ -2,7 +2,7 @@
 author: alexwolfmsft
 ms.service: azure
 ms.topic: include
-ms.author: alexwolf
+ms.author: sandeepsen
 ms.date: 08/11/2026
 ---
 

@@ -5,8 +5,8 @@ summary: Learn to use the Azure SDK for Go, browse API references, sample code, 
 metadata:
   title: Azure for Go developers
   description: Get started developing with the Azure SDK for Go.
-  author: PatAltimore
-  ms.author: patricka
+  author: sandeep-sen
+  ms.author: sandeepsen
   ms.date: 09/03/2025
   ms.topic: landing-page
   ms.service: azure-go

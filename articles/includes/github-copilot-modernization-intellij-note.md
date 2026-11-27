@@ -1,6 +1,6 @@
 ---
 author: KarlErickson
-ms.author: karler
+ms.author: sandeepsen
 ms.topic: include
 ms.date: 04/08/2026
 ---

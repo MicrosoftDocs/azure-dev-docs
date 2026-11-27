@@ -1,7 +1,7 @@
 ---
 title: Manage Azure App Service with Azure MCP Server
 description: Learn how to use the Azure MCP Server to manage App Service resources and configure database connections through AI-powered natural language interactions.
-author: diberry
+author: sandeep-sen
 ms.author: diberry
 ms.date: 03/20/2026
 ms.service: azure-app-service

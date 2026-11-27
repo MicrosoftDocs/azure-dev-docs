@@ -7,7 +7,7 @@ metadata:
   title: Java Containerization Strategies
   description: Recommended strategies for containerizing your Java applications for deployment to the cloud.
   author: KarlErickson
-  ms.author: karler
+  ms.author: sandeepsen
   ms.reviewer: brborges
   ms.date: 06/24/2026
   ms.topic: landing-page
